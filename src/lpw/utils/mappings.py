@@ -1,3 +1,5 @@
+"""Provide mappings services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from copy import deepcopy
@@ -5,6 +7,15 @@ from typing import Any
 
 
 def deep_merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+    """Execute merge.
+
+    Args:
+        base (dict[str, Any]): Base used by this operation.
+        override (dict[str, Any]): Override used by this operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     result = deepcopy(base)
     for key, override_value in override.items():
         existing = result.get(key)

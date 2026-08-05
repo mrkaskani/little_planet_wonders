@@ -1,3 +1,5 @@
+"""Provide state services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -11,6 +13,20 @@ from lpw.utils.identifiers import validate_identifier
 def build_continuity_state(
     project_id: str, scene_id: str, edit_version: int, last_shot: dict[str, Any]
 ) -> dict[str, Any]:
+    """Build continuity state.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        scene_id (str): Stable identifier of the scene being processed.
+        edit_version (int): Positive version number of the edit.
+        last_shot (dict[str, Any]): Last shot used by this operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if edit_version < 1:
         raise ValueError("edit_version must be at least 1.")
     metadata = last_shot.get("metadata", last_shot)
@@ -38,7 +54,17 @@ def build_continuity_state(
 def save_continuity_state(
     project_id: str, scene_id: str, edit_version: int, last_shot: dict[str, Any]
 ) -> str:
-    """Save generated edit state under /runtime, never under read-only /context."""
+    """Save generated edit state under /runtime, never under read-only /context.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        scene_id (str): Stable identifier of the scene being processed.
+        edit_version (int): Positive version number of the edit.
+        last_shot (dict[str, Any]): Last shot used by this operation.
+
+    Returns:
+        str: Result produced by the operation.
+    """
 
     project_id = validate_identifier(project_id, "project_id")
     scene_id = validate_identifier(scene_id, "scene_id")
@@ -55,7 +81,21 @@ def commit_scene_continuity(
     last_shot_approval: dict[str, Any],
     output_path: Path,
 ) -> dict[str, Any]:
-    """Commit authoritative continuity only after a successful final export."""
+    """Commit authoritative continuity only after a successful final export.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        scene_id (str): Stable identifier of the scene being processed.
+        edit_version (int): Positive version number of the edit.
+        last_shot_approval (dict[str, Any]): Last shot approval used by this operation.
+        output_path (Path): Destination path for the generated output.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
 
     from datetime import datetime, timezone
 

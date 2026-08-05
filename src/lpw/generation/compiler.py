@@ -1,3 +1,5 @@
+"""Provide compiler services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import hashlib
@@ -15,14 +17,25 @@ from lpw.utils.references import collect_reference_images
 
 
 def select_wan_model(request: ShotRequest) -> tuple[str, str]:
+    """Select wan model.
+
+    Args:
+        request (ShotRequest): Typed request containing the inputs for this operation.
+
+    Returns:
+        tuple[str, str]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if request.shot_type == "dialogue":
         if not request.dialogue_audio:
             raise ValueError("Dialogue shots require dialogue_audio.")
         return "wan2.2-s2v-14b", "s2v-14B"
     if request.shot_type == "performance":
-        if not request.performer_video:
-            raise ValueError("Performance shots require performer_video.")
-        return "wan2.2-animate-14b", "animate-14B"
+        raise ValueError(
+            "Wan Animate is intentionally excluded; use T2V, I2V, TI2V, or S2V."
+        )
     models = {
         "draft": ("wan2.2-ti2v-5b", "ti2v-5B"),
         "image_to_video": ("wan2.2-i2v-a14b", "i2v-A14B"),
@@ -35,6 +48,19 @@ def select_wan_model(request: ShotRequest) -> tuple[str, str]:
 
 
 def calculate_frame_count(duration_seconds: int, frame_rate: int = 24) -> int:
+    """Calculate frame count.
+
+    Args:
+        duration_seconds (int): Requested duration in seconds.
+        frame_rate (int): Frames per second used for timing calculations. Defaults to
+            ``24``.
+
+    Returns:
+        int: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if duration_seconds < 1:
         raise ValueError("duration_seconds must be at least 1.")
     if frame_rate < 1:
@@ -46,6 +72,15 @@ def calculate_frame_count(duration_seconds: int, frame_rate: int = 24) -> int:
 def select_primary_reference(
     request: ShotRequest, context: dict[str, Any]
 ) -> tuple[str | None, list[str]]:
+    """Select primary reference.
+
+    Args:
+        request (ShotRequest): Typed request containing the inputs for this operation.
+        context (dict[str, Any]): Resolved cinematic context used by the operation.
+
+    Returns:
+        tuple[str | None, list[str]]: Result produced by the operation.
+    """
     references = collect_reference_images(context)
     if request.start_frame:
         return request.start_frame, [item for item in references if item != request.start_frame]
@@ -66,6 +101,18 @@ def select_primary_reference(
 
 
 def generate_stable_seed(request: ShotRequest, context_hash: str) -> int:
+    """Generate stable seed.
+
+    Args:
+        request (ShotRequest): Typed request containing the inputs for this operation.
+        context_hash (str): Context hash used by this operation.
+
+    Returns:
+        int: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if request.seed is not None:
         if request.seed < 0:
             raise ValueError("seed cannot be negative.")
@@ -75,6 +122,17 @@ def generate_stable_seed(request: ShotRequest, context_hash: str) -> int:
 
 
 def compile_wan_shot_package(request: ShotRequest) -> WanShotPackage:
+    """Compile wan shot package.
+
+    Args:
+        request (ShotRequest): Typed request containing the inputs for this operation.
+
+    Returns:
+        WanShotPackage: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     context = load_project_context(
         request.project_id,
         character_ids=request.character_ids,

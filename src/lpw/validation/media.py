@@ -1,3 +1,5 @@
+"""Provide media services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -21,6 +23,19 @@ class MediaValidator:
         validation: dict[str, Any],
         rule_override: dict[str, Any] | None = None,
     ) -> list[dict[str, Any]]:
+        """Run checks.
+
+        Args:
+            video_file (Path): Path to the video file associated with the operation.
+            project (dict[str, Any]): Project used by this operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            validation (dict[str, Any]): Validation used by this operation.
+            rule_override (dict[str, Any] | None): Rule override used by this operation.
+                Defaults to ``None``.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         automatic = validation["automatic"]
         video_rules = automatic["video"]
         effective = dict(video_rules)
@@ -124,6 +139,17 @@ class MediaValidator:
 
     @staticmethod
     def _execute(command: list[str]) -> subprocess.CompletedProcess[str]:
+        """Execute execute.
+
+        Args:
+            command (list[str]): Command used by this operation.
+
+        Returns:
+            subprocess.CompletedProcess[str]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         try:
             return subprocess.run(command, check=False, capture_output=True, text=True)
         except OSError as error:
@@ -132,6 +158,17 @@ class MediaValidator:
             ) from error
 
     def _probe_media(self, media_file: Path) -> dict[str, Any]:
+        """Execute media.
+
+        Args:
+            media_file (Path): Media file used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         result = self._execute(
             ["ffprobe", "-v", "error", "-count_frames", "-show_streams", "-show_format", "-of", "json", str(media_file)]
         )
@@ -148,11 +185,28 @@ class MediaValidator:
         return value
 
     def _check_corruption(self, video_file: Path) -> dict[str, Any]:
+        """Execute corruption.
+
+        Args:
+            video_file (Path): Path to the video file associated with the operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = self._execute(["ffmpeg", "-v", "error", "-i", str(video_file), "-f", "null", "-"])
         passed = result.returncode == 0 and not result.stderr.strip()
         return self._check("decode-corruption", passed, "no decoding errors", "none" if passed else result.stderr.strip())
 
     def _check_black_frames(self, video_file: Path, rules: dict[str, Any]) -> dict[str, Any]:
+        """Execute black frames.
+
+        Args:
+            video_file (Path): Path to the video file associated with the operation.
+            rules (dict[str, Any]): Rules used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         picture_ratio = float(rules.get("picture_black_ratio", 0.98))
         pixel_threshold = float(rules.get("pixel_black_threshold", 0.10))
         result = self._execute(
@@ -171,6 +225,15 @@ class MediaValidator:
         )
 
     def _check_audio_peak(self, video_file: Path, rules: dict[str, Any]) -> dict[str, Any]:
+        """Execute audio peak.
+
+        Args:
+            video_file (Path): Path to the video file associated with the operation.
+            rules (dict[str, Any]): Rules used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = self._execute(["ffmpeg", "-hide_banner", "-i", str(video_file), "-vn", "-af", "volumedetect", "-f", "null", "-"])
         match = re.search(r"max_volume:\s*(-?inf|-?[0-9.]+)\s*dB", result.stderr)
         if match is None:
@@ -184,14 +247,43 @@ class MediaValidator:
 
     @staticmethod
     def _check(check_id: str, passed: bool, expected: Any, actual: Any) -> dict[str, Any]:
+        """Execute check.
+
+        Args:
+            check_id (str): Check id used by this operation.
+            passed (bool): Passed used by this operation.
+            expected (Any): Expected used by this operation.
+            actual (Any): Actual used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         return {"id": check_id, "status": "pass" if passed else "fail", "expected": expected, "actual": actual, "message": "Validation passed." if passed else "Validation failed."}
 
     @staticmethod
     def _first_stream(probe: dict[str, Any], codec_type: str) -> dict[str, Any] | None:
+        """Execute stream.
+
+        Args:
+            probe (dict[str, Any]): Probe used by this operation.
+            codec_type (str): Codec type used by this operation.
+
+        Returns:
+            dict[str, Any] | None: Result produced by the operation.
+        """
         return next((stream for stream in probe.get("streams", []) if stream.get("codec_type") == codec_type), None)
 
     @staticmethod
     def _media_duration(probe: dict[str, Any], video_stream: dict[str, Any]) -> float:
+        """Execute duration.
+
+        Args:
+            probe (dict[str, Any]): Probe used by this operation.
+            video_stream (dict[str, Any]): Video stream used by this operation.
+
+        Returns:
+            float: Result produced by the operation.
+        """
         value = video_stream.get("duration")
         if value in {None, "N/A"}:
             value = probe.get("format", {}).get("duration")
@@ -199,6 +291,16 @@ class MediaValidator:
 
     @staticmethod
     def _frame_count(video_stream: dict[str, Any], duration: float, fps: float) -> int:
+        """Execute count.
+
+        Args:
+            video_stream (dict[str, Any]): Video stream used by this operation.
+            duration (float): Duration used by this operation.
+            fps (float): Fps used by this operation.
+
+        Returns:
+            int: Result produced by the operation.
+        """
         for field in ("nb_read_frames", "nb_frames"):
             value = video_stream.get(field)
             if value not in {None, "N/A"}:
@@ -207,6 +309,14 @@ class MediaValidator:
 
     @staticmethod
     def _parse_fraction(value: str) -> float:
+        """Parse fraction.
+
+        Args:
+            value (str): Value inspected or transformed by the helper.
+
+        Returns:
+            float: Result produced by the operation.
+        """
         if "/" not in value:
             return float(value)
         numerator, denominator = (float(part) for part in value.split("/", 1))

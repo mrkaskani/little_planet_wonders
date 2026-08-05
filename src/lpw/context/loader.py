@@ -1,3 +1,5 @@
+"""Provide loader services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -12,6 +14,18 @@ from lpw.utils.mappings import deep_merge
 
 
 def get_project_directory(project_id: str) -> Path:
+    """Return project directory.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+
+    Returns:
+        Path: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+        ContextNotFoundError: If inputs, context, state, or provider output are invalid.
+    """
     project_id = validate_identifier(project_id, "project_id")
     projects_root = (context_root() / "projects").resolve()
     project_directory = (projects_root / project_id).resolve()
@@ -23,6 +37,19 @@ def get_project_directory(project_id: str) -> Path:
 
 
 def _load_first(paths: Iterable[Path], *, required: bool = False) -> dict[str, Any]:
+    """Load first.
+
+    Args:
+        paths (Iterable[Path]): Paths used by this operation.
+        required (bool): Whether absence of the requested file is an error. Defaults to
+            ``False``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ContextNotFoundError: If inputs, context, state, or provider output are invalid.
+    """
     candidates = list(paths)
     for path in candidates:
         if path.is_file():
@@ -34,6 +61,14 @@ def _load_first(paths: Iterable[Path], *, required: bool = False) -> dict[str, A
 
 
 def _load_directory(directory: Path) -> dict[str, Any]:
+    """Load directory.
+
+    Args:
+        directory (Path): Directory used by this operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     combined: dict[str, Any] = {}
     if directory.is_dir():
         for path in sorted(directory.glob("*.yaml")):
@@ -42,6 +77,15 @@ def _load_directory(directory: Path) -> dict[str, Any]:
 
 
 def load_character(project_directory: Path, character_id: str) -> dict[str, Any]:
+    """Load character.
+
+    Args:
+        project_directory (Path): Project directory used by this operation.
+        character_id (str): Stable identifier of the character.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     character_id = validate_identifier(character_id, "character_id")
     return _load_first(
         [
@@ -53,6 +97,15 @@ def load_character(project_directory: Path, character_id: str) -> dict[str, Any]
 
 
 def load_location(project_directory: Path, location_id: str) -> dict[str, Any]:
+    """Load location.
+
+    Args:
+        project_directory (Path): Project directory used by this operation.
+        location_id (str): Stable identifier of the location.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     location_id = validate_identifier(location_id, "location_id")
     return _load_first(
         [
@@ -64,6 +117,14 @@ def load_location(project_directory: Path, location_id: str) -> dict[str, Any]:
 
 
 def audio_directory(project_directory: Path) -> Path:
+    """Execute directory.
+
+    Args:
+        project_directory (Path): Project directory used by this operation.
+
+    Returns:
+        Path: Result produced by the operation.
+    """
     for name in ("audio", "audios"):
         candidate = project_directory / name
         if candidate.is_dir():
@@ -72,6 +133,14 @@ def audio_directory(project_directory: Path) -> Path:
 
 
 def load_audio_context(project_id: str) -> dict[str, Any]:
+    """Load audio context.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     directory = audio_directory(get_project_directory(project_id))
     audio = _load_first([directory / "audio.yaml"], required=False)
     return {
@@ -104,6 +173,15 @@ def load_audio_context(project_id: str) -> dict[str, Any]:
 
 
 def load_voice(project_id: str, character_id: str) -> dict[str, Any]:
+    """Load voice.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        character_id (str): Stable identifier of the character.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     character_id = validate_identifier(character_id, "character_id")
     directory = audio_directory(get_project_directory(project_id))
     return _load_first([directory / "voices" / f"{character_id}.yaml"], required=False)
@@ -115,7 +193,18 @@ def load_project_context(
     character_ids: list[str] | None = None,
     location_id: str | None = None,
 ) -> dict[str, Any]:
-    """Load the project's flat or nested schema without modifying source files."""
+    """Load the project's flat or nested schema without modifying source files.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        character_ids (list[str] | None): Character identifiers whose context should be
+            included. Defaults to ``None``.
+        location_id (str | None): Stable identifier of the location. Defaults to
+            ``None``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
 
     project_directory = get_project_directory(project_id)
     audio = load_audio_context(project_id)

@@ -1,3 +1,5 @@
+"""Provide planner services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -9,6 +11,14 @@ from lpw.utils.files import load_json
 
 
 def load_shot_metadata(metadata_path: str) -> dict[str, Any]:
+    """Load shot metadata.
+
+    Args:
+        metadata_path (str): Metadata path used by this operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     return load_json(Path(metadata_path).expanduser().resolve())
 
 
@@ -19,6 +29,21 @@ def create_edit_plan(
     *,
     require_existing_sources: bool = False,
 ) -> dict[str, Any]:
+    """Create edit plan.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        shot_metadata_files (list[str]): Shot metadata files used by this operation.
+        reference_shot_id (str): Reference shot id used by this operation.
+        require_existing_sources (bool): Require existing sources used by this
+            operation. Defaults to ``False``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     context = load_project_context(project_id)
     editing = context["editing_style"]
     if not editing.get("timeline"):
@@ -81,6 +106,18 @@ def edit_cinematic_sequence(
     reference_shot_id: str,
     output_path: str,
 ) -> dict[str, Any]:
+    """Execute cinematic sequence.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        scene_id (str): Stable identifier of the scene being processed.
+        shot_metadata_files (list[str]): Shot metadata files used by this operation.
+        reference_shot_id (str): Reference shot id used by this operation.
+        output_path (str): Destination path for the generated output.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     plan = create_edit_plan(project_id, shot_metadata_files, reference_shot_id)
     validation = validate_edit_plan(plan)
     if validation["blocking_errors"]:

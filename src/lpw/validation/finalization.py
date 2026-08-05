@@ -1,3 +1,5 @@
+"""Provide finalization services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -16,6 +18,13 @@ from lpw.utils.hashing import stable_hash
 
 @dataclass(frozen=True)
 class ValidationIssue:
+    """Represent ValidationIssue behavior in the LPW pipeline.
+
+    Attributes:
+        severity (str): Stored severity value.
+        code (str): Stored code value.
+        message (str): Stored message value.
+    """
     severity: str
     code: str
     message: str
@@ -23,6 +32,14 @@ class ValidationIssue:
 
 @dataclass(frozen=True)
 class FinalShotValidationReport:
+    """Represent FinalShotValidationReport behavior in the LPW pipeline.
+
+    Attributes:
+        shot_id (str): Stored shot id value.
+        valid (bool): Stored valid value.
+        probe (dict[str, Any]): Stored probe value.
+        issues (list[ValidationIssue]): Stored issues value.
+    """
     shot_id: str
     valid: bool
     probe: dict[str, Any]
@@ -32,6 +49,18 @@ class FinalShotValidationReport:
 def run_process(
     arguments: list[str], *, check: bool = True
 ) -> subprocess.CompletedProcess[str]:
+    """Run process.
+
+    Args:
+        arguments (list[str]): Command arguments passed without shell interpolation.
+        check (bool): Check used by this operation. Defaults to ``True``.
+
+    Returns:
+        subprocess.CompletedProcess[str]: Result produced by the operation.
+
+    Raises:
+        RuntimeError: If inputs, context, state, or provider output are invalid.
+    """
     try:
         result = subprocess.run(
             arguments,
@@ -51,6 +80,18 @@ def run_process(
 
 
 def probe_media(path: Path) -> dict[str, Any]:
+    """Execute media.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        RuntimeError: If inputs, context, state, or provider output are invalid.
+    """
     if not path.is_file():
         raise FileNotFoundError(f"Media file not found: {path}")
     result = run_process(
@@ -72,6 +113,14 @@ def probe_media(path: Path) -> dict[str, Any]:
 
 
 def parse_frame_rate(value: str) -> float:
+    """Parse frame rate.
+
+    Args:
+        value (str): Value inspected or transformed by the helper.
+
+    Returns:
+        float: Result produced by the operation.
+    """
     if "/" not in value:
         return float(value)
     numerator, denominator = value.split("/", 1)
@@ -82,6 +131,15 @@ def parse_frame_rate(value: str) -> float:
 def find_stream(
     probe: dict[str, Any], codec_type: str
 ) -> dict[str, Any] | None:
+    """Find stream.
+
+    Args:
+        probe (dict[str, Any]): Probe used by this operation.
+        codec_type (str): Codec type used by this operation.
+
+    Returns:
+        dict[str, Any] | None: Result produced by the operation.
+    """
     return next(
         (
             stream
@@ -93,6 +151,14 @@ def find_stream(
 
 
 def detect_black_and_frozen_segments(path: Path) -> tuple[list[float], list[float]]:
+    """Detect black and frozen segments.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+
+    Returns:
+        tuple[list[float], list[float]]: Result produced by the operation.
+    """
     result = run_process(
         [
             "ffmpeg",
@@ -126,6 +192,17 @@ def validate_shot(
     video_rules: dict[str, Any],
     validation_rules: dict[str, Any],
 ) -> FinalShotValidationReport:
+    """Validate shot.
+
+    Args:
+        shot_id (str): Stable identifier of the shot being processed.
+        video_path (Path): Path to the video asset being processed.
+        video_rules (dict[str, Any]): Video rules used by this operation.
+        validation_rules (dict[str, Any]): Validation rules used by this operation.
+
+    Returns:
+        FinalShotValidationReport: Result produced by the operation.
+    """
     if not video_path.is_file():
         issue = ValidationIssue(
             "blocking", "FILE_NOT_FOUND", f"Video file does not exist: {video_path}"
@@ -218,6 +295,15 @@ def validate_shot(
 def validate_approval(
     approval_path: Path, thresholds: dict[str, int]
 ) -> list[ValidationIssue]:
+    """Validate approval.
+
+    Args:
+        approval_path (Path): Approval path used by this operation.
+        thresholds (dict[str, int]): Thresholds used by this operation.
+
+    Returns:
+        list[ValidationIssue]: Result produced by the operation.
+    """
     if not approval_path.is_file():
         return [
             ValidationIssue(
@@ -275,6 +361,12 @@ def validate_approval(
 def write_validation_report(
     report: FinalShotValidationReport, destination: Path
 ) -> None:
+    """Execute validation report.
+
+    Args:
+        report (FinalShotValidationReport): Report used by this operation.
+        destination (Path): Destination path for the transformed asset.
+    """
     atomic_write_json(destination, asdict(report))
 
 
@@ -287,7 +379,25 @@ def record_render_approval(
     review_notes: list[str] | None = None,
     project_root: Path | str = PROJECT_ROOT,
 ) -> dict[str, Any]:
-    """Write one immutable creative approval beside a completed Wan render."""
+    """Write one immutable creative approval beside a completed Wan render.
+
+    Args:
+        render_directory (Path | str): Render directory used by this operation.
+        reviewer (str): Human reviewer identity recorded with the decision.
+        scores (dict[str, int]): Named review scores used by approval thresholds.
+        continuity (dict[str, Any]): Continuity state approved for subsequent
+            production.
+        review_notes (list[str] | None): Structured or textual notes supplied by the
+            reviewer. Defaults to ``None``.
+        project_root (Path | str): Root directory containing project runtime data.
+            Defaults to ``PROJECT_ROOT``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+    """
 
     root = renders_root().resolve() if Path(project_root).resolve() == PROJECT_ROOT else (
         Path(project_root).resolve() / "renders"

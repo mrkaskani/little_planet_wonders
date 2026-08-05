@@ -1,3 +1,5 @@
+"""Provide compiler services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from copy import deepcopy
@@ -10,6 +12,14 @@ from lpw.utils.mappings import deep_merge
 
 
 def resolved_audio_context(project_id: str) -> dict[str, Any]:
+    """Execute audio context.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
     context = deepcopy(AUDIO_DEFAULTS)
     loaded = load_audio_context(project_id)
     for key, value in loaded.items():
@@ -18,6 +28,18 @@ def resolved_audio_context(project_id: str) -> dict[str, Any]:
 
 
 def resolved_voice_context(project_id: str, character_id: str) -> dict[str, Any]:
+    """Execute voice context.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        character_id (str): Stable identifier of the character.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     voice = deep_merge(VOICE_DEFAULTS.get(character_id, {}), load_voice(project_id, character_id))
     if not voice.get("voice_identity"):
         raise ValueError(
@@ -27,6 +49,18 @@ def resolved_voice_context(project_id: str, character_id: str) -> dict[str, Any]
 
 
 def compile_dialogue_package(request: DialogueRequest) -> dict[str, Any]:
+    """Compile dialogue package.
+
+    Args:
+        request (DialogueRequest): Typed request containing the inputs for this
+            operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if not request.text.strip():
         raise ValueError("Dialogue text cannot be empty.")
     if not 0 <= request.intensity <= 1:

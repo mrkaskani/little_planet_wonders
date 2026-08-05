@@ -1,3 +1,5 @@
+"""Expose the public audio package API for LPW."""
+
 from lpw.audio.compiler import (
     compile_dialogue_package,
     resolved_audio_context,

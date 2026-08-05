@@ -19,5 +19,6 @@ project:
     continuity: continuity
     tools: tools
     editing_models: tools/editing-models.yaml
+    wan_models: tools/wan22-models.yaml
     production: production
     validation: validation

@@ -1,3 +1,5 @@
+"""Provide extension services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import math
@@ -23,6 +25,14 @@ class CinematicExtensionPipeline:
         source_root: Path | str | None = None,
         state_root: Path | str | None = None,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            source_root (Path | str | None): Root directory containing immutable source
+                context. Defaults to ``None``.
+            state_root (Path | str | None): Root directory used for generated runtime
+                state. Defaults to ``None``.
+        """
         self._source_root = Path(source_root or context_root()).resolve()
         self._state_root = Path(state_root or runtime_root()).resolve()
         self._resolver = ContextChainResolver(self._source_root, self._state_root)
@@ -30,6 +40,16 @@ class CinematicExtensionPipeline:
     def resolve_context_chain(
         self, project_id: str, scene_id: str, shot_id: str
     ) -> dict[str, Any]:
+        """Resolve context chain.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         uri = self._shot_uri(project_id, scene_id, shot_id)
         resolved = self._resolver.resolve(uri)
         return {
@@ -41,6 +61,16 @@ class CinematicExtensionPipeline:
     def validate_context_chain(
         self, project_id: str, scene_id: str, shot_id: str
     ) -> dict[str, Any]:
+        """Validate context chain.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = self.resolve_context_chain(project_id, scene_id, shot_id)
         return {
             "status": "valid",
@@ -61,6 +91,23 @@ class CinematicExtensionPipeline:
         target_duration_seconds: float,
         segment_duration_seconds: float = 4.0,
     ) -> dict[str, Any]:
+        """Execute cinematic shot.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            target_duration_seconds (float): Total desired duration of the extended
+                shot.
+            segment_duration_seconds (float): Maximum duration of each generated
+                segment. Defaults to ``4.0``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id, shot_id = self._identifiers(
             project_id, scene_id, shot_id
         )
@@ -144,6 +191,21 @@ class CinematicExtensionPipeline:
         extension_version: int,
         segment_id: str,
     ) -> dict[str, Any]:
+        """Compile segment context.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            extension_version (int): Positive version number of the shot extension.
+            segment_id (str): Stable identifier of the chained video segment.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id, shot_id = self._identifiers(
             project_id, scene_id, shot_id
         )
@@ -213,6 +275,33 @@ class CinematicExtensionPipeline:
         analysis: dict[str, Any],
         reviewer: str,
     ) -> dict[str, Any]:
+        """Approve segment.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            extension_version (int): Positive version number of the shot extension.
+            segment_id (str): Stable identifier of the chained video segment.
+            generated_video_path (str): Path to the real video returned by a provider.
+            approved_end_frame_path (str): Path to the reviewed stable segment end
+                frame.
+            generated_frames (int): Total number of frames produced by the provider.
+            approved_end_frame (int): Index of the reviewed stable final frame.
+            continuity_delta (dict[str, Any]): Small state delta produced by an approved
+                segment.
+            analysis (dict[str, Any]): Structured provider or validation analysis
+                results.
+            reviewer (str): Human reviewer identity recorded with the decision.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+            FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id, shot_id = self._identifiers(
             project_id, scene_id, shot_id
         )
@@ -306,6 +395,14 @@ class CinematicExtensionPipeline:
         return approval
 
     def runtime_end_state(self, segment_id: str) -> dict[str, Any]:
+        """Execute end state.
+
+        Args:
+            segment_id (str): Stable identifier of the chained video segment.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         uri = f"cinema://runtime/{validate_identifier(segment_id, 'segment_id')}/end-state@1"
         resolved = self._resolver.resolve(uri)
         return {
@@ -322,6 +419,18 @@ class CinematicExtensionPipeline:
         directory: Path,
         runtime_state: dict[str, Any],
     ) -> dict[str, Any]:
+        """Compile manifest.
+
+        Args:
+            base (dict[str, Any]): Base used by this operation.
+            manifest (dict[str, Any]): Manifest used by this operation.
+            directory (Path): Directory used by this operation.
+            runtime_state (dict[str, Any]): Authoritative runtime state applied to the
+                next operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         runtime_hash = stable_hash(runtime_state)
         document = {**manifest, "runtime_state": runtime_state}
         resolved = self._resolver.compile_document(
@@ -351,6 +460,21 @@ class CinematicExtensionPipeline:
         start: float,
         end: float,
     ) -> dict[str, Any]:
+        """Execute manifest.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            segment_id (str): Stable identifier of the chained video segment.
+            index (int): Index used by this operation.
+            count (int): Count used by this operation.
+            start (float): Start used by this operation.
+            end (float): End used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         return {
             "id": segment_id,
             "type": "video-segment-context",
@@ -374,6 +498,12 @@ class CinematicExtensionPipeline:
         }
 
     def _mark_approved(self, directory: Path, segment_id: str) -> None:
+        """Execute approved.
+
+        Args:
+            directory (Path): Directory used by this operation.
+            segment_id (str): Stable identifier of the chained video segment.
+        """
         plan = load_json(directory / "extension-plan.json")
         for entry in plan["segments"]:
             if entry["segment_id"] == segment_id:
@@ -393,11 +523,33 @@ class CinematicExtensionPipeline:
 
     @staticmethod
     def _previous_segment(plan: dict[str, Any], segment_id: str) -> str | None:
+        """Execute segment.
+
+        Args:
+            plan (dict[str, Any]): Plan used by this operation.
+            segment_id (str): Stable identifier of the chained video segment.
+
+        Returns:
+            str | None: Result produced by the operation.
+        """
         identifiers = [item["segment_id"] for item in plan["segments"]]
         index = identifiers.index(segment_id)
         return identifiers[index - 1] if index else None
 
     def _shot_uri(self, project_id: str, scene_id: str, shot_id: str) -> str:
+        """Execute uri.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            str: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id, shot_id = self._identifiers(
             project_id, scene_id, shot_id
         )
@@ -420,6 +572,16 @@ class CinematicExtensionPipeline:
         )
 
     def _next_version(self, project_id: str, scene_id: str, shot_id: str) -> int:
+        """Execute version.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            int: Result produced by the operation.
+        """
         root = self._state_root / "extensions" / project_id / scene_id / shot_id
         versions = [
             int(path.name[1:])
@@ -431,6 +593,20 @@ class CinematicExtensionPipeline:
     def _extension_directory(
         self, project_id: str, scene_id: str, shot_id: str, version: int
     ) -> Path:
+        """Execute directory.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            version (int): Positive version number of the stored artifact.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         if version < 1:
             raise ValueError("extension_version must be at least 1.")
         return (
@@ -446,6 +622,16 @@ class CinematicExtensionPipeline:
     def _identifiers(
         project_id: str, scene_id: str, shot_id: str
     ) -> tuple[str, str, str]:
+        """Execute identifiers.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            tuple[str, str, str]: Result produced by the operation.
+        """
         return (
             validate_identifier(project_id, "project_id"),
             validate_identifier(scene_id, "scene_id"),
@@ -454,4 +640,9 @@ class CinematicExtensionPipeline:
 
     @staticmethod
     def _now_iso() -> str:
+        """Execute iso.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         return datetime.now(timezone.utc).isoformat()

@@ -1,3 +1,5 @@
+"""Provide sound effects services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -27,7 +29,24 @@ def compile_sound_cue_sheet(
     dialogue_present: bool,
     participation_pause: bool = False,
 ) -> dict[str, Any]:
-    """Validate visible-action cues and compile a child-safe sound plan."""
+    """Validate visible-action cues and compile a child-safe sound plan.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        scene_id (str): Stable identifier of the scene being processed.
+        shot_id (str): Stable identifier of the shot being processed.
+        location_id (str): Stable identifier of the location.
+        cues (list[dict[str, Any]]): Structured audio or music cue definitions.
+        dialogue_present (bool): Whether dialogue must have priority in the mix.
+        participation_pause (bool): Whether the cue overlaps a child-response pause.
+            Defaults to ``False``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
 
     audio = resolved_audio_context(project_id)
     context = audio["sound_effects"]

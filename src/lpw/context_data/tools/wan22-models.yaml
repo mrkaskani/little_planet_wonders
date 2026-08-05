@@ -1,0 +1,70 @@
+wan22:
+  version: "2.2"
+  provider: local-comfyui
+  enabled: false
+  download_policy: never
+  artifact_policy: externally-managed
+  execution_policy: operator-enabled-only
+
+  animation:
+    enabled: false
+    reason: Wan Animate is outside this project's configured scope.
+
+  models:
+    t2v:
+      enabled: false
+      model: wan2.2-t2v-a14b
+      task: t2v-A14B
+      workflow: wan-t2v
+      weights_path: null
+      inputs: [prompt, negative_prompt, seed, width, height, frame_count, fps]
+
+    i2v:
+      enabled: false
+      model: wan2.2-i2v-a14b
+      task: i2v-A14B
+      workflow: wan-i2v
+      weights_path: null
+      inputs:
+        - prompt
+        - negative_prompt
+        - reference_image
+        - seed
+        - width
+        - height
+        - frame_count
+        - fps
+
+    ti2v:
+      enabled: false
+      model: wan2.2-ti2v-5b
+      task: ti2v-5B
+      workflow: wan-ti2v
+      weights_path: null
+      inputs:
+        - prompt
+        - negative_prompt
+        - reference_image
+        - seed
+        - width
+        - height
+        - frame_count
+        - fps
+
+    s2v:
+      enabled: false
+      model: wan2.2-s2v-14b
+      task: s2v-14B
+      workflow: wan-s2v
+      weights_path: null
+      inputs:
+        - prompt
+        - negative_prompt
+        - reference_image
+        - audio_file
+        - pose_video
+        - seed
+        - width
+        - height
+        - frame_count
+        - fps

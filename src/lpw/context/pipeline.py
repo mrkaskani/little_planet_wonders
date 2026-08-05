@@ -1,3 +1,5 @@
+"""Provide pipeline services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -11,12 +13,36 @@ class SceneContextPipeline:
     """Provide validated scene context to generation and MCP services."""
 
     def __init__(self, context_root: Path | str = DEFAULT_CONTEXT_ROOT) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            context_root (Path | str): Root directory containing source context files.
+                Defaults to ``DEFAULT_CONTEXT_ROOT``.
+        """
         self._compiler = ContextCompiler(context_root=context_root)
 
     def load_scene(self, story_id: str, scene_id: str) -> dict[str, Any]:
+        """Load scene.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         return self._compiler.compile_scene(story_id=story_id, scene_id=scene_id)
 
     def get_scene_summary(self, story_id: str, scene_id: str) -> dict[str, Any]:
+        """Return scene summary.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         context = self.load_scene(story_id=story_id, scene_id=scene_id)
         project = context["project"]
         story = context["story"]
@@ -39,6 +65,15 @@ class SceneContextPipeline:
     def iter_shots(
         self, story_id: str, scene_id: str
     ) -> Iterator[dict[str, Any]]:
+        """Iterate over shots.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Yields:
+            Iterator[dict[str, Any]]: Result produced by the operation.
+        """
         context = self.load_scene(story_id=story_id, scene_id=scene_id)
         shot_states = context["continuity"]["shot_state"]["shots"]
         for shot in context["scene"]["shots"]:
@@ -50,6 +85,15 @@ class SceneContextPipeline:
     def build_generation_plan(
         self, story_id: str, scene_id: str
     ) -> list[dict[str, Any]]:
+        """Build generation plan.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         context = self.load_scene(story_id=story_id, scene_id=scene_id)
         props = context["props"]
         wardrobe = context["wardrobe"]
@@ -102,11 +146,29 @@ class SceneContextPipeline:
     def get_scene_opening_state(
         self, story_id: str, scene_id: str
     ) -> dict[str, Any]:
+        """Return scene opening state.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         context = self.load_scene(story_id=story_id, scene_id=scene_id)
         return context["continuity"]["scene_state"]["opening"]
 
     def get_scene_expected_end_state(
         self, story_id: str, scene_id: str
     ) -> dict[str, Any]:
+        """Return scene expected end state.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         context = self.load_scene(story_id=story_id, scene_id=scene_id)
         return context["continuity"]["scene_state"]["expected_end"]

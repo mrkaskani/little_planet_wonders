@@ -1,12 +1,13 @@
 # Audio direction
 
-Music cues follow stable narrative motifs:
+This short policy summary complements [Audio workflows](audio-workflows.md).
 
-- Roxana appearing selects her three-note descending piano motif.
-- Shakiba appearing selects her short rising string motif.
-- Dangerous or tense shots select the low electronic danger pulse.
-- Safe moments should use a warm variation of the active character theme.
+- Exact locked dialogue is authoritative for wording, timing, emotion, and lip sync.
+- Dialogue input contains no music, ambience, Foley, or sound effects.
+- Ambience establishes place and continues naturally across connected cuts.
+- Foley and effects clarify visible actions with child-safe intensity and perspective.
+- Music uses stable themes, remains beneath dialogue, and protects response pauses.
+- Silence and room tone are intentional tools for understanding and reassurance.
 
-The pipeline finalizes dialogue before lip-sync video, keeps music beneath
-dialogue, builds perspective-aware ambience and effects, and then hands the
-complete plan to editing and mixing.
+The canonical structured policies live under
+`src/lpw/context/projects/classroom/audios/`.

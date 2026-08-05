@@ -1,3 +1,5 @@
+"""Provide render service services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from dataclasses import asdict
@@ -24,6 +26,17 @@ class WanRenderServiceError(RuntimeError):
 
 
 def parse_size(size: str) -> tuple[int, int]:
+    """Parse size.
+
+    Args:
+        size (str): Size used by this operation.
+
+    Returns:
+        tuple[int, int]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     parts = size.lower().replace("×", "x").replace("*", "x").split("x")
     if len(parts) != 2:
         raise ValueError(f"Unsupported size format: {size}")
@@ -34,6 +47,14 @@ def parse_size(size: str) -> tuple[int, int]:
 
 
 def collect_output_descriptors(history: dict[str, Any]) -> list[dict[str, Any]]:
+    """Collect output descriptors.
+
+    Args:
+        history (dict[str, Any]): History used by this operation.
+
+    Returns:
+        list[dict[str, Any]]: Result produced by the operation.
+    """
     descriptors: list[dict[str, Any]] = []
     for node_output in history.get("outputs", {}).values():
         if not isinstance(node_output, dict):
@@ -61,6 +82,17 @@ class WanRenderService:
         render_root: Path,
         project_root: Path = PROJECT_ROOT,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            client (ComfyUIClient): Configured integration client used for provider
+                requests.
+            workflow_file (Path): Workflow file used by this operation.
+            bindings_file (Path): Bindings file used by this operation.
+            render_root (Path): Render root used by this operation.
+            project_root (Path): Root directory containing project runtime data.
+                Defaults to ``PROJECT_ROOT``.
+        """
         self._client = client
         self._workflow_file = workflow_file.expanduser().resolve()
         self._bindings_file = bindings_file.expanduser().resolve()
@@ -69,6 +101,14 @@ class WanRenderService:
 
     @classmethod
     def from_project_config(cls) -> WanRenderService:
+        """Execute project config.
+
+        Returns:
+            WanRenderService: Result produced by the operation.
+
+        Raises:
+            WanRenderServiceError: If inputs, context, state, or provider output are invalid.
+        """
         compiler = ContextCompiler()
         tool = compiler.load_generation_tools()["wan22-comfyui"]
         if not tool["enabled"]:
@@ -105,6 +145,17 @@ class WanRenderService:
         )
 
     async def render(self, package: WanShotPackage) -> dict[str, Any]:
+        """Render render.
+
+        Args:
+            package (WanShotPackage): Compiled package consumed by the operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            WanRenderServiceError: If inputs, context, state, or provider output are invalid.
+        """
         if package.task != "i2v-A14B":
             raise WanRenderServiceError(
                 f"This integration only supports i2v-A14B, received: {package.task}"
@@ -202,6 +253,13 @@ class WanRenderService:
 
 
 async def render_wan_package(package: WanShotPackage) -> dict[str, Any]:
-    """Render using the disabled-by-default project ComfyUI configuration."""
+    """Render using the disabled-by-default project ComfyUI configuration.
+
+    Args:
+        package (WanShotPackage): Compiled package consumed by the operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
 
     return await WanRenderService.from_project_config().render(package)

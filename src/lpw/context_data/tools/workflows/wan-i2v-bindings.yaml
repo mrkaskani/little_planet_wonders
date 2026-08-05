@@ -21,6 +21,9 @@ width:
 height:
   - title: MCP_VIDEO_SETTINGS
     input: height
+fps:
+  - title: MCP_VIDEO_SETTINGS
+    input: frame_rate
 output_prefix:
   - title: MCP_OUTPUT
     input: filename_prefix

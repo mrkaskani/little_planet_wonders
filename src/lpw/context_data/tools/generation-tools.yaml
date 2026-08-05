@@ -35,6 +35,13 @@ tools:
     enabled: false
     transport: comfyui
     settings:
+      download_weights: false
+      allow_animation: false
+      supported_modes:
+        - t2v
+        - i2v
+        - ti2v
+        - s2v
       base_url: "http://127.0.0.1:8188"
       prompt_endpoint: "/prompt"
       history_endpoint: "/history/{prompt_id}"

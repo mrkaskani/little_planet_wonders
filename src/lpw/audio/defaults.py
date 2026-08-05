@@ -1,3 +1,5 @@
+"""Define immutable defaults and supported values for this package."""
+
 from __future__ import annotations
 
 from typing import Any

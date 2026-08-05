@@ -1,3 +1,5 @@
+"""Provide voice production services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import hashlib
@@ -26,6 +28,12 @@ class VoiceProductionService:
     """Prepare, approve, and lock exact dialogue without generating audio."""
 
     def __init__(self, state_root: Path | str | None = None) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            state_root (Path | str | None): Root directory used for generated runtime
+                state. Defaults to ``None``.
+        """
         self._state_root = Path(state_root or runtime_root()).resolve()
 
     def prepare_exact_dialogue(
@@ -49,6 +57,42 @@ class VoiceProductionService:
         gesture_guidance: str | None = None,
         facial_expression_guidance: str | None = None,
     ) -> dict[str, Any]:
+        """Prepare exact dialogue.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+            exact_dialogue (str): Exact approved words that must be spoken once.
+            language (str): Language used for dialogue and pronunciation rules.
+            primary_emotion (str): Primary emotional direction for the performance.
+            ending_emotion (str | None): Emotional direction at the end of the line.
+                Defaults to ``None``.
+            emotional_intensity (float): Child-safe normalized emotional intensity.
+                Defaults to ``0.4``.
+            speaking_speed (str): Speaking speed used by this operation. Defaults to
+                ``'slow-to-moderate'``.
+            important_words (list[str] | None): Important words used by this operation.
+                Defaults to ``None``.
+            pronunciation_notes (list[str] | None): Pronunciation notes used by this
+                operation. Defaults to ``None``.
+            pause_instructions (list[str] | None): Pause instructions used by this
+                operation. Defaults to ``None``.
+            audience_response_pause_seconds (float): Audience response pause seconds
+                used by this operation. Defaults to ``0``.
+            gesture_guidance (str | None): Gesture guidance used by this operation.
+                Defaults to ``None``.
+            facial_expression_guidance (str | None): Facial expression guidance used by
+                this operation. Defaults to ``None``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         identifiers = self._identifiers(
             project_id, episode_id, scene_id, shot_id, character_id
         )
@@ -134,6 +178,29 @@ class VoiceProductionService:
         reviewer: str,
         review: dict[str, bool],
     ) -> dict[str, Any]:
+        """Execute exact dialogue.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+            dialogue_version (int): Positive version number of the dialogue package.
+            audio_path (str): Path to the audio asset being processed.
+            verified_transcript (str): Reviewed transcript expected to match the
+                dialogue exactly.
+            reviewer (str): Human reviewer identity recorded with the decision.
+            review (dict[str, bool]): Required review checks and their pass/fail values.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+            FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        """
         identifiers = self._identifiers(
             project_id, episode_id, scene_id, shot_id, character_id
         )
@@ -194,6 +261,22 @@ class VoiceProductionService:
         character_id: str,
         dialogue_version: int,
     ) -> dict[str, Any]:
+        """Compile lip sync context.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+            dialogue_version (int): Positive version number of the dialogue package.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, episode_id, scene_id, shot_id, character_id = self._identifiers(
             project_id, episode_id, scene_id, shot_id, character_id
         )
@@ -239,6 +322,15 @@ class VoiceProductionService:
 
     @staticmethod
     def _select_reference(voice: dict[str, Any], emotion: str) -> str | None:
+        """Select reference.
+
+        Args:
+            voice (dict[str, Any]): Voice used by this operation.
+            emotion (str): Requested emotional delivery.
+
+        Returns:
+            str | None: Result produced by the operation.
+        """
         references = voice.get("references", {})
         normalized = emotion.lower().replace("_", "-").replace(" ", "-")
         aliases = {
@@ -260,6 +352,18 @@ class VoiceProductionService:
         shot_id: str,
         character_id: str,
     ) -> int:
+        """Execute version.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+
+        Returns:
+            int: Result produced by the operation.
+        """
         root = self._dialogue_root(
             project_id, episode_id, scene_id, shot_id, character_id
         )
@@ -278,6 +382,18 @@ class VoiceProductionService:
         shot_id: str,
         character_id: str,
     ) -> Path:
+        """Execute root.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         return (
             self._state_root
             / "audio"
@@ -298,6 +414,22 @@ class VoiceProductionService:
         character_id: str,
         version: int,
     ) -> Path:
+        """Execute directory.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+            version (int): Positive version number of the stored artifact.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         if version < 1:
             raise ValueError("dialogue_version must be at least 1.")
         return self._dialogue_root(
@@ -312,6 +444,18 @@ class VoiceProductionService:
         shot_id: str,
         character_id: str,
     ) -> tuple[str, str, str, str, str]:
+        """Execute identifiers.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            episode_id (str): Stable identifier of the episode being produced.
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_id (str): Stable identifier of the shot being processed.
+            character_id (str): Stable identifier of the character.
+
+        Returns:
+            tuple[str, str, str, str, str]: Result produced by the operation.
+        """
         return (
             validate_identifier(project_id, "project_id"),
             validate_identifier(episode_id, "episode_id"),
@@ -322,6 +466,14 @@ class VoiceProductionService:
 
     @staticmethod
     def _hash_file(path: Path) -> str:
+        """Execute file.
+
+        Args:
+            path (Path): Filesystem path read or written by the operation.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         digest = hashlib.sha256()
         with path.open("rb") as stream:
             for chunk in iter(lambda: stream.read(1024 * 1024), b""):
@@ -330,4 +482,9 @@ class VoiceProductionService:
 
     @staticmethod
     def _now_iso() -> str:
+        """Execute iso.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         return datetime.now(timezone.utc).isoformat()

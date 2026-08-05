@@ -49,6 +49,7 @@ def test_mcp_server_registers_one_cohesive_surface() -> None:
     assert "validate_edit_plan" in tool_names
     assert "cinema://projects/{project_id}" in resource_templates
     assert "cinema://studio/editing-models" in resource_uris
+    assert "cinema://studio/wan22" in resource_uris
     assert "cinema://projects/{project_id}/audio" in resource_templates
     assert "cinema://projects/{project_id}/post-editing" in resource_templates
     assert "cinema://projects/{project_id}/export" in resource_templates

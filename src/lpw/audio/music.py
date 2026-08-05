@@ -1,3 +1,5 @@
+"""Provide music services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -19,7 +21,23 @@ def compile_music_cue_sheet(
     dialogue_present: bool,
     target_age: str = "two-to-five",
 ) -> dict[str, Any]:
-    """Compile reusable music cues while preserving dialogue and response pauses."""
+    """Compile reusable music cues while preserving dialogue and response pauses.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        episode_id (str): Stable identifier of the episode being produced.
+        scene_id (str): Stable identifier of the scene being processed.
+        cues (list[dict[str, Any]]): Structured audio or music cue definitions.
+        dialogue_present (bool): Whether dialogue must have priority in the mix.
+        target_age (str): Audience age range used by safety rules. Defaults to ``'two-
+            to-five'``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
 
     music = resolved_audio_context(project_id)["music"]
     safety = music.get("child_safety", {})

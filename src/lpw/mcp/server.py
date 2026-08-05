@@ -1,3 +1,5 @@
+"""Expose the compatibility entry point for the LPW MCP server."""
+
 from __future__ import annotations
 
 from mcp.server.mcpserver import MCPServer
@@ -17,6 +19,7 @@ mcp = MCPServer(
 mcp.resource("cinema://studio")(resources.studio_context)
 mcp.resource("cinema://studio/{profile}")(resources.studio_profile)
 mcp.resource("cinema://studio/editing-models")(resources.editing_models_context)
+mcp.resource("cinema://studio/wan22")(resources.wan22_context)
 mcp.resource("cinema://projects/{project_id}")(resources.project_context)
 mcp.resource("cinema://projects/{project_id}/characters/{character_id}")(
     resources.character_context
@@ -110,6 +113,7 @@ for tool in (
 
 
 def main() -> None:
+    """Execute main."""
     mcp.run(transport="stdio")
 
 

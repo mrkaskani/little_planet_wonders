@@ -1,3 +1,5 @@
+"""Provide pipeline services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -30,6 +32,16 @@ class SceneGenerationPipeline:
         project_root: Path | str,
         context_root: Path | str = DEFAULT_CONTEXT_ROOT,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            project_root (Path | str): Root directory containing project runtime data.
+            context_root (Path | str): Root directory containing source context files.
+                Defaults to ``DEFAULT_CONTEXT_ROOT``.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         self._project_root = Path(project_root).expanduser().resolve()
         if not self._project_root.is_dir():
             raise GenerationPipelineError(
@@ -44,6 +56,17 @@ class SceneGenerationPipeline:
         scene_id: str,
         dry_run: bool = True,
     ) -> dict[str, Any]:
+        """Execute scene.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+            dry_run (bool): Whether to plan without calling external providers. Defaults
+                to ``True``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         package = self._compiler.compile_production_scene(
             story_id=story_id,
             scene_id=scene_id,
@@ -103,6 +126,17 @@ class SceneGenerationPipeline:
         shot: dict[str, Any],
         scene_output_directory: Path,
     ) -> dict[str, Any]:
+        """Execute shot.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            scene_output_directory (Path): Scene output directory used by this
+                operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         shot_directory = scene_output_directory / shot["id"]
         shot_directory.mkdir(parents=True, exist_ok=True)
         resolved_shot = deepcopy(shot)
@@ -150,6 +184,19 @@ class SceneGenerationPipeline:
         shot: dict[str, Any],
         shot_directory: Path,
     ) -> Path | None:
+        """Resolve dialogue audio.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            shot_directory (Path): Shot directory used by this operation.
+
+        Returns:
+            Path | None: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         dialogue = shot.get("dialogue")
         if not isinstance(dialogue, dict):
             return None
@@ -184,6 +231,19 @@ class SceneGenerationPipeline:
         shot: dict[str, Any],
         shot_directory: Path,
     ) -> Path | None:
+        """Resolve reference image.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            shot_directory (Path): Shot directory used by this operation.
+
+        Returns:
+            Path | None: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         mode = shot["generation"]["mode"]
         if mode == "t2v":
             return None
@@ -221,6 +281,16 @@ class SceneGenerationPipeline:
         shot: dict[str, Any],
         shot_directory: Path,
     ) -> Path:
+        """Generate wan clip.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            shot_directory (Path): Shot directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         stage = package["production"]["stages"]["video"]
         mode = shot["generation"]["mode"]
         workflow_id = stage["workflow_by_mode"][mode]
@@ -255,6 +325,18 @@ class SceneGenerationPipeline:
         dialogue_audio: Path | None,
         shot_directory: Path,
     ) -> Path:
+        """Apply optional lip sync.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            generated_clip (Path): Generated clip used by this operation.
+            dialogue_audio (Path | None): Dialogue audio used by this operation.
+            shot_directory (Path): Shot directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         stage = package["production"]["stages"].get("lip_sync", {})
         if (
             not stage.get("enabled")
@@ -279,6 +361,18 @@ class SceneGenerationPipeline:
         dialogue_audio: Path | None,
         shot_directory: Path,
     ) -> Path:
+        """Normalize shot segment.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot (dict[str, Any]): Shot used by this operation.
+            video_file (Path): Path to the video file associated with the operation.
+            dialogue_audio (Path | None): Dialogue audio used by this operation.
+            shot_directory (Path): Shot directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         stage = package["production"]["stages"]["editing"]
         settings = self._get_tool(package, stage["tool"])["settings"]
         target = shot_directory / "segment.mp4"
@@ -333,6 +427,19 @@ class SceneGenerationPipeline:
         segments: list[Path],
         output_directory: Path,
     ) -> Path:
+        """Concatenate segments.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            segments (list[Path]): Segments used by this operation.
+            output_directory (Path): Output directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         if not segments:
             raise GenerationPipelineError("Cannot concatenate an empty shot list.")
         stage = package["production"]["stages"]["editing"]
@@ -363,6 +470,15 @@ class SceneGenerationPipeline:
     def _produce_scene_audio(
         self, package: dict[str, Any], output_directory: Path
     ) -> list[dict[str, Any]]:
+        """Execute scene audio.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            output_directory (Path): Output directory used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         audio = package["production"].get("audio", {})
         layers: list[dict[str, Any]] = []
         ambience = audio.get("ambience")
@@ -391,6 +507,17 @@ class SceneGenerationPipeline:
         layer_id: str,
         output_directory: Path,
     ) -> dict[str, Any]:
+        """Generate audio layer.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            layer (dict[str, Any]): Layer used by this operation.
+            layer_id (str): Layer id used by this operation.
+            output_directory (Path): Output directory used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         target = output_directory / f"{layer_id}.wav"
         generated = self._invoke_output_tool(
             self._get_tool(package, layer["tool"]),
@@ -414,6 +541,17 @@ class SceneGenerationPipeline:
         audio_layers: list[dict[str, Any]],
         output_directory: Path,
     ) -> Path:
+        """Mix scene audio.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            picture_track (Path): Picture track used by this operation.
+            audio_layers (list[dict[str, Any]]): Audio layers used by this operation.
+            output_directory (Path): Output directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         stage = package["production"]["stages"]["editing"]
         settings = self._get_tool(package, stage["tool"])["settings"]
         target = output_directory / stage["output_file"]
@@ -462,6 +600,18 @@ class SceneGenerationPipeline:
     def _invoke_output_tool(
         self, tool: dict[str, Any], payload: dict[str, Any]
     ) -> Path:
+        """Execute output tool.
+
+        Args:
+            tool (dict[str, Any]): Tool used by this operation.
+            payload (dict[str, Any]): Payload used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         if not tool["enabled"]:
             raise GenerationPipelineError(
                 f"Tool '{tool.get('provider')}' is disabled."
@@ -501,6 +651,20 @@ class SceneGenerationPipeline:
         values: dict[str, Any],
         target_directory: Path,
     ) -> Path:
+        """Execute comfyui.
+
+        Args:
+            tool (dict[str, Any]): Tool used by this operation.
+            workflow (dict[str, Any]): Workflow used by this operation.
+            values (dict[str, Any]): Values used by this operation.
+            target_directory (Path): Target directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         if not tool["enabled"]:
             raise GenerationPipelineError("ComfyUI tool is disabled.")
         if tool["transport"] != "comfyui":
@@ -547,6 +711,18 @@ class SceneGenerationPipeline:
     def _prepare_comfyui_inputs(
         self, settings: dict[str, Any], values: dict[str, Any]
     ) -> dict[str, Any]:
+        """Prepare comfyui inputs.
+
+        Args:
+            settings (dict[str, Any]): Settings used by this operation.
+            values (dict[str, Any]): Values used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         result = deepcopy(values)
         shared_input_directory = Path(
             settings["shared_input_directory"]
@@ -572,6 +748,17 @@ class SceneGenerationPipeline:
         bindings: dict[str, Any],
         values: dict[str, Any],
     ) -> None:
+        """Apply workflow bindings.
+
+        Args:
+            workflow_document (dict[str, Any]): Workflow document used by this
+                operation.
+            bindings (dict[str, Any]): Bindings used by this operation.
+            values (dict[str, Any]): Values used by this operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         for value_name, binding in bindings.items():
             value = values.get(value_name)
             if value is None:
@@ -587,6 +774,18 @@ class SceneGenerationPipeline:
     def _wait_for_comfyui(
         self, settings: dict[str, Any], prompt_id: str
     ) -> dict[str, Any]:
+        """Execute for comfyui.
+
+        Args:
+            settings (dict[str, Any]): Settings used by this operation.
+            prompt_id (str): Prompt id used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         deadline = time.monotonic() + settings.get(
             "timeout_seconds", DEFAULT_TOOL_TIMEOUT_SECONDS
         )
@@ -617,6 +816,19 @@ class SceneGenerationPipeline:
         history: dict[str, Any],
         output_nodes: list[str],
     ) -> Path:
+        """Find comfyui output.
+
+        Args:
+            settings (dict[str, Any]): Settings used by this operation.
+            history (dict[str, Any]): History used by this operation.
+            output_nodes (list[str]): Output nodes used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         output_directory = Path(settings["output_directory"]).expanduser().resolve()
         outputs = history.get("outputs", {})
         for node_id in output_nodes:
@@ -637,6 +849,14 @@ class SceneGenerationPipeline:
         )
 
     def _build_dry_run_plan(self, package: dict[str, Any]) -> dict[str, Any]:
+        """Build dry run plan.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         video_stage = package["production"]["stages"]["video"]
         shots = []
         for shot in package["scene"]["shots"]:
@@ -666,6 +886,18 @@ class SceneGenerationPipeline:
 
     @staticmethod
     def _get_tool(package: dict[str, Any], tool_id: str) -> dict[str, Any]:
+        """Return tool.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            tool_id (str): Tool id used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         tool = package["tools"].get(tool_id)
         if tool is None:
             raise GenerationPipelineError(
@@ -677,11 +909,33 @@ class SceneGenerationPipeline:
     def _get_shot_continuity(
         package: dict[str, Any], shot_id: str
     ) -> dict[str, Any]:
+        """Return shot continuity.
+
+        Args:
+            package (dict[str, Any]): Compiled package consumed by the operation.
+            shot_id (str): Stable identifier of the shot being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         return package["continuity"]["shot_state"]["shots"][shot_id]
 
     def _resolve_project_path(
         self, value: str, *, require_within_project: bool = False
     ) -> Path:
+        """Resolve project path.
+
+        Args:
+            value (str): Value inspected or transformed by the helper.
+            require_within_project (bool): Require within project used by this
+                operation. Defaults to ``False``.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         path = Path(value).expanduser()
         resolved = path.resolve() if path.is_absolute() else (
             self._project_root / path
@@ -697,6 +951,15 @@ class SceneGenerationPipeline:
 
     @staticmethod
     def _calculate_frame_count(duration_seconds: float, fps: int) -> int:
+        """Calculate frame count.
+
+        Args:
+            duration_seconds (float): Requested duration in seconds.
+            fps (int): Fps used by this operation.
+
+        Returns:
+            int: Result produced by the operation.
+        """
         requested = round(duration_seconds * fps)
         if requested < 1:
             return 1
@@ -704,10 +967,26 @@ class SceneGenerationPipeline:
 
     @staticmethod
     def _escape_concat_path(path: Path) -> str:
+        """Execute concat path.
+
+        Args:
+            path (Path): Filesystem path read or written by the operation.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         return path.resolve().as_posix().replace("'", "'\\''")
 
     @staticmethod
     def _run_command(command: list[str]) -> None:
+        """Run command.
+
+        Args:
+            command (list[str]): Command used by this operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         try:
             result = subprocess.run(
                 command,

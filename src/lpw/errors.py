@@ -1,3 +1,5 @@
+"""Define domain-specific exceptions raised by LPW services."""
+
 class ContextError(Exception):
     """Base error for cinematic context problems."""
 

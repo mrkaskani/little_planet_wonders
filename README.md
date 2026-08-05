@@ -13,6 +13,10 @@ uv run pytest
 uv run lpw
 ```
 
+Complete documentation starts at [docs/index.md](docs/index.md). The documentation
+includes setup, configuration, context, Wan 2.2, audio, validation, editing,
+runtime storage, MCP, testing, and generated Python API references.
+
 Optional environment variables:
 
 - `CINEMATIC_CONTEXT_ROOT`: legacy cinematic context directory
@@ -87,22 +91,25 @@ The MCP surface exposes `create_render_attempt`, `validate_render_attempt`,
 `create_scene_release`. All paths are constrained to render storage; context YAML
 remains read-only.
 
-## ComfyUI I2V integration
+## ComfyUI and Wan 2.2 integration
 
-The `render_wan_i2v_shot` MCP tool compiles an existing `ShotRequest`, loads the
-real Wan 2.2 I2V API workflow, applies semantic bindings by `_meta.title`, uploads
-the approved start frame, submits the graph, polls ComfyUI history, and stores the
-package, resolved graph, history, result, and downloaded output together.
+LPW configures Wan 2.2 T2V, I2V, TI2V, and S2V. Wan Animate is deliberately
+excluded. Every adapter starts disabled, has no repository-managed weight path,
+and uses a `download_policy` of `never`. Operators provide already-installed
+model artifacts, a local ComfyUI endpoint, and real API-format workflow exports.
 
-Export the working API-format graph to
-`workflows/comfyui/wan22-i2v-api.json`; setup details and required node titles are
-listed in that directory's README. Semantic bindings live under
+The `render_wan_i2v_shot` MCP tool is the implemented execution path. It compiles
+an existing `ShotRequest`, loads the real I2V API workflow, applies semantic
+bindings by `_meta.title`, uploads the approved start frame, submits the graph,
+polls ComfyUI history, and stores all provenance beside the downloaded result.
+The other modes are fully declared for safe operator integration but remain
+disabled until their provider execution paths are connected and verified.
+
+Export tested graphs under `workflows/comfyui/` using the filenames documented in
+that directory's README. Semantic bindings live under
 `src/lpw/context_data/tools/workflows/`, while the HTTP client lives under
-`lpw.integrations` and render orchestration remains under `lpw.generation`.
-
-ComfyUI remains disabled in `generation-tools.yaml` until its local server and
-workflow are ready. Enabling it never downloads model files; model artifacts are
-externally managed according to `editing-models.yaml`.
+`lpw.integrations` and render orchestration remains under `lpw.generation`. The
+resolved policy is available from `cinema://studio/wan22`.
 
 The editing stack declares disabled local-service roles for Molmo2 visual
 analysis, Qwen3-Omni audiovisual analysis, Qwen3 planning, and the optional

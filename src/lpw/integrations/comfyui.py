@@ -1,3 +1,5 @@
+"""Provide comfyui services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import asyncio
@@ -29,6 +31,19 @@ class ComfyUIClient:
         request_timeout_seconds: float = 60.0,
         poll_interval_seconds: float = 1.0,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            base_url (str): Base url used by this operation. Defaults to
+                ``'http://127.0.0.1:8188'``.
+            request_timeout_seconds (float): Request timeout seconds used by this
+                operation. Defaults to ``60.0``.
+            poll_interval_seconds (float): Poll interval seconds used by this operation.
+                Defaults to ``1.0``.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         if not base_url.startswith(("http://", "https://")):
             raise ValueError("ComfyUI base URL must use HTTP or HTTPS.")
         self.base_url = base_url.rstrip("/")
@@ -36,12 +51,29 @@ class ComfyUIClient:
         self.poll_interval_seconds = poll_interval_seconds
 
     async def health_check(self) -> dict[str, Any]:
+        """Execute check.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         async with httpx.AsyncClient(timeout=self.request_timeout_seconds) as client:
             response = await client.get(f"{self.base_url}/system_stats")
             response.raise_for_status()
             return self._json_object(response.json(), "system_stats")
 
     async def upload_image(self, image_path: Path) -> str:
+        """Upload image.
+
+        Args:
+            image_path (Path): Image path used by this operation.
+
+        Returns:
+            str: Result produced by the operation.
+
+        Raises:
+            FileNotFoundError: If inputs, context, state, or provider output are invalid.
+            ComfyUIError: If inputs, context, state, or provider output are invalid.
+        """
         image_path = image_path.expanduser().resolve()
         if not image_path.is_file():
             raise FileNotFoundError(f"Reference image not found: {image_path}")
@@ -64,6 +96,20 @@ class ComfyUIClient:
     async def queue_workflow(
         self, workflow: dict[str, Any], client_id: str | None = None
     ) -> str:
+        """Queue workflow.
+
+        Args:
+            workflow (dict[str, Any]): Workflow used by this operation.
+            client_id (str | None): Client id used by this operation. Defaults to
+                ``None``.
+
+        Returns:
+            str: Result produced by the operation.
+
+        Raises:
+            ComfyUIExecutionError: If inputs, context, state, or provider output are invalid.
+            ComfyUIError: If inputs, context, state, or provider output are invalid.
+        """
         payload = {"prompt": workflow, "client_id": client_id or str(uuid.uuid4())}
         async with httpx.AsyncClient(timeout=self.request_timeout_seconds) as client:
             response = await client.post(f"{self.base_url}/prompt", json=payload)
@@ -79,6 +125,14 @@ class ComfyUIClient:
         return str(prompt_id)
 
     async def get_history(self, prompt_id: str) -> dict[str, Any] | None:
+        """Return history.
+
+        Args:
+            prompt_id (str): Prompt id used by this operation.
+
+        Returns:
+            dict[str, Any] | None: Result produced by the operation.
+        """
         async with httpx.AsyncClient(timeout=self.request_timeout_seconds) as client:
             response = await client.get(f"{self.base_url}/history/{prompt_id}")
         response.raise_for_status()
@@ -92,6 +146,19 @@ class ComfyUIClient:
         *,
         timeout_seconds: float = 3600,
     ) -> tuple[str, dict[str, Any]]:
+        """Execute execute.
+
+        Args:
+            workflow (dict[str, Any]): Workflow used by this operation.
+            timeout_seconds (float): Timeout seconds used by this operation. Defaults to
+                ``3600``.
+
+        Returns:
+            tuple[str, dict[str, Any]]: Result produced by the operation.
+
+        Raises:
+            ComfyUIExecutionError: If inputs, context, state, or provider output are invalid.
+        """
         prompt_id = await self.queue_workflow(workflow)
         deadline = asyncio.get_running_loop().time() + timeout_seconds
         while asyncio.get_running_loop().time() < deadline:
@@ -109,6 +176,18 @@ class ComfyUIClient:
     async def download_output(
         self, descriptor: dict[str, Any], destination: Path
     ) -> Path:
+        """Download output.
+
+        Args:
+            descriptor (dict[str, Any]): Descriptor used by this operation.
+            destination (Path): Destination path for the transformed asset.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ComfyUIError: If inputs, context, state, or provider output are invalid.
+        """
         filename = descriptor.get("filename")
         if not isinstance(filename, str) or not filename:
             raise ComfyUIError(f"Output descriptor has no filename: {descriptor}")
@@ -129,6 +208,18 @@ class ComfyUIClient:
 
     @staticmethod
     def _json_object(value: Any, label: str) -> dict[str, Any]:
+        """Execute object.
+
+        Args:
+            value (Any): Value inspected or transformed by the helper.
+            label (str): Label used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ComfyUIError: If inputs, context, state, or provider output are invalid.
+        """
         if not isinstance(value, dict):
             raise ComfyUIError(f"ComfyUI {label} must be a JSON object.")
         return value

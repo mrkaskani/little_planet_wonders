@@ -1,3 +1,5 @@
+"""Expose the public validation package API for LPW."""
+
 from lpw.validation.media import MediaValidator
 from lpw.validation.finalization import (
     FinalShotValidationReport,

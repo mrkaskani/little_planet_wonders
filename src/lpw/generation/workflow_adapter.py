@@ -1,3 +1,5 @@
+"""Provide workflow adapter services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import copy
@@ -13,6 +15,18 @@ class WorkflowBindingError(RuntimeError):
 
 
 def load_workflow(path: Path) -> dict[str, Any]:
+    """Load workflow.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        WorkflowBindingError: If inputs, context, state, or provider output are invalid.
+    """
     if not path.is_file():
         raise FileNotFoundError(f"ComfyUI API workflow not found: {path}")
     try:
@@ -27,6 +41,18 @@ def load_workflow(path: Path) -> dict[str, Any]:
 
 
 def load_bindings(path: Path) -> dict[str, list[dict[str, str]]]:
+    """Load bindings.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+
+    Returns:
+        dict[str, list[dict[str, str]]]: Result produced by the operation.
+
+    Raises:
+        FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        WorkflowBindingError: If inputs, context, state, or provider output are invalid.
+    """
     if not path.is_file():
         raise FileNotFoundError(f"Workflow bindings not found: {path}")
     value = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
@@ -64,6 +90,18 @@ def load_bindings(path: Path) -> dict[str, list[dict[str, str]]]:
 def find_node_by_title(
     workflow: dict[str, Any], title: str
 ) -> tuple[str, dict[str, Any]]:
+    """Find node by title.
+
+    Args:
+        workflow (dict[str, Any]): Workflow used by this operation.
+        title (str): Title used by this operation.
+
+    Returns:
+        tuple[str, dict[str, Any]]: Result produced by the operation.
+
+    Raises:
+        WorkflowBindingError: If inputs, context, state, or provider output are invalid.
+    """
     matches = [
         (node_id, node)
         for node_id, node in workflow.items()
@@ -79,6 +117,17 @@ def find_node_by_title(
 def set_node_input(
     workflow: dict[str, Any], *, title: str, input_name: str, value: Any
 ) -> None:
+    """Execute node input.
+
+    Args:
+        workflow (dict[str, Any]): Workflow used by this operation.
+        title (str): Title used by this operation.
+        input_name (str): Input name used by this operation.
+        value (Any): Value inspected or transformed by the helper.
+
+    Raises:
+        WorkflowBindingError: If inputs, context, state, or provider output are invalid.
+    """
     node_id, node = find_node_by_title(workflow, title)
     inputs = node.get("inputs")
     if not isinstance(inputs, dict):
@@ -97,7 +146,16 @@ def apply_workflow_values(
     bindings: dict[str, list[dict[str, str]]],
     values: dict[str, Any],
 ) -> dict[str, Any]:
-    """Apply semantic cinematic values to a copied ComfyUI API workflow."""
+    """Apply semantic cinematic values to a copied ComfyUI API workflow.
+
+    Args:
+        workflow_template (dict[str, Any]): Workflow template used by this operation.
+        bindings (dict[str, list[dict[str, str]]]): Bindings used by this operation.
+        values (dict[str, Any]): Values used by this operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+    """
 
     workflow = copy.deepcopy(workflow_template)
     for semantic_name, value in values.items():

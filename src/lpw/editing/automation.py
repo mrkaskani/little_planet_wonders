@@ -1,3 +1,5 @@
+"""Provide automation services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import hashlib
@@ -30,12 +32,27 @@ class AutomatedEditingPipeline:
     """Controlled preparation, assisted editing, and post-edit orchestration."""
 
     def __init__(self, project_root: Path | str = PROJECT_ROOT) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            project_root (Path | str): Root directory containing project runtime data.
+                Defaults to ``PROJECT_ROOT``.
+        """
         self._project_root = Path(project_root).expanduser().resolve()
         self._edits_root = self._project_root / "edits"
 
     def prepare_automated_edit(
         self, project_id: str, scene_id: str
     ) -> dict[str, Any]:
+        """Prepare automated edit.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         project_id, scene_id = self._identifiers(project_id, scene_id)
         project_directory = get_project_directory(project_id)
         timeline = self._load_timeline(project_directory, project_id, scene_id)
@@ -193,6 +210,16 @@ class AutomatedEditingPipeline:
         scene_id: str,
         prepared_package_version: int,
     ) -> dict[str, Any]:
+        """Execute scene edit.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            prepared_package_version (int): Version of the prepared editing package.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         project_id, scene_id = self._identifiers(project_id, scene_id)
         package = self.load_prepared_package(
             project_id, scene_id, prepared_package_version
@@ -294,6 +321,22 @@ class AutomatedEditingPipeline:
         reviewer: str,
         notes: list[dict[str, Any]] | None = None,
     ) -> dict[str, Any]:
+        """Approve edit preview.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            edit_version (int): Positive version number of the edit.
+            reviewer (str): Human reviewer identity recorded with the decision.
+            notes (list[dict[str, Any]] | None): Optional review or production notes.
+                Defaults to ``None``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id = self._identifiers(project_id, scene_id)
         if not reviewer.strip():
             raise GenerationPipelineError("Reviewer cannot be empty.")
@@ -326,6 +369,22 @@ class AutomatedEditingPipeline:
         approved_edit_version: int,
         review_notes: list[dict[str, Any]],
     ) -> dict[str, Any]:
+        """Execute edit scene.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            approved_edit_version (int): Version of the edit approved for post-
+                production.
+            review_notes (list[dict[str, Any]]): Structured or textual notes supplied by
+                the reviewer.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         project_id, scene_id = self._identifiers(project_id, scene_id)
         directory = self._edit_directory(project_id, scene_id, approved_edit_version)
         approval = load_json(directory / "approval.json")
@@ -386,6 +445,19 @@ class AutomatedEditingPipeline:
     def load_prepared_package(
         self, project_id: str, scene_id: str, version: int
     ) -> dict[str, Any]:
+        """Load prepared package.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            version (int): Positive version number of the stored artifact.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+        """
         if version < 1:
             raise ValueError("prepared_package_version must be at least 1.")
         return load_json(
@@ -400,6 +472,18 @@ class AutomatedEditingPipeline:
     def load_latest_prepared_package(
         self, project_id: str, scene_id: str
     ) -> dict[str, Any]:
+        """Load latest prepared package.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        """
         directory = self._edits_root / project_id / scene_id / "prepared"
         version = self._next_version(directory, "v") - 1
         if version < 1:
@@ -414,6 +498,16 @@ class AutomatedEditingPipeline:
         preview_rules: dict[str, Any],
         directory: Path,
     ) -> Path:
+        """Render preview.
+
+        Args:
+            plan (dict[str, Any]): Plan used by this operation.
+            preview_rules (dict[str, Any]): Preview rules used by this operation.
+            directory (Path): Directory used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         video_rules = {
             "width": preview_rules["width"],
             "height": preview_rules["height"],
@@ -436,6 +530,14 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _select_best_takes(takes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Select best takes.
+
+        Args:
+            takes (list[dict[str, Any]]): Takes used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         selected: dict[str, dict[str, Any]] = {}
         for take in takes:
             current = selected.get(take["shot_id"])
@@ -445,6 +547,15 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _weighted_score(scores: Any, weights: Any) -> float:
+        """Execute score.
+
+        Args:
+            scores (Any): Named review scores used by approval thresholds.
+            weights (Any): Weights used by this operation.
+
+        Returns:
+            float: Result produced by the operation.
+        """
         if not isinstance(scores, dict) or not isinstance(weights, dict):
             return 0.0
         available = {
@@ -465,6 +576,15 @@ class AutomatedEditingPipeline:
     def _adjacency_warnings(
         previous: dict[str, Any], current: dict[str, Any]
     ) -> list[dict[str, Any]]:
+        """Execute warnings.
+
+        Args:
+            previous (dict[str, Any]): Previous used by this operation.
+            current (dict[str, Any]): Current used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         before = previous.get("continuity_end", {})
         after = current.get("continuity_start", {})
         warnings = []
@@ -483,6 +603,15 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _audio_events(assets: dict[str, str], duration: float) -> list[dict[str, Any]]:
+        """Execute events.
+
+        Args:
+            assets (dict[str, str]): Assets used by this operation.
+            duration (float): Duration used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         event_types = {
             "dialogue_stem": "dialogue",
             "music_stem": "music",
@@ -504,6 +633,14 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _note_to_operation(note: dict[str, Any]) -> dict[str, Any]:
+        """Execute to operation.
+
+        Args:
+            note (dict[str, Any]): Note used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         return {
             "operation": f"review_{note['type']}",
             "note_id": note["id"],
@@ -514,6 +651,17 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _validate_review_notes(notes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Validate review notes.
+
+        Args:
+            notes (list[dict[str, Any]]): Optional review or production notes.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         if not isinstance(notes, list):
             raise GenerationPipelineError("Review notes must be a list.")
         normalized = []
@@ -548,6 +696,19 @@ class AutomatedEditingPipeline:
     def _load_timeline(
         self, project_directory: Path, project_id: str, scene_id: str
     ) -> dict[str, Any]:
+        """Load timeline.
+
+        Args:
+            project_directory (Path): Project directory used by this operation.
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         timeline = load_yaml(
             project_directory / "scenes" / scene_id / "timeline.yaml"
         )
@@ -557,6 +718,17 @@ class AutomatedEditingPipeline:
         return timeline
 
     def _resolve_project_path(self, value: str) -> Path:
+        """Resolve project path.
+
+        Args:
+            value (str): Value inspected or transformed by the helper.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         path = Path(value).expanduser()
         resolved = path.resolve() if path.is_absolute() else (
             self._project_root / path
@@ -570,6 +742,20 @@ class AutomatedEditingPipeline:
         return resolved
 
     def _edit_directory(self, project_id: str, scene_id: str, version: int) -> Path:
+        """Execute directory.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            version (int): Positive version number of the stored artifact.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+            FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        """
         if version < 1:
             raise ValueError("edit_version must be at least 1.")
         directory = self._edits_root / project_id / scene_id / f"v{version:03d}"
@@ -585,6 +771,18 @@ class AutomatedEditingPipeline:
         edit_directory: Path,
         result: dict[str, Any],
     ) -> dict[str, Any]:
+        """Execute archive manifest.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            edit_version (int): Positive version number of the edit.
+            edit_directory (Path): Edit directory used by this operation.
+            result (dict[str, Any]): Result used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         archive_directory = (
             self._project_root
             / "archive"
@@ -638,6 +836,14 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _hash_file(path: Path) -> str:
+        """Execute file.
+
+        Args:
+            path (Path): Filesystem path read or written by the operation.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         digest = hashlib.sha256()
         with path.open("rb") as stream:
             for chunk in iter(lambda: stream.read(1024 * 1024), b""):
@@ -646,6 +852,15 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _next_version(directory: Path, prefix: str) -> int:
+        """Execute version.
+
+        Args:
+            directory (Path): Directory used by this operation.
+            prefix (str): Prefix used by this operation.
+
+        Returns:
+            int: Result produced by the operation.
+        """
         if not directory.is_dir():
             return 1
         values = [
@@ -659,6 +874,15 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _identifiers(project_id: str, scene_id: str) -> tuple[str, str]:
+        """Execute identifiers.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            tuple[str, str]: Result produced by the operation.
+        """
         return (
             validate_identifier(project_id, "project_id"),
             validate_identifier(scene_id, "scene_id"),
@@ -666,4 +890,9 @@ class AutomatedEditingPipeline:
 
     @staticmethod
     def _now_iso() -> str:
+        """Execute iso.
+
+        Returns:
+            str: Result produced by the operation.
+        """
         return datetime.now(timezone.utc).isoformat()

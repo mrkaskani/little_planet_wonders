@@ -1,3 +1,5 @@
+"""Provide compiler services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from copy import deepcopy
@@ -29,6 +31,7 @@ from lpw.context.defaults import (
     VALIDATION_DEFAULTS_FILE_NAME,
     VALIDATION_DIRECTORY_NAME,
     VALIDATION_SCENES_DIRECTORY_NAME,
+    WAN_MODELS_FILE_NAME,
     WARDROBE_DIRECTORY_NAME,
     WORKFLOWS_DIRECTORY_NAME,
 )
@@ -42,6 +45,15 @@ class ContextCompiler:
     """Load hierarchical YAML context and compile complete scene packages."""
 
     def __init__(self, context_root: Path | str = DEFAULT_CONTEXT_ROOT) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            context_root (Path | str): Root directory containing source context files.
+                Defaults to ``DEFAULT_CONTEXT_ROOT``.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         self._context_root = Path(context_root).expanduser().resolve()
         if not self._context_root.exists():
             raise ContextCompilerError(
@@ -54,9 +66,23 @@ class ContextCompiler:
 
     @property
     def context_root(self) -> Path:
+        """Execute root.
+
+        Returns:
+            Path: Result produced by the operation.
+        """
         return self._context_root
 
     def compile_scene(self, story_id: str, scene_id: str) -> dict[str, Any]:
+        """Compile scene.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         project = self.load_project()
         story = self.load_story(story_id)
         scene = self.load_scene(scene_id)
@@ -90,6 +116,11 @@ class ContextCompiler:
         }
 
     def load_project(self) -> dict[str, Any]:
+        """Load project.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         path = self._context_root / PROJECT_FILE_NAME
         project = self._extract_root_object(self._load_yaml(path), "project", path)
         project["video"] = self._merge_defaults(
@@ -100,6 +131,17 @@ class ContextCompiler:
         return project
 
     def load_story(self, story_id: str) -> dict[str, Any]:
+        """Load story.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = self._context_root / STORIES_DIRECTORY_NAME / f"{story_id}.yaml"
         story = self._extract_root_object(self._load_yaml(path), "story", path)
         self._require_string(story, "id", path)
@@ -120,6 +162,17 @@ class ContextCompiler:
         return story
 
     def load_scene(self, scene_id: str) -> dict[str, Any]:
+        """Load scene.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = self._context_root / SCENES_DIRECTORY_NAME / f"{scene_id}.yaml"
         scene = self._extract_root_object(self._load_yaml(path), "scene", path)
         for field_name in ("id", "story_id", "title", "location"):
@@ -155,6 +208,18 @@ class ContextCompiler:
         return scene
 
     def load_shot(self, scene_id: str, shot_file_name: str) -> dict[str, Any]:
+        """Load shot.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+            shot_file_name (str): Shot file name used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = self._context_root / SHOTS_DIRECTORY_NAME / scene_id / shot_file_name
         shot = self._extract_root_object(self._load_yaml(path), "shot", path)
         shot = self._apply_shot_defaults(shot)
@@ -167,6 +232,17 @@ class ContextCompiler:
         return shot
 
     def load_prop(self, prop_id: str) -> dict[str, Any]:
+        """Load prop.
+
+        Args:
+            prop_id (str): Prop id used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = self._context_root / PROPS_DIRECTORY_NAME / f"{prop_id}.yaml"
         prop = self._extract_root_object(self._load_yaml(path), "prop", path)
         for field_name in ("id", "name", "category"):
@@ -194,6 +270,17 @@ class ContextCompiler:
         return prop
 
     def load_wardrobe(self, wardrobe_id: str) -> dict[str, Any]:
+        """Load wardrobe.
+
+        Args:
+            wardrobe_id (str): Wardrobe id used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = self._context_root / WARDROBE_DIRECTORY_NAME / f"{wardrobe_id}.yaml"
         wardrobe = self._extract_root_object(
             self._load_yaml(path), "wardrobe", path
@@ -212,6 +299,18 @@ class ContextCompiler:
         return wardrobe
 
     def load_scene_state(self, scene_id: str, file_name: str) -> dict[str, Any]:
+        """Load scene state.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+            file_name (str): File name used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = (
             self._context_root
             / CONTINUITY_DIRECTORY_NAME
@@ -234,6 +333,18 @@ class ContextCompiler:
         return state
 
     def load_shot_state(self, scene_id: str, file_name: str) -> dict[str, Any]:
+        """Load shot state.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+            file_name (str): File name used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         path = (
             self._context_root
             / CONTINUITY_DIRECTORY_NAME
@@ -255,7 +366,14 @@ class ContextCompiler:
         return state
 
     def load_generation_tools(self) -> dict[str, dict[str, Any]]:
-        """Load and validate configurable external generation tools."""
+        """Load and validate configurable external generation tools.
+
+        Returns:
+            dict[str, dict[str, Any]]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = (
             self._context_root
@@ -299,7 +417,14 @@ class ContextCompiler:
         return tools
 
     def load_editing_models(self) -> dict[str, Any]:
-        """Load local editing-stack declarations without resolving artifacts."""
+        """Load local editing-stack declarations without resolving artifacts.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = self._context_root / TOOLS_DIRECTORY_NAME / EDITING_MODELS_FILE_NAME
         document = self._load_yaml(path)
@@ -355,8 +480,71 @@ class ContextCompiler:
                     )
         return models
 
+    def load_wan_models(self) -> dict[str, Any]:
+        """Load the non-animation Wan 2.2 manifest without resolving weights.
+
+        Returns:
+            dict[str, Any]: Validated configuration for T2V, I2V, TI2V, and S2V.
+
+        Raises:
+            ContextCompilerError: If download protection, mode coverage, or animation
+                exclusion is missing.
+        """
+
+        path = self._context_root / TOOLS_DIRECTORY_NAME / WAN_MODELS_FILE_NAME
+        document = self._load_yaml(path)
+        policy = document.get("wan22")
+        if not isinstance(policy, dict):
+            raise ContextCompilerError(f"File '{path}' requires a wan22 object.")
+        if policy.get("download_policy") != "never":
+            raise ContextCompilerError(
+                f"File '{path}' must set download_policy to 'never'."
+            )
+        if policy.get("artifact_policy") != "externally-managed":
+            raise ContextCompilerError(
+                f"File '{path}' must keep artifacts externally managed."
+            )
+        if policy.get("animation", {}).get("enabled") is not False:
+            raise ContextCompilerError(
+                f"File '{path}' must explicitly disable Wan Animate."
+            )
+        models = policy.get("models")
+        if not isinstance(models, dict):
+            raise ContextCompilerError(f"File '{path}' requires a models object.")
+        required_modes = {"t2v", "i2v", "ti2v", "s2v"}
+        if set(models) != required_modes:
+            raise ContextCompilerError(
+                f"File '{path}' must configure exactly {sorted(required_modes)}."
+            )
+        for mode, configuration in models.items():
+            if not isinstance(configuration, dict):
+                raise ContextCompilerError(f"Wan mode '{mode}' must be an object.")
+            if configuration.get("enabled") is not False:
+                raise ContextCompilerError(
+                    f"Wan mode '{mode}' must remain disabled until locally configured."
+                )
+            if not configuration.get("model") or not configuration.get("workflow"):
+                raise ContextCompilerError(
+                    f"Wan mode '{mode}' requires model and workflow identifiers."
+                )
+            if configuration.get("weights_path") is not None:
+                raise ContextCompilerError(
+                    f"Wan mode '{mode}' weights_path must remain null in source context."
+                )
+        return policy
+
     def load_workflow(self, workflow_id: str) -> dict[str, Any]:
-        """Load one mode-specific ComfyUI API workflow binding."""
+        """Load one mode-specific ComfyUI API workflow binding.
+
+        Args:
+            workflow_id (str): Workflow id used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = (
             self._context_root
@@ -407,7 +595,17 @@ class ContextCompiler:
         return workflow
 
     def load_production_plan(self, scene_id: str) -> dict[str, Any]:
-        """Load the tool and workflow selection for a scene."""
+        """Load the tool and workflow selection for a scene.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = (
             self._context_root
@@ -445,7 +643,20 @@ class ContextCompiler:
         scene_id: str,
         require_enabled_tools: bool = False,
     ) -> dict[str, Any]:
-        """Resolve scene context, production tools, and used workflows."""
+        """Resolve scene context, production tools, and used workflows.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+            require_enabled_tools (bool): Require enabled tools used by this operation.
+                Defaults to ``False``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         context = self.compile_scene(story_id=story_id, scene_id=scene_id)
         production = self.load_production_plan(scene_id)
@@ -488,7 +699,14 @@ class ContextCompiler:
         return context
 
     def load_validation_defaults(self) -> dict[str, Any]:
-        """Load validation rules shared by all scenes."""
+        """Load validation rules shared by all scenes.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = (
             self._context_root
@@ -513,7 +731,17 @@ class ContextCompiler:
         return validation
 
     def load_scene_validation(self, scene_id: str) -> dict[str, Any]:
-        """Load scene and shot-specific validation expectations."""
+        """Load scene and shot-specific validation expectations.
+
+        Args:
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
 
         path = (
             self._context_root
@@ -543,7 +771,15 @@ class ContextCompiler:
     def compile_validation_scene(
         self, story_id: str, scene_id: str
     ) -> dict[str, Any]:
-        """Compile production context together with effective validation rules."""
+        """Compile production context together with effective validation rules.
+
+        Args:
+            story_id (str): Stable identifier of the story to load or compile.
+            scene_id (str): Stable identifier of the scene being processed.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
 
         package = self.compile_production_scene(story_id, scene_id)
         defaults = self.load_validation_defaults()
@@ -563,6 +799,15 @@ class ContextCompiler:
     def _validate_validation_shot_ids(
         scene: dict[str, Any], validation: dict[str, Any]
     ) -> None:
+        """Validate validation shot ids.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+            validation (dict[str, Any]): Validation used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         expected = {shot["id"] for shot in scene["shots"]}
         shot_rules = validation.get("shots", {})
         if not isinstance(shot_rules, dict):
@@ -586,6 +831,15 @@ class ContextCompiler:
     def _deep_merge(
         base: dict[str, Any], override: dict[str, Any]
     ) -> dict[str, Any]:
+        """Execute merge.
+
+        Args:
+            base (dict[str, Any]): Base used by this operation.
+            override (dict[str, Any]): Override used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = deepcopy(base)
         for key, value in override.items():
             existing = result.get(key)
@@ -597,6 +851,14 @@ class ContextCompiler:
 
     @staticmethod
     def _collect_tool_ids(production: dict[str, Any]) -> set[str]:
+        """Collect tool ids.
+
+        Args:
+            production (dict[str, Any]): Production used by this operation.
+
+        Returns:
+            set[str]: Result produced by the operation.
+        """
         tool_ids: set[str] = set()
         for stage in production.get("stages", {}).values():
             if isinstance(stage, dict):
@@ -621,6 +883,17 @@ class ContextCompiler:
         return tool_ids
 
     def _load_scene_shots(self, scene: dict[str, Any]) -> list[dict[str, Any]]:
+        """Load scene shots.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         scene_id = scene["id"]
         shots: list[dict[str, Any]] = []
         for shot_file_name in scene["shot_files"]:
@@ -634,6 +907,14 @@ class ContextCompiler:
     def _load_scene_props(
         self, scene: dict[str, Any]
     ) -> dict[str, dict[str, Any]]:
+        """Load scene props.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+
+        Returns:
+            dict[str, dict[str, Any]]: Result produced by the operation.
+        """
         return {
             prop_id: self.load_prop(prop_id)
             for prop_id in scene.get("props", [])
@@ -642,6 +923,17 @@ class ContextCompiler:
     def _load_scene_wardrobe(
         self, scene: dict[str, Any]
     ) -> dict[str, dict[str, Any]]:
+        """Load scene wardrobe.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+
+        Returns:
+            dict[str, dict[str, Any]]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         result: dict[str, dict[str, Any]] = {}
         for character_id, wardrobe_id in scene.get("wardrobe", {}).items():
             if not isinstance(character_id, str) or not character_id:
@@ -661,6 +953,14 @@ class ContextCompiler:
         return result
 
     def _load_scene_continuity(self, scene: dict[str, Any]) -> dict[str, Any]:
+        """Load scene continuity.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         files = scene["continuity"]
         return {
             "scene_state": self.load_scene_state(
@@ -672,6 +972,14 @@ class ContextCompiler:
         }
 
     def _apply_shot_defaults(self, shot: dict[str, Any]) -> dict[str, Any]:
+        """Apply shot defaults.
+
+        Args:
+            shot (dict[str, Any]): Shot used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = deepcopy(shot)
         result.setdefault("characters", [])
         result.setdefault("props", [])
@@ -688,6 +996,15 @@ class ContextCompiler:
         return result
 
     def _validate_shot(self, shot: dict[str, Any], path: Path) -> None:
+        """Validate shot.
+
+        Args:
+            shot (dict[str, Any]): Shot used by this operation.
+            path (Path): Filesystem path read or written by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         for field_name in ("id", "type", "location", "action"):
             self._require_string(shot, field_name, path)
         duration = shot.get("duration_seconds")
@@ -732,6 +1049,19 @@ class ContextCompiler:
         wardrobe: dict[str, dict[str, Any]],
         continuity: dict[str, Any],
     ) -> None:
+        """Validate scene references.
+
+        Args:
+            scene (dict[str, Any]): Scene used by this operation.
+            shots (list[dict[str, Any]]): Shots used by this operation.
+            props (dict[str, dict[str, Any]]): Props used by this operation.
+            wardrobe (dict[str, dict[str, Any]]): Wardrobe used by this operation.
+            continuity (dict[str, Any]): Continuity state approved for subsequent
+                production.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         known_prop_ids = set(props)
         known_character_ids = {
             character_id
@@ -818,6 +1148,18 @@ class ContextCompiler:
         known_prop_ids: set[str],
         wardrobe: dict[str, dict[str, Any]],
     ) -> None:
+        """Validate state block.
+
+        Args:
+            state (dict[str, Any]): State used by this operation.
+            state_name (str): State name used by this operation.
+            known_character_ids (set[str]): Known character ids used by this operation.
+            known_prop_ids (set[str]): Known prop ids used by this operation.
+            wardrobe (dict[str, dict[str, Any]]): Wardrobe used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         character_state = state.get("characters", {})
         prop_state = state.get("props", {})
         if not isinstance(character_state, dict):
@@ -864,6 +1206,15 @@ class ContextCompiler:
     def _validate_generation_inputs(
         shot: dict[str, Any], generation: dict[str, Any]
     ) -> None:
+        """Validate generation inputs.
+
+        Args:
+            shot (dict[str, Any]): Shot used by this operation.
+            generation (dict[str, Any]): Generation used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         shot_id = shot["id"]
         mode = generation["mode"]
         if mode in {"i2v", "s2v"} and not generation.get("reference_image"):
@@ -877,6 +1228,15 @@ class ContextCompiler:
 
     @staticmethod
     def _validate_dialogue(shot: dict[str, Any], generation_mode: str) -> None:
+        """Validate dialogue.
+
+        Args:
+            shot (dict[str, Any]): Shot used by this operation.
+            generation_mode (str): Generation mode used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         shot_id = shot["id"]
         if shot["type"] not in DIALOGUE_SHOT_TYPES:
             return
@@ -908,6 +1268,15 @@ class ContextCompiler:
     def _validate_story_scene_relationship(
         story: dict[str, Any], scene: dict[str, Any]
     ) -> None:
+        """Validate story scene relationship.
+
+        Args:
+            story (dict[str, Any]): Story used by this operation.
+            scene (dict[str, Any]): Scene used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         if scene["story_id"] != story["id"]:
             raise ContextCompilerError(
                 f"Scene '{scene['id']}' belongs to story '{scene['story_id']}', not '{story['id']}'."
@@ -919,6 +1288,14 @@ class ContextCompiler:
 
     @staticmethod
     def _validate_unique_shot_ids(shots: list[dict[str, Any]]) -> None:
+        """Validate unique shot ids.
+
+        Args:
+            shots (list[dict[str, Any]]): Shots used by this operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         shot_ids = [shot["id"] for shot in shots]
         duplicates = sorted(
             shot_id for shot_id in set(shot_ids) if shot_ids.count(shot_id) > 1
@@ -929,6 +1306,17 @@ class ContextCompiler:
             )
 
     def _load_yaml(self, path: Path) -> dict[str, Any]:
+        """Load yaml.
+
+        Args:
+            path (Path): Filesystem path read or written by the operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         safe_path = path.resolve()
         try:
             safe_path.relative_to(self._context_root)
@@ -955,6 +1343,20 @@ class ContextCompiler:
     def _extract_root_object(
         document: dict[str, Any], root_key: str, path: Path
     ) -> dict[str, Any]:
+        """Extract root object.
+
+        Args:
+            document (dict[str, Any]): Structured document to validate, merge, or
+                persist.
+            root_key (str): Root key used by this operation.
+            path (Path): Filesystem path read or written by the operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         value = document.get(root_key)
         if not isinstance(value, dict):
             raise ContextCompilerError(
@@ -966,6 +1368,16 @@ class ContextCompiler:
     def _require_string(
         values: dict[str, Any], field_name: str, path: Path
     ) -> None:
+        """Execute string.
+
+        Args:
+            values (dict[str, Any]): Values used by this operation.
+            field_name (str): Field name used by this operation.
+            path (Path): Filesystem path read or written by the operation.
+
+        Raises:
+            ContextCompilerError: If inputs, context, state, or provider output are invalid.
+        """
         value = values.get(field_name)
         if not isinstance(value, str) or not value.strip():
             raise ContextCompilerError(
@@ -976,6 +1388,15 @@ class ContextCompiler:
     def _merge_defaults(
         defaults: dict[str, Any], values: Any
     ) -> dict[str, Any]:
+        """Execute defaults.
+
+        Args:
+            defaults (dict[str, Any]): Defaults used by this operation.
+            values (Any): Values used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = deepcopy(defaults)
         if isinstance(values, dict):
             result.update(values)

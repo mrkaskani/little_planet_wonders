@@ -1,3 +1,5 @@
+"""Expose the public generation package API for LPW."""
+
 from lpw.generation.compiler import (
     build_negative_prompt,
     build_positive_prompt,

@@ -64,6 +64,46 @@ def test_editing_models_are_configuration_only_and_never_downloaded() -> None:
     )
 
 
+def test_wan22_setup_covers_non_animation_modes_without_weights() -> None:
+    """Verify Wan setup is complete but cannot download or animate."""
+
+    policy = ContextCompiler().load_wan_models()
+
+    assert policy["download_policy"] == "never"
+    assert policy["artifact_policy"] == "externally-managed"
+    assert policy["animation"]["enabled"] is False
+    assert set(policy["models"]) == {"t2v", "i2v", "ti2v", "s2v"}
+    assert all(model["enabled"] is False for model in policy["models"].values())
+    assert all(
+        model["weights_path"] is None for model in policy["models"].values()
+    )
+
+
+def test_wan_animate_is_explicitly_rejected(context_root: Path) -> None:
+    """Ensure the compiler never selects Wan Animate."""
+
+    from lpw.generation.compiler import select_wan_model
+    from lpw.models import ShotRequest
+
+    request = ShotRequest(
+        project_id="demo",
+        scene_id="scene-001",
+        shot_id="shot-001",
+        character_ids=["roxana"],
+        location_id="rooftop",
+        shot_type="performance",  # type: ignore[arg-type]
+        action="Reserved unsupported mode.",
+        framing="medium",
+        lens="50mm",
+        camera_height="eye-level",
+        camera_movement="locked",
+        performer_video="pose.mp4",
+    )
+
+    with pytest.raises(ValueError, match="Wan Animate is intentionally excluded"):
+        select_wan_model(request)
+
+
 def test_production_pipeline_dry_run_does_not_invoke_external_tools() -> None:
     plan = SceneGenerationPipeline(PROJECT_ROOT).produce_scene(
         STORY_ID,

@@ -1,3 +1,5 @@
+"""Provide validation services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import re
@@ -10,6 +12,15 @@ ASPECT_RATIO = re.compile(r"^\d+(?:\.\d+)?:\d+(?:\.\d+)?$")
 
 
 def _continuity_warnings(previous: dict[str, Any], current: dict[str, Any]) -> list[str]:
+    """Execute warnings.
+
+    Args:
+        previous (dict[str, Any]): Previous used by this operation.
+        current (dict[str, Any]): Current used by this operation.
+
+    Returns:
+        list[str]: Result produced by the operation.
+    """
     warnings: list[str] = []
     checks = (
         ("camera", "screen_direction", "screen direction"),
@@ -41,7 +52,14 @@ def _continuity_warnings(previous: dict[str, Any], current: dict[str, Any]) -> l
 
 
 def validate_edit_plan(edit_plan: dict[str, Any]) -> dict[str, list[str]]:
-    """Validate visual, continuity, editing, and audio requirements."""
+    """Validate visual, continuity, editing, and audio requirements.
+
+    Args:
+        edit_plan (dict[str, Any]): Edit plan used by this operation.
+
+    Returns:
+        dict[str, list[str]]: Result produced by the operation.
+    """
 
     blocking_errors: list[str] = []
     warnings: list[str] = []

@@ -1,3 +1,5 @@
+"""Expose the public context package API for LPW."""
+
 from lpw.context.compiler import ContextCompiler, ContextCompilerError
 from lpw.context.loader import (
     get_project_directory,

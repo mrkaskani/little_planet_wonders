@@ -1,3 +1,5 @@
+"""Provide files services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -15,7 +17,20 @@ from lpw.errors import (
 
 
 def load_yaml(path: Path, *, required: bool = True) -> dict[str, Any]:
-    """Load a YAML mapping, returning an empty mapping for optional files."""
+    """Load a YAML mapping, returning an empty mapping for optional files.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+        required (bool): Whether absence of the requested file is an error. Defaults to
+            ``True``.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        ContextNotFoundError: If inputs, context, state, or provider output are invalid.
+        InvalidContextDataError: If inputs, context, state, or provider output are invalid.
+    """
 
     if not path.is_file():
         if required:
@@ -33,6 +48,18 @@ def load_yaml(path: Path, *, required: bool = True) -> dict[str, Any]:
 
 
 def load_json(path: Path) -> dict[str, Any]:
+    """Load json.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+
+    Returns:
+        dict[str, Any]: Result produced by the operation.
+
+    Raises:
+        FileNotFoundError: If inputs, context, state, or provider output are invalid.
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if not path.is_file():
         raise FileNotFoundError(f"JSON file was not found: {path}")
     content = json.loads(path.read_text(encoding="utf-8"))
@@ -42,7 +69,12 @@ def load_json(path: Path) -> dict[str, Any]:
 
 
 def atomic_write_yaml(path: Path, content: dict[str, Any]) -> None:
-    """Atomically persist generated runtime state."""
+    """Atomically persist generated runtime state.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+        content (dict[str, Any]): Structured content written to the destination.
+    """
 
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(
@@ -61,7 +93,12 @@ def atomic_write_yaml(path: Path, content: dict[str, Any]) -> None:
 
 
 def atomic_write_json(path: Path, content: Any) -> None:
-    """Atomically persist generated JSON metadata."""
+    """Atomically persist generated JSON metadata.
+
+    Args:
+        path (Path): Filesystem path read or written by the operation.
+        content (Any): Structured content written to the destination.
+    """
 
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(

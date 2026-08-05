@@ -1,3 +1,5 @@
+"""Provide timeline services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import shutil
@@ -21,6 +23,14 @@ from lpw.validation.finalization import (
 
 
 def run_command(arguments: list[str]) -> None:
+    """Run command.
+
+    Args:
+        arguments (list[str]): Command arguments passed without shell interpolation.
+
+    Raises:
+        GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+    """
     try:
         result = subprocess.run(
             arguments,
@@ -48,6 +58,18 @@ def normalize_clip(
     out_seconds: float,
     video_rules: dict[str, Any],
 ) -> Path:
+    """Normalize clip.
+
+    Args:
+        source (Path): Source value or filesystem path consumed by the operation.
+        destination (Path): Destination path for the transformed asset.
+        in_seconds (float): In seconds used by this operation.
+        out_seconds (float): Out seconds used by this operation.
+        video_rules (dict[str, Any]): Video rules used by this operation.
+
+    Returns:
+        Path: Result produced by the operation.
+    """
     destination.parent.mkdir(parents=True, exist_ok=True)
     width = int(video_rules["width"])
     height = int(video_rules["height"])
@@ -85,6 +107,18 @@ def normalize_clip(
 
 
 def concatenate_clips(clip_paths: list[Path], output_path: Path) -> Path:
+    """Concatenate clips.
+
+    Args:
+        clip_paths (list[Path]): Clip paths used by this operation.
+        output_path (Path): Destination path for the generated output.
+
+    Returns:
+        Path: Result produced by the operation.
+
+    Raises:
+        ValueError: If inputs, context, state, or provider output are invalid.
+    """
     if not clip_paths:
         raise ValueError("No clips were provided.")
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -120,6 +154,18 @@ def mix_scene_audio(
     video_rules: dict[str, Any],
     audio_rules: dict[str, Any],
 ) -> Path:
+    """Mix scene audio.
+
+    Args:
+        silent_video (Path): Silent video used by this operation.
+        stems (dict[str, Path]): Stems used by this operation.
+        output_path (Path): Destination path for the generated output.
+        video_rules (dict[str, Any]): Video rules used by this operation.
+        audio_rules (dict[str, Any]): Audio rules used by this operation.
+
+    Returns:
+        Path: Result produced by the operation.
+    """
     output_path.parent.mkdir(parents=True, exist_ok=True)
     sample_rate = int(audio_rules["sample_rate"])
     filter_graph = (
@@ -186,6 +232,12 @@ class SceneFinalizationService:
         self,
         project_root: Path | str = PROJECT_ROOT,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            project_root (Path | str): Root directory containing project runtime data.
+                Defaults to ``PROJECT_ROOT``.
+        """
         self._project_root = Path(project_root).expanduser().resolve()
 
     def finalize_scene(
@@ -194,6 +246,20 @@ class SceneFinalizationService:
         scene_id: str,
         edit_version: int = 1,
     ) -> dict[str, Any]:
+        """Finalize scene.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            edit_version (int): Positive version number of the edit. Defaults to ``1``.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+
+        Raises:
+            ValueError: If inputs, context, state, or provider output are invalid.
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         project_id = validate_identifier(project_id, "project_id")
         scene_id = validate_identifier(scene_id, "scene_id")
         if edit_version < 1:
@@ -401,6 +467,17 @@ class SceneFinalizationService:
         timeline: dict[str, Any],
         export: dict[str, Any],
     ) -> None:
+        """Validate context.
+
+        Args:
+            project_id (str): Stable identifier of the project whose context is used.
+            scene_id (str): Stable identifier of the scene being processed.
+            timeline (dict[str, Any]): Timeline used by this operation.
+            export (dict[str, Any]): Export used by this operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         scene = timeline.get("scene")
         if not isinstance(scene, dict):
             raise GenerationPipelineError("Timeline requires a scene object.")
@@ -451,6 +528,17 @@ class SceneFinalizationService:
                 )
 
     def _resolve_project_file(self, value: str) -> Path:
+        """Resolve project file.
+
+        Args:
+            value (str): Value inspected or transformed by the helper.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            GenerationPipelineError: If inputs, context, state, or provider output are invalid.
+        """
         path = Path(value).expanduser()
         resolved = (
             path.resolve()

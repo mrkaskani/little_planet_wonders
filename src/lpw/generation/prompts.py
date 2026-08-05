@@ -1,3 +1,5 @@
+"""Provide prompts services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -35,6 +37,15 @@ DEFAULT_NEGATIVE_PROMPT = [
 
 
 def yaml_like_section(title: str, value: Any) -> str:
+    """Execute like section.
+
+    Args:
+        title (str): Title used by this operation.
+        value (Any): Value inspected or transformed by the helper.
+
+    Returns:
+        str: Result produced by the operation.
+    """
     if value in (None, {}, []):
         return ""
     formatted = json.dumps(value, ensure_ascii=False, indent=2, default=str)
@@ -42,6 +53,15 @@ def yaml_like_section(title: str, value: Any) -> str:
 
 
 def build_positive_prompt(request: ShotRequest, context: dict[str, Any]) -> str:
+    """Build positive prompt.
+
+    Args:
+        request (ShotRequest): Typed request containing the inputs for this operation.
+        context (dict[str, Any]): Resolved cinematic context used by the operation.
+
+    Returns:
+        str: Result produced by the operation.
+    """
     sections = [
         yaml_like_section("PROJECT VISUAL DIRECTION", context.get("project")),
         yaml_like_section("VISUAL STYLE", context.get("visual_style")),
@@ -84,6 +104,14 @@ Do not redesign any established visual element.
 
 
 def extract_negative_values(value: Any) -> list[str]:
+    """Extract negative values.
+
+    Args:
+        value (Any): Value inspected or transformed by the helper.
+
+    Returns:
+        list[str]: Result produced by the operation.
+    """
     if isinstance(value, str):
         return [value]
     if isinstance(value, list):
@@ -94,6 +122,14 @@ def extract_negative_values(value: Any) -> list[str]:
 
 
 def build_negative_prompt(context: dict[str, Any]) -> str:
+    """Build negative prompt.
+
+    Args:
+        context (dict[str, Any]): Resolved cinematic context used by the operation.
+
+    Returns:
+        str: Result produced by the operation.
+    """
     project_negative = extract_negative_values(context.get("negative_prompt", {}))
     forbidden_styles = extract_negative_values(
         context.get("visual_style", {}).get("forbidden", [])

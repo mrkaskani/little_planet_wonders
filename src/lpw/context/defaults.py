@@ -1,3 +1,5 @@
+"""Define immutable defaults and supported values for this package."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -22,6 +24,7 @@ VALIDATION_SCENES_DIRECTORY_NAME = "scenes"
 
 GENERATION_TOOLS_FILE_NAME = "generation-tools.yaml"
 EDITING_MODELS_FILE_NAME = "editing-models.yaml"
+WAN_MODELS_FILE_NAME = "wan22-models.yaml"
 VALIDATION_DEFAULTS_FILE_NAME = "defaults.yaml"
 
 DEFAULT_RENDERS_DIRECTORY_NAME = "renders"

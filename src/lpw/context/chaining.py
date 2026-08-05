@@ -1,3 +1,5 @@
+"""Provide chaining services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from copy import deepcopy
@@ -19,6 +21,13 @@ class ContextChainError(InvalidContextDataError):
 
 @dataclass(frozen=True)
 class ResolvedContext:
+    """Represent ResolvedContext behavior in the LPW pipeline.
+
+    Attributes:
+        context (dict[str, Any]): Stored context value.
+        chain (list[dict[str, Any]]): Stored chain value.
+        context_hash (str): Stored context hash value.
+    """
     context: dict[str, Any]
     chain: list[dict[str, Any]]
     context_hash: str
@@ -32,10 +41,26 @@ class ContextChainResolver:
         source_root: Path | str | None = None,
         state_root: Path | str | None = None,
     ) -> None:
+        """Initialize the service with its configured dependencies.
+
+        Args:
+            source_root (Path | str | None): Root directory containing immutable source
+                context. Defaults to ``None``.
+            state_root (Path | str | None): Root directory used for generated runtime
+                state. Defaults to ``None``.
+        """
         self._source_root = Path(source_root or context_root()).resolve()
         self._state_root = Path(state_root or runtime_root()).resolve()
 
     def resolve(self, uri: str) -> ResolvedContext:
+        """Resolve resolve.
+
+        Args:
+            uri (str): Uri used by this operation.
+
+        Returns:
+            ResolvedContext: Result produced by the operation.
+        """
         context, chain = self._resolve(uri, stack=())
         return ResolvedContext(context, chain, stable_hash(context))
 
@@ -45,6 +70,16 @@ class ContextChainResolver:
         *,
         source_uri: str,
     ) -> ResolvedContext:
+        """Compile document.
+
+        Args:
+            document (dict[str, Any]): Structured document to validate, merge, or
+                persist.
+            source_uri (str): Pinned URI identifying the source context document.
+
+        Returns:
+            ResolvedContext: Result produced by the operation.
+        """
         context, chain = self._compile_document(
             deepcopy(document), source_uri=source_uri, stack=()
         )
@@ -53,6 +88,18 @@ class ContextChainResolver:
     def _resolve(
         self, uri: str, *, stack: tuple[str, ...]
     ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+        """Resolve resolve.
+
+        Args:
+            uri (str): Uri used by this operation.
+            stack (tuple[str, ...]): Stack used by this operation.
+
+        Returns:
+            tuple[dict[str, Any], list[dict[str, Any]]]: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         normalized, version = self._parse_pinned_uri(uri)
         if normalized in stack:
             cycle = " -> ".join((*stack, normalized))
@@ -78,6 +125,20 @@ class ContextChainResolver:
         source_uri: str,
         stack: tuple[str, ...],
     ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+        """Compile document.
+
+        Args:
+            document (dict[str, Any]): Structured document to validate, merge, or
+                persist.
+            source_uri (str): Pinned URI identifying the source context document.
+            stack (tuple[str, ...]): Stack used by this operation.
+
+        Returns:
+            tuple[dict[str, Any], list[dict[str, Any]]]: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         compiled: dict[str, Any] = {}
         chain: list[dict[str, Any]] = []
         immutable_paths: list[str] = []
@@ -136,6 +197,15 @@ class ContextChainResolver:
 
     @staticmethod
     def _merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+        """Execute merge.
+
+        Args:
+            base (dict[str, Any]): Base used by this operation.
+            override (dict[str, Any]): Override used by this operation.
+
+        Returns:
+            dict[str, Any]: Result produced by the operation.
+        """
         result = deepcopy(base)
         for key, value in override.items():
             current = result.get(key)
@@ -149,6 +219,16 @@ class ContextChainResolver:
 
     @staticmethod
     def _merge_lists(key: str, base: list[Any], override: list[Any]) -> list[Any]:
+        """Execute lists.
+
+        Args:
+            key (str): Key used by this operation.
+            base (list[Any]): Base used by this operation.
+            override (list[Any]): Override used by this operation.
+
+        Returns:
+            list[Any]: Result produced by the operation.
+        """
         if key in {"characters", "props"} and all(
             isinstance(item, dict) and item.get("id") for item in [*base, *override]
         ):
@@ -168,6 +248,17 @@ class ContextChainResolver:
         return deepcopy(override)
 
     def _path_for_uri(self, uri: str) -> Path:
+        """Execute for uri.
+
+        Args:
+            uri (str): Uri used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         parsed = urlparse(uri)
         if parsed.scheme != "cinema":
             raise ContextChainError(f"Unsupported context URI: {uri}")
@@ -187,6 +278,18 @@ class ContextChainResolver:
         return resolved
 
     def _project_path(self, parts: list[str], uri: str) -> Path:
+        """Execute path.
+
+        Args:
+            parts (list[str]): Parts used by this operation.
+            uri (str): Uri used by this operation.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         if len(parts) < 2:
             raise ContextChainError(f"Project context URI is incomplete: {uri}")
         project_id = validate_identifier(parts[1], "project_id")
@@ -214,6 +317,17 @@ class ContextChainResolver:
         raise ContextChainError(f"Unsupported project context URI shape: {uri}")
 
     def _runtime_end_state_path(self, segment_id: str) -> Path:
+        """Execute end state path.
+
+        Args:
+            segment_id (str): Stable identifier of the chained video segment.
+
+        Returns:
+            Path: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         segment_id = validate_identifier(segment_id, "segment_id")
         matches = list(
             (self._state_root / "extensions").glob(
@@ -229,6 +343,17 @@ class ContextChainResolver:
 
     @staticmethod
     def _parse_pinned_uri(uri: str) -> tuple[str, int]:
+        """Parse pinned uri.
+
+        Args:
+            uri (str): Uri used by this operation.
+
+        Returns:
+            tuple[str, int]: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         if not isinstance(uri, str) or "@" not in uri:
             raise ContextChainError(f"Context URI must pin an integer version: {uri!r}")
         normalized, raw_version = uri.rsplit("@", 1)
@@ -238,6 +363,18 @@ class ContextChainResolver:
 
     @staticmethod
     def _string_list(value: Any, field: str) -> list[str]:
+        """Execute list.
+
+        Args:
+            value (Any): Value inspected or transformed by the helper.
+            field (str): Field used by this operation.
+
+        Returns:
+            list[str]: Result produced by the operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         if isinstance(value, str):
             value = [value]
         if not isinstance(value, list) or not all(
@@ -248,6 +385,14 @@ class ContextChainResolver:
 
     @staticmethod
     def _immutable_paths(*contexts: dict[str, Any]) -> list[str]:
+        """Execute paths.
+
+        Args:
+            *contexts (dict[str, Any]): Contexts used by this operation.
+
+        Returns:
+            list[str]: Result produced by the operation.
+        """
         result: list[str] = []
         for context in contexts:
             policy = context.get("merge_policy", {})
@@ -263,6 +408,17 @@ class ContextChainResolver:
         immutable_paths: Iterable[str],
         source_uri: str,
     ) -> None:
+        """Reject immutable changes.
+
+        Args:
+            base (dict[str, Any]): Base used by this operation.
+            override (dict[str, Any]): Override used by this operation.
+            immutable_paths (Iterable[str]): Immutable paths used by this operation.
+            source_uri (str): Pinned URI identifying the source context document.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         for path in immutable_paths:
             existing = self._get_dotted(base, path)
             proposed = self._get_dotted(override, path)
@@ -277,6 +433,17 @@ class ContextChainResolver:
         patch: Any,
         immutable_paths: Iterable[str],
     ) -> None:
+        """Apply patch.
+
+        Args:
+            document (dict[str, Any]): Structured document to validate, merge, or
+                persist.
+            patch (Any): Patch used by this operation.
+            immutable_paths (Iterable[str]): Immutable paths used by this operation.
+
+        Raises:
+            ContextChainError: If inputs, context, state, or provider output are invalid.
+        """
         if not isinstance(patch, dict):
             raise ContextChainError("Each context patch must be an object.")
         operation = patch.get("operation")
@@ -313,6 +480,16 @@ class ContextChainResolver:
 
     @staticmethod
     def _get_dotted(document: dict[str, Any], path: str) -> Any:
+        """Return dotted.
+
+        Args:
+            document (dict[str, Any]): Structured document to validate, merge, or
+                persist.
+            path (str): Filesystem path read or written by the operation.
+
+        Returns:
+            Any: Result produced by the operation.
+        """
         current: Any = document
         for key in path.split("."):
             if not isinstance(current, dict) or key not in current:
@@ -322,6 +499,14 @@ class ContextChainResolver:
 
     @staticmethod
     def _deduplicate_chain(chain: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Execute chain.
+
+        Args:
+            chain (list[dict[str, Any]]): Chain used by this operation.
+
+        Returns:
+            list[dict[str, Any]]: Result produced by the operation.
+        """
         result: list[dict[str, Any]] = []
         seen: set[str] = set()
         for item in chain:

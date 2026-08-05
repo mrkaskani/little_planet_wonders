@@ -1,10 +1,19 @@
+"""Provide references services for the LPW cinematic pipeline."""
+
 from __future__ import annotations
 
 from typing import Any
 
 
 def collect_reference_images(value: Any) -> list[str]:
-    """Recursively collect unique image references while preserving order."""
+    """Recursively collect unique image references while preserving order.
+
+    Args:
+        value (Any): Value inspected or transformed by the helper.
+
+    Returns:
+        list[str]: Result produced by the operation.
+    """
 
     references: list[str] = []
     if isinstance(value, dict):

@@ -1,0 +1,23 @@
+positive_prompt:
+  - {title: MCP_POSITIVE_PROMPT, input: text}
+negative_prompt:
+  - {title: MCP_NEGATIVE_PROMPT, input: text}
+start_image:
+  - {title: MCP_START_IMAGE, input: image}
+audio_file:
+  - {title: MCP_AUDIO_INPUT, input: audio}
+pose_video:
+  - {title: MCP_POSE_VIDEO, input: video}
+seed:
+  - {title: MCP_HIGH_NOISE_SAMPLER, input: noise_seed}
+  - {title: MCP_LOW_NOISE_SAMPLER, input: noise_seed}
+frame_count:
+  - {title: MCP_VIDEO_SETTINGS, input: length}
+width:
+  - {title: MCP_VIDEO_SETTINGS, input: width}
+height:
+  - {title: MCP_VIDEO_SETTINGS, input: height}
+fps:
+  - {title: MCP_VIDEO_SETTINGS, input: frame_rate}
+output_prefix:
+  - {title: MCP_OUTPUT, input: filename_prefix}

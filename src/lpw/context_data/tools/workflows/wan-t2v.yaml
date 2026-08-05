@@ -2,6 +2,7 @@ workflow:
   id: wan-t2v
   mode: t2v
   api_workflow_file: workflows/comfyui/wan22-t2v-api.json
+  semantic_bindings_file: tools/workflows/wan-t2v-bindings.yaml
   input_bindings:
     prompt: {node_id: "6", field: text}
     negative_prompt: {node_id: "7", field: text}
