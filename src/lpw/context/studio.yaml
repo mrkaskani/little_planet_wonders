@@ -1,0 +1,36 @@
+id: roxana
+name: Roxana
+
+identity:
+  age: 27
+  face_shape: oval
+  skin: light olive with natural texture
+  eyes: dark brown almond-shaped
+  hair: shoulder-length black wavy hair
+  permanent_feature: small scar above left eyebrow
+  build: slim athletic
+
+performance:
+  expression_style: subtle
+  gesture_style: minimal
+  movement_style: deliberate
+
+default_costume:
+  jacket: dark burgundy leather jacket
+  shirt: charcoal crew-neck shirt
+  trousers: black fitted trousers
+  shoes: dark leather boots
+
+identity_constraints:
+  - preserve scar above left eyebrow
+  - preserve facial proportions
+  - preserve eye color
+  - preserve hairstyle and hair length
+  - do not change apparent age
+
+reference_images:
+  face_front: references/roxana/face-front.png
+  face_three_quarter: references/roxana/face-three-quarter.png
+  profile: references/roxana/profile.png
+  full_body: references/roxana/full-body.png
+  expressions: references/roxana/expressions.png

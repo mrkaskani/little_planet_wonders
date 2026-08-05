@@ -1,0 +1,13 @@
+episode_id: episode-001
+target_age: 2-5
+learning_goal: recognize a small problem and seek help
+emotional_goal: mild concern followed by reassurance
+maximum_energy: moderate
+scene_cues:
+  - scene_id: rooftop-confrontation
+    cue_id: gentle-concern-to-reassurance
+    action: start
+    theme: roxana
+    energy: low
+    dialogue_relationship: duck-and-simplify
+    continuity_into_next_scene: false

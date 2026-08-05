@@ -1,0 +1,41 @@
+post_editing:
+  preserve_approved_story_structure: true
+  allow_minor_trim_adjustment: true
+  allow_shot_replacement: true
+  allow_story_reordering: false
+  require_new_approval_after_story_change: true
+fine_cut:
+  maximum_automatic_trim_change_frames: 12
+  preserve_dialogue_sync: true
+  preserve_emotional_pauses: true
+  preserve_music_sync_points: true
+visual_cleanup:
+  stabilize_only_when_required: true
+  remove_flicker_when_detected: true
+  allow_face_repair: true
+  allow_background_repair: true
+  allow_object_removal: true
+  require_review_after_ai_repair: true
+color:
+  match_scene_reference: true
+  preserve_skin_tones: true
+  preserve_costume_colors: true
+  maximum_exposure_difference_stops: 0.3
+  maximum_white_balance_difference_kelvin: 250
+audio:
+  final_dialogue_cleanup: true
+  final_foley_alignment: true
+  final_music_edit: true
+  final_loudness_normalization: true
+  final_true_peak_limit_db: -1
+subtitles:
+  generate_from_locked_dialogue: true
+  verify_names_against_pronunciation_dictionary: true
+  preserve_dialogue_timing: true
+quality_control:
+  detect_black_frames: true
+  detect_frozen_frames: true
+  detect_audio_clipping: true
+  detect_missing_audio: true
+  detect_subtitle_overflow: true
+  verify_duration: true

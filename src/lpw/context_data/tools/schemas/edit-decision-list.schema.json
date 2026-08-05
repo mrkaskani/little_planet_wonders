@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lpw://schemas/edit-decision-list",
+  "title": "Little Planet Wonders Edit Decision List",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "video_events",
+    "audio_events",
+    "continuity_checks",
+    "wan_generation_requests",
+    "warnings",
+    "blocking_errors"
+  ],
+  "properties": {
+    "video_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shot_id",
+          "take_id",
+          "source_in",
+          "source_out",
+          "timeline_start",
+          "transition_out"
+        ],
+        "properties": {
+          "shot_id": {"type": "string", "minLength": 1},
+          "take_id": {"type": "string", "minLength": 1},
+          "source_in": {"type": "number", "minimum": 0},
+          "source_out": {"type": "number", "exclusiveMinimum": 0},
+          "timeline_start": {"type": "number", "minimum": 0},
+          "transition_out": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "audio_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["type", "source", "timeline_start"],
+        "properties": {
+          "type": {
+            "enum": ["dialogue", "narration", "music", "ambience", "foley", "sound_effect"]
+          },
+          "speaker": {"type": "string"},
+          "source": {"type": "string", "minLength": 1},
+          "timeline_start": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "continuity_checks": {"type": "array", "items": {"type": "object"}},
+    "wan_generation_requests": {"type": "array", "items": {"type": "object"}},
+    "warnings": {"type": "array", "items": {"type": "object"}},
+    "blocking_errors": {"type": "array", "items": {"type": "object"}}
+  }
+}

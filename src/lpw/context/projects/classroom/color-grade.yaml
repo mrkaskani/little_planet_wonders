@@ -1,0 +1,20 @@
+color_grade:
+  reference_shot: shot-001
+  correction:
+    exposure_match: true
+    white_balance_match: true
+    skin_tone_match: true
+    black_level_match: true
+  creative:
+    contrast: moderate
+    saturation: 0.88
+    shadows: cold_blue
+    highlights: restrained_warmth
+    skin: natural
+    grain: subtle_35mm
+  forbidden:
+    - clipped_highlights
+    - crushed_facial_shadows
+    - orange_skin
+    - oversaturated_cyan
+    - oversaturated_magenta

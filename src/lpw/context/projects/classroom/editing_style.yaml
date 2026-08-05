@@ -1,0 +1,53 @@
+editing_identity:
+  style: restrained cinematic editing
+  pacing: slow tension with controlled acceleration
+  emotional_priority: character performance
+  continuity_priority: high
+timeline:
+  frame_rate: 24
+  width: 1920
+  height: 804
+  resolution: 1920x804
+  aspect_ratio: "2.39:1"
+  working_color_space: Rec.709 Gamma 2.4
+  audio_sample_rate: 48000
+  pixel_format: yuv420p
+shot_duration:
+  establishing: {minimum_seconds: 3.0, preferred_seconds: 5.0, maximum_seconds: 8.0}
+  dialogue: {minimum_seconds: 2.0, preferred_seconds: 4.0, maximum_seconds: 7.0}
+  reaction: {minimum_seconds: 1.0, preferred_seconds: 2.5, maximum_seconds: 5.0}
+  action: {minimum_seconds: 0.8, preferred_seconds: 2.0, maximum_seconds: 4.0}
+cutting:
+  default_transition: hard_cut
+  dialogue:
+    use_j_cuts: true
+    use_l_cuts: true
+    preserve_natural_pauses: true
+    minimum_pause_ms: 180
+cutting_rules:
+  cut_on_action: true
+  preserve_action_completion: true
+  preserve_natural_pauses: true
+  use_reaction_shots: true
+  avoid_repeated_compositions: true
+  avoid_unmotivated_jump_cuts: true
+  avoid_excessive_fast_cutting: true
+continuity_rules:
+  preserve_screen_direction: true
+  preserve_eye_lines: true
+  preserve_character_position: true
+  preserve_prop_state: true
+  preserve_wardrobe_state: true
+  preserve_weather: true
+  preserve_light_direction: true
+transition_rules:
+  hard_cut: {default: true}
+  dissolve:
+    allowed_for: [passage_of_time, memory, location_transition]
+  fade_to_black:
+    allowed_for: [scene_ending, major_time_jump]
+  forbidden: [decorative_spin, random_zoom, unmotivated_glitch, excessive_crossfade]
+handles:
+  remove_first_frames: 2
+  remove_last_frames: 2
+  minimum_source_handle_frames: 6

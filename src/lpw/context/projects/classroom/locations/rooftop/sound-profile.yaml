@@ -1,0 +1,15 @@
+id: rooftop-sound
+category: location
+base_ambience: rooftop-night-rain
+recurring_details:
+  - distant city hum
+  - light wind
+  - soft warning-light hum when visible
+volume: low-beneath-dialogue
+continuity:
+  preserve_across_visual_cuts: true
+  do_not_restart_on_each_shot: true
+forbidden:
+  - harsh alarms
+  - explosive thunder
+  - frightening wind

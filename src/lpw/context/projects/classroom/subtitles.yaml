@@ -1,0 +1,20 @@
+subtitles:
+  language: Persian
+  secondary_language: English
+  format: srt
+  maximum_lines: 2
+  maximum_characters_per_line: 42
+  minimum_duration_seconds: 1.0
+  maximum_duration_seconds: 7.0
+  timing:
+    use_locked_dialogue_audio: true
+    preserve_natural_phrase_boundaries: true
+    avoid_crossing_major_cuts: true
+  style:
+    position: bottom-center
+    safe_margin_percent: 7
+    speaker_labels: false
+  terminology:
+    use_pronunciation_dictionary: true
+    preserve_character_names: true
+    preserve_technical_terms: true

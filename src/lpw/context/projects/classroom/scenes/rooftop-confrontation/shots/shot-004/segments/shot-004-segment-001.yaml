@@ -1,0 +1,12 @@
+id: shot-004-segment-001
+type: video-segment-context
+version: 1
+extends:
+  - cinema://projects/classroom/scenes/rooftop-confrontation/shots/shot-004@1
+
+time: {start_seconds: 0, end_seconds: 4}
+performance:
+  start_state: Roxana looks down at the device
+  end_state: Roxana begins raising her head
+camera:
+  movement_progress: {start: 0.0, end: 0.33}

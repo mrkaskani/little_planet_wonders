@@ -1,0 +1,33 @@
+scene:
+  id: rooftop-confrontation
+  story_id: episode-001
+  title: Rooftop Confrontation
+
+  purpose: >
+    Roxana discovers that Shakiba may have the black data device.
+    The scene moves from uncertainty to direct confrontation.
+
+  location: rooftop
+
+  emotional_arc:
+    start: uncertainty
+    middle: suspicion
+    end: confrontation
+
+  props:
+    - black-data-device
+    - weapon
+
+  wardrobe:
+    roxana: roxana-primary
+    shakiba: shakiba-primary
+
+  continuity:
+    scene_state_file: scene-state.yaml
+    shot_state_file: shot-state.yaml
+
+  shot_files:
+    - shot-001.yaml
+    - shot-002.yaml
+    - shot-003.yaml
+    - shot-004.yaml

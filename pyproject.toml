@@ -1,15 +1,16 @@
 [project]
-name = "little-planet-wonders"
+name = "lpw"
 version = "0.1.0"
 description = "Context-aware cinematic shot, audio, and edit planning MCP server"
 requires-python = ">=3.11"
 dependencies = [
+    "httpx2>=2.9,<3",
     "mcp[cli]>=2.0.0,<3",
     "pyyaml>=6.0.3,<7",
 ]
 
 [project.scripts]
-little-planet-wonders = "little_planet_wonders.mcp.server:main"
+lpw = "lpw.mcp.server:main"
 
 [dependency-groups]
 dev = [
@@ -25,4 +26,4 @@ addopts = "-q"
 testpaths = ["tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["little_planet_wonders"]
+packages = ["src/lpw"]

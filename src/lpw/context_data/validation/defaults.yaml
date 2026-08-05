@@ -1,0 +1,53 @@
+validation:
+  automatic:
+    video:
+      require_video_stream: true
+      require_audio_stream: true
+      expected_width: 1280
+      expected_height: 720
+      expected_fps: 24
+      expected_pixel_format: yuv420p
+      duration_tolerance_seconds: 0.25
+      frame_count_tolerance: 2
+    corruption:
+      enabled: true
+      fail_on_decode_error: true
+    black_frames:
+      enabled: true
+      picture_black_ratio: 0.98
+      pixel_black_threshold: 0.10
+      maximum_single_black_duration_seconds: 0.20
+      maximum_total_black_duration_seconds: 0.30
+    audio:
+      enabled: true
+      maximum_peak_dbfs: -1.0
+      minimum_peak_dbfs: -45.0
+      fail_when_silent: true
+  semantic:
+    required_checks:
+      - visual-consistency
+      - character-identity
+      - face-consistency
+      - hairstyle-consistency
+      - wardrobe-consistency
+      - location-geometry
+      - prop-continuity
+      - palette-consistency
+      - lighting-direction
+      - camera-language
+      - screen-direction
+      - voice-identity
+      - pronunciation
+      - music-theme
+      - ambience-continuity
+      - sound-perspective
+      - dialogue-loudness
+      - lip-synchronization
+      - motion-quality
+      - flicker
+      - child-safety
+  approval:
+    require_all_automatic_checks_to_pass: true
+    require_all_semantic_checks_to_pass: true
+    allow_automatic_warnings: true
+    minimum_reviewer_count: 1

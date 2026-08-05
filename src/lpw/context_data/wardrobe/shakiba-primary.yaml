@@ -1,0 +1,59 @@
+wardrobe:
+  id: shakiba-primary
+  character_id: shakiba
+  name: Shakiba Primary Rooftop Wardrobe
+
+  items:
+    - id: dark-blue-coat
+      type: coat
+      visual_identity:
+        color: dark-navy-blue
+        material: waterproof-fabric
+        fit: regular
+        length: knee-length
+        distinctive_features:
+          - high-collar
+          - concealed-front-buttons
+          - narrow-grey-belt
+
+    - id: grey-shirt
+      type: shirt
+      visual_identity:
+        color: muted-grey
+        material: cotton
+        fit: regular
+
+    - id: dark-trousers
+      type: trousers
+      visual_identity:
+        color: black
+        material: fabric
+        fit: straight
+
+    - id: dark-boots
+      type: footwear
+      visual_identity:
+        color: dark-brown
+        material: leather
+        height: ankle
+
+  accessories: []
+
+  scene_adjustments:
+    wetness: high
+    dirt: low
+    damage: none
+
+  continuity_rules:
+    preserve:
+      - dark-navy-coat
+      - high-collar
+      - grey-belt
+      - black-trousers
+      - dark-brown-boots
+    forbidden_changes:
+      - coat-color-change
+      - belt-disappearing
+      - coat-length-change
+      - unexplained-clothing-damage
+      - footwear-change

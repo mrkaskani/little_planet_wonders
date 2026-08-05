@@ -1,0 +1,11 @@
+id: roxana
+type: character-context
+version: 1
+
+identity:
+  name: Roxana
+  role: protagonist
+
+continuity_constraints:
+  - preserve facial identity
+  - preserve primary wardrobe

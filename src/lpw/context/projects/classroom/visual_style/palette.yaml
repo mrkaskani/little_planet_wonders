@@ -1,0 +1,17 @@
+palette:
+  dominant:
+    midnight_blue: "#101827"
+    charcoal: "#25272B"
+    burgundy: "#651F2D"
+
+  secondary:
+    desaturated_teal: "#3F6970"
+    concrete_gray: "#60646A"
+    warm_amber: "#C88745"
+
+rules:
+  - use burgundy primarily for Roxana
+  - use cold blue for dangerous locations
+  - use warm amber for safe or emotional moments
+  - avoid oversaturated cyan and magenta
+  - preserve natural skin tones

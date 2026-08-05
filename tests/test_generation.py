@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import pytest
 
-from little_planet_wonders.generation.compiler import (
+from lpw.generation.compiler import (
     calculate_frame_count,
     compile_wan_shot_package,
 )
-from little_planet_wonders.models import ShotRequest
+from lpw.models import ShotRequest
 
 
 def make_request(**overrides) -> ShotRequest:

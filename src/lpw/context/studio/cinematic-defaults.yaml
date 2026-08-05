@@ -1,0 +1,28 @@
+id: cinematic-defaults
+type: studio-context
+version: 1
+
+camera:
+  movement: restrained
+
+technical:
+  frame_rate: 24
+  aspect_ratio: "2.39:1"
+
+merge_policy:
+  scalar: override
+  dictionary: recursive_merge
+  lists:
+    constraints: append_unique
+    forbidden: append_unique
+    characters: merge_by_id
+    props: merge_by_id
+    references: append_unique
+  immutable:
+    - project.id
+    - technical.frame_rate
+    - technical.aspect_ratio
+
+constraints:
+  - preserve approved identity and location geometry
+  - use short generation segments for extended shots

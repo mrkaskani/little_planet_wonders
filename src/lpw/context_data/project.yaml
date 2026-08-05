@@ -1,0 +1,23 @@
+project:
+  id: lpw
+  name: Little Planet Wonders
+  language: fa
+  default_story: episode-001
+
+  video:
+    width: 1280
+    height: 720
+    fps: 24
+    aspect_ratio: "16:9"
+
+  paths:
+    stories: stories
+    scenes: scenes
+    shots: shots
+    props: props
+    wardrobe: wardrobe
+    continuity: continuity
+    tools: tools
+    editing_models: tools/editing-models.yaml
+    production: production
+    validation: validation

@@ -1,0 +1,12 @@
+story:
+  id: episode-001
+  title: The Rooftop Device
+
+  logline: >
+    Roxana confronts Shakiba on a rainy rooftop after discovering
+    that Shakiba may possess the missing data device.
+
+  target_audience: general cinematic audience
+
+  scenes:
+    - rooftop-confrontation

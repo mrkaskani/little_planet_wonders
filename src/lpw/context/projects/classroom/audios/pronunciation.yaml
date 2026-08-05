@@ -1,0 +1,22 @@
+entries:
+  Roxana:
+    language: Persian
+    phonetic: "rok-saa-naa"
+
+  Shakiba:
+    language: Persian
+    phonetic: "sha-ki-baa"
+
+  Wan:
+    language: English
+    phonetic: "wahn"
+
+  MCP:
+    language: English
+    spoken_form: "M C P"
+
+rules:
+  - numbers must be expanded before voice generation
+  - abbreviations must have an explicit spoken form
+  - character names must always use dictionary pronunciation
+  - technical terms must not switch pronunciation between scenes

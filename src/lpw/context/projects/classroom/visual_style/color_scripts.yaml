@@ -1,0 +1,18 @@
+color_script:
+  scene_01:
+    emotional_state: safety
+    dominant: warm amber
+    accent: muted burgundy
+    contrast: low
+
+  scene_02:
+    emotional_state: suspicion
+    dominant: steel blue
+    accent: pale cyan
+    contrast: medium
+
+  scene_03:
+    emotional_state: danger
+    dominant: charcoal
+    accent: warning red
+    contrast: high

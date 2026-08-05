@@ -1,0 +1,39 @@
+technical:
+  sample_rate: 48000
+  delivery_channels: stereo
+  maximum_true_peak_db: -1
+
+loudness:
+  web_target_lufs: -16
+  cinematic_preview_lufs: -18
+
+priority:
+  - dialogue
+  - important narrative sound effects
+  - ambience
+  - music
+  - decorative sound effects
+
+dialogue:
+  center_pan: true
+  compression: subtle
+  noise_reduction: light
+  de_esser: light
+
+music:
+  duck_under_dialogue: true
+  ducking_db: -6
+  attack_ms: 100
+  release_ms: 500
+
+ambience:
+  crossfade_between_scenes_ms: 600
+  maintain_room_tone_during_dialogue: true
+
+sound_effects:
+  maximum_simultaneous_prominent_effects: 3
+
+stereo:
+  dialogue_width: 0
+  music_width: 80
+  ambience_width: 100

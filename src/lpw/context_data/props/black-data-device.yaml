@@ -1,0 +1,44 @@
+prop:
+  id: black-data-device
+  name: Black Data Device
+  category: electronic-device
+
+  visual_identity:
+    primary_color: matte-black
+    secondary_color: cyan
+    material: brushed-metal-and-glass
+    shape: thin-rectangular-device
+    size: palm-sized
+    distinctive_features:
+      - cyan-light-strip-on-left-edge
+      - cracked-lower-right-corner
+      - circular-symbol-on-back
+      - single-side-button
+
+  default_state:
+    owner: shakiba
+    holder: shakiba
+    condition: active
+    visibility: visible
+    screen_position: shakiba-right-hand
+
+  allowed_conditions:
+    - inactive
+    - active
+    - damaged
+    - destroyed
+
+  continuity_rules:
+    preserve:
+      - primary-color
+      - cyan-light-strip
+      - cracked-corner
+      - circular-back-symbol
+      - physical-size
+    forbidden_changes:
+      - changing-device-color
+      - removing-cracked-corner
+      - changing-device-shape
+      - changing-device-size
+      - moving-device-between-hands-without-an-action
+      - changing-holder-without-a-transfer-event

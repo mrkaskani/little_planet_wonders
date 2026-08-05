@@ -1,0 +1,31 @@
+scene_id: rooftop-confrontation
+
+timeline_state:
+  current_time_seconds: 42.8
+
+voices:
+  roxana:
+    voice_id: roxana-v1
+    emotional_state: cautious
+    vocal_energy: low
+    last_dialogue_end_seconds: 41.2
+
+  shakiba:
+    voice_id: shakiba-v1
+    emotional_state: determined
+    vocal_energy: medium
+
+music:
+  active_cue: tension-theme-02
+  current_position_seconds: 18.4
+  intensity: 0.45
+
+ambience:
+  active_environment: rooftop-night-rain
+  rain_intensity: medium
+  wind_intensity: low
+
+active_sounds:
+  warning_light_hum:
+    position: west
+    gain_db: -32

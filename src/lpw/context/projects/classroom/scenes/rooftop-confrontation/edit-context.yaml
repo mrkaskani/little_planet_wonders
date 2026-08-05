@@ -1,0 +1,30 @@
+scene:
+  id: rooftop-confrontation
+  narrative_purpose: Roxana discovers that Shakiba has the data device
+  emotional_arc:
+    start: uncertainty
+    middle: suspicion
+    climax: confrontation
+    end: unresolved tension
+  pacing:
+    opening: slow
+    dialogue: restrained
+    climax: moderately fast
+    ending: hold on reaction
+  reference_shots:
+    visual: shot-001
+    color: shot-001
+    dialogue: shot-003
+    ambience: rooftop-night-rain
+  required_story_beats:
+    - establish the rooftop
+    - reveal Roxana waiting
+    - introduce Shakiba
+    - show the data device
+    - hold Roxana reaction
+    - end with unresolved tension
+  preferred_order: [shot-001, shot-002, shot-003]
+  editorial_constraints:
+    - do not reveal the data device before shot-003
+    - preserve silence before Roxana's final look
+    - do not use music during the first establishing shot

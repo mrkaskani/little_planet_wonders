@@ -1,0 +1,44 @@
+shot:
+  id: shot-003
+  type: reaction
+
+  characters:
+    - shakiba
+
+  props:
+    - black-data-device
+
+  location: rooftop
+  duration_seconds: 3
+
+  action: >
+    Shakiba remains silent. She looks at Roxana, briefly lowers her
+    eyes toward the black data device, and tightens her grip.
+
+  dialogue: null
+
+  camera:
+    framing: medium-close-up
+    lens: 85mm
+    angle: eye-level
+    movement: locked
+    screen_direction: camera-right
+
+  transition:
+    in: cut
+    out: cut
+
+  generation:
+    mode: i2v
+    reference_image: assets/keyframes/shot-003-shakiba.png
+    prompt: >
+      Shakiba remains silent on the rainy rooftop. She looks at
+      Roxana off-screen, briefly lowers her eyes toward the black
+      data device in her right hand, then tightens her grip.
+      Minimal controlled movement, locked camera. Preserve her face,
+      wardrobe, device design, rain and lighting.
+    negative_prompt: >
+      speaking, mouth movement, smiling, large gestures, changed
+      device, changed wardrobe, additional characters, camera
+      movement
+    seed: 14003

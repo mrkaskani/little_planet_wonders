@@ -33,7 +33,27 @@ def context_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
         ),
         project / "audios" / "audio.yaml": (
             "dialogue:\n  target_lufs: -16\n"
+            "music:\n  dialogue_ducking_db: -6\n"
             "ambience:\n  continuous_room_tone: true\n"
+        ),
+        project / "audios" / "ambience.yaml": (
+            "locations:\n"
+            "  rooftop:\n"
+            "    base_layer:\n"
+            "      asset: audio-assets/ambience/rooftop-night-rain.wav\n"
+            "    continuity:\n"
+            "      preserve_across_cuts: true\n"
+        ),
+        project / "audios" / "audio-continuity.yaml": (
+            "music:\n"
+            "  active_cue: tension-theme-02\n"
+            "  intensity: 0.45\n"
+            "ambience:\n"
+            "  active_environment: rooftop-night-rain\n"
+            "active_sounds:\n"
+            "  warning_light_hum:\n"
+            "    position: west\n"
+            "    gain_db: -32\n"
         ),
         project / "characters" / "roxana" / "character.yaml": (
             "id: roxana\n"

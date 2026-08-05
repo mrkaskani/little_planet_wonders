@@ -1,0 +1,13 @@
+episode_id: episode-001
+language: fa
+status: approved-text
+lines:
+  - scene_id: rooftop-confrontation
+    shot_id: shot-004
+    character_id: roxana
+    exact_dialogue: "شکیبا، اینجا امن نیست."
+    primary_emotion: mild-concern
+    ending_emotion: reassuring
+    emotional_intensity: 0.4
+    speaking_speed: slow-to-moderate
+    final_audio_status: not-generated

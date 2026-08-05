@@ -1,0 +1,14 @@
+workflow:
+  id: wan-t2v
+  mode: t2v
+  api_workflow_file: workflows/comfyui/wan22-t2v-api.json
+  input_bindings:
+    prompt: {node_id: "6", field: text}
+    negative_prompt: {node_id: "7", field: text}
+    seed: {node_id: "3", field: seed}
+    width: {node_id: "10", field: width}
+    height: {node_id: "10", field: height}
+    frame_count: {node_id: "10", field: length}
+    fps: {node_id: "40", field: frame_rate}
+  output_nodes:
+    - "42"

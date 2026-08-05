@@ -1,0 +1,25 @@
+id: shakiba
+voice_identity:
+  apparent_age: young adult
+  pitch: medium
+  timbre: clear and warm
+  speaking_speed: slow to moderate
+  articulation: precise
+  emotional_baseline: focused and friendly
+  maximum_emotional_intensity: moderate
+
+generation:
+  provider: externally-managed-local-tts
+  voice_id: shakiba-v1
+
+references:
+  neutral-friendly: audio-assets/voice-references/shakiba/neutral-friendly.wav
+  happy-gentle: audio-assets/voice-references/shakiba/happy-gentle.wav
+  curious: audio-assets/voice-references/shakiba/curious.wav
+  mild-concern: audio-assets/voice-references/shakiba/mild-concern.wav
+  reassuring: audio-assets/voice-references/shakiba/reassuring.wav
+
+consistency_constraints:
+  - preserve vocal age, accent, warmth, and speaking speed
+  - keep the voice clearly distinct from Roxana
+  - never use a reference as final dialogue unless its words match exactly

@@ -1,0 +1,41 @@
+prop:
+  id: weapon
+  name: Roxana Compact Sidearm
+  category: weapon
+
+  visual_identity:
+    primary_color: dark-charcoal
+    secondary_color: burgundy
+    material: matte-metal
+    shape: compact-sidearm
+    size: compact
+    distinctive_features:
+      - burgundy-grip
+      - short-barrel
+      - small-cyan-status-light
+
+  default_state:
+    owner: roxana
+    holder: null
+    condition: secured
+    visibility: hidden
+    screen_position: roxana-right-holster
+
+  allowed_conditions:
+    - secured
+    - drawn
+    - dropped
+    - damaged
+
+  continuity_rules:
+    preserve:
+      - burgundy-grip
+      - short-barrel
+      - cyan-status-light
+      - compact-size
+    forbidden_changes:
+      - appearing-without-being-drawn
+      - disappearing-after-being-drawn
+      - changing-owner-without-an-event
+      - changing-color
+      - changing-shape

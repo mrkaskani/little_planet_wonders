@@ -1,0 +1,15 @@
+take_selection_weights:
+  character_identity: 0.25
+  facial_quality: 0.15
+  motion_quality: 0.15
+  camera_accuracy: 0.10
+  location_consistency: 0.10
+  continuity: 0.10
+  lip_sync: 0.10
+  editability: 0.05
+take_rejection:
+  minimum_character_identity: 4.0
+  minimum_facial_quality: 3.5
+  minimum_motion_quality: 3.0
+  minimum_continuity: 3.5
+  minimum_lip_sync_for_dialogue: 3.8

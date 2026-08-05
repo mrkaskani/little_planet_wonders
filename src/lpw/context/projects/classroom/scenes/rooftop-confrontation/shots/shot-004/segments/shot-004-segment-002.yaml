@@ -1,0 +1,14 @@
+id: shot-004-segment-002
+type: video-segment-context
+version: 1
+extends:
+  - cinema://projects/classroom/scenes/rooftop-confrontation/shots/shot-004@1
+
+time: {start_seconds: 4, end_seconds: 8}
+performance:
+  start_state: Roxana continues raising her head
+  end_state: Roxana makes eye contact with Shakiba
+camera:
+  movement_progress: {start: 0.33, end: 0.66}
+frame_chain:
+  start_frame_source: approved-predecessor-end-frame

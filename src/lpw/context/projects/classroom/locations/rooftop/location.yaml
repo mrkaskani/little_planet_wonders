@@ -1,0 +1,35 @@
+id: rooftop
+type: location-context
+version: 1
+name: Tower 17 Rooftop
+
+architecture:
+  style: weathered brutalist concrete
+  floor: wet dark concrete
+  north: dense city skyline
+  south: maintenance entrance
+  east: ventilation structure
+  west: communication antenna
+
+environment:
+  weather: steady light rain
+  wind: moderate
+  atmosphere: thin mist
+
+lighting:
+  key: cold blue moonlight
+  fill: reflected city light
+  rim: restrained warm neon
+  practical: slow red warning light
+
+continuity_constraints:
+  - maintenance door remains south
+  - antenna remains west
+  - ventilation structure remains east
+  - rooftop remains wet
+  - preserve skyline architecture
+
+reference_images:
+  wide_north: references/wide-north.png
+  reverse_south: references/reverse-south.png
+  floor_plan: references/floor-plan.png

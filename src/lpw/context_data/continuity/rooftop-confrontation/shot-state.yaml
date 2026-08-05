@@ -1,0 +1,164 @@
+shot_state:
+  scene_id: rooftop-confrontation
+
+  shots:
+    shot-001:
+      before:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: false
+        props:
+          black-data-device:
+            visibility: hidden
+          weapon:
+            visibility: hidden
+            condition: secured
+      after:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: false
+        props:
+          black-data-device:
+            visibility: hidden
+          weapon:
+            visibility: hidden
+            condition: secured
+
+    shot-002:
+      before:
+        characters:
+          roxana:
+            visible: true
+            wardrobe: roxana-primary
+            position: screen-right
+            looking_direction: camera-left
+            hair_condition: wet
+            emotional_state: uncertain
+          shakiba:
+            visible: false
+        props:
+          black-data-device:
+            holder: shakiba
+            visibility: off-screen
+            screen_position: shakiba-right-hand
+          weapon:
+            holder: null
+            visibility: hidden
+            condition: secured
+            screen_position: roxana-right-holster
+      after:
+        characters:
+          roxana:
+            visible: true
+            wardrobe: roxana-primary
+            position: screen-right
+            looking_direction: camera-left
+            hair_condition: wet
+            emotional_state: suspicious
+          shakiba:
+            visible: false
+        props:
+          black-data-device:
+            holder: shakiba
+            visibility: off-screen
+            screen_position: shakiba-right-hand
+          weapon:
+            holder: null
+            visibility: hidden
+            condition: secured
+            screen_position: roxana-right-holster
+
+    shot-003:
+      before:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: true
+            wardrobe: shakiba-primary
+            position: screen-left
+            looking_direction: camera-right
+            hair_condition: wet
+            emotional_state: guarded
+        props:
+          black-data-device:
+            owner: shakiba
+            holder: shakiba
+            visibility: visible
+            condition: active
+            screen_position: shakiba-right-hand
+          weapon:
+            visibility: hidden
+            condition: secured
+      after:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: true
+            wardrobe: shakiba-primary
+            position: screen-left
+            looking_direction: downward
+            hair_condition: wet
+            emotional_state: anxious
+        props:
+          black-data-device:
+            owner: shakiba
+            holder: shakiba
+            visibility: visible
+            condition: active
+            screen_position: shakiba-right-hand
+            grip: tightened
+          weapon:
+            visibility: hidden
+            condition: secured
+
+    shot-004:
+      before:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: true
+            wardrobe: shakiba-primary
+            position: screen-left
+            looking_direction: camera-right
+            hair_condition: wet
+            emotional_state: anxious
+        props:
+          black-data-device:
+            owner: shakiba
+            holder: shakiba
+            visibility: visible
+            condition: active
+            screen_position: shakiba-right-hand
+            grip: tightened
+          weapon:
+            visibility: hidden
+            condition: secured
+      after:
+        characters:
+          roxana:
+            visible: false
+          shakiba:
+            visible: true
+            wardrobe: shakiba-primary
+            position: screen-left
+            looking_direction: camera-right
+            hair_condition: wet
+            emotional_state: fearful-but-determined
+        props:
+          black-data-device:
+            owner: shakiba
+            holder: shakiba
+            visibility: visible
+            condition: active
+            screen_position: shakiba-right-hand
+            grip: tightened
+          weapon:
+            visibility: hidden
+            condition: secured

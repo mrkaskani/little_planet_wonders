@@ -1,0 +1,36 @@
+audience:
+  minimum_age: 2
+  maximum_age: 5
+
+workflow:
+  require_exact_approved_dialogue: true
+  require_emotional_reference: true
+  require_clean_dialogue: true
+  require_review_before_lock: true
+  require_locked_audio_for_lip_sync: true
+  regenerate_video_after_material_audio_change: true
+
+safety:
+  maximum_emotional_intensity: 0.6
+  require_reassuring_resolution: true
+  forbidden_delivery:
+    - screaming
+    - aggressive shouting
+    - threatening delivery
+    - extreme panic
+    - intense crying
+    - harsh sarcasm
+    - frightening whispers
+    - sudden large volume changes
+
+participation:
+  minimum_response_pause_seconds: 3
+  maximum_response_pause_seconds: 5
+  avoid_distracting_motion_during_pause: true
+
+lip_sync_input:
+  dialogue_only: true
+  forbid_music: true
+  forbid_ambience: true
+  forbid_foley: true
+  forbid_sound_effects: true

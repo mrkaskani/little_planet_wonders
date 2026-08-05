@@ -1,0 +1,30 @@
+id: rooftop-confrontation
+type: scene-context
+version: 1
+extends:
+  - cinema://projects/classroom/sequences/sequence-01@1
+imports:
+  characters:
+    - cinema://projects/classroom/characters/roxana@1
+  locations:
+    - cinema://projects/classroom/locations/rooftop@1
+
+story:
+  purpose: Roxana discovers that Shakiba has the data device
+
+emotional_arc:
+  start: uncertainty
+  middle: suspicion
+  end: confrontation
+
+environment:
+  weather: medium rain
+  time_of_day: night
+
+audio_chain:
+  ambience:
+    asset: rooftop-night-rain.wav
+    restart: false
+  music:
+    cue: tension-theme-02
+    continue_from_seconds: 0

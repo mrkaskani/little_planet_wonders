@@ -1,0 +1,17 @@
+episode_id: episode-001
+scene_id: rooftop-confrontation
+priority:
+  - dialogue
+  - essential visible-action sound
+  - location ambience
+  - Foley
+  - music
+  - decorative sound effects
+cues:
+  - cue_id: warning-light-hum
+    category: environment
+    source: rooftop warning light
+    action: continuous low hum
+    story_purpose: identify the visible warning light
+    volume: very-soft
+    continue_across_cut: true

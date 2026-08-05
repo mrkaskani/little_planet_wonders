@@ -1,0 +1,67 @@
+video:
+  width: 1920
+  height: 804
+  frame_rate: 24
+  pixel_format: yuv420p
+  working_codec: libx264
+  working_quality_crf: 16
+  delivery_codec: libx264
+  delivery_quality_crf: 18
+  delivery_preset: slow
+audio:
+  sample_rate: 48000
+  channels: 2
+  target_lufs: -16
+  loudness_range: 7
+  maximum_true_peak_db: -1.5
+validation:
+  allowed_frame_rate_difference: 0.01
+  minimum_duration_seconds: 1.0
+  maximum_black_segment_seconds: 0.5
+  maximum_unplanned_freeze_seconds: 1.0
+approval:
+  minimum_identity_score: 4
+  minimum_motion_score: 3
+  minimum_location_score: 4
+  minimum_audio_score: 4
+  minimum_lip_sync_score: 4
+profiles:
+  review:
+    container: mp4
+    video_codec: libx264
+    width: 1280
+    height: 536
+    frame_rate: 24
+    crf: 24
+    audio_codec: aac
+    audio_bitrate: 160k
+  web:
+    container: mp4
+    video_codec: libx264
+    width: 1920
+    height: 804
+    frame_rate: 24
+    crf: 18
+    audio_codec: aac
+    audio_bitrate: 320k
+    target_lufs: -16
+  master:
+    container: mov
+    video_codec: prores_ks
+    profile: 3
+    pixel_format: yuv422p10le
+    frame_rate: 24
+    audio_codec: pcm_s24le
+    audio_sample_rate: 48000
+  archive:
+    include:
+      - master_video
+      - dialogue_stems
+      - music_stem
+      - ambience_stem
+      - sound_effects_stem
+      - subtitles
+      - edit_plan
+      - context_snapshot
+      - validation_report
+      - approval_report

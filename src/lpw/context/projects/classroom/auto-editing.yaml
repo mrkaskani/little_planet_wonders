@@ -1,0 +1,47 @@
+automation:
+  mode: assisted
+  require_preview_approval: true
+  allow_automatic_master_export: false
+decision_priority:
+  - narrative_clarity
+  - character_identity
+  - continuity
+  - emotional_performance
+  - technical_quality
+  - visual_beauty
+take_selection:
+  use_highest_valid_score: true
+  allow_secondary_take_for_continuity: true
+  prefer_same_context_hash: true
+trim_selection:
+  remove_unstable_opening_frames: true
+  remove_deformed_final_frames: true
+  preserve_action_start: true
+  preserve_action_completion: true
+  preserve_dialogue_breathing_room: true
+shot_ordering:
+  follow_scene_plan: true
+  allow_reaction_insertion: true
+  allow_establishing_shot_insertion: true
+  allow_insert_shot_for_continuity_repair: true
+  allow_unplanned_story_reordering: false
+continuity_repair:
+  insert_neutral_shot: true
+  insert_reaction_shot: true
+  insert_detail_shot: true
+  request_regeneration_on_blocking_error: true
+audio_editing:
+  use_j_cuts: true
+  use_l_cuts: true
+  preserve_room_tone: true
+  continue_ambience_across_cuts: true
+  duck_music_under_dialogue: true
+preview:
+  width: 1280
+  height: 536
+  codec: libx264
+  crf: 24
+  audio_bitrate: 160k
+  watermark: PREVIEW
+  include_timecode: true
+  include_shot_id_overlay: true

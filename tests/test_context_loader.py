@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from little_planet_wonders.context.loader import load_project_context
-from little_planet_wonders.errors import InvalidContextIdentifierError
+from lpw.context.loader import load_project_context
+from lpw.errors import InvalidContextIdentifierError
 
 
 def test_loads_nested_context_schema_and_stable_hash(context_root) -> None:
@@ -25,3 +25,22 @@ def test_loads_nested_context_schema_and_stable_hash(context_root) -> None:
 def test_rejects_path_traversal(context_root) -> None:
     with pytest.raises(InvalidContextIdentifierError):
         load_project_context("../../secret")
+
+
+def test_audio_context_changes_the_project_hash(context_root) -> None:
+    before = load_project_context("demo")["metadata"]["context_hash"]
+    continuity = (
+        context_root
+        / "projects"
+        / "demo"
+        / "audios"
+        / "audio-continuity.yaml"
+    )
+    continuity.write_text(
+        "music:\n  active_cue: resolution-theme-01\n  intensity: 0.2\n",
+        encoding="utf-8",
+    )
+
+    after = load_project_context("demo")["metadata"]["context_hash"]
+
+    assert after != before

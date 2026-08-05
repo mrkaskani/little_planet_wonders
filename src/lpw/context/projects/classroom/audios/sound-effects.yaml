@@ -1,0 +1,64 @@
+style:
+  realism: recognizable and gently softened
+  intensity: child-safe
+  perspective_sensitive: true
+  match_environment_acoustics: true
+
+categories:
+  footsteps:
+    rooftop:
+      surface: wet concrete
+      asset_set: wet-concrete-boots
+      variation_policy: round-robin
+      minimum_repeat_distance: 4
+
+  doors:
+    rooftop_maintenance_door:
+      material: heavy metal
+      open_asset: maintenance-door-open.wav
+      close_asset: maintenance-door-close.wav
+
+  devices:
+    black_data_device:
+      activate_asset: device-activate-soft.wav
+      alert_asset: device-alert-muted.wav
+
+  weather:
+    rain_on_jacket:
+      asset: rain-on-leather-close.wav
+      use_only_in_closeups: true
+
+rules:
+  - use sound based on visible action
+  - use distance-appropriate volume
+  - do not add an impact when no impact is visible
+  - avoid repeating the identical sound sample
+  - preserve the established material sound
+  - dialogue always has priority
+  - preserve quiet space during participation pauses
+
+child_safety:
+  audience_age: 2-5
+  soft_attack_and_release: true
+  maximum_volume: moderate
+  maximum_simultaneous_prominent_effects: 3
+  forbidden_qualities:
+    - explosive
+    - gun-like
+    - horror
+    - scream
+    - harsh alarm
+    - heavy bass impact
+    - frightening whisper
+    - realistic injury
+    - aggressive transient
+
+learning_cues:
+  correct_answer:
+    identity: two gentle marimba notes
+    volume: soft
+  try_again:
+    identity: soft curious note followed by warm encouragement
+    forbidden: negative buzzer
+  discovery:
+    identity: three light bell-like notes with a warm wooden tone

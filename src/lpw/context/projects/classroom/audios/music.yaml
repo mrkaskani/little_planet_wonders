@@ -1,0 +1,84 @@
+identity:
+  genre:
+    - warm acoustic
+    - playful melodic
+    - gentle cinematic
+
+  emotional_character:
+    - curious
+    - reassuring
+    - emotionally safe
+
+  instrumentation:
+    primary:
+      - marimba
+      - soft piano
+      - ukulele
+      - gentle flute
+
+    secondary:
+      - wooden percussion
+      - light strings
+      - warm synthesizer pads
+
+  forbidden:
+    - horror music
+    - aggressive action music
+    - heavy bass impacts
+    - harsh electronic sounds
+    - intense suspense
+    - chaotic percussion
+    - loud orchestral hits
+    - dark threatening drones
+
+tempo:
+  default_bpm: 72
+  tension_range_bpm:
+    minimum: 75
+    maximum: 92
+
+harmony:
+  default_mode: warm modal
+  complexity: simple
+  use_clear_reassuring_resolutions: true
+
+mixing:
+  dialogue_ducking_db: -6
+  maximum_music_true_peak_db: -3
+  preserve_low_frequency_space_for_dialogue: true
+
+themes:
+  roxana:
+    motif: three warm piano notes followed by a gentle upward flute phrase
+    instruments:
+      - processed piano
+      - low synth pad
+
+  shakiba:
+    motif: short rising string phrase
+    instruments:
+      - soft strings
+      - granular texture
+
+  danger:
+    motif: reduced instrumentation with gentle uncertainty
+    tempo_bpm: 68
+
+child_safety:
+  audience_age: 2-5
+  maximum_energy: moderate
+  maximum_complexity: simple
+  preserve_participation_pauses: true
+  avoid_sudden_loudness: true
+  avoid_frightening_dissonance: true
+
+participation_pause:
+  minimum_seconds: 3
+  maximum_seconds: 5
+  remove_percussion: true
+  hold_soft_stable_tone: true
+  do_not_reveal_answer: true
+
+continuity:
+  reuse_approved_themes: true
+  preserve_motif_identity_across_instrument_variations: true

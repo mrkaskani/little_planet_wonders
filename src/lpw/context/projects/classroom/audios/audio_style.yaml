@@ -1,0 +1,26 @@
+dialogue:
+  sample_rate: 48000
+  bit_depth: 24
+  channel_format: mono
+
+  naturalism:
+    preserve_breathing: true
+    preserve_short_pauses: true
+    remove_long_accidental_silence: true
+    avoid_robotic_timing: true
+
+  timing:
+    minimum_pause_between_sentences_ms: 250
+    maximum_unplanned_silence_ms: 1000
+    dialogue_pre_roll_ms: 150
+    dialogue_post_roll_ms: 250
+
+  performance:
+    acting_style: restrained cinematic realism
+    avoid_exaggerated_emotion: true
+    match_scene_emotional_state: true
+
+  lip_sync:
+    generate_final_audio_before_video: true
+    preserve_word_timing: true
+    never_replace_audio_after_final_lip_sync: true
