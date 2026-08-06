@@ -3,7 +3,7 @@
 ## Requirements
 
 - Python 3.11 or newer
-- `uv`
+- `pip`
 - FFmpeg and FFprobe for media validation and finalization
 - Optional local ComfyUI only when an operator chooses to execute Wan workflows
 
@@ -14,7 +14,9 @@ later enabled.
 ## Install
 
 ```bash
-uv sync --dev
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
 ```
 
 If the repository already contains its virtual environment and network access is
@@ -27,14 +29,14 @@ intentionally unavailable, use the existing environment:
 ## Verify
 
 ```bash
-uv run pytest
-uv run python -m compileall -q src tests
+pytest
+python -m compileall -q src tests
 ```
 
 ## Start the MCP server
 
 ```bash
-uv run lpw
+lpw
 ```
 
 The server uses stdio transport. Configure the command and project directory in

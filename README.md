@@ -8,9 +8,11 @@ generated continuity state is written separately to `runtime/`.
 ## Setup
 
 ```bash
-uv sync --dev
-uv run pytest
-uv run lpw
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+pytest
+lpw
 ```
 
 Complete documentation starts at [docs/index.md](docs/index.md). The documentation

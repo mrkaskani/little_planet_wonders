@@ -3,7 +3,7 @@
 ## Full suite
 
 ```bash
-uv run pytest
+pytest
 ```
 
 Offline with the existing environment:
