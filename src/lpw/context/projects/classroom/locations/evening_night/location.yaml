@@ -1,0 +1,1577 @@
+id: kindergarten-evening-night-sound
+type: location-sound-context
+version: 1.1
+name: Kindergarten Evening Night Sound Profile
+
+identity:
+  location: kindergarten
+  area: exterior-garden
+  time_of_day: evening-night
+  category: location
+
+  sonic_identity:
+    primary:
+      - gentle-night-insects
+      - soft-tree-leaf-rustle
+      - calm-night-air
+      - quiet-garden-room-tone
+
+    secondary:
+      - sparse-night-birds
+      - subtle-crickets
+      - distant-neighborhood-ambience
+      - soft-house-presence
+      - occasional-small-night-creatures
+
+  character:
+    - peaceful
+    - cozy
+    - quiet
+    - reassuring
+    - gentle
+    - magical
+    - warm
+    - safe
+    - child-friendly
+
+  intensity: low
+
+base_ambience:
+  id: kindergarten-evening-night
+
+  layers:
+    night_air:
+      type: calm-open-night-air
+      intensity: low
+      persistence: continuous
+      importance: high
+
+    insects:
+      type: gentle-night-garden-insects
+      intensity: low
+      variation: natural
+      persistence: continuous
+
+    breeze:
+      type: soft-night-breeze
+      intensity: very-light
+      variation: gradual
+      persistence: continuous
+
+    foliage:
+      type: subtle-night-leaf-rustle
+      intensity: very-low
+      persistence: continuous
+
+    neighborhood:
+      type: distant-quiet-residential-night
+      intensity: minimal
+      persistence: continuous
+
+    building:
+      type: warm-occupied-building-presence
+      intensity: minimal
+      persistence: conditional
+
+recurring_details:
+  crickets:
+    enabled: true
+    intensity: low
+    variation: natural
+    spatial_width: wide
+
+  gentle_insects:
+    enabled: true
+    intensity: very-low
+    frequency: regular
+
+  leaf_rustle:
+    enabled: true
+    intensity: very-low
+    variation: subtle
+
+  distant_night_bird:
+    enabled: conditional
+    intensity: very-low
+    frequency: rare
+
+  small_wing_flutter:
+    enabled: conditional
+    intensity: minimal
+
+    condition:
+      creature_near_camera: true
+
+  distant_neighborhood:
+    enabled: true
+    intensity: minimal
+    distance: far
+
+  warm_building_presence:
+    enabled: conditional
+    intensity: minimal
+
+    condition:
+      building_occupied: true
+
+weather:
+  state: clear-night
+  precipitation: none
+  cloud_cover: scattered
+
+  temperature_character:
+    - mild
+    - cool
+    - comfortable
+
+  air_character:
+    - still
+    - soft
+    - clear
+    - calm
+
+  rules:
+    - no rain
+    - no thunder
+    - no storm ambience
+    - no aggressive wind
+    - preserve calm clear-night atmosphere
+    - nighttime sound must remain reassuring rather than eerie
+
+night:
+  state: active
+
+  phase:
+    default: early-night
+
+  progression:
+    evening:
+      insects: very-low
+      birds: sparse
+      breeze: very-light
+      neighborhood: very-low
+
+    early_night:
+      insects: low
+      birds: rare
+      breeze: very-light
+      neighborhood: minimal
+
+    quiet_night:
+      insects: low
+      birds: minimal
+      breeze: subtle
+      neighborhood: minimal
+
+  rules:
+    - transition gradually from evening to night
+    - daytime birds decrease naturally
+    - night insects increase gradually
+    - do not introduce frightening nocturnal sounds
+    - avoid abrupt ambience changes
+
+wind:
+  default:
+    intensity: very-light
+    character: soft-cool-night-breeze
+
+  behavior:
+    variation: gradual
+    gusts: rare
+    spatial_movement: subtle
+
+  interactions:
+    large_trees:
+      enabled: true
+      sound: gentle-leaf-rustle
+      intensity: very-low
+
+    shrubs:
+      enabled: true
+      sound: soft-foliage-movement
+      intensity: minimal
+
+    flowers:
+      enabled: true
+      sound: delicate-plant-movement
+      intensity: minimal
+
+    clothing:
+      enabled: conditional
+      intensity: subtle
+
+  rules:
+    - avoid aggressive gusts
+    - avoid frightening wind tones
+    - avoid low-frequency wind rumble
+    - vegetation movement must match visible conditions
+
+garden:
+  character:
+    - calm
+    - lush
+    - quiet
+    - sheltered
+    - welcoming
+
+  ambience:
+    insects:
+      intensity: low
+
+    foliage:
+      intensity: very-low
+
+    night_air:
+      intensity: low
+
+    neighborhood:
+      intensity: minimal
+
+  flower_beds:
+    sound:
+      primary: none
+
+    nearby_insects:
+      enabled: true
+      intensity: very-low
+
+    interaction:
+      touch:
+        sound: delicate-plant-contact
+        intensity: minimal
+
+      brushing_past:
+        sound: soft-flower-rustle
+        intensity: very-low
+
+  rules:
+    - garden remains gentle
+    - avoid dense insect swarm texture
+    - avoid aggressive buzzing
+    - preserve a calm nighttime garden identity
+
+trees:
+  presence: high
+
+  ambience:
+    leaves:
+      sound: subtle-night-leaf-rustle
+      intensity: very-low
+
+    branches:
+      sound: minimal-branch-movement
+      intensity: minimal
+
+  nocturnal_activity:
+    enabled: conditional
+
+    sounds:
+      - rare-soft-bird-call
+      - occasional-wing-flutter
+
+    intensity: very-low
+
+  rules:
+    - avoid branch cracking
+    - avoid eerie tree creaks
+    - avoid strong canopy movement
+    - preserve soft sheltered character
+
+insects:
+  presence: low-moderate
+
+  types:
+    - gentle-crickets
+    - soft-night-insects
+
+  behavior:
+    crickets:
+      intensity: low
+      variation: natural
+      spatial_width: wide
+
+    individual_insects:
+      intensity: very-low
+      frequency: occasional
+
+  proximity:
+    distant:
+      intensity: very-low
+
+    garden:
+      intensity: low
+
+    close:
+      intensity: very-low
+      detail: slightly-increased
+
+  rules:
+    - no loud cricket wall
+    - no dense buzzing
+    - no swarm sounds
+    - avoid repetitive identical loops
+    - insects must not mask dialogue
+
+birds:
+  presence: sparse
+
+  types:
+    - occasional-settling-bird
+    - rare-gentle-night-bird
+
+  behavior:
+    calls:
+      intensity: very-low
+      frequency: rare
+
+    movement:
+      wing_flutter:
+        enabled: conditional
+        intensity: minimal
+
+  rules:
+    - avoid owl hoots unless explicitly required
+    - avoid predatory calls
+    - avoid repetitive night bird calls
+    - nighttime bird activity remains rare
+
+kindergarten_building:
+  id: kindergarten-building
+  position: center
+
+  occupancy:
+    default: occupied
+
+  exterior_sound:
+    primary:
+      - subtle-warm-building-presence
+
+    intensity: minimal
+
+  interior_leakage:
+    enabled: conditional
+
+    condition:
+      windows_or_door_open: true
+
+    possible_sounds:
+      - very-soft-indoor-room-tone
+      - faint-gentle-child-activity
+      - soft-adult-movement
+
+    intensity: very-low
+
+  windows:
+    visual_state: illuminated
+
+    sound:
+      primary: none
+
+    leakage:
+      enabled: conditional
+      intensity: minimal
+
+  rules:
+    - light itself produces no sound
+    - interior activity remains highly filtered
+    - avoid clearly intelligible offscreen speech
+    - building should feel occupied without sounding busy
+
+exterior_lights:
+  porch_lights:
+    enabled: true
+
+    sound:
+      primary: none
+
+    electrical_presence:
+      enabled: false
+
+  garden_lamp:
+    enabled: true
+
+    sound:
+      primary: none
+
+    electrical_presence:
+      enabled: false
+
+  rules:
+    - lights must not buzz
+    - avoid fluorescent or electrical hum
+    - illumination is visually present but normally sonically silent
+
+entrance_door:
+  id: kindergarten-front-door
+  position: center
+
+  state:
+    default: closed
+
+  open:
+    sound:
+      - soft-handle-click
+      - gentle-wood-door-open
+
+    intensity: low
+
+  close:
+    sound:
+      - gentle-wood-door-close
+      - soft-latch-click
+
+    intensity: low
+
+  ambience_transition:
+    opening:
+      - reveal-warm-interior-room-tone
+      - slightly-reduce-exterior-filtering
+
+    closing:
+      - gradually-filter-interior
+      - restore-garden-dominance
+
+  rules:
+    - no door slam
+    - preserve gentle wooden material
+    - indoor ambience enters gradually through open doorway
+
+windows:
+  default_state: closed
+
+  sound:
+    primary: none
+
+  interior_transmission:
+    intensity: minimal
+
+  open_state:
+    transmission:
+      interior_room_tone: very-low
+      interior_activity: very-low
+
+  close_state:
+    transmission:
+      interior_room_tone: minimal
+      interior_activity: minimal
+
+  rules:
+    - interior sound remains filtered
+    - no clearly intelligible speech through closed windows
+
+stone_path:
+  id: kindergarten-night-stone-path
+
+  surface:
+    material:
+      - stone
+      - dry-ground
+
+  footsteps:
+    children:
+      walk:
+        sound: light-night-stone-footstep
+        intensity: low
+
+      run:
+        sound: quick-light-stone-footsteps
+        intensity: medium-low
+
+      skip:
+        sound: light-irregular-steps
+        intensity: low-medium
+
+    adults:
+      walk:
+        sound: natural-soft-stone-footstep
+        intensity: low-medium
+
+  rules:
+    - footsteps remain natural
+    - no heavy cinematic impacts
+    - quiet night setting may make nearby footsteps slightly clearer
+    - footsteps should still scale correctly to character size
+
+grass:
+  footsteps:
+    walk:
+      sound: soft-night-grass-step
+      intensity: very-low
+
+    run:
+      sound: light-grass-rustle
+      intensity: low
+
+  interaction:
+    contact:
+      sound: soft-grass-movement
+      intensity: very-low
+
+  rules:
+    - grass movement remains muted
+    - avoid dry crunchy texture unless visually established
+
+picket_fence:
+  id: kindergarten-night-fence
+  position: perimeter
+
+  material: painted-wood
+
+  sound:
+    primary: none
+
+  interaction:
+    touch:
+      sound: subtle-painted-wood-contact
+      intensity: very-low
+
+    gate_open:
+      sound: gentle-wooden-gate-open
+      intensity: low
+
+    gate_close:
+      sound: soft-wooden-gate-close
+      intensity: low
+
+  rules:
+    - no frightening squeaks
+    - no heavy gate slam
+    - preserve stable child-friendly construction
+
+interaction_sounds:
+  footsteps:
+    stone:
+      walk:
+        sound: light-natural-stone-step
+
+      run:
+        sound: quick-light-stone-steps
+
+    grass:
+      walk:
+        sound: soft-grass-step
+
+      run:
+        sound: gentle-grass-rustle
+
+  door:
+    open:
+      sound:
+        - soft-handle
+        - gentle-wood-door
+
+    close:
+      sound:
+        - gentle-door-close
+        - soft-latch
+
+  gate:
+    open:
+      sound: soft-painted-wood-movement
+
+    close:
+      sound: gentle-wood-contact
+
+  flowers:
+    brush:
+      sound: delicate-night-plant-rustle
+
+  bushes:
+    contact:
+      sound: soft-foliage-rustle
+
+  rules:
+    - interaction sounds require physical motivation
+    - sounds may feel slightly clearer because the environment is quiet
+    - preserve child-scale object weight
+    - avoid excessive Foley
+    - important narrative interactions may receive temporary emphasis
+
+fixed_sources:
+  kindergarten_building:
+    id: kindergarten-night-building
+    position: center
+
+    sound:
+      type: warm-occupied-building-presence
+      intensity: minimal
+
+  large_tree_left:
+    id: kindergarten-night-tree-left
+    position: left
+
+    sound:
+      type: soft-leaf-rustle
+      intensity: very-low
+
+  large_tree_right:
+    id: kindergarten-night-tree-right
+    position: right
+
+    sound:
+      type: soft-leaf-rustle
+      intensity: very-low
+
+  garden:
+    id: kindergarten-night-garden
+    position:
+      - foreground-left
+      - foreground-right
+
+    sound:
+      type: gentle-night-insects
+      intensity: low
+
+  garden_lamp:
+    id: kindergarten-night-garden-lamp
+    position: foreground-left
+
+    sound:
+      primary: none
+
+  entrance:
+    id: kindergarten-night-entrance
+    position: center
+
+    sound:
+      primary: none
+
+spatial_audio:
+  enabled: true
+
+  listener_reference: camera
+
+  sources:
+    building:
+      position: center
+      sound:
+        - subtle-interior-presence
+
+    left_tree:
+      position: left
+      sound:
+        - leaf-rustle
+        - rare-night-bird
+
+    right_tree:
+      position: right
+      sound:
+        - leaf-rustle
+        - rare-night-bird
+
+    garden_left:
+      position: foreground-left
+      sound:
+        - gentle-crickets
+        - subtle-insects
+
+    garden_right:
+      position: foreground-right
+      sound:
+        - gentle-crickets
+        - subtle-insects
+
+    neighborhood:
+      position: distant
+      sound:
+        - quiet-residential-night
+
+  rules:
+    - preserve physical source directions between shots
+    - camera rotation changes listening perspective
+    - insect beds remain spatially broad
+    - fixed sources remain anchored
+    - moving characters carry their own sound sources
+    - no arbitrary spatial repositioning after cuts
+
+camera_audio_behavior:
+  establishing_wide:
+    ambience_width: wide
+
+    emphasis:
+      night_air: normal
+      insects: normal
+      foliage: normal
+      neighborhood: subtle
+
+    interaction_detail: reduced
+
+  garden_medium:
+    ambience_width: medium-wide
+
+    emphasis:
+      nearby-insects: slightly-increased
+      foliage: normal
+      building: subtle
+
+  entrance_medium:
+    ambience_width: medium
+
+    emphasis:
+      footsteps: normal
+      door: increased
+      insects: reduced
+
+  character_medium:
+    ambience_width: medium
+
+    background_environment: slightly-reduced
+    nearby_detail: normal
+
+  close_up:
+    ambience_width: reduced
+
+    emphasis:
+      nearby-foliage: subtle
+      nearby-insects: very-low
+
+    neighborhood: reduced
+
+  emotional_close_up:
+    ambience_width: reduced
+
+    emphasis:
+      night_air: low
+      insects: very-low
+      foliage: minimal
+
+    overall_activity: reduced
+
+  window_or_door_close:
+    ambience_width: medium
+
+    emphasis:
+      interior_leakage: slightly-increased
+      exterior_insects: slightly-reduced
+
+  rules:
+    - preserve continuous ambience through shot changes
+    - perspective changes gradually
+    - close shots retain connection to the garden
+    - environmental layers must not restart
+
+dialogue:
+  priority: highest
+
+  ambience_behavior:
+    during_dialogue:
+      volume: low-beneath-dialogue
+
+      reduction:
+        insects: moderate
+        foliage: slight
+        breeze: slight
+        neighborhood: strong
+        interior_leakage: moderate
+
+    between_dialogue:
+      volume: normal-low
+
+  rules:
+    - dialogue remains fully intelligible
+    - preserve night identity beneath speech
+    - reduce repetitive cricket patterns around important lines
+    - do not mute ambience completely
+    - restore background smoothly after dialogue
+
+music_relationship:
+  music_profile: kindergarten-evening-night-music
+
+  priority:
+    - dialogue
+    - important-story-sfx
+    - character-action
+    - location-ambience
+    - subtle-night-details
+    - music
+
+  rules:
+    - music must preserve calm reassuring nighttime identity
+    - ambience remains audible beneath music
+    - insects should not compete with musical high frequencies
+    - avoid ominous musical interpretation
+    - avoid turning quiet night ambience into suspense
+    - dialogue remains dominant
+
+states:
+  evening:
+    id: kindergarten-evening
+
+    layers:
+      night_air: low
+      insects: very-low
+      foliage: very-low
+      birds: sparse
+      neighborhood: very-low
+
+  early_night:
+    id: kindergarten-early-night
+
+    layers:
+      night_air: low
+      insects: low
+      foliage: very-low
+      birds: minimal
+      neighborhood: minimal
+
+  default:
+    id: kindergarten-night-default
+
+    layers:
+      night_air: low
+      insects: low
+      breeze: very-light
+      foliage: very-low
+      neighborhood: minimal
+      building: minimal
+
+  quiet:
+    id: kindergarten-night-quiet
+
+    layers:
+      night_air: low
+      insects: very-low
+      breeze: subtle
+      foliage: minimal
+      neighborhood: minimal
+
+    purpose:
+      - reflection
+      - gentle-pause
+      - bedtime-like-calm
+      - observation
+
+  exploration:
+    id: kindergarten-night-exploration
+
+    layers:
+      night_air: low
+      insects: low
+      breeze: very-light
+      foliage: very-low
+
+    detail:
+      footsteps: increased
+      nearby-garden-interactions: increased
+
+  dialogue:
+    id: kindergarten-night-dialogue
+
+    layers:
+      night_air: low
+      insects: very-low
+      breeze: minimal
+      foliage: minimal
+      neighborhood: minimal
+
+    rules:
+      - dialogue remains dominant
+      - night ambience remains perceptible
+
+  arrival:
+    id: kindergarten-night-arrival
+
+    layers:
+      night_air: low
+      insects: low
+
+    temporary_sources:
+      - footsteps
+      - gate
+      - entrance-door
+
+  departure:
+    id: kindergarten-night-departure
+
+    layers:
+      night_air: low
+      insects: low
+
+    temporary_sources:
+      - entrance-door
+      - footsteps
+      - gate
+
+  door_open:
+    id: kindergarten-night-door-open
+
+    layers:
+      exterior: low
+      interior_leakage: very-low
+      insects: low
+
+    rules:
+      - indoor and outdoor spaces remain acoustically connected
+
+transitions:
+  evening_to_night:
+    behavior:
+      - gradually-reduce-daytime-birds
+      - gradually-increase-night-insects
+      - soften-general-environmental-activity
+      - preserve-foliage-and-air-continuity
+
+  approaching_kindergarten:
+    behavior:
+      - maintain-night-garden-bed
+      - gradually-introduce-building-presence
+      - slightly-increase-entrance-detail
+      - preserve-open-outdoor-width
+
+  approaching_door:
+    behavior:
+      - slightly-reduce-wide-garden-detail
+      - increase-nearby-footstep-detail
+      - prepare-interior-leakage-if-door-opens
+
+  entering_building:
+    behavior:
+      - reveal-interior-through-open-door
+      - gradually-reduce-insects
+      - reduce-night-air-width
+      - preserve-exterior-through-doorway
+      - transition-to-interior-night-profile-after-door-closes
+
+  exiting_building:
+    behavior:
+      - introduce-night-insects-before-full-exit
+      - expand-spatial-width
+      - introduce-night-air
+      - restore-foliage-and-garden-bed
+
+  leaving_kindergarten:
+    behavior:
+      - gradually-reduce-building-presence
+      - maintain-night-insects
+      - maintain-quiet-neighborhood-bed
+
+  shot_cut:
+    behavior:
+      ambience: continuous
+      environment_state: preserved
+
+    rules:
+      - do not restart insect patterns
+      - preserve wind state
+      - preserve building occupancy
+      - preserve time-of-night phase
+      - preserve fixed-source locations
+
+continuity:
+  preserve_across_visual_cuts: true
+  do_not_restart_on_each_shot: true
+
+  continuous_layers:
+    - night-air
+    - gentle-insects
+    - subtle-foliage
+    - distant-neighborhood
+
+  semi_continuous_layers:
+    - rare-birds
+    - individual-insect-events
+
+  preserve_state:
+    - time-of-day-phase
+    - wind-intensity
+    - insect-activity
+    - bird-activity
+    - door-state
+    - window-state
+    - building-occupancy
+    - exterior-weather-state
+    - character-position
+    - current-footstep-surface
+    - environmental-perspective
+
+  rules:
+    - ambience belongs to scene timeline
+    - night insects continue naturally through cuts
+    - avoid identical repeating cricket patterns
+    - exterior building state remains consistent
+    - lights changing visually do not create sound unless physically motivated
+    - environmental changes require explicit scene events
+    - transitions to interior must preserve shared exterior ambience logically
+
+event_memory:
+  track:
+    - time-of-night
+    - entrance-door-state
+    - gate-state
+    - window-state
+    - building-occupancy
+    - wind-state
+    - insect-activity-state
+    - bird-activity-state
+    - character-path-position
+    - current-footstep-surface
+    - temporary-sound-events
+
+  examples:
+    time_of_night:
+      states:
+        - evening
+        - early-night
+        - quiet-night
+
+    entrance_door:
+      states:
+        - closed
+        - opening
+        - open
+        - closing
+
+    gate:
+      states:
+        - closed
+        - opening
+        - open
+        - closing
+
+    building:
+      states:
+        - unoccupied
+        - occupied
+        - active-transition
+
+priority_system:
+  level_1:
+    category: dialogue
+
+  level_2:
+    category: narrative-action
+
+    examples:
+      - door
+      - gate
+      - important-object-interaction
+
+  level_3:
+    category: character-action
+
+    examples:
+      - footsteps
+      - running
+      - vegetation-contact
+
+  level_4:
+    category: environmental-identity
+
+    examples:
+      - insects
+      - night-air
+      - foliage
+
+  level_5:
+    category: distant-environment
+
+    examples:
+      - neighborhood
+      - rare-birds
+      - interior-leakage
+
+  level_6:
+    category: music
+
+volume:
+  overall: low-beneath-dialogue
+
+  relative_levels:
+    dialogue:
+      level: foreground
+
+    narrative_sfx:
+      level: foreground-support
+
+    character_action:
+      level: foreground-support
+
+    insects:
+      level: background
+
+    night_air:
+      level: background
+
+    foliage:
+      level: subtle-background
+
+    interior_leakage:
+      level: distant-background
+
+    neighborhood:
+      level: very-distant-background
+
+    rare_birds:
+      level: very-subtle-background
+
+forbidden:
+  night_animals:
+    - aggressive-owl-calls
+    - predator-growls
+    - threatening-dogs
+    - wolf-howls
+    - frightening-animal-cries
+    - bat-swarm
+    - loud-insect-swarms
+
+  weather:
+    - explosive-thunder
+    - violent-wind
+    - storm-rumble
+    - heavy-rain
+    - hurricane-gusts
+
+  environmental:
+    - eerie-tree-creaking
+    - frightening-branch-snaps
+    - mysterious-unexplained-footsteps
+    - threatening-rustling
+    - unexplained-whispers
+
+  neighborhood:
+    - sirens
+    - aggressive-horns
+    - loud-motorcycles
+    - chaotic-crowds
+    - heavy-traffic
+
+  building:
+    - harsh-electrical-buzz
+    - flickering-light-buzz
+    - alarm
+    - loud-machinery
+    - unexplained-building-creaks
+
+  emotional:
+    - horror-drones
+    - ominous-low-frequency-rumbles
+    - jump-scare-effects
+    - suspense-stingers
+    - threatening-pulses
+    - eerie-whispers
+    - horror-wind
+
+  cinematic:
+    - dramatic-booms
+    - artificial-whooshes
+    - unnecessary-impacts
+    - dark-suspense-risers
+
+negative_constraints:
+  - no horror ambience
+  - no ominous drones
+  - no frightening night animals
+  - no wolf howls
+  - no aggressive owl calls
+  - no threatening rustles
+  - no unexplained footsteps
+  - no eerie whispers
+  - no harsh electrical buzzing
+  - no frightening tree creaks
+  - no dense cricket wall
+  - no loud insect swarms
+  - no storm ambience
+  - no aggressive wind
+  - no heavy traffic
+  - no harsh alarms
+  - no unnecessary cinematic impacts
+  - no sudden ambience resets
+  - no abrupt evening-to-night transition
+  - no background sound masking dialogue
+  - no sonic treatment that makes the kindergarten feel unsafe
+
+generation:
+  essential_prompt_tokens:
+    - peaceful kindergarten garden at night
+    - gentle clear night ambience
+    - soft crickets
+    - subtle nighttime insects
+    - quiet tree leaves rustling
+    - very light cool breeze
+    - cozy illuminated kindergarten building
+    - calm residential garden
+    - warm reassuring nighttime atmosphere
+    - quiet child-friendly exterior
+    - soft natural night soundscape
+    - safe magical evening atmosphere
+    - dialogue-friendly
+    - continuous ambience
+
+  negative_prompt_tokens:
+    - horror night
+    - ominous drone
+    - wolf howl
+    - aggressive owl
+    - predator
+    - scary animal sounds
+    - eerie whispers
+    - mysterious footsteps
+    - frightening wind
+    - storm
+    - thunder
+    - heavy rain
+    - electrical buzz
+    - alarm
+    - traffic
+    - scream
+    - jump scare
+    - cinematic boom
+    - suspense riser
+
+  preserve_between_generations:
+    - night-air-character
+    - cricket-character
+    - insect-activity-level
+    - breeze-character
+    - foliage-character
+    - building-occupancy-character
+    - calm-night-emotional-tone
+    - environmental-volume
+    - spatial-source-layout
+
+  variation_allowed:
+    - individual-cricket-patterns
+    - subtle-insect-detail
+    - slight-breeze-fluctuation
+    - individual-leaf-movement
+    - rare-soft-bird-call
+    - occasional-wing-flutter
+    - subtle-distant-neighborhood-texture
+
+stems:
+  preferred: true
+
+  tracks:
+    - night-air
+    - crickets
+    - other-insects
+    - breeze
+    - foliage
+    - distant-neighborhood
+    - building-presence
+    - footsteps
+    - door-and-gate
+    - vegetation-interactions
+    - full-ambience-mix
+
+  purpose:
+    - dialogue-mixing
+    - evening-to-night-progression
+    - adaptive-level-control
+    - spatial-repositioning
+    - shot-continuity
+    - scene-extension
+    - interior-exterior-transition
+
+validation:
+  environment_checks:
+    - ambience matches clear nighttime conditions
+    - insects remain gentle
+    - wind remains very light
+    - foliage matches visible movement
+    - building feels warm and occupied when illuminated
+    - exterior lights produce no unnecessary electrical sound
+
+  continuity_checks:
+    - insect patterns do not restart after cuts
+    - night-air remains continuous
+    - wind intensity remains consistent
+    - building occupancy remains consistent
+    - door and gate states remain continuous
+    - time-of-night progression remains logical
+
+  dialogue_checks:
+    - foreground speech remains fully intelligible
+    - insects remain below dialogue
+    - repetitive cricket detail reduces during important speech
+    - interior leakage remains indistinct
+    - environmental identity remains audible
+
+  interaction_checks:
+    - footsteps match stone or grass
+    - door sounds occur only during interaction
+    - gate sounds occur only during interaction
+    - vegetation rustles from wind or physical contact
+    - quiet environment does not cause exaggerated Foley
+
+  emotional_checks:
+    - nighttime environment remains safe
+    - environment remains calm
+    - environment remains cozy
+    - environment remains reassuring
+    - night does not imply danger
+    - no unintended suspense is introduced
+    - no frightening nocturnal elements are present
+
+  preschool_checks:
+    - soundscape remains appropriate for ages 3-6
+    - nighttime ambience is gentle and reassuring
+    - sudden loud sounds are minimized
+    - animal sounds never become threatening
+    - insect textures avoid overstimulation
+    - darkness is represented as calm rather than frightening
+    - warm kindergarten identity remains recognizable
+
+context_dependencies:
+  location:
+    source: kindergarten.yaml
+
+  daytime_sound:
+    source: kindergarten-sound.yaml
+
+  interior_location:
+    source: kindergarten-interior.yaml
+
+  interior_sound:
+    source: kindergarten-interior-sound.yaml
+
+  music:
+    source: kindergarten-evening-night-music.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scenes:
+    source: ../../03-scenes/
+
+  editing:
+    source: ../../editing/
+
+authority:
+  location_ambience: this-file
+  evening_night_audio_state: this-file
+  night_environmental_sfx: this-file
+  natural_source_audio: this-file
+  exterior_building_audio: this-file
+  surface_interaction_audio: this-file
+  spatial_audio_layout: this-file
+  ambience_continuity: this-file
+  exterior_interior_audio_transition: this-file
+
+  physical_geometry: location-context
+  building_visual_state: location-context
+  weather_visual_state: location-context
+  time_of_day_visual_state: location-context
+  music_identity: location-music-context
+  character_voice: character-context
+  dialogue_content: scene-context
+  narrative_sound_events: scene-context
+  final_mix: editing-context
+
+
+reference_images:
+  primary:
+    path: "<primary-reference-image>"
+    purpose: primary-visual-identity
+    view: "<view-description>"
+
+  geometry:
+    - path: "<geometry-reference-image>"
+      view: "<view-description>"
+      purpose: geometry-reference
+
+  details:
+    - path: "<detail-reference-image>"
+      subject: "<landmark-or-material>"
+      purpose: material-and-detail-reference
+
+  lighting_variants:
+    - path: "<lighting-reference-image>"
+      state: "<lighting-state>"
+      purpose: lighting-variant-reference
+
+  weather_variants:
+    - path: "<weather-reference-image>"
+      state: "<weather-state>"
+      purpose: weather-variant-reference
+
+reference_priority:
+  geometry:
+    - primary
+    - geometry
+
+  materials:
+    - details
+    - primary
+
+  lighting:
+    - lighting_variants
+
+  weather:
+    - weather_variants
+
+reference_usage_rules:
+  multiple_images:
+    - treat references as complementary views of one canonical location
+    - use the primary image for overall visual identity
+    - use geometry images for layout dimensions orientation and spatial relationships
+    - use detail images only for their named landmark material or permanent prop
+    - use lighting variants only for the matching declared lighting state
+    - use weather variants only for the matching declared weather state
+    - resolve conflicts using reference_priority
+    - preserve features confirmed across multiple views
+    - do not blend incompatible viewpoints into new architecture
+    - do not mirror crop or distort a reference to create new geography
+
+  authoritative_for:
+    - architecture
+    - geometry
+    - entrances and exits
+    - doors and windows
+    - fixed landmarks
+    - permanent props
+    - materials
+    - permanent colors
+    - spatial relationships
+    - environment scale
+    - camera-accessible areas
+
+  unknown_paths:
+    - keep placeholder paths until an approved reference is supplied
+    - do not infer or invent a real file path
+    - require path validation before reference-driven generation
+
+geometry_reference_handling:
+  primary_sources:
+    - primary
+    - geometry
+  extract:
+    - overall dimensions and proportions
+    - floor wall path and terrain layout
+    - entrance exit door and window positions
+    - fixed landmark positions and scale
+    - permanent prop placement
+    - spatial relationships
+    - world orientation cues
+    - environment scale
+    - camera-accessible areas
+  rules:
+    - require cross-view agreement before locking ambiguous geometry
+    - preserve occluded geometry from the approved canonical layout
+    - do not infer unseen structural elements
+
+material_detail_reference_handling:
+  primary_sources:
+    - details
+    - primary
+  extract:
+    - permanent materials
+    - permanent colors
+    - stable surface patterns
+    - landmark construction details
+    - permanent prop details
+  rules:
+    - detail references override primary only for their declared subject
+    - temporary dirt wetness shadows and reflections do not redefine materials
+    - generation artifacts do not become canonical texture
+
+variant_reference_handling:
+  lighting:
+    source: lighting_variants
+    match_by: state
+    rules:
+      - preserve physical lighting-source positions
+      - vary illumination without changing architecture materials or permanent colors
+      - do not treat temporary shadows or reflections as permanent features
+
+  weather:
+    source: weather_variants
+    match_by: state
+    rules:
+      - preserve geometry landmarks materials and scale across weather states
+      - temporary precipitation wetness or atmospheric effects remain state-specific
+      - weather references do not create or remove permanent assets
+
+stable_landmark_extraction:
+  enabled: true
+  include:
+    - fixed architectural landmarks
+    - permanent furniture or environment props
+    - entrances exits doors and windows
+    - persistent navigation features
+    - fixed physical light sources
+  exclude:
+    - characters
+    - temporary props
+    - shadows and reflections
+    - text and watermarks
+    - generation artifacts
+  rules:
+    - assign stable landmark IDs in the canonical location registry
+    - preserve landmark identity position orientation and scale across views
+    - ambiguous objects remain unclassified until approved
+
+orientation_consistency:
+  preserve:
+    - world orientation
+    - left right front back relationships
+    - entrance and exit directions
+    - landmark-to-landmark relationships
+    - established screen direction
+  rules:
+    - never mirror the environment
+    - reverse views must preserve canonical geography
+    - conflicting orientation cues require review rather than reinterpretation
+
+camera_geography_consistency:
+  derive_from:
+    - primary
+    - geometry
+  preserve:
+    - camera-accessible areas
+    - restricted camera areas
+    - valid sightlines
+    - landmark visibility by view
+    - established camera side
+  rules:
+    - camera placement must respect physical geometry
+    - lens choice must not alter world dimensions
+    - camera transitions must not cross geography without clear reorientation
+    - generated reverse angles must preserve entrance exit and landmark positions
+
+non_permanent_reference_content:
+  - characters
+  - temporary props
+  - temporary lighting
+  - temporary weather
+  - shadows
+  - reflections
+  - motion blur
+  - camera distortion
+  - text
+  - watermarks
+  - generation artifacts
+
+continuity_constraints:
+  - preserve overall geometry
+  - preserve landmark positions
+  - preserve entrance and exit positions
+  - preserve door and window positions
+  - preserve world orientation
+  - preserve permanent material colors
+  - preserve fixed props
+  - preserve environment scale
+  - preserve physical lighting-source positions
+  - preserve camera geography
+
+reference_driven_generation_rules:
+  - validate every non-placeholder reference path before generation
+  - load the primary reference whenever visual identity is required
+  - load only relevant detail lighting and weather references for the requested state
+  - keep architecture geometry and stable landmarks locked across generated shots
+  - maintain consistent orientation across establishing reverse and detail views
+  - ignore non-permanent reference content unless selected by current scene state
+  - reject reference conflicts that cannot be resolved through reference_priority
+  - record extracted landmarks and camera geography for continuity review
+
+forbidden_changes:
+  - mirroring the environment
+  - moving doors or windows
+  - changing room or environment dimensions
+  - moving fixed landmarks
+  - adding or removing permanent architecture
+  - changing permanent materials
+  - changing permanent colors
+  - reversing physical light direction
+  - changing landmark scale
+  - adding random structural elements

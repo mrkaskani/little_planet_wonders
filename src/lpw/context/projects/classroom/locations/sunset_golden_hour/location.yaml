@@ -1,0 +1,1415 @@
+id: sunset-golden-hour-sound
+type: location-sound-context
+version: 1.1
+name: Sunset Golden Hour Countryside Sound Profile
+
+identity:
+  location: countryside-valley
+  area: open-meadow-path
+  time_of_day: sunset-golden-hour
+  category: location
+
+  sonic_identity:
+    primary:
+      - gentle-evening-breeze
+      - soft-meadow-insects
+      - sparse-evening-birdsong
+      - warm-open-air-ambience
+
+    secondary:
+      - grass-and-flower-rustle
+      - distant-countryside-birds
+      - subtle-distant-village-presence
+      - occasional-wing-flutter
+      - light-path-footsteps
+
+  character:
+    - warm
+    - peaceful
+    - spacious
+    - gentle
+    - reflective
+    - comforting
+    - beautiful
+    - calm
+    - child-friendly
+
+  intensity: low
+
+base_ambience:
+  id: golden-hour-countryside
+
+  layers:
+    open_air:
+      type: warm-evening-open-air
+      intensity: low
+      persistence: continuous
+      importance: high
+
+    breeze:
+      type: gentle-evening-breeze
+      intensity: light
+      variation: subtle
+      persistence: continuous
+
+    meadow:
+      type: soft-grass-and-flower-rustle
+      intensity: low
+      persistence: continuous
+
+    insects:
+      type: gentle-evening-meadow-insects
+      intensity: very-low
+      variation: natural
+      persistence: intermittent
+
+    birds:
+      type: sparse-evening-birdsong
+      intensity: very-low-low
+      variation: natural
+      persistence: intermittent
+
+    distant_valley:
+      type: quiet-rural-distance
+      intensity: very-low
+      persistence: continuous
+
+recurring_details:
+  evening_breeze:
+    enabled: true
+    intensity: light
+    variation: gradual
+    spatial_width: wide
+
+  grass_rustle:
+    enabled: true
+    intensity: low
+    variation: subtle
+
+  flower_movement:
+    enabled: true
+    intensity: very-low
+
+  evening_insects:
+    enabled: true
+    intensity: very-low
+    frequency: occasional
+
+  birds:
+    enabled: true
+    intensity: very-low-low
+    frequency: occasional
+
+  distant_bird_call:
+    enabled: true
+    intensity: very-low
+    distance: far
+
+  wing_flutter:
+    enabled: conditional
+    intensity: very-low
+
+    condition:
+      bird_near_camera: true
+
+  distant_village:
+    enabled: conditional
+    intensity: minimal
+    distance: very-far
+
+weather:
+  state: clear
+  precipitation: none
+  cloud_cover: light-scenic
+
+  temperature_character:
+    - warm
+    - cooling-gradually
+    - pleasant
+
+  air_character:
+    - open
+    - clear
+    - soft
+    - calm
+
+  rules:
+    - no rain
+    - no thunder
+    - no storm ambience
+    - no harsh wind
+    - environmental character becomes slightly calmer as sunset progresses
+
+golden_hour:
+  state: active
+
+  phase:
+    default: late-golden-hour
+
+  progression:
+    early:
+      birds: low
+      insects: very-low
+      breeze: light
+      meadow: low
+
+    middle:
+      birds: very-low-low
+      insects: very-low
+      breeze: light
+      meadow: low
+
+    late:
+      birds: very-low
+      insects: low
+      breeze: subtle
+      meadow: low
+
+    near_sunset:
+      birds: sparse
+      insects: low
+      breeze: subtle
+      open_air: very-calm
+
+  rules:
+    - transition gradually between phases
+    - bird activity decreases toward sunset
+    - insect presence may increase slightly toward evening
+    - avoid sudden day-to-night sonic changes
+    - preserve warm calm identity throughout
+
+wind:
+  default:
+    intensity: light
+    character: soft-warm-evening-breeze
+
+  behavior:
+    variation: gradual
+    gusts: rare
+    spatial_movement: subtle
+
+  interactions:
+    grass:
+      enabled: true
+      sound: soft-grass-rustle
+      intensity: low
+
+    wildflowers:
+      enabled: true
+      sound: delicate-flower-movement
+      intensity: very-low
+
+    trees:
+      enabled: true
+      sound: gentle-leaf-rustle
+      intensity: low
+
+    clothing:
+      enabled: conditional
+      intensity: subtle
+
+  rules:
+    - no aggressive gusts
+    - no frightening wind
+    - no sudden wind bursts
+    - vegetation movement must match wind intensity
+
+meadow:
+  character:
+    - open
+    - natural
+    - colorful
+    - peaceful
+
+  layers:
+    grasses:
+      sound: soft-grass-rustle
+      intensity: low
+
+    flowers:
+      sound: delicate-plant-movement
+      intensity: very-low
+
+    insects:
+      sound: gentle-meadow-insects
+      intensity: very-low
+
+  interaction:
+    walking_through:
+      sound:
+        - soft-grass-contact
+        - gentle-flower-rustle
+      intensity: low
+
+    running_through:
+      sound:
+        - light-grass-rush
+        - soft-vegetation-contact
+      intensity: low-medium
+
+  rules:
+    - vegetation sounds remain soft
+    - avoid dry harsh grass unless visually established
+    - insect ambience remains gentle
+    - no dense buzzing swarm
+
+trees:
+  presence: moderate
+
+  ambience:
+    leaves:
+      sound: gentle-evening-leaf-rustle
+      intensity: low
+
+    branches:
+      sound: subtle-branch-movement
+      intensity: very-low
+
+  birds:
+    enabled: true
+    intensity: very-low
+
+  rules:
+    - avoid branch cracking
+    - avoid storm-like canopy movement
+    - bird calls should become less frequent as sunset progresses
+
+birds:
+  presence: sparse-moderate
+
+  types:
+    - small-countryside-birds
+    - distant-songbirds
+
+  behavior:
+    chirps:
+      intensity: very-low-low
+      frequency: occasional
+
+    calls:
+      intensity: very-low
+      frequency: occasional
+
+    evening_return:
+      enabled: true
+      character: occasional-distant-calls
+
+    flight:
+      wing_flutters:
+        enabled: conditional
+        intensity: very-low
+
+  time_behavior:
+    before_sunset:
+      activity: low
+
+    sunset:
+      activity: sparse
+
+    after_sunset:
+      activity: minimal
+
+  rules:
+    - avoid repetitive looping calls
+    - no tropical bird density
+    - no predatory calls
+    - birds remain supportive rather than dominant
+
+insects:
+  presence: low
+
+  types:
+    - gentle-meadow-insects
+    - occasional-soft-crickets
+
+  daytime_transition:
+    golden_hour:
+      intensity: very-low
+
+    near_sunset:
+      intensity: low
+
+    after_sunset:
+      intensity: low-medium
+
+  spatial_distribution:
+    - foreground-meadow
+    - path-edges
+    - distant-fields
+
+  rules:
+    - no loud cricket wall
+    - no aggressive buzzing
+    - avoid dense insect swarm texture
+    - insect presence increases gradually
+
+countryside:
+  distant_environment:
+    layers:
+      - quiet-valley-air
+      - distant-birds
+      - very-subtle-rural-presence
+
+    intensity: very-low
+
+  village:
+    enabled: conditional
+
+    distance: very-far
+
+    possible_details:
+      - very-distant-door
+      - faint-human-activity
+      - occasional-distant-dog-bark
+
+    intensity: minimal
+
+  rules:
+    - countryside remains primarily natural
+    - village must not become foreground
+    - no recognizable distant conversations
+    - avoid busy residential ambience
+
+mountains:
+  sonic_source: none
+
+  environmental_effect:
+    openness: high
+    perceived_distance: very-large
+    ambience_width: wide
+
+  rules:
+    - mountains contribute scale rather than literal sound
+    - avoid artificial mountain rumble
+    - no cinematic low-frequency drone
+
+stone_path:
+  id: golden-hour-country-path
+
+  surface:
+    material:
+      - irregular-stone
+      - compact-earth
+
+  footsteps:
+    children:
+      walk:
+        sound: light-stone-path-footstep
+        intensity: low
+
+      run:
+        sound: quick-light-stone-footsteps
+        intensity: medium-low
+
+      skip:
+        sound: light-irregular-steps
+        intensity: low-medium
+
+    adults:
+      walk:
+        sound: natural-stone-footstep
+        intensity: low-medium
+
+  interaction:
+    small_stone_shift:
+      enabled: conditional
+      sound: subtle-pebble-movement
+      intensity: very-low
+
+  rules:
+    - footsteps remain natural
+    - no heavy cinematic impacts
+    - small stones move only when physically contacted
+
+wooden_fence:
+  id: countryside-wooden-fence
+
+  sound:
+    primary: none
+
+  interaction:
+    touch:
+      sound: subtle-dry-wood-contact
+      intensity: very-low
+
+    lean:
+      sound: gentle-wood-response
+      intensity: low
+
+  wind_interaction:
+    enabled: false
+
+  rules:
+    - fence remains sturdy
+    - no loud creaking
+    - no unstable structural noises
+
+distant_houses:
+  presence: low
+
+  sound:
+    primary: none
+
+  optional_activity:
+    enabled: scene-dependent
+
+    sounds:
+      - very-distant-rural-activity
+      - subtle-door-close
+      - faint-garden-presence
+
+    intensity: minimal
+
+  rules:
+    - houses remain visually and sonically distant
+    - no dominant domestic noise
+
+interaction_sounds:
+  path:
+    walk:
+      sound: light-natural-stone-footstep
+
+    run:
+      sound: quick-light-path-footsteps
+
+  grass:
+    walk:
+      sound: soft-grass-step
+
+    run:
+      sound: gentle-grass-rush
+
+  flowers:
+    brush:
+      sound: delicate-flower-rustle
+
+  fence:
+    touch:
+      sound: subtle-wood-contact
+
+  small_stones:
+    step:
+      sound: tiny-pebble-shift
+
+  rules:
+    - interaction sounds require physical motivation
+    - scale sound to character size
+    - preserve natural material identity
+    - avoid excessive Foley
+    - important story interactions may temporarily receive emphasis
+
+fixed_sources:
+  meadow_left:
+    id: golden-meadow-left
+    position: left
+
+    sound:
+      type: grass-and-flower-rustle
+      intensity: low
+
+  meadow_right:
+    id: golden-meadow-right
+    position: right
+
+    sound:
+      type: grass-and-flower-rustle
+      intensity: low
+
+  large_tree_left:
+    id: sunset-tree-left
+    position: left
+
+    sound:
+      type: gentle-leaf-rustle
+      intensity: low
+
+  distant_valley:
+    id: sunset-valley
+    position: center-distant
+
+    sound:
+      type: quiet-rural-open-air
+      intensity: very-low
+
+  distant_houses:
+    id: sunset-houses
+    position: right-distant
+
+    sound:
+      primary: none
+
+  wooden_fence:
+    id: sunset-fence
+    position: right-foreground
+
+    sound:
+      primary: none
+
+spatial_audio:
+  enabled: true
+
+  listener_reference: camera
+
+  sources:
+    left_tree:
+      position: left
+      sound:
+        - leaf-rustle
+        - occasional-bird
+
+    foreground_meadow:
+      position:
+        - left
+        - right
+      sound:
+        - grass-rustle
+        - subtle-insects
+
+    valley:
+      position: distant-center
+      sound:
+        - open-air-ambience
+        - distant-birds
+
+    houses:
+      position: distant-right
+      sound:
+        - optional-rural-presence
+
+    path:
+      position: listener-relative
+      sound:
+        - footsteps
+
+  rules:
+    - preserve physical source direction between shots
+    - camera movement rotates spatial perspective naturally
+    - moving birds may change position
+    - fixed landscape sources remain anchored
+    - distant ambience remains spatially broad
+    - do not reposition environmental sounds arbitrarily
+
+camera_audio_behavior:
+  establishing_wide:
+    ambience_width: very-wide
+
+    emphasis:
+      breeze: normal
+      meadow: normal
+      distant_valley: slightly-increased
+      birds: normal
+
+    interaction_detail: reduced
+
+  landscape_wide:
+    ambience_width: very-wide
+
+    environmental_depth: high
+    distant_detail: slightly-increased
+
+  path_medium:
+    ambience_width: medium-wide
+
+    emphasis:
+      footsteps: normal
+      nearby-grass: normal
+      distant-valley: reduced
+
+  character_medium:
+    ambience_width: medium
+
+    nearby_environment: normal
+    distant_environment: reduced
+
+  close_up:
+    ambience_width: reduced
+
+    emphasis:
+      nearby-breeze: subtle
+      nearby-grass: slightly-increased
+
+    distant_birds: reduced
+    insects: reduced
+
+  emotional_close_up:
+    ambience_width: reduced
+
+    emphasis:
+      breeze: subtle
+      meadow: subtle
+      distant-bird: minimal
+
+    overall_activity: reduced
+
+  sunset_landscape_hold:
+    ambience_width: very-wide
+
+    emphasis:
+      open_air: increased
+      breeze: subtle
+      birds: sparse
+      insects: slightly-increased
+
+  rules:
+    - preserve continuous underlying ambience
+    - shot cuts must not restart environmental layers
+    - perspective shifts should be gradual
+    - close shots retain connection to open landscape
+
+dialogue:
+  priority: highest
+
+  ambience_behavior:
+    during_dialogue:
+      volume: low-beneath-dialogue
+
+      reduction:
+        birds: moderate
+        insects: moderate
+        breeze: slight
+        meadow: slight
+        distant_village: strong
+
+    between_dialogue:
+      volume: normal-low
+
+  rules:
+    - dialogue remains fully intelligible
+    - preserve golden-hour environment beneath speech
+    - reduce repetitive bird and insect detail around important lines
+    - breeze must never mask speech
+    - restore ambience gradually after dialogue
+
+music_relationship:
+  music_profile: sunset-golden-hour-music
+
+  priority:
+    - dialogue
+    - important-story-sfx
+    - character-action
+    - environmental-identity
+    - subtle-natural-detail
+    - music
+
+  rules:
+    - music should complement the warm sunset atmosphere
+    - natural ambience must remain perceptible
+    - avoid masking gentle environmental details
+    - birds and insects should not compete with melodic high frequencies
+    - avoid excessive emotional manipulation
+    - ambience continues naturally beneath music transitions
+
+states:
+  golden_hour:
+    id: sunset-golden-hour
+
+    layers:
+      breeze: light
+      meadow: low
+      birds: very-low-low
+      insects: very-low
+      valley: very-low
+
+  late_golden_hour:
+    id: sunset-late-golden-hour
+
+    layers:
+      breeze: subtle
+      meadow: low
+      birds: very-low
+      insects: low
+      valley: very-low
+
+  sunset:
+    id: sunset-horizon
+
+    layers:
+      breeze: subtle
+      meadow: low
+      birds: sparse
+      insects: low
+      valley: very-low
+
+    character:
+      - calm
+      - reflective
+      - warm
+
+  quiet:
+    id: sunset-quiet
+
+    layers:
+      breeze: very-subtle
+      meadow: subtle
+      birds: minimal
+      insects: very-low
+
+    purpose:
+      - reflection
+      - emotional-focus
+      - observation
+      - peaceful-pause
+
+  exploration:
+    id: sunset-exploration
+
+    layers:
+      breeze: light
+      meadow: low
+      birds: very-low
+      insects: very-low
+
+    details:
+      footsteps: increased
+      vegetation_interactions: increased
+
+  dialogue:
+    id: sunset-dialogue
+
+    layers:
+      breeze: very-low
+      meadow: very-low
+      birds: minimal
+      insects: minimal
+      valley: minimal
+
+    rules:
+      - dialogue remains dominant
+      - environmental identity remains perceptible
+
+  walking:
+    id: sunset-walking
+
+    layers:
+      breeze: light
+      meadow: low
+      birds: very-low
+      insects: very-low
+
+    details:
+      footsteps: low-medium
+      path_contact: increased
+
+  near_twilight:
+    id: sunset-near-twilight
+
+    layers:
+      breeze: subtle
+      meadow: subtle
+      birds: minimal
+      insects: low
+      valley: very-low
+
+    rules:
+      - transition slowly toward evening
+      - do not introduce full nighttime ambience prematurely
+
+transitions:
+  entering_area:
+    behavior:
+      - establish-wide-open-air-first
+      - introduce-gentle-breeze
+      - introduce-meadow-rustle
+      - add-sparse-bird-detail
+      - reveal-distant-valley-depth
+
+  golden_hour_to_sunset:
+    behavior:
+      - gradually-reduce-bird-activity
+      - slightly-increase-evening-insects
+      - soften-overall-natural-activity
+      - preserve-breeze-and-meadow-continuity
+
+  sunset_to_twilight:
+    behavior:
+      - reduce-birds-further
+      - gently-increase-evening-insects
+      - slightly-reduce-open-daytime-brightness
+      - maintain-calm-air-and-meadow-bed
+
+  approaching_houses:
+    behavior:
+      - slightly-increase-rural-presence
+      - preserve-natural-ambience-as-primary
+
+  moving_away_from_houses:
+    behavior:
+      - reduce-rural-presence
+      - restore-open-meadow-dominance
+
+  shot_cut:
+    behavior:
+      ambience: continuous
+      environment_state: preserved
+
+    rules:
+      - preserve wind state
+      - preserve time-of-day progression
+      - preserve insect activity
+      - preserve bird activity
+      - do not restart ambience patterns
+
+continuity:
+  preserve_across_visual_cuts: true
+  do_not_restart_on_each_shot: true
+
+  continuous_layers:
+    - open-air-ambience
+    - breeze
+    - meadow-rustle
+
+  semi_continuous_layers:
+    - birds
+    - insects
+
+  preserve_state:
+    - time-of-day-phase
+    - sunset-progression
+    - wind-intensity
+    - bird-activity
+    - insect-activity
+    - weather-state
+    - character-position
+    - current-footstep-surface
+    - environmental-perspective
+
+  rules:
+    - ambience belongs to the scene timeline
+    - sunset progression must remain continuous
+    - birds must not reset into identical patterns after cuts
+    - insect intensity changes gradually
+    - fixed environmental sources remain spatially anchored
+    - time-of-day changes require timeline progression
+    - do not jump backward from sunset to brighter daytime conditions
+
+event_memory:
+  track:
+    - sunset-phase
+    - wind-state
+    - bird-activity-state
+    - insect-activity-state
+    - character-path-position
+    - current-footstep-surface
+    - proximity-to-houses
+    - temporary-environmental-events
+
+  examples:
+    sunset_phase:
+      states:
+        - golden-hour
+        - late-golden-hour
+        - sunset
+        - near-twilight
+
+    surface:
+      states:
+        - stone-path
+        - grass
+        - meadow
+
+    bird_activity:
+      states:
+        - low
+        - sparse
+        - minimal
+
+priority_system:
+  level_1:
+    category: dialogue
+
+  level_2:
+    category: narrative-action
+
+    examples:
+      - important-object-interaction
+      - story-event
+      - environmental-story-cue
+
+  level_3:
+    category: character-action
+
+    examples:
+      - footsteps
+      - running
+      - grass-contact
+
+  level_4:
+    category: environmental-identity
+
+    examples:
+      - breeze
+      - meadow-rustle
+      - birds
+      - insects
+
+  level_5:
+    category: distant-environment
+
+    examples:
+      - valley
+      - village
+      - distant-birds
+
+  level_6:
+    category: music
+
+volume:
+  overall: low-beneath-dialogue
+
+  relative_levels:
+    dialogue:
+      level: foreground
+
+    narrative_sfx:
+      level: foreground-support
+
+    character_action:
+      level: foreground-support
+
+    breeze:
+      level: background
+
+    meadow:
+      level: background
+
+    birds:
+      level: subtle-background
+
+    insects:
+      level: subtle-background
+
+    valley:
+      level: distant-background
+
+    village:
+      level: very-distant-background
+
+forbidden:
+  weather:
+    - explosive-thunder
+    - heavy-rain
+    - violent-wind
+    - storm-rumble
+    - hurricane-gusts
+
+  animals:
+    - aggressive-animal-calls
+    - predator-growls
+    - threatening-dogs
+    - frightening-birds
+    - loud-insect-swarms
+
+  countryside:
+    - heavy-traffic
+    - aggressive-horns
+    - construction-noise
+    - loud-machinery
+    - chaotic-crowds
+
+  emotional:
+    - horror-drones
+    - ominous-rumbles
+    - jump-scare-effects
+    - threatening-low-frequency-effects
+    - suspense-stingers
+
+  cinematic:
+    - dramatic-booms
+    - artificial-whooshes
+    - unnecessary-impacts
+    - exaggerated-transition-effects
+
+negative_constraints:
+  - no harsh alarms
+  - no thunder
+  - no storm ambience
+  - no frightening wind
+  - no heavy traffic
+  - no aggressive animal sounds
+  - no dense insect swarm
+  - no excessive bird density
+  - no loud fence creaking
+  - no heavy cinematic footsteps
+  - no horror ambience
+  - no ominous drones
+  - no artificial sunset sound effects
+  - no unnecessary cinematic impacts
+  - no sudden ambience resets
+  - no abrupt day-to-night transition
+  - no sound contradicting clear golden-hour conditions
+  - no background ambience masking dialogue
+
+generation:
+  essential_prompt_tokens:
+    - peaceful sunset countryside ambience
+    - warm golden hour atmosphere
+    - gentle evening breeze
+    - soft meadow grass rustling
+    - delicate wildflower movement
+    - sparse evening birds
+    - subtle meadow insects
+    - spacious mountain valley ambience
+    - quiet rural landscape
+    - warm reflective outdoor environment
+    - gentle sunset transition
+    - child-friendly natural soundscape
+    - dialogue-friendly
+    - continuous ambience
+
+  negative_prompt_tokens:
+    - thunder
+    - storm
+    - heavy rain
+    - violent wind
+    - loud crickets
+    - insect swarm
+    - aggressive animals
+    - heavy traffic
+    - chaotic village
+    - horror ambience
+    - ominous drone
+    - dramatic boom
+    - cinematic impact
+    - artificial whoosh
+
+  preserve_between_generations:
+    - golden-hour-character
+    - breeze-character
+    - meadow-character
+    - bird-character
+    - insect-character
+    - valley-openness
+    - sunset-progression
+    - environmental-volume
+    - spatial-source-layout
+
+  variation_allowed:
+    - individual-bird-chirps
+    - subtle-grass-patterns
+    - gentle-breeze-fluctuation
+    - occasional-wing-flutter
+    - individual-insect-details
+    - distant-rural-textures
+    - small-vegetation-interactions
+
+stems:
+  preferred: true
+
+  tracks:
+    - open-air
+    - breeze
+    - meadow
+    - birds
+    - insects
+    - distant-valley
+    - distant-rural
+    - footsteps
+    - vegetation-interactions
+    - full-ambience-mix
+
+  purpose:
+    - dialogue-mixing
+    - time-of-day-progression
+    - adaptive-level-control
+    - spatial-repositioning
+    - shot-continuity
+    - scene-extension
+    - sunset-to-twilight-transition
+
+validation:
+  environment_checks:
+    - ambience matches warm clear sunset conditions
+    - breeze remains gentle
+    - meadow sounds remain natural
+    - birds are sparse and appropriate for evening
+    - insects remain subtle
+    - landscape feels spacious
+
+  continuity_checks:
+    - ambience does not restart after cuts
+    - sunset phase progresses consistently
+    - bird activity decreases naturally
+    - insect activity changes gradually
+    - wind state remains consistent
+    - fixed spatial sources preserve direction
+
+  dialogue_checks:
+    - foreground speech remains intelligible
+    - birds do not interrupt important dialogue
+    - insects remain below speech
+    - breeze does not mask dialogue
+    - natural environmental identity remains present
+
+  interaction_checks:
+    - footsteps match visible surface
+    - grass interaction requires physical contact
+    - fence sounds require contact
+    - vegetation sounds correspond to wind or movement
+
+  emotional_checks:
+    - environment remains warm
+    - environment remains peaceful
+    - environment remains comforting
+    - sunset feels reflective rather than sad or threatening
+    - no unintended suspense is introduced
+    - no frightening natural elements are present
+
+  child_friendly_checks:
+    - sudden loud sounds are minimized
+    - environmental activity avoids overstimulation
+    - animal and insect sounds remain gentle
+    - natural layers remain clear and pleasant
+    - sunset atmosphere remains safe and reassuring
+
+context_dependencies:
+  location:
+    source: sunset-golden-hour.yaml
+
+  music:
+    source: sunset-golden-hour-music.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scenes:
+    source: ../../03-scenes/
+
+  editing:
+    source: ../../editing/
+
+authority:
+  location_ambience: this-file
+  golden_hour_audio_state: this-file
+  sunset_progression_audio: this-file
+  environmental_sfx: this-file
+  natural_source_audio: this-file
+  surface_interaction_audio: this-file
+  spatial_audio_layout: this-file
+  ambience_continuity: this-file
+
+  physical_geometry: location-context
+  weather_visual_state: location-context
+  time_of_day_visual_state: location-context
+  music_identity: location-music-context
+  character_voice: character-context
+  dialogue_content: scene-context
+  narrative_sound_events: scene-context
+  final_mix: editing-context
+
+
+reference_images:
+  primary:
+    path: "<primary-reference-image>"
+    purpose: primary-visual-identity
+    view: "<view-description>"
+
+  geometry:
+    - path: "<geometry-reference-image>"
+      view: "<view-description>"
+      purpose: geometry-reference
+
+  details:
+    - path: "<detail-reference-image>"
+      subject: "<landmark-or-material>"
+      purpose: material-and-detail-reference
+
+  lighting_variants:
+    - path: "<lighting-reference-image>"
+      state: "<lighting-state>"
+      purpose: lighting-variant-reference
+
+  weather_variants:
+    - path: "<weather-reference-image>"
+      state: "<weather-state>"
+      purpose: weather-variant-reference
+
+reference_priority:
+  geometry:
+    - primary
+    - geometry
+
+  materials:
+    - details
+    - primary
+
+  lighting:
+    - lighting_variants
+
+  weather:
+    - weather_variants
+
+reference_usage_rules:
+  multiple_images:
+    - treat references as complementary views of one canonical location
+    - use the primary image for overall visual identity
+    - use geometry images for layout dimensions orientation and spatial relationships
+    - use detail images only for their named landmark material or permanent prop
+    - use lighting variants only for the matching declared lighting state
+    - use weather variants only for the matching declared weather state
+    - resolve conflicts using reference_priority
+    - preserve features confirmed across multiple views
+    - do not blend incompatible viewpoints into new architecture
+    - do not mirror crop or distort a reference to create new geography
+
+  authoritative_for:
+    - architecture
+    - geometry
+    - entrances and exits
+    - doors and windows
+    - fixed landmarks
+    - permanent props
+    - materials
+    - permanent colors
+    - spatial relationships
+    - environment scale
+    - camera-accessible areas
+
+  unknown_paths:
+    - keep placeholder paths until an approved reference is supplied
+    - do not infer or invent a real file path
+    - require path validation before reference-driven generation
+
+geometry_reference_handling:
+  primary_sources:
+    - primary
+    - geometry
+  extract:
+    - overall dimensions and proportions
+    - floor wall path and terrain layout
+    - entrance exit door and window positions
+    - fixed landmark positions and scale
+    - permanent prop placement
+    - spatial relationships
+    - world orientation cues
+    - environment scale
+    - camera-accessible areas
+  rules:
+    - require cross-view agreement before locking ambiguous geometry
+    - preserve occluded geometry from the approved canonical layout
+    - do not infer unseen structural elements
+
+material_detail_reference_handling:
+  primary_sources:
+    - details
+    - primary
+  extract:
+    - permanent materials
+    - permanent colors
+    - stable surface patterns
+    - landmark construction details
+    - permanent prop details
+  rules:
+    - detail references override primary only for their declared subject
+    - temporary dirt wetness shadows and reflections do not redefine materials
+    - generation artifacts do not become canonical texture
+
+variant_reference_handling:
+  lighting:
+    source: lighting_variants
+    match_by: state
+    rules:
+      - preserve physical lighting-source positions
+      - vary illumination without changing architecture materials or permanent colors
+      - do not treat temporary shadows or reflections as permanent features
+
+  weather:
+    source: weather_variants
+    match_by: state
+    rules:
+      - preserve geometry landmarks materials and scale across weather states
+      - temporary precipitation wetness or atmospheric effects remain state-specific
+      - weather references do not create or remove permanent assets
+
+stable_landmark_extraction:
+  enabled: true
+  include:
+    - fixed architectural landmarks
+    - permanent furniture or environment props
+    - entrances exits doors and windows
+    - persistent navigation features
+    - fixed physical light sources
+  exclude:
+    - characters
+    - temporary props
+    - shadows and reflections
+    - text and watermarks
+    - generation artifacts
+  rules:
+    - assign stable landmark IDs in the canonical location registry
+    - preserve landmark identity position orientation and scale across views
+    - ambiguous objects remain unclassified until approved
+
+orientation_consistency:
+  preserve:
+    - world orientation
+    - left right front back relationships
+    - entrance and exit directions
+    - landmark-to-landmark relationships
+    - established screen direction
+  rules:
+    - never mirror the environment
+    - reverse views must preserve canonical geography
+    - conflicting orientation cues require review rather than reinterpretation
+
+camera_geography_consistency:
+  derive_from:
+    - primary
+    - geometry
+  preserve:
+    - camera-accessible areas
+    - restricted camera areas
+    - valid sightlines
+    - landmark visibility by view
+    - established camera side
+  rules:
+    - camera placement must respect physical geometry
+    - lens choice must not alter world dimensions
+    - camera transitions must not cross geography without clear reorientation
+    - generated reverse angles must preserve entrance exit and landmark positions
+
+non_permanent_reference_content:
+  - characters
+  - temporary props
+  - temporary lighting
+  - temporary weather
+  - shadows
+  - reflections
+  - motion blur
+  - camera distortion
+  - text
+  - watermarks
+  - generation artifacts
+
+continuity_constraints:
+  - preserve overall geometry
+  - preserve landmark positions
+  - preserve entrance and exit positions
+  - preserve door and window positions
+  - preserve world orientation
+  - preserve permanent material colors
+  - preserve fixed props
+  - preserve environment scale
+  - preserve physical lighting-source positions
+  - preserve camera geography
+
+reference_driven_generation_rules:
+  - validate every non-placeholder reference path before generation
+  - load the primary reference whenever visual identity is required
+  - load only relevant detail lighting and weather references for the requested state
+  - keep architecture geometry and stable landmarks locked across generated shots
+  - maintain consistent orientation across establishing reverse and detail views
+  - ignore non-permanent reference content unless selected by current scene state
+  - reject reference conflicts that cannot be resolved through reference_priority
+  - record extracted landmarks and camera geography for continuity review
+
+forbidden_changes:
+  - mirroring the environment
+  - moving doors or windows
+  - changing room or environment dimensions
+  - moving fixed landmarks
+  - adding or removing permanent architecture
+  - changing permanent materials
+  - changing permanent colors
+  - reversing physical light direction
+  - changing landmark scale
+  - adding random structural elements

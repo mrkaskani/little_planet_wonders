@@ -1,0 +1,1446 @@
+id: nature-park-sound
+type: location-sound-context
+version: 1.1
+name: Sunny Nature Park Sound Profile
+
+identity:
+  location: nature-park
+  area: landscaped-park
+  category: location
+
+  sonic_identity:
+    primary:
+      - gentle-stream
+      - soft-birdsong
+      - light-tree-breeze
+      - natural-leaf-rustle
+
+    secondary:
+      - subtle-insects
+      - distant-songbirds
+      - grass-and-flower-movement
+      - occasional-wooden-bridge-contact
+      - quiet-open-air-ambience
+
+  character:
+    - peaceful
+    - bright
+    - natural
+    - cheerful
+    - spacious
+    - relaxing
+    - welcoming
+    - gentle
+    - child-friendly
+
+  intensity: low
+
+base_ambience:
+  id: sunny-nature-park
+
+  layers:
+    stream:
+      type: gentle-shallow-stream
+      intensity: low-medium
+      persistence: continuous
+      importance: high
+
+    birds:
+      type: soft-park-birdsong
+      intensity: low
+      variation: natural
+      persistence: continuous
+
+    breeze:
+      type: gentle-open-park-breeze
+      intensity: light
+      variation: subtle
+      persistence: continuous
+
+    foliage:
+      type: soft-tree-and-grass-rustle
+      intensity: low
+      persistence: continuous
+
+    insects:
+      type: subtle-daytime-insects
+      intensity: very-low
+      persistence: intermittent
+
+    open_air:
+      type: quiet-natural-open-space
+      intensity: very-low
+      persistence: continuous
+
+recurring_details:
+  stream_flow:
+    enabled: true
+    intensity: low-medium
+    variation: gentle
+    spatial_width: medium-wide
+
+  birdsong:
+    enabled: true
+    intensity: low
+    variation: natural
+    spatial_width: wide
+
+  leaf_rustle:
+    enabled: true
+    intensity: low
+    variation: subtle
+
+  grass_movement:
+    enabled: true
+    intensity: very-low
+
+  insects:
+    enabled: true
+    intensity: very-low
+    frequency: occasional
+
+  bee_activity:
+    enabled: conditional
+    intensity: very-low
+
+    condition:
+      near_flowers: true
+
+  wing_flutters:
+    enabled: conditional
+    intensity: very-low
+
+    condition:
+      bird_near_camera: true
+
+weather:
+  state: sunny
+  precipitation: none
+
+  temperature_character:
+    - warm
+    - pleasant
+    - mild
+
+  air_character:
+    - clear
+    - open
+    - gentle
+
+  rules:
+    - no rain ambience
+    - no thunder
+    - no storm sounds
+    - no harsh wind
+    - preserve bright daytime atmosphere
+
+stream:
+  id: park-stream
+  state: flowing
+
+  character:
+    - clear
+    - shallow
+    - gentle
+    - continuous
+    - non-turbulent
+
+  intensity: low-medium
+
+  layers:
+    main_flow:
+      sound: gentle-running-water
+      intensity: low-medium
+
+    rocks:
+      sound: subtle-water-around-stones
+      intensity: low
+
+    small_ripples:
+      sound: light-rippling-water
+      intensity: low
+
+    bridge_area:
+      sound: slightly-enclosed-stream-flow
+      intensity: low
+
+  proximity_behavior:
+    far:
+      intensity: very-low
+      detail: minimal
+
+    medium:
+      intensity: low
+      detail: normal
+
+    near:
+      intensity: low-medium
+      detail: increased
+
+  interactions:
+    stone_contact:
+      sound: gentle-water-lap
+      intensity: very-low
+
+    object_touch:
+      enabled: scene-dependent
+      sound: small-water-displacement
+      intensity: low
+
+    character_step:
+      enabled: scene-dependent
+      sound: gentle-shallow-splash
+      intensity: low
+
+  rules:
+    - stream remains continuous
+    - water must not restart after visual cuts
+    - avoid waterfall-scale intensity
+    - avoid aggressive rushing water
+    - avoid deep river rumble
+    - preserve gentle shallow-water identity
+
+trees:
+  presence: high
+
+  ambience:
+    leaves:
+      sound: soft-leaf-rustle
+      intensity: low
+
+    branches:
+      sound: subtle-branch-movement
+      intensity: very-low
+
+  bird_activity:
+    enabled: true
+    intensity: low
+
+  wind_interaction:
+    default: gentle
+
+  rules:
+    - leaf movement matches visible breeze
+    - avoid heavy branch cracking
+    - avoid storm-like canopy movement
+    - preserve soft broad-leaf tree character
+
+birds:
+  presence: moderate
+
+  types:
+    - small-park-birds
+    - distant-songbirds
+
+  behavior:
+    chirps:
+      intensity: low
+      frequency: regular
+      variation: natural
+
+    calls:
+      intensity: low
+      frequency: occasional
+
+    flight:
+      wing_flutters:
+        enabled: conditional
+        intensity: very-low
+
+  spatial_distribution:
+    - left-trees
+    - right-trees
+    - distant-tree-line
+    - stream-area
+
+  rules:
+    - avoid repetitive identical calls
+    - avoid dense jungle ambience
+    - avoid loud predatory bird calls
+    - birds remain gentle and supportive
+    - birds must not overpower dialogue
+
+wind:
+  default:
+    intensity: light
+    character: soft-warm-park-breeze
+
+  behavior:
+    variation: gradual
+    gusts: rare
+    spatial_movement: subtle
+
+  interactions:
+    tree_canopy:
+      enabled: true
+      intensity: low
+      sound: gentle-leaf-rustle
+
+    grass:
+      enabled: true
+      intensity: very-low
+      sound: subtle-grass-movement
+
+    flowers:
+      enabled: true
+      intensity: minimal
+      sound: very-soft-flower-movement
+
+    clothing:
+      enabled: conditional
+      intensity: subtle
+
+  rules:
+    - avoid aggressive gusts
+    - avoid frightening wind
+    - avoid sudden intensity changes
+    - vegetation movement must match wind strength
+
+flowers_and_meadow:
+  ambience:
+    insects:
+      intensity: very-low
+
+    bees:
+      intensity: very-low
+      frequency: occasional
+
+    vegetation:
+      intensity: very-low
+
+  interaction:
+    brushing_past:
+      sound: soft-flower-and-grass-rustle
+      intensity: very-low
+
+    touching:
+      sound: delicate-plant-contact
+      intensity: minimal
+
+  rules:
+    - no loud insect swarms
+    - no aggressive buzzing
+    - preserve calm garden character
+
+wooden_bridge:
+  id: park-wooden-bridge
+  material:
+    - wood
+    - solid-timber
+
+  sound:
+    primary: none
+
+  footsteps:
+    children:
+      walk:
+        sound: light-wooden-footstep
+        intensity: low
+
+      run:
+        sound: quick-light-wooden-footsteps
+        intensity: medium-low
+
+    adults:
+      walk:
+        sound: soft-solid-wood-footstep
+        intensity: low-medium
+
+  structural_interaction:
+    movement:
+      sound: subtle-wood-response
+      intensity: very-low
+
+    handrail_touch:
+      sound: gentle-wood-contact
+      intensity: very-low
+
+  rules:
+    - bridge must sound sturdy
+    - avoid loud creaking
+    - avoid unstable bridge sounds
+    - footsteps should reflect character size
+    - stream remains audible beneath bridge activity
+
+stone_path:
+  id: park-stone-path
+
+  surface:
+    material:
+      - stone
+      - compact-ground-between-stones
+
+  footsteps:
+    children:
+      walk:
+        sound: light-stone-path-footstep
+        intensity: low
+
+      run:
+        sound: quick-light-stone-footstep
+        intensity: medium-low
+
+      skip:
+        sound: light-irregular-stone-steps
+        intensity: low-medium
+
+    adults:
+      walk:
+        sound: natural-stone-footstep
+        intensity: low-medium
+
+  character:
+    - dry
+    - natural
+    - lightly-textured
+
+  rules:
+    - no heavy cinematic footfalls
+    - preserve irregular natural path character
+    - footsteps follow visible movement
+
+grass:
+  footsteps:
+    walk:
+      sound: soft-grass-footstep
+      intensity: very-low
+
+    run:
+      sound: light-grass-movement
+      intensity: low
+
+  interaction:
+    body_contact:
+      sound: soft-grass-rustle
+      intensity: low
+
+  rules:
+    - grass footsteps remain muted
+    - avoid crisp dry-leaf character unless explicitly shown
+
+bench:
+  id: park-bench
+  position: left-foreground
+
+  material:
+    seat: wood
+    frame: metal
+
+  sound:
+    primary: none
+
+  interaction:
+    sit:
+      sound:
+        - subtle-wood-seat-contact
+        - very-soft-frame-response
+      intensity: low
+
+    stand:
+      sound: gentle-seat-release
+      intensity: very-low
+
+    touch:
+      sound: subtle-wood-contact
+      intensity: very-low
+
+  rules:
+    - bench remains sturdy
+    - no loud creaks
+    - avoid metallic ringing
+
+park_lamp:
+  id: park-lamp
+  position: left
+
+  daytime_state: inactive
+
+  sound:
+    primary: none
+
+  night_state:
+    enabled: conditional
+
+    sound:
+      type: very-subtle-electrical-presence
+      intensity: minimal
+
+  rules:
+    - lamp produces no audible sound during normal sunny daytime scenes
+    - avoid electrical buzzing
+
+distant_environment:
+  mountains:
+    sonic_source: none
+
+  distant_park:
+    ambience:
+      - very-distant-birds
+      - soft-open-air-tone
+
+    intensity: very-low
+
+  human_activity:
+    enabled: scene-dependent
+
+    sounds:
+      - distant-footsteps
+      - very-soft-conversation
+      - occasional-gentle-laughter
+
+    intensity: very-low
+
+  rules:
+    - park must not sound crowded by default
+    - distant people remain indistinct
+    - natural sounds remain dominant
+
+interaction_sounds:
+  stone_path:
+    walk:
+      sound: light-natural-stone-footstep
+
+    run:
+      sound: quick-stone-path-footsteps
+
+  grass:
+    walk:
+      sound: soft-grass-step
+
+    run:
+      sound: gentle-grass-rustle
+
+  bridge:
+    walk:
+      sound: soft-wooden-bridge-step
+
+    run:
+      sound: quick-light-wooden-bridge-steps
+
+    rail_touch:
+      sound: subtle-wood-contact
+
+  bench:
+    sit:
+      sound: gentle-bench-contact
+
+    touch:
+      sound: subtle-wood-contact
+
+  stream:
+    touch:
+      sound: small-water-displacement
+
+    shallow_step:
+      sound: gentle-splash
+
+  flowers:
+    brush:
+      sound: soft-plant-rustle
+
+  rules:
+    - interaction sounds require visible or narrative motivation
+    - preserve material identity
+    - scale sounds to character size
+    - avoid excessive Foley
+    - story-relevant interactions may receive temporary emphasis
+
+fixed_sources:
+  stream:
+    id: park-stream
+    position: center-right
+
+    sound:
+      type: gentle-running-water
+      intensity: low-medium
+
+    continuity:
+      continuous: true
+
+  bridge:
+    id: park-bridge
+    position: right
+
+    sound:
+      primary: none
+
+  large_left_tree:
+    id: park-tree-left
+    position: left
+
+    sound:
+      type: foliage-rustle
+      intensity: low
+
+  large_right_tree:
+    id: park-tree-right
+    position: right
+
+    sound:
+      type: foliage-rustle
+      intensity: low
+
+  bench:
+    id: park-bench
+    position: left-foreground
+
+    sound:
+      primary: none
+
+  lamp:
+    id: park-lamp
+    position: left
+
+    sound:
+      primary: none
+
+spatial_audio:
+  enabled: true
+
+  listener_reference: camera
+
+  sources:
+    stream:
+      position: center-right
+      sound:
+        - running-water
+        - gentle-ripples
+
+    bridge:
+      position: right
+      sound:
+        - bridge-footsteps
+        - wood-contact
+
+    left_tree:
+      position: left
+      sound:
+        - leaf-rustle
+        - occasional-birds
+
+    right_tree:
+      position: right
+      sound:
+        - leaf-rustle
+        - occasional-birds
+
+    distant_tree_line:
+      position: distant-center
+      sound:
+        - distant-birdsong
+        - open-park-ambience
+
+    flower_beds:
+      position:
+        - foreground-left
+        - foreground-right
+      sound:
+        - subtle-insects
+        - occasional-bee-buzz
+
+  rules:
+    - preserve source direction between shots
+    - camera rotation changes listener perspective
+    - stream remains anchored to physical waterway
+    - tree sounds remain anchored to vegetation
+    - birds may move naturally
+    - fixed sources must not move independently of geometry
+
+camera_audio_behavior:
+  establishing_wide:
+    ambience_width: wide
+
+    emphasis:
+      stream: normal
+      birds: normal
+      breeze: normal
+      foliage: normal
+
+    interaction_detail: reduced
+
+  path_medium:
+    ambience_width: medium-wide
+
+    emphasis:
+      footsteps: normal
+      nearby-foliage: normal
+      stream: normal
+
+  bridge_medium:
+    ambience_width: medium
+
+    emphasis:
+      bridge-footsteps: increased
+      stream: increased
+      foliage: normal
+
+  stream_close:
+    ambience_width: medium
+
+    emphasis:
+      water-detail: increased
+      small-ripples: increased
+
+    distant-birds: reduced
+
+  character_close_up:
+    ambience_width: reduced
+
+    nearby_environment: slightly-increased
+    distant_environment: reduced
+    stream: slightly-reduced
+
+  quiet_emotional_close_up:
+    ambience_width: reduced
+
+    emphasis:
+      soft-stream: normal
+      breeze: subtle
+      birds: very-low
+
+  rules:
+    - change audio perspective gradually
+    - preserve continuous environmental beds
+    - do not restart stream or birds between shots
+    - nearby sources increase naturally with proximity
+
+dialogue:
+  priority: highest
+
+  ambience_behavior:
+    during_dialogue:
+      volume: low-beneath-dialogue
+
+      reduction:
+        birds: moderate
+        stream: slight
+        breeze: slight
+        foliage: slight
+        insects: moderate
+
+    between_dialogue:
+      volume: normal-low
+
+  rules:
+    - preserve park identity beneath dialogue
+    - stream should remain perceptible
+    - reduce repetitive bird calls during important speech
+    - avoid masking consonants with water detail
+    - return ambience smoothly after dialogue
+
+music_relationship:
+  music_profile: nature-park-music
+
+  priority:
+    - dialogue
+    - important-story-sfx
+    - character-action
+    - environmental-identity
+    - background-nature
+    - music
+
+  rules:
+    - stream remains perceptible beneath music
+    - music must not mask important environmental interactions
+    - avoid excessive competition with birds
+    - preserve natural calm atmosphere
+    - ambience continues through musical transitions
+
+states:
+  default:
+    id: nature-park-default
+
+    layers:
+      stream: low-medium
+      birds: low
+      breeze: light
+      foliage: low
+      insects: very-low
+
+  quiet:
+    id: nature-park-quiet
+
+    layers:
+      stream: low
+      birds: very-low
+      breeze: subtle
+      foliage: subtle
+      insects: minimal
+
+    purpose:
+      - reflection
+      - calm-observation
+      - emotional-moment
+
+  exploration:
+    id: nature-park-exploration
+
+    layers:
+      stream: low-medium
+      birds: low
+      breeze: light
+      foliage: low
+
+    detail:
+      environmental_interactions: increased
+      footsteps: increased
+
+  bridge:
+    id: nature-park-bridge
+
+    layers:
+      stream: medium
+      birds: low
+      breeze: light
+
+    detail:
+      wooden-footsteps: increased
+      bridge-contact: scene-dependent
+
+  streamside:
+    id: nature-park-streamside
+
+    layers:
+      stream: medium
+      birds: low
+      foliage: low
+
+    detail:
+      water-ripples: increased
+      nearby-insects: very-low
+
+  dialogue:
+    id: nature-park-dialogue
+
+    layers:
+      stream: low
+      birds: very-low
+      breeze: very-low
+      foliage: very-low
+      insects: minimal
+
+  active:
+    id: nature-park-active
+
+    layers:
+      stream: low-medium
+      birds: low
+      breeze: light
+
+    details:
+      footsteps: low-medium
+      character-interactions: increased
+
+transitions:
+  entering_park:
+    behavior:
+      - introduce-distant-birdsong
+      - gradually-open-spatial-width
+      - introduce-tree-breeze
+      - reveal-stream-as-character-approaches
+      - increase-natural-detail-gradually
+
+  approaching_stream:
+    behavior:
+      - gradually-increase-water-volume
+      - increase-ripple-detail
+      - maintain-bird-and-foliage-bed
+
+  moving_away_from_stream:
+    behavior:
+      - gradually-reduce-water-detail
+      - preserve-stream-as-distant-source
+      - increase-general-park-ambience-relative-to-water
+
+  approaching_bridge:
+    behavior:
+      - maintain-stream
+      - introduce-bridge-material-detail
+      - prepare-wooden-footstep-response
+
+  crossing_bridge:
+    behavior:
+      - increase-stream-presence-below
+      - activate-wooden-footsteps
+      - maintain-open-park-ambience
+
+  leaving_bridge:
+    behavior:
+      - transition-footsteps-to-path-or-grass
+      - reduce-bridge-material-detail
+      - preserve-stream-continuity
+
+  shot_cut:
+    behavior:
+      ambience: continuous
+      environment_state: preserved
+
+    rules:
+      - do not restart stream
+      - do not restart bird patterns
+      - preserve wind state
+      - preserve spatial-source positions
+
+continuity:
+  preserve_across_visual_cuts: true
+  do_not_restart_on_each_shot: true
+
+  continuous_layers:
+    - stream
+    - breeze
+    - foliage
+    - open-air-ambience
+
+  semi_continuous_layers:
+    - birds
+    - insects
+
+  preserve_state:
+    - stream-flow
+    - wind-intensity
+    - bird-activity
+    - weather-state
+    - character-position
+    - active-surface
+    - environmental-perspective
+
+  rules:
+    - environmental ambience belongs to scene timeline
+    - stream flow never resets after cuts
+    - bird activity continues naturally rather than repeating
+    - fixed sources remain spatially anchored
+    - weather remains consistent unless explicitly changed
+    - environmental changes require scene motivation
+
+event_memory:
+  track:
+    - character-path-position
+    - bridge-occupancy
+    - stream-proximity
+    - wind-state
+    - bird-activity-state
+    - current-footstep-surface
+    - temporary-interactions
+
+  examples:
+    footstep_surface:
+      states:
+        - stone-path
+        - grass
+        - wooden-bridge
+        - stream-edge
+
+    bridge:
+      states:
+        - unoccupied
+        - approaching
+        - crossing
+        - leaving
+
+    stream_proximity:
+      states:
+        - distant
+        - medium
+        - near
+
+priority_system:
+  level_1:
+    category: dialogue
+
+  level_2:
+    category: narrative-action
+
+    examples:
+      - important-object-interaction
+      - water-interaction
+      - bridge-action
+
+  level_3:
+    category: character-action
+
+    examples:
+      - footsteps
+      - running
+      - sitting
+      - touching-water
+
+  level_4:
+    category: environmental-identity
+
+    examples:
+      - stream
+      - birds
+      - breeze
+      - foliage
+
+  level_5:
+    category: subtle-natural-detail
+
+    examples:
+      - insects
+      - flower-movement
+      - distant-birds
+
+  level_6:
+    category: music
+
+volume:
+  overall: low-beneath-dialogue
+
+  relative_levels:
+    dialogue:
+      level: foreground
+
+    narrative_sfx:
+      level: foreground-support
+
+    character_action:
+      level: foreground-support
+
+    stream:
+      level: background-prominent
+
+    birds:
+      level: background
+
+    foliage:
+      level: background
+
+    breeze:
+      level: background
+
+    insects:
+      level: very-subtle-background
+
+    distant_environment:
+      level: distant-background
+
+forbidden:
+  weather:
+    - explosive-thunder
+    - heavy-storm
+    - violent-wind
+    - hurricane-gusts
+    - aggressive-rain
+
+  water:
+    - violent-rapids
+    - flood-rumble
+    - huge-waterfall
+    - dangerous-water-roar
+
+  animals:
+    - aggressive-animal-calls
+    - predator-growls
+    - threatening-dogs
+    - frightening-bird-calls
+    - loud-insect-swarms
+
+  park:
+    - chaotic-crowds
+    - aggressive-shouting
+    - loud-motor-vehicles
+    - construction-noise
+    - heavy-traffic
+
+  emotional:
+    - horror-drones
+    - ominous-rumbles
+    - jump-scare-effects
+    - threatening-low-frequency-effects
+    - suspense-stingers
+
+  mechanical:
+    - harsh-alarms
+    - emergency-sirens
+    - loud-electrical-buzz
+
+negative_constraints:
+  - no harsh alarms
+  - no frightening animal sounds
+  - no storm ambience
+  - no violent water
+  - no aggressive wind
+  - no heavy traffic
+  - no chaotic crowds
+  - no exaggerated insect buzzing
+  - no loud bridge creaking
+  - no heavy cinematic footsteps
+  - no horror ambience
+  - no ominous drones
+  - no unnecessary cinematic impacts
+  - no sudden ambience resets
+  - no repetitive identical bird loops
+  - no environmental sound contradicting sunny daytime conditions
+  - no background ambience masking dialogue
+
+generation:
+  essential_prompt_tokens:
+    - sunny peaceful nature park
+    - gentle flowing stream
+    - soft park birdsong
+    - light warm breeze
+    - gentle tree leaves rustling
+    - subtle meadow insects
+    - quiet landscaped garden
+    - wooden footbridge
+    - natural stone pathway
+    - spacious open-air atmosphere
+    - calm child-friendly environment
+    - bright daytime ambience
+    - dialogue-friendly
+    - continuous natural ambience
+
+  negative_prompt_tokens:
+    - thunder
+    - storm
+    - violent wind
+    - heavy rain
+    - waterfall roar
+    - aggressive river
+    - frightening animals
+    - loud insect swarm
+    - heavy traffic
+    - chaotic crowd
+    - harsh alarms
+    - horror ambience
+    - ominous drone
+    - cinematic impacts
+
+  preserve_between_generations:
+    - stream-character
+    - stream-flow-level
+    - bird-character
+    - breeze-character
+    - foliage-character
+    - sunny-day-character
+    - overall-volume
+    - spatial-source-layout
+
+  variation_allowed:
+    - individual-bird-chirps
+    - gentle-water-ripple-patterns
+    - subtle-breeze-fluctuation
+    - occasional-bee-movement
+    - branch-and-leaf-detail
+    - distant-bird-calls
+    - small-natural-textures
+
+stems:
+  preferred: true
+
+  tracks:
+    - stream
+    - birds
+    - breeze
+    - foliage
+    - insects
+    - distant-environment
+    - footsteps
+    - bridge-interactions
+    - water-interactions
+    - environmental-interactions
+    - full-ambience-mix
+
+  purpose:
+    - dialogue-mixing
+    - proximity-control
+    - adaptive-level-control
+    - spatial-repositioning
+    - shot-continuity
+    - scene-extension
+    - bridge-and-stream-sequence-control
+
+validation:
+  environment_checks:
+    - stream sounds gentle and continuous
+    - birds remain natural and non-repetitive
+    - wind matches visible foliage movement
+    - park remains peaceful and spacious
+    - weather sounds match sunny conditions
+
+  continuity_checks:
+    - stream does not restart after cuts
+    - bird activity evolves naturally
+    - wind intensity remains consistent
+    - fixed sources preserve spatial position
+    - active walking surface remains correct
+
+  dialogue_checks:
+    - foreground speech remains intelligible
+    - water does not mask dialogue
+    - birds reduce when necessary
+    - environmental identity remains audible
+
+  interaction_checks:
+    - footsteps match stone grass or wood surface
+    - bridge sounds activate only during contact
+    - water interactions require physical contact
+    - bench sounds activate only during interaction
+    - vegetation sounds match visible contact or wind
+
+  emotional_checks:
+    - park remains calm
+    - park remains cheerful
+    - soundscape feels safe
+    - no unintended suspense is introduced
+    - no frightening natural elements are present
+
+  child_friendly_checks:
+    - sudden loud sounds are minimized
+    - animal sounds remain gentle
+    - water remains soothing rather than dangerous
+    - environmental layers avoid overstimulation
+    - natural details remain clear and pleasant
+
+context_dependencies:
+  location:
+    source: nature-park.yaml
+
+  music:
+    source: nature-park-music.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scenes:
+    source: ../../03-scenes/
+
+  editing:
+    source: ../../editing/
+
+authority:
+  location_ambience: this-file
+  stream_audio: this-file
+  environmental_sfx: this-file
+  natural_source_audio: this-file
+  surface_interaction_audio: this-file
+  bridge_audio: this-file
+  spatial_audio_layout: this-file
+  ambience_continuity: this-file
+
+  physical_geometry: location-context
+  weather_visual_state: location-context
+  music_identity: location-music-context
+  character_voice: character-context
+  dialogue_content: scene-context
+  narrative_sound_events: scene-context
+  final_mix: editing-context
+
+
+reference_images:
+  primary:
+    path: "<primary-reference-image>"
+    purpose: primary-visual-identity
+    view: "<view-description>"
+
+  geometry:
+    - path: "<geometry-reference-image>"
+      view: "<view-description>"
+      purpose: geometry-reference
+
+  details:
+    - path: "<detail-reference-image>"
+      subject: "<landmark-or-material>"
+      purpose: material-and-detail-reference
+
+  lighting_variants:
+    - path: "<lighting-reference-image>"
+      state: "<lighting-state>"
+      purpose: lighting-variant-reference
+
+  weather_variants:
+    - path: "<weather-reference-image>"
+      state: "<weather-state>"
+      purpose: weather-variant-reference
+
+reference_priority:
+  geometry:
+    - primary
+    - geometry
+
+  materials:
+    - details
+    - primary
+
+  lighting:
+    - lighting_variants
+
+  weather:
+    - weather_variants
+
+reference_usage_rules:
+  multiple_images:
+    - treat references as complementary views of one canonical location
+    - use the primary image for overall visual identity
+    - use geometry images for layout dimensions orientation and spatial relationships
+    - use detail images only for their named landmark material or permanent prop
+    - use lighting variants only for the matching declared lighting state
+    - use weather variants only for the matching declared weather state
+    - resolve conflicts using reference_priority
+    - preserve features confirmed across multiple views
+    - do not blend incompatible viewpoints into new architecture
+    - do not mirror crop or distort a reference to create new geography
+
+  authoritative_for:
+    - architecture
+    - geometry
+    - entrances and exits
+    - doors and windows
+    - fixed landmarks
+    - permanent props
+    - materials
+    - permanent colors
+    - spatial relationships
+    - environment scale
+    - camera-accessible areas
+
+  unknown_paths:
+    - keep placeholder paths until an approved reference is supplied
+    - do not infer or invent a real file path
+    - require path validation before reference-driven generation
+
+geometry_reference_handling:
+  primary_sources:
+    - primary
+    - geometry
+  extract:
+    - overall dimensions and proportions
+    - floor wall path and terrain layout
+    - entrance exit door and window positions
+    - fixed landmark positions and scale
+    - permanent prop placement
+    - spatial relationships
+    - world orientation cues
+    - environment scale
+    - camera-accessible areas
+  rules:
+    - require cross-view agreement before locking ambiguous geometry
+    - preserve occluded geometry from the approved canonical layout
+    - do not infer unseen structural elements
+
+material_detail_reference_handling:
+  primary_sources:
+    - details
+    - primary
+  extract:
+    - permanent materials
+    - permanent colors
+    - stable surface patterns
+    - landmark construction details
+    - permanent prop details
+  rules:
+    - detail references override primary only for their declared subject
+    - temporary dirt wetness shadows and reflections do not redefine materials
+    - generation artifacts do not become canonical texture
+
+variant_reference_handling:
+  lighting:
+    source: lighting_variants
+    match_by: state
+    rules:
+      - preserve physical lighting-source positions
+      - vary illumination without changing architecture materials or permanent colors
+      - do not treat temporary shadows or reflections as permanent features
+
+  weather:
+    source: weather_variants
+    match_by: state
+    rules:
+      - preserve geometry landmarks materials and scale across weather states
+      - temporary precipitation wetness or atmospheric effects remain state-specific
+      - weather references do not create or remove permanent assets
+
+stable_landmark_extraction:
+  enabled: true
+  include:
+    - fixed architectural landmarks
+    - permanent furniture or environment props
+    - entrances exits doors and windows
+    - persistent navigation features
+    - fixed physical light sources
+  exclude:
+    - characters
+    - temporary props
+    - shadows and reflections
+    - text and watermarks
+    - generation artifacts
+  rules:
+    - assign stable landmark IDs in the canonical location registry
+    - preserve landmark identity position orientation and scale across views
+    - ambiguous objects remain unclassified until approved
+
+orientation_consistency:
+  preserve:
+    - world orientation
+    - left right front back relationships
+    - entrance and exit directions
+    - landmark-to-landmark relationships
+    - established screen direction
+  rules:
+    - never mirror the environment
+    - reverse views must preserve canonical geography
+    - conflicting orientation cues require review rather than reinterpretation
+
+camera_geography_consistency:
+  derive_from:
+    - primary
+    - geometry
+  preserve:
+    - camera-accessible areas
+    - restricted camera areas
+    - valid sightlines
+    - landmark visibility by view
+    - established camera side
+  rules:
+    - camera placement must respect physical geometry
+    - lens choice must not alter world dimensions
+    - camera transitions must not cross geography without clear reorientation
+    - generated reverse angles must preserve entrance exit and landmark positions
+
+non_permanent_reference_content:
+  - characters
+  - temporary props
+  - temporary lighting
+  - temporary weather
+  - shadows
+  - reflections
+  - motion blur
+  - camera distortion
+  - text
+  - watermarks
+  - generation artifacts
+
+continuity_constraints:
+  - preserve overall geometry
+  - preserve landmark positions
+  - preserve entrance and exit positions
+  - preserve door and window positions
+  - preserve world orientation
+  - preserve permanent material colors
+  - preserve fixed props
+  - preserve environment scale
+  - preserve physical lighting-source positions
+  - preserve camera geography
+
+reference_driven_generation_rules:
+  - validate every non-placeholder reference path before generation
+  - load the primary reference whenever visual identity is required
+  - load only relevant detail lighting and weather references for the requested state
+  - keep architecture geometry and stable landmarks locked across generated shots
+  - maintain consistent orientation across establishing reverse and detail views
+  - ignore non-permanent reference content unless selected by current scene state
+  - reject reference conflicts that cannot be resolved through reference_priority
+  - record extracted landmarks and camera geography for continuity review
+
+forbidden_changes:
+  - mirroring the environment
+  - moving doors or windows
+  - changing room or environment dimensions
+  - moving fixed landmarks
+  - adding or removing permanent architecture
+  - changing permanent materials
+  - changing permanent colors
+  - reversing physical light direction
+  - changing landmark scale
+  - adding random structural elements
