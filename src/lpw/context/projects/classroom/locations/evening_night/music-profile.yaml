@@ -1,0 +1,1521 @@
+id: evening-night-music
+type: location-music-context
+version: 1.1
+name: Evening Night Music Profile
+
+identity:
+  location: evening-night
+
+  theme:
+    - nighttime calm
+    - emotional safety
+    - gentle wonder
+    - rest
+    - reassurance
+    - quiet imagination
+    - peaceful completion
+
+  emotional_identity:
+    primary:
+      - calm
+      - safe
+      - comforting
+      - peaceful
+      - gentle
+      - reassuring
+
+    secondary:
+      - dreamy
+      - warm
+      - curious
+      - intimate
+      - reflective
+      - wondrous
+      - cozy
+      - sleepy-light
+
+  energy: very-low
+
+  purpose:
+    - establish a peaceful nighttime atmosphere
+    - transition daytime activity toward rest
+    - support quiet nighttime conversation
+    - support gentle observation of stars and moon
+    - provide emotional reassurance
+    - support bedtime-adjacent scenes without forcing sleep
+    - preserve a sense of wonder without mystery or fear
+    - support homecoming and safe indoor light
+    - create recognizable nighttime musical identity
+    - modify existing location music without replacing its permanent identity
+
+musical_character:
+
+  style:
+    - gentle children's nighttime cinematic
+    - warm acoustic
+    - soft chamber
+    - light lullaby-inspired
+    - dreamy storybook
+    - preschool-friendly
+
+  tone:
+    warmth: high
+    softness: very-high
+    calmness: very-high
+    intimacy: high
+    spaciousness: high
+    wonder: medium-high
+    curiosity: low-medium
+    dreaminess: high
+    playfulness: very-low
+    mystery: very-low
+    tension: none
+
+  emotional_direction:
+    default: peaceful-safe-nighttime-wonder
+
+  avoid_emotional_direction:
+    - fear
+    - suspense
+    - danger
+    - loneliness
+    - ominous-mystery
+    - darkness-as-threat
+    - sadness-heavy
+    - tragic
+    - heroic-epic
+    - supernatural-threatening
+
+instrumentation:
+
+  primary:
+
+    soft_piano:
+      role:
+        - harmonic-foundation
+        - nighttime-emotional-support
+        - gentle-melody
+        - scene-resolution
+        - quiet-dialogue-support
+
+      playing_style:
+        - sparse
+        - soft
+        - warm
+        - rounded
+        - slow
+        - spacious
+
+      register: mid
+      intensity: very-low
+
+    gentle_celesta:
+      role:
+        - starlight-accent
+        - moonlight-color
+        - nighttime-motif
+        - gentle-wonder
+
+      playing_style:
+        - delicate
+        - isolated-notes
+        - soft
+        - simple
+
+      register: mid-high
+      intensity: very-low
+
+    soft_strings:
+      role:
+        - nighttime-width
+        - emotional-warmth
+        - sustained-support
+        - peaceful-resolution
+
+      playing_style:
+        - soft
+        - sustained
+        - legato
+        - transparent
+
+      intensity: very-low
+
+    gentle_clarinet:
+      role:
+        - warm-melodic-color
+        - intimate-nighttime-melody
+        - reassurance
+        - home-and-safety-character
+
+      playing_style:
+        - soft
+        - rounded
+        - lyrical
+        - short-phrases
+
+      register: mid
+      intensity: very-low
+
+  secondary:
+
+    gentle_flute:
+      allowed: true
+
+      role:
+        - moonlight-melody
+        - star-observation
+        - gentle-nighttime-curiosity
+
+      intensity: very-low
+
+      rules:
+        - use short airy phrases
+        - remain secondary
+        - avoid hollow or haunting tones
+        - reduce beneath dialogue
+
+    acoustic_guitar:
+      allowed: true
+
+      role:
+        - warmth
+        - returning-home
+        - familiar-location-support
+
+      playing_style:
+        - fingerpicked
+        - lightly-plucked
+        - slow
+
+      intensity: very-low
+
+      rules:
+        - keep rhythm subtle
+        - avoid noticeable strumming
+        - preserve nighttime stillness
+
+    harp:
+      allowed: limited
+
+      role:
+        - gentle-transition
+        - star-reveal
+        - bedtime-wonder
+
+      intensity: very-low
+
+      rules:
+        - use short broken chords
+        - avoid large glissandos
+        - avoid fantasy-heavy scoring
+        - avoid magical overload
+
+    muted_marimba:
+      allowed: limited
+
+      role:
+        - final-walking-pulse
+        - transition-from-evening
+        - soft-object-interaction
+
+      intensity: extremely-low
+
+      rules:
+        - use sparse isolated notes
+        - remove during reflective states
+        - avoid playful bouncing patterns
+
+    soft_bells:
+      allowed: limited
+
+      possible_sources:
+        - celesta
+        - soft-glockenspiel
+        - gentle-chime
+
+      role:
+        - star-accent
+        - gentle-discovery
+        - peaceful-resolution
+
+      intensity: extremely-low
+
+      rules:
+        - use single notes
+        - leave long spaces
+        - avoid repetitive sparkle
+        - avoid piercing frequencies
+        - never imply supernatural danger
+
+harmony:
+
+  character:
+    - warm
+    - open
+    - soft
+    - stable
+    - consonant
+    - spacious
+    - reassuring
+
+  complexity: low
+
+  preferred:
+    - major
+    - major-add6
+    - major-add9
+    - warm-major7
+    - open-fifths
+    - gentle-suspended-harmony
+    - simple-diatonic-progressions
+    - tonic-pedal
+    - gentle-plagal-motion
+    - soft-IV-I-resolution
+
+  minor_usage:
+    allowed: limited
+
+    rules:
+      - only use gentle relative-minor color
+      - immediately preserve warmth and stability
+      - never create sadness
+      - never imply danger
+      - never use dark low-register minor harmony
+
+  dissonance: minimal
+
+  harmonic_rhythm: slow
+
+  cadence_character:
+    - soft
+    - settled
+    - unhurried
+    - reassuring
+
+  rules:
+    - maintain tonal stability
+    - favor consonant open voicings
+    - use slow harmonic movement
+    - avoid unresolved suspension
+    - avoid chromatic tension
+    - avoid dramatic modulation
+    - avoid ominous bass movement
+    - always preserve emotional safety
+
+melody:
+
+  complexity: very-simple
+
+  phrase_length: short-medium
+
+  contour:
+    - gently-rising
+    - softly-falling
+    - arch-shaped
+    - small-step-motion
+    - slow-descending-resolution
+
+  repetition:
+    allowed: true
+    amount: moderate
+
+  characteristics:
+    - gentle
+    - lyrical
+    - memorable
+    - comforting
+    - spacious
+    - dreamy
+    - child-friendly
+
+  phrase_behavior:
+    beginning: soft
+    middle: gently-curious
+    ending: reassuringly-descending
+
+  rules:
+    - leave long spaces between phrases
+    - avoid constant melodic movement
+    - avoid rapid runs
+    - avoid large interval jumps
+    - avoid haunting sustained notes
+    - avoid overly sentimental melody
+    - simplify significantly beneath dialogue
+    - preserve recognizable nighttime motif
+
+rhythm:
+
+  activity: very-low
+
+  pulse:
+    strength: very-subtle
+    consistency: relaxed
+    character:
+      - slow
+      - gentle
+      - floating
+      - unhurried
+
+  percussion:
+    amount: almost-none
+
+  preferred:
+    - sparse-piano-pulse
+    - soft-guitar-fingerpicking
+    - isolated-muted-marimba
+    - gentle-breathing-like-phrasing
+
+  activity_relationship:
+
+    arriving_home:
+      activity: low
+
+    walking_at_night:
+      activity: very-low
+
+    star_observation:
+      activity: minimal
+
+    quiet_conversation:
+      activity: minimal
+
+    reflection:
+      activity: minimal
+
+    bedtime_transition:
+      activity: nearly-absent
+
+    sleeping_environment:
+      activity: absent
+
+  rules:
+    - allow rhythm to fade as night deepens
+    - preserve natural breathing space
+    - avoid noticeable beat emphasis
+    - reduce pulse during reflection
+    - remove percussion during quiet emotional moments
+    - never create urgency
+    - never create stealth or sneaking character
+
+  avoid:
+    - heavy-drums
+    - fast-percussion
+    - strong-pulse
+    - tension-ostinato
+    - ticking-rhythm
+    - heartbeat-like-tension
+    - complex-syncopation
+    - repetitive-nighttime-pulse
+    - driving-bass
+
+tempo:
+
+  default_bpm:
+    min: 50
+    max: 72
+
+  preferred_bpm: 62
+
+  states:
+
+    early_evening:
+      min: 64
+      max: 74
+
+    nighttime:
+      min: 56
+      max: 66
+
+    walking_home:
+      min: 60
+      max: 70
+
+    star_observation:
+      min: 52
+      max: 62
+
+    quiet_reflection:
+      min: 48
+      max: 58
+
+    bedtime_transition:
+      min: 46
+      max: 56
+
+  rules:
+    - decrease perceived energy gradually
+    - allow gentle rubato
+    - avoid rigid timing
+    - follow character movement naturally
+    - never become so slow that music feels sad
+    - avoid abrupt tempo changes
+
+dynamics:
+
+  default: very-soft
+
+  range:
+    minimum: extremely-soft
+    maximum: medium-soft
+
+  variation: subtle
+
+  contour:
+    opening: soft
+    middle: very-soft
+    ending: extremely-soft
+
+  rules:
+    - maintain comfortable nighttime listening level
+    - avoid sudden loud changes
+    - avoid dramatic crescendos
+    - avoid strong accents
+    - use gentle texture changes instead of volume changes
+    - allow ambience to become more prominent over time
+    - maintain preschool-safe dynamics
+
+dialogue:
+
+  priority: highest
+
+  music_behavior:
+
+    during_dialogue:
+      volume: very-low
+      melodic_activity: minimal
+      rhythmic_activity: minimal
+      instrumentation_density: minimal
+
+    during_quiet_conversation:
+      preferred_instruments:
+        - soft-piano
+        - acoustic-guitar
+
+      volume: extremely-low
+
+    during_reassurance:
+      preferred_instruments:
+        - soft-piano
+        - gentle-clarinet
+        - soft-strings
+
+      volume: very-low
+
+    during_star_conversation:
+      volume: very-low
+      melody: sparse
+      celesta: occasional
+
+    between_dialogue:
+      volume: low
+      melodic_activity: gently-increased
+
+  ducking:
+    enabled: true
+    behavior: very-smooth
+    attack: gentle
+    release: slow-gentle
+
+  rules:
+    - dialogue must remain completely intelligible
+    - remove celesta during important lines
+    - reduce clarinet beneath speech
+    - avoid flute beneath soft-spoken dialogue
+    - simplify piano
+    - strings remain background-only
+    - restore musical detail slowly after speech
+
+ambience:
+
+  priority:
+    - dialogue
+    - important-character-sounds
+    - nighttime-environment
+    - music
+
+  preserve:
+    - gentle-night-breeze
+    - soft-leaf-rustle
+    - quiet-night-insects
+    - distant-owl-like-environmental-presence
+    - occasional-soft-birds
+    - footsteps-on-path
+    - distant-water
+    - subtle-house-interior-sounds
+    - soft-window-light-environment
+    - quiet-countryside-tone
+
+  insects:
+    importance: high
+    role: nighttime-identity
+
+    music_relationship:
+      - leave upper-frequency-space
+      - avoid constant bell textures
+      - keep music sparse enough for insects to remain audible
+
+  breeze:
+    importance: medium-high
+    role: environmental-motion
+
+    music_relationship:
+      - preserve wide ambient space
+      - avoid dense sustained textures
+
+  leaves:
+    importance: medium
+
+  footsteps:
+    importance: medium
+
+    music_relationship:
+      - preserve walking readability
+      - avoid rhythmic synchronization
+      - never turn footsteps into suspense
+
+  house:
+    importance: high
+
+    preserve:
+      - warm-window-presence
+      - subtle-indoor-room-tone
+      - quiet-domestic-sounds
+
+    music_relationship:
+      - emphasize warmth rather than emptiness
+      - use piano guitar or clarinet for home-safety character
+
+  night_sky:
+    importance: high
+    role: visual-emotional-identity
+
+    music_relationship:
+      - maintain spacious arrangement
+      - use celesta only sparingly
+      - allow silence to communicate scale
+
+  rules:
+    - nighttime ambience remains peaceful
+    - darkness never implies danger
+    - environmental sounds remain soft and recognizable
+    - avoid exaggerated animal calls
+    - allow ambience-only moments
+    - music should feel embedded in the night environment
+
+mix:
+
+  dialogue_priority: highest
+
+  music_position:
+    width: medium-wide
+    depth: deep-background
+
+  ambience_position:
+    width: wide
+    depth: environment
+
+  piano:
+    position: center-soft
+
+  celesta:
+    position: subtle-wide-high
+
+  strings:
+    position: wide-background
+
+  clarinet:
+    position: slightly-off-center
+
+  flute:
+    position: opposite-clarinet-soft
+
+  acoustic_guitar:
+    position: medium-wide
+
+  harp:
+    position: soft-wide
+
+  rules:
+    - maintain clear dialogue center
+    - keep low frequencies extremely gentle
+    - avoid dark bass emphasis
+    - preserve insect and breeze frequencies
+    - soften high-frequency instruments
+    - maintain wide outdoor atmosphere
+    - keep music distant and supportive
+    - avoid excessive stereo movement
+
+states:
+
+  default:
+    id: evening-night-calm
+    emotion:
+      - peace
+      - safety
+      - comfort
+
+    energy: very-low
+
+    instrumentation:
+      - soft-piano
+      - gentle-celesta
+      - soft-strings
+      - gentle-clarinet
+
+  early_evening:
+    id: evening-night-early
+
+    emotion:
+      - calm
+      - transition
+      - warmth
+
+    energy: low
+
+    changes:
+      piano: warm
+      acoustic_guitar: soft
+      clarinet: gentle
+      strings: subtle
+      celesta: minimal
+
+  night_establishing:
+    id: evening-night-establishing
+
+    emotion:
+      - peaceful
+      - spacious
+      - gentle-wonder
+
+    energy: very-low
+
+    changes:
+      piano: sparse
+      celesta: nighttime-motif
+      strings: wide-soft
+      clarinet: minimal
+      ambience: prominent
+
+  moon_reveal:
+    id: evening-night-moon-reveal
+
+    emotion:
+      - wonder
+      - calm
+      - curiosity
+
+    energy: very-low
+
+    changes:
+      celesta: short-gentle-figure
+      flute: optional-airy-response
+      piano: open-voicing
+      strings: subtle
+
+    rules:
+      - avoid magical spectacle
+      - avoid strong crescendo
+      - keep wonder child-scaled
+
+  star_observation:
+    id: evening-night-star-observation
+
+    emotion:
+      - wonder
+      - curiosity
+      - peace
+
+    energy: very-low
+
+    changes:
+      piano: sparse
+      celesta: occasional-single-notes
+      flute: very-sparse
+      strings: soft
+      rhythm: absent
+
+    rules:
+      - allow long silent spaces
+      - preserve night ambience
+      - avoid constant sparkle
+
+  walking_home:
+    id: evening-night-walking-home
+
+    emotion:
+      - safety
+      - warmth
+      - gentle-progress
+
+    energy: very-low
+
+    changes:
+      acoustic_guitar: soft-fingerpicking
+      piano: gentle
+      clarinet: occasional
+      muted_marimba: extremely-subtle
+      strings: minimal
+
+    rules:
+      - homecoming feels safe
+      - walking never feels lonely
+      - avoid suspenseful rhythm
+
+  home_lights:
+    id: evening-night-home-lights
+
+    emotion:
+      - comfort
+      - security
+      - belonging
+
+    energy: very-low
+
+    changes:
+      piano: warm-primary
+      clarinet: gentle-home-phrase
+      acoustic_guitar: soft
+      strings: subtle
+      celesta: absent-or-minimal
+
+  friendship:
+    id: evening-night-friendship
+
+    emotion:
+      - closeness
+      - kindness
+      - reassurance
+
+    energy: very-low
+
+    changes:
+      piano: primary
+      clarinet: soft-motif
+      strings: subtle
+      acoustic_guitar: occasional-plucks
+      celesta: absent
+
+  quiet_dialogue:
+    id: evening-night-dialogue
+
+    emotion:
+      - supportive
+      - calm
+      - intimate
+
+    energy: extremely-low
+
+    changes:
+      piano: sparse
+      acoustic_guitar: minimal
+      clarinet: absent-or-minimal
+      strings: very-soft
+      celesta: absent
+      flute: absent
+
+  reassurance:
+    id: evening-night-reassurance
+
+    emotion:
+      - safety
+      - comfort
+      - hope
+
+    energy: extremely-low
+
+    changes:
+      piano: warm
+      clarinet: short-gentle-response
+      strings: subtle
+      celesta: optional-single-note
+
+  reflection:
+    id: evening-night-reflection
+
+    emotion:
+      - thoughtfulness
+      - peace
+      - contentment
+
+    energy: extremely-low
+
+    changes:
+      piano: primary
+      strings: sustained-soft
+      acoustic_guitar: occasional
+      clarinet: sparse
+      rhythm: absent
+      celesta: minimal
+
+  bedtime_transition:
+    id: evening-night-bedtime-transition
+
+    emotion:
+      - comfort
+      - calm
+      - rest
+
+    energy: extremely-low
+
+    changes:
+      piano: very-sparse
+      strings: very-soft
+      clarinet: minimal
+      acoustic_guitar: absent-or-minimal
+      celesta: optional-isolated-note
+      rhythm: absent
+
+    rules:
+      - suggest rest without forcing sleep
+      - avoid sentimental lullaby exaggeration
+      - preserve emotional engagement
+
+  sleeping_environment:
+    id: evening-night-sleeping-environment
+
+    emotion:
+      - complete-safety
+      - rest
+      - peace
+
+    energy: minimal
+
+    changes:
+      piano: optional-isolated-notes
+      strings: optional-soft-bed
+      melody: minimal
+      rhythm: absent
+      ambience: dominant
+
+  episode_resolution:
+    id: evening-night-episode-resolution
+
+    emotion:
+      - completion
+      - warmth
+      - safety
+      - reassurance
+
+    energy: extremely-low
+
+    changes:
+      piano: gentle-resolution
+      clarinet: soft-response
+      celesta: nighttime-theme-resolution
+      strings: very-soft
+      acoustic_guitar: optional-final-pluck
+
+    rules:
+      - resolve clearly
+      - remain positive
+      - avoid permanent-goodbye feeling
+      - finish with emotional safety
+
+motif:
+
+  id: evening-night-starlight-motif
+
+  purpose:
+    - identify-nighttime
+    - reinforce-time-of-day
+    - symbolize-safety-in-darkness
+    - symbolize-gentle-wonder
+    - support-nighttime-reflection
+    - create-time-of-day-continuity
+
+  primary_instrument: gentle-celesta
+
+  supporting_instruments:
+    - soft-piano
+    - gentle-clarinet
+    - soft-strings
+
+  structure:
+    length: short
+    complexity: very-simple
+
+    character:
+      - soft
+      - spacious
+      - gently-rising
+      - softly-descending
+      - reassuring
+      - memorable
+
+  emotional_shape:
+    beginning: calm
+    middle: wondrous
+    ending: safe-and-resolved
+
+  usage:
+    - nighttime-establishing-shot
+    - moon-reveal
+    - star-observation
+    - returning-home
+    - quiet-friendship
+    - bedtime-transition
+    - nighttime-scene-ending
+    - episode-resolution
+
+  rules:
+    - motif remains recognizable
+    - motif remains sparse
+    - arrangement may adapt to active location
+    - permanent location motif remains primary when required
+    - nighttime motif may function as a soft overlay
+    - simplify beneath dialogue
+    - never become mysterious
+    - never become haunting
+    - never become magical-spectacle
+
+environmental_relationship:
+
+  visual_character:
+    - deep-blue
+    - moonlit
+    - starlit
+    - peaceful
+    - cozy
+    - softly-lit
+    - intimate
+    - natural
+    - safe
+    - quiet
+
+  music_translation:
+
+    deep_blue_sky:
+      musical_quality:
+        - spacious-voicing
+        - very-soft-dynamics
+        - slow-harmonic-motion
+
+    stars:
+      musical_quality:
+        - isolated-celesta-notes
+        - sparse-high-register-piano
+        - long-silences
+
+    crescent_moon:
+      musical_quality:
+        - soft-celesta-motif
+        - gentle-flute
+        - open-harmony
+
+    clouds:
+      musical_quality:
+        - sustained-soft-strings
+        - slow-moving-texture
+
+    warm_windows:
+      musical_quality:
+        - piano
+        - gentle-clarinet
+        - acoustic-guitar
+        - warm-midrange-harmony
+
+    porch_lights:
+      musical_quality:
+        - subtle-piano-accent
+        - soft-celesta-note
+        - reassurance
+
+    garden:
+      musical_quality:
+        - sparse-acoustic-texture
+        - subtle-night-ambience
+        - gentle-flute
+
+    flowers:
+      musical_quality:
+        - delicate-single-note-details
+        - soft-piano
+        - occasional-celesta
+
+    trees:
+      musical_quality:
+        - sustained-warm-harmony
+        - low-density-arrangement
+
+    stone_path:
+      musical_quality:
+        - gentle-walking-pulse
+        - acoustic-guitar
+        - extremely-light-marimba
+
+    cottage:
+      musical_quality:
+        - warm-piano
+        - clarinet
+        - acoustic-guitar
+        - intimate-harmony
+
+transitions:
+
+  sunset_to_night:
+    behavior:
+      - reduce-tempo-gradually
+      - remove-active-percussion
+      - reduce-acoustic-guitar-rhythm
+      - increase-piano-space
+      - introduce-celesta-sparingly
+      - soften-strings
+      - increase-nighttime-ambience
+      - transition-sunset-motif-into-nighttime-motif
+      - preserve-active-location-motif
+
+  daytime_location_to_nighttime_version:
+    behavior:
+      - preserve-location-melody
+      - reduce-rhythmic-density
+      - reduce-arrangement-density
+      - soften-instrument-attacks
+      - replace-bright-percussion-with-soft-piano-or-celesta
+      - lower-energy-without-darkening-emotion
+      - retain-recognizable-location-identity
+
+  active_to_quiet:
+    behavior:
+      - remove-percussion
+      - reduce-rhythm
+      - simplify-melody
+      - increase-silence
+      - transition-to-piano-led-texture
+
+  outdoor_to_home:
+    behavior:
+      - preserve-nighttime-motif
+      - reduce-wide-ambient-space-gradually
+      - increase-warm-piano
+      - introduce-clarinet
+      - reduce-celesta
+      - emphasize-comfort-and-security
+
+  walking_to_rest:
+    behavior:
+      - remove-marimba
+      - simplify-guitar
+      - slow-tempo
+      - increase-piano-space
+      - allow-ambience-to-lead
+
+  dialogue_to_stars:
+    behavior:
+      - restore-celesta-sparingly
+      - widen-strings
+      - introduce-short-nighttime-motif
+      - maintain-low-dynamics
+
+  stars_to_dialogue:
+    behavior:
+      - remove-celesta
+      - reduce-strings
+      - retain-soft-piano
+      - prioritize-dialogue
+
+  night_to_bedtime:
+    behavior:
+      - reduce-melodic-density
+      - remove-rhythm
+      - soften-harmony
+      - reduce-celesta
+      - retain-piano-and-soft-strings
+      - increase-room-or-night-ambience
+
+continuity_constraints:
+
+  identity:
+    - preserve nighttime calm
+    - preserve emotional safety
+    - preserve gentle wonder
+    - preserve reassurance
+    - preserve starlight motif
+
+  relationship_to_location:
+    - nighttime profile modifies existing location music
+    - permanent location musical identity remains recognizable
+    - permanent location motif remains authoritative
+    - nighttime motif acts as a time-of-day layer
+    - instrumentation may adapt to active location
+    - rhythm becomes softer
+    - arrangement becomes more spacious
+    - darkness never changes location into a threatening place
+
+  relationship_to_sunset:
+    - night follows sunset naturally
+    - sunset warmth continues into nighttime safety
+    - sunset flute identity may transition into celesta
+    - rhythmic energy decreases
+    - ambience becomes more prominent
+    - emotional continuity remains positive
+
+  instrumentation:
+    - piano remains primary nighttime harmonic foundation
+    - celesta remains nighttime accent rather than continuous texture
+    - clarinet provides warm intimate color
+    - strings remain soft and distant
+    - flute remains secondary
+    - percussion remains nearly absent
+
+  energy:
+    - baseline energy remains very-low
+    - no high-energy nighttime states
+    - walking states may briefly reach low
+    - energy decreases toward bedtime
+    - transitions remain gradual
+
+  environment:
+    - preserve insects
+    - preserve breeze
+    - preserve leaves
+    - preserve warm-house sounds when appropriate
+    - preserve nighttime environmental identity
+    - avoid excessive silence
+
+  emotional:
+    - darkness remains safe
+    - nighttime remains comforting
+    - solitude feels peaceful rather than lonely
+    - stars create wonder rather than mystery
+    - quiet does not become sadness
+    - rest does not imply emotional disengagement
+    - home remains warm and secure
+
+  mixing:
+    - dialogue always has priority
+    - ambience becomes increasingly important
+    - music remains sparse
+    - music remains background-supportive
+    - avoid dense orchestration
+
+negative_constraints:
+
+  emotion:
+    - no horror
+    - no fear
+    - no danger
+    - no threat
+    - no suspense
+    - no ominous-night
+    - no scary-darkness
+    - no loneliness
+    - no grief
+    - no tragedy
+    - no eerie-mystery
+    - no supernatural-threat
+    - no emotional-manipulation
+
+  instrumentation:
+    - no threatening-drones
+    - no dark-synth-pads
+    - no low-rumbling-bass
+    - no heavy-brass
+    - no aggressive-strings
+    - no heavy-drums
+    - no industrial-impacts
+    - no horror-textures
+    - no piercing-bells
+    - no metallic-scrapes
+    - no distorted-instruments
+
+  rhythm:
+    - no tension-ostinato
+    - no heartbeat-pulse
+    - no ticking-clock-tension
+    - no stealth-rhythm
+    - no fast-percussion
+    - no aggressive-pulse
+    - no driving-beat
+    - no frantic-pattern
+
+  harmony:
+    - no dark-unresolved-harmony
+    - no horror-dissonance
+    - no ominous-low-pedal
+    - no tritone-emphasis
+    - no strong-chromatic-tension
+    - no tragic-minor-cadence
+    - no unresolved-suspense-harmony
+
+  melody:
+    - no haunting-melody
+    - no ghostlike-flute
+    - no eerie-childlike-melody
+    - no tragic-melody
+    - no extreme-register-jumps
+    - no threatening-motif
+    - no frantic-runs
+    - no melodramatic-lines
+
+  dynamics:
+    - no sudden-loud-accents
+    - no jump-scare-dynamics
+    - no dramatic-crescendos
+    - no extreme-volume-contrast
+    - no oversized-emotional-swell
+
+generation:
+
+  essential_prompt_tokens:
+    - gentle children's nighttime music
+    - peaceful evening and night
+    - soft preschool cinematic score
+    - warm soft piano
+    - gentle celesta
+    - soft strings
+    - gentle clarinet
+    - sparse acoustic guitar
+    - peaceful starlight
+    - crescent moon
+    - warm glowing windows
+    - safe nighttime garden
+    - quiet countryside
+    - gentle night breeze
+    - soft insects
+    - emotional safety
+    - reassurance
+    - bedtime-adjacent calm
+    - gentle wonder
+    - very low energy
+    - spacious arrangement
+    - dialogue-friendly
+    - ages 3-6
+
+  negative_prompt_tokens:
+    - horror
+    - fear
+    - suspense
+    - danger
+    - ominous
+    - haunting
+    - eerie
+    - scary night
+    - dark ambient
+    - threatening drone
+    - low rumbling bass
+    - heavy percussion
+    - epic orchestra
+    - tragic music
+    - lonely atmosphere
+    - creepy celesta
+    - ghostly flute
+    - tension ostinato
+    - dramatic crescendo
+    - jump scare
+    - supernatural danger
+
+  variation_allowed:
+    - piano-voicing-variation
+    - celesta-note-placement
+    - clarinet-phrase-variation
+    - flute-response-variation
+    - acoustic-guitar-pattern-variation
+    - soft-string-texture
+    - nighttime-motif-orchestration
+    - active-location-motif-integration
+    - environmental-density
+    - arrangement-density
+
+  preserve_between_generations:
+    - emotional-safety
+    - nighttime-calm
+    - starlight-motif
+    - permanent-location-identity
+    - warm-acoustic-character
+    - very-low-energy-character
+    - spaciousness
+    - dialogue-space
+    - nighttime-ambience-space
+    - positive-relationship-with-darkness
+    - preschool-appropriate-emotional-scale
+
+stems:
+
+  preferred: true
+
+  tracks:
+    - piano
+    - celesta
+    - strings
+    - clarinet
+    - flute
+    - acoustic-guitar
+    - harp
+    - marimba
+    - secondary-instruments
+    - music-full-mix
+
+  purpose:
+    - dialogue-ducking
+    - time-of-day-adaptation
+    - location-theme-integration
+    - adaptive-editing
+    - music-extension
+    - progressive-energy-reduction
+    - bedtime-transition
+    - motif-reuse
+    - environmental-space-control
+
+adaptive_music:
+
+  enabled: true
+
+  editable_layers:
+    - melody
+    - harmony
+    - rhythm
+    - texture
+    - instrumentation-density
+    - environmental-space
+    - nighttime-depth
+
+  priority_order_when_reducing:
+    - remove-marimba
+    - remove-harp
+    - remove-flute
+    - remove-secondary-instruments
+    - reduce-acoustic-guitar
+    - reduce-celesta
+    - reduce-clarinet
+    - reduce-strings
+    - simplify-piano
+
+  priority_order_when_building:
+    - piano
+    - soft-strings
+    - clarinet
+    - celesta
+    - acoustic-guitar
+    - optional-flute
+    - optional-harp
+    - optional-marimba
+
+  night_progression:
+
+    early_evening:
+      energy: low
+      rhythm: subtle
+      melodic_activity: low-medium
+      ambience: evening-transition
+
+    night:
+      energy: very-low
+      rhythm: minimal
+      melodic_activity: low
+      ambience: prominent
+
+    late_night:
+      energy: extremely-low
+      rhythm: absent
+      melodic_activity: sparse
+      ambience: dominant
+
+    bedtime:
+      energy: minimal
+      rhythm: absent
+      melodic_activity: minimal
+      ambience: primary
+
+validation:
+
+  emotional_checks:
+    - nighttime feels safe
+    - darkness does not feel threatening
+    - music feels warm
+    - music feels calm
+    - stars create gentle wonder
+    - quiet does not become loneliness
+    - reflection does not become sadness
+    - home feels secure
+    - music remains appropriate for ages 3-6
+
+  visual_checks:
+    - music reflects deep blue night sky
+    - music supports moonlight
+    - music supports visible stars
+    - music complements warm window light
+    - music supports a peaceful garden
+    - music reflects quiet natural surroundings
+    - musical density matches nighttime stillness
+
+  dialogue_checks:
+    - dialogue remains clearly intelligible
+    - celesta remains minimal beneath speech
+    - clarinet does not compete with dialogue
+    - flute remains absent beneath important lines
+    - strings remain background-only
+    - piano remains sparse
+
+  ambience_checks:
+    - insects remain audible
+    - breeze remains audible
+    - foliage remains audible
+    - footsteps remain readable
+    - warm house ambience remains recognizable
+    - music does not mask nighttime environment
+    - ambience may dominate during quiet scenes
+
+  continuity_checks:
+    - nighttime motif remains recognizable
+    - permanent location identity remains recognizable
+    - transition from sunset feels natural
+    - instrumentation remains soft
+    - energy reduces gradually
+    - nighttime remains reassuring
+    - no unintended suspense appears
+    - music remains appropriate for ages 3-6
+
+context_dependencies:
+
+  location:
+    source: active-location.yaml
+
+  location_music:
+    source: active-location-music.yaml
+
+  time_of_day:
+    source: evening-night.yaml
+
+  previous_time_of_day:
+    source: sunset-golden-hour.yaml
+
+  previous_time_of_day_music:
+    source: sunset-golden-hour-music.yaml
+
+  location_audio:
+    source: active-location.yaml#audio
+
+  color_palette:
+    source: ../color-palette.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scene:
+    source: ../../03-scenes/
+
+  cinematography:
+    source: ../../cinematography/
+
+  continuity:
+    source: ../../continuity/
+
+  editing:
+    source: ../../editing/
+
+authority:
+
+  time_of_day_music_identity: this-file
+  nighttime_motif: this-file
+  nighttime_emotional_direction: this-file
+  nighttime_energy_behavior: this-file
+  nighttime_instrumentation_bias: this-file
+  nighttime_transition_behavior: this-file
+
+  permanent_location_music_identity: location-music-context
+  permanent_location_motif: location-music-context
+  environmental_audio: location-context
+  dialogue_content: scene-context
+  character_voice: character-context
+  scene_emotion_override: scene-context
+  final_mix: editing-context

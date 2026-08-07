@@ -1,17 +1,480 @@
-palette:
-  dominant:
-    midnight_blue: "#101827"
-    charcoal: "#25272B"
-    burgundy: "#651F2D"
+# FILE NAME: palette.yaml
+# Colors only, transcribed from the generated PROJECT COLOR PALETTE image.
+# No character-specific palette data.
 
-  secondary:
-    desaturated_teal: "#3F6970"
-    concrete_gray: "#60646A"
-    warm_amber: "#C88745"
-
-rules:
-  - use burgundy primarily for Roxana
-  - use cold blue for dangerous locations
-  - use warm amber for safe or emotional moments
-  - avoid oversaturated cyan and magenta
-  - preserve natural skin tones
+metadata:
+  file_name: palette.yaml
+  palette_role: master_project_color_palette
+  source: PROJECT COLOR PALETTE infographic
+  scope: whole_project
+  character_specific: false
+primary_palette:
+  cream_white:
+    color_name: Cream White
+    hex: '#FFF6E8'
+    rgb:
+      r: 255
+      g: 246
+      b: 232
+  warm_ivory:
+    color_name: Warm Ivory
+    hex: '#F7EAD3'
+    rgb:
+      r: 247
+      g: 234
+      b: 211
+  vanilla_beige:
+    color_name: Vanilla Beige
+    hex: '#F2DAB6'
+    rgb:
+      r: 242
+      g: 218
+      b: 182
+  peach_blush:
+    color_name: Peach Blush
+    hex: '#FFC9B4'
+    rgb:
+      r: 255
+      g: 201
+      b: 180
+  soft_coral:
+    color_name: Soft Coral
+    hex: '#FFB3A1'
+    rgb:
+      r: 255
+      g: 179
+      b: 161
+  warm_yellow:
+    color_name: Warm Yellow
+    hex: '#FFD77A'
+    rgb:
+      r: 255
+      g: 215
+      b: 122
+  butter_yellow:
+    color_name: Butter Yellow
+    hex: '#FFE9A6'
+    rgb:
+      r: 255
+      g: 233
+      b: 166
+  pistachio_green:
+    color_name: Pistachio Green
+    hex: '#BFE3A1'
+    rgb:
+      r: 191
+      g: 227
+      b: 161
+  mint_green:
+    color_name: Mint Green
+    hex: '#A7E2CC'
+    rgb:
+      r: 167
+      g: 226
+      b: 204
+  sky_blue:
+    color_name: Sky Blue
+    hex: '#B7D0FC'
+    rgb:
+      r: 183
+      g: 208
+      b: 252
+  soft_lavender:
+    color_name: Soft Lavender
+    hex: '#D8C6F1'
+    rgb:
+      r: 216
+      g: 198
+      b: 241
+  dusty_pink:
+    color_name: Dusty Pink
+    hex: '#F7B6D2'
+    rgb:
+      r: 247
+      g: 182
+      b: 210
+secondary_palette:
+  sandy_tan:
+    color_name: Sandy Tan
+    hex: '#E6C59A'
+    rgb:
+      r: 230
+      g: 197
+      b: 154
+  caramel_brown:
+    color_name: Caramel Brown
+    hex: '#D6A77A'
+    rgb:
+      r: 214
+      g: 167
+      b: 122
+  terracotta:
+    color_name: Terracotta
+    hex: '#E78D6A'
+    rgb:
+      r: 231
+      g: 141
+      b: 106
+  peach_orange:
+    color_name: Peach Orange
+    hex: '#FFAA77'
+    rgb:
+      r: 255
+      g: 170
+      b: 119
+  sunflower_gold:
+    color_name: Sunflower Gold
+    hex: '#FFC857'
+    rgb:
+      r: 255
+      g: 200
+      b: 87
+  olive_green:
+    color_name: Olive Green
+    hex: '#A8C48A'
+    rgb:
+      r: 168
+      g: 196
+      b: 138
+  leaf_green:
+    color_name: Leaf Green
+    hex: '#7FBC8C'
+    rgb:
+      r: 127
+      g: 188
+      b: 140
+  aqua_blue:
+    color_name: Aqua Blue
+    hex: '#91D5E3'
+    rgb:
+      r: 145
+      g: 213
+      b: 227
+  periwinkle:
+    color_name: Periwinkle
+    hex: '#A6B6E6'
+    rgb:
+      r: 166
+      g: 182
+      b: 230
+  lilac:
+    color_name: Lilac
+    hex: '#C8B6E8'
+    rgb:
+      r: 200
+      g: 182
+      b: 232
+  rose_pink:
+    color_name: Rose Pink
+    hex: '#F29DBB'
+    rgb:
+      r: 242
+      g: 157
+      b: 187
+  soft_taupe:
+    color_name: Soft Taupe
+    hex: '#CDBFAE'
+    rgb:
+      r: 205
+      g: 191
+      b: 174
+neutral_palette:
+  warm_white:
+    color_name: Warm White
+    hex: '#FBF6EE'
+    rgb:
+      r: 251
+      g: 246
+      b: 238
+  oatmeal:
+    color_name: Oatmeal
+    hex: '#EDE4D1'
+    rgb:
+      r: 237
+      g: 228
+      b: 209
+  stone_beige:
+    color_name: Stone Beige
+    hex: '#DCCDB6'
+    rgb:
+      r: 220
+      g: 205
+      b: 182
+  light_taupe:
+    color_name: Light Taupe
+    hex: '#C7B8A6'
+    rgb:
+      r: 199
+      g: 184
+      b: 166
+  greige:
+    color_name: Greige
+    hex: '#B8AFA0'
+    rgb:
+      r: 184
+      g: 175
+      b: 160
+  soft_brown:
+    color_name: Soft Brown
+    hex: '#A58F7A'
+    rgb:
+      r: 165
+      g: 143
+      b: 122
+  wood_brown:
+    color_name: Wood Brown
+    hex: '#8E6E52'
+    rgb:
+      r: 142
+      g: 110
+      b: 82
+  charcoal_gray:
+    color_name: Charcoal Gray
+    hex: '#5C5C5C'
+    rgb:
+      r: 92
+      g: 92
+      b: 92
+  dove_gray:
+    color_name: Dove Gray
+    hex: '#9FA5A9'
+    rgb:
+      r: 159
+      g: 165
+      b: 169
+  cloud_gray:
+    color_name: Cloud Gray
+    hex: '#C9CED3'
+    rgb:
+      r: 201
+      g: 206
+      b: 211
+  powder_blue_gray:
+    color_name: Powder Blue Gray
+    hex: '#DDE6EE'
+    rgb:
+      r: 221
+      g: 230
+      b: 238
+  mist:
+    color_name: Mist
+    hex: '#EEF2FF'
+    rgb:
+      r: 238
+      g: 242
+      b: 255
+material_accent_palette:
+  wood_light:
+    color_name: Wood Light
+    hex: '#F2D6B1'
+    rgb:
+      r: 242
+      g: 214
+      b: 177
+  wood_medium:
+    color_name: Wood Medium
+    hex: '#D2B48C'
+    rgb:
+      r: 210
+      g: 180
+      b: 140
+  painted_wood:
+    color_name: Painted Wood
+    hex: '#EADCC6'
+    rgb:
+      r: 234
+      g: 220
+      b: 198
+  brick_red:
+    color_name: Brick Red
+    hex: '#D9725A'
+    rgb:
+      r: 217
+      g: 114
+      b: 90
+  clay_brick:
+    color_name: Clay Brick
+    hex: '#C65A45'
+    rgb:
+      r: 198
+      g: 90
+      b: 69
+  chalk_white:
+    color_name: Chalk White
+    hex: '#F7F3EC'
+    rgb:
+      r: 247
+      g: 243
+      b: 236
+plant_and_nature_palette:
+  sage_green:
+    color_name: Sage Green
+    hex: '#B7CDA0'
+    rgb:
+      r: 183
+      g: 205
+      b: 160
+  moss_green:
+    color_name: Moss Green
+    hex: '#8BA87A'
+    rgb:
+      r: 139
+      g: 168
+      b: 122
+  forest_green:
+    color_name: Forest Green
+    hex: '#5E8E6E'
+    rgb:
+      r: 94
+      g: 142
+      b: 110
+  grass_green:
+    color_name: Grass Green
+    hex: '#9FCC7A'
+    rgb:
+      r: 159
+      g: 204
+      b: 122
+  leaf_light:
+    color_name: Leaf Light
+    hex: '#CDEBB2'
+    rgb:
+      r: 205
+      g: 235
+      b: 178
+  tree_bark:
+    color_name: Tree Bark
+    hex: '#7A5E5D'
+    rgb:
+      r: 122
+      g: 94
+      b: 93
+play_and_learning_palette:
+  bubblegum_pink:
+    color_name: Bubblegum Pink
+    hex: '#FF8FB1'
+    rgb:
+      r: 255
+      g: 143
+      b: 177
+  tangerine:
+    color_name: Tangerine
+    hex: '#FF9A4D'
+    rgb:
+      r: 255
+      g: 154
+      b: 77
+  lemon_yellow:
+    color_name: Lemon Yellow
+    hex: '#FFD34D'
+    rgb:
+      r: 255
+      g: 211
+      b: 77
+  lime_green:
+    color_name: Lime Green
+    hex: '#A6E66E'
+    rgb:
+      r: 166
+      g: 230
+      b: 110
+  turquoise:
+    color_name: Turquoise
+    hex: '#65D3D6'
+    rgb:
+      r: 101
+      g: 211
+      b: 214
+  violet:
+    color_name: Violet
+    hex: '#B568F2'
+    rgb:
+      r: 181
+      g: 104
+      b: 242
+lighting_and_atmosphere_palette:
+  canonical_surface_colors: false
+  morning_light:
+    color_name: Morning Light
+    hex: '#FFE9B5'
+    rgb:
+      r: 255
+      g: 233
+      b: 181
+  daylight:
+    color_name: Daylight
+    hex: '#FFF6E0'
+    rgb:
+      r: 255
+      g: 246
+      b: 224
+  soft_indoor_light:
+    color_name: Soft Indoor Light
+    hex: '#FFEFD6'
+    rgb:
+      r: 255
+      g: 239
+      b: 214
+  golden_hour:
+    color_name: Golden Hour
+    hex: '#FFC98A'
+    rgb:
+      r: 255
+      g: 201
+      b: 138
+  sunset_glow:
+    color_name: Sunset Glow
+    hex: '#FFB49A'
+    rgb:
+      r: 255
+      g: 180
+      b: 154
+  twilight:
+    color_name: Twilight
+    hex: '#C8B7E6'
+    rgb:
+      r: 200
+      g: 183
+      b: 230
+  evening_blue:
+    color_name: Evening Blue
+    hex: '#9FB6E8'
+    rgb:
+      r: 159
+      g: 182
+      b: 232
+  cozy_indoor:
+    color_name: Cozy Indoor
+    hex: '#FFDDD8'
+    rgb:
+      r: 255
+      g: 221
+      b: 216
+  candle_warmth:
+    color_name: Candle Warmth
+    hex: '#FFC69A'
+    rgb:
+      r: 255
+      g: 198
+      b: 154
+  night_blue:
+    color_name: Night Blue
+    hex: '#AE7EA6'
+    rgb:
+      r: 174
+      g: 126
+      b: 166
+  moonlight:
+    color_name: Moonlight
+    hex: '#AFC5E8'
+    rgb:
+      r: 175
+      g: 197
+      b: 232
+  dreamy_mist:
+    color_name: Dreamy Mist
+    hex: '#E9E6FF'
+    rgb:
+      r: 233
+      g: 230
+      b: 255
