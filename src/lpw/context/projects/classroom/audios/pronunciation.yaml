@@ -1,4 +1,51 @@
+metadata:
+  id: classroom-english-pronunciation
+  type: pronunciation-context
+  version: 1
+  status: approved
+  project_id: classroom
+  purpose: clear natural English pronunciation for children ages 3 to 6
+  target_language: English
+  approval_required: true
+
+audience:
+  minimum_age: 3
+  maximum_age: 6
+  learner_level: beginner
+  comprehension_priority: critical
+  imitation_friendly: true
+
 entries:
+  Yoyo:
+    language: English
+    spoken_form: "YO-yo"
+    phonetic: "YO-yo"
+    ipa: "/ˈjoʊ.joʊ/"
+    syllables:
+      - "YO"
+      - "yo"
+    primary_stress_syllable: 1
+    repeat_consistently: true
+    forbid_variants:
+      - "yo-YO"
+      - "YAW-yaw"
+      - "YOY-oh"
+
+  Riri:
+    language: English
+    spoken_form: "REE-ree"
+    phonetic: "REE-ree"
+    ipa: "/ˈriː.riː/"
+    syllables:
+      - "REE"
+      - "ree"
+    primary_stress_syllable: 1
+    repeat_consistently: true
+    forbid_variants:
+      - "ree-REE"
+      - "RIE-rie"
+      - "RIR-ee"
+
   Roxana:
     language: Persian
     phonetic: "rok-saa-naa"
@@ -15,8 +62,153 @@ entries:
     language: English
     spoken_form: "M C P"
 
+delivery:
+  style: gentle-cheerful-and-child-friendly
+  supported_modes:
+    speaking:
+      enabled: true
+      preserve_natural_conversation: true
+    singing:
+      enabled: true
+      preserve_word_intelligibility: true
+      melody_must_not_distort_pronunciation: true
+  pronunciation_quality:
+    clear: true
+    natural: true
+    distinct: true
+    correct: true
+    warm: true
+    easy_to_understand: true
+    easy_to_imitate: true
+  avoid_robotic_delivery: true
+  avoid_over_articulation: true
+  avoid_exaggerated_accent: true
+  avoid_sing_song_speech_unless_singing: true
+
+articulation:
+  consonants:
+    style: crisp-and-gentle
+    preserve_initial_consonants: true
+    preserve_final_consonants: true
+    preserve_consonant_clusters: true
+    avoid_harsh_attacks: true
+    avoid_swallowed_endings: true
+  vowels:
+    style: clean-natural-and-stable
+    preserve_short_and_long_vowel_contrast: true
+    preserve_diphthongs: true
+    avoid_over_stretching: true
+    avoid_unexplained_vowel_shift: true
+  syllables:
+    pronounce_every_syllable: true
+    preserve_syllable_order: true
+    avoid_swallowed_syllables: true
+    avoid_added_syllables: true
+    avoid_merged_words: true
+  word_endings:
+    preserve_plural_s: true
+    preserve_possessive_s: true
+    preserve_past_tense_ed: true
+    preserve_progressive_ing: true
+    preserve_contractions_when_scripted: true
+
+pacing:
+  style: smooth-and-unhurried
+  use_character_voice_profile_rate: true
+  no_rushed_syllables: true
+  no_mechanical_word_spacing: true
+  preserve_natural_phrase_groups: true
+  allow_short_comprehension_pauses: true
+  minimum_pause_after_modeled_word_ms: 300
+  minimum_pause_before_requested_repetition_ms: 500
+  maximum_automatic_time_stretch_percent: 5
+  undersized_shot_policy: extend_shot_instead_of_speeding_speech
+
+prosody:
+  preserve_natural_english_stress: true
+  preserve_sentence_rhythm: true
+  preserve_question_intonation: true
+  preserve_statement_intonation: true
+  emphasize_learning_words_gently: true
+  maximum_learning_word_emphasis_db: 2
+  keep_name_stress_consistent: true
+  avoid_monotone_delivery: true
+  avoid_excessive_pitch_movement: true
+  avoid_chanted_repetition: true
+
+repetition:
+  use_identical_phonemes_for_each_repetition: true
+  preserve_primary_stress: true
+  preserve_syllable_count: true
+  preserve_vowel_quality: true
+  preserve_consonant_clarity: true
+  allow_small_natural_prosody_variation: true
+  forbid_pronunciation_drift: true
+  forbid_speed_increase_across_repetitions: true
+  character_names_must_match_canonical_entry: true
+
+language_handling:
+  default_language: English
+  language_code: en
+  automatic_translation: false
+  automatic_language_detection: false
+  preserve_exact_scripted_language: true
+  unicode_normalization: NFC
+  numbers: expand_before_generation
+  abbreviations: require_explicit_spoken_form
+  acronyms: pronounce_from_dictionary
+  proper_nouns: pronounce_from_dictionary
+  unknown_words: require_review_before_generation
+  mixed_language_words: require_explicit_language_and_phonetic_guidance
+
 rules:
   - numbers must be expanded before voice generation
   - abbreviations must have an explicit spoken form
   - character names must always use dictionary pronunciation
   - technical terms must not switch pronunciation between scenes
+  - pronounce every scripted word distinctly and correctly
+  - keep consonants crisp and vowels clean without sounding robotic
+  - use smooth pacing and never rush syllables
+  - keep delivery gentle, cheerful, warm, and child-friendly
+  - preserve the same pronunciation across every repetition
+  - never swallow syllables or meaningful word endings
+  - never over-stretch vowels or exaggerate accents
+  - never change Yoyo from YO-yo or Riri from REE-ree
+
+validation:
+  transcript_match_required: exact
+  missing_words_allowed: 0
+  extra_words_allowed: 0
+  substituted_words_allowed: 0
+  repeated_words_allowed_only_when_scripted: true
+  character_name_match_required: exact
+  canonical_name_entries:
+    Yoyo: "YO-yo"
+    Riri: "REE-ree"
+  require_syllable_count_match: true
+  require_primary_stress_match: true
+  require_initial_consonant_audibility: true
+  require_final_consonant_audibility: true
+  require_vowel_quality_review: true
+  require_child_comprehension_review: true
+  require_pronunciation_consistency_review: true
+  reject_rushed_syllables: true
+  reject_swallowed_syllables: true
+  reject_exaggerated_accent: true
+  reject_robotic_spacing: true
+  reject_pronunciation_drift: true
+
+forbidden_changes:
+  - changing_Yoyo_from_YO-yo
+  - changing_Riri_from_REE-ree
+  - changing_name_stress_between_repetitions
+  - swallowing_syllables
+  - dropping_initial_or_final_consonants
+  - merging_adjacent_words
+  - over_stretching_vowels
+  - exaggerating_accents
+  - rushing_syllables
+  - robotic_equal_spacing
+  - adding_unrequested_words
+  - removing_scripted_words
+  - changing_scripted_language

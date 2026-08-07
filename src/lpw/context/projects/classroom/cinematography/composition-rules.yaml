@@ -1,0 +1,635 @@
+composition_rules:
+  global:
+    style: polished_cinematic_preschool_animation
+    audience_age:
+      minimum: 3
+      maximum: 6
+    visual_philosophy: simple_enough_to_understand_instantly_rich_enough_to_feel_cinematic_playful_enough_to_hold_attention_and_controlled_enough_to_never_overwhelm
+    first_read_target_seconds: 1
+    priorities:
+      - immediate_visual_comprehension
+      - clear_character_readability
+      - strong_focal_hierarchy
+      - emotional_clarity
+      - simple_storytelling
+      - preschool_safe_visual_stimulation
+      - consistent_character_scale
+      - clean_silhouettes
+      - easy_to_follow_action
+      - educational_clarity
+      - comfortable_visual_pacing
+    compatible_lenses:
+      - 24mm
+      - 35mm
+      - 50mm
+      - 65mm
+      - 85mm
+    production_uses:
+      - storyboard_generation
+      - shot_design
+      - image_generation
+      - ai_video_generation
+      - animation_review
+      - visual_quality_control
+
+  core_principles:
+    primary_focal_points_per_shot: 1
+    require_immediate_understanding_of:
+      - who_or_what_to_look_at
+      - what_the_character_is_doing
+      - what_object_is_important
+      - what_emotion_is_being_communicated
+      - where_the_action_is_happening
+    rules:
+      one_obvious_primary_focal_point: true
+      avoid_searching_the_frame_for_story_information: true
+      prioritize_comprehension_over_visual_complexity: true
+      keep_story_action_immediately_legible: true
+      keep_composition_cinematic_but_not_overly_dramatic: true
+
+  focal_hierarchy:
+    maximum_primary_focal_points: 1
+    maximum_supporting_focal_points: 1
+    environmental_elements: few_and_low_priority
+    attention_path:
+      - primary_subject
+      - important_action_or_object
+      - supporting_environment
+    rules:
+      avoid_equally_strong_competing_focal_points: true
+      background_must_not_compete_with_characters: true
+      strongest_contrast_should_support_story_priority: true
+      strongest_motion_should_support_story_priority: true
+      simplify_frame_when_focal_priority_changes: true
+
+  character_priority:
+    default_visual_priority: strongest
+    small_screen_readability_required: true
+    placement:
+      keep_important_characters_away_from_extreme_edges: true
+      allow_edge_approach_when_motivated_by_movement: true
+      maintain_comfortable_headroom: true
+      provide_lead_room_in_direction_of_motion: true
+      provide_looking_room_in_direction_of_gaze: true
+      provide_walking_and_running_space: true
+    visibility:
+      preserve_face_visibility: true
+      preserve_eye_visibility: true
+      preserve_mouth_visibility_during_dialogue: true
+      preserve_gesture_visibility: true
+      preserve_full_silhouette_when_body_language_matters: true
+      keep_feet_visible_during_important_full_body_action: true
+    scale:
+      keep_characters_large_enough_for_small_screens: true
+      maintain_consistent_scale_across_connected_shots: true
+      avoid_extreme_wide_for_important_dialogue: true
+    cropping:
+      avoid_cropping_through:
+        - eyes
+        - mouth
+        - neck
+        - hands
+        - major_joints
+        - feet_during_important_physical_actions
+
+  framing_by_shot_size:
+    full_body:
+      preserve_complete_silhouette: true
+      preserve_feet_during_action: true
+      include_clear_ground_contact: true
+      provide_lead_room: true
+      preferred_uses:
+        - movement
+        - physical_comedy
+        - demonstration
+        - character_interaction
+    medium:
+      prioritize:
+        - face
+        - hands
+        - readable_gestures
+      maintain_comfortable_headroom: true
+      preferred_uses:
+        - dialogue
+        - learning
+        - participation
+        - normal_storytelling
+    closeup:
+      prioritize:
+        - eyes
+        - mouth
+        - emotional_expression
+      avoid_extreme_face_cropping: true
+      avoid_perspective_distortion: true
+      use_only_when_emotional_or_story_value_is_clear: true
+
+  screen_zones:
+    comfortable_central_viewing_area:
+      horizontal_percent:
+        minimum: 15
+        maximum: 85
+      vertical_percent:
+        minimum: 10
+        maximum: 90
+    keep_inside_central_area_when_possible:
+      - faces
+      - eyes
+      - mouths
+      - educational_objects
+      - story_clues
+      - interactive_prompts
+    rules:
+      allow_outer_frame_movement_during_action: true
+      keep_essential_information_visible: true
+      avoid_critical_information_in_extreme_corners: true
+      respect_title_and_subtitle_safe_areas: true
+
+  eye_level_relationship:
+    default_height: character_eye_level
+    purpose: connect_children_directly_with_characters
+    rules:
+      use_high_or_low_angles_only_when_narratively_necessary: true
+      avoid_intimidating_low_angles: true
+      avoid_extreme_high_angles_that_make_children_look_powerless: true
+      restore_neutral_eye_level_after_special_angle: true
+
+  negative_space:
+    provide_space:
+      - in_front_of_walking_character
+      - in_direction_of_character_gaze
+      - around_educational_objects
+      - around_gestures
+      - around_important_discoveries
+      - around_text_or_learning_graphics
+    rules:
+      negative_space_should_improve_readability: true
+      negative_space_should_not_feel_empty_or_threatening: true
+      preserve_clear_destination_space_for_action: true
+      use_space_to_anticipate_comedy_or_movement: true
+
+  depth:
+    preferred_hierarchy:
+      foreground: optional_framing_or_story_element
+      middle_ground: primary_character_or_action
+      background: simplified_environmental_context
+    rules:
+      keep_main_storytelling_plane_obvious: true
+      do_not_fill_every_plane_with_activity: true
+      avoid_foreground_occlusion_of_characters: true
+      use_depth_to_separate_not_complicate: true
+      keep_background_activity_subordinate: true
+
+  character_separation:
+    requirements:
+      - clear_silhouette_contrast
+      - clean_shape_separation
+      - limited_clutter_behind_faces
+      - clear_separation_between_overlapping_characters
+    rules:
+      prevent_background_edges_intersecting_eyes: true
+      prevent_props_or_environment_growing_from_heads: true
+      avoid_unintentional_contour_tangents: true
+      separate_similar_character_colors_from_background: true
+      preserve_each_character_identity_in_group_action: true
+
+  two_character_composition:
+    establish_both_characters_clearly: true
+    maintain_understandable_screen_direction: true
+    preserve_eye_line_relationships: true
+    preserve_established_left_right_relationship: true
+    avoid_excessive_character_overlap: true
+    maintain_comfortable_visual_spacing: true
+    keep_both_expressions_readable_when_emotionally_relevant: true
+    shot_choice:
+      favor_two_shot_when: relationship_matters
+      favor_single_when: individual_reaction_matters_more
+
+  group_composition:
+    minimum_group_size: 3
+    hierarchy:
+      primary_character: strongest_visual_priority
+      supporting_characters: readable_but_secondary
+      background_characters: low_priority_context
+    preferred_arrangements:
+      - gentle_triangle
+      - soft_curve
+      - staggered_group
+    rules:
+      create_simple_visual_grouping: true
+      avoid_equal_priority_unless_whole_group_is_the_subject: true
+      maintain_visible_faces_when_possible: true
+      avoid_dense_overlapping_heads_and_bodies: true
+      avoid_rigid_crowded_rows: true
+      maintain_clear_speaking_character_priority: true
+
+  character_object_relationship:
+    visual_path:
+      - character
+      - gesture_or_gaze
+      - important_object
+    rules:
+      keep_character_and_object_relationship_clear: true
+      place_object_within_readable_gaze_or_gesture_path: true
+      avoid_object_overlap_with_face_or_hands: true
+      simplify_surrounding_detail_when_object_becomes_important: true
+      preserve_prop_scale_and_orientation: true
+
+  dialogue_composition:
+    priorities:
+      - speaking_character
+      - visible_eyes
+      - visible_mouth
+      - readable_gesture
+    rules:
+      reduce_background_activity: true
+      avoid_distracting_foreground_motion: true
+      avoid_competing_character_gestures: true
+      maintain_stable_framing: true
+      hold_long_enough_for_comprehension: true
+      transfer_focal_priority_to_reacting_character_when_needed: true
+      keep_key_vocabulary_visually_unobstructed: true
+
+  educational_composition:
+    concept_must_be_visually_obvious: true
+    introduction_path:
+      - character
+      - gesture
+      - object
+    general_rules:
+      avoid_equal_prominence_for_multiple_learning_objects: true
+      allow_equal_prominence_when_comparison_is_the_goal: true
+      keep_learning_information_centrally_visible: true
+      minimize_decorative_distraction: true
+      hold_demonstrations_long_enough_for_comprehension: true
+    counting:
+      objects_individually_distinguishable: true
+      avoid_excessive_overlap: true
+      maintain_clear_spacing: true
+      keep_complete_set_visible: true
+      keep_counting_order_visually_clear: true
+    colors:
+      target_color_clearly_visible: true
+      avoid_confusing_neighboring_colors: true
+      maintain_reliable_lighting_on_target: true
+    shapes:
+      maintain_recognizable_silhouette: true
+      avoid_shape_changing_perspective_distortion: true
+      avoid_occluding_defining_edges: true
+    size_comparison:
+      use_compatible_visual_planes: true
+      avoid_false_size_differences_from_perspective: true
+      keep_comparison_objects_visible_together: true
+
+  participation_composition:
+    character_acknowledges_viewer: true
+    clear_eye_contact_when_appropriate: true
+    composition_stability: locked
+    background_complexity: low
+    background_motion: none_or_minimal
+    response_hold_seconds:
+      minimum: 3
+      preferred: 4
+      maximum: 5
+    rules:
+      remove_distracting_motion: true
+      avoid_camera_movement: true
+      avoid_new_objects_entering_frame: true
+      avoid_cuts_during_response_period: true
+      signal_clearly_that_it_is_the_childs_turn: true
+
+  action_composition:
+    preserve:
+      - direction_of_movement
+      - destination_when_important
+      - clear_character_silhouette
+      - sufficient_lead_room
+      - visible_obstacles
+      - spatial_relationship_between_characters
+      - start_and_end_of_important_movements
+    rules:
+      action_may_be_energetic_but_must_remain_readable: true
+      avoid_excessive_overlapping_movement: true
+      avoid_too_many_simultaneous_actions: true
+      avoid_important_actions_on_opposite_frame_edges: true
+      avoid_constant_character_crossing: true
+      avoid_foreground_objects_hiding_action: true
+      preserve_clear_start_action_result_sequence: true
+
+  comedy_composition:
+    visual_sequence:
+      - setup
+      - anticipation
+      - payoff
+      - reaction
+    rules:
+      never_hide_comedic_action: true
+      provide_empty_space_for_anticipated_motion: true
+      use_wider_composition_for_physical_comedy: true
+      use_closer_composition_for_reaction_comedy: true
+      avoid_multiple_simultaneous_jokes: true
+      preserve_timing_with_readable_holds: true
+
+  discovery_composition:
+    visual_sequence:
+      - establish_character_gaze
+      - reveal_object_clearly
+      - show_character_response
+    discovered_object_priority: primary_or_strong_secondary
+    rules:
+      guide_attention_with_composition: true
+      do_not_rely_only_on_fast_cuts: true
+      keep_object_identity_and_location_clear: true
+      simplify_background_during_reveal: true
+
+  emotional_composition:
+    frame_complexity: low
+    preserve:
+      - facial_priority
+      - eye_visibility
+      - readable_expression
+      - gentle_perspective
+    supported_emotions:
+      - sadness
+      - worry
+      - reassurance
+      - curiosity
+      - happiness
+      - excitement
+    rules:
+      reduce_background_complexity: true
+      avoid_extreme_perspective: true
+      avoid_intimidating_negative_space: true
+      avoid_excessive_visual_isolation_for_negative_emotions: true
+      keep_negative_emotions_gentle_and_temporary: true
+    reassurance_restores:
+      - stable_framing
+      - balanced_composition
+      - comfortable_character_spacing
+      - warm_visual_connection
+
+  danger_and_conflict:
+    maximum_visual_intensity: 0.6
+    communication_path:
+      - problem
+      - safe_response
+      - resolution
+    require_visible_path_to_safety: true
+    forbidden_treatments:
+      - character_trapped_against_frame
+      - extreme_looming_objects
+      - predator_style_pov
+      - character_disappearing_into_darkness
+      - extreme_asymmetrical_horror_framing
+      - threatening_foreground_silhouettes
+      - extreme_low_angle_antagonism
+      - claustrophobic_closeups
+    resolution_rules:
+      restore_balanced_composition: true
+      restore_stable_eye_level: true
+      clearly_show_safety: true
+
+  environment_composition:
+    preferred_elements:
+      - large_readable_shapes
+      - clear_pathways
+      - recognizable_landmarks
+      - controlled_prop_density
+      - simple_depth_hierarchy
+    rules:
+      environment_supports_story: true
+      maintain_spatial_consistency_across_shots: true
+      do_not_move_major_objects_between_cuts_without_story_reason: true
+      keep_navigation_paths_readable: true
+      avoid_detail_for_details_sake: true
+
+  prop_composition:
+    requirements:
+      - clearly_identifiable
+      - correctly_scaled
+      - consistently_positioned
+      - distinct_from_background_decoration
+    rules:
+      simplify_nearby_visual_information_when_prop_is_important: true
+      avoid_dominant_props_without_story_function: true
+      preserve_hand_to_prop_contact_readability: true
+      maintain_prop_screen_position_across_continuity: true
+
+  color_and_contrast_hierarchy:
+    primary_subject_may_use:
+      - value_contrast
+      - color_contrast
+      - shape_contrast
+      - detail_contrast
+      - motion_contrast
+    rules:
+      strongest_useful_contrast_supports_primary_subject: true
+      backgrounds_should_not_out_saturate_characters: true
+      backgrounds_should_not_be_more_detailed_than_characters: true
+      allow_environment_priority_for_clear_location_establishing: true
+      avoid_excessive_competing_bright_colors: true
+      preserve_target_color_accuracy_in_learning_scenes: true
+
+  motion_hierarchy:
+    primary_motion: story_action
+    secondary_motion: subtle_support
+    background_motion: minimal
+    rules:
+      strong_motion_reserved_for_important_elements: true
+      minimize_motion_during_dialogue: true
+      minimize_motion_during_learning: true
+      avoid_unrelated_looping_animation_near_speaker: true
+      avoid_motion_competing_with_educational_object: true
+
+  balance_and_symmetry:
+    symmetry_preferred_for:
+      - introductions
+      - learning_demonstrations
+      - participation
+      - calm_moments
+      - important_reveals
+    mild_asymmetry_preferred_for:
+      - exploration
+      - character_interaction
+      - movement
+      - comedy
+      - discovery
+    rules:
+      avoid_extreme_imbalance_without_story_motivation: true
+      use_balance_to_reinforce_emotional_safety: true
+
+  visual_complexity:
+    levels:
+      low:
+        - participation
+        - dialogue
+        - emotional_moments
+        - learning
+      medium:
+        - exploration
+        - discovery
+        - comedy
+        - normal_play
+      medium_to_high:
+        - running
+        - celebration
+        - dancing
+        - musical_sequences
+        - action
+    rules:
+      one_dominant_story_action_at_every_level: true
+      never_allow_visual_chaos: true
+      reduce_complexity_when_comprehension_drops: true
+      do_not_sustain_maximum_complexity: true
+
+  small_screen_readability:
+    target_devices:
+      - phone
+      - tablet
+      - television
+    rules:
+      keep_faces_sufficiently_large: true
+      avoid_tiny_story_critical_objects: true
+      avoid_subtle_screen_dependent_gestures: true
+      avoid_extreme_wide_for_important_dialogue: true
+      maintain_clear_silhouettes: true
+      maintain_readable_spatial_separation: true
+      keep_educational_information_central: true
+
+  shot_to_shot_continuity:
+    preserve:
+      - character_screen_position
+      - character_scale
+      - facing_direction
+      - eye_lines
+      - prop_location
+      - environment_geography
+      - character_relationships
+      - movement_direction
+      - lighting_direction
+      - background_landmarks
+    rules:
+      composition_changes_require_story_or_coverage_motivation: true
+      reestablish_after_major_geography_change: true
+      preserve_left_right_relationships: true
+      avoid_unexplained_scale_jumps: true
+
+  visual_rest:
+    required_after:
+      - fast_action
+      - celebration
+      - musical_sequences
+      - major_comedy
+      - busy_group_scenes
+    rules:
+      do_not_maintain_maximum_energy_continuously: true
+      use_calmer_compositions_to_reset_attention: true
+      reduce_motion_and_background_detail: true
+      return_to_clear_primary_focal_point: true
+
+  lens_alignment:
+    24mm:
+      preferred_for:
+        - establishing
+        - broad_action
+        - large_group
+      composition_rules:
+        keep_characters_readable: true
+        avoid_face_near_frame_edges: true
+        control_depth_activity: true
+    35mm:
+      preferred_for:
+        - full_body
+        - action
+        - discovery
+        - comedy
+        - group_interaction
+      composition_rules:
+        preserve_silhouette: true
+        provide_lead_room: true
+        keep_environment_secondary: true
+    50mm:
+      preferred_for:
+        - dialogue
+        - learning
+        - participation
+        - two_shot
+      composition_rules:
+        prioritize_face_and_gesture: true
+        preserve_comfortable_spacing: true
+        maintain_stable_focal_hierarchy: true
+    65mm:
+      preferred_for:
+        - reaction
+        - gentle_emotion
+        - dialogue_closeup
+      composition_rules:
+        preserve_eye_visibility: true
+        simplify_background: true
+        avoid_excessive_isolation: true
+    85mm:
+      preferred_for:
+        - emotional_closeup
+        - object_insert
+        - important_reaction
+      composition_rules:
+        avoid_extreme_face_crop: true
+        keep_story_context_established: true
+        limit_intense_holds: true
+
+  forbidden_composition:
+    - excessive_visual_clutter
+    - unclear_focal_point
+    - multiple_equal_focal_points
+    - important_action_hidden_by_foreground
+    - faces_too_small_to_read
+    - unnecessary_extreme_wide_shots
+    - accidental_limb_cropping
+    - background_edges_through_faces
+    - confusing_character_overlap
+    - inconsistent_screen_direction
+    - excessive_depth_activity
+    - distracting_background_animation
+    - extreme_dutch_composition
+    - threatening_low_angle_composition
+    - claustrophobic_framing
+    - horror_style_negative_space
+    - important_objects_at_extreme_frame_edges
+    - educational_objects_too_small
+    - excessive_simultaneous_action
+    - unnecessary_visual_complexity
+    - important_dialogue_with_distracting_motion
+    - camera_or_composition_change_during_response_pause
+
+  quality_control:
+    enforcement: required_before_shot_approval
+    checks:
+      clear_primary_focal_point: true
+      character_readability: true
+      facial_expression_visibility: true
+      silhouette_readability: true
+      story_action_visibility: true
+      educational_object_visibility: true
+      child_response_composition: true
+      visual_complexity: true
+      background_distraction: true
+      foreground_occlusion: true
+      edge_tangents: true
+      character_overlap: true
+      screen_direction: true
+      eye_lines: true
+      lead_room: true
+      looking_room: true
+      headroom: true
+      small_screen_readability: true
+      emotional_safety: true
+      danger_intensity: true
+      spatial_continuity: true
+      shot_to_shot_scale_continuity: true
+    rejection_conditions:
+      - primary_focal_point_is_not_immediately_clear
+      - important_face_or_action_is_obscured
+      - learning_object_is_too_small_or_ambiguous
+      - composition_overwhelms_preschool_viewer
+      - danger_exceeds_maximum_visual_intensity
+      - response_pause_contains_visual_distraction
+      - continuity_error_changes_story_understanding

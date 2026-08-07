@@ -1,0 +1,53 @@
+id: yoyo
+
+voice_identity:
+  voice_type: youthful-childlike
+  gender_presentation: softly-feminine
+  apparent_age: young child
+  pitch: medium-high
+  timbre: warm, bright, and bubbly
+  speaking_speed: medium-fast
+  articulation: clear
+  emotional_baseline: playful, curious, cheerful, and optimistic
+  emotional_range: expressive but gentle
+  maximum_emotional_intensity: moderate
+
+performance:
+  pause_style: short lively pauses with clear space after questions
+  vocal_energy: lively but controlled
+  default_volume: moderate and comfortable
+  laugh_style: short bubbly giggle
+  effort_sounds:
+    - soft-hup
+    - tiny-oof
+    - excited-gasp
+  pronunciation_style: simple and clear
+
+generation:
+  provider: externally-managed-local-tts
+  voice_id: yoyo-v1
+
+references:
+  neutral-friendly: audio-assets/voice-references/yoyo/neutral-friendly.wav
+  happy-gentle: audio-assets/voice-references/yoyo/happy-gentle.wav
+  curious: audio-assets/voice-references/yoyo/curious.wav
+  mild-concern: audio-assets/voice-references/yoyo/mild-concern.wav
+  reassuring: audio-assets/voice-references/yoyo/reassuring.wav
+
+forbidden_voice_traits:
+  - harsh
+  - aggressive
+  - frightening
+  - shrill
+  - robotic
+  - sarcastic
+  - adult-sounding
+  - breathy-seductive
+  - prolonged-screaming
+
+consistency_constraints:
+  - preserve Yoyo's young age, soft feminine identity, bright timbre, and speaking speed
+  - keep her delivery energetic, friendly, and clearly distinct from Riri
+  - keep excitement lively but controlled and emotionally safe
+  - never shout directly at the audience
+  - never use a reference as final dialogue unless its words match exactly

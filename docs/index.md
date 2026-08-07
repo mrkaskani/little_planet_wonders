@@ -11,6 +11,8 @@ default, and never allowed to download model weights through this repository.
 - [Architecture](architecture.md): package ownership and end-to-end data flow.
 - [Configuration](configuration.md): environment variables and provider policies.
 - [Context system](context-system.md): schemas, compilation, inheritance, and hashes.
+- [Creating a project context](creating-project-context.md): step-by-step project,
+  character, voice, location, audio, scene, shot, continuity, and editing setup.
 - [Wan 2.2 setup](wan22-setup.md): T2V, I2V, TI2V, and S2V configuration.
 - [Generation workflows](generation-workflows.md): scene and shot planning flows.
 - [Audio workflows](audio-workflows.md): voice, lip sync, ambience, effects, and music.

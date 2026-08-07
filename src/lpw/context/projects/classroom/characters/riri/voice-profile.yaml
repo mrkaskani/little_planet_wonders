@@ -1,0 +1,47 @@
+id: riri
+
+voice_identity:
+  voice_type: youthful-soft-feminine
+  gender_presentation: softly-feminine
+  apparent_age: young child
+  pitch: medium-high
+  timbre: warm, bright, soft, and gentle
+  speaking_speed: medium
+  articulation: clear
+  emotional_baseline: sweet, cheerful, affectionate, and reassuring
+  emotional_range: expressive but soft
+  maximum_emotional_intensity: moderate
+
+performance:
+  pause_style: short natural pauses after caring questions and encouragement
+  vocal_energy: light, warm, and engaged
+  default_volume: moderate and comfortable
+  laugh_style: tiny sweet giggle
+  pronunciation_style: simple and clear
+
+generation:
+  provider: externally-managed-local-tts
+  voice_id: riri-v1
+
+references:
+  neutral-friendly: audio-assets/voice-references/riri/neutral-friendly.wav
+  happy-gentle: audio-assets/voice-references/riri/happy-gentle.wav
+  curious: audio-assets/voice-references/riri/curious.wav
+  mild-concern: audio-assets/voice-references/riri/mild-concern.wav
+  reassuring: audio-assets/voice-references/riri/reassuring.wav
+
+forbidden_voice_traits:
+  - harsh
+  - aggressive
+  - robotic
+  - sarcastic
+  - mature-sultry
+  - shrill
+  - frightening
+
+consistency_constraints:
+  - preserve Riri's young age, soft feminine identity, warmth, and speaking speed
+  - keep her delivery sweet, emotionally open, and distinct from Yoyo
+  - keep emotional performance readable but gentle and restrained
+  - never shout directly at the audience
+  - never use a reference as final dialogue unless its words match exactly

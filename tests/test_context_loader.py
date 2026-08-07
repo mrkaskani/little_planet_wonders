@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from lpw.context.loader import load_project_context
+from lpw.context.loader import load_project_context, load_voice
 from lpw.errors import InvalidContextIdentifierError
 
 
@@ -44,3 +44,27 @@ def test_audio_context_changes_the_project_hash(context_root) -> None:
     after = load_project_context("demo")["metadata"]["context_hash"]
 
     assert after != before
+
+
+def test_character_local_voice_profile_takes_precedence(context_root) -> None:
+    profile = (
+        context_root
+        / "projects"
+        / "demo"
+        / "characters"
+        / "roxana"
+        / "voice-profile.yaml"
+    )
+    profile.write_text(
+        "id: roxana\n"
+        "voice_identity:\n"
+        "  apparent_age: young child\n"
+        "generation:\n"
+        "  voice_id: roxana-local-v1\n",
+        encoding="utf-8",
+    )
+
+    voice = load_voice("demo", "roxana")
+
+    assert voice["id"] == "roxana"
+    assert voice["generation"]["voice_id"] == "roxana-local-v1"

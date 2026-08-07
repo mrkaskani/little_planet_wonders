@@ -1,0 +1,532 @@
+initial_state:
+  metadata:
+    id: reusable_initial_state_assembler
+    version: 1
+    status: production_template
+    scope: character_agnostic_episode_sequence_scene_and_shot_sequence_initialization
+    audience_age:
+      minimum: 3
+      maximum: 6
+    philosophy: libraries_define_the_possibilities_and_initial_state_selects_the_exact_combination_true_when_the_story_unit_begins
+    supported_start_types:
+      - episode_start
+      - sequence_start
+      - scene_start
+      - shot_sequence_start
+    rules:
+      this_file_selects_states_but_does_not_define_state_vocabularies: true
+      this_file_references_identity_but_does_not_redefine_it: true
+      template_values_must_be_resolved_before_generation: true
+
+  library_roles:
+    character-states.yaml: defines_states_characters_can_have
+    locations-assets.yaml: defines_locations_assets_states_and_interactions_available
+    initial-state.yaml: selects_states_active_at_story_unit_start
+
+  production_references:
+    story:
+      episode: null
+      script: null
+      scene: null
+    characters:
+      character_profiles: []
+      character_visual_references: []
+      character_states: character-states.yaml
+    world:
+      locations_assets: ../locations-assets.yaml
+      location_references: []
+      prop_references: []
+    cinematography:
+      camera_language: ../cinematography/camera-language.yaml
+      lens_package: ../cinematography/lens-package.yaml
+      composition_rules: ../cinematography/composition-rules.yaml
+      movement_rules: ../cinematography/movement-rules.yaml
+    audio:
+      voice_production: ../audios/voice-production.yaml
+      pronunciation: ../audios/pronunciation.yaml
+      music: ../audios/music.yaml
+      sound_effects: ../audios/sound-effects.yaml
+    additional_rules: []
+    rules:
+      references_must_resolve_before_generation: true
+      referenced_contents_must_not_be_copied_here: true
+      optional_reference_may_be_null_or_empty: true
+
+  story_identification:
+    start_type: null
+    episode_id: null
+    episode_number: null
+    sequence_id: null
+    scene_id: null
+    scene_number: null
+    shot_sequence_id: null
+    story_day: null
+    story_time: null
+    required_by_start_type:
+      episode_start: [episode_id, episode_number]
+      sequence_start: [episode_id, sequence_id]
+      scene_start: [episode_id, scene_id, scene_number]
+      shot_sequence_start: [episode_id, scene_id, shot_sequence_id]
+
+  previous_continuity:
+    previous_episode_state: null
+    previous_scene_state: null
+    previous_sequence_state: null
+    previous_shot_end_state: null
+    unresolved_conditions: []
+    inheritance_enabled: true
+    source_priority:
+      - previous_shot_end_state
+      - previous_scene_state
+      - previous_sequence_state
+      - previous_episode_state
+    rules:
+      nearest_applicable_previous_state_wins: true
+      unresolved_material_conditions_must_be_inherited: true
+      absent_previous_state_allows_safe_defaults: true
+      source_reference_must_resolve_when_not_null: true
+
+  location_selection_schema:
+    required_fields:
+      - location_id
+      - location_variant
+      - zone_id
+      - subzone_id
+      - time_of_day
+      - weather_state
+      - ground_state
+      - room_state
+      - event_variant
+    selectors:
+      location_id:
+        source: ../locations-assets.yaml#location_registry
+        required: true
+      location_variant:
+        source: selected_location.approved_variants
+        required: true
+      zone_id:
+        source: ../locations-assets.yaml#zone_registry
+        required: true
+      subzone_id:
+        source: selected_location_reference
+        required: false
+      time_of_day:
+        source: ../locations-assets.yaml#environment_state_vocabulary.time_of_day
+        required: true
+      weather_state:
+        source: ../locations-assets.yaml#environment_state_vocabulary.weather
+        required_for: outdoor_location
+      ground_state:
+        source: ../locations-assets.yaml#environment_state_vocabulary.ground_condition
+        required_for: outdoor_location
+      room_state:
+        source: ../locations-assets.yaml#environment_state_vocabulary.room_condition
+        required_for: indoor_location
+      event_variant:
+        source: ../locations-assets.yaml#environment_state_vocabulary.event_variant
+        required: true
+    active_selection:
+      location_id: null
+      location_variant: null
+      zone_id: null
+      subzone_id: null
+      time_of_day: null
+      weather_state: null
+      ground_state: null
+      room_state: null
+      event_variant: normal
+
+  environmental_state_selection:
+    weather: null
+    ground: null
+    room_condition: null
+    time_of_day: null
+    event_variant: normal
+    additional_registered_states: {}
+    rules:
+      every_value_must_exist_in_locations_assets_library: true
+      selected_state_must_be_approved_for_location: true
+      state_selection_does_not_redefine_state: true
+      inherited_environment_state_persists_unless_explicitly_changed: true
+
+  character_selection_schema:
+    required_fields:
+      - character_id
+      - reference_id
+      - present
+      - on_screen
+      - off_screen
+      - planned_entry
+      - states
+      - position
+      - object_relationships
+    presence_rules:
+      present_false_requires_on_screen_false: true
+      on_screen_and_off_screen_are_mutually_exclusive: true
+      planned_entry_requires_present_true_and_on_screen_false: true
+    planned_entry_schema:
+      enabled: false
+      entry_point_id: null
+      trigger: null
+      expected_story_time: null
+    state_selectors:
+      emotion:
+        source: character-states.yaml#emotional_states
+        parameters: [id, intensity, persistence]
+      energy:
+        source: character-states.yaml#energy_states
+        parameters: [id, persistence]
+      cleanliness:
+        source: character-states.yaml#cleanliness_states
+        parameters: [id, tracked_surface, persistence]
+      wetness:
+        source: character-states.yaml#wetness_states
+        parameters: [id, tracked_surface, persistence]
+      temperature:
+        source: character-states.yaml#temperature_states
+        parameters: [id, intensity, persistence]
+      physical_condition:
+        source: character-states.yaml#physical_condition_states
+        parameters: [id, persistence]
+      pose:
+        source: character-states.yaml#pose_states
+        parameters: [id, orientation, target_id, persistence]
+      locomotion:
+        source: character-states.yaml#locomotion_states
+        parameters: [id, direction, speed, destination, path, movement_energy, persistence]
+      attention:
+        source: character-states.yaml#attention_states
+        parameters: [id, target_id, gaze_direction, head_direction, body_orientation, persistence]
+      dialogue_state:
+        source: character-states.yaml#dialogue_states
+        parameters: [id, dialogue_line_id, speaker_target, audio_reference, persistence]
+      participation_state:
+        source: character-states.yaml#participation_states
+        parameters: [id, persistence]
+      wardrobe_state:
+        source: character-states.yaml#wardrobe_states
+        parameters: [id, asset_id, condition, placement, story_reason, persistence]
+      accessory_state:
+        source: character-states.yaml#accessory_states
+        multiple: one_per_accessory_asset_id
+        parameters: [id, asset_id, placement, orientation, condition, persistence]
+      social_state:
+        source: character-states.yaml#social_interaction_states
+        multiple: one_per_target_character_id
+        parameters: [id, target_character_id, shared_asset_id, interaction_role, persistence]
+      story_task:
+        source: character-states.yaml#story_task_states
+        parameters: [id, target_id, asset_id, destination, progress, persistence]
+    rules:
+      state_ids_are_selected_not_redefined: true
+      character_reference_controls_permanent_identity: true
+      inherited_states_override_defaults: true
+
+  selected_characters: []
+
+  character_position_schema:
+    required_fields:
+      - location_id
+      - zone_id
+      - anchor_id
+      - position_relative_to_asset
+      - facing_direction
+      - body_orientation
+      - gaze_target
+      - screen_direction_if_already_established
+    sources:
+      location_id: ../locations-assets.yaml#location_registry
+      zone_id: ../locations-assets.yaml#zone_registry
+      anchor_id: ../locations-assets.yaml#interaction_point_registry
+      position_relative_to_asset: ../locations-assets.yaml#spatial_relationships
+    rules:
+      position_must_respect_zone_connectivity: true
+      anchor_must_belong_to_selected_zone_or_be_explicitly_reachable: true
+      screen_direction_is_inherited_when_already_established: true
+      position_change_requires_valid_movement_or_explicit_cut: true
+
+  character_object_relationship_schema:
+    allowed_relationships:
+      - holding
+      - carrying
+      - wearing
+      - using
+      - approaching
+      - looking_at
+      - standing_beside
+      - sitting_on
+    required_fields:
+      - relationship
+      - asset_id
+      - interaction_state
+      - persistence
+    optional_fields:
+      - interaction_limb
+      - placement
+      - orientation
+      - target_anchor_id
+    rules:
+      asset_id_must_exist_in_locations_assets: true
+      relationship_must_match_asset_mobility_and_allowed_interactions: true
+      one_unique_asset_cannot_have_multiple_holders: true
+      character_and_asset_records_must_agree: true
+
+  asset_selection_schema:
+    purpose: include_only_story_relevant_assets
+    required_fields:
+      - asset_id
+      - reference_id
+      - location_id
+      - zone_id
+      - position
+      - state
+      - condition
+      - owner
+      - held_by
+      - interaction_state
+      - visibility
+    state_sources:
+      state: ../locations-assets.yaml#asset_state_vocabulary
+      condition: ../locations-assets.yaml#asset_state_vocabulary.generic_condition
+      owner: ../locations-assets.yaml#ownership_vocabulary
+      interaction_state: ../locations-assets.yaml#interaction_vocabulary
+      visibility: ../locations-assets.yaml#asset_state_vocabulary.visibility_state
+    rules:
+      do_not_list_unneeded_background_assets: true
+      asset_reference_id_must_match_registry: true
+      selected_states_must_be_allowed_by_asset: true
+      location_and_zone_must_match_position_or_valid_movement_history: true
+
+  selected_story_assets: []
+
+  asset_state_selection:
+    selections: {}
+    rules:
+      use_registered_state_dimensions_and_ids: true
+      do_not_invent_equivalent_state_name: true
+      independent_state_dimensions_may_coexist: true
+      state_change_requires_valid_transition: true
+      changed_state_persists_until_next_valid_transition: true
+
+  current_story_goal:
+    scene_goal: null
+    character_goals: {}
+    active_task: null
+    active_problem: null
+    learning_goal: null
+    participation_goal: null
+    rules:
+      scene_goal_required_before_generation: true
+      learning_goal_required_for_educational_scene: true
+      participation_goal_required_for_call_and_response: true
+
+  story_knowledge:
+    by_character: {}
+    record_schema:
+      knows: []
+      does_not_know: []
+      expects: []
+      searching_for: []
+      remembering: []
+    rules:
+      include_only_scene_relevant_knowledge: true
+      knowledge_change_requires_story_event: true
+      characters_must_not_act_on_unknown_information: true
+
+  emotional_carryover:
+    inherit_unresolved_emotions: true
+    inherit_material_conditions:
+      - cleanliness
+      - wetness
+      - held_or_carried_assets
+      - wardrobe_state
+      - accessory_state
+      - active_story_task
+    reset_allowed_only_by:
+      - explicit_action
+      - explicit_reset
+      - established_time_jump_with_declared_effect
+    rules:
+      short_emotion_may_resolve_only_with_valid_transition: true
+      meaningful_worry_or_sadness_requires_reassuring_resolution: true
+
+  time_jump:
+    enabled: false
+    duration: null
+    story_reason: null
+    persist:
+      - story_objects
+      - important_goals
+      - canonical_wardrobe
+    may_reset:
+      - temporary_pose
+      - short_emotion
+      - transient_attention
+    explicitly_persist_additional: []
+    explicitly_reset: []
+    rules:
+      every_material_reset_must_be_declared: true
+      dirt_and_wetness_do_not_reset_without_sufficient_time_or_action: true
+      asset_location_does_not_reset: true
+      time_jump_must_not_change_permanent_identity: true
+
+  frame_one:
+    location_id: null
+    zone_id: null
+    visible_characters: []
+    offscreen_characters: []
+    active_character_states: {}
+    visible_story_assets: []
+    asset_states: {}
+    primary_story_action: null
+    primary_attention_target: null
+    dialogue:
+      active: false
+      speaker: null
+      line_id: null
+    movement:
+      already_in_progress: false
+      character_movements: {}
+      camera_movement: null
+    continuity_constraints: []
+    readiness_rules:
+      location_and_zone_resolved: true
+      every_visible_character_has_resolved_state_and_position: true
+      every_visible_story_asset_has_resolved_state_and_position: true
+      primary_attention_is_immediately_clear: true
+      dialogue_and_lip_sync_state_agree: true
+
+  approved_first_frame_reference:
+    enabled: false
+    reference: null
+    approval_id: null
+    rules:
+      optional: true
+      used_as_visual_execution_for_image_to_video: true
+      does_not_replace_logical_yaml_state: true
+      must_match_frame_one_state: true
+
+  inheritance_pipeline:
+    ordered_steps:
+      - load_previous_end_state_if_applicable
+      - load_canonical_character_references
+      - load_character_states_library
+      - load_locations_assets_library
+      - select_location
+      - select_characters
+      - inherit_persistent_states
+      - apply_explicit_new_scene_changes
+      - resolve_asset_states
+      - resolve_character_object_relationships
+      - validate_compatibility
+      - create_frame_one_state
+    rules:
+      steps_execute_in_order: true
+      unresolved_reference_stops_generation: true
+      inherited_material_state_must_not_be_silently_dropped: true
+
+  override_hierarchy:
+    highest_to_lowest:
+      - canonical_identity
+      - explicit_current_scene_change
+      - inherited_previous_state
+      - safe_default_state
+    semantics:
+      canonical_identity: cannot_be_overridden_by_temporary_state
+      explicit_current_scene_change: overrides_inherited_previous_state_when_valid_and_triggered
+      inherited_previous_state: overrides_safe_default_state
+      safe_default_state: applies_only_when_no_inherited_or_explicit_value_exists
+    rules:
+      invalid_override_is_rejected: true
+      scene_change_requires_story_reason_or_starting_setup: true
+
+  safe_defaults:
+    apply_only_when_previous_continuity_has_no_active_value: true
+    character:
+      emotion: neutral
+      emotion_intensity: 0.0
+      energy: normal
+      cleanliness: clean
+      wetness: dry
+      temperature: comfortable
+      physical_condition: normal
+      pose: neutral_idle
+      locomotion: stationary
+      dialogue_state: silent
+      participation_state: not_participating
+      story_task: idle
+    environment:
+      event_variant: normal
+    rules:
+      default_state_id_must_exist_in_reusable_library: true
+      default_must_not_override_previous_continuity: true
+      location_specific_defaults_come_from_selected_location: true
+
+  scene_end_handoff:
+    output_key: end_state
+    compatible_with: initial_state
+    pipeline:
+      - initial_state
+      - scene_actions
+      - state_transitions
+      - end_state
+      - next_initial_state
+    end_state_required_fields:
+      - story_identification
+      - location_state
+      - character_states
+      - character_positions
+      - character_object_relationships
+      - asset_states
+      - environment_states
+      - story_goals
+      - story_knowledge
+      - unresolved_conditions
+    rules:
+      end_state_captures_all_material_changes: true
+      next_initial_state_inherits_end_state: true
+      momentary_states_resolve_or_are_explicitly_carried: true
+
+  validation:
+    enforcement: required_before_generation
+    checks:
+      all_character_ids_valid: true
+      all_character_states_valid: true
+      all_state_combinations_compatible: true
+      location_exists: true
+      zone_exists: true
+      assets_exist: true
+      asset_states_valid: true
+      interactions_allowed: true
+      character_positions_valid: true
+      held_objects_have_single_owner: true
+      previous_continuity_resolved: true
+      no_unexplained_reset: true
+      no_unexplained_teleportation: true
+      story_goal_defined: true
+      frame_one_ready: true
+    rejection_conditions:
+      - unresolved_required_reference
+      - missing_story_identification
+      - invalid_or_incompatible_state_selection
+      - invalid_location_zone_asset_or_anchor_id
+      - conflicting_character_and_asset_relationship
+      - unexplained_material_reset
+      - unexplained_character_or_asset_teleportation
+      - undefined_story_goal
+      - incomplete_frame_one_state
+
+  forbidden_behavior:
+    - redefining_character_identity
+    - redefining_location_identity
+    - inventing_duplicate_state_names
+    - ignoring_reusable_state_library
+    - unexplained_state_reset
+    - spontaneous_cleaning
+    - spontaneous_drying
+    - character_teleportation
+    - asset_teleportation
+    - duplicated_unique_asset
+    - contradictory_states
+    - impossible_character_object_relationship
+    - ignoring_previous_scene_continuity

@@ -1,0 +1,976 @@
+id: yoyo
+type: character-context
+version: 1
+status: draft
+
+identity:
+  name: Yoyo
+  display_name: Yoyo
+  role: protagonist
+  narrative_function: playful explorer, cheerful friend, and energetic problem-solver
+  species: emperor-penguin-inspired chick
+  gender_presentation: softly-feminine
+  age_impression: young child
+  perceived_age_range: "4-6"
+
+  target_audience:
+    minimum_age: 3
+    maximum_age: 6
+
+character_summary: >
+  Yoyo is a cute, energetic little penguin with a playful personality.
+  She approaches the world with excitement, curiosity, and warmth.
+  Yoyo loves movement, games, discoveries, and encouraging her friends.
+  Her enthusiasm sometimes makes her act before thinking, but she
+  responds to mistakes with honesty, optimism, and another cheerful try.
+
+design_intent:
+  core_impression:
+    - adorable
+    - energetic
+    - playful
+    - curious
+    - joyful
+    - gentle
+    - friendly
+    - emotionally-readable
+
+  silhouette_goal: >
+    A tiny, round baby penguin with an oversized circular head, plump
+    pear-shaped body, short rounded flippers, very short legs, and
+    compact rounded feet. The silhouette should resemble a soft plush
+    toy and remain instantly recognizable at small screen sizes.
+
+  personality_visibility: >
+    Yoyo's playful energy must be visible through her bright eyes,
+    open posture, slight forward lean, animated flippers, expressive
+    head tilts, and bouncy movement.
+
+  complexity_level: simple
+  child_readability: very-high
+  visual_style: premium-soft-3d-preschool-animation
+  realism_level: stylized
+  shape_language:
+    primary: circles-and-soft-ovals
+    secondary: rounded-tapers
+    forbidden:
+      - sharp-triangles
+      - angular-anatomy
+      - hard-edges
+
+physical_design:
+  body_type: compact-rounded
+  posture: upright
+  height_category: very-small
+  build: soft-plump-and-chubby
+  center_of_gravity: low
+  visual_weight: light-and-bouncy
+
+  proportions:
+    head_to_body_ratio: "1.05:1"
+    head_size: strongly-oversized
+    body_shape: short-rounded-pear
+    torso_length: short
+    shoulder_width: narrow
+    hip_width: rounded-wide
+    flipper_length: short
+    leg_length: extremely-short
+    foot_size: medium-rounded
+    neck_visibility: none
+    symmetry: mostly-symmetrical
+
+  scale:
+    approximate_character_height_cm: 55
+    comparison: approximately-knee-height-to-an-average-adult
+    scale_consistency_rule: >
+      Yoyo must remain visibly smaller than adult characters and
+      slightly shorter than most child companions.
+
+  head:
+    shape: large-soft-round
+    top_profile: gently-domed
+    forehead: broad-and-smooth
+    cheek_shape: full-and-rounded
+    chin: tiny-and-soft
+    crown_detail: subtle-short-down-feather-texture
+    head_tuft: absent
+
+  face:
+    overall_shape: rounded-heart-framed
+    facial_area_color: soft-ivory-white
+    expression_style: highly-readable
+    default_expression: bright-playful-curiosity
+    cheek_volume: full
+    cheek_blush: permanently-subtle
+
+  eyes:
+    count: 2
+    size: extremely-oversized
+    shape: rounded-vertical-oval
+    iris_color: lavender-blue
+    iris_gradient:
+      outer: deep-violet-blue
+      middle: soft-lavender
+      inner: pale-icy-blue
+    pupil_color: near-black
+    sclera_color: soft-cool-white
+    eye_spacing: medium
+    eye_alignment: symmetrical
+    upper_lid: softly-defined
+    lower_lid: minimal
+    highlight_style:
+      - one-large-soft-window-highlight
+      - two-small-sparkle-highlights
+    eyelash_style: long-curved-upper-lashes
+    eyelash_distribution: strongest-at-outer-corners
+    eyebrow_style: none-visible
+    emotional_readability: primarily-through-eyelids-and-head-angle
+
+  beak:
+    size: small
+    shape: short-rounded-soft-diamond
+    profile: slightly-upturned
+    upper_color: warm-golden-yellow
+    lower_color: soft-honey-gold
+    edge_style: smooth
+    sharpness: none
+    nostrils: two-tiny-subtle-dots
+    default_position: gently-closed
+    smile_readability: slight-upward-corners
+    interior_mouth_color: soft-warm-coral
+    tongue_visibility: only-during-wide-happy-expression
+    teeth: none
+
+  flippers:
+    count: 2
+    length: short
+    width: broad-at-base
+    shape: rounded-taper
+    tip_shape: fully-rounded
+    flexibility: high
+    resting_position: close-to-body
+    expressive_range:
+      - open-wide
+      - lifted-forward
+      - tucked-close
+      - one-flipper-wave
+
+  legs:
+    count: 2
+    length: extremely-short
+    visibility: mostly-hidden-by-body
+
+  feet:
+    count: 2
+    size: compact
+    shape: rounded-webbed
+    color: charcoal-black
+    toe_detail: three-soft-rounded-lobes
+    claw_visibility: none
+    sole_detail: none
+
+surface_design:
+  material_style: ultra-soft-plush-down-feathers
+  texture_complexity: medium-low
+  visible_individual_feathers: only-as-fine-soft-fuzz
+  feather_direction:
+    head: short-and-smooth
+    cheeks: softly-outward
+    belly: downward-and-gently-fluffed
+    flippers: short-dense-plush
+  shine_level: soft-satin
+  specular_strength: low
+  softness_priority: critical
+  avoid:
+    - wet-feather-look
+    - coarse-feathers
+    - realistic-feather-barbs
+    - plastic-surface
+    - metallic-surface
+
+color_palette:
+  primary:
+    name: deep-charcoal-black
+    hex: "#24232B"
+    usage:
+      - crown
+      - outer-head
+      - back
+      - flippers
+      - outer-body
+      - feet
+
+  primary_highlight:
+    name: soft-charcoal-gray
+    hex: "#4A4852"
+    usage:
+      - feather-highlights
+      - softened-lit-edges
+
+  secondary:
+    name: soft-ivory-white
+    hex: "#F4F1EC"
+    usage:
+      - face
+      - cheeks
+      - throat
+      - chest
+      - belly
+
+  secondary_shadow:
+    name: pearl-gray
+    hex: "#D9D8D7"
+    usage:
+      - lower-face-shadow
+      - belly-shadow
+      - form-definition
+
+  beak_primary:
+    name: warm-golden-yellow
+    hex: "#E7B04F"
+    usage:
+      - upper-beak
+
+  beak_secondary:
+    name: honey-gold
+    hex: "#C98A34"
+    usage:
+      - lower-beak
+      - beak-shadow
+
+  iris_outer:
+    name: deep-violet-blue
+    hex: "#403B78"
+
+  iris_middle:
+    name: lavender-blue
+    hex: "#7779B8"
+
+  iris_inner:
+    name: icy-periwinkle
+    hex: "#B5C3EA"
+
+  pupil:
+    name: near-black
+    hex: "#15131D"
+
+  eye_highlight:
+    name: clean-white
+    hex: "#FFFFFF"
+
+  cheek_blush:
+    name: soft-rose-peach
+    hex: "#E9A6A7"
+    usage:
+      - both-cheeks
+
+  mouth_interior:
+    name: warm-coral
+    hex: "#B85F59"
+
+markings:
+  face_patch:
+    shape: symmetrical-double-oval-mask
+    description: >
+      Two large soft ivory facial patches surround the eyes and merge
+      across the lower forehead and cheek area. A narrow charcoal bridge
+      remains centered above and between the eyes, extending toward the beak.
+    color: soft-ivory-white
+    position: front-of-head
+    symmetry: symmetrical
+    boundary_style: soft-organic-curve
+
+  forehead_marking:
+    shape: tapered-charcoal-center-wedge
+    color: deep-charcoal-black
+    position: centered-from-crown-to-beak
+    width: medium
+    edge_style: soft-curved
+
+  belly_patch:
+    shape: large-rounded-vertical-oval
+    color: soft-ivory-white
+    position: chest-and-front-belly
+    upper_boundary: beneath-beak
+    lower_boundary: just-above-feet
+    side_boundary: softly-blended-into-charcoal-body
+
+  cheek_blush:
+    shape: diffused-round-cloud
+    color: soft-rose-peach
+    placement: centered-on-both-cheeks
+    intensity: subtle
+    permanence: always-present-but-may-intensify-with-emotion
+
+  distinctive_features:
+    - enormous-lavender-blue-sparkling-eyes
+    - long-curved-upper-eyelashes
+    - small-upturned-golden-beak
+    - symmetrical-ivory-face-mask
+    - narrow-charcoal-forehead-wedge
+    - soft-rose-cheeks
+    - plush-rounded-baby-penguin-body
+    - compact-charcoal-feet
+
+hair_fur_or_feather_details:
+  type: baby-penguin-down
+  overall_length: short
+  density: high
+  softness: extremely-soft
+  crown_detail: tiny-soft-fuzz
+  cheek_detail: slightly-fluffier-than-crown
+  belly_detail: soft-even-plush
+  flipper_detail: dense-dark-plush
+  movement: >
+    Feather fuzz may respond subtly to motion and breeze but must not
+    become long, messy, spiky, or independently animated.
+
+wardrobe:
+  default:
+    enabled: false
+    outfit_id: none
+    description: Yoyo normally appears without clothing.
+
+  allowed_contextual_clothing:
+    enabled: false
+    rule: >
+      Clothing may only be introduced through a separately approved
+      episode-specific YAML override.
+
+accessories:
+  default:
+    enabled: false
+    items: []
+
+  rule: >
+    Do not add bows, hats, scarves, jewelry, shoes, bags, glasses,
+    or handheld props unless explicitly requested by scene context.
+
+personality:
+  primary_traits:
+    - energetic
+    - playful
+    - curious
+    - cheerful
+    - affectionate
+    - optimistic
+    - kind
+
+  secondary_traits:
+    - easily-excited
+    - slightly-impulsive
+    - persistent
+    - imaginative
+    - eager-to-help
+    - occasionally-clumsy
+
+  social_style: enthusiastic-and-welcoming
+  emotional_openness: very-high
+  confidence_level: medium-high
+  patience_level: developing
+  empathy_level: high
+  problem_solving_style: playful-trial-and-error
+  humor_style:
+    - physical-comedy
+    - playful-surprise
+    - harmless-misunderstanding
+    - joyful-giggles
+
+behavior:
+  default_energy_level: high
+  attention_style: quickly-attracted-to-new-things
+  reaction_style: immediate-large-and-readable
+  recovery_style: quick-and-optimistic
+
+  friendship_behavior:
+    - greets-friends-with-visible-excitement
+    - invites-others-to-join-games
+    - encourages-friends-after-mistakes
+    - shares-discoveries
+    - apologizes-sincerely
+    - celebrates-team-success
+
+  recurring_habits:
+    - performs-two-small-bounces-when-excited
+    - tilts-head-strongly-when-curious
+    - flaps-flippers-during-happy-reactions
+    - rocks-forward-before-running
+    - makes-a-tiny-safe-slide-when-stopping
+    - blinks-twice-before-a-new-idea
+    - sits-with-feet-forward-when-resting
+
+  emotional_arc_rule: >
+    Strong emotions should remain brief, understandable, and resolve
+    through support, communication, or a safe constructive action.
+
+movement_language:
+  general_style: buoyant-bouncy-and-playful
+  movement_scale: medium-large
+  movement_speed: lively-but-controlled
+  acceleration: quick-soft-start
+  stopping_style: tiny-safe-snow-slide
+  balance_style: slightly-wobbly-but-capable
+  center_of_motion: whole-rounded-body
+
+  walk_style:
+    name: cheerful-waddle
+    stride: very-short
+    rhythm: quick-even
+    body_motion: gentle-side-to-side-bob
+    flippers: lightly-out-for-balance
+
+  run_style:
+    name: rapid-tiny-steps
+    stride: short
+    speed: lively
+    flippers: extended-outward
+    body_lean: slightly-forward
+
+  turn_style:
+    name: whole-body-pivot
+    footwork: two-or-three-small-steps
+    head_lead: slight
+
+  jump_style:
+    name: small-two-foot-hop
+    height: low
+    landing: soft
+    squash_and_stretch: subtle
+
+  slide_style:
+    name: short-belly-or-foot-slide
+    distance: short
+    safety: controlled
+    ending: soft-spin-or-giggle
+
+  idle_motion:
+    - gentle-body-bob
+    - soft-breathing-motion
+    - occasional-double-blink
+    - subtle-head-tilt
+    - tiny-flipper-adjustment
+    - slight-foot-wiggle-when-seated
+
+  excitement_motion:
+    - two-fast-bounces
+    - flippers-open-wide
+    - eyes-widen
+    - body-leans-forward
+    - tiny-feet-step-in-place
+
+  curiosity_motion:
+    - head-tilts-to-one-side
+    - eyes-focus-intently
+    - one-flipper-lifts-slightly
+    - body-leans-forward
+
+  surprise_motion:
+    - tiny-vertical-hop
+    - eyes-open-fully
+    - flippers-lift-outward
+    - beak-forms-small-open-o
+
+  fear_motion:
+    - body-lowers-slightly
+    - flippers-tuck-close
+    - eyes-widen
+    - movement-pauses
+    - recovery-begins-quickly
+
+  sadness_motion:
+    - head-lowers
+    - upper-eyelids-droop
+    - flippers-relax
+    - body-bob-slows
+    - feet-turn-slightly-inward
+
+  determination_motion:
+    - body-leans-forward
+    - eyes-focus
+    - flippers-angle-back
+    - feet-set-apart
+    - one-small-preparation-bounce
+
+expression_library:
+  neutral:
+    eyes: naturally-open-and-bright
+    eyelids: relaxed
+    beak: softly-closed-with-slight-smile
+    cheeks: subtle-blush
+    posture: upright-relaxed
+
+  happy:
+    eyes: gently-curved-and-sparkling
+    eyelids: slightly-lowered
+    beak: small-open-smile
+    cheeks: warmer-blush
+    posture: open
+    flippers: slightly-raised
+
+  excited:
+    eyes: fully-wide-and-bright
+    eyelids: open
+    beak: wide-rounded-smile
+    cheeks: stronger-blush
+    posture: forward-lean
+    flippers: open-wide
+
+  curious:
+    eyes: focused-upward-or-sideways
+    eyelids: asymmetrically-soft
+    beak: gently-closed
+    head: strong-side-tilt
+    posture: leaning-forward
+    flippers: one-slightly-raised
+
+  surprised:
+    eyes: extremely-wide
+    eyelids: fully-open
+    beak: small-rounded-open-shape
+    posture: slight-backward-lean
+    flippers: lifted-outward
+
+  sad:
+    eyes: lowered
+    eyelids: drooped
+    beak: softly-downturned
+    cheeks: reduced-blush
+    posture: lowered-head
+    flippers: hanging-close
+
+  worried:
+    eyes: wide-with-raised-inner-upper-lids
+    eyelids: tense-soft-curve
+    beak: slightly-open
+    posture: slightly-hunched
+    flippers: held-close-to-chest
+
+  determined:
+    eyes: focused-forward
+    eyelids: gently-lowered
+    beak: firmly-closed
+    posture: upright-forward-lean
+    flippers: angled-back
+
+  playful:
+    eyes: bright-with-one-soft-squint
+    beak: mischievous-small-smile
+    head: tilted
+    posture: ready-to-spring
+    flippers: asymmetrical-playful-pose
+
+dialogue_style:
+  sentence_length: short
+  vocabulary_level: preschool
+  average_words_per_sentence: "3-9"
+  tone: positive-and-direct
+  question_frequency: high
+  exclamation_frequency: moderate
+  contractions_allowed: true
+
+  preferred_language_patterns:
+    - simple-questions
+    - enthusiastic-discoveries
+    - invitations-to-play
+    - encouraging-statements
+    - gentle-apologies
+    - simple-problem-solving-thoughts
+
+  common_phrases:
+    - "Let's go!"
+    - "What is that?"
+    - "Come play!"
+    - "We can do it!"
+    - "I have an idea!"
+    - "Oops! I'll try again."
+    - "That was fun!"
+
+  avoid:
+    - sarcasm
+    - insults
+    - complex-idioms
+    - adult-jokes
+    - long-monologues
+    - threatening-language
+    - mean-spirited-teasing
+
+camera_readability:
+  preferred_framing:
+    - full-body
+    - medium-full
+    - medium-close-up
+    - facial-close-up
+
+  preferred_camera_angle: eye-level
+  eye_line_height: child-friendly
+  lens_style: mild-normal-lens
+  minimum_character_screen_height_percent: 25
+
+  avoid_angles:
+    - extreme-low-angle
+    - extreme-high-angle
+    - distorted-wide-angle-close-up
+    - overhead-angle-hiding-face
+    - rear-angle-without-readable-silhouette
+
+  silhouette_requirements:
+    - head-must-remain-clearly-separated-from-body
+    - both-flippers-must-remain-readable-when-extended
+    - feet-must-not-merge-into-belly
+    - forehead-wedge-must-remain-visible-from-front
+    - eye-size-must-remain-readable-at-medium-distance
+
+  facial_readability_requirements:
+    - eye-highlights-must-remain-visible
+    - eyelash-shape-must-remain-consistent
+    - beak-must-not-cover-the-eyes
+    - blush-must-remain-subtle
+    - facial-markings-must-not-shift-with-expression
+
+reference_views:
+  required:
+    - full-body-front
+    - full-body-three-quarter-front
+    - full-body-side
+    - full-body-back
+    - neutral-standing-pose
+    - seated-pose
+    - characteristic-running-pose
+    - close-up-face
+
+  expression_sheet_required: true
+  pose_sheet_required: true
+  turnaround_sheet_required: true
+  color_palette_sheet_required: true
+  scale_reference_required: true
+
+reference_image_guidance:
+  reference_images_required: true
+  primary_reference_asset: assets/characters/yoyo/reference.png
+
+  authoritative_features:
+    - facial-identity
+    - eye-shape
+    - eye-size
+    - iris-color
+    - eyelash-style
+    - face-marking-shape
+    - forehead-marking-shape
+    - beak-shape
+    - body-proportions
+    - plush-feather-style
+    - cheek-blush
+    - overall-silhouette
+
+  ignore_from_reference:
+    - pastel-background
+    - snow-surface
+    - bokeh-lights
+    - sparkles
+    - scene-lighting
+    - camera-depth-of-field
+    - temporary-pose
+    - environmental-color-cast
+
+  conflict_resolution: >
+    Explicit continuity constraints and forbidden-change rules take
+    priority. Stable identity details visible in the reference image
+    must otherwise be preserved.
+
+continuity_constraints:
+  identity:
+    - preserve Yoyo as the same young penguin character
+    - preserve softly-feminine presentation
+    - preserve oversized-head-to-small-body ratio
+    - preserve plush rounded silhouette
+    - preserve visual age
+    - preserve playful childlike personality
+
+  facial_identity:
+    - preserve enormous lavender-blue eyes
+    - preserve eye spacing
+    - preserve rounded vertical eye shape
+    - preserve long curved upper eyelashes
+    - preserve soft ivory facial mask
+    - preserve central charcoal forehead wedge
+    - preserve small golden upturned beak
+    - preserve subtle symmetrical rosy cheeks
+
+  body:
+    - preserve round head
+    - preserve short pear-shaped body
+    - preserve short rounded flippers
+    - preserve extremely short legs
+    - preserve compact rounded charcoal feet
+    - preserve soft chubby build
+
+  colors:
+    - preserve deep charcoal outer feathers
+    - preserve soft ivory face and belly
+    - preserve lavender-blue irises
+    - preserve warm golden beak
+    - preserve soft rose cheek blush
+    - preserve charcoal feet
+
+  surface:
+    - preserve soft plush baby-down appearance
+    - preserve low-detail feather texture
+    - preserve soft satin-matte finish
+    - avoid realistic feather anatomy
+
+  wardrobe:
+    - Yoyo wears no default clothing
+    - do not add accessories without explicit approval
+
+  personality:
+    - preserve energetic playful behavior
+    - preserve friendly emotional openness
+    - preserve curiosity
+    - preserve bouncy readable movement
+    - preserve quick positive recovery after mistakes
+
+forbidden_changes:
+  - changing Yoyo into another penguin type or bird species
+  - changing Yoyo into an adult penguin
+  - reducing the head size
+  - making the body tall or thin
+  - adding long legs
+  - adding a visible neck
+  - adding human hands
+  - adding fingers
+  - adding teeth
+  - adding claws
+  - making the beak sharp
+  - changing the beak to orange-red
+  - changing the eye color
+  - shrinking the eyes
+  - removing the eyelashes
+  - adding visible eyebrows
+  - changing the eye spacing
+  - changing the face-mask shape
+  - removing the central charcoal forehead wedge
+  - changing the belly-patch shape
+  - removing the cheek blush
+  - adding a head feather tuft
+  - adding realistic layered feathers
+  - making the surface photorealistic
+  - making the surface plastic or metallic
+  - adding unrequested clothing
+  - adding bows
+  - adding hats
+  - adding scarves
+  - adding shoes
+  - adding jewelry
+  - adding glasses
+  - adding random props
+  - changing temporary lighting into permanent colors
+  - copying background sparkles into the character design
+  - copying snow or environmental elements into the character
+  - making Yoyo frightening
+  - making Yoyo aggressive
+  - making Yoyo sarcastic
+  - making movement chaotic
+  - adding extra limbs
+  - removing limbs
+  - creating asymmetrical eyes
+  - creating inconsistent eyelashes
+  - adding text
+  - adding logos
+  - adding watermarks
+
+child_safety:
+  age_range: "3-6"
+
+  design_requirements:
+    - soft-rounded-shapes
+    - friendly-readable-face
+    - no-sharp-anatomical-features
+    - no-frightening-details
+    - no-sexualized-design
+    - no-dangerous-accessories
+    - no-realistic-injury-details
+
+  motion_requirements:
+    - actions-must-be-easy-to-read
+    - movement-must-remain-controlled
+    - falls-must-be-soft-and-comedic
+    - avoid-dangerous-imitation
+    - avoid-chaotic-camera-motion
+    - avoid-prolonged-distress
+
+  emotional_requirements:
+    - fear-must-be-brief-and-gentle
+    - sadness-must-have-clear-recovery
+    - mistakes-must-not-cause-humiliation
+    - conflicts-must-remain-safe
+    - reassurance-must-follow-distress
+
+  narrative_requirements:
+    - no-violence
+    - no-bullying
+    - no-cruel-humor
+    - no-abandonment-threats
+    - no-adult-romantic-content
+    - no-horror-elements
+
+generation_guidance:
+  positive_prompt: >
+    Yoyo, the exact same adorable young baby penguin character from
+    the supplied reference image, designed for a premium preschool
+    animated series for ages three to six. Tiny plush rounded body,
+    strongly oversized circular head, soft pear-shaped torso, short
+    rounded charcoal flippers, extremely short legs, compact charcoal
+    webbed feet, deep charcoal-black outer feathers, soft ivory-white
+    face and belly, symmetrical double-oval ivory facial mask, narrow
+    tapered charcoal forehead wedge centered between the eyes, enormous
+    sparkling lavender-blue rounded-oval eyes, near-black pupils,
+    bright white multi-point eye highlights, long curved upper eyelashes,
+    subtle rosy-peach cheeks, tiny rounded upturned golden-yellow beak,
+    soft plush baby-down feather texture, gentle satin-matte surface,
+    playful curious personality, cheerful open posture, bouncy readable
+    movement, clean simple silhouette, soft rounded shapes, consistent
+    preschool character proportions, friendly high-quality stylized
+    3D animation design, neutral studio lighting, plain light background.
+
+  reference_image_prompt_addition: >
+    Reproduce Yoyo's exact facial identity, eye size, eye spacing,
+    lavender-blue iris design, eyelash shape, face-mask markings,
+    forehead wedge, beak shape, cheek blush, body proportions,
+    charcoal-and-ivory palette, and plush baby-penguin surface from
+    the supplied reference image. Ignore its snow, pastel background,
+    bokeh, sparkles, lighting color cast, depth of field, and pose.
+
+  negative_prompt: >
+    adult penguin, realistic penguin anatomy, photorealistic wildlife,
+    realistic feather layers, coarse feathers, wet feathers, sharp beak,
+    orange-red beak, long legs, visible neck, thin body, tall body,
+    small head, tiny eyes, brown eyes, green eyes, blue-only eyes,
+    missing eyelashes, short eyelashes, eyebrows, human hands, fingers,
+    claws, teeth, large mouth, changed face markings, missing forehead
+    wedge, changed belly patch, missing blush, head feather tuft,
+    clothing, scarf, bow, hat, shoes, jewelry, glasses, random accessory,
+    aggressive expression, frightening expression, mature appearance,
+    chaotic pose, distorted anatomy, asymmetrical eyes, crossed eyes,
+    extra limbs, missing flippers, missing feet, inconsistent character,
+    alternate costume, alternate color palette, scenery, snow background,
+    pastel bokeh background, sparkles attached to body, additional
+    characters, props, labels, captions, text, logo, watermark.
+
+required_reference_assets:
+  primary_character_reference:
+    path: assets/characters/yoyo/reference.png
+    required: true
+    purpose: authoritative-visual-identity
+
+  character_reference_sheet:
+    path: assets/characters/yoyo/reference-sheet.png
+    required: true
+
+  turnaround_sheet:
+    path: assets/characters/yoyo/turnaround.png
+    required: true
+
+  expression_sheet:
+    path: assets/characters/yoyo/expressions.png
+    required: true
+
+  pose_and_movement_sheet:
+    path: assets/characters/yoyo/poses-and-movement.png
+    required: true
+
+  color_palette_sheet:
+    path: assets/characters/yoyo/palette.png
+    required: true
+
+  scale_reference:
+    path: assets/characters/yoyo/scale-reference.png
+    required: true
+
+reference_sheet_specification:
+  background:
+    color: "#F4F3F0"
+    type: plain-light-neutral
+
+  lighting:
+    type: even-studio-lighting
+    shadow_strength: minimal
+    environmental_color_contamination: none
+
+  required_content:
+    - full-body-front-view
+    - full-body-three-quarter-front-view
+    - full-body-side-view
+    - full-body-back-view
+    - neutral-standing-pose
+    - seated-reference-pose
+    - happy-expression
+    - excited-expression
+    - curious-expression
+    - surprised-expression
+    - sad-expression
+    - worried-expression
+    - determined-expression
+    - characteristic-running-pose
+    - close-up-facial-reference
+    - character-scale-reference
+    - exact-color-palette-swatches
+    - clear-face-marking-reference
+    - clear-belly-marking-reference
+    - clear-flipper-and-foot-reference
+
+  presentation_constraints:
+    - identical-character-in-every-view
+    - consistent-character-scale
+    - orthographic-like-views
+    - minimal-perspective-distortion
+    - clear-spacing
+    - no-cropped-body-parts
+    - no-written-labels
+    - no-captions
+    - no-scenery
+    - no-decorative-frame
+    - no-additional-characters
+
+detected_conflicts:
+  - issue: sample-yaml-eye-color-conflict
+    sample_value: deep-warm-brown
+    reference_image_value: lavender-blue
+    resolution: use-lavender-blue-from-reference-image
+
+  - issue: sample-yaml-eyelash-conflict
+    sample_value: none
+    reference_image_value: long-curved-upper-eyelashes
+    resolution: preserve-long-curved-eyelashes-from-reference-image
+
+  - issue: sample-yaml-foot-color-conflict
+    sample_value: warm-orange
+    reference_image_value: charcoal-black
+    resolution: preserve-charcoal-black-feet-from-reference-image
+
+  - issue: sample-yaml-head-tuft-conflict
+    sample_value: small-curved-feather-tuft
+    reference_image_value: no-distinct-head-tuft
+    resolution: do-not-add-head-tuft
+
+  - issue: sample-yaml-surface-style-conflict
+    sample_value: smooth-low-detail-feathers
+    reference_image_value: soft-visible-plush-down-fuzz
+    resolution: use-controlled-plush-down-texture-from-reference-image
+
+  - issue: sample-yaml-accessory-conflict
+    sample_value: optional-sky-blue-scarf
+    reference_image_value: no-accessory
+    resolution: remove-default-or-optional-signature-scarf
+
+metadata:
+  created_for_project: lpw
+  source_description: >
+    Yoyo: a cute, energetic little penguin with a playful personality.
+  reference_image_used: true
+  approval_required: true
+  continuity_priority: critical
+  reusable_across_episodes: true
+  suitable_for_text_to_image: true
+  suitable_for_text_to_video: true
+  suitable_for_image_to_video: true
+  suitable_for_speech_to_video: true

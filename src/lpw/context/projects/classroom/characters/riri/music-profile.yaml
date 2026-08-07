@@ -1,0 +1,1334 @@
+id: riri
+type: character-context
+version: 1
+status: draft
+identity:
+  name: Riri
+  display_name: Riri
+  role: protagonist
+  narrative_function: sweet companion, cheerful encourager, and gentle emotional anchor
+  species: puppy
+  breed_inspiration: stylized toy-breed puppy
+  gender_presentation: softly-feminine
+  age_impression: young child
+  perceived_age_range: 3-5
+  target_audience:
+    minimum_age: 3
+    maximum_age: 6
+character_summary: 'Riri is a sweet, cheerful little puppy with a warm smile and expressive eyes. She
+  brings softness, comfort, and joy to every scene. Riri is affectionate, friendly, and emotionally open,
+  often helping others feel safe, included, and happy. She loves cuddles, playtime, and discovering little
+  beautiful things in the world around her.
+
+  '
+design_intent:
+  core_impression:
+  - sweet
+  - cheerful
+  - warm
+  - cuddly
+  - gentle
+  - playful
+  - friendly
+  - emotionally-readable
+  silhouette_goal: 'A tiny rounded puppy with a large head, soft chubby body, short legs, small floppy
+    ears, and a fluffy curved tail. The silhouette should feel plush, instantly lovable, and clearly recognizable
+    even at small sizes.
+
+    '
+  personality_visibility: 'Riri''s warmth should be visible through her soft smile, bright open eyes,
+    slightly lifted cheeks, cuddly seated posture, and gentle playful movement.
+
+    '
+  complexity_level: simple
+  child_readability: very-high
+  visual_style: premium-soft-3d-preschool-animation
+  realism_level: stylized
+  shape_language:
+    primary: circles-and-soft-ovals
+    secondary: rounded-puffs-and-soft-tapers
+    forbidden:
+    - sharp-angles
+    - aggressive-shapes
+    - hard-edges
+physical_design:
+  body_type: tiny-rounded-puppy
+  posture: upright-seated-or-soft-stand
+  height_category: very-small
+  build: plush-chubby
+  center_of_gravity: low
+  visual_weight: soft-light-cuddly
+  proportions:
+    head_to_body_ratio: '1:1'
+    head_size: oversized
+    body_shape: rounded-oval
+    torso_length: short
+    neck_visibility: minimal
+    leg_length: very-short
+    paw_size: small-rounded
+    tail_length: short-to-medium
+    ear_size: small
+    symmetry: mostly-symmetrical
+  scale:
+    approximate_character_height_cm: 35
+    comparison: lap-sized-puppy
+    scale_consistency_rule: 'Riri should always read as a very small young puppy, clearly smaller than
+      adult characters and slightly smaller than most child companions.
+
+      '
+  head:
+    shape: large-rounded
+    forehead: smooth-and-soft
+    cheek_shape: full-round-cheeks
+    muzzle_length: short
+    muzzle_shape: tiny-soft-rounded
+    chin: minimal
+    crown_detail: smooth-fluffy-fur
+    top_fur_tuft: none-distinct
+  ears:
+    count: 2
+    type: floppy
+    size: small
+    shape: rounded-triangle-with-soft-fold
+    set_position: high-side-of-head
+    resting_position: gently-drooped
+    movement_style: subtle-bounce-with-expression
+  face:
+    overall_shape: rounded-soft-puppy-face
+    expression_style: highly-readable
+    default_expression: warm-cheerful-smile
+    cheek_volume: plush
+    muzzle_definition: soft
+    brow_definition: minimal-soft
+  eyes:
+    count: 2
+    size: oversized
+    shape: rounded-oval
+    iris_color: bright-sky-blue
+    iris_gradient:
+      outer: cool-cornflower-blue
+      middle: clear-sky-blue
+      inner: pale-ice-blue
+    pupil_color: near-black
+    sclera_color: soft-white
+    eye_spacing: medium-wide
+    eye_alignment: symmetrical
+    highlight_style:
+    - one-large-soft-highlight
+    - one-small-sparkle-highlight
+    eyelash_style: long-curved-upper-lashes
+    lower_lash_style: none
+    eyebrow_style: subtle-soft-fur-brow
+    emotional_readability: very-high
+  nose:
+    size: tiny
+    shape: soft-rounded-triangle
+    color: petal-pink
+    shine_level: soft-gloss
+    nostrils: subtle
+  mouth:
+    shape: tiny-soft-smile
+    default_position: gently-open-or-closed-smile
+    corner_expression: slightly-upturned
+    interior_color: soft-rose
+    tongue_visibility: only-in-big-happy-expressions
+    teeth: none
+  legs:
+    count: 4
+    length: very-short
+    build: plush-rounded
+    stance: stable-and-soft
+  paws:
+    count: 4
+    size: small-rounded
+    shape: plush-paw
+    fur_color: blush-pink
+    pad_color: rosy-pink
+    claw_visibility: none
+    toe_definition: soft-minimal
+  tail:
+    count: 1
+    length: short-to-medium
+    shape: fluffy-plume
+    curve: gently-upward
+    resting_position: curled-slightly-behind-body
+    movement_style: soft-happy-wag
+surface_design:
+  material_style: ultra-soft-plush-fur
+  texture_complexity: low-to-medium
+  visible_individual_hairs: only-as-soft-fuzz
+  fur_length:
+    face: short-soft
+    body: short-medium-plush
+    chest: slightly-fluffier
+    tail: fluffiest-area
+    paws: soft-plush
+  shine_level: soft-satin
+  specular_strength: low
+  softness_priority: critical
+  avoid:
+  - coarse-hair
+  - realistic-dog-fur-clumping
+  - wiry-texture
+  - wet-fur-look
+  - plastic-surface
+color_palette:
+  palette_strategy: 'Improved from a mostly single-note pink palette into a more production-ready pastel
+    system with clearer value separation, cleaner focal accents, and better readability across lighting
+    conditions while preserving Riri''s soft pink identity.
+
+    '
+  primary:
+    name: cotton-candy-pink
+    hex: '#F5B6D2'
+    usage:
+    - main-body-fur
+    - head
+    - ears
+    - outer-legs
+  primary_shadow:
+    name: rose-blush
+    hex: '#E79BBC'
+    usage:
+    - form-shadows
+    - ear-fold-shadows
+    - body-depth
+    - tail-shadow
+  light_fur:
+    name: strawberry-milk
+    hex: '#FBE3EE'
+    usage:
+    - muzzle
+    - inner-cheeks
+    - belly-highlights
+    - forehead-soft-highlights
+  accent_fur:
+    name: pastel-periwinkle
+    hex: '#BFD4FF'
+    usage:
+    - chest-fur-accent
+    - front-paw-accent-fur
+    - tail-accent-fur
+  accent_shadow:
+    name: powder-blue
+    hex: '#93B7F2'
+    usage:
+    - shadowed-blue-fur-accent
+    - cool-detail-depth
+  iris_outer:
+    name: cornflower-blue
+    hex: '#5E84D8'
+  iris_middle:
+    name: sky-blue
+    hex: '#7FC6FF'
+  iris_inner:
+    name: ice-blue
+    hex: '#D7EEFF'
+  pupil:
+    name: near-black
+    hex: '#1A1A22'
+  sclera:
+    name: soft-white
+    hex: '#FFFDFE'
+  nose:
+    name: petal-pink
+    hex: '#F2A6BC'
+  mouth_interior:
+    name: warm-rose
+    hex: '#C8788E'
+  paw_pads:
+    name: candy-rose
+    hex: '#EFA1BB'
+  eye_highlight:
+    name: bright-white
+    hex: '#FFFFFF'
+markings:
+  base_fur:
+    color: cotton-candy-pink
+    coverage: full-body-base
+  muzzle_highlight:
+    shape: soft-rounded-muzzle-area
+    color: strawberry-milk
+    position: center-lower-face
+    symmetry: symmetrical
+  chest_accent:
+    shape: soft-fluffy-inverted-teardrop
+    color_mix:
+      base: strawberry-milk
+      accent: pastel-periwinkle
+    position: center-chest
+    edge_style: feather-soft
+  front_paw_accents:
+    shape: soft-fur-cuffs
+    color_mix:
+      base: blush-pink
+      accent: pastel-periwinkle
+    placement:
+    - front-left-paw
+    - front-right-paw
+    symmetry: mostly-symmetrical
+  tail_accent:
+    shape: blended-tip-and-inner-streak
+    color_mix:
+      base: cotton-candy-pink
+      accent: pastel-periwinkle
+    position: tail
+    style: soft-gradient-like-blend
+  distinctive_features:
+  - oversized-blue-expressive-eyes
+  - long-curved-upper-eyelashes
+  - tiny-petal-pink-nose
+  - warm-smiling-mouth
+  - plush-cotton-candy-pink-fur
+  - soft-blue-fur-accents-on-chest-paws-and-tail
+  - tiny-floppy-ears
+  - fluffy-curved-tail
+  - visible-rosy-paw-pads
+hair_or_fur_details:
+  type: plush-puppy-fur
+  overall_length: short-medium
+  density: high
+  softness: extremely-soft
+  chest_detail: slightly-longer-fluff
+  tail_detail: fluffiest-and-most-airy
+  ear_detail: short-velvety-fur
+  paw_detail: plush-rounded-fur
+  movement: 'Fur should react subtly to movement with soft bounce and volume, but must remain neat, simplified,
+    and easy to reproduce.
+
+    '
+wardrobe:
+  default:
+    enabled: false
+    outfit_id: none
+    description: Riri normally appears without clothing.
+  optional_signature_accessory:
+    enabled: false
+    rule: 'No accessory should be added unless a specific scene or episode explicitly requests one.
+
+      '
+accessories:
+  default:
+    enabled: false
+    items: []
+  rule: 'Do not add bows, collars, tags, jewelry, shoes, hats, or props unless explicitly requested.
+
+    '
+personality:
+  primary_traits:
+  - sweet
+  - cheerful
+  - affectionate
+  - gentle
+  - friendly
+  - playful
+  secondary_traits:
+  - encouraging
+  - cuddly
+  - curious
+  - sensitive
+  - eager-to-please
+  - softly-excitable
+  social_style: warm-and-welcoming
+  emotional_openness: very-high
+  confidence_level: medium
+  patience_level: high
+  empathy_level: very-high
+  problem_solving_style: gentle-persistence
+  comfort_style:
+  - nuzzles-friends
+  - stays-close
+  - offers-soft-encouragement
+  - cheers-others-on
+behavior:
+  default_energy_level: medium-high
+  attention_style: attentive-and-curious
+  reaction_style: immediate-but-gentle
+  recovery_style: calm-and-positive
+  friendship_behavior:
+  - greets-others-warmly
+  - smiles-often
+  - comforts-sad-friends
+  - celebrates-small-successes
+  - invites-others-to-play
+  - stays-close-when-someone-feels-shy
+  recurring_habits:
+  - tilts-head-when-listening
+  - gives-tiny-happy-tail-wags
+  - bounces-lightly-when-excited
+  - sits-neatly-with-paws-forward
+  - nuzzles-softly
+  - blinks-slowly-when-content
+  emotional_arc_rule: 'Riri''s emotions should remain gentle, easy to read, and reassuring. If she becomes
+    worried or sad, she should recover clearly through comfort, friendship, or a hopeful action.
+
+    '
+movement_language:
+  general_style: soft-bouncy-gentle-and-readable
+  movement_scale: small
+  movement_speed: light-and-playful
+  acceleration: soft
+  stopping_style: tiny-safe-stop-or-sit
+  balance_style: stable-and-cute
+  center_of_motion: head-and-tail-led
+  walk_style:
+    name: tiny-cheerful-trot
+    stride: short
+    rhythm: light-even
+    body_motion: gentle-bob
+    tail: small-wag
+  run_style:
+    name: playful-mini-bound
+    stride: short
+    speed: lively-but-soft
+    ears: gentle-bounce
+    tail: fluff-swish
+  turn_style:
+    name: quick-paw-pivot
+    footwork: two-small-steps
+    head_lead: slight
+  jump_style:
+    name: tiny-four-paw-hop
+    height: low
+    landing: soft
+    squash_and_stretch: subtle
+  idle_motion:
+  - soft-breathing-bob
+  - occasional-slow-blink
+  - tiny-tail-sway
+  - subtle-head-tilt
+  - paw-adjustment
+  excitement_motion:
+  - tail-wags-faster
+  - front-paws-lift-slightly
+  - eyes-open-wider
+  - body-leans-forward
+  - tiny-bounce
+  curiosity_motion:
+  - head-tilt
+  - one-ear-lifts-slightly
+  - eyes-focus
+  - nose-points-forward
+  surprise_motion:
+  - eyes-open-wide
+  - mouth-opens-small
+  - body-pauses
+  - ears-lift-slightly
+  fear_motion:
+  - body-lowers-gently
+  - tail-tucks-partially
+  - eyes-widen
+  - stays-close-to-friend
+  - recovery-should-be-quick-and-reassuring
+  sadness_motion:
+  - head-lowers
+  - ears-droop-more
+  - smile-softens
+  - body-stillness-increases
+  determination_motion:
+  - eyes-focus-forward
+  - mouth-closes-softly
+  - paws-set-firmly
+  - posture-lifts
+expression_library:
+  neutral:
+    eyes: naturally-open-and-soft
+    mouth: tiny-warm-smile
+    ears: gently-relaxed
+    posture: upright-relaxed
+  happy:
+    eyes: bright-and-softly-curved
+    mouth: open-smile
+    cheeks: slightly-lifted
+    posture: open-and-inviting
+    tail: wagging
+  excited:
+    eyes: wide-and-sparkling
+    mouth: bigger-smile
+    ears: perked-slightly
+    posture: forward-lean
+    tail: energetic-wag
+  curious:
+    eyes: focused
+    mouth: small-soft-smile
+    head: tilted
+    posture: alert-but-gentle
+  surprised:
+    eyes: fully-wide
+    mouth: small-open-o-smile
+    ears: lifted-softly
+    posture: slight-stillness
+  sad:
+    eyes: slightly-lowered
+    mouth: softly-downturned
+    ears: drooped
+    posture: small-and-close
+  worried:
+    eyes: wide-with-soft-upper-lids
+    mouth: slightly-open
+    ears: lowered
+    posture: cautious-and-close
+  determined:
+    eyes: focused-forward
+    mouth: closed-softly
+    ears: lightly-set
+    posture: sturdy-and-ready
+  affectionate:
+    eyes: soft-and-gentle
+    mouth: tiny-smile
+    posture: leaning-in
+    tail: soft-sway
+voice:
+  voice_identity: youthful-soft-feminine
+  perceived_age: young-child
+  pitch: medium-high
+  tone: warm-bright-gentle
+  energy: light
+  speaking_speed: medium
+  articulation: clear
+  emotional_range: expressive-but-soft
+  laugh_style: tiny-sweet-giggle
+  pronunciation_style: simple-and-clear
+  forbidden_voice_traits:
+  - harsh
+  - aggressive
+  - robotic
+  - sarcastic
+  - mature-sultry
+  - shrill
+  - frightening
+dialogue_style:
+  sentence_length: short
+  vocabulary_level: preschool
+  tone: sweet-positive-direct
+  preferred_language_patterns:
+  - gentle-encouragement
+  - happy-observations
+  - invitations-to-play
+  - caring-questions
+  - reassuring-statements
+  common_phrases:
+  - Hi, friend!
+  - Let's play!
+  - You can do it!
+  - It's okay.
+  - That makes me happy!
+  - Come with me!
+  - I can help!
+  avoid:
+  - sarcasm
+  - insults
+  - long-complex-sentences
+  - mean-spirited-language
+  - threatening-language
+camera_readability:
+  preferred_framing:
+  - full-body
+  - seated-full-body
+  - medium-close-up
+  - close-up-face
+  eye_line_height: child-friendly
+  preferred_camera_angle: eye-level
+  avoid_angles:
+  - extreme-low-angle
+  - extreme-high-angle
+  - distorted-close-up
+  - angles-hiding-face
+  - back-view-without-tail-readability
+  silhouette_requirements:
+  - ears-must-remain-readable
+  - tail-must-remain-readable
+  - head-must-read-larger-than-body
+  - paws-must-not-merge-into-body
+  - seated-pose-must-remain-clear
+reference_views:
+  required:
+  - front
+  - three-quarter-front
+  - side
+  - back
+  expression_sheet_required: true
+  pose_sheet_required: true
+  color_palette_sheet_required: true
+  scale_reference_required: true
+reference_image_guidance:
+  reference_images_optional: true
+  when_provided:
+  - preserve-character-identity-from-reference
+  - preserve-stable-facial-features
+  - preserve-stable-body-proportions
+  - preserve-stable-markings
+  - preserve-stable-colors-in-principle
+  - allow-palette-refinement-for-production-readability
+  - ignore-reference-background
+  - ignore-reference-lighting-color-cast
+  - ignore-reference-generation-artifacts
+  conflict_resolution: 'Continuity constraints and forbidden-change rules take priority. Stable visual
+    identity details from the supplied reference image should be preserved, while the palette may be refined
+    slightly for improved readability and animation consistency.
+
+    '
+continuity_constraints:
+  identity:
+  - preserve facial identity
+  - preserve species
+  - preserve age impression
+  - preserve head-to-body ratio
+  - preserve eye size and spacing
+  - preserve ear shape
+  - preserve tail fluff shape
+  - preserve warm smile
+  colors:
+  - preserve overall pink identity
+  - preserve blue eyes
+  - preserve pink nose
+  - preserve blue accent fur on chest paws and tail
+  - improve palette clarity without changing the core look
+  body:
+  - preserve rounded puppy body
+  - preserve short legs
+  - preserve tiny floppy ears
+  - preserve fluffy curved tail
+  - preserve plush seated readability
+  wardrobe:
+  - do not add clothing unless requested
+  - do not add default accessories
+  personality:
+  - preserve sweet cheerful personality
+  - preserve affectionate warmth
+  - preserve gentle playful motion
+forbidden_changes:
+- changing Riri into another animal species
+- making Riri older or adult-looking
+- making the body thin
+- making the legs long
+- making the ears large and upright
+- removing the fluffy tail
+- changing the eye color away from blue
+- changing the base pink identity
+- removing the warm smile
+- removing the long upper eyelashes
+- changing the nose color to black
+- adding teeth
+- adding visible claws
+- adding realistic fur detail
+- making the design photorealistic
+- making the design frightening
+- making the design aggressive
+- adding unrequested collar
+- adding unrequested bow
+- adding unrequested clothing
+- adding unrequested jewelry
+- adding text or logos
+- changing temporary lighting into permanent fur color
+- copying background bokeh as character markings
+- adding extra limbs
+- removing limbs
+- distorting paw structure
+- creating asymmetrical eyes
+- changing the smile into a smirk or sneer
+child_safety:
+  age_range: 3-6
+  design_requirements:
+  - soft-rounded-shapes
+  - friendly-readable-face
+  - no-sharp-anatomical-features
+  - no-frightening-details
+  - no-realistic-violence
+  - no-sexualized-design
+  - no-dangerous-accessories
+  motion_requirements:
+  - actions-must-be-easy-to-read
+  - avoid-chaotic-motion
+  - avoid-dangerous-imitation
+  - avoid-long-distress-reactions
+  emotional_requirements:
+  - fear-must-be-brief-and-gentle
+  - sadness-must-have-clear-recovery
+  - conflicts-must-remain-safe
+  - comfort-must-follow-worry
+generation_guidance:
+  positive_prompt: 'Riri, a sweet cheerful little puppy designed for a preschool animated series, tiny
+    plush rounded body, oversized rounded head, short legs, tiny floppy ears, fluffy curved tail, warm
+    friendly smile, oversized expressive bright blue eyes, long curved upper eyelashes, tiny petal-pink
+    nose, soft cotton-candy-pink fur, slightly lighter strawberry-milk muzzle and highlight areas, pastel
+    periwinkle accent fur on chest, front paws, and tail, rosy pink paw pads, ultra-soft plush fur texture,
+    child-friendly proportions, cuddly seated posture, gentle playful personality, clean readable silhouette,
+    simple colorful high-quality animation character design.
+
+    '
+  reference_image_prompt_addition: 'Reproduce the same character identity, face, proportions, markings,
+    expression warmth, and distinctive features visible in the supplied Riri reference image. Ignore the
+    original image background, lighting color cast, pose-specific deformation, and generation artifacts.
+    Keep the same pink-and-blue concept while using the refined production palette defined in this YAML.
+
+    '
+  negative_prompt: 'realistic dog, photorealistic fur, sharp teeth, visible claws, aggressive expression,
+    frightening expression, thin body, long legs, large upright ears, black nose, changed eye color, dull
+    muddy colors, random accessories, collar, bow, clothing, changed fur pattern, asymmetrical eyes, distorted
+    anatomy, extra limbs, missing limbs, text, logo, watermark, scenery, additional characters, reference-image
+    background, reference-image artifacts.
+
+    '
+asset_requirements:
+  character_reference_images:
+  - assets/characters/riri/reference.png
+  character_turnaround: assets/characters/riri/turnaround.png
+  expression_sheet: assets/characters/riri/expressions.png
+  pose_sheet: assets/characters/riri/poses.png
+  palette_sheet: assets/characters/riri/palette.png
+metadata:
+  created_for_project: lpw
+  approval_required: true
+  continuity_priority: critical
+  reusable_across_episodes: true
+  palette_refined: true
+  palette_refinement_goal: improved-readability-and-animation-consistency
+music_profile:
+  id: riri-music-profile
+  type: character-music-profile
+  version: 1
+  status: draft
+  character:
+    id: riri
+    name: Riri
+    role: protagonist
+    target_audience: preschool-ages-3-to-6
+  musical_identity:
+    summary: 'Riri sounds like a soft musical hug: a warm felt-piano theme with gentle harp plucks, rounded
+      clarinet phrases, light pizzicato strings, and tiny tail-wag percussion. The music should feel cuddly,
+      reassuring, pastel, affectionate, and quietly playful.
+
+      '
+    core_attributes:
+    - sweet
+    - cuddly
+    - cheerful
+    - gentle
+    - affectionate
+    - reassuring
+    - softly-playful
+    - preschool-readable
+    emotional_center: affectionate-reassurance
+    energy_level: medium-high
+    perceived_weight: light
+    musical_age_impression: young-child
+    complexity: simple
+  leitmotif:
+    id: riri-main-motif
+    description: 'A six-note welcoming motif that begins with a soft upward major-third gesture for Riri''s
+      name, rocks gently around the middle register, rises to one warm high note, and returns home with
+      a rounded downward leap. It should feel like a happy tail wag followed by a comforting nuzzle.
+
+      '
+    note_count: 6
+    approximate_duration_seconds: 2.6
+    melodic_contour:
+      start: middle
+      movement:
+      - upward-leap
+      - downward-step
+      - upward-step
+      - upward-leap
+      - downward-leap
+      ending: resolved-warm
+    interval_language:
+      preferred:
+      - major-second
+      - major-third
+      - perfect-fourth
+      - perfect-fifth
+      avoid:
+      - minor-second-clusters
+      - tritone
+      - wide-dissonant-leaps
+      - chromatic-falls
+    rhythm:
+      pattern_description: 'Two light opening notes, two gently rocking middle notes, one warm longer
+        high note, and one softly sustained home note. The opening should resemble two small tail wags
+        rather than a sharp accent.
+
+        '
+      syllabic_pattern: ri-ri, come-close, home
+      syncopation: light
+      bounce: medium
+    register:
+      primary: mid-high
+      range: approximately G4 to D5, with octave relocation allowed for arrangement
+    optional_note_example:
+      key: g-major
+      notes:
+      - G4
+      - B4
+      - A4
+      - B4
+      - D5
+      - G4
+    identity_rules:
+    - preserve-the-core-rhythmic-shape
+    - preserve-the-main-melodic-contour
+    - keep-the-motif-recognizable-in-all-variations
+    - retain-the-two-note-opening-name-gesture
+    - retain-the-gentle-middle-rocking-motion
+    - preserve-the-warm-return-to-the-home-note
+  tempo:
+    default_bpm: 104
+    minimum_bpm: 58
+    maximum_bpm: 136
+    usage:
+      calm: 68
+      normal: 104
+      excited: 124
+      action: 132
+      sad: 62
+  meter:
+    primary: 6-8
+    alternatives:
+    - 3-4
+    - 4-4
+    avoid:
+    - irregular-meters
+    - rapidly-changing-meter
+    - heavy-2-4-march-meter
+  tonality:
+    primary_mode: major
+    preferred_keys:
+    - g-major
+    - c-major
+    - f-major
+    modal_color: 'Warm major harmony with major-pentatonic melody, added-sixth color, gentle suspended
+      seconds, and occasional soft subdominant warmth.
+
+      '
+    dissonance:
+      level: low
+      allowed_usage: 'Brief soft suspensions, neighboring seconds, and gentle incomplete cadences may
+        support curiosity or worry, but they must resolve quickly into warm consonance.
+
+        '
+  harmony:
+    complexity: simple
+    preferred_progressions:
+    - I-vi-IV-V
+    - I-IV-I-V-I
+    - I-iii-IV-I
+    - I-add6-ii7-V-I
+    - tonic-pedal-with-gentle-subdominant-color
+    chord_character:
+    - warm-rounded
+    - tender-open
+    - pastel-soft
+    - reassuring
+    - affectionate
+    avoid:
+    - harsh-chromatic-harmony
+    - horror-suspensions
+    - prolonged-diminished-chords
+    - aggressive-minor-ostinatos
+    - dense-jazz-extensions
+    - unresolved-tritone-motion
+  instrumentation:
+    signature_instrument:
+      name: felt-piano
+      role: melody-and-emotional-warmth
+      reason: 'The soft felt-piano tone matches Riri''s plush pink fur, gentle smile, cuddly scale, emotional
+        sensitivity, and reassuring presence while remaining clear and memorable for preschool listeners.
+
+        '
+    primary_instruments:
+    - instrument: felt-piano
+      role: main-leitmotif
+      articulation: soft-rounded-legato-with-light-detachment
+    - instrument: concert-harp
+      role: affectionate-pulse-and-sparkle
+      articulation: gentle-plucks-and-short-arpeggios
+    - instrument: clarinet
+      role: warm-melodic-answer
+      articulation: smooth-soft-legato
+    - instrument: pizzicato-violin-and-viola
+      role: tiny-trot-and-tail-wag-motion
+      articulation: short-rounded-pizzicato
+    - instrument: nylon-string-guitar
+      role: friendly-harmonic-support
+      articulation: light-fingerpicked
+    supporting_instruments:
+    - instrument: flute
+      role: curiosity-and-discovery-echoes
+    - instrument: soft-vibraphone
+      role: sparse-pastel-shimmer
+    - instrument: soft-string-pad
+      role: comfort-and-emotional-support
+    - instrument: bassoon
+      role: occasional-gentle-comedic-response
+    - instrument: upright-bass
+      role: light-plucked-foundation
+    - instrument: ukulele
+      role: occasional-happy-scene-strum
+    percussion:
+      enabled: true
+      instruments:
+      - soft-shaker
+      - brushed-tambourine
+      - fingertip-frame-drum
+      - muted-woodblock
+      - soft-hand-claps
+      - tiny-triangle
+      style: 'Small, cushioned, friendly pulses shaped like tiny paw steps and a gentle tail wag. Percussion
+        must remain supportive and never overpower the melody or dialogue.
+
+        '
+      intensity: low-medium
+    forbidden_instruments:
+    - distorted-electric-guitar
+    - aggressive-brass-section
+    - industrial-percussion
+    - hard-trap-808
+    - thunderous-taiko
+    - harsh-synth-lead
+    - pipe-organ-horror-registration
+    - shrill-piccolo-screeches
+  orchestration:
+    ensemble_size: small
+    density: light
+    texture: layered
+    stereo_width: medium
+    layering_rules:
+    - keep-the-felt-piano-clearly-audible-when-the-motif-appears
+    - use-no-more-than-three-active-melodic-layers-at-once
+    - reserve-vibraphone-and-triangle-for-sparse-highlights
+    - keep-low-register-support-soft-and-simple
+    - thin-the-arrangement-under-dialogue
+    - add-layers-gradually-during-excitement
+    - avoid-wall-of-sound-or-chaotic-counterpoint
+  articulation:
+    melody:
+    - soft
+    - rounded
+    - gently-bouncy
+    - warm-legato
+    accompaniment:
+    - light-pizzicato
+    - gentle-swaying
+    - fingerpicked
+    - soft-sustained
+    transitions:
+    - tiny-harp-turn
+    - soft-piano-rise
+    - gentle-flute-breath
+    - short-pizzicato-pickup
+  dynamics:
+    default: mp
+    range:
+      minimum: pp
+      maximum: mf
+    change_style: smooth-playful
+    avoid:
+    - sudden-extreme-volume-jumps
+    - prolonged-forte
+    - explosive-accents
+    - harsh-transient-peaks
+    - jump-scare-silence-to-impact
+  production:
+    style: acoustic-hybrid
+    sound_quality: clean-warm-child-friendly
+    reverb: small-room
+    compression: light
+    stereo_image: 'Center the felt piano and core motif, place harp and guitar gently to opposite sides,
+      keep clarinet near the center, and use wide shimmer accents only at very low volume.
+
+      '
+    texture_keywords:
+    - cuddly
+    - pastel
+    - warm
+    - rounded
+    - tender
+    - airy
+    - reassuring
+    - friendly
+  emotional_variations:
+    neutral:
+      tempo_bpm: 100
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - clarinet
+      harmony: warm-major-with-added-sixth-color
+      dynamics: mp
+      motif_treatment: 'State the full motif once, then use the opening two-note name gesture as a quiet
+        recurring sign of Riri''s presence.
+
+        '
+    happy:
+      tempo_bpm: 114
+      instrumentation:
+      - felt-piano
+      - nylon-string-guitar
+      - pizzicato-strings
+      - soft-shaker
+      harmony: open-I-vi-IV-V-with-added-sixths
+      dynamics: mf
+      motif_treatment: 'Play the motif clearly with a light harp answer and a smiling clarinet echo, preserving
+        the warm home-note return.
+
+        '
+    excited:
+      tempo_bpm: 124
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - pizzicato-strings
+      - brushed-tambourine
+      - soft-hand-claps
+      rhythm: quick-rolling-6-8-pulses-with-two-tail-wag-pickups
+      dynamics: mf
+      motif_treatment: 'Shorten the opening notes slightly, repeat the middle rocking gesture, and let
+        the full motif land warmly after each excited bounce.
+
+        '
+    curious:
+      tempo_bpm: 88
+      instrumentation:
+      - felt-piano
+      - clarinet
+      - flute
+      - soft-harp
+      harmony: tonic-pedal-with-gentle-suspended-seconds
+      motif_treatment: 'Separate the middle notes with small pauses, delay the high note, and resolve
+        the final home note only after the discovery becomes clear.
+
+        '
+    comedic:
+      tempo_bpm: 108
+      instrumentation:
+      - bassoon
+      - pizzicato-cello
+      - felt-piano
+      - muted-woodblock
+      rhythm: gentle-stop-start-tail-wag-pattern-with-safe-pauses
+      motif_treatment: 'Preserve the pitch order while adding playful rests, one soft bassoon echo, and
+        a cushioned woodblock tap on the final home note.
+
+        '
+    sad:
+      tempo_bpm: 62
+      instrumentation:
+      - felt-piano
+      - clarinet
+      - soft-string-pad
+      harmony: gentle-relative-minor-color-that-returns-to-major
+      dynamics: p
+      motif_treatment: 'Stretch the motif into warm legato notes, soften the high point, and resolve through
+        a tender major-sixth chord that signals comfort.
+
+        '
+    worried:
+      tempo_bpm: 74
+      instrumentation:
+      - muted-felt-piano
+      - clarinet
+      - soft-pizzicato-viola
+      harmony: tonic-pedal-with-brief-incomplete-cadences
+      motif_treatment: 'Use the first four notes with hesitant spacing and delay the final home-note return
+        until reassurance or friendship appears.
+
+        '
+    determined:
+      tempo_bpm: 106
+      instrumentation:
+      - felt-piano
+      - pizzicato-strings
+      - concert-harp
+      - fingertip-frame-drum
+      rhythm: steady-dotted-quarter-pulse-with-clear-forward-motion
+      motif_treatment: 'Place the motif over a firmer 6-8 pulse, clarify the high note, and finish with
+        a confident but still gentle tonic landing.
+
+        '
+    brave:
+      tempo_bpm: 112
+      instrumentation:
+      - felt-piano
+      - warm-clarinet
+      - soft-horns
+      - strings
+      harmony: broad-I-IV-I-V-I-with-open-fifths
+      motif_treatment: 'Present the motif in a slightly broader register with warm sustained support while
+        keeping the felt piano as Riri''s emotional center.
+
+        '
+    friendship:
+      tempo_bpm: 82
+      instrumentation:
+      - felt-piano
+      - nylon-string-guitar
+      - clarinet
+      - soft-strings
+      harmony: warm-I-vi-IV-I-with-added-sixths
+      motif_treatment: 'Let a friend''s signature instrument answer Riri''s middle rocking notes while
+        the felt piano keeps her opening name gesture and final home note.
+
+        '
+    discovery:
+      tempo_bpm: 96
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - soft-vibraphone
+      - flute
+      harmony: rising-major-pedal-with-open-fifths-and-added-ninths
+      motif_treatment: 'Begin with the opening two-note gesture, reveal the complete motif as the discovery
+        is understood, and finish with one quiet shimmer accent.
+
+        '
+    action:
+      tempo_bpm: 132
+      instrumentation:
+      - pizzicato-strings
+      - concert-harp
+      - felt-piano
+      - soft-shaker
+      - brushed-snare
+      percussion: 'Fast but cushioned 6-8 pulses suggesting tiny paw steps, ear bounces, and playful bounds
+        without military weight or threatening impact.
+
+        '
+      motif_treatment: 'Use short motif fragments every two or four bars, preserve the rocking contour,
+        and state the full phrase at a safe landing or successful help.
+
+        '
+    mistake:
+      tempo_bpm: 84
+      instrumentation:
+      - bassoon
+      - felt-piano
+      - pizzicato-cello
+      harmony: brief-soft-diminished-passing-color-resolving-immediately
+      motif_treatment: 'Pause before the high note, add a gentle downward comic response, then restate
+        the opening name gesture to show Riri''s calm willingness to try again.
+
+        '
+    recovery:
+      tempo_bpm: 98
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - nylon-string-guitar
+      - flute
+      harmony: clear-return-from-relative-minor-to-major-tonic
+      motif_treatment: 'Rebuild the motif from its first two notes, restore the warm high note, and complete
+        the home-note landing with supportive harmony.
+
+        '
+    victory:
+      tempo_bpm: 120
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - pizzicato-strings
+      - soft-hand-claps
+      - soft-vibraphone
+      harmony: bright-I-IV-V-I-with-added-sixth-ending
+      motif_treatment: 'State the motif twice, first warmly and then with a higher harp answer, keeping
+        the celebration sweet rather than oversized.
+
+        '
+    calm_ending:
+      tempo_bpm: 64
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - clarinet
+      - soft-strings
+      harmony: warm-tonic-with-added-sixth-and-gentle-plagal-cadence
+      motif_treatment: 'Slow the motif into a soft rocking phrase, let the high note bloom gently, and
+        sustain the final home note as a musical cuddle.
+
+        '
+  movement_mapping:
+    idle:
+      musical_behavior: 'Quiet felt-piano notes and soft harp pulses in a gentle 6-8 sway, with occasional
+        two-note gestures matching Riri''s slow blink and tail sway.
+
+        '
+    walking:
+      musical_behavior: 'Light pizzicato pairs and soft shaker pulses follow her tiny cheerful trot, with
+        a small piano pickup every few steps.
+
+        '
+    running:
+      musical_behavior: 'Quick rounded 6-8 pizzicato patterns, light harp motion, and short motif fragments
+        follow her playful mini-bounds and fluffy tail swishes.
+
+        '
+    jumping:
+      musical_behavior: 'A short rising harp figure, a tiny suspended pause, and a cushioned felt-piano
+        landing without heavy impact.
+
+        '
+    thinking:
+      musical_behavior: 'Sparse piano notes, a warm clarinet question, and small pauses mirror Riri''s
+        head tilt, listening posture, and gentle attention.
+
+        '
+    celebrating:
+      musical_behavior: 'Two clear motif statements with soft hand claps, harp, and light vibraphone shimmer,
+        matching her happy wag and tiny bounce.
+
+        '
+  scene_usage:
+    entrance:
+      motif_usage: 'Present the six-note motif clearly on felt piano within the first two seconds, supported
+        by one gentle harp or pizzicato pulse.
+
+        '
+      maximum_duration_seconds: 7
+    dialogue_underscoring:
+      motif_usage: 'Use only two- or three-note fragments between spoken phrases; avoid complete motif
+        statements beneath important dialogue.
+
+        '
+      density: low
+      dialogue_priority: true
+    emotional_scene:
+      motif_usage: 'Preserve the contour while changing tempo, register, harmony, and articulation. Restore
+        a complete warm statement when comfort returns.
+
+        '
+    action_scene:
+      motif_usage: 'Use rocking rhythmic fragments during movement and reserve the full motif for a successful
+        bound, helpful action, safe landing, or reunion.
+
+        '
+    transition:
+      motif_usage: 'Use a one- to two-second piano or harp tag based on the opening name gesture plus
+        the final home note.
+
+        '
+    exit:
+      motif_usage: 'End with the last three notes on felt piano or clarinet over a warm tonic-add-six
+        chord.
+
+        '
+  pairing_rules:
+    with_friends:
+      approach: 'Let the friend''s signature instrument answer Riri''s middle motif notes while Riri''s
+        felt piano preserves the opening name gesture and final home-note resolution.
+
+        '
+    with_antagonist:
+      approach: 'Keep Riri''s motif warm and recognizable, reduce shimmer, and use soft lower-register
+        support. Never twist her theme into frightening harmony.
+
+        '
+    with_environment:
+      approach: 'Adapt secondary instruments to the setting while retaining felt piano, the six-note contour,
+        the gentle rocking rhythm, and warm tonal center.
+
+        '
+    motif_combination_rules:
+    - alternate-motifs-before-layering-them
+    - keep-riris-felt-piano-audible-when-her-motif-is-present
+    - preserve-each-characters-original-rhythmic-signature
+    - avoid-simultaneous-dense-counterpoint
+    - resolve-combined-themes-to-a-warm-shared-tonic
+    - never-give-another-character-riris-name-gesture-and-home-note-as-a-primary-identity
+  continuity_constraints:
+  - preserve-signature-instrument
+  - preserve-core-leitmotif
+  - preserve-character-rhythmic-identity
+  - preserve-target-audience-safety
+  - preserve-recognizable-melodic-contour
+  - preserve-the-two-note-opening-name-gesture
+  - preserve-the-gentle-rocking-middle-motion
+  - preserve-warm-major-centered-harmony
+  - preserve-soft-cushioned-percussion
+  - preserve-clear-musical-comfort-after-worry-or-sadness
+  forbidden_changes:
+  - replacing-the-main-leitmotif
+  - changing-the-signature-instrument-without-story-reason
+  - using-harsh-horror-dissonance
+  - using-aggressive-percussion-for-friendly-scenes
+  - making-the-theme-too-complex-for-the-target-audience
+  - removing-the-character-rhythmic-identity
+  - copying-another-characters-theme
+  - turning-the-theme-into-a-heavy-march
+  - using-prolonged-dark-minor-harmony
+  - using-shrill-sparkle-instruments-at-high-volume
+  - making-action-music-threatening
+  - using-sudden-jump-scare-dynamics
+  - replacing-acoustic-warmth-with-cold-industrial-production
+  - obscuring-the-motif-with-dense-counterpoint
+  generation_prompts:
+    main_theme: 'Create a short, loopable preschool character theme for Riri, a sweet, cheerful, affectionate
+      little puppy protagonist and gentle emotional anchor. Use warm felt piano as the signature melody
+      instrument, supported by gentle concert harp, rounded clarinet, light pizzicato strings, fingerpicked
+      nylon-string guitar, upright bass, and tiny child-friendly percussion. Center the music in G major
+      or a nearby warm major key at about 104 BPM in 6/8. Feature a clear six-note leitmotif: a soft upward
+      major-third name gesture, a gentle middle rocking motion, one warm high note, and a rounded return
+      to the home note. The cue should feel cuddly, pastel, reassuring, affectionate, softly playful,
+      and memorable for ages three to six. Use simple harmony, light orchestration, smooth dynamics, and
+      a seamless loopable ending.
+
+      '
+    short_entrance_cue: 'Generate a 4-to-7-second entrance cue for Riri using felt piano, soft harp, and
+      one light pizzicato-string layer. State her six-note welcoming motif clearly within the first two
+      seconds at about 104 BPM in 6/8, ending on a warm major-add-six chord. Keep it cuddly, bright, polished,
+      and loop-safe.
+
+      '
+    happy_variation: 'Arrange Riri''s established six-note felt-piano motif as a happy preschool cue at
+      about 114 BPM in 6/8. Add fingerpicked nylon-string guitar, gentle pizzicato strings, soft shaker,
+      and a smiling harp or clarinet answer. Preserve the two-note name gesture, rocking middle motion,
+      warm high note, and home-note landing. Use open major harmony and moderate dynamics.
+
+      '
+    curious_variation: 'Arrange Riri''s established motif as a curious cue at about 88 BPM with sparse
+      felt piano, soft harp, clarinet, and flute. Add small pauses around the middle rocking notes and
+      delay the final home-note resolution. Use a tonic pedal, gentle suspended seconds that resolve quickly,
+      light dynamics, and generous space for dialogue.
+
+      '
+    sad_variation: 'Create a gentle sad variation of Riri''s theme at about 62 BPM using soft felt piano,
+      clarinet, and warm strings. Stretch the same six-note contour into legato phrases, use brief relative-minor
+      color, and return clearly to warm major harmony. Keep sadness tender, safe, temporary, and followed
+      by a reassuring home-note resolution.
+
+      '
+    action_variation: 'Create a lively but non-threatening action variation of Riri''s theme at about
+      132 BPM in 6/8. Use quick rounded pizzicato strings, harp pulses, felt-piano motif fragments, soft
+      shaker, and brushed snare to suggest tiny paw steps, playful bounds, ear bounces, and tail swishes.
+      Preserve the motif contour and use the full phrase at successful actions or safe landings.
+
+      '
+    calm_ending: 'Create a calm bedtime-style ending for Riri at about 64 BPM using soft felt piano, gentle
+      harp, warm clarinet, and quiet strings. Slow the established six-note motif into a rocking legato
+      phrase, let the warm high note bloom, and sustain the final home note over a gentle plagal cadence
+      and major-add-six harmony. Make it soothing, affectionate, and reassuring.
+
+      '
+    negative_prompt: 'Avoid horror harmony, harsh dissonance, tritones, minor-second clusters, aggressive
+      brass, distorted guitars, industrial percussion, thunderous drums, trap beats, hard 808 bass, military
+      marching, chaotic orchestration, dense counterpoint, shrill bells, piercing piccolo, cold synthetic
+      textures, adult dramatic scoring, prolonged dark minor harmony, jump-scare dynamics, extreme loudness
+      changes, threatening action music, sadness without comfort, overly complex jazz harmony, copied
+      melodies, alternate leitmotifs, and any arrangement that hides the felt-piano signature or removes
+      the gentle rocking rhythmic identity.
+
+      '
+  technical_defaults:
+    sample_rate: 48000
+    bit_depth: 24
+    channels: stereo
+    loudness_target_lufs: -16
+    true_peak_max_db: -1
+    loopable: true
+  asset_paths:
+    main_theme: assets/music/characters/riri/main-theme.wav
+    leitmotif: assets/music/characters/riri/leitmotif.wav
+    variations_directory: assets/music/characters/riri/variations
+  metadata:
+    generated_from_character_yaml: true
+    generated_from_reference_image: true
+    approval_required: true
+    continuity_priority: critical

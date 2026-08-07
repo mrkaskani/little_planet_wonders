@@ -173,7 +173,7 @@ def load_audio_context(project_id: str) -> dict[str, Any]:
 
 
 def load_voice(project_id: str, character_id: str) -> dict[str, Any]:
-    """Load voice.
+    """Load a character-local voice profile or its legacy audio profile.
 
     Args:
         project_id (str): Stable identifier of the project whose context is used.
@@ -183,8 +183,18 @@ def load_voice(project_id: str, character_id: str) -> dict[str, Any]:
         dict[str, Any]: Result produced by the operation.
     """
     character_id = validate_identifier(character_id, "character_id")
-    directory = audio_directory(get_project_directory(project_id))
-    return _load_first([directory / "voices" / f"{character_id}.yaml"], required=False)
+    project_directory = get_project_directory(project_id)
+    directory = audio_directory(project_directory)
+    return _load_first(
+        [
+            project_directory
+            / "characters"
+            / character_id
+            / "voice-profile.yaml",
+            directory / "voices" / f"{character_id}.yaml",
+        ],
+        required=False,
+    )
 
 
 def load_project_context(
@@ -223,7 +233,7 @@ def load_project_context(
         ),
         "color_palette": _load_first(
             [
-                project_directory / "color-palette.yaml",
+                project_directory / "palette.yaml",
                 project_directory / "palette.yaml",
                 project_directory / "visual_style" / "palette.yaml",
             ]

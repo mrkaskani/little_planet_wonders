@@ -4,16 +4,71 @@ timeline_state:
   current_time_seconds: 42.8
 
 voices:
-  roxana:
-    voice_id: roxana-v1
+  riri:
+    character_context: characters/riri/character.yaml
+    voice_profile: characters/riri/voice-profile.yaml
+    voice_id: riri-v1
+    identity_status: locked-to-profile
+    identity_source: voice_profile.voice_identity
+    performance_source: voice_profile.performance
+    reference_source: voice_profile.references
     emotional_state: cautious
+    emotional_reference: mild-concern
     vocal_energy: low
+    speaking_speed_source: voice_profile.voice_identity.speaking_speed
+    pitch_source: voice_profile.voice_identity.pitch
+    timbre_source: voice_profile.voice_identity.timbre
+    articulation_source: voice_profile.voice_identity.articulation
+    pronunciation_source: audios/pronunciation.yaml
+    clean_dialogue_required: true
+    preserve_approved_timing: true
     last_dialogue_end_seconds: 41.2
+    continuity_constraints:
+      - preserve Riri's youthful, soft, warm identity
+      - preserve the approved emotional-reference family
+      - preserve speaking speed unless a reviewed shot override exists
+      - do not replace locked dialogue without invalidating downstream lip sync
+      - keep Riri clearly distinct from Yoyo
 
-  shakiba:
-    voice_id: shakiba-v1
+  yoyo:
+    character_context: characters/yoyo/character.yaml
+    voice_profile: characters/yoyo/voice-profile.yaml
+    voice_id: yoyo-v1
+    identity_status: locked-to-profile
+    identity_source: voice_profile.voice_identity
+    performance_source: voice_profile.performance
+    reference_source: voice_profile.references
     emotional_state: determined
+    emotional_reference: neutral-friendly
     vocal_energy: medium
+    speaking_speed_source: voice_profile.voice_identity.speaking_speed
+    pitch_source: voice_profile.voice_identity.pitch
+    timbre_source: voice_profile.voice_identity.timbre
+    articulation_source: voice_profile.voice_identity.articulation
+    pronunciation_source: audios/pronunciation.yaml
+    clean_dialogue_required: true
+    preserve_approved_timing: true
+    continuity_constraints:
+      - preserve Yoyo's youthful, bright, bubbly identity
+      - preserve the approved emotional-reference family
+      - keep lively energy controlled and emotionally safe
+      - do not replace locked dialogue without invalidating downstream lip sync
+      - keep Yoyo clearly distinct from Riri
+
+voice_continuity:
+  character_context_required: true
+  voice_profile_required: true
+  voice_profile_path_template: characters/{character_id}/voice-profile.yaml
+  one_clean_dialogue_asset_per_speaker_per_shot: true
+  prevent_speaker_swapping: true
+  preserve_voice_identity_across_scenes: true
+  preserve_profile_pitch_timbre_age_and_articulation: true
+  preserve_character_specific_pause_and_energy_behavior: true
+  preserve_locked_dialogue_timing: true
+  preserve_audio_hash_after_lip_sync: true
+  profile_change_requires_continuity_review: true
+  material_audio_change_invalidates_downstream_video: true
+  emotion_changes_performance_not_identity: true
 
 music:
   active_cue: tension-theme-02

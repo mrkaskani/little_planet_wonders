@@ -1,8 +1,98 @@
+metadata:
+  id: classroom-playful-sound-effects
+  type: sound-effects-context
+  version: 1
+  status: approved
+  project_id: classroom
+  purpose: lively responsive cartoon sound design for children ages 3 to 6
+  approval_required: true
+  continuity_priority: high
+
 style:
   realism: recognizable and gently softened
   intensity: child-safe
   perspective_sensitive: true
   match_environment_acoustics: true
+  energy: medium-to-high
+  aesthetic:
+    - bright-cartoon
+    - playful
+    - polished
+    - cute
+    - adventurous
+    - lively
+    - expressive
+    - funny
+    - magical
+  overall_feeling: a lively animated world with playful responses to important actions
+  frequency: active-but-purposeful
+  dialogue_relationship: noticeable-without-masking-speech
+  rhythm: clean-colorful-and-responsive
+
+design_principles:
+  support_every_important_action: true
+  support_character_movement: true
+  support_reactions_and_comedy: true
+  support_discoveries_and_transitions: true
+  match_action_size: true
+  match_action_speed: true
+  match_material: true
+  match_surface: true
+  match_distance: true
+  match_screen_position: true
+  match_location_acoustics: true
+  use_variation_to_avoid_repetition: true
+  preserve_clean_dialogue: true
+  avoid_effects_for_invisible_unmotivated_actions: true
+  avoid_constant_noise_on_every_minor_motion: true
+
+action_scaling:
+  tiny:
+    examples:
+      - eye-blink
+      - small-head-turn
+      - finger-or-paw-gesture
+      - tiny-object-touch
+    intensity: very-soft
+    layer_count:
+      minimum: 0
+      maximum: 1
+    transient: rounded
+  small:
+    examples:
+      - normal-step
+      - short-turn
+      - button-click
+      - toy-pickup
+    intensity: soft
+    layer_count:
+      minimum: 1
+      maximum: 2
+    transient: soft-and-clear
+  medium:
+    examples:
+      - run
+      - jump
+      - slide
+      - object-bounce
+      - surprise-reaction
+    intensity: soft-to-moderate
+    layer_count:
+      minimum: 1
+      maximum: 3
+    transient: playful-and-controlled
+  major:
+    examples:
+      - exciting-discovery
+      - chase-turn
+      - celebration
+      - scene-transition
+    intensity: moderate
+    layer_count:
+      minimum: 2
+      maximum: 4
+    transient: energetic-but-not-harsh
+    require_dialogue_gap_or_ducking: true
 
 categories:
   footsteps:
@@ -12,21 +102,424 @@ categories:
       variation_policy: round-robin
       minimum_repeat_distance: 4
 
+    grass:
+      surface: soft-grass
+      slow_asset_set: grass-soft-steps
+      fast_asset_set: grass-quick-steps
+      running_asset_set: grass-playful-run
+      tiptoe_asset_set: grass-tiny-tiptoe
+      variation_policy: round-robin
+
+    wood:
+      surface: light-wood
+      slow_asset_set: wood-soft-steps
+      fast_asset_set: wood-quick-steps
+      running_asset_set: wood-playful-run
+      tiptoe_asset_set: wood-tiny-tiptoe
+      variation_policy: weighted-random-no-repeat
+
+    carpet:
+      surface: soft-carpet
+      slow_asset_set: carpet-soft-steps
+      fast_asset_set: carpet-quick-steps
+      running_asset_set: carpet-muted-run
+      tiptoe_asset_set: carpet-tiny-tiptoe
+      variation_policy: weighted-random-no-repeat
+
+    tile:
+      surface: smooth-tile
+      slow_asset_set: tile-soft-steps
+      fast_asset_set: tile-quick-steps
+      running_asset_set: tile-playful-run
+      tiptoe_asset_set: tile-tiny-tiptoe
+      variation_policy: round-robin
+
+    sand:
+      surface: soft-sand
+      slow_asset_set: sand-soft-steps
+      fast_asset_set: sand-quick-steps
+      running_asset_set: sand-playful-run
+      tiptoe_asset_set: sand-tiny-tiptoe
+      variation_policy: weighted-random-no-repeat
+
+    puddle:
+      surface: shallow-water
+      slow_asset_set: puddle-small-splashes
+      running_asset_set: puddle-playful-splash-run
+      variation_policy: weighted-random-no-repeat
+
+  movement:
+    jump:
+      takeoff_asset: movement/jump-soft-takeoff.wav
+      landing_asset: movement/jump-soft-landing.wav
+      large_takeoff_layer: movement/jump-light-whoosh.wav
+      landing_must_remain_soft: true
+    slide:
+      start_asset: movement/slide-start-soft.wav
+      loop_asset: movement/slide-loop-playful.wav
+      stop_asset: movement/slide-stop-soft.wav
+    skid:
+      asset_set: movement/comedic-skid
+      maximum_duration_ms: 700
+    quick_stop:
+      asset: movement/quick-stop-soft.wav
+      optional_layer: reactions/tiny-pop.wav
+    body_swish:
+      slow_asset_set: movement/soft-swish
+      fast_asset_set: movement/quick-whoosh
+    spin:
+      asset_set: movement/cartoon-spin-soft
+      maximum_turns_per_effect: 2
+    turn:
+      asset_set: movement/head-and-body-turn
+      use_only_when_readable: true
+    gesture:
+      asset_set: movement/tiny-gesture-plucks
+      use_sparingly: true
+    blink:
+      asset_set: movement/tiny-blink-ticks
+      use_only_for_emphasized_reaction: true
+    zoom_in:
+      asset_set: movement/zoom-in-soft-whoosh
+    zoom_out:
+      asset_set: movement/zoom-out-soft-whoosh
+    chase:
+      asset_set: movement/chase-light-whooshes
+      energy: medium-to-high
+      keep_impacts_soft: true
+
+  reactions:
+    cute_pop:
+      asset_set: reactions/cute-pops
+      use_for:
+        - realization
+        - quick-look
+        - small-reveal
+    boing:
+      asset_set: reactions/soft-boings
+      pitch_range: mid-to-high
+      forbid_heavy_low_boing: true
+    spring:
+      asset_set: reactions/cute-springs
+      maximum_duration_ms: 800
+    funny_bump:
+      asset_set: reactions/comedic-soft-bumps
+      impact_character: cushioned
+    surprise:
+      asset_set: reactions/surprise-stingers-soft
+      maximum_layers: 2
+    question:
+      asset_set: reactions/curiosity-plucks
+      do_not_reveal_answer: true
+    head_turn:
+      asset_set: reactions/tiny-turn-pops
+      use_only_when_comedically_or_narratively_relevant: true
+
+  objects:
+    pickup:
+      asset_set: objects/pickup-soft
+    place_down:
+      asset_set: objects/place-down-soft
+    drop:
+      asset_set: objects/drop-soft-by-material
+      match_material_required: true
+    bounce:
+      asset_set: objects/cartoon-bounces
+      decay_with_each_bounce: true
+    roll:
+      asset_set: objects/rolling-by-material
+      follow_screen_motion: true
+    tumble:
+      asset_set: objects/playful-tumbles
+      avoid_injury_implication: true
+    toy_squeak:
+      asset_set: toys/cute-squeaks
+      avoid_piercing_frequency: true
+    toy_rattle:
+      asset_set: toys/soft-rattles
+    toy_wheel:
+      asset_set: toys/tiny-wheels
+
   doors:
     rooftop_maintenance_door:
       material: heavy metal
       open_asset: maintenance-door-open.wav
       close_asset: maintenance-door-close.wav
+    light_wooden_door:
+      material: light-wood
+      open_asset: doors/light-wood-open.wav
+      close_asset: doors/light-wood-close.wav
+    toy_door:
+      material: painted-wood
+      open_asset: doors/toy-door-open.wav
+      close_asset: doors/toy-door-close.wav
+      optional_chime_asset: doors/toy-door-chime.wav
 
   devices:
     black_data_device:
       activate_asset: device-activate-soft.wav
       alert_asset: device-alert-muted.wav
+    buttons:
+      soft_click_asset_set: devices/soft-button-clicks
+      illuminated_click_asset_set: devices/light-up-button-clicks
+    switches:
+      small_switch_asset_set: devices/small-switches
+      toy_switch_asset_set: devices/toy-switches
+
+  water:
+    small_splash:
+      asset_set: water/small-splashes
+    playful_splash:
+      asset_set: water/playful-splashes
+      maximum_intensity: moderate
+    bubbles:
+      asset_set: water/gentle-bubbles
+    pour:
+      asset_set: water/soft-pours
+    sip:
+      asset_set: water/quiet-sips
+      dialogue_safe: true
+
+  eating_and_drinking:
+    bite:
+      asset_set: food/soft-bites
+    chew:
+      asset_set: food/gentle-cartoon-chews
+      avoid_exaggerated_mouth_sound: true
+    crunch:
+      asset_set: food/light-crunches
+      avoid_masking_dialogue: true
+    sip:
+      asset_set: food/quiet-sips
+    swallow:
+      asset_set: food/subtle-swallows
+      use_sparingly: true
 
   weather:
     rain_on_jacket:
       asset: rain-on-leather-close.wav
       use_only_in_closeups: true
+    wind:
+      gentle_asset: environment/gentle-wind.wav
+      playful_gust_asset: environment/playful-gust.wav
+      forbid_threatening_gust: true
+
+  nature:
+    birds:
+      asset_set: nature/gentle-birds
+      density: sparse
+    leaves:
+      asset_set: nature/soft-leaves
+    insects:
+      asset_set: nature/gentle-day-insects
+      avoid_buzz_near_dialogue_band: true
+    outdoor_ambience:
+      asset_set: ambience/light-outdoor
+      continue_across_connected_cuts: true
+
+  magical:
+    sparkle:
+      asset_set: magical/soft-sparkles
+    twinkle:
+      asset_set: magical/gentle-twinkles
+    discovery:
+      asset_set: magical/discovery-chimes
+    reveal:
+      asset_set: magical/reveal-whoosh-chime
+    transformation:
+      asset_set: magical/soft-transformation
+      maximum_layers: 4
+      require_story_motivation: true
+
+  transitions:
+    fast_cartoon:
+      asset_set: transitions/fast-cartoon-whooshes
+    scene_change:
+      asset_set: transitions/soft-scene-sweeps
+    wipe:
+      asset_set: transitions/playful-wipes
+    zoom:
+      asset_set: transitions/zoom-whooshes
+    discovery_cut:
+      asset_set: transitions/discovery-sparkle-sweeps
+    maximum_duration_ms: 1200
+    must_match_visual_transition: true
+
+  bells_and_plucks:
+    bell:
+      asset_set: accents/soft-bells
+    whistle:
+      asset_set: accents/gentle-whistles
+      avoid_piercing_frequency: true
+    pluck:
+      asset_set: accents/warm-plucks
+    xylophone:
+      asset_set: accents/soft-xylophone
+
+  crowd:
+    soft_reaction:
+      asset_set: crowd/soft-child-safe-reactions
+      use_only_when_visible_or_story_justified: true
+      no_distinct_unapproved_words: true
+    celebration:
+      asset_set: crowd/gentle-celebration
+      maximum_volume: moderate
+
+character_movement:
+  riri:
+    character_context: characters/riri/character.yaml
+    movement_identity: soft-bouncy-gentle-and-readable
+    walking:
+      primary: tiny-soft-paw-steps
+      accent: occasional-light-tail-wag-swish
+    running:
+      primary: quick-soft-paw-pattern
+      accent: gentle-ear-and-tail-swishes
+    jumping:
+      takeoff: tiny-cushioned-boing
+      landing: plush-soft-pat
+    reactions:
+      happy: tiny-pop-and-soft-tail-wag
+      curious: gentle-pluck
+      surprise: small-rounded-pop
+    avoid:
+      - heavy-footsteps
+      - sharp-claw-clicks
+      - realistic-animal-distress
+
+  yoyo:
+    character_context: characters/yoyo/character.yaml
+    movement_identity: buoyant-bouncy-and-playful
+    walking:
+      primary: paired-tiny-waddle-steps
+      accent: occasional-soft-body-swish
+    running:
+      primary: rapid-light-foot-pattern
+      accent: short-flipper-whooshes
+    jumping:
+      takeoff: light-spring-pop
+      landing: rounded-soft-pat
+    sliding:
+      primary: short-playful-slide
+      ending: tiny-safe-stop-pop
+    reactions:
+      happy: two-light-pops
+      curious: small-xylophone-pluck
+      surprise: tiny-boing-and-pop
+    avoid:
+      - heavy-footsteps
+      - harsh-skids
+      - realistic-animal-distress
+
+layering:
+  enabled: true
+  major_moment_maximum_layers: 4
+  maximum_simultaneous_prominent_effects: 3
+  standard_action_maximum_layers: 2
+  tiny_action_maximum_layers: 1
+  discovery_recipe:
+    - soft-whoosh
+    - cute-pop
+    - gentle-sparkle
+    - short-musical-accent
+  celebration_recipe:
+    - soft-whoosh
+    - subtle-claps
+    - bells
+    - playful-pop
+  comedic_mistake_recipe:
+    - tiny-skid
+    - cushioned-bump
+    - warm-pluck
+  layer_rules:
+    - every layer must have a distinct narrative or tactile function
+    - reduce layers beneath dialogue
+    - remove redundant frequency content
+    - stagger transients to avoid one harsh combined peak
+    - never use all major layers for a small action
+
+learning_cues:
+  correct_answer:
+    identity: two gentle marimba notes
+    volume: soft
+    optional_layer: tiny-warm-sparkle
+    timing: after-spoken-answer
+  try_again:
+    identity: soft curious note followed by warm encouragement
+    forbidden: negative buzzer
+    volume: soft
+    emotional_quality: supportive-not-punishing
+  discovery:
+    identity: three light bell-like notes with a warm wooden tone
+    volume: soft-to-moderate
+    optional_layers:
+      - gentle-whoosh
+      - soft-sparkle
+  question:
+    identity: one-or-two-gentle-upward-plucks
+    volume: very-soft
+    do_not_reveal_answer: true
+  success:
+    identity: short-warm-xylophone-resolution
+    volume: moderate
+    maximum_duration_ms: 1200
+  celebration:
+    identity: bright-short-bell-and-clap-burst
+    volume: moderate
+    maximum_duration_ms: 1500
+  mistake:
+    identity: cute-soft-downward-pluck
+    volume: soft
+    emotional_quality: funny-and-kind
+    forbidden:
+      - negative-buzzer
+      - failure-alarm
+      - mocking-crowd
+
+dialogue_mixing:
+  dialogue_always_has_priority: true
+  relationship_during_dialogue: reduce-beneath-dialogue
+  ducking_db: -4
+  ducking_attack_ms: 40
+  ducking_release_ms: 220
+  protect_word_onsets: true
+  protect_word_endings: true
+  protect_target_vocabulary: true
+  avoid_effect_transients_during_important_words: true
+  pan_effects_away_from_center_dialogue_when_natural: true
+  preserve_effect_audibility_at_reduced_level: true
+  never_bake_effects_into_clean_lip_sync_dialogue: true
+
+participation_pauses:
+  prominent_effects_allowed: false
+  continuous_ambience_allowed: true
+  ambience_must_remain_soft_and_stable: true
+  tiny_response_confirmation_allowed_after_pause: true
+  do_not_reveal_answer: true
+  avoid_movement_effects_unless_visible_and_essential: true
+  avoid_distracting_stereo_motion: true
+
+synchronization:
+  align_to_visible_action: true
+  frame_accurate_for_impacts_and_clicks: true
+  maximum_transient_offset_frames: 1
+  follow_screen_direction: true
+  follow_object_trajectory: true
+  start_loop_after_action_begins: true
+  stop_loop_when_action_ends: true
+  preserve_timing_after_edit_approval: true
+
+continuity:
+  preserve_character_movement_identity: true
+  preserve_prop_material_identity: true
+  preserve_location_acoustics: true
+  preserve_recurring_cue_identity: true
+  preserve_learning_cue_identity: true
+  preserve_distance_and_screen_position: true
+  preserve_ambience_across_connected_cuts: true
+  vary_samples_without_changing_sound_identity: true
+  avoid_restarting_continuous_sound_on_every_shot: true
+  material_cue_change_requires_review: true
 
 rules:
   - use sound based on visible action
@@ -36,12 +529,25 @@ rules:
   - preserve the established material sound
   - dialogue always has priority
   - preserve quiet space during participation pauses
+  - add playful responses to important movement, comedy, discovery, and reactions
+  - scale effect intensity to the size and speed of the action
+  - use frequent effects purposefully rather than continuously
+  - use controlled layering only for major moments
+  - keep every effect clean, colorful, rhythmic, expressive, and fun
 
 child_safety:
-  audience_age: 2-5
+  audience_age: 3-6
   soft_attack_and_release: true
   maximum_volume: moderate
+  maximum_energy: medium-to-high
   maximum_simultaneous_prominent_effects: 3
+  dialogue_intelligibility_required: true
+  headphone_comfort_required: true
+  avoid_piercing_frequencies: true
+  avoid_heavy_low_frequency_energy: true
+  avoid_prolonged_maximum_energy: true
+  impacts_must_not_imply_injury: true
+  mistakes_must_sound_kind_not_punishing: true
   forbidden_qualities:
     - explosive
     - gun-like
@@ -52,13 +558,47 @@ child_safety:
     - frightening whisper
     - realistic injury
     - aggressive transient
+    - piercing
+    - violent
+    - overwhelming
 
-learning_cues:
-  correct_answer:
-    identity: two gentle marimba notes
-    volume: soft
-  try_again:
-    identity: soft curious note followed by warm encouragement
-    forbidden: negative buzzer
-  discovery:
-    identity: three light bell-like notes with a warm wooden tone
+validation:
+  require_visible_or_narrative_source: true
+  require_action_scale_match: true
+  require_material_match: true
+  require_surface_match: true
+  require_distance_match: true
+  require_screen_position_match: true
+  require_location_acoustic_match: true
+  require_dialogue_intelligibility: true
+  require_child_safety_review: true
+  maximum_cue_volume: moderate
+  maximum_prominent_layers: 3
+  maximum_major_moment_layers: 4
+  maximum_transient_offset_frames: 1
+  reject_identical_immediate_repetition: true
+  reject_masked_dialogue: true
+  reject_masked_target_vocabulary: true
+  reject_prominent_participation_pause_effects: true
+  reject_harsh_or_piercing_transients: true
+  reject_heavy_bass_impacts: true
+  reject_unmotivated_effects: true
+  reject_injury_implication: true
+
+forbidden_changes:
+  - replacing_playful_cartoon_identity_with_harsh_realism
+  - increasing_cue_volume_above_moderate
+  - masking_dialogue_or_target_vocabulary
+  - adding_explosions_or_gun_like_effects
+  - adding_aggressive_bass_hits
+  - adding_piercing_frequencies
+  - adding_scary_or_horror_sounds
+  - using_realistic_injury_impacts
+  - using_mocking_or_punishing_failure_sounds
+  - adding_an_impact_without_visible_contact
+  - using_a_major_layer_stack_for_a_tiny_action
+  - repeating_the_identical_sample_consecutively
+  - changing_character_movement_sound_identity
+  - changing_prop_material_sound_without_context
+  - placing_prominent_effects_inside_participation_pauses
+  - embedding_effects_in_clean_dialogue_or_lip_sync_audio

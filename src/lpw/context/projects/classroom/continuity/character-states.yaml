@@ -1,0 +1,953 @@
+character_states:
+  metadata:
+    id: reusable_preschool_character_state_library
+    version: 2
+    status: production
+    audience_age:
+      minimum: 3
+      maximum: 6
+    scope: character_agnostic_reusable_state_vocabulary
+    philosophy: define_the_reusable_vocabulary_once_and_let_episodes_only_select_combine_transition_and_persist_states
+    applies_to: any_approved_character
+    production_uses:
+      - episode_generation
+      - scene_generation
+      - storyboarding
+      - ai_image_generation
+      - ai_video_generation
+      - animation
+      - editing
+      - continuity_quality_control
+
+  identity_boundary:
+    permanent_identity_source:
+      - approved_character_yaml
+      - approved_character_reference_assets
+    this_library_controls_only:
+      - temporary_conditions
+      - story_dependent_conditions
+      - momentary_actions
+      - persistent_story_changes
+    must_not_define:
+      - species
+      - base_colors
+      - permanent_markings
+      - permanent_proportions
+      - canonical_eye_design
+      - permanent_wardrobe_design
+      - permanent_accessory_design
+    immutable_reference_fields:
+      - species
+      - visual_age
+      - body_shape
+      - head_shape
+      - head_to_body_ratio
+      - eye_design
+      - eye_color
+      - facial_markings
+      - permanent_body_markings
+      - hairstyle
+      - fur_pattern
+      - feather_pattern
+      - permanent_colors
+      - limb_proportions
+      - hand_or_paw_design
+      - foot_design
+      - signature_wardrobe
+      - signature_accessories
+      - accessory_default_placement
+      - core_voice_identity
+    rules:
+      never_copy_permanent_identity_into_state_values: true
+      temporary_state_must_not_become_character_design: true
+      state_transition_must_not_modify_identity_reference: true
+
+  state_value_schema:
+    required_fields:
+      - id
+      - category
+      - persistence
+    optional_fields:
+      - intensity
+      - target_id
+      - asset_id
+      - direction
+      - speed
+      - destination
+      - path
+      - movement_energy
+      - interaction_limb
+      - orientation
+      - ownership
+      - placement
+      - condition
+      - story_reason
+      - transition_trigger
+    rules:
+      state_id_must_exist_in_library: true
+      category_must_match_state_definition: true
+      parameters_must_follow_category_schema: true
+
+  emotional_safety:
+    maximum_negative_intensity: 0.6
+    negative_states_require_gentle_readable_performance: true
+    meaningful_worry_or_sadness_requires_reassuring_resolution: true
+    forbidden:
+      - extreme_fear
+      - extreme_panic
+      - terror
+      - rage
+      - aggressive_anger
+      - despair
+      - prolonged_distress
+      - prolonged_crying
+      - threatening_expression
+
+  emotional_states:
+    category: emotion
+    default_persistence: shot_persistent
+    parameters:
+      - intensity
+      - facial_expression
+      - body_language
+      - movement_energy
+      - voice_energy
+    states:
+      neutral: {intensity: 0.0, facial_expression: relaxed_open, body_language: balanced, movement_energy: normal, voice_energy: normal}
+      calm: {intensity: 0.15, facial_expression: soft_relaxed, body_language: settled, movement_energy: calm, voice_energy: calm}
+      content: {intensity: 0.25, facial_expression: soft_smile, body_language: comfortable, movement_energy: calm, voice_energy: warm_soft}
+      happy: {intensity: 0.4, facial_expression: warm_smile_bright_eyes, body_language: open, movement_energy: playful, voice_energy: upbeat}
+      cheerful: {intensity: 0.45, facial_expression: clear_smile_lifted_cheeks, body_language: welcoming, movement_energy: playful, voice_energy: bright}
+      playful: {intensity: 0.5, facial_expression: bright_gentle_grin, body_language: bouncy_ready, movement_energy: energetic, voice_energy: lively}
+      amused: {intensity: 0.4, facial_expression: soft_laughing_smile, body_language: relaxed_bounce, movement_energy: playful, voice_energy: light}
+      excited: {intensity: 0.55, facial_expression: wide_bright_eyes_open_smile, body_language: forward_open, movement_energy: energetic, voice_energy: high_controlled}
+      very_excited: {intensity: 0.7, facial_expression: very_bright_open_smile, body_language: broad_readable_bounce, movement_energy: high_energy, voice_energy: high_without_shouting}
+      curious: {intensity: 0.4, facial_expression: focused_eyes_head_tilt, body_language: gentle_forward_lean, movement_energy: normal, voice_energy: attentive}
+      interested: {intensity: 0.3, facial_expression: attentive_soft_focus, body_language: oriented_to_subject, movement_energy: calm, voice_energy: engaged}
+      surprised: {intensity: 0.5, facial_expression: wide_eyes_small_open_mouth, body_language: brief_pause, movement_energy: brief_burst, voice_energy: brief_lift}
+      impressed: {intensity: 0.45, facial_expression: bright_wondering_smile, body_language: open_upright, movement_energy: normal, voice_energy: warm_lift}
+      proud: {intensity: 0.45, facial_expression: satisfied_smile, body_language: upright_open, movement_energy: normal, voice_energy: confident_gentle}
+      confident: {intensity: 0.4, facial_expression: relaxed_focused_smile, body_language: stable_open, movement_energy: normal, voice_energy: steady}
+      determined: {intensity: 0.45, facial_expression: focused_eyes_calm_mouth, body_language: ready_forward, movement_energy: playful, voice_energy: steady}
+      thoughtful: {intensity: 0.25, facial_expression: softened_focused_gaze, body_language: still_reflective, movement_energy: calm, voice_energy: soft}
+      confused: {intensity: 0.35, facial_expression: gentle_puzzled_look, body_language: paused_open, movement_energy: calm, voice_energy: questioning}
+      unsure: {intensity: 0.3, facial_expression: tentative_soft_gaze, body_language: small_hesitation, movement_energy: calm, voice_energy: tentative}
+      disappointed: {intensity: 0.4, facial_expression: softened_mouth_lowered_gaze, body_language: slightly_lowered, movement_energy: very_calm, voice_energy: low_gentle}
+      mildly_sad: {intensity: 0.5, facial_expression: gentle_downturned_mouth, body_language: small_close, movement_energy: very_calm, voice_energy: quiet_gentle}
+      worried: {intensity: 0.5, facial_expression: wide_soft_eyes, body_language: cautious_close, movement_energy: calm, voice_energy: restrained_concern}
+      mildly_afraid: {intensity: 0.55, facial_expression: widened_soft_eyes, body_language: lowered_near_safe_support, movement_energy: very_calm, voice_energy: quiet_concern}
+      relieved: {intensity: 0.35, facial_expression: relaxed_eyes_soft_smile, body_language: released_tension, movement_energy: calm, voice_energy: warm_soft}
+      reassured: {intensity: 0.3, facial_expression: returning_smile, body_language: reopening_relaxed, movement_energy: calm, voice_energy: warm_calm}
+      grateful: {intensity: 0.4, facial_expression: warm_appreciative_smile, body_language: gentle_open, movement_energy: calm, voice_energy: warm}
+      affectionate: {intensity: 0.4, facial_expression: soft_caring_smile, body_language: gentle_lean_in, movement_energy: calm, voice_energy: warm_soft}
+      friendly: {intensity: 0.35, facial_expression: welcoming_smile, body_language: open_inviting, movement_energy: normal, voice_energy: warm}
+      shy: {intensity: 0.3, facial_expression: small_smile_soft_averted_gaze, body_language: slightly_closed, movement_energy: calm, voice_energy: quiet}
+      embarrassed: {intensity: 0.35, facial_expression: gentle_blush_small_smile, body_language: brief_self_conscious_pose, movement_energy: calm, voice_energy: soft}
+      impatient: {intensity: 0.35, facial_expression: gentle_waiting_expression, body_language: small_controlled_shift, movement_energy: normal, voice_energy: restrained}
+      mildly_frustrated: {intensity: 0.45, facial_expression: focused_soft_frown, body_language: contained_tension, movement_energy: normal, voice_energy: firm_gentle}
+      focused: {intensity: 0.35, facial_expression: concentrated_clear_gaze, body_language: task_oriented, movement_energy: normal, voice_energy: steady}
+      sleepy: {intensity: 0.3, facial_expression: lowered_lids_relaxed_face, body_language: slow_small, movement_energy: very_calm, voice_energy: low_soft}
+    negative_state_rules:
+      disappointed: {maximum_duration_seconds: 20, preferred_resolution: [reassured, relieved, determined, happy]}
+      mildly_sad: {maximum_duration_seconds: 20, preferred_resolution: [reassured, relieved, affectionate, happy]}
+      worried: {maximum_duration_seconds: 20, preferred_resolution: [reassured, relieved, confident, happy]}
+      mildly_afraid: {maximum_duration_seconds: 12, preferred_resolution: [reassured, relieved, confident]}
+      impatient: {maximum_duration_seconds: 15, preferred_resolution: [calm, focused, content]}
+      mildly_frustrated: {maximum_duration_seconds: 20, preferred_resolution: [determined, reassured, relieved, proud]}
+
+  energy_states:
+    category: energy
+    default_persistence: scene_persistent
+    states:
+      very_calm: {movement_speed: very_slow, gesture_frequency: rare, pose_openness: relaxed_small, voice_energy: very_low, reaction_size: small}
+      calm: {movement_speed: slow, gesture_frequency: low, pose_openness: relaxed, voice_energy: low_to_moderate, reaction_size: small_to_medium}
+      relaxed: {movement_speed: easy, gesture_frequency: low, pose_openness: comfortable, voice_energy: moderate_soft, reaction_size: medium}
+      normal: {movement_speed: moderate, gesture_frequency: moderate, pose_openness: comfortable, voice_energy: moderate, reaction_size: medium}
+      playful: {movement_speed: moderate_to_lively, gesture_frequency: medium_high, pose_openness: open, voice_energy: lively, reaction_size: medium_large}
+      energetic: {movement_speed: lively, gesture_frequency: high_but_readable, pose_openness: broad, voice_energy: high_controlled, reaction_size: large_controlled}
+      high_energy: {movement_speed: fast_controlled, gesture_frequency: high_with_clear_beats, pose_openness: broad, voice_energy: high_without_shouting, reaction_size: large_without_chaos}
+      tired: {movement_speed: slow, gesture_frequency: low, pose_openness: reduced, voice_energy: low, reaction_size: small}
+      sleepy: {movement_speed: very_slow, gesture_frequency: rare, pose_openness: resting, voice_energy: very_low, reaction_size: small}
+    rules:
+      high_energy_must_remain_preschool_readable: true
+      one_dominant_action_at_a_time: true
+
+  cleanliness_states:
+    category: cleanliness
+    default_persistence: until_explicit_change
+    states:
+      - perfectly_clean
+      - clean
+      - slightly_dusty
+      - dusty
+      - dirty
+      - slightly_muddy
+      - muddy
+      - very_muddy
+      - stained
+      - messy
+    tracked_surfaces:
+      - body
+      - face
+      - hands_or_paws
+      - wardrobe_if_present
+    requires_explicit_cleaning_to_return_to_clean:
+      - dusty
+      - dirty
+      - slightly_muddy
+      - muddy
+      - very_muddy
+      - stained
+      - messy
+    transitions:
+      perfectly_clean: [clean, slightly_dusty, dirty, slightly_muddy, stained, messy]
+      clean: [perfectly_clean, slightly_dusty, dusty, dirty, slightly_muddy, muddy, stained, messy]
+      slightly_dusty: [dusty, dirty, clean]
+      dusty: [dirty, clean]
+      dirty: [clean, muddy, stained, messy]
+      slightly_muddy: [muddy, clean]
+      muddy: [very_muddy, slightly_muddy, clean]
+      very_muddy: [muddy, slightly_muddy, clean]
+      stained: [dirty, clean]
+      messy: [dirty, clean]
+    rules:
+      cleaning_transition_requires_cleaning_action: true
+      never_reset_between_shots: true
+
+  wetness_states:
+    category: wetness
+    default_persistence: until_explicit_change
+    states:
+      - dry
+      - slightly_damp
+      - damp
+      - slightly_wet
+      - wet
+      - dripping
+      - drying
+    natural_drying_path:
+      - dripping
+      - wet
+      - drying
+      - damp
+      - slightly_damp
+      - dry
+    transitions:
+      dry: [slightly_damp, damp, slightly_wet, wet]
+      slightly_damp: [dry, damp, drying]
+      damp: [slightly_damp, slightly_wet, drying]
+      slightly_wet: [damp, wet, drying]
+      wet: [dripping, drying, slightly_wet]
+      dripping: [wet, drying]
+      drying: [damp, slightly_damp, dry]
+    rules:
+      drying_requires_time_heat_airflow_or_drying_action: true
+      no_spontaneous_return_to_dry: true
+      preserve_across_consecutive_shots: true
+
+  temperature_states:
+    category: temperature
+    default_persistence: scene_persistent
+    states:
+      comfortable: {intensity: 0.0, behavior: normal}
+      warm: {intensity: 0.25, behavior: relaxed_warm_response}
+      hot: {intensity: 0.45, behavior: mild_child_safe_heat_response}
+      cool: {intensity: 0.2, behavior: gentle_awareness_of_coolness}
+      cold: {intensity: 0.4, behavior: mild_cold_response}
+      shivering_mildly: {intensity: 0.5, behavior: small_readable_shiver}
+    rules:
+      discomfort_must_remain_gentle: true
+      environment_or_action_trigger_required: true
+      severe_temperature_distress_forbidden: true
+
+  physical_condition_states:
+    category: physical_condition
+    default_persistence: scene_persistent
+    states:
+      - normal
+      - tired
+      - sleepy
+      - slightly_out_of_breath
+      - dizzy_mild
+      - hiccups
+      - sneezing
+      - messy_hair_or_fur
+      - sticky
+      - covered_in_bubbles
+      - covered_in_paint
+      - covered_in_flour
+      - covered_in_leaves
+      - sandy
+      - minor_bump_mild
+    rules:
+      graphic_injury_forbidden: true
+      minor_bump_must_be_mild_temporary_and_reassuring: true
+      condition_requires_visible_or_declared_trigger: true
+      recovery_requires_time_rest_or_care_action: true
+
+  pose_states:
+    category: pose
+    default_persistence: shot_persistent
+    states:
+      - neutral_idle
+      - standing
+      - sitting
+      - kneeling
+      - crouching
+      - lying_down
+      - resting
+      - leaning
+      - listening
+      - talking
+      - thinking
+      - observing
+      - pointing
+      - reaching
+      - holding
+      - carrying
+      - waving
+      - clapping
+      - cheering
+      - celebrating
+      - dancing
+      - hiding_playfully
+      - peeking
+      - stretching
+      - yawning
+    parameters:
+      - supporting_contact
+      - orientation
+      - target_id
+    rules:
+      preserve_character_proportions: true
+      pose_must_be_anatomically_compatible_with_character_reference: true
+      pose_must_match_locomotion_and_interaction: true
+
+  locomotion_states:
+    category: locomotion
+    default_persistence: shot_persistent
+    states:
+      - stationary
+      - turning
+      - walking
+      - tiptoeing
+      - jogging
+      - running
+      - hopping
+      - jumping
+      - skipping
+      - bouncing
+      - sliding
+      - climbing
+      - crawling
+      - dancing
+      - spinning
+      - swimming_if_character_allows
+      - being_carried
+      - riding_if_story_allows
+    parameters:
+      - direction
+      - speed
+      - destination
+      - path
+      - movement_energy
+    rules:
+      movement_direction_persists_across_cuts: true
+      destination_uses_canonical_location_asset_id_when_available: true
+      conditional_state_requires_character_or_story_approval: true
+      locomotion_must_match_pose: true
+
+  attention_states:
+    category: attention
+    default_persistence: shot_persistent
+    states:
+      - looking_at_character
+      - looking_at_object
+      - looking_at_viewer
+      - looking_at_environment
+      - listening_to_character
+      - listening_to_sound
+      - searching
+      - observing
+      - inspecting
+      - thinking
+      - distracted
+      - focused
+      - participating
+    parameters:
+      - target_id
+      - gaze_direction
+      - head_direction
+      - body_orientation
+    rules:
+      target_id_required_when_state_has_target: true
+      gaze_must_not_change_randomly: true
+      attention_transition_requires_story_or_action_trigger: true
+
+  dialogue_states:
+    category: dialogue
+    default_persistence: momentary
+    states:
+      silent: {lip_sync_allowed: false}
+      listening: {lip_sync_allowed: false}
+      preparing_to_speak: {lip_sync_allowed: false}
+      speaking: {lip_sync_allowed: true}
+      finishing_line: {lip_sync_allowed: true}
+      reacting: {lip_sync_allowed: false}
+      singing: {lip_sync_allowed: true}
+      chanting: {lip_sync_allowed: true}
+      repeating_word: {lip_sync_allowed: true}
+      addressing_viewer: {lip_sync_allowed: true}
+      asking_question: {lip_sync_allowed: true}
+      waiting_for_response: {lip_sync_allowed: false}
+    parameters:
+      - dialogue_line_id
+      - speaker_target
+      - audio_reference
+    rules:
+      only_approved_speaking_state_performs_dialogue_lip_sync: true
+      lip_sync_state_requires_approved_dialogue_or_song_audio: true
+      listener_mouth_motion_must_not_look_like_speaking: true
+
+  participation_states:
+    category: participation
+    default_persistence: momentary
+    states:
+      - not_participating
+      - introducing_activity
+      - asking_child
+      - waiting_for_child_response
+      - encouraging_response
+      - acknowledging_response
+      - continuing_story
+    waiting_for_child_response:
+      minimum_pause_seconds: 3
+      preferred_pause_seconds: 4
+      maximum_pause_seconds: 5
+      camera_should_remain_stable: true
+      avoid_distracting_character_motion: true
+      gaze_preference: looking_at_viewer
+      locomotion_required: stationary
+    rules:
+      participation_sequence_should_follow_listed_order: true
+      one_clear_prompt_at_a_time: true
+
+  object_interaction_states:
+    category: object_interaction
+    default_persistence: momentary
+    states:
+      - not_interacting
+      - looking_at
+      - approaching
+      - reaching_for
+      - picking_up
+      - holding
+      - carrying
+      - hugging_object
+      - showing
+      - presenting
+      - pointing_at
+      - placing
+      - dropping
+      - gently_throwing
+      - rolling
+      - pushing
+      - pulling
+      - opening
+      - closing
+      - pouring
+      - stirring
+      - eating
+      - drinking
+      - giving
+      - receiving
+      - sharing
+      - putting_on
+      - taking_off
+      - storing
+      - retrieving
+    parameters:
+      - asset_id
+      - interaction_limb
+      - orientation
+      - ownership
+      - persistence
+    persistent_interactions:
+      holding: until_explicit_change
+      carrying: until_explicit_change
+      hugging_object: until_explicit_change
+      wearing_after_putting_on: until_explicit_change
+    release_actions:
+      - placing
+      - dropping
+      - gently_throwing
+      - giving
+      - storing
+    rules:
+      asset_id_required_except_not_interacting: true
+      held_or_carried_asset_persists_until_release_action: true
+      object_must_not_duplicate_or_disappear: true
+      action_must_be_supported_by_locations_assets_registry: true
+
+  wardrobe_states:
+    category: wardrobe
+    default_persistence: until_explicit_change
+    canonical_source: character_reference
+    states:
+      - normal
+      - neat
+      - messy
+      - wrinkled
+      - dusty
+      - dirty
+      - muddy
+      - damp
+      - wet
+      - partially_removed
+      - temporarily_removed
+      - extra_layer_added
+      - costume_added
+      - protective_clothing_added
+    parameters:
+      - asset_id
+      - condition
+      - placement
+      - story_reason
+    rules:
+      do_not_redefine_canonical_wardrobe: true
+      added_or_removed_piece_requires_explicit_action_or_scene_setup: true
+      condition_persists_until_cleaned_dried_or_changed: true
+
+  accessory_states:
+    category: accessory
+    default_persistence: until_explicit_change
+    canonical_source: character_reference
+    states:
+      - worn_default
+      - worn_adjusted
+      - held
+      - removed
+      - stored
+      - temporarily_missing_story_motivated
+      - dirty
+      - wet
+    parameters:
+      - asset_id
+      - placement
+      - orientation
+      - condition
+    rules:
+      do_not_redefine_canonical_accessory: true
+      missing_state_requires_story_reason: true
+      placement_and_orientation_persist_across_shots: true
+
+  food_states:
+    category: food
+    default_persistence: momentary
+    states:
+      - hungry
+      - eating
+      - chewing
+      - swallowing
+      - drinking
+      - sipping
+      - finished_eating
+      - face_slightly_messy_from_food
+    parameters:
+      - food_asset_id
+      - container_asset_id
+      - amount_remaining
+    rules:
+      behavior_must_be_preschool_appropriate: true
+      chewing_and_swallowing_must_be_gentle: true
+      consumption_updates_amount_and_prop_state: true
+      food_mess_persists_until_cleaned: true
+
+  sleep_states:
+    category: sleep
+    default_persistence: scene_persistent
+    states:
+      - awake
+      - getting_sleepy
+      - sleepy
+      - yawning
+      - resting
+      - falling_asleep
+      - asleep
+      - waking_up
+    natural_progression:
+      - awake
+      - getting_sleepy
+      - sleepy
+      - yawning
+      - resting
+      - falling_asleep
+      - asleep
+      - waking_up
+      - awake
+    rules:
+      asleep_requires_stationary_locomotion: true
+      waking_requires_visible_or_declared_trigger: true
+
+  social_interaction_states:
+    category: social_interaction
+    default_persistence: scene_persistent
+    states:
+      - playing_together
+      - talking_together
+      - helping
+      - sharing
+      - cooperating
+      - following
+      - leading
+      - waiting_for
+      - comforting
+      - encouraging
+      - showing
+      - teaching
+      - learning_from
+      - celebrating_together
+      - greeting
+      - saying_goodbye
+    parameters:
+      - target_character_id
+      - shared_asset_id
+      - interaction_role
+    rules:
+      target_character_id_required: true
+      state_does_not_redefine_permanent_relationship: true
+
+  environmental_reaction_states:
+    category: environmental_reaction
+    default_persistence: momentary
+    states:
+      - reacting_to_wind
+      - reacting_to_rain
+      - reacting_to_water
+      - reacting_to_sun
+      - reacting_to_cold
+      - reacting_to_sound
+      - reacting_to_surprise
+      - reacting_to_magic
+      - reacting_to_darkness_mild
+      - reacting_to_new_location
+    parameters:
+      - environment_state_id
+      - source_asset_id
+      - intensity
+    rules:
+      reaction_requires_matching_environment_or_story_trigger: true
+      darkness_reaction_must_remain_mild: true
+      reaction_must_not_exceed_emotional_safety_limit: true
+
+  story_task_states:
+    category: story_task
+    default_persistence: until_explicit_change
+    states:
+      - idle
+      - exploring
+      - searching_for
+      - carrying_to_destination
+      - trying_to_solve
+      - helping_character
+      - preparing_activity
+      - cleaning
+      - building
+      - sorting
+      - counting
+      - collecting
+      - following_clue
+      - returning_object
+      - completing_task
+    parameters:
+      - target_id
+      - asset_id
+      - destination
+      - progress
+    rules:
+      target_or_asset_required_when_state_implies_one: true
+      active_task_persists_until_completed_changed_or_cancelled: true
+      task_progress_requires_story_action: true
+
+  combinable_states:
+    one_active_state_allowed_from_each_category:
+      - emotion
+      - energy
+      - cleanliness
+      - wetness
+      - temperature
+      - physical_condition
+      - pose
+      - locomotion
+      - attention
+      - dialogue
+      - participation
+      - object_interaction
+      - wardrobe
+      - sleep
+      - food
+      - environmental_reaction
+      - story_task
+    multiple_parameterized_instances_allowed:
+      accessory: one_per_accessory_asset_id
+      social_interaction: one_per_target_character_id
+    example:
+      emotion: curious
+      cleanliness: muddy
+      wetness: slightly_wet
+      pose: standing
+      attention: looking_at_object
+      object_interaction: holding
+      held_object: ball
+      story_task: searching_for
+    rules:
+      categories_may_coexist_when_compatible: true
+      most_specific_active_state_controls_visual_consequence: true
+
+  compatibility_rules:
+    forbidden_combinations:
+      - states: [sleep.asleep, locomotion.running]
+        reason: sleeping_character_cannot_run
+      - states: [sleep.asleep, dialogue.speaking]
+        reason: sleeping_character_cannot_speak_dialogue
+      - states: [sleep.asleep, dialogue.singing]
+        reason: sleeping_character_cannot_sing
+      - states: [wetness.dry, wetness.dripping]
+        reason: wetness_category_is_mutually_exclusive
+      - states: [cleanliness.clean, cleanliness.very_muddy]
+        reason: cleanliness_category_is_mutually_exclusive
+      - states: [participation.waiting_for_child_response, locomotion.running]
+        reason: response_pause_requires_stationary_character
+      - states: [participation.waiting_for_child_response, dialogue.speaking]
+        reason: child_response_window_requires_silence
+      - states: [pose.lying_down, locomotion.running]
+        reason: pose_and_locomotion_are_incompatible
+      - states: [physical_condition.sleepy, energy.high_energy]
+        reason: physical_and_energy signals_conflict
+      - states: [object_interaction.holding, object_interaction.storing]
+        reason: one_asset_cannot_be_held_and_stored
+        condition: asset_id_matches
+      - states: [object_interaction.carrying, object_interaction.placing]
+        reason: one_asset_cannot_be_carried_and_placed
+        condition: asset_id_matches
+      - states: [accessory.worn_default, accessory.stored]
+        reason: one_accessory_cannot_be_worn_and_stored
+        condition: asset_id_matches
+    category_exclusivity:
+      emotion: exactly_one
+      energy: exactly_one
+      cleanliness: exactly_one_per_tracked_surface
+      wetness: exactly_one_per_tracked_surface
+      temperature: exactly_one
+      pose: exactly_one_primary_pose
+      locomotion: exactly_one
+      dialogue: exactly_one
+      participation: exactly_one
+      sleep: exactly_one
+    rules:
+      validate_before_generation: true
+      reject_contradictory_combination: true
+      same_asset_location_and_interaction_states_must_agree: true
+
+  transition_rules:
+    required_fields:
+      - character_id
+      - category
+      - from_state
+      - trigger
+      - to_state
+      - persistence
+      - visual_consequence
+      - audio_consequence_if_any
+    reusable_transitions:
+      cleanliness:
+        clean_to_dirty:
+          from: clean
+          trigger: contact_with_dirt_or_mess
+          to: dirty
+        muddy_to_clean:
+          from: muddy
+          trigger: explicit_cleaning_action
+          to: clean
+      wetness:
+        wet_to_drying:
+          from: wet
+          trigger: drying_begins
+          to: drying
+        drying_to_slightly_damp:
+          from: drying
+          trigger: sufficient_drying_time
+          to: slightly_damp
+        slightly_damp_to_dry:
+          from: slightly_damp
+          trigger: completed_drying
+          to: dry
+      emotion:
+        worried_to_reassured:
+          from: worried
+          trigger: clear_support_or_safe_resolution
+          to: reassured
+        reassured_to_relieved:
+          from: reassured
+          trigger: safety_is_understood
+          to: relieved
+      object_interaction:
+        reaching_to_holding:
+          from: reaching_for
+          trigger: successful_pick_up
+          to: holding
+        holding_to_placed:
+          from: holding
+          trigger: explicit_place_action
+          to: placing
+    rules:
+      every_material_change_requires_trigger: true
+      target_state_must_exist_in_same_category: true
+      persistent_change_carries_into_next_snapshot: true
+      unexplained_transition_forbidden: true
+
+  persistence_rules:
+    allowed_levels:
+      momentary: lasts_for_single_brief_action_or_reaction
+      shot_persistent: persists_until_shot_end_or_explicit_change
+      scene_persistent: persists_across_shots_in_scene
+      sequence_persistent: persists_across_scenes_in_sequence
+      episode_persistent: persists_until_episode_resolution
+      until_explicit_change: never_resets_automatically
+    defaults:
+      blink: momentary
+      surprised: momentary
+      holding_object: until_explicit_change
+      carrying_object: until_explicit_change
+      muddy: until_explicit_change
+      wet: until_explicit_change
+      temporary_costume: until_explicit_change
+      story_task: until_explicit_change
+    reset_rules:
+      never_automatically_reset:
+        - held_or_carried_object
+        - cleanliness_change
+        - wetness_change
+        - wardrobe_change
+        - accessory_change
+        - unresolved_negative_emotion
+        - active_story_task
+      reset_requires:
+        - explicit_transition
+        - established_time_jump
+        - approved_scene_or_episode_boundary_rule
+
+  state_application_schema:
+    required_fields:
+      - character_id
+      - states
+    states_mapping:
+      key: category
+      value:
+        required:
+          - id
+        optional:
+          - intensity
+          - persistence
+          - target_id
+          - asset_id
+          - parameters
+    validation_sequence:
+      - resolve_character_identity_reference
+      - validate_category
+      - validate_state_id
+      - validate_parameters
+      - validate_compatibility
+      - validate_transition
+      - apply_persistence
+      - lock_for_generation
+    rules:
+      episodes_select_existing_ids: true
+      scenes_must_not_rewrite_state_definitions: true
+
+  custom_state_extension:
+    allowed: true
+    requires_definition: true
+    requires_story_reason: true
+    should_reuse_existing_state_when_possible: true
+    approval_required: true
+    required_fields:
+      - id
+      - category
+      - definition
+      - parameters
+      - compatibility
+      - transitions
+      - persistence
+      - story_reason
+    rules:
+      create_only_when_library_lacks_concept: true
+      must_remain_preschool_safe: true
+      must_not_redefine_permanent_identity: true
+
+  ai_continuity_rules:
+    preserve_active_states_until_explicit_transition: true
+    lock_active_state_ids_and_parameters_for_shot: true
+    errors:
+      - spontaneous_cleaning
+      - spontaneous_drying
+      - random_emotion_reset
+      - held_object_disappearing
+      - held_object_duplicating
+      - wardrobe_state_reset
+      - accessory_state_reset
+      - random_pose_change
+      - random_gaze_change
+      - contradictory_state_combination
+      - temporary_state_changing_character_identity
+    rules:
+      end_state_becomes_next_shot_start_state: true
+      generated_segments_share_persistent_states: true
+      state_drift_requires_regeneration_or_correction: true
+
+  forbidden_state_behavior:
+    - undefined_state_id
+    - wrong_state_category
+    - unexplained_state_change
+    - incompatible_state_combination
+    - character_identity_drift
+    - random_emotion_change
+    - negative_emotion_above_safety_limit
+    - prolonged_unresolved_distress
+    - random_costume_change
+    - disappearing_or_duplicated_accessory
+    - disappearing_or_duplicated_prop
+    - spontaneous_cleaning
+    - spontaneous_drying
+    - speaking_without_approved_dialogue_state
+    - lip_motion_without_approved_audio
+    - participation_motion_during_response_pause
+    - unexplained_persistent_state_reset
+
+  quality_control:
+    enforcement: required_before_generation_and_at_every_state_transition
+    checks:
+      valid_state_id: true
+      valid_state_category: true
+      state_compatibility: true
+      state_transition_valid: true
+      state_persistence: true
+      emotional_safety: true
+      physical_condition_safety: true
+      held_object_consistency: true
+      wardrobe_consistency: true
+      accessory_consistency: true
+      cleanliness_consistency: true
+      wetness_consistency: true
+      participation_rules: true
+      dialogue_state_consistency: true
+      no_unexplained_reset: true
+    rejection_conditions:
+      - state_id_or_category_is_unknown
+      - active_states_are_contradictory
+      - transition_has_no_valid_trigger
+      - persistent_state_failed_to_carry_forward
+      - emotional_or_physical_state_is_not_preschool_safe
+      - prop_wardrobe_or_accessory_continuity_breaks
+      - response_pause_contains_speech_or_distracting_motion
+      - temporary_state_changes_permanent_identity
