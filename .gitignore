@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+.DS_Store
 .pytest_cache/
 .ruff_cache/
 .idea/
@@ -9,6 +10,10 @@ runtime/
 dist/
 build/
 *.egg-info/
+.venv-qwen3-tts/
+models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/
+models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-Base/
+outputs/qwen3-tts/
 renders/
 edits/
 archive/

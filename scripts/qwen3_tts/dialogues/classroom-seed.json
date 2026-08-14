@@ -1,0 +1,41 @@
+{
+  "title": "Our Tiny Classroom Seed",
+  "project": "classroom",
+  "language": "English",
+  "target_seconds": 30,
+  "seed": 424242,
+  "turns": [
+    {
+      "speaker": "yoyo",
+      "text": "Riri, look! I found a tiny seed beside the classroom window."
+    },
+    {
+      "speaker": "riri",
+      "text": "Oh! Do you think it could grow into a flower?"
+    },
+    {
+      "speaker": "yoyo",
+      "text": "Maybe. Let's give it some soil, water, and a sunny place."
+    },
+    {
+      "speaker": "riri",
+      "text": "I'll pour slowly, so the little seed doesn't wash away."
+    },
+    {
+      "speaker": "yoyo",
+      "text": "Good idea. We can check it every morning."
+    },
+    {
+      "speaker": "riri",
+      "text": "And when it sprouts, we'll draw its first green leaf!"
+    },
+    {
+      "speaker": "yoyo",
+      "text": "Deal. Our classroom has a new little friend."
+    },
+    {
+      "speaker": "riri",
+      "text": "Welcome, tiny seed. We'll help you grow!"
+    }
+  ]
+}

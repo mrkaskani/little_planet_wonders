@@ -11,6 +11,7 @@ dependencies = [
 
 [project.scripts]
 lpw = "lpw.mcp.server:main"
+lpw-conversation = "conversion.cli:main"
 
 [project.optional-dependencies]
 dev = [
@@ -26,4 +27,4 @@ addopts = "-q"
 testpaths = ["tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/lpw"]
+packages = ["src/lpw", "src/conversion"]
