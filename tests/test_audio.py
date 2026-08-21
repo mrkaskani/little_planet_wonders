@@ -11,16 +11,18 @@ def test_dialogue_uses_defaults_when_optional_voice_files_are_absent(context_roo
             project_id="demo",
             scene_id="scene-001",
             shot_id="shot-004",
-            character_id="roxana",
-            text="شکیبا، اینجا امن نیست.",
+            character_id="riri",
+            text="یویو، اینجا امن است.",
             emotion="quiet concern",
         )
     )
 
-    assert package["voice_id"] == "roxana-v1"
+    assert package["voice_id"] == "riri-v1"
     assert package["emotion"] == "quiet concern"
     assert package["intensity"] == 0.5
-    assert package["voice_profile"]["timbre"] == "warm and slightly husky"
+    assert package["voice_profile"]["timbre"] == (
+        "smooth, round, light, airy, and non-nasal"
+    )
     assert package["technical"]["sample_rate"] == 48000
     assert package["pronunciation_dictionary"]["entries"]["MCP"]["spoken_form"] == "M C P"
     assert package["status"] == "instructions-only"
@@ -34,10 +36,10 @@ def test_complete_dialogue_pipeline(context_root) -> None:
         project_id="demo",
         shot_id="shot-004",
         scene_id="scene-001",
-        character_ids=["roxana"],
-        location_id="rooftop",
+        character_ids=["riri"],
+        location_id="kindergarten_garden",
         shot_type="dialogue",
-        action="Roxana quietly warns Shakiba.",
+        action="Riri quietly warns Yoyo.",
         framing="close-up",
         lens="85mm",
         camera_height="eye level",
@@ -49,8 +51,8 @@ def test_complete_dialogue_pipeline(context_root) -> None:
         project_id="demo",
         scene_id="scene-001",
         shot_id="shot-004",
-        character_id="roxana",
-        text="شکیبا، اینجا امن نیست.",
+        character_id="riri",
+        text="یویو، اینجا امن است.",
         emotion="quiet concern",
     )
 
@@ -60,9 +62,9 @@ def test_complete_dialogue_pipeline(context_root) -> None:
     assert package["video"]["model"] == "wan2.2-s2v-14b"
     assert package["video"]["frame_rate"] == 24
     assert package["video"]["frame_count"] == 117
-    assert package["dialogue"]["character_id"] == "roxana"
+    assert package["dialogue"]["character_id"] == "riri"
     assert package["dialogue"]["emotion"] == "quiet concern"
-    assert package["dialogue"]["audio_path"].endswith("shot-004-roxana.wav")
+    assert package["dialogue"]["audio_path"].endswith("shot-004-riri.wav")
     assert package["video"]["audio_path"] == package["dialogue"]["audio_path"]
     assert package["music"] == {
         "cue": "tension-theme-02",
@@ -70,7 +72,7 @@ def test_complete_dialogue_pipeline(context_root) -> None:
         "continue_from_previous_scene": True,
     }
     assert package["ambience"] == {
-        "environment": "rooftop-night-rain",
+        "environment": "kindergarten_garden-night-rain",
         "continue_across_cut": True,
     }
     assert package["sound_effects"] == [

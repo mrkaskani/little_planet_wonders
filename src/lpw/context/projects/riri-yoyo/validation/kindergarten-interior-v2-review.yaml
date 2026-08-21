@@ -1,0 +1,111 @@
+id: riri-yoyo-kindergarten-interior-v2-review-v001
+type: location-version-review-context
+version: 1
+status: complete-candidate-ready-for-project-owner-review
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-interior
+  candidate_version: v002
+  review_date: 2026-08-21
+  reviewer: codex-visual-and-technical-review
+  authority: locations/interiors/location-v2.yaml
+  package_id: kindergarten-interior-design-package-v002
+
+package_checks:
+  supplied-files-declared: 5
+  files-currently-present: 5
+  files-currently-missing: 0
+  filenames-follow-recorded-camel-case-exception: pass
+  visible-board-titles-recorded: pass
+  present-sha256-recorded: pass
+  present-pixel-dimensions-recorded: pass
+  present-files-design-review-only: true
+  direct-generation-conditioning-forbidden: true
+  package-complete: true
+
+records:
+  - candidate-id: kindergarten-interior-scale-and-proportion-reference-board-v002
+    visible-title: Interior Location — Scale & Proportion Reference Board
+    checks:
+      panel-count: pass-exactly-twelve
+      four-perspective-views: present
+      elevated-overview: present
+      four-wall-elevations: present
+      floor-plan-object-position-logic: present
+      furniture-and-architectural-scale-relations: present
+      relative-proportion-summary: present
+      relative-unit-values-transcribed-to-yaml: pass
+      conditioning-eligible: false
+  - candidate-id: kindergarten-interior-transformation-1-cinematic-four-side-four-picture-type-reference-board-v002
+    visible-title: Transformation 1 — Cinematic Four-Side / Four-Picture-Type Interior Reference Board
+    checks:
+      panel-count: pass-exactly-twelve
+      four-side-cinematic-views: present
+      overview-and-floor-plan: present
+      primary-and-secondary-functional-zones: present
+      storage-material-furniture-lighting-detail-panels: present
+      locked-relative-values-match-scale-board: pass
+      conditioning-eligible: false
+  - candidate-id: kindergarten-interior-transformation-2-structured-four-side-four-picture-type-reference-board-v002
+    visible-title: Transformation 2 — Structured Four-Side / Four-Picture-Type Interior Reference Board
+    checks:
+      panel-count: pass-exactly-twelve
+      four-spatial-views: present
+      four-wall-elevation-and-floor-plan: present
+      classroom-table-and-rug-functional-areas: present
+      furniture-storage-material-and-construction-details: present
+      color-and-lighting-reference: present
+      locked-package-header-values: pass
+      ambiguous-generated-micro-labels-deferred-to-scale-board: pass
+      conditioning-eligible: false
+  - candidate-id: kindergarten-interior-transformation-3-titled-technical-four-side-four-picture-type-reference-board-v002
+    visible-title: Transformation 3 — Titled Technical Four-Side / Four-Picture-Type Interior Reference Board
+    checks:
+      supplied-filename-number-corrected-from-visible-title: pass
+      panel-count: pass-exactly-twelve
+      dimensioned-four-side-views: present
+      elevated-overview-and-labeled-floor-plan: present
+      learning-play-storage-display-and-nature-zones: present
+      dimensioned-furniture-built-ins-and-construction: present
+      architectural-materials-lighting-palette-and-mood: present
+      scale-values-match-primary-scale-board: pass
+      conditioning-eligible: false
+  - candidate-id: kindergarten-interior-transformation-4-polished-production-four-side-four-picture-type-interior-board-v002
+    visible-title: Transformation 4 — Polished Production Four-Side / Four-Picture-Type Interior Board
+    checks:
+      panel-count: pass-exactly-twelve
+      four-polished-production-views: present
+      elevated-overview-and-floor-plan: present
+      primary-and-secondary-production-zone-overlays: present
+      furniture-storage-material-and-surface-details: present
+      color-natural-light-warm-daylight-and-texture-reference: present
+      locked-relative-values-match-scale-board: pass
+      conditioning-eligible: false
+
+cross_board_consistency:
+  same-location: pass
+  same-orientation: pass
+  same-relative-measurements: pass
+  front-whiteboard-left-window-right-artwork-rear-opposite: pass
+  furniture-and-zone-layout: pass-codex-review
+  materials-and-warm-left-window-light: pass-codex-review
+  five-board-panel-inventory: pass-sixty-panels-recorded
+  measurement-authority-order: pass-recorded
+  supplied-filename-versus-visible-title-correction: pass-recorded
+  camel-case-project-paths-and-hashes: pass
+
+source_recovery:
+  status: complete
+  recovered-files: 3
+  total-package-files: 5
+  source-files-preserved: true
+  all-project-assets-hashed-and-dimensioned: true
+  complete-package-review: ready
+
+approval_boundary:
+  all-five-file-technical-registration: complete
+  project-owner-v2-package-approval: pending
+  v2-canonical-promotion: blocked-until-project-owner-approval
+  existing-v1-location-authority-remains-active: true
+  existing-v1-primary-master-conditioning-remains-active: true

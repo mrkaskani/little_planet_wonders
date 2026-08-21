@@ -1,0 +1,449 @@
+id: nature-park-location-v2
+type: location-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-scale-reconciliation-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: nature-park
+  title: Nature Park Visual and Spatial Identity Version 2
+  purpose: >-
+    Structure the five supplied V2 boards as site geometry, relative scale,
+    landmark, water-safety, material, vegetation, lighting, atmosphere, camera,
+    and MCP retrieval context while preserving printed inconsistencies for review.
+  created_date: 2026-08-20
+  source: project-owner-supplied-location-design-package
+  review_record: ../../validation/nature-park-v2-review.yaml
+
+versioning:
+  base_location_authority: location.yaml
+  base_reference_id: nature-park-reference-set-v001
+  base_primary_master_id: nature-park-primary-master-v001
+  candidate_package_id: nature-park-design-package-v002
+  active_canonical_version: v001
+  candidate_version: v002
+  package_completeness:
+    expected_source_boards: 5
+    present_source_boards: 5
+    complete: true
+  promotion_rule: >-
+    V2 becomes canonical only after the two internal scale-diagram conflicts and
+    the primary-light shadow-quality difference are resolved, the complete
+    package is approved by the project owner, and clean V2 single-frame
+    references are approved. V1 remains active until then.
+
+source_images:
+  scale_and_proportion_board:
+    id: nature-park-scale-and-proportion-reference-board-v002
+    visible_title: NATURE PARK SCALE & PROPORTION REFERENCE BOARD
+    path: ../../assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
+    sha256: a0a1ec9ca30875d27d855f0e347dff112a1bb3099c100f7c40d69d86daaf8772
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: site-plan-terrain-scale-structure-and-natural-feature-authority
+    reference_class: design-review-only
+  transformation_1_board:
+    id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+    visible_title: TRANSFORMATION 1 — CINEMATIC MULTI-VIEW REFERENCE BOARD
+    path: ../../assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
+    sha256: f5b1d3dbc10d29487df274d1ccd263959c08cf2bca35da6dd72779e1ef81d160
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: cinematic-camera-landmark-material-and-lighting-variant-reference
+    reference_class: design-review-only
+  transformation_2_board:
+    id: nature-park-transformation-2-structured-location-reference-board-v002
+    visible_title: TRANSFORMATION 2 — STRUCTURED LOCATION REFERENCE BOARD
+    path: ../../assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
+    sha256: 612d89c79901bd21fd4840818e9c2d7a3bf41f0c2bcbcca22418b213f310b2b3
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: camera-geometry-aerial-site-material-vegetation-and-lighting-reference
+    reference_class: design-review-only
+  transformation_3_board:
+    id: nature-park-transformation-3-titled-technical-reference-board-v002
+    visible_title: TRANSFORMATION 3 — TITLED TECHNICAL REFERENCE BOARD
+    path: ../../assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
+    sha256: 05b2f973779e57d8339e376fb56a11e7443bca78861bd9006e1bcc9b8ab67a73
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: titled-camera-material-vegetation-lighting-atmosphere-and-neutral-reference
+    reference_class: design-review-only
+  transformation_4_board:
+    id: nature-park-transformation-4-polished-production-location-board-v002
+    visible_title: TRANSFORMATION 4 — POLISHED PRODUCTION LOCATION BOARD
+    path: ../../assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
+    sha256: 2c8c663175a8c3285f3a361ecfba7da9e6feed5d1a7f3a03ba9e3be447d9bc03
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: production-camera-geometry-material-vegetation-lighting-atmosphere-and-value-reference
+    reference_class: design-review-only
+
+location_identity:
+  category: nature-park
+  summary: sunny-green-park-with-curved-stone-path-shallow-stream-one-wood-bridge-and-meadow-flowers
+  emotional_character: [peaceful, fresh, open, safe, curious, gentle, cheerful]
+  medium: premium-soft-stylized-3d-preschool-animation
+  default_time_of_day: clear-midday
+  default_season: late-spring
+  permanent_visual_anchors:
+    - one-curving-warm-stone-walking-path
+    - one-shallow-clear-stream
+    - one-rounded-wooden-arch-bridge
+    - one-wood-and-metal-park-bench-near-foreground-path
+    - one-dark-metal-lamp-post-near-bench-and-path
+    - two-large-foreground-framing-trees
+    - grouped-midground-large-and-medium-trees
+    - lawn-meadow-flowering-shrubs-and-wildflower-groups
+    - distant-blue-green-mountain-range
+  quantity_and_continuity_intent:
+    bridge: exactly-one
+    stream: one-continuous-course
+    path: one-primary-continuous-route
+    foreground_framing_trees: 2
+    midground_large_trees: 5-main
+    midground_medium_trees: 6-or-more-grouped
+    bench: one-primary
+    lamp_post: one-primary
+
+site_geometry:
+  coordinate_system: relative-to-site-reference-width
+  site_reference_width: 1.00
+  visible_site_depth: 1.30
+  plan_logic:
+    foreground_entry: stone-path-enters-from-lower-foreground
+    path_route: curves-through-meadow-and-crosses-near-stream-bridge-area
+    stream_route: winding-through-midground-and-under-bridge
+    bridge_location: fixed-crossing-over-stream-right-of-primary-path-axis
+    bench_location: foreground-left-of-path
+    lamp_location: foreground-left-near-bench
+    major_tree_framing: large-trunks-at-left-and-right-image-edges
+    mountain_range: fixed-background-horizon
+  camera_access:
+    - primary-path-entry
+    - front-aligned-path-view
+    - right-side-bridge-view
+    - left-side-bench-and-stream-view
+    - opposite-facing-view
+    - elevated-overview
+
+relative_scale_authority:
+  source: scale_and_proportion_board
+  unit: relative-to-site-width
+  normalization:
+    site_reference_width: 1.00
+    visible_site_depth: 1.30
+  terrain_elevation_printed_values:
+    front_lawn_low: 0.18
+    path_slight_rise: 0.26
+    bridge_top_highest: 0.32
+    stream_surface_lowest: 0.10
+    back_lawn_rise: 0.24
+    printed_elevation_range_lowest_to_highest: 0.32
+    mathematical_high_minus_low: 0.22
+  stable_structural_values:
+    path_width: 0.16
+    bridge_span_outer_width: 0.28
+    bridge_height_top_to_stream_surface: 0.16
+    bench_width: 0.22
+    bench_height: 0.12
+    lamp_post_total_height: 0.26
+    stream_width_average: 0.18
+    lawn_width_typical_open_area: 0.60
+  tree_values:
+    foreground_major_tree:
+      total_height: 0.90
+      canopy_width: 0.56
+      count: 2
+    midground_large_tree:
+      total_height: 0.72
+      canopy_width: 0.38
+      count: 5-main
+    midground_medium_tree:
+      total_height: 0.56
+      canopy_width_diagram: 0.30
+      canopy_width_summary_table: 0.36
+      count: 6-or-more
+  flower_group_values:
+    large_group:
+      width_diagram: 0.12
+      width_summary_table: 0.22
+      depth: 0.14
+    small_group:
+      width: 0.12
+      depth: 0.08
+  stable_context_values_for_mcp:
+    site_reference_width: 1.00
+    visible_site_depth: 1.30
+    foreground_tree_height: 0.90
+    foreground_tree_canopy_width: 0.56
+    midground_large_tree_height: 0.72
+    midground_large_tree_canopy_width: 0.38
+    midground_medium_tree_height: 0.56
+    path_width: 0.16
+    bridge_span: 0.28
+    bridge_height: 0.16
+    bench_width: 0.22
+    bench_height: 0.12
+    lamp_height: 0.26
+    stream_width: 0.18
+    lawn_width: 0.60
+    small_flower_group_footprint: "0.12x0.08"
+  interpretation_rules:
+    - values-are-relative-not-metric-or-imperial
+    - do-not-use-conflicting-medium-canopy-or-large-flower-width-until-reconciled
+    - treat-printed-elevation-range-as-source-text-not-a-derived-arithmetic-range
+    - preserve-proportions-across-all-camera-lighting-and-atmosphere-variants
+
+scale_reconciliation:
+  status: required-before-v2-promotion
+  conflicts:
+    midground_medium_tree_canopy_width: [diagram-0.30, summary-table-0.36]
+    large_flower_group_width: [diagram-0.12, summary-table-0.22]
+    elevation_range_semantics:
+      printed: 0.32
+      highest_minus_lowest: 0.22
+  rules:
+    - do-not-average-conflicting-values
+    - do-not-expose-conflicting-fields-as-safe-generation-values
+    - project-owner-must-select-intended-tree-and-flower-widths
+    - project-owner-must-confirm-whether-elevation-range-means-maximum-height-or-arithmetic-range
+
+board_catalog:
+  scale_and_proportion_board:
+    panels:
+      - {number: 1, title: primary-perspective-reference, context: canonical-park-layout-and-landmark-hierarchy}
+      - {number: 2, title: main-landscape-facing-view, context: path-stream-bridge-tree-and-mountain-axis}
+      - {number: 3, title: opposite-direction-view, context: reverse-geometry-and-landmark-parallax}
+      - {number: 4, title: left-side-landscape-view, context: left-side-path-bench-stream-and-tree-coverage}
+      - {number: 5, title: right-side-landscape-view, context: right-side-bridge-path-and-tree-coverage}
+      - {number: 6, title: elevated-overview-birds-eye, context: complete-site-route-and-water-geometry}
+      - {number: 7, title: simplified-site-plan-footprint-logic-top-down, context: normalized-width-depth-path-stream-bridge-and-tree-placement}
+      - {number: 8, title: terrain-elevation-logic-side-profile, context: lawn-path-bridge-stream-and-back-lawn-heights}
+      - {number: 9, title: major-tree-scale-relationships, context: foreground-large-and-medium-tree-height-canopy-and-count}
+      - {number: 10, title: path-structural-element-proportions, context: path-bridge-bench-and-lamp-scale}
+      - {number: 11, title: major-natural-feature-proportions, context: stream-lawn-large-and-small-flower-footprints}
+      - {number: 12, title: overall-proportion-summary, context: consolidated-relative-value-table}
+    mcp_best_for: [site-scale, terrain, safe-water-boundaries, landmark-proportions]
+  transformation_1_cinematic_multi_view:
+    panels:
+      - primary-hero-establishing-view
+      - front-aligned-view
+      - right-side-view
+      - left-side-view
+      - opposite-direction-view
+      - elevated-overview
+      - main-natural-landmark-detail
+      - vegetation-path-material-detail
+      - alternate-hero-view
+      - late-day-alternate-lighting
+      - dramatic-natural-lighting-variant
+      - clean-neutral-reference
+    printed_scale_strip:
+      visible_depth: 1.30
+      path_width: 0.16
+      bridge_span: 0.28
+      bridge_height: 0.16
+      bench_width: 0.22
+      lamp_height: 0.26
+      foreground_tree_height: 0.90
+    mcp_best_for: [cinematic-view-selection, landmark-detail, lighting-auditions, scale-cross-check]
+  transformation_2_structured_location:
+    panels:
+      - primary-establishing-view
+      - front-geometry-view
+      - opposite-geometry-view
+      - right-side-geometry-view
+      - left-side-geometry-view
+      - elevated-overview-with-camera-direction-markers
+      - main-natural-landmark-detail-with-bridge-span-marker
+      - materials-and-vegetation-grid
+      - primary-lighting
+      - alternate-lighting
+      - primary-atmosphere
+      - clean-neutral-reference
+    hardscape_materials: [stone-pavers, bridge-wood, bench-wood, lamp-metal, stream-water]
+    vegetation_materials: [lawn-grass, tree-canopy, flowering-shrubs, wildflowers]
+    mcp_best_for: [camera-direction-map, bridge-landmark, hardscape-vegetation-vocabulary]
+  transformation_3_titled_technical:
+    panels:
+      - primary-establishing-view
+      - front-facing-view
+      - opposite-facing-view
+      - right-side-view
+      - left-side-view
+      - elevated-overview
+      - main-landmark-detail
+      - materials-vegetation-reference
+      - primary-lighting
+      - alternate-lighting
+      - primary-atmosphere
+      - clean-neutral-reference
+    material_tiles: [stone-path, wood-bridge, bench, lamp-post, tree-trunk, tree-foliage, flower-groups, grass-lawn]
+    printed_states:
+      primary: {time: midday, sun_angle: high, light_quality: direct-and-crisp}
+      alternate: {time: late-afternoon, sun_angle: low, light_quality: warm-and-soft}
+      atmosphere: {weather: clear, season: late-spring-or-summer, visibility: high}
+      neutral: {shading: neutral, color: desaturated, purpose: value-and-form}
+    mcp_best_for: [fast-titled-view-lookup, material-reference, lighting-state-metadata]
+  transformation_4_polished_production:
+    panels:
+      - primary-establishing-view
+      - front-facing-geometry-view
+      - opposite-facing-geometry-view
+      - right-side-geometry-view
+      - left-side-geometry-view
+      - elevated-overview
+      - main-natural-landmark-detail
+      - materials-and-vegetation
+      - primary-lighting
+      - alternate-lighting
+      - primary-atmosphere
+      - clean-neutral-reference
+    materials: [stone-path, wood-bridge-and-bench, metal-lamp, water, vegetation-palette]
+    printed_states:
+      primary: {time: midday, shadow_quality: soft, light_quality: warm-and-clear, intensity: 1.00}
+      alternate: {time: late-afternoon, shadow_quality: longer, light_quality: warm-and-golden, intensity: 0.75}
+      atmosphere: {weather: clear, season: late-spring, temperature: mild, air_clarity: high, humidity: comfortable}
+      neutral: {color_balance: neutral, contrast: medium, saturation: moderate, sharpness: high, value_range: full}
+    mcp_best_for: [production-review, lighting-atmosphere-parameters, neutral-quality-control]
+
+materials_and_vegetation:
+  stone_path:
+    material: irregular-rounded-light-warm-stone-pavers
+    surface: matte-gently-weathered-with-small-soft-grass-seams
+  bridge:
+    material: warm-rounded-wood
+    form: child-safe-gently-arched-single-span-with-rounded-rails-and-post-caps
+  bench:
+    material: warm-wood-slats-with-dark-rounded-metal-frame
+  lamp_post:
+    material: dark-matte-metal
+    form: simple-storybook-lantern-head-on-slender-post
+  stream:
+    water: clear-shallow-blue-green
+    boundary: rounded-stones-and-readable-gently-sloped-banks
+    motion: broad-slow-ripples-without-sparkle-flicker
+  vegetation:
+    lawn: broad-soft-green-grass-masses
+    tree_trunks: warm-textured-bark
+    tree_canopies: rounded-grouped-leaf-masses
+    flowering_shrubs: broad-pink-blue-yellow-and-white-clusters
+    wildflowers: sparse-to-medium-readable-groups-along-path-and-meadow
+
+lighting_and_atmosphere:
+  permanent_geometry_rule: lighting-state-never-changes-path-stream-bridge-tree-bench-or-lamp-layout
+  primary_midday:
+    stable_values: {time: midday, sun_angle: high, intensity: 1.00}
+    unresolved_shadow_quality: [direct-and-crisp, soft]
+    common_character: warm-clear-bright-child-safe
+  alternate_late_afternoon:
+    time: late-afternoon
+    sun_angle: low
+    shadow_quality: longer
+    light_quality: warm-soft-golden
+    intensity: 0.75
+  dramatic_natural_variant:
+    role: optional-sun-ray-lighting-audition-with-identical-geometry
+  primary_atmosphere:
+    weather: clear
+    season: late-spring-with-summer-compatible-board-variant
+    temperature: mild
+    visibility: high
+    air_clarity: high
+    humidity_feel: comfortable
+  clean_neutral:
+    role: value-form-local-color-and-geometry-review
+    rule: not-a-new-location-season-or-permanent-color-state
+  reconciliation:
+    primary_shadow_quality: project-owner-selection-required
+    do_not_average_or-combine: true
+
+continuity:
+  fixed_across_views_and_states:
+    - one-path-one-stream-and-one-bridge
+    - bridge-position-orientation-span-and-height
+    - path-stream-course-and-safe-bank-boundaries
+    - bench-and-lamp-placement
+    - foreground-framing-tree-count-and-scale
+    - midground-tree-grouping
+    - meadow-flower-grouping-and-mountain-silhouette
+  temporary_states:
+    - sun-angle-and-shadow-length
+    - approved-clear-weather-lighting-variant
+    - broad-coherent-foliage-motion
+    - broad-slow-water-ripples
+    - ground-wetness-without-geometry-change
+
+mcp_context:
+  retrieval_key: nature-park-v002
+  package_status: complete-candidate-with-three-reconciliation-items
+  preferred_authority_order:
+    - location-v2.yaml-for-v002-structured-review-context
+    - location.yaml-for-current-canonical-policy
+    - nature-park-primary-master-v001-for-current-generation-conditioning
+    - v002-design-review-boards-for-human-review-only
+  query_routing:
+    safe-scale-and-proportions: relative_scale_authority.stable_context_values_for_mcp
+    disputed-scale-values: scale_reconciliation
+    site-plan-path-stream-and-bridge: site_geometry
+    camera-view-selection: board_catalog
+    hardscape-and-vegetation-prompting: materials_and_vegetation
+    lighting-atmosphere-selection: lighting_and_atmosphere
+    cross-view-and-animation-continuity: continuity
+    source-file-lookup: source_images
+  safe_prompt_context_fragment: >-
+    Fresh peaceful child-safe nature park at clear midday, one curved light warm
+    stone path, one shallow calm blue-green stream, exactly one rounded wooden
+    arch bridge, one foreground bench and one dark lamp post, two large framing
+    trees, grouped midground trees, broad green lawn, readable wildflower groups,
+    distant soft mountains, open travel space, and clearly visible water banks.
+  safe_scale_context_fragment: >-
+    Normalize site width to 1.00 and visible depth to 1.30; path width 0.16,
+    bridge span 0.28 and height 0.16, bench width 0.22 and height 0.12, lamp height
+    0.26, stream width 0.18, open lawn width 0.60, and foreground tree height 0.90.
+  generation_constraints:
+    - exactly-one-bridge-one-stream-one-primary-path-one-bench-and-one-lamp-post
+    - preserve-stream-path-bridge-and-safe-bank-geometry
+    - keep-water-shallow-clear-and-boundaries-readable
+    - preserve-foreground-framing-trees-and-midground-tree-groups
+    - keep-path-and-meadow-movement-space-open
+    - use-only-stable-context-values-until-reconciliation
+  direct_conditioning_policy:
+    these_five_boards_allowed: false
+    reason: multi-panel-collages-with-labels-diagrams-duplicate-views-and-lighting-variants
+    current_allowed_location_frame: nature-park-primary-master-v001
+  prohibited_inference:
+    - absolute-meter-or-centimeter-dimensions
+    - medium-tree-canopy-or-large-flower-width-before-selection
+    - new-stream-branches-bridges-benches-lamps-or-tree-groups
+    - deep-dark-or-unclear-water
+    - treating-lighting-or-neutral-reference-as-geometry-change
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_these_five_boards: [t2v, i2v, ti2v-image, s2v]
+  active_generation_reference: nature-park-primary-master-v001
+  active_generation_reference_version: v001
+  clean_v2_frames_required_after_approval:
+    - primary-establishing-frame
+    - opposite-facing-frame
+    - bridge-and-stream-landmark-frame
+    - path-action-area-frame
+    - clean-neutral-geometry-frame
+
+review_gate:
+  technical_registration: complete
+  source_package_complete: true
+  scale_reconciliation: pending
+  primary_shadow_quality_reconciliation: pending
+  project_owner_visual_spatial_material-lighting-and-safety-approval: pending
+  compare_against_v001: required
+  partial_canonical_promotion: forbidden

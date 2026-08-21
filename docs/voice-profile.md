@@ -90,8 +90,8 @@ Yoyo and Riri already follow this per-reference structure:
 Their approved files are installed only under these canonical directories:
 
 ```text
-src/lpw/context/projects/classroom/audio-assets/voice-references/yoyo/
-src/lpw/context/projects/classroom/audio-assets/voice-references/riri/
+src/lpw/context/projects/riri-yoyo/audio-assets/voice-references/yoyo/
+src/lpw/context/projects/riri-yoyo/audio-assets/voice-references/riri/
 ```
 
 Each directory contains exactly `neutral-friendly.wav`, `happy-gentle.wav`,

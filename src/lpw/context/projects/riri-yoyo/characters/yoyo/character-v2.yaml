@@ -1,0 +1,319 @@
+id: yoyo-character-v2
+type: character-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  character_id: yoyo
+  title: Yoyo Visual Identity Version 2
+  purpose: >-
+    Define Yoyo's proposed second visual identity from the supplied turnaround,
+    expression, close-up, palette, and scale-and-proportion sheets without
+    overwriting the existing approved version.
+  created_date: 2026-08-20
+  source: project-owner-supplied-design-package
+  review_record: ../../validation/yoyo-v2-review.yaml
+
+versioning:
+  base_character_authority: character.yaml
+  base_reference_id: yoyo-identity-sheet-v001
+  candidate_package_id: yoyo-design-package-v002
+  replaces_after_approval: yoyo-identity-sheet-v001
+  active_canonical_version: v001
+  candidate_version: v002
+  promotion_rule: >-
+    V2 becomes canonical only after explicit project-owner approval. Until then,
+    character.yaml and the approved V1 single-frame references remain active.
+  changed_fields:
+    - canonical-design-review-image-set
+    - head-unit-proportions
+    - silhouette-measurements
+    - face-eye-and-beak-placement
+    - canonical-character-colors
+    - material-and-close-up-detail-evidence
+  unchanged_invariants:
+    - canonical-character-id-yoyo
+    - protagonist-role
+    - emperor-penguin-inspired-chick-species
+    - preschool-age-readability
+    - playful-curious-friendly-personality
+    - rounded-child-safe-shape-language
+    - no-default-wardrobe-or-accessories
+    - dialogue-voice-music-acting-and-movement-authorities
+
+source_images:
+  close_up_detail_sheet:
+    id: yoyo-close-up-detail-sheet-v002
+    purpose_tag: close-up-material-and-feature-detail
+    path: ../../assets/characters/yoyo/design-review/yoyo--close-up-detail-sheet--v002.png
+    sha256: e80d810a39a51dafbb71b0228d0007768e2423cf3bd43da428c00b84c598df19
+    pixel_dimensions: 1055x1491
+    aspect_ratio: "1055:1491"
+    reference_class: design-review-only
+  color_palette_sheet:
+    id: yoyo-color-palette-sheet-v002
+    purpose_tag: canonical-character-color-swatches
+    path: ../../assets/characters/yoyo/design-review/yoyo--color-palette-sheet--v002.png
+    sha256: decd9067d2510395c1d10779d303b468d9a3af15c2e641bf055880ee6e1fca09
+    pixel_dimensions: 1491x1055
+    aspect_ratio: "1491:1055"
+    reference_class: design-review-only
+  expression_sheet:
+    id: yoyo-eight-expression-sheet-v002
+    purpose_tag: eight-facial-expression-range
+    path: ../../assets/characters/yoyo/design-review/yoyo--eight-expression-sheet--v002.png
+    sha256: 946b2360cddbac42344a0e2350310b64594972767e7ef6c4fc6e35d09e18b038
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    reference_class: design-review-only
+  turnaround_sheet:
+    id: yoyo-five-view-turnaround-v002
+    purpose_tag: five-view-character-turnaround
+    path: ../../assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
+    sha256: ea3eb9801829b194889f4be58d84e5b262e0e1f32b520d4585972f328576e80f
+    pixel_dimensions: 1536x1024
+    aspect_ratio: "3:2"
+    reference_class: design-review-only
+  scale_and_proportion_sheet:
+    id: yoyo-scale-and-proportion-sheet-v002
+    purpose_tag: construction-scale-and-proportion-authority
+    path: ../../assets/characters/yoyo/design-review/yoyo--scale-and-proportion-sheet--v002.png
+    sha256: f613d8e259cad8876befcf2c1d630aedd5a8c78ebec1b36371526580296f5c7c
+    pixel_dimensions: 1491x1055
+    aspect_ratio: "1491:1055"
+    reference_class: design-review-only
+
+visual_identity:
+  species: emperor-penguin-inspired-chick
+  medium: premium-soft-stylized-3d-preschool-animation
+  visual_age: very-young-child
+  presentation: softly-boyish
+  silhouette:
+    summary: >-
+      Strongly oversized round head over a compact pear-shaped plush body,
+      extremely short legs, small rounded webbed feet, and short broad flippers.
+    front: symmetrical-rounded-head-and-pear-body
+    side: deep-compact-body-with-small-forward-beak
+    back: uninterrupted-rounded-charcoal-cap-and-body
+    center_of_gravity: low
+    neck_visibility: none
+    wardrobe: none
+    accessories: none
+
+proportions:
+  source: scale_and_proportion_sheet
+  measurement_system: head-unit
+  total_height_head_units: 2.70
+  head:
+    height_head_units: 1.00
+    width_head_units: 1.05
+    shape: strongly-oversized-round
+  body:
+    maximum_width_head_units: 1.00
+    maximum_depth_head_units: 1.00
+    shape: compact-pear
+  eyes:
+    width_each_head_units: 0.28
+    height_each_head_units: 0.24
+    inner_edge_gap_head_units: 0.10
+    eye_line_from_top_of_head_head_units: 0.50
+  beak:
+    center_from_top_of_head_head_units: 0.60
+    maximum_width_head_units: 0.22
+    maximum_height_head_units: 0.12
+  flippers:
+    length_head_units: 0.45
+    shape: short-broad-rounded-taper
+  legs:
+    visible_length_head_units: 0.18
+  feet:
+    width_each_head_units: 0.32
+    depth_each_head_units: 0.30
+    shape: small-rounded-webbed-three-soft-lobes
+  interpretation_rules:
+    - measurements-are-relative-design-guides-not-world-centimeter-scale
+    - preserve-the-2-point-7-head-unit-total-height-silhouette
+    - do-not-substitute-camera-perspective-for-physical-proportion-change
+    - preserve-front-side-three-quarter-and-back-volume-consistency
+
+face_design:
+  face_mask:
+    color_token: soft-ivory
+    shape: symmetric-twin-ivory-lobes-merging-through-cheeks-and-muzzle
+  forehead_wedge:
+    color_token: charcoal-feather
+    shape: broad-centered-charcoal-wedge-tapering-to-beak
+  eyes:
+    count: 2
+    size: extremely-oversized
+    shape: rounded-vertical-oval
+    iris_color_token: lavender-blue
+    pupil_color_token: deep-plum-black
+    highlight_color_token: pure-white
+    eyelash_style: long-curved-upper-lashes-strongest-at-outer-corners
+  beak:
+    color_token: warm-honey-gold
+    shape: short-rounded-gently-upturned
+    nostrils: two-small-subtle-dots
+    default_state: softly-closed-small-smile
+  cheeks:
+    base_color_token: soft-ivory
+    optional_emotional_blush_token: petal-pink
+    blush_rule: temporary-emotional-color-not-permanent-base-color
+
+canonical_color_palette:
+  source: color_palette_sheet
+  tokens:
+    charcoal_feather:
+      name: Charcoal Feather
+      hex: "#463B4A"
+      rgb: [70, 59, 74]
+      usage: [outer-head-cap, flippers, feet, dark-side-plumage]
+      role: primary-body-color
+    snow_down:
+      name: Snow Down
+      hex: "#F4F0F2"
+      rgb: [244, 240, 242]
+      usage: [main-chest, body-plumage]
+      role: secondary-body-color
+    cool_dove_gray:
+      name: Cool Dove Gray
+      hex: "#8C8394"
+      rgb: [140, 131, 148]
+      usage: [soft-feather-transitions, darker-feather-midtones]
+      role: accent-color
+    soft_ivory:
+      name: Soft Ivory
+      hex: "#E8E0E4"
+      rgb: [232, 224, 228]
+      usage: [face-mask, cheeks, belly-marking]
+      role: face-and-belly-marking-color
+    lavender_blue:
+      name: Lavender Blue
+      hex: "#A9A4D9"
+      rgb: [169, 164, 217]
+      usage: [irises]
+      role: eye-iris-color
+    deep_plum_black:
+      name: Deep Plum Black
+      hex: "#241E25"
+      rgb: [36, 30, 37]
+      usage: [pupils, deepest-eye-details]
+      role: pupil-color
+    pure_white:
+      name: Pure White
+      hex: "#FFFFFF"
+      rgb: [255, 255, 255]
+      usage: [eye-catchlights]
+      role: eye-highlight-color
+    warm_honey_gold:
+      name: Warm Honey Gold
+      hex: "#D9AE72"
+      rgb: [217, 174, 114]
+      usage: [upper-beak, lower-beak]
+      role: beak-color
+    petal_pink:
+      name: Petal Pink
+      hex: "#F2CBD3"
+      rgb: [242, 203, 211]
+      usage: [optional-gentle-cheek-blush]
+      role: temporary-emotional-color
+  wardrobe_colors: none
+  accessory_colors: none
+
+surface_and_materials:
+  material: ultra-soft-plush-baby-down
+  outer_down: short-dense-charcoal-plush
+  face_and_belly_down: soft-fine-ivory-to-snow-down-plush
+  transition_detail: broad-cool-dove-gray-softening
+  beak: smooth-warm-honey-gold-soft-satin
+  eyes: controlled-gloss-with-large-readable-catchlights
+  avoid:
+    - coarse-or-layered-realistic-feathers
+    - wet-feather-look
+    - plastic-body-surface
+    - metallic-plumage
+    - individual-high-frequency-feather-barbs
+
+expression_reference:
+  source: expression_sheet
+  required_expression_count: 8
+  visible_range:
+    - neutral-gentle
+    - happy-small-open-smile
+    - excited-wide-open-smile
+    - curious-head-tilt
+    - surprised-rounded-open-beak
+    - sad-downturned-beak
+    - worried-raised-inner-eye-shape
+    - playful-confident-small-smile
+  invariant_rules:
+    - face-mask-boundary-does-not-shift-with-expression
+    - eye-size-and-spacing-remain-stable
+    - forehead-wedge-remains-centered
+    - beak-hinge-does-not-change-beak-width
+    - blush-may-intensify-only-within-petal-pink-family
+
+turnaround_reference:
+  source: turnaround_sheet
+  views:
+    - front
+    - three-quarter-front
+    - side
+    - three-quarter-back
+    - back
+  rules:
+    - preserve-head-and-body-volume-across-all-five-views
+    - keep-flipper-size-and-attachment-consistent
+    - keep-feet-small-and-grounded
+    - keep-back-silhouette-simple-and-charcoal
+
+close_up_reference:
+  source: close_up_detail_sheet
+  controls:
+    - face-and-three-quarter-face-identity
+    - iris-gradient-catchlights-and-eyelashes
+    - beak-shape-nostrils-and-mouth-seam
+    - charcoal-to-light-plumage-transitions
+    - chest-belly-flipper-and-foot-materials
+    - profile-face-mask-and-beak-projection
+
+continuity:
+  visual_invariants:
+    - 2-point-7-head-unit-total-height
+    - 1-point-05-head-unit-head-width
+    - compact-one-head-unit-body-width-and-depth
+    - enormous-lavender-blue-eyes
+    - centered-charcoal-forehead-wedge
+    - soft-ivory-face-mask-and-snow-down-chest
+    - warm-honey-gold-small-beak
+    - short-rounded-flippers
+    - extremely-short-visible-legs
+    - small-charcoal-rounded-webbed-feet
+    - no-default-clothing-or-accessories
+  inherited_nonvisual_authorities:
+    personality_and_behavior: character.yaml
+    movement: ../animation-style.yaml
+    acting: ../acting-style.yaml
+    relationships: ../relationships.yaml
+    voice: voice-profile.yaml
+    music: music-profile.yaml
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  reason: boards-collages-labels-guides-and-multiple-character-instances
+  active_generation_frames: v001-until-v2-promotion-and-new-frame-approval
+  v2_generation_frames_required_after_approval:
+    - neutral-full-body-16x9
+    - neutral-half-body-16x9
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_these_five-sheets: [t2v, i2v, ti2v-image, s2v]
+
+review_gate:
+  technical_registration: complete
+  human_visual_identity_approval: pending
+  compare_against_v001: required
+  approve_or_reject_as_one-package: required
+  partial-canonical-promotion: forbidden

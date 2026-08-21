@@ -1,0 +1,171 @@
+id: kindergarten-evening-night
+type: location-context
+version: 2
+status: approved-night-primary-master-evening-and-secondary-views-open
+name: Kindergarten Exterior at Evening and Night
+
+metadata:
+  project_id: riri-yoyo
+  folder_id: evening_night
+  category: kindergarten-exterior-lighting-variant
+  reusable: true
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+
+source_authority:
+  project: ../../project.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+  palette: ../../visual_style/palette-v2.yaml
+  lighting: ../../visual_style/lighting.yaml
+  materials: ../../visual_style/materials.yaml
+  wan_2_2: ../../wan22-preproduction.yaml
+  daylight_location: ../exteriors/location.yaml
+  asset_registry: ../../locations-assets.yaml
+  sound_profile: sound-profile.yaml
+  music_profile: music-profile.yaml
+
+identity:
+  summary: calm-blue-kindergarten-night-with-safe-amber-warmth
+  relationship_to_daylight_location: approved-lighting-variant-not-a-redesign
+  emotional_character:
+    - calm
+    - reassuring
+    - quiet
+    - safe
+    - familiar
+  default_time_of_day: night
+  palette_preset: evening_night
+  material_family:
+    - same-permanent-materials-as-kindergarten-exterior
+    - soft-moonlit-foliage
+    - controlled-warm-window-and-garden-light
+
+known_landmark_roles:
+  - same-kindergarten-building-as-daylight-exterior
+  - same-primary-entrance
+  - same-garden-path
+  - same-tree-and-foliage-groups
+  - fixed-warm-window-or-garden-lights
+
+geometry:
+  approval_state: inherits-locked-kindergarten-exterior-primary-master-v001
+  rule: evening-and-night-never-change-daylight-location-geometry
+  preserve_after_approval:
+    - building-proportions
+    - entrance-and-path-layout
+    - tree-and-foliage-groups
+    - world-orientation
+    - physical-light-source-positions
+
+spatial_contract:
+  dimensions:
+    status: inherits-approved-kindergarten-exterior-when-available
+    source: ../exteriors/location.yaml
+    unit: centimeters
+    width_cm: null
+    depth_cm: null
+    maximum_height_cm: null
+  entrances:
+    - primary-entrance
+  exits:
+    - primary-entrance
+    - garden-path-boundary
+  navigation_areas:
+    - readable-garden-path
+    - kindergarten-entrance-approach
+  safe_interaction_zones:
+    - child-safe-garden-zone
+    - entrance-waiting-zone
+  camera_safe_views:
+    - evening-master-view
+    - night-master-view
+    - entrance-and-path-view
+  movement_spaces:
+    - garden-path-travel-lane
+    - garden-action-area
+  permanent_landmarks:
+    - same-kindergarten-building-as-daylight-exterior
+    - same-primary-entrance
+    - same-garden-path
+    - same-tree-and-foliage-groups
+    - fixed-warm-window-or-garden-lights
+  approved_movable_asset_ids: []
+  movable_asset_source: ../../assets/props.yaml
+  rule: all-geometry-inherits-daylight-exterior-and-cannot-be-redesigned-by-lighting-variant
+
+reference_requirements:
+  approved_daylight_master:
+    required: true
+    status: approved
+    path: ../../assets/locations/kindergarten-exterior/design-review/kindergarten-exterior--primary-master-view--v001.png
+    sha256: e9d89d04d87a96c71dcd7d74d24808b29ac114d8949ff1865d75af11142295b1
+    limitation: source-daylight-master-is-not-yet-human-approved
+  evening_variant:
+    required: true
+    status: missing
+  night_variant:
+    required: true
+    status: approved
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--primary-master-view--v001.png
+    sha256: dd9c85291993aaa5718970e7f46be7368ea1426d4ed01086d15ed5ff8bbcac83
+    pixel_dimensions: 1672x941
+    aspect_ratio: "1672:941"
+    source_daylight_path: ../../assets/locations/kindergarten-exterior/design-review/kindergarten-exterior--primary-master-view--v001.png
+    review_record: ../../validation/location-master-review.yaml
+  entrance_and_path_view:
+    required: true
+    status: missing
+  generation_frame_rules:
+    - use-one-coherent-image
+    - keep-entrance-path-eyes-and-faces-readable
+    - preserve-daylight-location-geometry
+    - remove-text-watermarks-visitors-and-accidental-faces
+    - never-use-a-reference-board-or-collage-as-conditioning-input
+
+wan_2_2_interface:
+  contract_source: ../../wan22-preproduction.yaml
+  t2v:
+    eligibility: exploratory-lighting-only-until-daylight-geometry-is-approved
+    prompt_fragment: >-
+      Familiar kindergarten exterior at calm blue night, the entrance and garden
+      path clearly visible, soft moon and sky fill, localized warm window and
+      garden lights, premium child-safe stylized 3D preschool animation.
+  ti2v_text:
+    eligibility: draft-lighting-and-readability-only
+    evaluate:
+      - safe-night-value-structure
+      - entrance-and-path-readability
+      - warm-cool-light-balance
+  ti2v_image:
+    eligibility: blocked-until-approved-single-frame-night-reference
+  i2v:
+    eligibility: blocked-until-approved-single-frame-night-reference
+  s2v:
+    eligibility: blocked-until-approved-character-and-location-composite-frame
+  temporal_constraints:
+    - practical-lights-do-not-flicker
+    - shadows-and-exposure-do-not-pump
+    - building-path-and-trees-remain-fixed
+    - use-one-primary-action-and-one-camera-behavior
+
+continuity:
+  locked_after_reference_approval:
+    - daylight-location-geometry
+    - entrance-path-tree-and-building-layout
+    - permanent-materials-and-colors
+    - physical-practical-light-positions
+  temporary_states:
+    - evening-or-night
+    - moon-and-sky-level
+    - approved-practical-light-state
+    - approved-weather
+
+quality_control:
+  reject:
+    - night-redesigns-the-daylight-location
+    - crushed-or-threatening-darkness
+    - unreadable-entrance-path-face-or-eyes
+    - flickering-practicals-or-pulsing-exposure
+    - random-added-lights-or-windows
+    - unapproved-reference-path

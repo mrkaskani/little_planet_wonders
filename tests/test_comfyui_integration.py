@@ -135,7 +135,7 @@ def test_render_service_stores_reproducible_i2v_artifacts(tmp_path: Path) -> Non
     reference.write_bytes(b"reference")
     package = WanShotPackage(
         project_id="lpw",
-        scene_id="rooftop-confrontation",
+        scene_id="garden-discovery",
         shot_id="shot-003",
         model="wan2.2-i2v-a14b",
         task="i2v-A14B",

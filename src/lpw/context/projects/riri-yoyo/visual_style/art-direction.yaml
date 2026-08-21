@@ -1,0 +1,490 @@
+id: riri-yoyo-art-direction
+type: art-direction-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  title: Riri & Yoyo Reusable Art Direction
+  phase: preproduction
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  purpose: >-
+    Define reusable focal hierarchy, visual-density, framing-space, landmark,
+    decoration, signage, and environmental-storytelling rules for Wan 2.2
+    preparation without creating a story, scene, shot, dialogue, or render.
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - tone
+      - emotional-safety
+      - canonical-characters
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-tasks
+      - conditioning-authority
+      - prompt-order
+      - reference-input-rules
+  visual_style:
+    source: visual_style.yaml
+    controls:
+      - visual-medium
+      - shape-language
+      - detail-limits
+      - character-and-environment-treatment
+  palette:
+    source: palette-v2.yaml
+    controls:
+      - canonical-colors
+      - contrast-family
+      - color-separation
+  lighting:
+    source: lighting.yaml
+    controls:
+      - illumination
+      - face-readability
+      - temporary-color-cast
+  materials:
+    source: materials.yaml
+    controls:
+      - surface-identity
+      - texture-density
+      - temporal-material-stability
+  composition:
+    source: ../cinematography/composition-rules.yaml
+    controls:
+      - frame-placement
+      - shot-size-composition
+      - screen-direction
+      - eye-lines
+  camera:
+    source: ../cinematography/camera-language.yaml
+    controls:
+      - camera-behavior
+      - camera-height
+      - movement-restraint
+  lens:
+    source: ../cinematography/lens-package.yaml
+    controls:
+      - perspective
+      - focal-length-intent
+      - distortion-limits
+  locations: ../locations-assets.yaml
+  authority_rules:
+    - this file controls visual priority density readable space and decoration budgets
+    - this file never invents character identity permanent location geometry or canonical color
+    - composition rules control exact placement while this file controls what deserves emphasis
+    - approved source frames remain authoritative for their visible starting state
+
+phase_boundary:
+  allowed:
+    - reusable-hierarchy-rules
+    - reusable-density-budgets
+    - reusable-framing-clearance
+    - reusable-reference-frame-requirements
+    - task-specific-prompt-fragments
+    - preproduction-review-criteria
+  forbidden:
+    - episode-story
+    - scene-event
+    - shot-list
+    - shot-specific-prompt
+    - dialogue
+    - generated-frame
+    - render-request
+
+art_direction_identity:
+  primary_goal: immediate-gentle-visual-comprehension
+  first_read_order:
+    - primary-character-or-subject
+    - one-action-or-important-object
+    - supporting-character-or-landmark
+    - simplified-environment
+  visual_character:
+    - warm
+    - rounded
+    - playful
+    - uncluttered
+    - tactile
+    - cinematic-but-gentle
+    - preschool-readable
+  hierarchy_rule: >-
+    A child should identify the primary subject and the important visible
+    relationship before noticing decoration or background activity.
+
+focal_hierarchy:
+  primary_focal_points: 1
+  supporting_focal_points_maximum: 1
+  strongest_contrast_belongs_to: primary-subject-or-important-object
+  strongest_motion_belongs_to: primary-action
+  sharpest_readable_detail_belongs_to: face-contact-point-or-learning-object
+  background_priority: subordinate
+  rules:
+    - never-give-character-prop-landmark-and-decoration-equal-emphasis
+    - simplify-near-faces-hands-beak-muzzle-and-important-objects
+    - use-value-color-scale-depth-and-negative-space-to-create-separation
+    - preserve-one-obvious-attention-path
+    - reduce-detail-before-adding-more-contrast
+
+subject_count_policy:
+  definitions:
+    primary_subject: character-or-object-performing-the-main-visible-action
+    supporting_subject: one-character-or-object-with-a-clear-secondary-role
+    background_subject: simplified-non-acting-context-element
+  reusable_default:
+    primary_subjects: 1
+    supporting_subjects_maximum: 1
+    active_character_actions_maximum: 1
+    independently_moving_background_groups_maximum: 1
+  recurring_characters:
+    preferred_visible_maximum: 2
+    more_than_two: requires-later-production-justification-and-simplification
+  rules:
+    - state-subject-count-explicitly-in-text-conditioned-work
+    - keep-each-character-silhouette-and-action-unambiguous
+    - never-use-random-crowds-to-fill-empty-space
+    - reject-duplicate-subjects-extra-faces-and-action-assignment-confusion
+
+scale_and_readability:
+  design_scale:
+    identity_features: medium-sized-and-silhouette-supporting
+    important_props: readable-without-text-or-micro-detail
+    landmarks: large-simple-and-distinct-from-decoration
+    background_details: broad-clustered-and-lower-contrast
+  screen_scale:
+    approval_targets:
+      - 480P
+      - 720P
+    critical_features_must_survive_downsampling: true
+    do_not_depend_on:
+      - tiny-accessories
+      - thin-lines
+      - micro-patterns
+      - individual-fur-or-feather-strands
+      - small-generated-writing
+  separation:
+    character_from_background: required
+    hand_or_flipper_from_prop: required
+    face_from-hair-fur-beak-and-background: required
+    feet_from-ground-during-full-body-action: required
+
+visual_density:
+  density_levels:
+    low:
+      use_for:
+        - s2v-speaking-performance
+        - emotional-readability
+        - hand-prop-contact
+        - close-facial-review
+      background_detail_groups_maximum: 3
+      independent_background_motion: none-or-one-slow-group
+      repeated-patterns: avoid
+    low_to_medium:
+      use_for:
+        - normal-character-action
+        - two-character-blocking
+        - reference-frame-preparation
+      background_detail_groups_maximum: 5
+      independent_background_motion_groups_maximum: 1
+      repeated-patterns: sparse-and-broad
+    medium:
+      use_for:
+        - exploratory-environment-design
+        - location-master-view-review
+      background_detail_groups_maximum: 7
+      independent_background_motion_groups_maximum: 1
+      repeated-patterns: grouped-and-irregular
+  never_use: high-uncontrolled-density
+  simplify_when:
+    - subject-silhouette-is-not-immediate
+    - edges-cross-eyes-mouth-or-contact-points
+    - repeated-detail-flickers-or-multiplies
+    - background-motion-competes-with-primary-action
+    - more-than-one-object-appears-equally-important
+
+background_direction:
+  hierarchy:
+    foreground: optional-single-soft-framing-element
+    middle_ground: primary-subject-and-action
+    background: stable-location-context
+  rules:
+    - keep-large-geometry-stable-and-readable
+    - cluster-foliage-books-toys-and-decor-into-broad-masses
+    - avoid-high-contrast-lines-directly-behind-faces-or-limbs
+    - avoid-mirrors-screens-and-reflections-that-create-accidental-faces
+    - avoid-random-people-animals-text-and-object-duplication
+    - reserve-open-space-in-the-direction-of-motion-or-gaze
+  simplify_background_when:
+    - face-or-mouth-performance-is-primary
+    - hand-or-flipper-contact-must-be-read
+    - the-camera-moves
+    - the-character-turns-or-crosses-the-frame
+    - fur-feathers-water-foliage-or-reflections-already-create-temporal-risk
+
+movement_space:
+  required_for_every_generation_frame: true
+  direction_space:
+    forward-or-side-movement: open-space-ahead-of-motion
+    head-turn-or-gaze: open-space-in-look-direction
+    hand-or-flipper-action: clear-space-around-contact-path-and-endpoint
+    vertical-action: visible-clearance-above-and-below-motion
+  endpoint:
+    must_remain_inside-frame: true
+    must_not-collide-with-frame-edge-or-background-landmark: true
+    must_preserve-readable-silhouette: true
+  complexity_control:
+    one-primary-action: true
+    one-camera-behavior: true
+    if-space-is-insufficient: widen-or-reframe-before-generating
+
+framing_clearance:
+  units: percent-of-frame-dimension
+  interpretation: reusable-preproduction-minimums-not-shot-instructions
+  universal:
+    essential-feature-edge-clearance_minimum: 8
+    preferred-subject-safe-area_horizontal: "12-88"
+    preferred-subject-safe-area_vertical: "8-92"
+    destination-space_in_direction_of_motion_minimum: 15
+  full_body_action:
+    head_clearance_preferred: "8-12"
+    ground_and_feet_clearance_preferred: "6-10"
+    side_clearance_each_side_minimum: 10
+    lead_room_in_motion_direction_preferred: "18-25"
+    require_visible_ground_contact: true
+    never_crop_hands-feet-tail-or-flippers_during_primary_action: true
+  hand_or_prop_interaction:
+    contact_region_edge_clearance_minimum: 15
+    show_approach-contact-and-endpoint: true
+    preserve_visible-hands-paws-or-flippers: true
+    keep_prop-clear-of-face: true
+    avoid-contact-directly-over-complex-pattern-or-edge: true
+  head_turn_and_gaze:
+    face_edge_clearance_minimum: 10
+    look_room_preferred: "15-25"
+    both-eyes-readable-at-start: preferred
+    mouth-or-beak-remains-visible: true
+    avoid-extreme-profile-as-default: true
+  close_facial_performance:
+    top_head_clearance_preferred: "8-12"
+    chin_clearance_minimum: 10
+    mouth_or_beak_lower_edge_clearance_minimum: 15
+    face_side_clearance_minimum: 12
+    eyes-mouth-muzzle-or-beak-unobstructed: true
+    avoid-background-edges-through-face: true
+  slow_camera_movement:
+    overscan_clearance_each_side_minimum: 10
+    preserve-subject-safe-area-at-start-and-end: true
+    preserve-landmark-and-horizon-stability: true
+    reveal-new-detail-groups_maximum: 1
+    do-not-combine-with-large-subject-action-by-default: true
+
+landmark_direction:
+  purpose: preserve-location-recognition-without-clutter
+  master_landmarks_per_view:
+    primary: 1
+    supporting_maximum: 2
+  requirements:
+    - broad-distinct-silhouette
+    - stable-relative-position-after-approval
+    - readable-scale-relationship-to-characters
+    - palette-separation-from-nearby-decoration
+    - no-dependence-on-readable-generated-text
+  rules:
+    - a-landmark-is-not-a-random-decorative-prop
+    - do-not-multiply-relocate-or-redesign-approved-landmarks
+    - use-one-landmark-as-orientation-anchor-when-layout-matters
+    - simplify-nearby-decoration-so-the-anchor-remains-recognizable
+
+decoration_direction:
+  purpose: support-warmth-play-and-place-identity
+  preferred:
+    - rounded-shape-clusters
+    - broad-color-blocks
+    - a-few-medium-sized-recurring-elements
+    - irregular-natural-spacing
+    - tactile-child-safe-materials
+  avoid:
+    - dense-wall-to-wall-detail
+    - tiny-repeated-toys-books-flowers-or-windows
+    - high-contrast-checkers-stripes-and-grids
+    - many-independent-moving-parts
+    - decorative-elements-that-resemble-eyes-or-faces
+    - decoration-touching-character-silhouettes
+  density_rule: decoration-never-exceeds-the-primary-subjects-visual-priority
+
+signage_and_graphics:
+  generated_readable_text_is_authoritative: false
+  critical_text_policy: author-as-approved-overlay-asset-later
+  environment_signage:
+    prefer:
+      - simple-color-coded-shapes
+      - approved-icons
+      - broad-pictograms
+    avoid:
+      - generated-letters
+      - tiny-labels
+      - dense-instruction-boards
+      - text-as-location-identity
+  source_frames:
+    remove-unapproved-text-labels-logos-and-watermarks: true
+
+environmental_storytelling:
+  scope: reusable-place-character-not-story-events
+  maximum-readable-context-clues: 1
+  acceptable_clue_types:
+    - safe-function-of-space
+    - recurring-learning-or-play-purpose
+    - weather-or-time-of-day-state
+    - gentle-evidence-of-care-and-use
+  rules:
+    - use-one-clear-medium-sized-clue-rather-than-many-small-clues
+    - clues-must-not-invent-episode-events-or-character-actions
+    - clues-must-not-change-permanent-location-geometry
+    - clues-remain-secondary-to-character-and-action
+    - remove-the-clue-if-it-creates-subject-count-or-motion-ambiguity
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  shared:
+    subject-count-explicit: true
+    one-primary-action: true
+    one-camera-behavior: true
+    critical-relationship-visible: true
+    source-frame-for-reference-modes: one-coherent-approved-image
+    output-compatible-aspect-ratio: required
+    reject-collage-label-watermark-extra-face-or-duplicate-subject: true
+  t2v:
+    use_for: exploratory-design-when-exact-recurring-identity-or-layout-is-not-required
+    preferred_density: low-to-medium
+    preferred_subjects: one-primary-and-zero-or-one-supporting
+    prompt_order:
+      - subject-and-count
+      - broad-appearance
+      - one-action-or-stable-state
+      - important-object-or-landmark-relationship
+      - simple-environment
+      - framing-and-one-camera-behavior
+      - lighting
+      - visual-style
+      - short-constraints
+    approval_limit: never-approve-exact-recurring-identity-from-text-alone
+  i2v:
+    source_frame_authority:
+      - visible-composition
+      - subject-count
+      - starting-pose
+      - visible-object-relationships
+      - visible-landmark-layout
+    preflight:
+      - correct-anatomy
+      - clear-silhouette
+      - action-compatible-framing
+      - sufficient-movement-space
+      - stable-background
+      - no-collage-text-or-extra-faces
+    prompt_focus:
+      - one-requested-movement
+      - direction-speed-range-and-endpoint
+      - one-camera-behavior
+      - composition-and-identity-invariants
+    do_not: restate-every-visible-detail-or-redesign-the-frame
+  ti2v:
+    role: draft-hierarchy-composition-and-motion-screening
+    simplify:
+      - background-decoration
+      - repeated-patterns
+      - fine-surface-detail
+      - secondary-props
+      - independent-background-motion
+    evaluate:
+      - first-read-order
+      - subject-count
+      - movement-space
+      - landmark-readability
+      - broad-depth-and-color-separation
+    final-identity-material-or-text-approval: forbidden
+  s2v:
+    preferred_primary_subjects: 1
+    preferred_density: low
+    frame_priorities:
+      - unobstructed-eyes
+      - unobstructed-mouth-muzzle-or-beak
+      - stable-face-boundaries
+      - readable-half-or-full-body-silhouette
+      - gesture-space-inside-frame
+      - simple-stable-background
+    speaking-subject-has-strongest-contrast-and-motion: true
+    non-speaking-subject-must-remain-secondary-and-nondistracting: true
+    optional-pose-guidance: only-for-necessary-broad-body-choreography
+    forbid:
+      - mouth-hidden-by-prop-or-profile
+      - face-overlap
+      - moving-pattern-behind-face
+      - strong-background-motion
+      - music-ambience-or-effects-in-conditioning-audio
+
+reusable_prompt_fragments:
+  t2v_scene_language: >-
+    One clear primary subject in a simple rounded preschool environment, one
+    readable action or stable pose, one supporting object or landmark, generous
+    movement space, low-to-medium visual density, broad color separation, premium
+    soft stylized 3D animation, and one controlled camera behavior.
+  i2v_preservation: >-
+    Preserve the approved source composition, subject count, character identity,
+    visible landmark layout, object placement, scale, color hierarchy, and open
+    movement space; change only the requested motion and camera behavior.
+  ti2v_simplification: >-
+    Test the broad subject hierarchy, silhouette, action space, landmark, depth,
+    and color separation with simplified decoration, patterns, surface detail,
+    secondary props, and background motion; do not use fine detail as approval evidence.
+  s2v_face_readability: >-
+    Keep the speaking character's eyes and mouth, muzzle, or beak unobstructed,
+    preserve stable facial boundaries and identity, retain gesture space inside
+    the frame, use a simple stable low-density background, and keep the mouth at
+    rest during silence.
+  concise_negative: >-
+    cluttered background, competing focal points, duplicate subjects, accidental
+    faces, cropped contact points, insufficient movement space, face overlap,
+    unreadable mouth, dense repeated pattern, random text, logo, watermark,
+    unstable landmark, flickering decoration.
+
+reference_frame_review:
+  order:
+    - subject-count-and-first-read
+    - anatomy-and-silhouette
+    - focal-hierarchy
+    - action-contact-points-and-endpoint-space
+    - face-eyes-mouth-or-beak
+    - landmark-and-object-relationships
+    - background-density-and-tangents
+    - lighting-material-and-color-separation
+    - text-watermark-extra-face-and-duplicate-subject-check
+  reject_if:
+    - important-feature-crosses-safe-edge
+    - action-endpoint-leaves-frame
+    - face-or-contact-point-is-obstructed
+    - background-is-equal-or-stronger-than-primary-subject
+    - exact-layout-is-required-but-no-approved-source-frame-exists
+    - source-frame-contains-a-collage-board-label-or-watermark
+
+validation:
+  approval_required: true
+  blocks-reference-approval-when-failed: true
+  required_checks:
+    - phase-boundary
+    - source-authority
+    - focal-hierarchy
+    - subject-count
+    - density-budget
+    - framing-clearance
+    - movement-space
+    - face-and-contact-point-readability
+    - landmark-and-decoration-separation
+    - task-specific-wan-rule
+  no-generation-required-for-validation: true

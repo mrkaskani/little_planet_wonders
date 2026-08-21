@@ -1,0 +1,403 @@
+id: countryside-golden-hour-location-v2
+type: location-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: countryside-golden-hour
+  title: Countryside Golden-Hour Visual and Spatial Identity Version 2
+  source_board_location_label: Sunset / Golden-Hour Nature Park
+  purpose: >-
+    Structure the five supplied golden-hour boards as site geometry, scale,
+    landmark, material, vegetation, lighting-state, camera-view, and MCP
+    retrieval context without replacing the approved V1 location authority.
+  created_date: 2026-08-20
+  source: project-owner-supplied-location-design-package
+  review_record: ../../validation/countryside-golden-hour-v2-review.yaml
+
+location_taxonomy:
+  project_canonical_id: countryside-golden-hour
+  project_canonical_name: Countryside Meadow at Golden Hour
+  visible_board_label: Sunset / Golden-Hour Nature Park
+  routing_decision: attach-to-countryside-golden-hour-because-user-identified-sunset-golden-hour-design
+  separation_rule: >-
+    Do not merge this package into the separate daylight nature-park location or
+    use the nature-park ID unless the project owner explicitly changes taxonomy.
+
+versioning:
+  base_location_authority: location.yaml
+  base_reference_id: countryside-golden-hour-reference-set-v001
+  base_primary_master_id: countryside-golden-hour-primary-master-v001
+  candidate_package_id: countryside-golden-hour-design-package-v002
+  active_canonical_version: v001
+  candidate_version: v002
+  package_completeness:
+    expected_source_boards: 5
+    present_source_boards: 5
+    complete: true
+  promotion_rule: >-
+    V2 becomes canonical only after explicit project-owner approval of the
+    five-board package and clean V2 single-frame generation references. Until
+    then, location.yaml and the approved V1 primary master remain active.
+
+source_images:
+  scale_and_proportion_board:
+    id: countryside-golden-hour-scale-and-proportion-reference-board-v002
+    visible_title: SUNSET / GOLDEN-HOUR NATURE PARK — SCALE & PROPORTION REFERENCE BOARD
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
+    sha256: e66cd16b517e76029cf06993807e4a7b91fe189ff25393049fd126dc8fa88a2b
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: canonical-relative-scale-site-plan-terrain-and-landmark-authority
+    reference_class: design-review-only
+  cinematic_multi_view_board:
+    id: countryside-golden-hour-cinematic-multi-view-reference-v002
+    visible_title: SUNSET / GOLDEN-HOUR NATURE PARK — CINEMATIC MULTI-VIEW REFERENCE
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
+    sha256: ce017f13af4e9d1d108f08c9540ce9ea804a7e1cfc0d813139ce591718708e7e
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: cinematic-camera-coverage-landmark-material-and-lighting-variants
+    reference_class: design-review-only
+  structured_location_board:
+    id: countryside-golden-hour-structured-location-reference-v002
+    visible_title: SUNSET / GOLDEN-HOUR NATURE PARK — STRUCTURED LOCATION REFERENCE
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
+    sha256: 35ace2261fc4caafe89c5d3f585d2d1094a36249e3ca71179a5b64f06cd17d14
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: geometry-landmark-material-vegetation-and-light-direction-context
+    reference_class: design-review-only
+  titled_technical_board:
+    id: countryside-golden-hour-titled-technical-reference-v002
+    visible_title: SUNSET / GOLDEN-HOUR NATURE PARK — TITLED TECHNICAL REFERENCE
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
+    sha256: 97141c35def1622e3d1479857c9e7ec0226b80099fc62722a18a8217f110ed2b
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: titled-camera-material-vegetation-and-lighting-state-reference
+    reference_class: design-review-only
+  polished_production_location_board:
+    id: countryside-golden-hour-polished-production-location-board-v002
+    visible_title: SUNSET / GOLDEN-HOUR NATURE PARK — POLISHED PRODUCTION LOCATION BOARD
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
+    sha256: 989ae429c03b80ac1c1512d31d59e3005dd7a6f14d090fedfa572c65b2b59486
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: production-facing-geometry-material-lighting-and-neutral-value-reference
+    reference_class: design-review-only
+
+location_identity:
+  category: countryside-golden-hour-landscape
+  summary: expansive-flower-meadow-valley-with-winding-stone-path-fence-cottages-and-distant-mountains
+  emotional_character: [warm, calm, wondrous, safe, expansive, reflective, gently-magical]
+  medium: premium-soft-stylized-3d-preschool-animation
+  default_time_of_day: primary-golden-hour
+  permanent_visual_anchors:
+    - winding-irregular-stone-path-entering-from-foreground
+    - connected-low-wood-fence-following-path
+    - foreground-and-midground-wildflower-meadow
+    - broad-rolling-valley
+    - sparse-large-and-medium-rounded-deciduous-trees
+    - small-cottage-cluster-on-right-midground-hillside
+    - distant-layered-mountain-range-with-one-readable-peak
+    - open-low-horizon-and-large-readable-sky
+  quantity_and_continuity_intent:
+    path: one-continuous-route
+    fence: one-connected-run-with-perspective-segments
+    cottage_cluster: one-fixed-right-midground-group
+    major_tree_groups: sparse-and-fixed
+    mountain_range: one-fixed-background-silhouette
+
+relative_scale_authority:
+  source: scale_and_proportion_board
+  unit: relative-unit
+  symbol: RU
+  normalization:
+    site_reference_width: 1.00
+    total_depth: 1.00
+    depth_to_width_ratio: "1:1"
+  depth_bands:
+    foreground_depth: 0.35
+    midground_depth: 0.35
+    background_depth: 0.30
+  lateral_bands:
+    left_hillside_width: 0.33
+    valley_low_width: 0.34
+    right_hillside_width: 0.33
+  terrain_heights:
+    foreground_reference_height: 0.50
+    midground_hill_height: 0.20
+    valley_low_below_foreground: 0.20
+    distant_mountain_max_height: 0.38
+  path_and_fence:
+    visible_path_width: 0.18
+    fence_height: 0.14
+  major_tree:
+    total_height: 0.42
+    canopy_height: 0.30
+    trunk_height: 0.12
+    canopy_width: 0.28
+  cottage:
+    width: 0.20
+    height_to_roof_peak: 0.18
+  sun:
+    visible_disc_diameter: 0.16
+  interpretation_rules:
+    - all-values-are-relative-not-metric-or-imperial
+    - maintain-proportions-across-all-views-compositions-and-lighting-states
+    - do-not-change-landmark-size-to-fit-a-camera-view
+    - preserve-foreground-midground-background-depth-bands
+    - do-not-convert-to-centimeters-without-an-approved-real-world-anchor
+
+site_plan_and_orientation:
+  plan_reference:
+    north: image-up
+    foreground_entry: bottom-center-stone-path
+    path_flow: winding-from-foreground-through-valley-toward-background
+    cottage_cluster: right-midground
+    major_tree_groups: clustered-along-hillsides-and-near-path-with-open-valley-gaps
+    flower_fields: broad-foreground-and-midground-bands
+    fence: follows-selected-path-edge-sections-without-blocking-travel
+  terrain_profile:
+    longitudinal: foreground-rise-to-midground-valley-to-background-mountain-layers
+    lateral: left-hillside-to-valley-low-to-right-hillside
+  movement_spaces:
+    - stone-path-travel-lane
+    - fence-side-observation-zone
+    - broad-meadow-action-area
+  camera_clearance:
+    - keep-lower-path-readable-for-character-entry
+    - keep-valley-and-mountain-axis-open
+    - preserve-sky-space-for-wide-establishing-compositions
+
+board_catalog:
+  scale_and_proportion_board:
+    panels:
+      - {number: 1, title: primary-perspective-reference, context: canonical-hero-layout-and-depth-reading}
+      - {number: 2, title: main-landscape-facing-view, context: forward-valley-path-fence-and-horizon-coverage}
+      - {number: 3, title: opposite-direction-view, context: reverse-path-fence-cottage-and-hillside-coverage}
+      - {number: 4, title: left-side-landscape-view, context: left-parallax-and-tree-flower-depth}
+      - {number: 5, title: right-side-landscape-view, context: right-parallax-cottage-fence-and-valley-depth}
+      - {number: 6, title: elevated-overview, context: site-depth-path-and-landmark-placement}
+      - {number: 7, title: simplified-site-plan-footprint-logic, context: normalized-plan-north-path-trees-cottages-and-flower-fields}
+      - {number: 8, title: terrain-elevation-logic, context: longitudinal-and-lateral-relative-terrain-sections}
+      - {number: 9, title: major-tree-scale-relationships, context: trunk-canopy-total-height-and-human-scale}
+      - {number: 10, title: path-fence-structure-proportions, context: path-width-fence-height-and-cottage-scale}
+      - {number: 11, title: major-natural-landmark-proportions, context: sun-mountain-hill-tree-and-cottage-comparison}
+      - {number: 12, title: overall-proportion-summary, context: authoritative-relative-unit-table}
+    mcp_best_for: [scale, terrain, normalized-site-layout, landmark-proportions]
+  cinematic_multi_view_board:
+    panels:
+      - primary-golden-hour-hero-establishing-view
+      - front-aligned-view
+      - right-side-view
+      - left-side-view
+      - opposite-direction-view
+      - elevated-overview
+      - main-natural-landmark-detail
+      - vegetation-path-material-detail
+      - alternate-golden-hour-hero-view
+      - late-golden-hour-view
+      - near-sunset-dramatic-view
+      - clean-neutral-reference
+    mcp_best_for: [cinematic-camera-selection, temporal-light-variant-selection, material-detail, neutral-comparison]
+  structured_location_board:
+    panels:
+      - primary-establishing-view
+      - front-geometry-view
+      - opposite-geometry-view
+      - right-side-geometry-view
+      - left-side-geometry-view
+      - elevated-overview
+      - main-natural-landmark-detail-with-foreground-valley-mountain-and-sun-annotations
+      - materials-and-vegetation-grid
+      - primary-golden-hour-light-with-direction-rim-and-shadow-annotations
+      - late-golden-hour-light
+      - sunset-atmosphere
+      - clean-neutral-reference
+    material_grid:
+      - stone-path
+      - wood-fence
+      - tree-bark
+      - leaves
+      - wildflowers
+      - grass-and-meadow
+      - cottage-wall
+      - roof-tiles
+    mcp_best_for: [geometry-comparison, named-material-retrieval, sunlight-direction, landmark-layering]
+  titled_technical_board:
+    panels:
+      - primary-establishing-view
+      - front-facing-view
+      - opposite-facing-view
+      - right-side-view
+      - left-side-view
+      - elevated-overview
+      - main-landmark-detail
+      - materials-vegetation-reference
+      - primary-golden-hour-light
+      - late-golden-hour-light
+      - near-sunset-atmosphere
+      - clean-neutral-reference
+    material_and_vegetation_tiles:
+      - stone-path
+      - wood-fence
+      - grass-meadow
+      - wildflowers
+      - large-tree
+      - medium-tree
+      - shrub-bush
+      - flower-cluster
+    mcp_best_for: [fast-titled-panel-lookup, vegetation-scale-family, light-state-comparison]
+  polished_production_location_board:
+    panels:
+      - primary-golden-hour-establishing-view
+      - front-facing-geometry-view
+      - opposite-facing-geometry-view
+      - right-side-geometry-view
+      - left-side-geometry-view
+      - elevated-overview
+      - main-natural-landmark-detail
+      - materials-and-vegetation
+      - primary-golden-hour-light
+      - late-golden-hour-light
+      - near-sunset-atmosphere
+      - clean-neutral-value-reference
+    material_tiles: [stone-path, wood-fence, wildflowers, trees-and-shrubs]
+    mcp_best_for: [production-review, geometry-lock, lighting-progression, neutral-value-and-silhouette-check]
+
+materials_and_vegetation:
+  stone_path:
+    material: irregular-rounded-warm-stone-pavers
+    color_family: warm-ochre-rose-and-earth-brown
+    continuity: same-winding-route-and-visible-width
+  wood_fence:
+    material: matte-weathered-warm-brown-wood
+    construction: rounded-posts-and-horizontal-rails
+    continuity: one-connected-run-never-multiplied
+  meadow:
+    material: grouped-soft-grass-patches
+    motion_rule: coherent-broad-patch-movement-not-independent-blades
+  wildflowers:
+    grouping: broad-readable-clusters
+    colors: [warm-yellow, orange, coral, soft-pink, lavender, white]
+    density_rule: preserve-path-edge-and-meadow-grouping-without-noisy-micro-detail
+  trees:
+    silhouette: broad-rounded-deciduous-canopies
+    scale_family: [major-tree, medium-tree, shrub-bush]
+    surfaces: textured-bark-and-broad-leaf-masses
+  cottages:
+    walls: warm-light-stucco-or-stone
+    roofs: muted-terracotta-tiles
+    placement: fixed-right-midground-cluster
+
+lighting_states:
+  permanent_geometry_rule: lighting-state-never-changes-site-layout-or-material-identity
+  primary_golden_hour:
+    sun: low-left-to-left-center
+    character: warm-soft-directional
+    effects: [long-shadows, golden-rim-light, readable-open-valley, warm-path-highlights]
+  alternate_golden_hour:
+    role: composition-audition-with-same-geometry-and-light-family
+  late_golden_hour:
+    sun: lower-near-horizon
+    effects: [deeper-amber, longer-shadows, reduced-sky-brightness]
+  near_sunset:
+    sun: horizon-adjacent
+    effects: [coral-magenta-clouds, deeper-valley-shadow, preserved-landmark-readability]
+  clean_neutral:
+    role: verify-local-colors-materials-geometry-and-value-separation-without-orange-cast
+    rule: not-a-new-location-or-season
+  color_management:
+    - preserve-green-meadow-brown-fence-stone-path-and-cottage-local-colors
+    - do-not-apply-uniform-orange-wash
+    - keep-shadow-detail-open-and-child-safe
+    - maintain-clear-path-horizon-and-cottage-separation
+
+continuity:
+  fixed_across_all_views_and_light_states:
+    - path-route-and-width
+    - fence-route-height-and-post-spacing-family
+    - cottage-cluster-location-and-scale
+    - major-tree-groups
+    - valley-hill-and-mountain-silhouette
+    - flower-field-grouping
+    - foreground-midground-background-depth-bands
+  temporary_states:
+    - sun-angle
+    - cloud-color-and-density-within-approved-range
+    - shadow-length-and-direction
+    - golden-rim-intensity
+    - gentle-coherent-foliage-motion
+
+mcp_context:
+  retrieval_key: countryside-golden-hour-v002
+  aliases: [sunset-golden-hour-nature-park-v002, golden-hour-countryside-v002]
+  package_status: complete-candidate
+  preferred_authority_order:
+    - location-v2.yaml-for-v002-structured-review-context
+    - location.yaml-for-current-canonical-policy
+    - countryside-golden-hour-primary-master-v001-for-current-generation-conditioning
+    - v002-design-review-boards-for-human-review-only
+  query_routing:
+    exact_scale_and_proportions: relative_scale_authority
+    site_plan_terrain_and_orientation: site_plan_and_orientation
+    camera_view_selection: board_catalog
+    landmark_and_material_prompting: materials_and_vegetation
+    lighting_state_selection: lighting_states
+    cross-view-continuity: continuity
+    source_file_lookup: source_images
+  safe_prompt_context_fragment: >-
+    Expansive child-safe countryside meadow at golden hour, one winding warm
+    stone path entering from the foreground and crossing a broad flower-filled
+    valley, one connected low wooden fence, sparse rounded deciduous trees,
+    a small fixed cottage cluster on the right midground hillside, layered
+    distant mountains, broad readable sky, and soft preserved local colors.
+  scale_context_fragment: >-
+    Normalize site width and depth to 1.00 RU; foreground depth 0.35, midground
+    0.35, background 0.30; path width 0.18, fence height 0.14, major tree height
+    0.42 and canopy width 0.28, cottage width 0.20 and roof-peak height 0.18.
+  generation_constraints:
+    - preserve-one-path-one-connected-fence-run-and-one-cottage-cluster
+    - preserve-fixed-valley-mountain-tree-and-flower-group-layout
+    - retrieve-lighting-state-separately-from-permanent-geometry
+    - retain-broad-open-character-movement-space-on-path-and-meadow
+    - keep-meadow-and-flower-motion-coherent-and-low-frequency
+  direct_conditioning_policy:
+    these_five_boards_allowed: false
+    reason: multi-panel-collages-with-labels-duplicate-views-diagrams-and-lighting-variants
+    current_allowed_location_frame: countryside-golden-hour-primary-master-v001
+  prohibited_inference:
+    - absolute-meter-or-centimeter-dimensions
+    - new-path-branches-fence-runs-cottages-trees-or-mountain-peaks
+    - merging-with-the-separate-daylight-nature-park-location
+    - treating-lighting-variation-as-geometry-change
+    - uniform-orange-color-wash
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_these_five_boards: [t2v, i2v, ti2v-image, s2v]
+  active_generation_reference: countryside-golden-hour-primary-master-v001
+  active_generation_reference_version: v001
+  clean_v2_frames_required_after_approval:
+    - primary-golden-hour-establishing-frame
+    - opposite-direction-frame
+    - path-and-fence-action-area-frame
+    - clean-neutral-geometry-frame
+
+review_gate:
+  technical_registration: complete
+  source_package_complete: true
+  visible_title_taxonomy_alignment: pending-human-confirmation
+  project_owner_visual_spatial_and-lighting_approval: pending
+  compare_against_v001: required
+  partial_canonical_promotion: forbidden

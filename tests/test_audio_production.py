@@ -20,13 +20,13 @@ def test_exact_dialogue_must_be_reviewed_and_locked_before_lip_sync(
         episode_id="episode-001",
         scene_id="scene-001",
         shot_id="shot-004",
-        character_id="roxana",
-        exact_dialogue="شکیبا، اینجا امن نیست.",
+        character_id="riri",
+        exact_dialogue="یویو، اینجا امن است.",
         language="Persian",
         primary_emotion="mild concern",
         ending_emotion="reassuring",
         emotional_intensity=0.4,
-        important_words=["شکیبا", "امن"],
+        important_words=["یویو", "امن"],
         pause_instructions=["short pause after the name"],
         gesture_guidance="one small open-hand gesture",
         facial_expression_guidance="mild concern becoming reassuring",
@@ -42,7 +42,7 @@ def test_exact_dialogue_must_be_reviewed_and_locked_before_lip_sync(
             episode_id="episode-001",
             scene_id="scene-001",
             shot_id="shot-004",
-            character_id="roxana",
+            character_id="riri",
             dialogue_version=1,
         )
 
@@ -54,7 +54,7 @@ def test_exact_dialogue_must_be_reviewed_and_locked_before_lip_sync(
             episode_id="episode-001",
             scene_id="scene-001",
             shot_id="shot-004",
-            character_id="roxana",
+            character_id="riri",
             dialogue_version=1,
             audio_path=str(audio),
             verified_transcript="different words",
@@ -72,10 +72,10 @@ def test_exact_dialogue_must_be_reviewed_and_locked_before_lip_sync(
         episode_id="episode-001",
         scene_id="scene-001",
         shot_id="shot-004",
-        character_id="roxana",
+        character_id="riri",
         dialogue_version=1,
         audio_path=str(audio),
-        verified_transcript="شکیبا، اینجا امن نیست.",
+        verified_transcript="یویو، اینجا امن است.",
         reviewer="voice-director",
         review={
             "identity": True,
@@ -89,7 +89,7 @@ def test_exact_dialogue_must_be_reviewed_and_locked_before_lip_sync(
         episode_id="episode-001",
         scene_id="scene-001",
         shot_id="shot-004",
-        character_id="roxana",
+        character_id="riri",
         dialogue_version=1,
     )
 
@@ -107,7 +107,7 @@ def test_sound_cues_preserve_dialogue_and_reject_unsafe_qualities(
         project_id="demo",
         scene_id="scene-001",
         shot_id="shot-005",
-        location_id="rooftop",
+        location_id="kindergarten_garden",
         dialogue_present=True,
         cues=[
             {
@@ -134,7 +134,7 @@ def test_sound_cues_preserve_dialogue_and_reject_unsafe_qualities(
             project_id="demo",
             scene_id="scene-001",
             shot_id="shot-005",
-            location_id="rooftop",
+            location_id="kindergarten_garden",
             dialogue_present=False,
             cues=[
                 {
@@ -159,7 +159,7 @@ def test_music_cues_compile_child_response_space(context_root: Path) -> None:
             {
                 "cue_id": "curious-question",
                 "action": "reduce",
-                "theme": "roxana",
+                "theme": "riri",
                 "start_seconds": 4,
                 "end_seconds": 12,
                 "energy": "low",

@@ -1,0 +1,83 @@
+id: riri-yoyo-countryside-golden-hour-v2-review-v001
+type: location-version-review-context
+version: 1
+status: creative-review-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: countryside-golden-hour
+  source_board_location_label: Sunset / Golden-Hour Nature Park
+  candidate_version: v002
+  review_date: 2026-08-20
+  reviewer: codex-visual-and-technical-review
+  authority: locations/sunset_golden_hour/location-v2.yaml
+  package_id: countryside-golden-hour-design-package-v002
+
+package_checks:
+  supplied-files: 5
+  registered-files: 5
+  source-package-complete: true
+  filenames-derived-from-visible-global-titles: pass
+  sha256-recorded: pass
+  pixel-dimensions-recorded: pass
+  panel-count-per-board: pass-exactly-twelve
+  scale-and-proportion-values-transcribed: pass
+  panel-purpose-and-mcp-routing-recorded: pass
+  all-files-design-review-only: true
+  direct-generation-conditioning-forbidden: true
+
+records:
+  - candidate-id: countryside-golden-hour-scale-and-proportion-reference-board-v002
+    checks:
+      six-perspective-and-overview-views: present
+      simplified-site-plan: present
+      longitudinal-and-lateral-terrain-sections: present
+      tree-path-fence-cottage-and-natural-landmark-scales: present
+      overall-relative-unit-summary: present
+      conditioning-eligible: false
+  - candidate-id: countryside-golden-hour-cinematic-multi-view-reference-v002
+    checks:
+      primary-front-right-left-opposite-and-elevated-views: present
+      landmark-and-material-details: present
+      primary-late-near-sunset-and-neutral-states: present
+      conditioning-eligible: false
+  - candidate-id: countryside-golden-hour-structured-location-reference-v002
+    checks:
+      geometry-view-set: present
+      annotated-landmark-depth-layers: present
+      eight-material-and-vegetation-tiles: present
+      annotated-primary-light-direction-rim-and-shadows: present
+      conditioning-eligible: false
+  - candidate-id: countryside-golden-hour-titled-technical-reference-v002
+    checks:
+      six-view-geometry-coverage: present
+      eight-material-and-vegetation-tiles: present
+      three-golden-hour-lighting-states-and-neutral-reference: present
+      conditioning-eligible: false
+  - candidate-id: countryside-golden-hour-polished-production-location-board-v002
+    checks:
+      geometry-material-lighting-and-neutral-value-coverage: present
+      site-reference-width-1-point-00-ru: present
+      production-continuity-note: present
+      conditioning-eligible: false
+
+cross_board_consistency:
+  path-fence-valley-cottages-mountains-and-meadow-identity: pass-codex-review
+  broad-camera-direction-coverage: pass-codex-review
+  material-and-vegetation-language: pass-codex-review
+  primary-late-near-sunset-and-neutral-state-separation: pass-codex-review
+  relative-scale-system: pass-single-authoritative-scale-board
+  exact-landmark-count-and-camera-parallax: requires-human-review
+
+taxonomy_boundary:
+  project-route: countryside-golden-hour
+  source-visible-label: sunset-golden-hour-nature-park
+  merge-with-daylight-nature-park: forbidden-without-project-owner-approval
+  project-owner-taxonomy-confirmation: pending
+
+approval_boundary:
+  technical-registration: complete
+  project-owner-v2-package-approval: pending
+  v2-canonical-promotion: blocked
+  existing-v1-location-authority-remains-active: true
+  existing-v1-primary-master-conditioning-remains-active: true

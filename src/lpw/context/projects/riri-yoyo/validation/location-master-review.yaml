@@ -1,0 +1,90 @@
+id: riri-yoyo-location-master-review-v001
+type: location-primary-master-review-context
+version: 1
+status: approved-primary-masters-secondary-views-open
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  review_date: 2026-08-20
+  reviewer: codex-visual-review
+  human_reviewer: project-owner
+  human_approval_date: 2026-08-20
+  human_approval_record: project-owner-approvals.yaml
+  purpose: empty-location-primary-master-candidate-review
+  criteria_sources:
+    - reference-views.yaml
+    - preproduction-checklist.yaml
+    - visual_style/visual_style.yaml
+    - visual_style/art-direction.yaml
+    - visual_style/lighting.yaml
+
+common_results:
+  empty-environment: pass
+  one-coherent-image-not-board-or-collage: pass
+  aspect-ratio: pass-1672x941-near-exact-16x9
+  minimum-pixel-dimensions: pass
+  text-logo-watermark: none
+  accidental-faces-or-background-subjects: none
+  open-movement-space: pass
+  human-creative-and-primary-geometry-approval: approved
+
+records:
+  - candidate-id: kindergarten-exterior-primary-master-v001
+    authority: locations/exteriors/location.yaml
+    landmark-readability: pass
+    entrance-count: pass-exactly-one-primary-entrance
+    path-and-entrance-relationship: pass
+    child-safe-garden-action-zone: pass
+    foliage-grouping-and-density: pass
+    palette-material-and-lighting-fit: pass-codex-review
+    status: approved-primary-master
+  - candidate-id: kindergarten-interior-primary-master-v001
+    authority: locations/interiors/location.yaml
+    landmark-readability: pass
+    window-door-table-learning-and-storage-zones: pass
+    central-navigation-and-open-floor-space: pass
+    furniture-count-and-clutter-control: pass
+    palette-material-and-lighting-fit: pass-codex-review
+    status: approved-primary-master
+  - candidate-id: kindergarten-play-space-primary-master-v001
+    authority: locations/play_spaces/location.yaml
+    landmark-readability: pass
+    playhouse-count: pass-exactly-one
+    play-zone-cushion-storage-and-entry-zones: pass
+    movement-lanes-and-object-count: pass
+    palette-material-and-lighting-fit: pass-codex-review
+    status: approved-primary-master
+  - candidate-id: nature-park-primary-master-v001
+    authority: locations/nature_and_parks/location.yaml
+    landmark-readability: pass
+    bridge-count: pass-exactly-one
+    path-stream-and-bridge-relationship: pass
+    shallow-water-boundary-readability: pass
+    meadow-space-and-foliage-grouping: pass
+    palette-material-and-lighting-fit: pass-codex-review
+    status: approved-primary-master
+  - candidate-id: countryside-golden-hour-primary-master-v001
+    authority: locations/sunset_golden_hour/location.yaml
+    landmark-readability: pass
+    path-fence-tree-and-horizon-relationship: pass
+    fence-policy: pass-one-connected-run
+    broad-meadow-action-space: pass
+    local-color-preservation-under-golden-light: pass
+    palette-material-and-lighting-fit: pass-codex-review
+    status: approved-primary-master
+  - candidate-id: kindergarten-evening-night-primary-master-v001
+    authority: locations/evening_night/location.yaml
+    source-daylight-candidate: kindergarten-exterior-primary-master-v001
+    daylight-geometry-and-composition-preservation: pass-codex-review
+    entrance-window-path-and-vegetation-count: pass
+    night-path-and-entrance-readability: pass
+    warm-cool-light-balance: pass
+    safe-open-shadow-detail: pass
+    status: approved-primary-master
+
+approval_boundary:
+  codex-technical-and-visual-review-complete: true
+  promotion-to-approved-primary-master-authority: completed-by-project-owner
+  generation-conditioning-allowed-for-registered-primary-master-modes: true
+  additional-required-location-views: still-missing

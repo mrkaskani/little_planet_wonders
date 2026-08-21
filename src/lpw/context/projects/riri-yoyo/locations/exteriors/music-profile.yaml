@@ -1,0 +1,1050 @@
+id: kindergarten-music
+type: location-music-context
+version: 1.1
+name: Kindergarten Music Profile
+
+identity:
+  location: kindergarten
+  theme: cheerful discovery, friendship, play, and emotional safety
+
+  emotional_identity:
+    primary:
+      - cheerful
+      - welcoming
+      - playful
+      - safe
+      - curious
+
+    secondary:
+      - warm
+      - gentle
+      - friendly
+      - optimistic
+      - imaginative
+      - peaceful
+
+  energy: low-medium
+
+  purpose:
+    - establish the kindergarten as a safe familiar place
+    - support playful exploration
+    - encourage curiosity
+    - support friendship and cooperation
+    - reinforce positive learning
+    - support gentle movement
+    - preserve emotional comfort
+    - create recognizable location identity
+
+musical_character:
+
+  style:
+    - gentle children's cinematic
+    - light acoustic
+    - playful orchestral
+    - warm storybook
+    - preschool-friendly
+
+  tone:
+    warmth: high
+    softness: high
+    playfulness: medium-high
+    curiosity: medium-high
+    brightness: high
+    wonder: medium
+    mystery: very-low
+    tension: very-low
+
+  emotional_direction:
+    default: cheerful-safe-curiosity
+
+  avoid_emotional_direction:
+    - fear
+    - danger
+    - suspense
+    - loneliness-heavy
+    - sadness-heavy
+    - chaotic-excitement
+    - heroic-epic
+    - threatening
+
+instrumentation:
+
+  primary:
+
+    soft_piano:
+      role:
+        - harmonic-foundation
+        - gentle-melody
+        - emotional-support
+
+      playing_style:
+        - warm
+        - simple
+        - light
+        - rounded
+        - spacious
+
+      register: mid
+      intensity: low-medium
+
+    muted_marimba:
+      role:
+        - playful-rhythm
+        - movement-support
+        - curiosity-accent
+
+      playing_style:
+        - soft
+        - rounded
+        - bouncy
+        - simple
+
+      register: mid
+      intensity: low
+
+    gentle_flute:
+      role:
+        - melodic-accent
+        - curiosity-motif
+        - nature-connection
+
+      playing_style:
+        - soft
+        - airy
+        - short-phrases
+        - lyrical
+
+      register: mid-high
+      intensity: low
+
+    light_ukulele:
+      role:
+        - warmth
+        - friendly-rhythm
+        - outdoor-play-character
+
+      playing_style:
+        - soft-strumming
+        - gentle-plucking
+        - relaxed
+
+      register: mid
+      intensity: low
+
+  secondary:
+
+    pizzicato_strings:
+      allowed: true
+
+      role:
+        - playful-movement
+        - light-comedy
+        - discovery-support
+
+      intensity: very-low
+
+      rules:
+        - remain soft
+        - avoid frantic patterns
+        - avoid sharp articulation
+        - never create sneaky tension
+
+    soft_bells:
+      allowed: limited
+
+      role:
+        - discovery-accent
+        - learning-accent
+        - gentle-reveal
+
+      possible_sources:
+        - glockenspiel
+        - soft-celesta
+        - gentle-chime
+
+      rules:
+        - use sparingly
+        - use rounded tones
+        - avoid repetitive sparkling patterns
+        - avoid magical overload
+        - never become piercing
+
+    soft_strings:
+      allowed: true
+
+      role:
+        - emotional-support
+        - warm-transition
+        - reflective-support
+
+      intensity: very-low
+
+      rules:
+        - sustained-soft-textures
+        - gentle-harmonic-support
+        - no dramatic swells
+
+    hand_percussion:
+      allowed: limited
+
+      possible_sources:
+        - soft-shaker
+        - gentle-claps
+        - muted-wood-block
+        - soft-tambourine
+
+      intensity: very-low
+
+      rules:
+        - keep rhythm simple
+        - support movement without urgency
+        - avoid sharp transients
+
+harmony:
+
+  character:
+    - bright
+    - warm
+    - stable
+    - friendly
+    - reassuring
+    - simple
+
+  complexity: low
+
+  preferred:
+    - major
+    - major-add6
+    - major-add9
+    - gentle-suspended-harmony
+    - simple-diatonic-progressions
+    - open-fifths
+    - warm-tonic-pedal
+
+  dissonance: minimal
+
+  rules:
+    - maintain tonal clarity
+    - resolve movement gently
+    - favor warm major harmony
+    - use suspended harmony only for gentle curiosity
+    - avoid unresolved tension
+    - avoid dramatic modulation
+    - preserve emotional safety
+
+melody:
+
+  complexity: simple
+
+  phrase_length: short
+
+  contour:
+    - gently-rising
+    - gently-falling
+    - small-step-motion
+    - occasional-playful-skip
+
+  repetition:
+    allowed: true
+    amount: moderate-high
+
+  characteristics:
+    - memorable
+    - singable
+    - friendly
+    - light
+    - curious
+    - child-friendly
+    - non-intrusive
+
+  rules:
+    - use clear short phrases
+    - leave breathing space
+    - allow motif repetition for familiarity
+    - avoid rapid melodic runs
+    - avoid wide dramatic leaps
+    - avoid melodies that compete with dialogue
+    - maintain recognizable melodic shapes
+
+rhythm:
+
+  activity: low-medium
+
+  pulse:
+    strength: gentle
+    consistency: stable
+    character: lightly-bouncy
+
+  percussion:
+    amount: minimal-low
+
+  preferred:
+    - muted-marimba-pulse
+    - soft-ukulele-strum
+    - gentle-wooden-accents
+    - light-shaker
+    - occasional-hand-clap
+    - simple-step-patterns
+
+  rules:
+    - movement should feel playful rather than urgent
+    - rhythm may gently follow walking, skipping, or play
+    - keep patterns easy to anticipate
+    - provide clear rhythmic breathing space
+
+  avoid:
+    - heavy-drums
+    - aggressive-percussion
+    - rapid-repetitive-beats
+    - complex-syncopation
+    - sharp-impacts
+    - frantic-rhythm
+    - strong-driving-bass
+
+tempo:
+
+  default_bpm:
+    min: 72
+    max: 100
+
+  preferred_bpm: 86
+
+  flexibility: moderate
+
+  states:
+    calm:
+      min: 68
+      max: 78
+
+    normal:
+      min: 80
+      max: 92
+
+    playful:
+      min: 90
+      max: 105
+
+  rules:
+    - follow children's movement gently
+    - allow slightly faster tempo during active play
+    - never create artificial urgency
+    - keep tempo stable beneath dialogue
+    - transition gradually between energy levels
+
+dynamics:
+
+  default: soft-medium
+
+  range:
+    minimum: very-soft
+    maximum: medium
+
+  variation: gentle
+
+  rules:
+    - avoid sudden loud changes
+    - avoid sharp accents
+    - avoid dramatic crescendos
+    - preserve comfortable preschool listening levels
+    - increase energy through arrangement before loudness
+    - maintain soft transitions
+
+dialogue:
+
+  priority: highest
+
+  music_behavior:
+
+    during_dialogue:
+      volume: reduced
+      melodic_activity: reduced
+      rhythmic_activity: reduced
+      instrumentation_density: reduced
+
+    between_dialogue:
+      volume: normal-low
+      melodic_activity: slightly-increased
+      rhythmic_activity: gently-increased
+
+  ducking:
+    enabled: true
+    behavior: smooth
+    attack: gentle
+    release: gentle
+
+  rules:
+    - speech must remain clearly understandable
+    - music must never compete with children's voices
+    - reduce flute beneath important dialogue
+    - reduce bell activity beneath speech
+    - simplify marimba rhythms beneath dialogue
+    - keep piano or ukulele as soft harmonic support
+    - restore arrangement gradually after dialogue
+
+ambience:
+
+  priority:
+    - dialogue
+    - important-character-sounds
+    - important-location-sounds
+    - music
+
+  preserve:
+    - gentle-birds
+    - soft-breeze
+    - leaves-rustling
+    - distant-children-playing
+    - garden-insects
+    - footsteps-on-path
+    - subtle-garden-ambience
+
+  birds:
+    importance: medium-high
+
+    music_relationship:
+      - leave space in upper frequencies
+      - avoid continuous flute phrases when birds are important
+      - allow occasional ambience-only gaps
+
+  breeze:
+    importance: medium
+
+    music_relationship:
+      - preserve soft environmental movement
+      - avoid masking leaf textures
+
+  children:
+    importance: high
+
+    music_relationship:
+      - music remains beneath children's activity
+      - reduce rhythmic density during busy group interaction
+
+  garden:
+    importance: high
+    role: location-identity
+
+  rules:
+    - environment must remain alive and peaceful
+    - music should feel integrated into the garden atmosphere
+    - natural ambience should remain audible
+    - avoid covering birds and children's voices
+    - allow moments where environmental sounds lead
+
+mix:
+
+  dialogue_priority: highest
+
+  music_position:
+    width: medium
+    depth: background
+
+  ambience_position:
+    width: wide
+    depth: environment
+
+  piano:
+    position: center-soft
+
+  flute:
+    position: slightly-off-center
+
+  marimba:
+    position: subtle-wide
+
+  ukulele:
+    position: medium-wide
+
+  bells:
+    position: subtle-upper-space
+
+  rules:
+    - preserve a clear dialogue center
+    - keep low frequencies light
+    - maintain soft high frequencies
+    - avoid harsh bell transients
+    - keep instruments acoustically warm
+    - preserve space for birds and garden sounds
+    - prevent dense overlapping melodic layers
+
+states:
+
+  default:
+    id: kindergarten-welcome
+    emotion:
+      - cheerful
+      - safe
+      - welcoming
+
+    energy: low-medium
+
+    instrumentation:
+      - soft-piano
+      - muted-marimba
+      - gentle-flute
+      - light-ukulele
+
+  arrival:
+    id: kindergarten-arrival
+    emotion:
+      - welcome
+      - anticipation
+      - happiness
+
+    energy: low-medium
+
+    changes:
+      piano: warm-simple-chords
+      ukulele: gentle-strumming
+      flute: short-welcome-phrase
+      marimba: subtle-pulse
+
+  exploration:
+    id: kindergarten-exploration
+    emotion:
+      - curiosity
+      - discovery
+      - playfulness
+
+    energy: medium
+
+    changes:
+      piano: slightly-more-active
+      marimba: playful-soft-pattern
+      flute: short-curiosity-phrases
+      ukulele: gentle-pulse
+      pizzicato_strings: optional
+
+  learning:
+    id: kindergarten-learning
+    emotion:
+      - focus
+      - curiosity
+      - reassurance
+
+    energy: low
+
+    changes:
+      piano: sparse
+      marimba: minimal
+      flute: occasional
+      ukulele: very-soft
+      bells: occasional-learning-accent
+
+  dialogue:
+    id: kindergarten-dialogue
+    emotion:
+      - supportive
+      - friendly
+
+    energy: very-low
+
+    changes:
+      piano: sparse
+      marimba: nearly-absent
+      flute: minimal
+      ukulele: soft-sustained-pattern
+      bells: absent
+
+  group_play:
+    id: kindergarten-group-play
+    emotion:
+      - joy
+      - friendship
+      - cooperation
+
+    energy: medium
+
+    changes:
+      marimba: gently-more-active
+      ukulele: light-rhythmic-strumming
+      piano: bright-support
+      flute: short-answer-phrases
+      hand_percussion: optional-light
+
+  discovery:
+    id: kindergarten-discovery
+    emotion:
+      - curiosity
+      - delight
+      - gentle-wonder
+
+    energy: low-medium
+
+    changes:
+      piano: gentle-rising-figure
+      flute: curiosity-motif
+      bell_accent: optional-single-soft-note
+      marimba: reduced
+
+  celebration:
+    id: kindergarten-celebration
+    emotion:
+      - happiness
+      - accomplishment
+      - togetherness
+
+    energy: medium
+
+    changes:
+      piano: fuller
+      ukulele: brighter-strumming
+      marimba: playful-pattern
+      flute: theme-variation
+      hand_percussion: subtle
+
+    rules:
+      - remain gentle
+      - avoid excessive volume
+      - avoid fast chaotic rhythm
+      - preserve preschool scale
+
+  reflective:
+    id: kindergarten-reflective
+    emotion:
+      - calm
+      - kindness
+      - reassurance
+
+    energy: very-low
+
+    changes:
+      piano: primary
+      flute: sparse
+      marimba: absent
+      ukulele: occasional-soft-pluck
+      strings: very-soft
+
+  goodbye:
+    id: kindergarten-goodbye
+    emotion:
+      - warmth
+      - completion
+      - reassurance
+
+    energy: low
+
+    changes:
+      piano: gentle-resolution
+      flute: kindergarten-theme-resolution
+      ukulele: soft-final-pattern
+      marimba: minimal
+
+motif:
+
+  id: kindergarten-friendship-motif
+
+  purpose:
+    - identify-kindergarten
+    - reinforce-location-memory
+    - symbolize-friendship
+    - reinforce-safe-exploration
+    - support-episode-continuity
+
+  primary_instrument: gentle-flute
+
+  supporting_instruments:
+    - soft-piano
+    - muted-marimba
+    - light-ukulele
+
+  structure:
+    length: short
+    complexity: simple
+    character:
+      - gently-rising
+      - cheerful
+      - rounded
+      - easy-to-remember
+
+  emotional_shape:
+    beginning: curious
+    middle: playful
+    ending: reassuring
+
+  usage:
+    - kindergarten-establishing-shot
+    - arrival
+    - outdoor-garden-exploration
+    - friendship-moment
+    - learning-discovery
+    - return-to-kindergarten
+    - scene-ending
+    - episode-resolution
+
+  rules:
+    - motif remains immediately recognizable
+    - arrangement may vary by scene
+    - core melodic identity remains stable
+    - motif may become simpler beneath dialogue
+    - motif must never become dramatic
+    - motif should preserve a warm familiar feeling
+
+environmental_relationship:
+
+  visual_character:
+    - sunny
+    - green
+    - floral
+    - cottage-like
+    - welcoming
+    - colorful
+    - natural
+    - peaceful
+
+  music_translation:
+    sunshine:
+      musical_quality:
+        - bright-major-harmony
+        - warm-acoustic-texture
+        - open-voicing
+
+    flowers:
+      musical_quality:
+        - light-melodic-details
+        - soft-bell-accents
+        - playful-marimba-notes
+
+    garden:
+      musical_quality:
+        - flute
+        - acoustic-instruments
+        - spacious-arrangement
+        - natural-rhythm
+
+    trees:
+      musical_quality:
+        - warm-sustained-harmony
+        - gentle-airiness
+
+    cottage:
+      musical_quality:
+        - ukulele
+        - piano
+        - wooden-instrument-textures
+        - intimate-scale
+
+    pathway:
+      musical_quality:
+        - gentle-stepping-rhythm
+        - soft-forward-motion
+
+    mailbox:
+      musical_quality:
+        - optional-small-discovery-accent
+        - friendly-arrival-cue
+
+transitions:
+
+  entering_kindergarten:
+    behavior:
+      - begin-with-garden-ambience
+      - introduce-piano-or-ukulele-softly
+      - introduce-kindergarten-motif
+      - add-marimba-after-location-is-established
+
+  leaving_kindergarten:
+    behavior:
+      - simplify-rhythm
+      - reduce-marimba
+      - resolve-kindergarten-motif
+      - preserve-garden-ambience
+      - transition-out-gently
+
+  dialogue_to_play:
+    behavior:
+      - restore-marimba-gradually
+      - increase-ukulele-rhythm
+      - reintroduce-short-flute-phrases
+
+  play_to_dialogue:
+    behavior:
+      - remove-hand-percussion
+      - simplify-marimba
+      - reduce-flute
+      - soften-ukulele
+      - preserve-piano-support
+
+  discovery_to_learning:
+    behavior:
+      - resolve-discovery-accent
+      - reduce-melodic-density
+      - return-to-soft-piano
+      - retain-small-motif-fragment
+
+  active_to_reflective:
+    behavior:
+      - reduce-rhythm-gradually
+      - remove-marimba
+      - soften-harmony
+      - transition-to-piano-led-texture
+
+continuity_constraints:
+
+  identity:
+    - preserve cheerful warmth
+    - preserve emotional safety
+    - preserve playful curiosity
+    - preserve friendship identity
+    - preserve kindergarten motif
+
+  instrumentation:
+    - soft piano remains primary harmonic foundation
+    - gentle flute remains primary melodic identity
+    - muted marimba remains primary playful texture
+    - ukulele remains a warm acoustic support
+    - bells remain occasional accents only
+
+  energy:
+    - baseline energy remains low-medium
+    - active states may reach medium
+    - energy changes remain gradual
+    - avoid overstimulation
+
+  environment:
+    - preserve garden ambience
+    - preserve birds and breeze when appropriate
+    - maintain natural outdoor character
+    - preserve peaceful sunny atmosphere
+
+  emotional:
+    - curiosity remains positive
+    - mistakes remain emotionally safe
+    - learning moments remain encouraging
+    - celebration remains gentle
+    - conflict must not redefine location identity
+
+  mixing:
+    - dialogue always has priority
+    - music remains supportive
+    - environmental ambience remains audible
+    - avoid dense arrangement
+
+negative_constraints:
+
+  emotion:
+    - no horror
+    - no fear
+    - no threatening mood
+    - no strong suspense
+    - no intense sadness
+    - no emotional manipulation
+    - no aggressive excitement
+    - no chaotic energy
+
+  instrumentation:
+    - no heavy-brass
+    - no aggressive-strings
+    - no heavy-drums
+    - no distorted-synths
+    - no threatening-drones
+    - no industrial-impacts
+    - no horror-textures
+    - no piercing-bells
+    - no aggressive-electric-guitar
+
+  rhythm:
+    - no fast-percussion
+    - no aggressive-pulse
+    - no tension-ostinato
+    - no frantic-patterns
+    - no club-style-beats
+    - no complex-driving-rhythm
+
+  harmony:
+    - no dark-unresolved-harmony
+    - no strong-chromatic-tension
+    - no horror-dissonance
+    - no dramatic-modulation
+    - no ominous-low-pedals
+
+  melody:
+    - no frantic-runs
+    - no extreme-register-jumps
+    - no overly-sentimental-melody
+    - no threatening-motifs
+
+  dynamics:
+    - no sudden-loud-accents
+    - no dramatic-crescendos
+    - no jump-scare-dynamics
+    - no extreme-volume-contrast
+
+generation:
+
+  essential_prompt_tokens:
+    - cheerful preschool cinematic music
+    - warm kindergarten atmosphere
+    - gentle playful curiosity
+    - soft piano
+    - muted marimba
+    - gentle flute
+    - light ukulele
+    - warm acoustic textures
+    - simple memorable melody
+    - sunny garden feeling
+    - friendship
+    - positive learning
+    - child-safe
+    - low-medium energy
+    - sparse arrangement
+    - dialogue-friendly
+    - gentle birds and garden ambience
+
+  negative_prompt_tokens:
+    - suspense
+    - horror
+    - danger
+    - threatening drone
+    - dark ambient
+    - heavy percussion
+    - epic orchestra
+    - aggressive rhythm
+    - dramatic crescendo
+    - intense bass
+    - chaotic children's music
+    - piercing bells
+    - frantic tempo
+    - sad cinematic score
+
+  variation_allowed:
+    - flute-phrase-variation
+    - piano-voicing-variation
+    - marimba-pattern-variation
+    - ukulele-pattern-variation
+    - light-percussion-variation
+    - motif-orchestration
+    - arrangement-density
+    - ambient-density
+
+  preserve_between_generations:
+    - emotional-identity
+    - kindergarten-friendship-motif
+    - primary-instrumentation
+    - warm-acoustic-character
+    - safe-playful-energy
+    - dialogue-space
+    - garden-ambience-space
+
+stems:
+
+  preferred: true
+
+  tracks:
+    - piano
+    - flute
+    - marimba
+    - ukulele
+    - percussion
+    - secondary-instruments
+    - music-full-mix
+
+  purpose:
+    - dialogue-ducking
+    - scene-rearrangement
+    - adaptive-editing
+    - music-extension
+    - energy-adjustment
+    - cleaner-transitions
+    - motif-reuse
+
+adaptive_music:
+
+  enabled: true
+
+  editable_layers:
+    - melody
+    - harmony
+    - rhythm
+    - texture
+    - ambience-relationship
+
+  priority_order_when_reducing:
+    - remove-secondary-instruments
+    - remove-hand-percussion
+    - reduce-marimba
+    - reduce-flute
+    - simplify-ukulele
+    - simplify-piano
+
+  priority_order_when-building:
+    - piano
+    - ukulele
+    - flute
+    - marimba
+    - optional-secondary-instruments
+    - optional-hand-percussion
+
+validation:
+
+  emotional_checks:
+    - music feels welcoming
+    - music feels safe for preschool children
+    - playfulness remains gentle
+    - curiosity remains positive
+    - music supports friendship
+    - no unintended suspense is present
+    - active sections do not become overstimulating
+
+  dialogue_checks:
+    - dialogue remains clearly intelligible
+    - music reduces beneath dialogue
+    - flute does not compete with speech
+    - bells do not compete with speech
+    - marimba activity reduces when dialogue is important
+
+  ambience_checks:
+    - garden atmosphere remains recognizable
+    - birds remain audible when present
+    - breeze and foliage remain audible when important
+    - music does not mask location identity
+    - ambience can lead during quiet moments
+
+  continuity_checks:
+    - kindergarten motif remains recognizable
+    - primary instrumentation remains consistent
+    - acoustic warmth remains consistent
+    - energy does not change abruptly
+    - transitions remain gentle
+    - music remains appropriate for ages 3-6
+
+context_dependencies:
+
+  location:
+    source: location.yaml
+
+  location_audio:
+    source: location.yaml#audio
+
+  color_palette:
+    source: ../../visual_style/palette-v2.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scene:
+    source: ../../03-scenes/
+
+  cinematography:
+    source: ../../cinematography/
+
+  continuity:
+    source: ../../continuity/
+
+  editing:
+    source: ../../editing/
+
+authority:
+
+  location_music_identity: this-file
+  kindergarten_motif: this-file
+  default_music_energy: this-file
+  default_instrumentation: this-file
+  music_dialogue_behavior: this-file
+  adaptive_music_behavior: this-file
+
+  environmental_audio: location-context
+  dialogue_content: scene-context
+  character_voice: character-context
+  scene_emotion_override: scene-context
+  final_mix: editing-context

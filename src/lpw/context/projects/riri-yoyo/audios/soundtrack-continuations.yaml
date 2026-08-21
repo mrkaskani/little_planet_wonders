@@ -1,0 +1,77 @@
+metadata:
+  id: riri-yoyo-thirty-second-soundtrack-continuations
+  version: 1
+  status: audition
+  project: riri-yoyo
+  purpose: thirty-second scenario underscore continuations without opening character themes
+
+generator:
+  strategy: preserve-third-part-and-continue
+  command: soundtrack
+  model: medium
+  decoder: same-l
+  steps: 8
+  cfg: 4.5
+  init_noise_level: 0.65
+  project_root: src/lpw/context/projects/riri-yoyo
+  manifest_path: audio-assets/manifests/riri-yoyo-soundtrack-continuations.json
+  sample_rate: 48000
+  bit_depth: 24
+  channels: stereo
+  peak_ceiling_dbfs: -1.0
+  target_seconds: 30.0
+  ending_fade_seconds: 2.0
+  seed_mode: random-per-generation-unless-cli-seed-is-provided
+  reference_selection: exact-third-scenario-section-after-both-opening-themes
+  prompt_suffix: >-
+    Fresh alternative continuation of the supplied WAV. Same musicians and
+    recording session. Retain its key, tempo, meter, core chord loop, ensemble,
+    register, timbre, softness, and preschool identity. Create clearly new gentle
+    melody and rhythm derived from its contour, cadence, phrase length, and groove.
+    Use subtle chord inversions and accompaniment answers. Make this take audibly
+    different but closely related, smooth, simple, playful, and dialogue-safe.
+    Never quote Riri's or Yoyo's leitmotif.
+  negative_prompt: >-
+    unrelated composition, unrelated melody, unrelated genre, character
+    leitmotif, motif repetition, abrupt key change, modulation, abrupt tempo
+    change, harsh groove change, different ensemble, major orchestration change,
+    style drift, timbre drift, dramatic build-up, climax, complex harmony, busy
+    countermelody, aggressive fills, harsh percussion, adult drama, vocals, speech,
+    sound effects
+
+soundtracks:
+  - id: playful-playing
+    source: assets/music/soundtracks/riri-yoyo/playful-playing.wav
+    output: assets/music/soundtracks/riri-yoyo/continuations/playful-playing/playful-playing-30s.wav
+    third_part_start_seconds: 6.47
+    prompt: >-
+      Gentle preschool free-play at 118 BPM: muted ukulele, soft pizzicato, tiny
+      shaker, brushed hand percussion, warm marimba, felt-piano answers, rounded
+      bass. Derive fresh two-to-four-note hop-and-answer phrases from the reference.
+      Add soft rhythmic anticipation, playful pauses, and gentle landings. Keep its
+      key, chord-loop family, ensemble, and softness, but make a clearly different
+      take. Never frantic, competitive, heroic, loud, or busy.
+
+  - id: puzzle-solving
+    source: assets/music/soundtracks/riri-yoyo/puzzle-solving.wav
+    output: assets/music/soundtracks/riri-yoyo/continuations/puzzle-solving/puzzle-solving-30s.wav
+    third_part_start_seconds: 6.47
+    prompt: >-
+      Friendly preschool puzzle music at 92 BPM: sparse soft marimba, warm felt
+      piano, muted pizzicato, gentle clarinet, delicate harp, quiet rounded bass.
+      Derive new musical questions and warm answers from the reference contour.
+      Vary note spacing, phrase endings, accompaniment answers, and chord voicing.
+      Keep its key, gentle pulse, ensemble, and quiet density, but make a clearly
+      different take with dialogue space. Never mysterious, suspenseful, or busy.
+
+  - id: doing-activities
+    source: assets/music/soundtracks/riri-yoyo/doing-activities.wav
+    output: assets/music/soundtracks/riri-yoyo/continuations/doing-activities/doing-activities-30s.wav
+    third_part_start_seconds: 6.47
+    prompt: >-
+      Cooperative preschool activity music at 106 BPM: fingerpicked nylon guitar,
+      soft ukulele, rounded marimba, felt piano, restrained pizzicato, light shaker,
+      warm bass. Derive new short phrases, gentle progress patterns, chord
+      inversions, and rhythmic answers from the reference. Retain its key, tempo,
+      phrase scale, ensemble, and energy, but make a clearly different take for
+      sorting, drawing, building, and tidying. Optimistic, calm, and dialogue-safe.

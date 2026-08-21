@@ -1,0 +1,236 @@
+id: riri-yoyo-relationships
+type: character-relationship-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  relationship_id: riri-yoyo-friendship
+  purpose: reusable-friendship-blocking-contact-and-learning-dynamic
+
+source_authority:
+  project: ../project.yaml
+  wan_2_2: ../wan22-preproduction.yaml
+  animation: animation-style.yaml
+  acting: acting-style.yaml
+  riri: riri/character.yaml
+  yoyo: yoyo/character.yaml
+  props: ../assets/props.yaml
+
+relationship_identity:
+  type: close-supportive-friendship
+  hierarchy: equal-dignity-and-agency
+  emotional_baseline:
+    - warm
+    - playful
+    - cooperative
+    - curious
+    - reassuring
+  not_allowed:
+    - parent-child-framing
+    - owner-pet-framing
+    - romantic-framing
+    - rivalry-as-default
+    - dominance-humiliation-or-bullying
+    - one-character-always-being-correct
+
+complementary_roles:
+  riri:
+    strengths:
+      - emotional-attunement
+      - patience
+      - gentle-observation
+      - reassurance
+    growth_space:
+      - confident-participation
+      - trying-new-things
+  yoyo:
+    strengths:
+      - initiative
+      - playful-experimentation
+      - visible-enthusiasm
+      - persistence
+    growth_space:
+      - pausing-to-observe
+      - listening-and-turn-taking
+  exchange_rule: >-
+    Either character may notice, ask, try, explain, help, make a mild mistake,
+    or solve a problem; the complementary pattern guides variety but never fixes
+    one character as permanent teacher, follower, rescuer, or comic failure.
+
+cooperation_contract:
+  sequence:
+    - establish-shared-focus
+    - assign-one-clear-initiator
+    - show-partner-listening-or-watching
+    - complete-one-action
+    - show-one-clear-partner-response
+    - return-to-shared-stable-state
+  rules:
+    - both-characters-retain-agency
+    - invitations-allow-a-visible-choice
+    - help-is-offered-not-forced
+    - mistakes-receive-patience-not-ridicule
+    - success-may-be-shared-without-competition
+
+reassurance_contract:
+  trigger_range:
+    - mild-confusion
+    - mild-concern
+    - brief-frustration
+    - brief-sadness
+  response:
+    - notice-partner-state
+    - orient-gaze-and-body-toward-partner
+    - allow-personal-space
+    - offer-one-gentle-signal-or-approved-contact
+    - show-partner-recovery
+  forbid:
+    - forced-hug-or-touch
+    - crowding
+    - dismissing-feelings
+    - prolonged-dependence
+    - distress-without-visible-recovery
+
+relative_scale:
+  riri_height_cm: 35
+  yoyo_height_cm: 55
+  riri_to_yoyo_height_ratio: 0.64
+  tolerance_percent: 5
+  screen_rule: Yoyo-remains-about-one-and-a-half-times-Riris-height-when-on-the-same-ground-plane
+  perspective_rule: apparent-size-change-must-match-depth-and-camera-not-identity-drift
+  forbid:
+    - equalizing-height-without-depth-reason
+    - making-riri-larger-than-yoyo-on-the-same-plane
+    - changing-head-to-body-ratios-to-fix-framing
+
+eye_lines:
+  shared_focus:
+    - both-gaze-targets-converge-on-one-approved-point
+    - head-and-body-orientation-support-the-gaze
+  face_to_face:
+    riri: slight-upward-eye-line
+    yoyo: slight-downward-eye-line
+    camera: preserve-both-eyes-and-readable-profile-or-three-quarter-face
+  listening:
+    listener-gaze: speaker-face-or-shared-focus
+    speaker-gaze: partner-face-or-clearly-named-focus
+  forbid:
+    - crossed-or-unrelated-eye-lines
+    - both-looking-at-different-unnamed-targets
+    - gaze-through-partner-or-prop
+
+screen_position_and_blocking:
+  default:
+    - side-by-side-with-visible-gap
+    - shallow-three-quarter-toward-each-other
+    - shared-ground-plane
+  interchangeable_sides: true
+  fixed-left-right-identity: false
+  rules:
+    - preserve-clear-silhouette-for-both
+    - keep-eyes-mouth-riri-muzzle-and-yoyo-beak-visible
+    - avoid-head-overlap
+    - avoid-riri-tail-merging-with-yoyo-body
+    - avoid-yoyo-flipper-crossing-riri-face
+    - place-shared-focus-where-both-eye-lines-remain-readable
+    - one-character-acts-while-the-other-holds-a-simple-reaction
+  crossings:
+    default: forbidden-in-identity-critical-generation
+    later-use: divide-into-separate-stable-actions
+
+safe_contact:
+  consent_and_readability: required
+  allowed_classes:
+    - gentle-shoulder-or-side-lean
+    - brief-side-by-side-nuzzle-when-both-faces-remain-readable
+    - soft-paw-to-flipper-touch
+    - brief-celebratory-touch
+    - shared-support-of-approved-prop-with-separated-contact-regions
+  each_contact_requires:
+    - initiator
+    - receiver
+    - body-part-pair
+    - contact-point
+    - pressure-class-gentle
+    - start-contact-and-release-state
+  forbid:
+    - forced-contact
+    - pulling-pushing-or-dragging-each-other
+    - face-covering
+    - neck-contact
+    - tangled-limbs
+    - fused-bodies
+    - standing-or-sitting-on-partner
+
+prop_assignment:
+  rules:
+    - every-visible-prop-has-one-explicit-holder-or-none
+    - each-contact-region-is-assigned-to-one-character-body-part
+    - transfer-is-ordered-giver-hold-shared-contact-receiver-hold-release
+    - no-prop-teleportation-or-duplication
+    - shared-carry-requires-two-distinct-contact-regions
+  avoid:
+    - ambiguous-holder
+    - crossing-arms-paws-or-flippers
+    - prop-between-faces
+    - prop-obscuring-eye-line-or-mouth
+
+turn_taking:
+  acting_source: acting-style.yaml
+  rules:
+    - one-speaker-at-a-time-by-default
+    - listener-mouth-or-beak-rests
+    - listener-uses-one-small-response-at-most
+    - speaker-settles-before-handoff
+    - no-reaction-steals-the-emotional-focus
+  direct_address:
+    one-character-addresses-camera-at-a-time: true
+    partner-remains-attentive-and-secondary: true
+
+wan_2_2_interface:
+  t2v:
+    role: broad-two-character-blocking-exploration-only
+    rules:
+      - explicitly-name-two-characters-and-the-action-owner
+      - separate-silhouettes-colors-and-eye-lines
+      - use-one-action-then-one-reaction
+      - exact-identity-approval-requires-source-image
+  i2v:
+    required-for: exact-two-character-identity-scale-contact-or-prop-assignment
+    source-frame-must-lock:
+      - both-identities
+      - relative-scale
+      - screen-zones
+      - eye-lines
+      - contact-and-prop-owner
+      - starting-poses
+    prompt: one-owner-action-one-partner-reaction-one-endpoint-one-camera-behavior
+  ti2v:
+    role: draft-scale-blocking-eye-line-and-action-assignment-screening
+    not-authority-for: faces-fur-feathers-markings-or-contact-detail
+  s2v:
+    preferred-visible-speakers: 1
+    two-character-frame-rule:
+      - speaking-character-is-primary-and-unobstructed
+      - listener-is-still-secondary-and-does-not-mouth-speech
+      - no-contact-crossing-or-prop-transfer-during-speech
+      - preserve-relative-scale-and-eye-lines
+
+quality_control:
+  approve_when:
+    - both-identities-and-relative-scale-are-stable
+    - action-listening-and-prop-ownership-are-unambiguous
+    - eye-lines-and-screen-zones-are-readable
+    - contact-is-gentle-consensual-and-anatomically-clean
+    - both-characters-retain-agency-and-equal-dignity
+  reject_when:
+    - identity-mixing
+    - scale-swap
+    - fused-or-overlapping-faces-bodies-or-limbs
+    - crossed-eye-lines
+    - ambiguous-speaker-action-owner-or-holder
+    - listener-mouths-the-speakers-audio
+    - bullying-dominance-humiliation-or-forced-contact

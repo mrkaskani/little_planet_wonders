@@ -1,0 +1,282 @@
+id: riri-yoyo-animation-style
+type: character-animation-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  purpose: reusable-character-motion-and-wan-direction
+
+source_authority:
+  project: ../project.yaml
+  wan_2_2: ../wan22-preproduction.yaml
+  camera_movement: ../cinematography/movement-rules.yaml
+  riri: riri/character.yaml
+  yoyo: yoyo/character.yaml
+  rules:
+    - character-yaml-controls-anatomy-proportions-and-character-specific-motion-identity
+    - this-file-controls-shared-timing-action-grammar-safety-and-mode-translation
+    - later-production-direction-may-select-but-not-redefine-these-rules
+
+motion_principles:
+  primary:
+    - one-clear-action-at-a-time
+    - readable-anticipation-action-and-settle
+    - soft-physically-grounded-weight
+    - child-readable-direction-and-endpoint
+    - stable-contact-and-balance
+    - emotion-visible-through-broad-pose
+  complexity_order:
+    - lock-character-identity
+    - lock-ground-or-contact
+    - establish-primary-body-action
+    - add-one-supporting-gesture
+    - add-minimal-secondary-motion
+    - add-one-controlled-camera-behavior
+  forbidden:
+    - chaotic-or-unmotivated-motion
+    - physically-dangerous-imitation
+    - hyperfast-limb-cycling
+    - impossible-body-twist
+    - sliding-feet-without-intended-slide
+    - teleporting-contact
+    - limb-body-or-prop-intersection
+    - uncontrolled-camera-shake-spin-or-whip
+
+timing_language:
+  speed_classes:
+    still: held-readable-pose-with-breathing-only
+    very_slow: careful-observation-or-settle
+    slow: deliberate-turn-reach-or-step
+    medium: default-walk-gesture-or-reaction
+    lively: short-approved-run-bounce-or-play-action
+  transition_shape:
+    anticipation: short-and-visible
+    acceleration: soft
+    main_action: clean-single-direction
+    deceleration: controlled
+    settle: complete-and-readable
+  reaction_timing:
+    notice-before-react: true
+    one-short-processing-beat: preferred
+    emotional-peak: brief
+    recovery: visible-and-gentle
+
+weight_and_balance:
+  shared:
+    center-of-gravity: low
+    grounded-contact: required
+    weight-shift-before-step-or-turn: required
+    landing: soft-with-small-compression
+    stop: controlled-with-no-dangerous-skid
+  riri:
+    weight: soft-light-cuddly
+    locomotion: tiny-even-steps-or-short-bounds
+    balance: stable-four-paw-or-neat-seated-base
+  yoyo:
+    weight: light-buoyant-rounded
+    locomotion: short-waddle-steps-or-low-hop
+    balance: slightly-wobbly-but-capable-with-flipper-support
+
+squash_and_stretch:
+  style: subtle-stylized-and-volume-preserving
+  allowed:
+    - slight-landing-compression
+    - slight-preparation-compression
+    - soft-cheek-and-belly-follow-through
+  maximum_impression: restrained
+  locked:
+    - head-to-body-ratio
+    - face-layout
+    - eye-shape-and-spacing
+    - limb-count-and-length
+    - canonical-volume
+  forbidden:
+    - rubber-hose-limbs
+    - face-melting
+    - eye-warping
+    - extreme-stretch
+    - permanent-volume-change
+
+locomotion_limits:
+  walk:
+    speed: slow-to-medium
+    path: one-clear-direction-or-one-broad-curve
+    contact: feet-or-paws-remain-grounded
+  run:
+    speed: lively-but-controlled
+    duration: short
+    require: visible-path-clear-endpoint-and-safe-stop
+  jump:
+    height: low
+    repetition_preferred_maximum: 2
+    require: anticipation-ground-clearance-and-soft-landing
+  slide:
+    character: yoyo-only-unless-separately-approved
+    distance: short
+    speed: controlled
+    endpoint: stable-upright-or-soft-seated-settle
+  turn:
+    maximum_single_turn: half-turn
+    preferred: head-leads-then-body-follows
+    full-spin: forbidden
+
+gesture_limits:
+  default_size: medium-and-readable
+  repetition_preferred_maximum: 2
+  simultaneous_primary_gestures_per_character: 1
+  face_clearance: keep-gesture-outside-eyes-mouth-muzzle-and-beak
+  riri:
+    leads-with:
+      - head-tilt
+      - small-paw-lift
+      - tail-wag
+      - gentle-lean
+    tail-motion: broad-soft-and-secondary
+  yoyo:
+    leads-with:
+      - head-tilt
+      - one-or-two-flipper-open
+      - small-body-bounce
+      - forward-lean
+    flipper-motion: broad-rounded-and-controlled
+
+idle_behavior:
+  shared:
+    - gentle-breathing
+    - occasional-blink
+    - rare-small-posture-adjustment
+  maximum-competing-idles: 2
+  riri:
+    - tiny-tail-sway
+    - subtle-ear-response
+    - soft-head-tilt
+  yoyo:
+    - slight-rounded-body-bob
+    - tiny-flipper-adjustment
+    - occasional-double-blink
+  speaking-character-rule: idle-never-competes-with-mouth-or-primary-gesture
+
+secondary_motion:
+  priority: low
+  allowed:
+    - broad-fur-compression-and-recovery
+    - subtle-ear-or-tail-lag
+    - subtle-plush-down-follow-through
+    - subtle-flipper-lag
+  maximum-independent-secondary-groups: 1
+  forbid:
+    - boiling-fur-or-feathers
+    - independent-random-wiggle
+    - texture-crawling
+    - repeated-high-frequency-flutter
+
+one_action_grammar:
+  required_fields:
+    - character-id
+    - current-pose-and-contact
+    - primary-body-part-or-whole-body
+    - observable-action
+    - direction
+    - speed-class
+    - range-or-distance
+    - repetition-count
+    - endpoint-and-final-pose
+    - locked-body-regions
+    - permitted-secondary-motion
+    - one-camera-behavior
+  optional_fields:
+    - prop-id-and-contact-region
+    - second-character-reaction-after-primary-action
+    - audio-emphasis-time-for-s2v
+  example_template: >-
+    {character-id} begins in {current-pose}; {body-part} performs one
+    {action} toward {direction} at {speed} through {range}, repeats
+    {count}, and settles at {endpoint}; lock {regions}, allow only
+    {secondary-motion}, with {camera-behavior}.
+  rejection:
+    - missing-endpoint
+    - multiple-competing-actions
+    - vague-speed-or-direction
+    - undefined-contact
+    - incompatible-camera-motion
+
+multi_character_motion:
+  sequencing: leader-action-then-partner-reaction
+  simultaneous-large-actions: forbidden
+  minimum_silhouette_separation: visible-gap-or-clear-depth-separation
+  contact_requires:
+    - named-initiator
+    - named-receiver
+    - compatible-body-parts
+    - contact-point
+    - start-and-end-contact-state
+  prop_requires:
+    - one-explicit-holder
+    - one-explicit-contact-region
+    - one-explicit-transfer-order-if-shared
+
+wan_2_2_interface:
+  t2v:
+    role: broad-motion-exploration-with-full-identity-description
+    rules:
+      - use-one-character-when-testing-new-motion-language
+      - put-count-action-direction-speed-and-endpoint-before-style-detail
+      - do-not-approve-exact-recurring-character-motion-identity-without-reference
+  i2v:
+    role: identity-critical-controlled-motion
+    rules:
+      - source-frame-locks-identity-anatomy-contact-background-and-start-pose
+      - prompt-only-the-visible-change-and-locked-regions
+      - prefer-slow-or-medium-motion
+      - shorten-segment-if-fur-feather-face-or-contact-drift-appears
+  ti2v:
+    role: draft-action-direction-endpoint-and-camera-screening
+    simplify:
+      - secondary-motion
+      - facial-detail
+      - material-detail
+      - multi-character-overlap
+    final-identity-or-fine-motion-approval: forbidden
+  s2v:
+    role: audio-timed-speaking-performance
+    rules:
+      - locked-speech-controls-mouth-and-performance-timing
+      - one-supporting-body-gesture-per-emphasis-region
+      - mouth-rests-during-silence-and-after-speech
+      - avoid-locomotion-large-turns-and-repeated-bounces-during-speech
+      - preserve-face-framing-and-background-stability
+
+complex_action_split_rule:
+  split_when:
+    - more-than-one-locomotion-change
+    - contact-and-release-plus-new-action
+    - entry-or-exit-plus-performance
+    - large-turn-plus-prop-manipulation
+    - two-character-action-plus-camera-move
+    - action-cannot-be-described-with-one-endpoint
+  split_at:
+    - stable-contact
+    - stillness
+    - completed-settle
+    - neutral-face-or-mouth-rest
+
+quality_control:
+  approve_when:
+    - identity-and-anatomy-remain-stable
+    - one-action-direction-speed-and-endpoint-are-readable
+    - balance-contact-and-weight-are-coherent
+    - motion-remains-child-safe
+    - secondary-motion-is-controlled
+    - camera-does-not-compete
+  reject_when:
+    - extra-or-missing-limb
+    - face-eye-muzzle-or-beak-deformation
+    - foot-or-paw-sliding
+    - fused-character-or-prop-contact
+    - unclear-holder-or-action-owner
+    - chaotic-timing-or-camera
+    - unsafe-height-speed-impact-or-imitation
+

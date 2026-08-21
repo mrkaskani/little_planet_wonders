@@ -8,7 +8,7 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
-REFERENCE="${PROJECT_ROOT}/src/lpw/context/projects/classroom/audio-assets/voice-references/riri/neutral-friendly.wav"
+REFERENCE="${PROJECT_ROOT}/src/lpw/context/projects/riri-yoyo/audio-assets/voice-references/riri/neutral-friendly.wav"
 
 exec "${PROJECT_ROOT}/.venv-qwen3-tts/bin/python" "${SCRIPT_DIR}/clone_voice.py" \
   --text "$1" \

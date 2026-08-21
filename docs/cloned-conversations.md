@@ -73,7 +73,7 @@ Create a JSON file anywhere in the workspace. A complete example is:
 ```json
 {
   "title": "Our Tiny Classroom Seed",
-  "project": "classroom",
+  "project": "riri-yoyo",
   "language": "English",
   "target_seconds": 30,
   "seed": 424242,
@@ -100,7 +100,7 @@ Top-level fields:
 | Field | Required | Default | Meaning |
 |---|:---:|---|---|
 | `title` | No | `Conversation` | Human-readable transcript title. |
-| `project` | No | `classroom` | Project containing character profiles. |
+| `project` | No | `riri-yoyo` | Project containing character profiles. |
 | `language` | No | `English` | Language passed to Qwen3-TTS. |
 | `target_seconds` | No | `30` | Desired assembled duration, from 1 to 3600 seconds. |
 | `seed` | No | `424242` | Non-negative base seed for reproducible turn sampling. |

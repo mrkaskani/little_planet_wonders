@@ -1,0 +1,137 @@
+{
+  "spec": "src/lpw/context/projects/riri-yoyo/audios/sound-effects.yaml",
+  "principles": "src/lpw/context/projects/riri-yoyo/sound/sound-effects-bible.md",
+  "output_root": "src/lpw/context/projects/riri-yoyo/audio-assets/sound-effects",
+  "manifest_path": "src/lpw/context/projects/riri-yoyo/audio-assets/manifests/classroom-core-sfx.json",
+  "generator_kind": "sfx",
+  "model": "medium",
+  "decoder": "same-l",
+  "steps": 8,
+  "cfg": 1.0,
+  "peak_ceiling_dbfs": -6.0,
+  "negative_prompt": "",
+  "assets": [
+    {
+      "path": "kindergarten-play-space/movement/jump-soft-takeoff.wav",
+      "seconds": 1.5,
+      "seed": 5101,
+      "prompt": "Cheerful preschool cartoon jump takeoff: a tiny rubbery boing and bubbly airy poof, bright, bouncy, cute and silly, one clean isolated action, soft rounded transient, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/jump-soft-landing.wav",
+      "seconds": 1.5,
+      "seed": 5102,
+      "prompt": "Cute preschool cartoon character lands like a plush toy on a cushion: soft pom-pom pat with one tiny happy bounce, warm, gentle and funny, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/jump-light-whoosh.wav",
+      "seconds": 1.5,
+      "seed": 5103,
+      "prompt": "Playful preschool cartoon jump whoosh: short light airy swoop rising upward, smooth, sparkly-bright and friendly, soft rounded edges, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-start-soft.wav",
+      "seconds": 1.5,
+      "seed": 5111,
+      "prompt": "Funny preschool cartoon slide begins: quick silky swish with a tiny rubbery squeak, playful, bright and gentle, one isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-loop-playful.wav",
+      "seconds": 3.0,
+      "seed": 5112,
+      "prompt": "Cute cartoon character happily sliding across a smooth playroom floor: soft continuous silky friction with light bubbly motion, steady playful preschool sound, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-stop-soft.wav",
+      "seconds": 1.5,
+      "seed": 5113,
+      "prompt": "Playful preschool cartoon slide slows to a stop: descending soft swish ending in a tiny cushioned pop, funny, safe and rounded, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/movement/quick-stop-soft.wav",
+      "seconds": 1.5,
+      "seed": 5121,
+      "prompt": "Very short silly cartoon quick-stop: tiny rubbery skid, soft squeak and cute padded pop, cheerful preschool animation, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/reactions/tiny-pop.wav",
+      "seconds": 1.0,
+      "seed": 5131,
+      "prompt": "One tiny colorful bubble pop for a happy preschool cartoon reaction: plump, rounded, cute and friendly, very short isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-exterior-garden/interactions/maintenance-door-open.wav",
+      "seconds": 3.0,
+      "seed": 5141,
+      "prompt": "Child-friendly cartoon metal maintenance door opens: friendly latch click, smooth rounded metal movement and a light comic clonk, weighty but not scary, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-exterior-garden/interactions/maintenance-door-close.wav",
+      "seconds": 3.0,
+      "seed": 5142,
+      "prompt": "Child-friendly cartoon metal maintenance door closes gently: smooth rounded metal movement ending in a soft comic ker-plunk latch, playful and safe, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-classroom/interactions/light-wood-door-open.wav",
+      "seconds": 3.0,
+      "seed": 5151,
+      "prompt": "Bright preschool cartoon classroom door opens: warm light-wood swish, cute tidy latch click and a tiny friendly hinge chirp, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-classroom/interactions/light-wood-door-close.wav",
+      "seconds": 3.0,
+      "seed": 5152,
+      "prompt": "Bright preschool cartoon classroom door closes gently: warm light-wood movement and a cute rounded click-clack latch, soft isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-open.wav",
+      "seconds": 2.0,
+      "seed": 5161,
+      "prompt": "Tiny colorful wooden toy door opens in a preschool cartoon: miniature squeaky hinge and cute wooden click, whimsical, light and playful, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-close.wav",
+      "seconds": 2.0,
+      "seed": 5162,
+      "prompt": "Tiny colorful wooden toy door closes in a preschool cartoon: miniature wooden clack and soft toy-like click, cute, whimsical and playful, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-chime.wav",
+      "seconds": 2.0,
+      "seed": 5163,
+      "prompt": "Magical preschool toy-door chime: two tiny warm twinkly bell notes, bright, innocent, curious and delightful, very short isolated cartoon sound, no background music."
+    },
+    {
+      "path": "kindergarten-classroom/interactions/device-activate-soft.wav",
+      "seconds": 2.0,
+      "seed": 5171,
+      "prompt": "Friendly preschool cartoon gadget activates: soft jelly-button click, bubbly electronic bloop and brief magical shimmer, curious and exciting, isolated sound effect, no music."
+    },
+    {
+      "path": "kindergarten-classroom/interactions/device-alert-muted.wav",
+      "seconds": 2.0,
+      "seed": 5172,
+      "prompt": "Cute preschool cartoon gadget notification: two soft rounded boop-beeps, friendly, curious and non-urgent, clean isolated sound effect, no alarm, no music."
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/rain-on-leather-close.wav",
+      "seconds": 3.0,
+      "seed": 5181,
+      "peak_ceiling_dbfs": -9.0,
+      "prompt": "Cozy preschool cartoon rain: tiny playful raindrops pitter-patter on a little leather raincoat, close, soft, warm and comforting, clean isolated texture, no thunder, no music."
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/gentle-wind.wav",
+      "seconds": 4.0,
+      "seed": 5191,
+      "peak_ceiling_dbfs": -12.0,
+      "prompt": "Gentle storybook breeze in a cheerful preschool garden: soft airy flow and delicate happy leaves, cozy, bright, calm and child-safe, steady ambience, no music."
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/playful-gust.wav",
+      "seconds": 3.0,
+      "seed": 5192,
+      "prompt": "Playful storybook breeze gust swoops past in a preschool cartoon: smooth whimsical airy rise and fall, light, bouncy, friendly and non-scary, isolated sound effect, no voice, no music."
+    }
+  ]
+}

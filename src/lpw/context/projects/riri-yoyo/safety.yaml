@@ -1,0 +1,226 @@
+id: riri-yoyo-safety
+type: preschool-safety-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  scope: emotional-physical-sensory-imitation-and-generation-safety
+
+source_authority:
+  project: project.yaml
+  wan_2_2: wan22-preproduction.yaml
+  visual_style: visual_style/visual_style.yaml
+  animation: characters/animation-style.yaml
+  acting: characters/acting-style.yaml
+  relationships: characters/relationships.yaml
+  educational_direction: educational-direction.yaml
+
+core_principles:
+  - preserve-safety-without-making-emotions-invisible
+  - show-calm-readable-cause-and-effect
+  - keep-characters-supported-and-never-humiliated
+  - prevent-dangerous-imitation
+  - resolve-mild-distress-clearly-and-promptly
+  - reject-uncanny-or-ambiguous-generation-artifacts
+
+emotional_intensity:
+  default: positive-gentle
+  permitted:
+    - curiosity
+    - happiness
+    - mild-surprise
+    - mild-confusion
+    - mild-frustration
+    - mild-concern
+    - brief-sadness
+    - empathy
+    - reassurance
+    - accomplishment
+  maximum: clear-but-not-overwhelming
+  distress_duration: brief
+  require_after_distress:
+    - safety-is-readable
+    - supportive-response
+    - calm-down-or-recovery
+    - emotionally-settled-ending-state
+  forbidden:
+    - terror
+    - panic
+    - rage
+    - humiliation
+    - despair
+    - prolonged-crying
+    - abandonment-threat
+    - threatening-tension
+
+common_fears:
+  avoid_or_reframe:
+    - darkness-as-danger
+    - being-lost-or-abandoned
+    - monsters-or-uncanny-faces
+    - threatening-animals
+    - entrapment
+    - severe-weather
+    - loud-unseen-threat
+    - medical-or-injury-detail
+  if_mildly_present_later:
+    - establish-safe-context-first
+    - keep-cause-visible-and-nonthreatening
+    - include-trusted-support
+    - resolve-within-the-same-short-sequence
+    - never-use-jump-scare-framing-or-sound
+
+physical_safety:
+  forbidden_hazards:
+    - fire-or-hot-surface-play
+    - electricity-interaction
+    - sharp-object-play
+    - medicine-cleaner-or-chemical-play
+    - traffic-or-road-play
+    - unsafe-water-depth-or-unsupervised-water-entry
+    - dangerous-height-climbing
+    - choking-size-object-play
+    - suffocation-entanglement-or-long-cord-play
+    - unsafe-machinery-or-vehicle-operation
+    - weapon-use
+  movement_limits:
+    - low-jumps-with-soft-landings
+    - controlled-running-with-clear-path-and-stop
+    - no-dangerous-speed-collision-or-near-miss
+    - no-pushing-dragging-or-forced-contact
+    - falls-only-if-soft-brief-comedic-and-injury-free
+  interaction_rules:
+    - approved-contact-points-only
+    - stable-balance-and-ground-contact
+    - clear-supervision-or-safe-design-when-relevant
+    - no-action-that-invites-dangerous-real-world-copying
+
+imitation_risk:
+  review_questions:
+    - could-a-preschool-child-copy-this-action
+    - would-copying-require-adult-supervision
+    - does-the-action-model-safe-distance-tools-or-permission
+    - is-the-consequence-realistic-without-being-frightening
+  reject_when:
+    - unsafe-action-is-rewarded-or-treated-as-a-game
+    - warning-is-only-verbal-and-the-image-shows-unsafe-success
+    - character-bypasses-a-safety-boundary
+    - adult-only-tool-or-control-is-presented-as-child-operable
+
+sensory_limits:
+  visual:
+    flashing: forbidden
+    rapid-strobing-or-alternating-contrast: forbidden
+    chaotic-camera: forbidden
+    harsh-black-red-threat-palette: forbidden-as-positive-direction
+    sustained-full-frame-high-contrast-noise: forbidden
+    preferred: stable-soft-readable-forms-and-controlled-motion
+  audio:
+    sudden-extreme-level-jump: forbidden
+    sustained-loudness: forbidden
+    harsh-screech-alarm-or-impact: forbidden
+    threatening-low-rumble: forbidden
+    dialogue-intelligibility: priority
+    preferred: gentle-controlled-dynamics-and-predictable-cues
+
+forbidden_imagery:
+  - violence-or-injury
+  - blood-wounds-or-body-horror
+  - realistic-death
+  - horror-monsters-or-possessed-faces
+  - weapons
+  - cruelty-bullying-or-humiliation
+  - sexualized-content
+  - substance-use
+  - frightening-photorealism
+  - unsafe-copyable-instructions
+  - hateful-or-discriminatory-depiction
+
+reassurance_requirements:
+  visual:
+    - open-readable-body-language
+    - safe-distance-and-clear-exit
+    - warm-stable-lighting
+    - supportive-character-or-environment-cue
+  performance:
+    - calm-voice-and-readable-pacing
+    - acknowledge-feeling-without-amplifying-fear
+    - show-one-simple-safe-next-step
+    - finish-with-visible-relief-or-confidence
+  forbid:
+    - dismissing-or-mocking-feelings
+    - false-promise-that-danger-never-exists
+    - reassurance-without-visible-safety-change
+
+generation_specific_rejection:
+  anatomy:
+    - extra-or-missing-limbs
+    - fused-characters
+    - merged-face-or-body
+    - impossible-joint-or-neck
+    - detached-or-floating-body-part
+    - eye-mouth-muzzle-or-beak-deformation
+  identity:
+    - Riri-Yoyo-identity-mixing
+    - age-or-species-drift
+    - threatening-redesign
+    - unexpected-clothing-accessory-prop-or-background-character
+  contact:
+    - fused-character-prop-contact
+    - unsafe-grip-seat-or-balance
+    - object-through-body
+    - forced-or-ambiguous-contact
+  environment:
+    - blocked-exit
+    - unsafe-water-height-or-edge
+    - sharp-dangerous-or-transforming-object
+    - collapsing-or-moving-architecture
+    - accidental-face-in-object-or-background
+  expression:
+    - uncanny-grin
+    - dead-or-asymmetric-eyes
+    - prolonged-distress
+    - aggression-or-menace
+  motion:
+    - collision
+    - uncontrolled-spin-slide-fall-or-camera
+    - foot-slip-without-intended-motion
+    - high-frequency-flicker-or-body-warp
+
+wan_2_2_mode_gates:
+  t2v:
+    - use-only-approved-safe-concepts-and-counts
+    - reject-invented-hazard-character-prop-or-vehicle
+  i2v:
+    - source-frame-must-pass-anatomy-contact-environment-and-expression-review
+    - motion-prompt-must-have-safe-start-path-speed-and-endpoint
+  ti2v:
+    - draft-output-never-overrides-a-visible-safety-failure
+    - unsafe-draft-is-rejected-not-polished
+  s2v:
+    - face-mouth-beak-gaze-and-emotion-must-remain-safe-and-readable
+    - no-distressing-vocal-performance-or-silent-mouth-chatter
+    - locked-speech-contains-no-music-effects-or-startling-sound
+
+review_result_schema:
+  fields:
+    - review-id
+    - asset-or-manifest-id
+    - reviewer
+    - date
+    - emotional-safety
+    - physical-safety
+    - imitation-risk
+    - sensory-safety
+    - anatomy-and-contact
+    - result
+    - required-action
+  results:
+    - pass
+    - revise
+    - reject
+  any-critical-failure-result: reject
+

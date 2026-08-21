@@ -1,0 +1,535 @@
+# FILE NAME: project.yaml
+
+id: riri-yoyo
+type: project-context
+version: 2
+status: approved
+
+extends:
+  - cinema://studio/animation-defaults@1
+
+wan_2_2:
+  contract_source: wan22-preproduction.yaml
+  supported_tasks:
+    - t2v
+    - i2v
+    - ti2v
+    - s2v
+  unsupported_tasks:
+    - animate
+  selection:
+    exploratory_text_only: t2v
+    recurring_identity_or_exact_layout: i2v
+    efficient_text_or_image_draft: ti2v
+    locked_dialogue_or_vocal_performance: s2v
+  global_rules:
+    - use task-specific conditioning rather than one generic generation prompt
+    - use one observable primary action and one camera behavior per generation segment
+    - require approved single-frame input for identity-critical I2V and every S2V task
+    - treat locked clean speech as S2V timing authority
+    - never use character sheets collages labels watermarks or placeholder paths as conditioning frames
+    - keep Wan native format separate from final delivery format
+
+preproduction_authorities:
+  brand: brand.yaml
+  references: references.yaml
+  reference_views: reference-views.yaml
+  asset_conventions: asset-conventions.yaml
+  animation_style: characters/animation-style.yaml
+  acting_style: characters/acting-style.yaml
+  relationships: characters/relationships.yaml
+  safety: safety.yaml
+  educational_direction: educational-direction.yaml
+  checklist: preproduction-checklist.yaml
+  review_cards: wan22-review-cards.yaml
+  voice_reference_audit: audios/voice-reference-audit.yaml
+
+project:
+  id: riri-yoyo
+  title: Riri & Yoyo
+  format: preschool-episodic-animation
+
+  audience:
+    age_range: "3-6"
+    primary: preschool_children
+    secondary:
+      - parents
+      - caregivers
+      - educators
+
+  genre:
+    - preschool
+    - educational
+    - friendship
+    - gentle_adventure
+    - everyday_discovery
+
+  core_themes:
+    - friendship
+    - curiosity
+    - kindness
+    - cooperation
+    - emotional_learning
+    - discovery
+    - play
+    - problem_solving
+    - imagination
+    - learning_through_experience
+
+  tone:
+    - warm
+    - cheerful
+    - gentle
+    - playful
+    - curious
+    - comforting
+    - emotionally_clear
+    - child_safe
+
+  emotional_range:
+    default: positive_and_gentle
+    allow:
+      - curiosity
+      - excitement
+      - happiness
+      - surprise
+      - mild_confusion
+      - mild_frustration
+      - concern
+      - empathy
+      - reassurance
+      - accomplishment
+
+    avoid:
+      - horror
+      - cruelty
+      - intense_fear
+      - threatening_tension
+      - prolonged_sadness
+      - aggressive_conflict
+      - disturbing_imagery
+
+characters:
+  canonical:
+    - id: riri
+      role: main_character
+      species: puppy
+      pronouns: she-her
+      gender_presentation: feminine
+      voice_authority: characters/riri/voice-profile.yaml
+      personality:
+        - sweet
+        - cheerful
+        - warm
+        - expressive
+        - friendly
+
+    - id: yoyo
+      role: main_character
+      species: penguin
+      pronouns: he-him
+      gender_presentation: boyish
+      voice_authority: characters/yoyo/voice-profile.yaml
+      personality:
+        - cute
+        - energetic
+        - playful
+        - curious
+
+  continuity:
+    preserve_identity: true
+    preserve_species: true
+    preserve_visual_age: true
+    preserve_body_proportions: true
+    preserve_head_to_body_ratio: true
+    preserve_face_design: true
+    preserve_eye_design: true
+    preserve_permanent_colors: true
+    preserve_markings: true
+    preserve_accessories: true
+    preserve_wardrobe_when_established: true
+
+visual_direction:
+  medium: stylized_3d_animation
+
+  overall_style:
+    - polished
+    - soft
+    - colorful
+    - cinematic
+    - child_friendly
+    - cohesive
+    - visually_readable
+
+  realism:
+    world_logic: physically_coherent
+    rendering: stylized
+    materials: believable_stylized
+    lighting: cinematic_naturalistic
+    motion: physically_grounded_stylized
+
+  character_rendering:
+    preserve_reference_design: true
+    soft_forms: true
+    readable_silhouettes: true
+    expressive_faces: true
+    child_friendly_proportions: true
+    avoid_unnecessary_redesign: true
+
+  environment_rendering:
+    preserve_reference_geometry: true
+    preserve_reference_layout: true
+    preserve_object_quantities: true
+    preserve_relative_scale: true
+    preserve_material_identity: true
+    preserve_color_identity: true
+    avoid_environment_redesign: true
+    avoid_unnecessary_decoration: true
+
+  acting:
+    style: clear_natural_stylized
+    emotional_readability: high
+    body_language: child_readable
+    facial_expression: expressive_but_controlled
+    exaggeration: moderate
+    avoid_overacting: true
+
+  color:
+    source: visual_style/palette-v2.yaml
+    preserve_canonical_palette: true
+    lighting_may_modify_perceived_color: true
+    permanent_colors_must_not_change: true
+
+locations:
+  location_types:
+    - kindergarten_exterior
+    - kindergarten_interior
+    - indoor_play_space
+    - nature_park
+    - sunset_golden_hour
+    - evening_night
+    - general_interior
+    - general_exterior
+
+  continuity:
+    treat_each_location_as_fixed_3d_environment: true
+    preserve_architecture: true
+    preserve_geometry: true
+    preserve_layout: true
+    preserve_relative_scale: true
+    preserve_furniture: true
+    preserve_props: true
+    preserve_materials: true
+    preserve_pathways: true
+    preserve_landscape: true
+    preserve_object_quantities: true
+    preserve_vegetation_quantities: true
+    preserve_major_tree_count: true
+
+    camera_change_does_not_change_environment: true
+    lighting_change_does_not_change_environment: true
+    picture_type_does_not_change_environment: true
+
+  canonical_orientation:
+    enabled: true
+    directions:
+      - front
+      - left
+      - right
+      - rear
+
+    location_relative_not_camera_relative: true
+
+cinematography:
+  camera_language_source: cinematography/camera-language.yaml
+  lens_package_source: cinematography/lens-package.yaml
+  movement_rules_source: cinematography/movement-rules.yaml
+  composition_rules_source: cinematography/composition-rules.yaml
+
+  principles:
+    - prioritize_story_clarity
+    - maintain_character_readability
+    - maintain_spatial_continuity
+    - use_child_friendly_compositions
+    - avoid_disorienting_camera_work
+    - preserve_location_orientation
+    - preserve_screen_direction_when_required
+
+  camera:
+    movement: smooth_and_motivated
+    handheld: false
+    excessive_shake: false
+    extreme_dutch_angles: false
+    unnecessary_lens_distortion: false
+
+  framing:
+    prioritize_faces: true
+    preserve_full_body_readability_for_action: true
+    provide_environment_context_when_needed: true
+    avoid_visual_clutter: true
+
+motion:
+  style: smooth_grounded_stylized
+  preserve_character_volume: true
+  preserve_character_proportions: true
+  preserve_limb_length: true
+  preserve_body_mass: true
+  child_friendly_movement: true
+
+  avoid:
+    - uncontrolled_squash_and_stretch
+    - anatomical_drift
+    - identity_drift
+    - unstable_accessories
+    - sliding_feet
+    - unintended_floating
+    - unnatural_body_deformation
+
+lighting:
+  approach: cinematic_naturalistic_stylized
+
+  preserve:
+    - location_identity
+    - material_identity
+    - canonical_character_colors
+    - canonical_environment_colors
+    - spatial_readability
+
+  supported_conditions:
+    - morning
+    - daytime
+    - interior_day
+    - sunset
+    - golden_hour
+    - evening
+    - night
+
+  rules:
+    lighting_changes_must_not_redesign_location: true
+    maintain_character_readability: true
+    avoid_crushed_shadows: true
+    avoid_harsh_overexposure: true
+    avoid_horror_lighting: true
+    avoid_unmotivated_color_shifts: true
+
+audio:
+  global_rules_source: audios/audio.yaml
+  dialogue_style_source: audios/audio_style.yaml
+  voice_production_source: audios/voice-production.yaml
+  s2v_input_source: audios/s2v-input-spec.yaml
+  ambience_source: audios/ambience.yaml
+
+  priorities:
+    - dialogue_intelligibility
+    - character_vocal_clarity
+    - narrative_sound_effects
+    - music
+    - environmental_ambience
+
+  style:
+    - warm
+    - clear
+    - natural
+    - gentle
+    - child_friendly
+    - non_fatiguing
+
+  continuity:
+    preserve_room_tone_across_cuts: true
+    preserve_environmental_ambience: true
+    avoid_abrupt_audio_changes: true
+
+music:
+  use_character_music_profiles: true
+  use_location_music_profiles: true
+  support_story_not_dominate: true
+  dialogue_has_priority: true
+  child_friendly: true
+
+continuity:
+  character_state_source: continuity/character-states.yaml
+  initial_state_source: continuity/initial-state.yaml
+  location_asset_source: locations-assets.yaml
+  prop_catalog_source: assets/props.yaml
+  costume_catalog_source: assets/costumes.yaml
+  vehicle_catalog_source: assets/vehicles.yaml
+  background_character_catalog_source: assets/background-characters.yaml
+
+  principles:
+    - preserve_character_identity
+    - preserve_character_scale
+    - preserve_character_colors
+    - preserve_character_markings
+    - preserve_character_accessories
+    - preserve_established_wardrobe
+    - preserve_location_geometry
+    - preserve_location_orientation
+    - preserve_environment_quantities
+    - preserve_prop_identity
+    - preserve_prop_positions_when_unchanged
+    - preserve_vehicle_identity
+    - preserve_vehicle_scale_orientation_parts_and_occupants
+    - preserve_material_identity
+    - preserve_color_palette
+    - preserve_screen_direction
+    - preserve_time_of_day_within_continuous_scenes
+    - preserve_weather_within_continuous_scenes
+    - preserve_audio_environment
+    - follow_camera_language
+    - follow_lens_package
+    - follow_movement_rules
+    - follow_composition_rules
+
+  no_unmotivated_changes:
+    characters: true
+    wardrobe: true
+    accessories: true
+    props: true
+    architecture: true
+    furniture: true
+    vegetation: true
+    pathways: true
+    weather: true
+    lighting: true
+    time_of_day: true
+
+reference_authority:
+  character_reference_images:
+    authority: approved-visible-identity-and-starting-state
+    rule: >-
+      Preserve approved visible identity, but do not copy background, lighting
+      contamination, temporary pose deformation, or generation artifacts.
+
+  location_reference_images:
+    authority: approved-visible-geometry-and-starting-state
+    rule: >-
+      Preserve approved geometry, orientation, landmarks, materials, and starting
+      composition without inventing hidden structure.
+
+  approved_yaml:
+    authority: canonical_metadata
+
+  approved_color_palette:
+    authority: canonical_color_reference
+
+  conflict_resolution:
+    visual_identity:
+      prefer: approved-reference-plus-canonical-yaml
+      unresolved_conflict: block-and-review
+
+    structured_metadata:
+      prefer: latest_approved_yaml
+
+generation_rules:
+  task_contract_source: wan22-preproduction.yaml
+  task_aware_conditioning: true
+  reference_required_for:
+    - i2v
+    - s2v
+  reference_optional_for:
+    - ti2v-image
+  reference_not_used_for:
+    - t2v
+  continuity_first: true
+  prompt_budget:
+    forbid_full_yaml_dump: true
+    use_domain_prompt_fragments_only: true
+    put_subject-count-action-and-invariants-first: true
+
+  do_not:
+    - redesign_characters
+    - redesign_locations
+    - invent_unapproved_permanent_character_features
+    - change_character_species
+    - change_character_proportions
+    - change_permanent_colors
+    - add_unapproved_accessories
+    - alter_location_geometry
+    - duplicate_environment_assets
+    - remove_established_environment_assets
+    - change_object_quantities
+    - increase_vegetation_density_without_instruction
+    - decrease_vegetation_density_without_instruction
+    - move_fixed_architectural_elements
+    - invent_additional_entrances
+    - change_pathway_layout
+    - change_location_orientation
+    - introduce_visual_style_drift
+    - pass-a-character-sheet-or-collage-as-a-generation-frame
+    - pass-placeholder-or-missing-reference-paths
+    - treat-ti2v-draft-detail-as-final-approval
+    - bake-music-ambience-or-effects-into-s2v-speech-input
+    - enable-wan-animate
+
+episode_generation:
+  project_context_is_global: true
+  episode_files_define_story_events: true
+  scene_files_define_local_scene_state: true
+  shot_files_define_camera_execution: true
+
+  inherit:
+    - project_visual_direction
+    - character_identity
+    - location_identity
+    - canonical_color_palette
+    - cinematography_rules
+    - audio_rules
+    - continuity_rules
+    - safety_rules
+
+  scene_specific_changes:
+    must_be_explicit: true
+    persist_until_resolved: true
+
+technical:
+  aspect_ratio: "16:9"
+  frame_rate: 24
+  final_resolution: "1920x1080"
+
+  generation:
+    policy_source: wan22-preproduction.yaml
+    resolution: task-specific
+    frame_rate: workflow-specific
+    native_delivery_equivalence: false
+    ti2v_landscape_dimensions: "1280x704"
+    t2v_i2v_s2v_target_class: 720P
+    conform_without_stretching: true
+
+  audio:
+    final_delivery_sample_rate: 48000
+    final_delivery_channels: 2
+    s2v_conditioning_source: audios/s2v-input-spec.yaml
+    s2v_conditioning_channels: 1
+
+quality_control:
+  check_character_identity: true
+  check_character_proportions: true
+  check_character_colors: true
+  check_location_geometry: true
+  check_location_orientation: true
+  check_object_quantities: true
+  check_vegetation_quantities: true
+  check_prop_continuity: true
+  check_costume_continuity: true
+  check_vehicle_continuity: true
+  check_material_continuity: true
+  check_color_continuity: true
+  check_lighting_continuity: true
+  check_camera_continuity: true
+  check_audio_continuity: true
+  check_temporal_continuity: true
+
+  reject_if:
+    - character_identity_drift
+    - character_proportion_drift
+    - permanent_color_drift
+    - location_redesign
+    - architecture_drift
+    - unexplained_prop_changes
+    - unexplained_costume_or_accessory_changes
+    - unexplained_vehicle_or_occupant_changes
+    - incorrect_object_quantities
+    - incorrect_vegetation_quantities
+    - inconsistent_location_orientation
+    - major_style_drift
+    - continuity_break_without_story_reason

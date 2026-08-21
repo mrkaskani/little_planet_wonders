@@ -10,4 +10,4 @@ This short policy summary complements [Audio workflows](audio-workflows.md).
 - Silence and room tone are intentional tools for understanding and reassurance.
 
 The canonical structured policies live under
-`src/lpw/context/projects/classroom/audios/`.
+`src/lpw/context/projects/riri-yoyo/audios/`.

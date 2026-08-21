@@ -38,9 +38,9 @@ def context_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
         ),
         project / "audios" / "ambience.yaml": (
             "locations:\n"
-            "  rooftop:\n"
+            "  kindergarten_garden:\n"
             "    base_layer:\n"
-            "      asset: audio-assets/ambience/rooftop-night-rain.wav\n"
+            "      asset: audio-assets/ambience/kindergarten_garden-night-rain.wav\n"
             "    continuity:\n"
             "      preserve_across_cuts: true\n"
         ),
@@ -49,21 +49,21 @@ def context_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
             "  active_cue: tension-theme-02\n"
             "  intensity: 0.45\n"
             "ambience:\n"
-            "  active_environment: rooftop-night-rain\n"
+            "  active_environment: kindergarten_garden-night-rain\n"
             "active_sounds:\n"
             "  warning_light_hum:\n"
             "    position: west\n"
             "    gain_db: -32\n"
         ),
-        project / "characters" / "roxana" / "character.yaml": (
-            "id: roxana\n"
+        project / "characters" / "riri" / "character.yaml": (
+            "id: riri\n"
             "reference_images:\n"
-            "  face_three_quarter: references/roxana-three-quarter.png\n"
+            "  face_three_quarter: references/riri-three-quarter.png\n"
         ),
-        project / "locations" / "rooftop" / "location.yaml": (
-            "id: rooftop\n"
+        project / "locations" / "kindergarten_garden" / "location.yaml": (
+            "id: kindergarten_garden\n"
             "environment:\n  weather: light-rain\n"
-            "reference_images:\n  wide_north: references/rooftop-wide.png\n"
+            "reference_images:\n  wide_north: references/kindergarten_garden-wide.png\n"
         ),
         project / "continuity" / "initial-state.yaml": (
             "visual_state:\n  time_of_day: night\n"

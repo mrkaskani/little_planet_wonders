@@ -1,0 +1,552 @@
+{
+  "generated_at": "2026-08-16T15:13:53.872415+00:00",
+  "source_config": "scripts/stable-audio-3-medium/classroom-location-sfx.yaml",
+  "model": "medium",
+  "decoder": "same-l",
+  "steps": 8,
+  "cfg": 1.0,
+  "source_profiles": [
+    {
+      "location": "kindergarten-exterior-garden",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/exteriors/sound-profile.yaml",
+      "id": "kindergarten-sound",
+      "sha256": "0bba75ee2503dc52d647a5db2849951375fbe1e4a0ab35a1ceaa470fa1e72811"
+    },
+    {
+      "location": "kindergarten-classroom",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/interiors/sound-profile.yaml",
+      "id": "kindergarten-interior-sound",
+      "sha256": "01957ae31d1e2ef359590d077dd0b172a1af6edac8cef540a942f55e08d2fdb5"
+    },
+    {
+      "location": "kindergarten-play-space",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/play_spaces/sound-profile.yaml",
+      "id": "kindergarten-play-space-sound",
+      "sha256": "f49e89c746f3176b116282a25989575292fa738daab6c7f7cafdcff13072cd0a"
+    },
+    {
+      "location": "nature-park",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/nature_and_parks/sound-profile.yaml",
+      "id": "nature-park-sound",
+      "sha256": "2a0c20829a0d7abf705a157b30359c71fe68254145575ef8f0af970e98fcf5ca"
+    },
+    {
+      "location": "countryside-golden-hour",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/sunset_golden_hour/sound-profile.yaml",
+      "id": "sunset-golden-hour-sound",
+      "sha256": "08ea4049d74f20eedf5a77495b34f37f8f49d5f989ccf566105c93ddac3bc0e7"
+    },
+    {
+      "location": "kindergarten-evening-night",
+      "path": "src/lpw/context/projects/riri-yoyo/locations/evening_night/sound-profile.yaml",
+      "id": "kindergarten-evening-night-sound",
+      "sha256": "40a5f17a23dcddad7b2563fe36cd1faa226afd72a021c13ffc11427503e0c40b"
+    }
+  ],
+  "assets": [
+    {
+      "location": "kindergarten-exterior-garden",
+      "source_profile_id": "kindergarten-sound",
+      "id": "sunny-garden-ambience",
+      "path": "kindergarten-exterior-garden/ambience/sunny-garden-ambience.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Cheerful storybook kindergarten garden ambience for a preschool cartoon: gentle small birds, soft leafy trees, warm light breeze and very subtle garden insects, spacious, sunny, welcoming and safe, no children speaking, no distinct voices, no music, no harsh wind.",
+      "seconds_requested": 8.0,
+      "seed": 7101,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1411244,
+        "sha256": "0bd2aff6d2e92961d408d7bbe18660aba564db608d0e4fa46e655ffc104942c3"
+      }
+    },
+    {
+      "location": "kindergarten-exterior-garden",
+      "source_profile_id": "kindergarten-sound",
+      "id": "garden-birds-and-foliage",
+      "path": "kindergarten-exterior-garden/environment/garden-birds-and-foliage.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Playful preschool garden layer: a few gentle tiny songbirds among soft colorful leaves moving in a light breeze, natural variation, bright and friendly, clean environment recording, no voices, no music.",
+      "seconds_requested": 5.0,
+      "seed": 7102,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 220500,
+        "duration_seconds": 5.0,
+        "peak_dbfs": -12.0,
+        "bytes": 882044,
+        "sha256": "c0681f4835d6b81733dcdec14a787451cd4b8ec5d0f509faaa58d1fbbd55d178"
+      }
+    },
+    {
+      "location": "kindergarten-exterior-garden",
+      "source_profile_id": "kindergarten-sound",
+      "id": "front-door-open",
+      "path": "kindergarten-exterior-garden/interactions/front-door-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Friendly painted wooden kindergarten front door opening: cute soft handle click, smooth warm wood movement and a tiny cheerful hinge chirp, playful preschool cartoon, one isolated action, no slam, no music.",
+      "seconds_requested": 2.5,
+      "seed": 7103,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 110250,
+        "duration_seconds": 2.5,
+        "peak_dbfs": -9.0,
+        "bytes": 441044,
+        "sha256": "8ad34ad1d4e2fa4b98c12607fa8e6ba5c9be17e8925b4fe9ca095894d3fb5dd8"
+      }
+    },
+    {
+      "location": "kindergarten-exterior-garden",
+      "source_profile_id": "kindergarten-sound",
+      "id": "mailbox-open",
+      "path": "kindergarten-exterior-garden/interactions/mailbox-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Small colorful cartoon mailbox lid opens with a light rounded metal click and gentle tin movement, cute, curious and child-sized, one isolated preschool sound effect, no harsh clang, no music.",
+      "seconds_requested": 2.0,
+      "seed": 7104,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -9.0,
+        "bytes": 352844,
+        "sha256": "f57490a83f90384be14cfae8aa63470acd937ed88c42bfa31c205741cced5498"
+      }
+    },
+    {
+      "location": "kindergarten-classroom",
+      "source_profile_id": "kindergarten-interior-sound",
+      "id": "warm-classroom-ambience",
+      "path": "kindergarten-classroom/ambience/warm-classroom-ambience.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Cozy sunny preschool classroom ambience: warm softly damped room tone, quiet ceiling fan overhead and faint filtered garden birds through closed windows, cheerful and safe, no children, no speech, no distinct voices, no music, no echo.",
+      "seconds_requested": 8.0,
+      "seed": 7201,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1411244,
+        "sha256": "eaead805335e3eb31afcaa04f30ed3e0e88fc4ef3d7f32f27bfd83c7087e7767"
+      }
+    },
+    {
+      "location": "kindergarten-classroom",
+      "source_profile_id": "kindergarten-interior-sound",
+      "id": "ceiling-fan",
+      "path": "kindergarten-classroom/environment/ceiling-fan.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Gentle classroom ceiling fan turning smoothly at slow-medium speed, soft stable electric air movement, warm unobtrusive preschool room layer, no rattle, no grinding, no voices, no music.",
+      "seconds_requested": 5.0,
+      "seed": 7202,
+      "peak_ceiling_dbfs": -15.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 220500,
+        "duration_seconds": 5.0,
+        "peak_dbfs": -15.0,
+        "bytes": 882044,
+        "sha256": "2e624937268d276e48468c1e40bfcf01fcf0f41d00e8ce9c4040c6881ed64167"
+      }
+    },
+    {
+      "location": "kindergarten-classroom",
+      "source_profile_id": "kindergarten-interior-sound",
+      "id": "crayons-and-paper",
+      "path": "kindergarten-classroom/interactions/crayons-and-paper.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Close playful preschool drawing sounds: one wax crayon softly scribbling on paper with a tiny page rustle, tactile, colorful and gentle, isolated Foley, no hands hitting table, no voices, no music.",
+      "seconds_requested": 3.0,
+      "seed": 7203,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -16.14,
+        "bytes": 529244,
+        "sha256": "ad61f0e4fcab63e02b642bafbe27e6ac03afa93d051b62ecb30c63149e9565cb"
+      }
+    },
+    {
+      "location": "kindergarten-classroom",
+      "source_profile_id": "kindergarten-interior-sound",
+      "id": "wooden-block-stack",
+      "path": "kindergarten-classroom/interactions/wooden-block-stack.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Two small colorful wooden learning blocks placed and stacked with cute rounded click-clacks, light child-scale weight, playful preschool cartoon, clean isolated Foley, no crash, no music.",
+      "seconds_requested": 2.0,
+      "seed": 7204,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -9.0,
+        "bytes": 352844,
+        "sha256": "c899d142dae8b697e97a1c0d0fa9cef829b64a2d6e4d426a85924db185bafc8e"
+      }
+    },
+    {
+      "location": "kindergarten-play-space",
+      "source_profile_id": "kindergarten-play-space-sound",
+      "id": "cozy-playroom-ambience",
+      "path": "kindergarten-play-space/ambience/cozy-playroom-ambience.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Cozy colorful preschool playroom ambience: warm soft room tone, very faint filtered sunny garden through closed windows and occasional subtle fabric movement, imaginative, cheerful and safe, no children, no speech, no distinct voices, no music.",
+      "seconds_requested": 8.0,
+      "seed": 7301,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -12.01,
+        "bytes": 1411244,
+        "sha256": "50e203df813c54edf10c5dbe5425f10dffbe4335d3b794420d671a3adabbee08"
+      }
+    },
+    {
+      "location": "kindergarten-play-space",
+      "source_profile_id": "kindergarten-play-space-sound",
+      "id": "cushion-and-beanbag",
+      "path": "kindergarten-play-space/interactions/cushion-and-beanbag.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Small cartoon character sits gently on a plush beanbag: soft cushion compression, friendly fabric rustle and tiny filling shift, cozy, funny and child-safe, isolated preschool Foley, no impact, no music.",
+      "seconds_requested": 3.0,
+      "seed": 7302,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -12.37,
+        "bytes": 529244,
+        "sha256": "3c051585509ff3da31ec2c4d6c0c4bc8788d11331a1839aa84136f4086b9a363"
+      }
+    },
+    {
+      "location": "kindergarten-play-space",
+      "source_profile_id": "kindergarten-play-space-sound",
+      "id": "lightweight-toy-placement",
+      "path": "kindergarten-play-space/interactions/lightweight-toy-placement.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Tiny colorful plastic preschool toy picked up and placed softly on a padded rug, cute light click and muffled contact, playful child-scale isolated Foley, no crash, no music.",
+      "seconds_requested": 2.0,
+      "seed": 7303,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -9.0,
+        "bytes": 352844,
+        "sha256": "e786ec021ba1b093927c8ef217fa3027bdb92151d47cc989377c20f56d3fad8a"
+      }
+    },
+    {
+      "location": "kindergarten-play-space",
+      "source_profile_id": "kindergarten-play-space-sound",
+      "id": "playhouse-knock",
+      "path": "kindergarten-play-space/interactions/playhouse-knock.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Two tiny friendly knocks on a painted wooden toy playhouse, warm hollow wooden tok-tok, cute and inviting preschool cartoon sound, soft isolated action, no voices, no music.",
+      "seconds_requested": 1.5,
+      "seed": 7304,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -9.0,
+        "bytes": 264644,
+        "sha256": "d97b88009c4344af55920662fe9ecff00cb542bdbb32670642c20031d7f6ca37"
+      }
+    },
+    {
+      "location": "nature-park",
+      "source_profile_id": "nature-park-sound",
+      "id": "sunny-park-ambience",
+      "path": "nature-park/ambience/sunny-park-ambience.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Bright peaceful storybook nature park ambience for preschool animation: gentle shallow stream, sparse tiny songbirds, soft tree leaves and light open breeze, cheerful, spacious and relaxing, no people, no voices, no music, no rushing river.",
+      "seconds_requested": 8.0,
+      "seed": 7401,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1411244,
+        "sha256": "0446d3ce95f30f8d9da259983fbe6302d3ea9e6bf4c7ede17b8992b82fbf84f5"
+      }
+    },
+    {
+      "location": "nature-park",
+      "source_profile_id": "nature-park-sound",
+      "id": "gentle-park-stream",
+      "path": "nature-park/environment/gentle-park-stream.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Gentle clear shallow park stream flowing around small rounded stones, light ripples and friendly trickling water, calm storybook preschool nature layer, no waterfall, no deep rumble, no birds, no voices, no music.",
+      "seconds_requested": 6.0,
+      "seed": 7402,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 264600,
+        "duration_seconds": 6.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1058444,
+        "sha256": "e945e1f61af93ec54ee38b3b5de5e840b233571385249fd4ff39de360dbc08e9"
+      }
+    },
+    {
+      "location": "nature-park",
+      "source_profile_id": "nature-park-sound",
+      "id": "wooden-bridge-step",
+      "path": "nature-park/interactions/wooden-bridge-step.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. One tiny character takes two light steps on a safe wooden park bridge, soft warm plank taps with child-scale weight, playful preschool Foley, clean isolated action, no creak, no music.",
+      "seconds_requested": 2.0,
+      "seed": 7403,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -9.0,
+        "bytes": 352844,
+        "sha256": "3c741b35c92531197eb0815d0912212ec29e308e2393fbd8f2a96f25cd9fa41c"
+      }
+    },
+    {
+      "location": "nature-park",
+      "source_profile_id": "nature-park-sound",
+      "id": "shallow-water-splash",
+      "path": "nature-park/interactions/shallow-water-splash.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. One small playful step into very shallow clear water, cute gentle splash with tiny sparkling droplets, happy child-safe preschool cartoon Foley, isolated action, no large splash, no music.",
+      "seconds_requested": 2.0,
+      "seed": 7404,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -9.0,
+        "bytes": 352844,
+        "sha256": "ae535641deeca064788eec92c6ba5caffa922b3778dc689ce47cb1ad549064c8"
+      }
+    },
+    {
+      "location": "countryside-golden-hour",
+      "source_profile_id": "sunset-golden-hour-sound",
+      "id": "golden-hour-ambience",
+      "path": "countryside-golden-hour/ambience/golden-hour-ambience.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Warm storybook countryside at golden hour for preschool animation: gentle evening breeze through meadow grass and flowers, very sparse soft birds and subtle friendly insects, peaceful, spacious and comforting, no people, no voices, no music, no harsh wind.",
+      "seconds_requested": 8.0,
+      "seed": 7501,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1411244,
+        "sha256": "b49e0c44e3f112eb6ea3d885ba96d56ead297daadc93571e9716e93545c49ae6"
+      }
+    },
+    {
+      "location": "countryside-golden-hour",
+      "source_profile_id": "sunset-golden-hour-sound",
+      "id": "meadow-breeze",
+      "path": "countryside-golden-hour/environment/meadow-breeze.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Soft warm evening breeze moving through meadow grass and delicate wildflowers, gentle broad rustle with natural variation, beautiful and reassuring preschool storybook layer, no insects, no voices, no music.",
+      "seconds_requested": 6.0,
+      "seed": 7502,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 264600,
+        "duration_seconds": 6.0,
+        "peak_dbfs": -12.0,
+        "bytes": 1058444,
+        "sha256": "d78680f3e3160ee47dc869c2a821ea44dc142a69e85dce9a156d20e8d27592be"
+      }
+    },
+    {
+      "location": "countryside-golden-hour",
+      "source_profile_id": "sunset-golden-hour-sound",
+      "id": "stone-path-steps",
+      "path": "countryside-golden-hour/interactions/stone-path-steps.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Three light child-sized cartoon footsteps on a natural stone country path, soft rounded taps and one tiny pebble shift, playful and gentle preschool Foley, isolated action, no heavy boots, no music.",
+      "seconds_requested": 2.5,
+      "seed": 7503,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 110250,
+        "duration_seconds": 2.5,
+        "peak_dbfs": -9.0,
+        "bytes": 441044,
+        "sha256": "9dcd6b0143ac61218c572d8f51ed0bd541dab5c291b8e7025bfcada06e08db94"
+      }
+    },
+    {
+      "location": "countryside-golden-hour",
+      "source_profile_id": "sunset-golden-hour-sound",
+      "id": "wooden-fence-touch",
+      "path": "countryside-golden-hour/interactions/wooden-fence-touch.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Tiny paw gently touches a warm weathered wooden countryside fence, subtle friendly wood tap and soft surface rub, cute child-scale preschool Foley, one isolated action, no crack, no music.",
+      "seconds_requested": 1.5,
+      "seed": 7504,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -9.0,
+        "bytes": 264644,
+        "sha256": "cd16412f95af2f15f2043338c5ec2e7cec844482927b7c9828e0eb6f546a4649"
+      }
+    },
+    {
+      "location": "kindergarten-evening-night",
+      "source_profile_id": "kindergarten-evening-night-sound",
+      "id": "reassuring-night-garden",
+      "path": "kindergarten-evening-night/ambience/reassuring-night-garden.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Cozy magical kindergarten garden at early night for preschool animation: gentle crickets, soft calm night air, very light leaves and distant warm neighborhood room tone, reassuring, safe and peaceful, no owl, no scary sounds, no voices, no music.",
+      "seconds_requested": 8.0,
+      "seed": 7601,
+      "peak_ceiling_dbfs": -15.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 352800,
+        "duration_seconds": 8.0,
+        "peak_dbfs": -16.52,
+        "bytes": 1411244,
+        "sha256": "69a37a98b123d16663beaac5d63b944a82d7081650e8e237af67d6a4bd90853c"
+      }
+    },
+    {
+      "location": "kindergarten-evening-night",
+      "source_profile_id": "kindergarten-evening-night-sound",
+      "id": "gentle-night-insects",
+      "path": "kindergarten-evening-night/environment/gentle-night-insects.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Sparse gentle garden crickets and tiny friendly night insects, soft natural variation in calm clear air, cozy child-safe preschool night layer, no swarm, no loud buzzing, no birds, no voices, no music.",
+      "seconds_requested": 6.0,
+      "seed": 7602,
+      "peak_ceiling_dbfs": -15.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 264600,
+        "duration_seconds": 6.0,
+        "peak_dbfs": -15.0,
+        "bytes": 1058444,
+        "sha256": "7076eb7ef000ff648635e89ddb9da417f798d6da155663609516bd151e24ee87"
+      }
+    },
+    {
+      "location": "kindergarten-evening-night",
+      "source_profile_id": "kindergarten-evening-night-sound",
+      "id": "night-gate-open",
+      "path": "kindergarten-evening-night/interactions/night-gate-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Painted wooden kindergarten garden gate opens gently at night, soft warm hinge movement and cute rounded latch click, reassuring preschool cartoon Foley, isolated action, no eerie creak, no music.",
+      "seconds_requested": 2.5,
+      "seed": 7603,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 110250,
+        "duration_seconds": 2.5,
+        "peak_dbfs": -9.0,
+        "bytes": 441044,
+        "sha256": "5ed46ac1068a84ef3d30e0eac80290b341d829df898aa493cbefa3b230aab381"
+      }
+    },
+    {
+      "location": "kindergarten-evening-night",
+      "source_profile_id": "kindergarten-evening-night-sound",
+      "id": "night-stone-steps",
+      "path": "kindergarten-evening-night/interactions/night-stone-steps.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful, playful, gently funny, polished, friendly and safe. Three tiny careful footsteps on a smooth garden stone path at night, light natural taps with soft child-scale weight, cozy and non-scary preschool Foley, isolated action, no heavy boots, no music.",
+      "seconds_requested": 2.5,
+      "seed": 7604,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 110250,
+        "duration_seconds": 2.5,
+        "peak_dbfs": -9.0,
+        "bytes": 441044,
+        "sha256": "03a14632e56588d19428b09d5dc7fd3343316f357dcdb0b3e6afb10af635ac3a"
+      }
+    }
+  ]
+}

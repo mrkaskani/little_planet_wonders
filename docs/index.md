@@ -14,8 +14,12 @@ default, and never allowed to download model weights through this repository.
 - [Creating a project context](creating-project-context.md): step-by-step project,
   character, voice, location, audio, scene, shot, continuity, and editing setup.
 - [Wan 2.2 setup](wan22-setup.md): T2V, I2V, TI2V, and S2V configuration.
+- [Stable Audio 3 Medium on Apple Silicon](stable-audio-3-medium-mlx.md):
+  local MLX setup, safe wrappers, SFX generation, and verification.
 - [Generation workflows](generation-workflows.md): scene and shot planning flows.
 - [Audio workflows](audio-workflows.md): voice, lip sync, ambience, effects, and music.
+- [Character voice profiles](voice-profile.md): per-reference text, prompts, and identity locking.
+- [Cloned character conversations](cloned-conversations.md): JSON dialogue generation using profile-locked voices.
 - [Validation and approval](validation-and-approval.md): attempts, reviews, and releases.
 - [Editing workflows](editing-workflows.md): preparation, EDLs, previews, and delivery.
 - [Runtime storage](runtime-storage.md): artifact layout and immutability boundaries.

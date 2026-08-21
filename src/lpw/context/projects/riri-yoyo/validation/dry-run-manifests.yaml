@@ -1,0 +1,89 @@
+id: riri-yoyo-neutral-dry-run-manifests
+type: wan-2-2-dry-run-manifest-context
+version: 1
+status: approved-no-generation
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: validate-task-selection-required-fields-and-blockers-without-generation
+
+shared:
+  queues_generation: false
+  downloads_weights: false
+  enables_provider: false
+  creates_story_scene_shot_dialogue_or-render: false
+  seed: 0
+  candidate_number: 0
+  output_path: null
+
+manifests:
+  - id: neutral-t2v-schema-dry-run-v001
+    task: t2v
+    model: wan2.2-t2v-a14b
+    readiness: schema-valid-no-generation
+    prompt_version: v001
+    reference_id: null
+    reference_version: null
+    audio_hash: null
+    native_dimensions: task-specific-720p-class
+    native_frame_rate: workflow-specific
+    frame_count: workflow-specific
+    queues_generation: false
+    downloads_weights: false
+    enables_provider: false
+    validation_focus: prompt-order-count-action-camera-and-invariants
+  - id: neutral-i2v-schema-dry-run-v001
+    task: i2v
+    model: wan2.2-i2v-a14b
+    readiness: blocked-missing-approved-inputs
+    blockers:
+      - approved-single-frame-reference
+      - reference-version-and-sha256
+    prompt_version: v001
+    reference_id: null
+    reference_version: null
+    audio_hash: null
+    native_dimensions: task-specific-720p-class
+    native_frame_rate: workflow-specific
+    frame_count: workflow-specific
+    queues_generation: false
+    downloads_weights: false
+    enables_provider: false
+    validation_focus: correct-blocking-and-preservation-prompt-schema
+  - id: neutral-ti2v-schema-dry-run-v001
+    task: ti2v
+    model: wan2.2-ti2v-5b
+    readiness: schema-valid-no-generation
+    prompt_version: v001
+    reference_id: null
+    reference_version: null
+    audio_hash: null
+    native_dimensions: 1280x704
+    native_frame_rate: 24
+    frame_count: workflow-specific
+    queues_generation: false
+    downloads_weights: false
+    enables_provider: false
+    validation_focus: explicit-draft-role-and-no-final-identity-approval
+  - id: neutral-s2v-schema-dry-run-v001
+    task: s2v
+    model: wan2.2-s2v-14b
+    readiness: blocked-missing-approved-inputs
+    blockers:
+      - approved-single-character-frame
+      - approved-exact-transcript-locked-dialogue-audio
+      - audio-and-transcript-hashes
+      - timing-annotations
+    prompt_version: v001
+    reference_id: null
+    reference_version: null
+    audio_hash: null
+    native_dimensions: task-specific-720p-class
+    native_frame_rate: workflow-specific
+    frame_count: workflow-specific
+    queues_generation: false
+    downloads_weights: false
+    enables_provider: false
+    validation_focus: correct-blocking-image-audio-timing-and-face-gates
+

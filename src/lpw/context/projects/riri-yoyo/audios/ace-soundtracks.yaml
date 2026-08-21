@@ -1,0 +1,89 @@
+metadata:
+  id: riri-yoyo-ace-soundtracks
+  version: 1
+  status: audition
+  project: riri-yoyo
+  purpose: profile-driven instrumental preschool soundtracks generated with ACE-Step 1.5
+
+generator:
+  engine: ace-step-1.5
+  model: acestep-v15-turbo
+  lm_model: disabled-for-local-memory
+  thinking: false
+  steps: 8
+  audio_cover_strength: 1.0
+  cover_noise_strength: 0.60
+  server_url: http://127.0.0.1:8001
+  timeout_seconds: 3600
+  project_root: src/lpw/context/projects/riri-yoyo
+  output_root: assets/music/soundtracks/riri-yoyo/ace-step
+  manifest_path: audio-assets/manifests/riri-yoyo-ace-soundtracks.json
+  prompt_suffix: >-
+    This is a close cover and controlled extension of the supplied WAV, not a new
+    composition. Treat the reference recording as authoritative. Preserve its
+    recognizable main melody, chord loop, tempo family, meter, phrase lengths,
+    rhythmic groove, instrumentation, registers, soft timbres, dynamics, stereo
+    space, and warm production. Stay very close to its musical identity from the
+    first bar through the ending. Add only a small preschool-energy lift: a more
+    buoyant pulse, tiny rhythmic hops, smiling call-and-response, and light
+    toy-box sparkle. Make it funny, active, innocent, and immediately enjoyable
+    for children before school age, like friendly movement music in a colorful
+    kindergarten. Use short, simple, singable two-to-four-bar ideas and repeat
+    them steadily with one tiny variation at a time. The energy must be cheerful
+    and bouncy, never loud, frantic, harsh, busy, cinematic, heroic, or mature.
+    Do not introduce a new tune, new chord progression, key change, modulation,
+    sudden chord change, rhythm switch, tempo jump, breakdown, build-up, climax,
+    dense counterpoint, dramatic percussion, or orchestration change. Keep Riri
+    and Yoyo distinct through occasional short character replies, but do not
+    continuously repeat or over-feature either leitmotif. Riri's reply remains a
+    high, connected felt-piano arch; Yoyo's reply remains a lower, detached
+    celesta bounce-and-slide. Begin inside the existing groove with no title-card
+    introduction, keep dialogue-safe dynamics, and finish with a gentle playful
+    resolution. Instrumental only: no voice, lyrics, singing, speech, chanting,
+    environmental ambience, or sound effects.
+
+characters:
+  - id: riri
+    profile: characters/riri/music-profile.yaml
+  - id: yoyo
+    profile: characters/yoyo/music-profile.yaml
+
+soundtracks:
+  - id: playful-playing
+    profile_prompt_key: happy_variation
+    bpm: 122
+    time_signature: 4/4
+    seconds: 30.0
+    reference_audio: assets/music/soundtracks/riri-yoyo/playful-playing.wav
+    output: playful-playing/playful-playing-30s.wav
+    scenario: >-
+      Riri and Yoyo play a funny, energetic preschool movement game with tiny
+      hops, wobbly tiptoes, safe slides, peekaboo pauses, soft comic landings,
+      delighted reactions, and cheerful cooperation. Keep a steady danceable
+      kindergarten pulse and bright playful momentum without becoming frantic.
+
+  - id: puzzle-solving
+    profile_prompt_key: curious_variation
+    bpm: 104
+    time_signature: 4/4
+    seconds: 30.0
+    reference_audio: assets/music/soundtracks/riri-yoyo/puzzle-solving.wav
+    output: puzzle-solving/puzzle-solving-30s.wav
+    scenario: >-
+      Riri and Yoyo solve a colorful preschool puzzle with curious tiptoe pulses,
+      funny wrong-piece moments, gentle musical questions, sparkling clues,
+      happy little answers, and warm discoveries. Keep it lively and playful
+      while leaving clear breathing room for dialogue.
+
+  - id: doing-activities
+    profile_prompt_key: action_variation
+    bpm: 116
+    time_signature: 4/4
+    seconds: 30.0
+    reference_audio: assets/music/soundtracks/riri-yoyo/doing-activities.wav
+    output: doing-activities/doing-activities-30s.wav
+    scenario: >-
+      Riri and Yoyo sort, draw, stack, build, tidy, and help each other with a
+      steady bouncy work-and-play pulse, funny tiny mistakes, quick retries,
+      proud little successes, and energetic cooperative kindergarten fun. Keep
+      the activity buoyant and focused rather than rushed or chase-like.

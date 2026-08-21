@@ -19,6 +19,14 @@ Complete documentation starts at [docs/index.md](docs/index.md). The documentati
 includes setup, configuration, context, Wan 2.2, audio, validation, editing,
 runtime storage, MCP, testing, and generated Python API references.
 
+Qwen3-TTS 1.7B VoiceDesign and Base setup is documented in
+[docs/qwen3-tts-setup.md](docs/qwen3-tts-setup.md).
+
+Stable Audio 3 Medium setup for Apple Silicon is documented in
+[docs/stable-audio-3-medium-mlx.md](docs/stable-audio-3-medium-mlx.md).
+JSON conversations generated from profile-locked cloned voices are documented
+in [docs/cloned-conversations.md](docs/cloned-conversations.md).
+
 Optional environment variables:
 
 - `CINEMATIC_CONTEXT_ROOT`: legacy cinematic context directory
@@ -125,8 +133,8 @@ for already-managed local services.
 Version-pinned `cinema://` inheritance is resolved by `lpw.context.chaining`.
 The resolver detects circular inheritance, rejects `@latest`, applies explicit
 imports, overrides, and patches, and prevents child contexts from changing
-immutable fields. The classroom rooftop example includes studio, project,
-sequence, scene, shot, and three four-second segment contexts.
+immutable fields. Production-specific sequence, scene, shot, and segment context
+is added only after pre-production foundations are approved.
 
 `extend_cinematic_shot` creates a versioned plan under `runtime/extensions/` and
 compiles only the first segment. `approve_segment` accepts real provider artifacts
@@ -156,8 +164,8 @@ and downloads no voices, effects, music, or model files.
 
 The final-pipeline recommendation is represented by the existing `classroom`
 project. Its project-specific delivery rules are in
-`src/lpw/context/projects/classroom/export.yaml`, and its rooftop timeline is in
-`src/lpw/context/projects/classroom/scenes/rooftop-confrontation/timeline.yaml`.
+`src/lpw/context/projects/riri-yoyo/export.yaml`. Scene timelines are created
+during production and are not part of the current pre-production foundation.
 
 `approve_wan_render` records immutable scored creative approval beside a completed
 package-hash render. `finalize_cinematic_scene` then validates every timeline

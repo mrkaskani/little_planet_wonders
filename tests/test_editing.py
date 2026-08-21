@@ -23,7 +23,7 @@ def _metadata(path: Path, shot_id: str, direction: str) -> None:
                     "grade_reference": "shot-001",
                 },
                 "character_state": {
-                    "roxana": {
+                    "riri": {
                         "position": "center",
                         "looking_direction": "camera-left",
                         "wardrobe": "burgundy-jacket",
@@ -78,7 +78,7 @@ def test_continuity_state_is_written_outside_context(
             "grade_reference": "shot-001",
             "lighting_state": "cold-moonlight",
         },
-        "character_state": {"roxana": {"wardrobe": "burgundy-jacket"}},
+        "character_state": {"riri": {"wardrobe": "burgundy-jacket"}},
     }
 
     saved = Path(save_continuity_state("demo", "scene-001", 4, last_shot))

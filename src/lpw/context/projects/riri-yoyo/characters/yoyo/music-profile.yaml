@@ -1,0 +1,754 @@
+music_profile:
+  id: yoyo-music-profile
+  type: character-music-profile
+  version: 1
+  status: approved
+  character:
+    id: yoyo
+    name: Yoyo
+    role: protagonist
+    target_audience: preschool-ages-3-to-6
+  musical_identity:
+    summary: 'Yoyo sounds like a tiny, buoyant burst of curiosity: a warm celesta-led theme with soft
+      marimba pulses, light pizzicato strings, airy woodwinds, and gentle hand percussion. The music should
+      feel plush, sparkling, friendly, and always ready for one more cheerful try.
+
+      '
+    core_attributes:
+    - buoyant
+    - playful
+    - curious
+    - warm
+    - sparkling
+    - gentle
+    - optimistic
+    - preschool-readable
+    emotional_center: cheerful-curiosity
+    energy_level: high
+    perceived_weight: light
+    musical_age_impression: young-child
+    complexity: simple
+  leitmotif:
+    id: yoyo-main-motif
+    revision: 3-character-derived
+    character_basis:
+      character_profile: characters/yoyo/character.yaml
+      voice_profile: characters/yoyo/voice-profile.yaml
+      traits:
+      - older-child
+      - energetic
+      - low-grounded-direct
+      - brisk-stop-start
+      - playful-physical-comedy
+      musical_translation: low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing
+    description: 'A seven-note angular motif written only for Yoyo. It begins with two clipped repeated
+      bounces, jumps immediately up a perfect fifth, tumbles downward in two quick steps, springs upward
+      once more, and drops to the starting note for a comic landing. It should feel like two hops, a
+      surprised penguin jump, a tiny slide, and a proud feet-together landing.
+
+      '
+    note_count: 7
+    approximate_duration_seconds: 2.3
+    melodic_contour:
+      start: middle
+      movement:
+      - repeated
+      - upward-perfect-fifth
+      - downward-minor-third
+      - downward-step
+      - upward-minor-third
+      - downward-perfect-fourth
+      ending: resolved-playful
+    interval_language:
+      preferred:
+      - major-second
+      - major-third
+      - perfect-fourth
+      - perfect-fifth
+      avoid:
+      - minor-second-clusters
+      - tritone
+      - wide-dissonant-leaps
+      - chromatic-descents
+    rhythm:
+      pattern_description: 'Two very short equal bounce notes, a separated high surprise note, two quick
+        descending slide notes, one cheeky rebound note, and a low final landing. Hard gaps divide the
+        bounce, jump, slide, and landing into a playful stop-start penguin phrase.
+
+        '
+      syllabic_pattern: yo-yo, jump, slip-slip, hop, plop
+      syncopation: medium
+      bounce: very-high
+    register:
+      primary: low-mid
+      range: approximately D4 to A4; keep clearly below Riri except for isolated sparkle accents
+    optional_note_example:
+      key: d-major
+      notes:
+      - D4
+      - D4
+      - A4
+      - F#4
+      - E4
+      - G4
+      - D4
+    canonical_note_durations_seconds:
+    - 0.10
+    - 0.10
+    - 0.24
+    - 0.15
+    - 0.15
+    - 0.20
+    - 0.38
+    canonical_note_onsets_seconds:
+    - 0.00
+    - 0.16
+    - 0.52
+    - 0.88
+    - 1.08
+    - 1.42
+    - 1.88
+    identity_rules:
+    - preserve-the-core-rhythmic-shape
+    - preserve-the-main-melodic-contour
+    - keep-the-motif-recognizable-in-all-variations
+    - retain-the-two-opening-bounce-notes
+    - retain-the-early-perfect-fifth-surprise-jump
+    - retain-the-stepwise-slide-and-rebound
+    - retain-the-low-comic-home-note-landing
+  leitmotif_generation_profile:
+    id: yoyo-celesta-bounce-emotional-rearrangement
+    motif_seed: 8293
+    cfg: 4.6
+    init_noise_level: 0.64
+    motif_preservation_mode: inpaint-after-canonical-motif
+    identity_prompt: >-
+      This is Yoyo's music only. Keep bright warm celesta unmistakably in front,
+      in a grounded low-middle register, with short detached notes and an obvious two-bounce
+      penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded
+      pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional
+      airy flute. The emotional center is cheerful curiosity: every version must
+      retain the repeated opening bounce, immediate perfect-fifth jump, quick descending
+      slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful
+      motion rather than flowing sentimentality.
+    identity_negative_prompt: >-
+      No felt-piano lead, concert-harp wash, slow puppy-tail sway, legato waltz,
+      slow warm lullaby phrasing, long connected piano phrases, sentimental string
+      bed, Riri name gesture, rounded downward home-note leap, or generic cartoon
+      jingle.
+  leitmotif_samples:
+  - id: entrance
+    feeling: bright-two-bounce-arrival
+    emotion: delighted-recognition
+    prompt: short_entrance_cue
+    asset: entrance_cue
+    seconds: 7.0
+    seed: 8301
+  - id: happy
+    feeling: sparkling-hop-and-waddle-play
+    emotion: bubbly-joy
+    prompt: happy_variation
+    asset: happy_leitmotif
+    seconds: 7.0
+    seed: 8302
+  - id: curious
+    feeling: tiptoe-stop-and-peek
+    emotion: eager-wonder
+    prompt: curious_variation
+    asset: curious_leitmotif
+    seconds: 7.0
+    seed: 8303
+  - id: sad
+    feeling: small-slow-drooping-bounce
+    emotion: tender-disappointment-with-recovery
+    prompt: sad_variation
+    asset: sad_leitmotif
+    seconds: 8.0
+    seed: 8304
+  - id: action
+    feeling: quick-hops-and-safe-sliding
+    emotion: playful-thrill
+    prompt: action_variation
+    asset: action_leitmotif
+    seconds: 7.0
+    seed: 8305
+  - id: calm-ending
+    feeling: sleepy-soft-landing
+    emotion: peaceful-reassurance
+    prompt: calm_ending
+    asset: calm_leitmotif
+    seconds: 8.0
+    seed: 8306
+  tempo:
+    default_bpm: 116
+    minimum_bpm: 64
+    maximum_bpm: 148
+    usage:
+      calm: 72
+      normal: 116
+      excited: 132
+      action: 144
+      sad: 68
+  meter:
+    primary: 4-4
+    alternatives:
+    - 2-4
+    - 6-8
+    avoid:
+    - irregular-meters
+    - rapidly-changing-meter
+    - heavy-march-meter
+  tonality:
+    primary_mode: major-pentatonic
+    preferred_keys:
+    - d-major
+    - g-major
+    - c-major
+    modal_color: 'Bright major-pentatonic color with occasional added-sixth harmony and very gentle mixolydian
+      touches for playful motion.
+
+      '
+    dissonance:
+      level: low
+      allowed_usage: 'Brief soft suspensions, neighbor tones, and gentle unresolved seconds may be used
+        for curiosity or worry, but they must resolve quickly.
+
+        '
+  harmony:
+    complexity: simple
+    preferred_progressions:
+    - I-IV-V-I
+    - I-vi-IV-V
+    - I-ii-V-I
+    - I-add6-IV-add6-I
+    - tonic-pedal-with-gentle-upper-neighbor-chords
+    chord_character:
+    - bright-open
+    - warm-gentle
+    - lightly-sparkling
+    - reassuring
+    - rounded-rather-than-sharp
+    avoid:
+    - harsh-chromatic-harmony
+    - horror-suspensions
+    - prolonged-diminished-chords
+    - aggressive-minor-ostinatos
+    - dense-jazz-extensions
+    - unresolved-tritone-motion
+  instrumentation:
+    signature_instrument:
+      name: celesta
+      role: melody-and-sparkle-color
+      reason: 'The celesta matches Yoyo''s sparkling lavender-blue eyes, tiny scale, plush softness, youthful
+        wonder, and bright two-bounce movement without sounding harsh or overly mechanical.
+
+        '
+    primary_instruments:
+    - instrument: celesta
+      role: main-leitmotif
+      articulation: soft-bouncy-detached
+    - instrument: marimba
+      role: rounded-pulse-and-motion
+      articulation: light-soft-mallet
+    - instrument: pizzicato-violin-and-viola
+      role: playful-step-patterns
+      articulation: short-rounded-pizzicato
+    - instrument: flute
+      role: curiosity-echoes-and-air
+      articulation: light-legato-with-short-grace-notes
+    - instrument: clarinet
+      role: warm-middle-register-support
+      articulation: smooth-soft-legato
+    supporting_instruments:
+    - instrument: ukulele
+      role: gentle-friendly-harmonic-strum
+    - instrument: glockenspiel
+      role: sparse-highlight-sparkles
+    - instrument: soft-string-pad
+      role: emotional-warmth-and-reassurance
+    - instrument: bassoon
+      role: occasional-soft-comedic-bounce
+    - instrument: toy-bells
+      role: rare-discovery-accent
+    - instrument: upright-bass
+      role: light-plucked-foundation
+    percussion:
+      enabled: true
+      instruments:
+      - soft-shaker
+      - brushed-snare
+      - hand-claps
+      - woodblock
+      - muted-tambourine
+      - soft-frame-drum
+      style: 'Small, rounded, friendly pulses that support waddles, hops, and tiny running steps. Percussion
+        should never dominate the character.
+
+        '
+      intensity: low-medium
+    forbidden_instruments:
+    - distorted-electric-guitar
+    - aggressive-brass-section
+    - industrial-percussion
+    - hard-trap-808
+    - thunderous-taiko
+    - harsh-synth-lead
+    - pipe-organ-horror-registration
+    - shrill-piccolo-screeches
+  orchestration:
+    ensemble_size: small
+    density: light
+    texture: layered
+    stereo_width: medium
+    layering_rules:
+    - keep-the-celesta-clearly-audible-when-the-motif-appears
+    - use-no-more-than-three-active-melodic-layers-at-once
+    - reserve-glockenspiel-for-sparse-highlights
+    - keep-low-register-support-soft-and-simple
+    - thin-the-arrangement-under-dialogue
+    - add-layers-in-small-steps-during-excitement
+    - avoid-wall-of-sound-or-chaotic-counterpoint
+  articulation:
+    melody:
+    - bouncy
+    - soft
+    - lightly-detached
+    - occasional-warm-legato
+    accompaniment:
+    - rounded-pizzicato
+    - gentle-pulsing
+    - light-strumming
+    - soft-sustained
+    transitions:
+    - tiny-celesta-turn
+    - soft-flute-rise
+    - gentle-harp-or-bell-gliss
+    - short-marimba-pickup
+  dynamics:
+    default: mp
+    range:
+      minimum: pp
+      maximum: mf
+    change_style: smooth-playful
+    avoid:
+    - sudden-extreme-volume-jumps
+    - prolonged-forte
+    - explosive-accents
+    - harsh-transient-peaks
+    - jump-scare-silence-to-impact
+  production:
+    style: acoustic-hybrid
+    sound_quality: clean-warm-child-friendly
+    reverb: small-room
+    compression: light
+    stereo_image: 'Center the celesta and core motif, place marimba and pizzicato strings gently to the
+      sides, and keep sparkle accents wide but quiet.
+
+      '
+    texture_keywords:
+    - plush
+    - sparkling
+    - rounded
+    - airy
+    - buoyant
+    - warm
+    - clean
+    - friendly
+  emotional_variations:
+    neutral:
+      tempo_bpm: 112
+      instrumentation:
+      - celesta
+      - marimba
+      - pizzicato-strings
+      harmony: bright-major-with-added-sixth-color
+      dynamics: mp
+      motif_treatment: 'State the full motif once, then use only the opening two-note bounce as a quiet
+        recurring identity marker.
+
+        '
+    happy:
+      tempo_bpm: 124
+      instrumentation:
+      - celesta
+      - ukulele
+      - pizzicato-strings
+      - soft-shaker
+      harmony: open-I-IV-V-I-with-added-sixths
+      dynamics: mf
+      motif_treatment: 'Play the motif in full with a light octave echo and a smiling upward answer from
+        flute.
+
+        '
+    excited:
+      tempo_bpm: 134
+      instrumentation:
+      - celesta
+      - marimba
+      - pizzicato-strings
+      - muted-tambourine
+      - hand-claps
+      rhythm: quick-even-eighth-note-pulses-with-two-bounce-pickups
+      dynamics: mf
+      motif_treatment: 'Compress the motif rhythm slightly, repeat the opening two notes, and answer with
+        a short rising sequence without changing the contour.
+
+        '
+    curious:
+      tempo_bpm: 96
+      instrumentation:
+      - celesta
+      - flute
+      - clarinet
+      - soft-marimba
+      harmony: tonic-pedal-with-gentle-suspended-seconds
+      motif_treatment: 'Leave a small pause after the fourth note so the upward leap feels like a question,
+        then resolve softly with the final two notes.
+
+        '
+    comedic:
+      tempo_bpm: 120
+      instrumentation:
+      - bassoon
+      - marimba
+      - pizzicato-bass
+      - woodblock
+      rhythm: tiny-stop-start-pulses-with-safe-stumbles
+      motif_treatment: 'Keep the exact pitch order but add playful rests, one harmless low bassoon echo,
+        and a soft woodblock punctuation on the landing.
+
+        '
+    sad:
+      tempo_bpm: 68
+      instrumentation:
+      - celesta
+      - clarinet
+      - soft-string-pad
+      harmony: gentle-relative-minor-color-that-returns-to-major
+      dynamics: p
+      motif_treatment: 'Stretch the motif into legato phrases, soften the upward leap, and end on a warm
+        major-sixth sonority that promises recovery.
+
+        '
+    worried:
+      tempo_bpm: 82
+      instrumentation:
+      - muted-celesta
+      - clarinet
+      - soft-pizzicato-viola
+      harmony: repeated-tonic-pedal-with-brief-unresolved-neighbor-tones
+      motif_treatment: 'Use only the first four notes with hesitant spacing, then complete the final two
+        notes once reassurance begins.
+
+        '
+    determined:
+      tempo_bpm: 118
+      instrumentation:
+      - marimba
+      - pizzicato-strings
+      - celesta
+      - soft-frame-drum
+      rhythm: steady-quarter-note-pulse-with-clear-forward-eighth-notes
+      motif_treatment: 'Place the motif over a firmer pulse, accent the upward leap gently, and end with
+        a confident but not aggressive tonic support.
+
+        '
+    brave:
+      tempo_bpm: 122
+      instrumentation:
+      - celesta
+      - warm-clarinet
+      - soft-horns
+      - strings
+      harmony: broad-I-IV-I-V-I-with-open-fifths
+      motif_treatment: 'Present the motif in a slightly broader register with warm harmonic support, keeping
+        the celesta at the center of the identity.
+
+        '
+    friendship:
+      tempo_bpm: 92
+      instrumentation:
+      - celesta
+      - ukulele
+      - clarinet
+      - soft-strings
+      harmony: warm-I-vi-IV-I-with-added-sixths
+      motif_treatment: 'Let a friend instrument answer the motif''s last three notes while Yoyo''s celesta
+        retains the opening two-note bounce.
+
+        '
+    discovery:
+      tempo_bpm: 104
+      instrumentation:
+      - celesta
+      - flute
+      - toy-bells
+      - soft-string-harmonics
+      harmony: rising-major-pedal-with-open-fifths-and-added-ninths
+      motif_treatment: 'Begin with a quiet fragment, reveal the full motif as the discovery becomes clear,
+        and add one sparse high bell sparkle at the end.
+
+        '
+    action:
+      tempo_bpm: 144
+      instrumentation:
+      - marimba
+      - pizzicato-strings
+      - celesta
+      - soft-shaker
+      - brushed-snare
+      percussion: 'Quick, light, even pulses that suggest tiny running feet and safe sliding motion without
+        military or threatening weight.
+
+        '
+      motif_treatment: 'Use short motif fragments every two or four bars, preserve the pitch contour,
+        and let the full motif mark successful turns or landings.
+
+        '
+    mistake:
+      tempo_bpm: 90
+      instrumentation:
+      - bassoon
+      - celesta
+      - muted-marimba
+      harmony: brief-IV-minor-color-or-soft-diminished-passing-chord-resolving-immediately
+      motif_treatment: 'Interrupt the motif before the leap, add a gentle downward comic response, then
+        quietly restate the opening bounce to signal another try.
+
+        '
+    recovery:
+      tempo_bpm: 108
+      instrumentation:
+      - celesta
+      - ukulele
+      - pizzicato-strings
+      - flute
+      harmony: clear-return-from-relative-minor-to-major-tonic
+      motif_treatment: 'Rebuild the motif from the first two notes, restore the upward leap, and complete
+        the full phrase with warm support.
+
+        '
+    victory:
+      tempo_bpm: 132
+      instrumentation:
+      - celesta
+      - glockenspiel
+      - pizzicato-strings
+      - ukulele
+      - hand-claps
+      harmony: bright-I-IV-V-I-with-added-sixth-ending
+      motif_treatment: 'State the motif twice, first in the normal register and then one octave higher
+        with a short celebratory answer, avoiding oversized fanfare.
+
+        '
+    calm_ending:
+      tempo_bpm: 70
+      instrumentation:
+      - celesta
+      - clarinet
+      - soft-strings
+      - very-light-marimba
+      harmony: warm-tonic-with-added-sixth-and-gentle-plagal-cadence
+      motif_treatment: 'Slow the motif into soft legato notes, keep the opening bounce subtle, and let
+        the final note fade into a quiet reassuring tonic.
+
+        '
+  movement_mapping:
+    idle:
+      musical_behavior: 'Quiet marimba or pizzicato pulses every few beats, with an occasional two-note
+        celesta bounce matching Yoyo''s gentle body bob and double blink.
+
+        '
+    walking:
+      musical_behavior: 'Even short marimba notes in pairs, light pizzicato side-to-side motion, and a
+        small celesta pickup every four steps to reflect his cheerful waddle.
+
+        '
+    running:
+      musical_behavior: 'Fast but soft eighth-note marimba and pizzicato patterns, light shaker, and recurring
+        motif fragments that follow his rapid tiny steps.
+
+        '
+    jumping:
+      musical_behavior: 'A brief ascending celesta pickup, a tiny pause at the top of the hop, and a rounded
+        marimba landing without a heavy impact.
+
+        '
+    thinking:
+      musical_behavior: 'Sparse celesta notes, a soft clarinet question, and short pauses that mirror
+        head tilts, focused eyes, and idea-building.
+
+        '
+    celebrating:
+      musical_behavior: 'Two quick motif statements with hand-claps, ukulele, and a gentle glockenspiel
+        sparkle, matching Yoyo''s two excited bounces.
+
+        '
+  scene_usage:
+    entrance:
+      motif_usage: 'Present the seven-note jump-and-slide motif clearly on celesta within the first two seconds, supported
+        by one soft marimba pulse pattern.
+
+        '
+      maximum_duration_seconds: 7
+    dialogue_underscoring:
+      motif_usage: 'Use only two- or three-note fragments between spoken phrases; avoid full statements
+        beneath important dialogue.
+
+        '
+      density: low
+      dialogue_priority: true
+    emotional_scene:
+      motif_usage: 'Preserve the contour while changing tempo, register, harmony, and articulation to
+        match the emotion. Restore a clearer motif statement when the emotion resolves.
+
+        '
+    action_scene:
+      motif_usage: 'Use rhythmic fragments during movement and reserve the full motif for a successful
+        jump, discovery, safe landing, or problem-solving beat.
+
+        '
+    transition:
+      motif_usage: 'Use a one- to two-second celesta or flute tag based on the opening bounce plus the
+        final landing note.
+
+        '
+    exit:
+      motif_usage: 'End with the last three notes in celesta or clarinet, preferably over a warm tonic-add-six
+        chord.
+
+        '
+  pairing_rules:
+    with_friends:
+      approach: 'Let the friend''s signature instrument answer Yoyo''s motif while Yoyo''s celesta keeps
+        the opening two-note bounce. Blend rhythms rather than replacing either character''s identity.
+
+        '
+    with_antagonist:
+      approach: 'Keep Yoyo''s motif warm and intact, reduce sparkle density, and use soft lower-register
+        support. Do not distort his theme into frightening or aggressive harmony.
+
+        '
+    with_environment:
+      approach: 'Adapt supporting instruments to the setting while retaining celesta, the seven-note angular contour,
+        and the two-bounce rhythm. Environmental color must remain secondary to character identity.
+
+        '
+    motif_combination_rules:
+    - alternate-motifs-before-layering-them
+    - keep-yoyos-celesta-audible-when-his-motif-is-present
+    - preserve-each-characters-original-rhythmic-signature
+    - avoid-simultaneous-dense-counterpoint
+    - resolve-combined-themes-to-a-warm-shared-tonic
+    - never-give-another-character-yoyos-two-bounce-celesta-opening-as-a-primary-identity
+  continuity_constraints:
+  - preserve-signature-instrument
+  - preserve-core-leitmotif
+  - preserve-character-rhythmic-identity
+  - preserve-target-audience-safety
+  - preserve-recognizable-melodic-contour
+  - preserve-the-two-opening-bounce-notes
+  - preserve-light-rounded-percussion
+  - preserve-warm-major-centered-harmony
+  - preserve-simple-memorable-phrasing
+  - preserve-quick-musical-recovery-after-mistakes
+  forbidden_changes:
+  - replacing-the-main-leitmotif
+  - changing-the-signature-instrument-without-story-reason
+  - using-harsh-horror-dissonance
+  - using-aggressive-percussion-for-friendly-scenes
+  - making-the-theme-too-complex-for-the-target-audience
+  - removing-the-character-rhythmic-identity
+  - copying-another-characters-theme
+  - turning-the-theme-into-a-heavy-march
+  - using-prolonged-dark-minor-harmony
+  - using-shrill-sparkle-instruments-at-high-volume
+  - making-action-music-threatening
+  - using-sudden-jump-scare-dynamics
+  - replacing-acoustic-warmth-with-cold-industrial-production
+  - obscuring-the-motif-with-dense-counterpoint
+  generation_prompts:
+    main_theme: 'Compose Yoyo''s unmistakably quick, springy clockwork character theme. Write a bright
+      staccato 4/4 cue in D major pentatonic at about 128 BPM, led by grounded low-middle warm celesta playing his sharply
+      articulated seven-note jump-and-slide motif D4, D4, A4, F-sharp4, E4, G4, D4. Make the repeated
+      opening notes short and cheeky, followed by an early surprise leap, a quick downward slide, a rebound,
+      and a low comic landing.
+      Answer with dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, soft shaker ticks,
+      and tiny brushed percussion. Use stop-and-start gaps, crisp short notes, playful syncopation, and
+      an obvious waddling two-hop groove. Keep it sparkling, curious, mischievous, energetic, and friendly.
+      This must sound like a tiny penguin hopping and sliding, not a gentle lullaby. Do not use felt piano,
+      acoustic piano, concert harp, sustained string pads, legato clarinet melody, slow swaying 6/8 rhythm,
+      long connected phrases, or sentimental orchestration. Make the ending seamlessly loopable.
+
+      '
+    short_entrance_cue: 'Generate a 4-to-7-second entrance cue for Yoyo using celesta, soft marimba, and
+      one light pizzicato-string layer. State his seven-note jump-and-slide motif clearly within the first two
+      seconds at about 116 BPM, ending on a warm major-add-six chord. Keep it bright, tiny, friendly,
+      polished, and loop-safe.
+
+      '
+    happy_variation: 'Arrange Yoyo''s established seven-note celesta motif as a happy preschool cue at about
+      124 BPM. Add gentle ukulele, pizzicato strings, soft shaker, and a smiling flute response. Preserve
+      the two repeated opening notes, early perfect-fifth jump, stepwise slide, rebound, and low comic landing. Use open major harmony,
+      added-sixth color, moderate dynamics, and a warm playful finish.
+
+      '
+    curious_variation: 'Arrange Yoyo''s established motif as a curious cue at about 96 BPM with sparse
+      celesta, soft marimba, flute, and clarinet. Leave a small pause before the rebound note so the phrase
+      feels like a friendly question. Use a tonic pedal, gentle suspended seconds that resolve quickly,
+      light dynamics, and plenty of space for dialogue.
+
+      '
+    sad_variation: 'Create a gentle sad variation of Yoyo''s theme at about 68 BPM using soft celesta,
+      clarinet, and a warm string pad. Stretch the same seven-note angular contour into gentler phrases, use brief
+      relative-minor color, and resolve toward warm major harmony. Keep the sadness tender, safe, and
+      temporary, with no frightening dissonance or heavy low-end weight.
+
+      '
+    action_variation: 'Create a lively but non-threatening action variation of Yoyo''s theme at about
+      144 BPM. Use soft marimba, quick rounded pizzicato strings, celesta motif fragments, brushed snare,
+      and light shaker to suggest rapid tiny steps, hops, and safe sliding. Preserve the motif contour
+      and use the full phrase at successful turns or landings. Keep the cue playful, clear, and child-friendly
+      rather than intense or heroic.
+
+      '
+    calm_ending: 'Create a calm bedtime-style ending for Yoyo at about 70 BPM using soft celesta, warm
+      clarinet, gentle strings, and very light marimba. Slow the established seven-note motif while retaining
+      its two opening bounces, early jump, slide, rebound, and home-note landing; resolve with a quiet plagal cadence and major-add-six
+      warmth. Make the ending soothing, reassuring, spacious, and suitable for a preschool episode close.
+
+      '
+    negative_prompt: 'Avoid horror harmony, harsh dissonance, tritones, minor-second clusters, aggressive
+      brass, distorted guitars, industrial percussion, thunderous drums, trap beats, hard 808 bass, military
+      marching, chaotic orchestration, dense counterpoint, shrill glockenspiel, piercing piccolo, cold
+      synthetic textures, adult dramatic scoring, prolonged dark minor harmony, jump-scare dynamics, extreme
+      loudness changes, threatening action music, sadness without recovery, overly complex jazz harmony,
+      copied melodies, alternate leitmotifs, and any arrangement that hides the celesta signature or removes
+      the two-bounce rhythmic identity.
+
+      '
+  technical_defaults:
+    sample_rate: 48000
+    bit_depth: 24
+    channels: stereo
+    loudness_target_lufs: -16
+    true_peak_max_db: -1
+    loopable: true
+  asset_paths:
+    main_theme: assets/music/characters/yoyo/main-theme.wav
+    leitmotif: assets/music/characters/yoyo/leitmotif.wav
+    entrance_cue: assets/music/characters/yoyo/variations/entrance-cue.wav
+    happy_leitmotif: assets/music/characters/yoyo/variations/happy-leitmotif.wav
+    curious_leitmotif: assets/music/characters/yoyo/variations/curious-leitmotif.wav
+    sad_leitmotif: assets/music/characters/yoyo/variations/sad-leitmotif.wav
+    action_leitmotif: assets/music/characters/yoyo/variations/action-leitmotif.wav
+    calm_leitmotif: assets/music/characters/yoyo/variations/calm-leitmotif.wav
+    variations_directory: assets/music/characters/yoyo/variations
+  metadata:
+    generated_from_character_yaml: true
+    generated_from_reference_image: true
+    approval_required: true
+    approval_status: approved-by-project-owner
+    approval_date: 2026-08-20
+    approval_record: validation/project-owner-approvals.yaml
+    continuity_priority: critical

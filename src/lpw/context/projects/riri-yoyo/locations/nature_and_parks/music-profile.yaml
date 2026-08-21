@@ -1,0 +1,1346 @@
+id: nature-and-parks-music
+type: location-music-context
+version: 1.1
+name: Nature and Parks Music Profile
+
+identity:
+  location: nature-and-parks
+
+  theme:
+    - peaceful exploration
+    - natural wonder
+    - gentle adventure
+    - discovery
+    - freedom
+    - emotional calm
+
+  emotional_identity:
+    primary:
+      - peaceful
+      - curious
+      - cheerful
+      - refreshing
+      - welcoming
+      - safe
+
+    secondary:
+      - adventurous
+      - warm
+      - spacious
+      - hopeful
+      - reflective
+      - playful
+      - wondrous
+
+  energy: low-medium
+
+  purpose:
+    - establish a peaceful outdoor world
+    - support nature exploration
+    - encourage observation and curiosity
+    - support walking and gentle movement
+    - reinforce emotional calm
+    - support friendship and conversation
+    - create a sense of open space
+    - support discovery of plants animals water and landscape
+    - provide a recognizable nature-location identity
+
+musical_character:
+
+  style:
+    - gentle children's cinematic
+    - light acoustic orchestral
+    - pastoral
+    - warm storybook
+    - nature-inspired
+    - preschool-friendly
+
+  tone:
+    warmth: high
+    softness: high
+    playfulness: medium
+    curiosity: high
+    spaciousness: high
+    freshness: high
+    wonder: medium-high
+    adventure: low-medium
+    mystery: very-low
+    tension: very-low
+
+  emotional_direction:
+    default: peaceful-curious-exploration
+
+  avoid_emotional_direction:
+    - fear
+    - danger
+    - suspense
+    - isolation
+    - dark-mystery
+    - heroic-epic
+    - threatening
+    - intense-adventure
+    - melancholy-heavy
+
+instrumentation:
+
+  primary:
+
+    gentle_flute:
+      role:
+        - nature-melody
+        - exploration-motif
+        - curiosity-response
+        - birdlike-musical-color
+
+      playing_style:
+        - airy
+        - warm
+        - lyrical
+        - simple
+        - short-phrases
+
+      register: mid-high
+      intensity: low
+
+    acoustic_guitar:
+      role:
+        - harmonic-foundation
+        - walking-support
+        - warm-organic-texture
+
+      playing_style:
+        - soft-fingerpicking
+        - gentle-plucking
+        - light-strumming
+        - spacious
+
+      register: mid
+      intensity: low-medium
+
+    soft_piano:
+      role:
+        - harmonic-support
+        - emotional-support
+        - reflective-moments
+        - transition-support
+
+      playing_style:
+        - warm
+        - simple
+        - sparse
+        - flowing
+
+      register: mid
+      intensity: low
+
+    muted_marimba:
+      role:
+        - gentle-movement
+        - walking-pulse
+        - discovery-pattern
+        - playful-nature-texture
+
+      playing_style:
+        - soft
+        - rounded
+        - sparse
+        - lightly-bouncy
+
+      register: mid
+      intensity: very-low
+
+  secondary:
+
+    soft_strings:
+      allowed: true
+
+      role:
+        - landscape-width
+        - emotional-support
+        - wonder
+        - scenic-transition
+
+      intensity: very-low
+
+      rules:
+        - use gentle sustained textures
+        - preserve openness
+        - avoid dramatic swells
+        - never become epic
+
+    gentle_clarinet:
+      allowed: true
+
+      role:
+        - warm-secondary-melody
+        - friendly-character
+        - quiet-walking-support
+
+      intensity: very-low
+
+      rules:
+        - use short rounded phrases
+        - remain secondary to flute
+        - reduce beneath dialogue
+
+    soft_bells:
+      allowed: limited
+
+      possible_sources:
+        - celesta
+        - soft-glockenspiel
+        - gentle-chime
+
+      role:
+        - discovery-accent
+        - sunlight-accent
+        - small-wonder-moment
+
+      intensity: very-low
+
+      rules:
+        - use sparingly
+        - prefer single notes
+        - avoid continuous sparkle
+        - avoid magical overload
+        - avoid piercing tones
+
+    light_hand_percussion:
+      allowed: limited
+
+      possible_sources:
+        - soft-shaker
+        - muted-wood-block
+        - brushed-hand-drum
+        - gentle-tambourine
+
+      role:
+        - walking-support
+        - playful-exploration
+        - group-movement
+
+      intensity: very-low
+
+      rules:
+        - keep patterns simple
+        - avoid hard transients
+        - never dominate
+
+    harp:
+      allowed: limited
+
+      role:
+        - water-accent
+        - scenic-transition
+        - gentle-wonder
+
+      intensity: very-low
+
+      rules:
+        - use short simple gestures
+        - avoid fantasy-heavy arpeggios
+        - avoid continuous glissando
+
+harmony:
+
+  character:
+    - open
+    - warm
+    - bright
+    - stable
+    - natural
+    - reassuring
+
+  complexity: low
+
+  preferred:
+    - major
+    - major-add6
+    - major-add9
+    - open-fifths
+    - gentle-suspended-harmony
+    - simple-diatonic-progressions
+    - warm-tonic-pedal
+    - gentle-plagal-motion
+
+  dissonance: minimal
+
+  rules:
+    - preserve tonal openness
+    - use spacious voicings
+    - favor consonant harmony
+    - allow gentle harmonic suspension for curiosity
+    - resolve naturally
+    - avoid dark harmonic turns
+    - avoid dramatic modulation
+    - never create unresolved tension
+
+melody:
+
+  complexity: simple
+
+  phrase_length: short-medium
+
+  contour:
+    - gently-rising
+    - gently-falling
+    - flowing
+    - small-step-motion
+    - occasional-open-leap
+
+  repetition:
+    allowed: true
+    amount: moderate
+
+  characteristics:
+    - lyrical
+    - memorable
+    - open
+    - friendly
+    - curious
+    - flowing
+    - child-friendly
+
+  rules:
+    - leave space for natural ambience
+    - allow silence between phrases
+    - avoid constant melodic activity
+    - avoid rapid runs
+    - use flute phrases that suggest natural movement
+    - avoid copying literal bird calls
+    - preserve recognizable nature motif
+
+rhythm:
+
+  activity: low-medium
+
+  pulse:
+    strength: subtle
+    consistency: gentle
+    character:
+      - flowing
+      - relaxed
+      - lightly-bouncy
+      - walking-friendly
+
+  percussion:
+    amount: minimal
+
+  preferred:
+    - soft-acoustic-guitar-pulse
+    - muted-marimba
+    - gentle-shaker
+    - soft-wooden-accent
+    - light-step-pattern
+
+  activity_relationship:
+
+    resting:
+      activity: very-low
+
+    observation:
+      activity: very-low
+
+    walking:
+      activity: low-medium
+
+    exploring:
+      activity: medium
+
+    playing:
+      activity: medium
+
+    crossing_bridge:
+      activity: low-medium
+
+    discovering_nature:
+      activity: low
+
+  rules:
+    - follow walking rhythm gently
+    - never force physical movement
+    - maintain open rhythmic space
+    - reduce rhythm during observation
+    - increase slightly during exploration
+    - preserve natural environmental timing
+    - avoid overstimulation
+
+  avoid:
+    - heavy-drums
+    - aggressive-percussion
+    - fast-beats
+    - tension-ostinato
+    - complex-syncopation
+    - frantic-rhythm
+    - strong-driving-bass
+    - dense-rhythmic-layers
+
+tempo:
+
+  default_bpm:
+    min: 68
+    max: 94
+
+  preferred_bpm: 80
+
+  states:
+
+    peaceful:
+      min: 62
+      max: 72
+
+    walking:
+      min: 74
+      max: 86
+
+    exploration:
+      min: 80
+      max: 94
+
+    playful:
+      min: 88
+      max: 100
+
+    reflective:
+      min: 58
+      max: 68
+
+  rules:
+    - follow movement naturally
+    - preserve relaxed pacing
+    - never create artificial urgency
+    - allow slightly faster pacing during playful exploration
+    - slow gently during observation and reflection
+    - make tempo changes gradual
+
+dynamics:
+
+  default: soft
+
+  range:
+    minimum: very-soft
+    maximum: medium
+
+  variation: gentle
+
+  rules:
+    - preserve comfortable listening level
+    - avoid sudden loud changes
+    - avoid dramatic crescendos
+    - use instrumentation changes instead of volume jumps
+    - preserve environmental ambience
+    - maintain natural spaciousness
+
+dialogue:
+
+  priority: highest
+
+  music_behavior:
+
+    during_dialogue:
+      volume: reduced
+      melodic_activity: reduced
+      rhythmic_activity: reduced
+      instrumentation_density: reduced
+
+    during_quiet_conversation:
+      volume: very-low
+      preferred_instruments:
+        - soft-acoustic-guitar
+        - soft-piano
+
+    during_walk_and_talk:
+      volume: low
+      rhythm: subtle
+      melody: sparse
+
+    between_dialogue:
+      volume: normal-low
+      melodic_activity: slightly-increased
+      rhythmic_activity: slightly-increased
+
+  ducking:
+    enabled: true
+    behavior: smooth
+    attack: gentle
+    release: gentle
+
+  rules:
+    - dialogue must remain clearly understandable
+    - reduce flute beneath speech
+    - simplify guitar beneath important dialogue
+    - remove bells during dialogue
+    - reduce marimba beneath conversation
+    - restore music gradually after dialogue
+
+ambience:
+
+  priority:
+    - dialogue
+    - important-character-sounds
+    - important-nature-sounds
+    - water
+    - music
+
+  preserve:
+    - birds
+    - gentle-breeze
+    - rustling-leaves
+    - flowing-stream
+    - insects
+    - footsteps-on-stone-path
+    - footsteps-on-grass
+    - bridge-footsteps
+    - distant-natural-ambience
+
+  birds:
+    importance: high
+    role: nature-identity
+
+    music_relationship:
+      - leave upper-frequency-space
+      - reduce flute when bird calls are prominent
+      - allow natural bird phrases to lead
+
+  breeze:
+    importance: medium-high
+
+    music_relationship:
+      - maintain open arrangement
+      - avoid masking leaves
+      - preserve natural movement
+
+  foliage:
+    importance: medium
+
+    preserve:
+      - leaf-rustle
+      - grass-movement
+      - branch-movement
+
+  stream:
+    importance: high
+    role: location-identity
+
+    music_relationship:
+      - maintain spectral space for flowing water
+      - avoid dense sustained mid-high textures
+      - allow water to remain continuously audible
+      - use harp or piano only as subtle complementary textures
+
+  insects:
+    importance: low-medium
+
+  footsteps:
+    importance: medium
+
+    music_relationship:
+      - avoid strong percussion that masks steps
+      - walking rhythm may loosely support footsteps
+
+  rules:
+    - natural ambience remains part of the score
+    - music should feel embedded within the landscape
+    - never completely cover birds or water
+    - allow ambience-only moments
+    - environmental sounds continue through music transitions
+    - preserve a peaceful outdoor soundscape
+
+mix:
+
+  dialogue_priority: highest
+
+  music_position:
+    width: medium-wide
+    depth: background
+
+  ambience_position:
+    width: wide
+    depth: environment
+
+  flute:
+    position: slightly-off-center
+
+  acoustic_guitar:
+    position: medium-wide
+
+  piano:
+    position: center-soft
+
+  marimba:
+    position: subtle-wide
+
+  strings:
+    position: wide-background
+
+  harp:
+    position: soft-wide
+
+  rules:
+    - preserve clear dialogue center
+    - maintain wide natural ambience
+    - keep low frequencies light
+    - avoid dense midrange
+    - avoid harsh high-frequency instruments
+    - leave space for birds
+    - leave space for flowing water
+    - maintain open outdoor spatial feeling
+
+states:
+
+  default:
+    id: nature-and-parks-peaceful
+    emotion:
+      - peaceful
+      - curious
+      - welcoming
+
+    energy: low
+
+    instrumentation:
+      - gentle-flute
+      - acoustic-guitar
+      - soft-piano
+      - muted-marimba
+
+  establishing:
+    id: nature-and-parks-establishing
+    emotion:
+      - openness
+      - calm
+      - wonder
+
+    energy: low
+
+    changes:
+      acoustic_guitar: gentle
+      flute: nature-motif
+      piano: sparse
+      strings: very-soft-wide
+      marimba: minimal
+
+  walking:
+    id: nature-and-parks-walking
+    emotion:
+      - curiosity
+      - relaxation
+      - gentle-progress
+
+    energy: low-medium
+
+    changes:
+      acoustic_guitar: soft-steady-pattern
+      marimba: gentle-step-pulse
+      flute: occasional-short-phrase
+      piano: simple-support
+
+  exploration:
+    id: nature-and-parks-exploration
+    emotion:
+      - curiosity
+      - discovery
+      - excitement
+
+    energy: medium
+
+    changes:
+      guitar: slightly-more-active
+      marimba: playful-soft-pattern
+      flute: curiosity-phrases
+      piano: light-support
+      percussion: optional-very-light
+
+  nature_observation:
+    id: nature-and-parks-observation
+    emotion:
+      - focus
+      - curiosity
+      - appreciation
+
+    energy: very-low
+
+    changes:
+      piano: sparse
+      flute: occasional
+      guitar: soft-plucks
+      marimba: absent
+      percussion: absent
+
+    rules:
+      - natural ambience may dominate
+      - preserve birds and water
+      - leave long musical spaces
+
+  stream:
+    id: nature-and-parks-stream
+    emotion:
+      - calm
+      - freshness
+      - wonder
+
+    energy: very-low
+
+    changes:
+      piano: flowing-sparse
+      harp: optional
+      flute: minimal
+      guitar: occasional
+      marimba: absent
+
+    rules:
+      - flowing water remains clearly audible
+      - avoid literal water imitation
+      - keep arrangement transparent
+
+  bridge:
+    id: nature-and-parks-bridge
+    emotion:
+      - gentle-adventure
+      - curiosity
+      - progress
+
+    energy: low-medium
+
+    changes:
+      guitar: gentle-forward-motion
+      marimba: light-step-pattern
+      flute: short-rising-phrase
+      piano: supportive
+
+    rules:
+      - avoid suspense
+      - crossing remains safe and pleasant
+      - preserve bridge footsteps and water
+
+  flower_discovery:
+    id: nature-and-parks-flower-discovery
+    emotion:
+      - delight
+      - curiosity
+      - beauty
+
+    energy: low
+
+    changes:
+      flute: short-delicate-phrase
+      piano: gentle-answer
+      bell_accent: optional-single-note
+      guitar: sparse
+      marimba: minimal
+
+  animal_discovery:
+    id: nature-and-parks-animal-discovery
+    emotion:
+      - curiosity
+      - delight
+      - gentle-surprise
+
+    energy: low-medium
+
+    changes:
+      flute: short-curiosity-response
+      clarinet: optional-friendly-answer
+      guitar: soft
+      piano: light
+      bell_accent: optional
+
+    rules:
+      - animal sounds remain audible
+      - avoid cartoon chase scoring
+      - avoid musical imitation of animal calls
+
+  playful:
+    id: nature-and-parks-playful
+    emotion:
+      - joy
+      - friendship
+      - movement
+
+    energy: medium
+
+    changes:
+      guitar: brighter-rhythm
+      marimba: gently-bouncy
+      flute: short-answer-phrases
+      percussion: optional-light
+      piano: simple-bright-support
+
+  friendship:
+    id: nature-and-parks-friendship
+    emotion:
+      - warmth
+      - kindness
+      - connection
+
+    energy: low
+
+    changes:
+      piano: primary
+      guitar: soft
+      flute: gentle-motif
+      strings: very-soft
+      marimba: absent-or-minimal
+
+  dialogue:
+    id: nature-and-parks-dialogue
+    emotion:
+      - supportive
+      - relaxed
+
+    energy: very-low
+
+    changes:
+      guitar: sparse
+      piano: soft
+      flute: absent-or-minimal
+      marimba: absent
+      bells: absent
+      percussion: absent
+
+  reflective:
+    id: nature-and-parks-reflective
+    emotion:
+      - peace
+      - reassurance
+      - appreciation
+
+    energy: very-low
+
+    changes:
+      piano: primary
+      guitar: sparse
+      flute: occasional
+      strings: subtle
+      rhythm: absent
+
+  sunset_or_departure:
+    id: nature-and-parks-departure
+    emotion:
+      - warmth
+      - completion
+      - reassurance
+
+    energy: low
+
+    changes:
+      guitar: soft
+      piano: gentle-resolution
+      flute: nature-theme-resolution
+      marimba: minimal
+      strings: very-soft
+
+motif:
+
+  id: nature-and-parks-exploration-motif
+
+  purpose:
+    - identify-nature-and-parks
+    - reinforce-location-memory
+    - symbolize-curiosity
+    - symbolize-natural-wonder
+    - support-return-to-nature
+    - create-musical-continuity
+
+  primary_instrument: gentle-flute
+
+  supporting_instruments:
+    - acoustic-guitar
+    - soft-piano
+    - muted-marimba
+
+  structure:
+    length: short
+    complexity: simple
+
+    character:
+      - open
+      - gently-rising
+      - flowing
+      - hopeful
+      - easy-to-remember
+
+  emotional_shape:
+    beginning: peaceful
+    middle: curious
+    ending: reassuring
+
+  usage:
+    - park-establishing-shot
+    - nature-arrival
+    - walking
+    - gentle-discovery
+    - crossing-bridge
+    - friendship-moment
+    - return-to-park
+    - scenic-reveal
+    - scene-ending
+
+  rules:
+    - motif remains recognizable
+    - orchestration may change
+    - core melody remains stable
+    - simplify beneath dialogue
+    - allow pauses for natural ambience
+    - never become epic
+    - never become suspenseful
+
+environmental_relationship:
+
+  visual_character:
+    - sunny
+    - green
+    - spacious
+    - floral
+    - peaceful
+    - natural
+    - bright
+    - welcoming
+    - scenic
+    - child-friendly
+
+  music_translation:
+
+    large_trees:
+      musical_quality:
+        - warm-sustained-harmony
+        - low-density-arrangement
+        - soft-organic-timbres
+
+    sunlight:
+      musical_quality:
+        - bright-major-harmony
+        - open-voicing
+        - gentle-high-register-accents
+
+    grass:
+      musical_quality:
+        - flowing-acoustic-patterns
+        - soft-light-rhythm
+
+    flowers:
+      musical_quality:
+        - small-flute-details
+        - delicate-piano-notes
+        - occasional-soft-bell-accent
+
+    stone_path:
+      musical_quality:
+        - gentle-walking-pulse
+        - acoustic-guitar
+        - muted-marimba
+
+    wooden_bridge:
+      musical_quality:
+        - acoustic-guitar
+        - wooden-percussion
+        - gentle-forward-motion
+
+    stream:
+      musical_quality:
+        - sparse-piano
+        - optional-harp
+        - flowing-phrasing
+        - transparent-arrangement
+
+    bench:
+      musical_quality:
+        - relaxed-piano
+        - gentle-guitar
+        - reflective-space
+
+    mountains:
+      musical_quality:
+        - wider-harmonic-voicing
+        - soft-strings
+        - spacious-flute-phrasing
+
+    open_sky:
+      musical_quality:
+        - high-spatial-openness
+        - long-musical-breathing-space
+        - light-airy-flute
+
+    lamp:
+      musical_quality:
+        - warm-small-accent
+        - optional-evening-transition-cue
+
+transitions:
+
+  entering_nature:
+    behavior:
+      - begin-with-natural-ambience
+      - establish-birds-or-water
+      - introduce-acoustic-guitar-gradually
+      - introduce-nature-motif-on-flute
+      - add-piano-or-marimba-after-location-establishes
+
+  leaving_nature:
+    behavior:
+      - reduce-rhythm
+      - simplify-guitar
+      - resolve-nature-motif
+      - preserve-environmental-ambience
+      - allow-nature-sounds-to-remain-after-music
+
+  walking_to_observation:
+    behavior:
+      - reduce-marimba
+      - simplify-guitar
+      - reduce-tempo
+      - increase-musical-space
+      - allow-ambience-to-lead
+
+  observation_to_exploration:
+    behavior:
+      - introduce-guitar-pulse
+      - add-marimba-gradually
+      - reintroduce-flute-motif
+      - increase-energy-gently
+
+  dialogue_to_exploration:
+    behavior:
+      - restore-flute-gradually
+      - increase-guitar-motion
+      - add-subtle-marimba
+      - preserve-natural-ambience
+
+  exploration_to_dialogue:
+    behavior:
+      - remove-percussion
+      - reduce-marimba
+      - reduce-flute
+      - simplify-guitar
+      - preserve-soft-piano
+
+  path_to_bridge:
+    behavior:
+      - retain-walking-pulse
+      - introduce-subtle-wooden-character
+      - gently-rise-melodic-contour
+      - preserve-stream-sound
+
+  bridge_to_stream:
+    behavior:
+      - reduce-rhythm
+      - transition-to-flowing-piano
+      - remove-marimba
+      - allow-water-to-dominate
+
+  active_to_reflective:
+    behavior:
+      - reduce-tempo-gradually
+      - remove-percussion
+      - simplify-guitar
+      - transition-to-piano
+      - introduce-soft-strings-if-needed
+
+continuity_constraints:
+
+  identity:
+    - preserve peaceful exploration
+    - preserve natural wonder
+    - preserve emotional safety
+    - preserve open spacious feeling
+    - preserve nature-and-parks motif
+
+  instrumentation:
+    - gentle flute remains primary melodic identity
+    - acoustic guitar remains primary organic rhythmic foundation
+    - soft piano remains emotional support
+    - marimba remains subtle movement texture
+    - strings remain background-only
+    - bells remain occasional accents
+
+  energy:
+    - baseline energy remains low-medium
+    - observation states remain very-low
+    - playful exploration may reach medium
+    - energy changes remain gradual
+    - never become overstimulating
+
+  environment:
+    - preserve birds
+    - preserve wind and foliage
+    - preserve flowing water where present
+    - preserve outdoor openness
+    - natural ambience remains part of location identity
+
+  emotional:
+    - curiosity remains positive
+    - nature remains welcoming
+    - exploration remains safe
+    - discovery remains gentle
+    - solitude feels peaceful rather than lonely
+    - mistakes or small problems do not redefine location identity
+
+  mixing:
+    - dialogue always has priority
+    - natural ambience remains audible
+    - music remains background-supportive
+    - arrangement remains open
+    - avoid dense layering
+
+negative_constraints:
+
+  emotion:
+    - no horror
+    - no fear
+    - no threat
+    - no strong-suspense
+    - no dark-mystery
+    - no intense-sadness
+    - no dangerous-adventure
+    - no emotional-manipulation
+    - no loneliness-heavy-tone
+
+  instrumentation:
+    - no heavy-brass
+    - no aggressive-strings
+    - no heavy-drums
+    - no distorted-synths
+    - no threatening-drones
+    - no industrial-impacts
+    - no horror-textures
+    - no piercing-bells
+    - no aggressive-electric-guitar
+    - no harsh-metallic-percussion
+
+  rhythm:
+    - no frantic-percussion
+    - no aggressive-pulse
+    - no tension-ostinato
+    - no club-style-beats
+    - no complex-driving-rhythm
+    - no rapid-repetitive-patterns
+
+  harmony:
+    - no dark-unresolved-harmony
+    - no horror-dissonance
+    - no strong-chromatic-tension
+    - no ominous-low-pedals
+    - no dramatic-modulation
+
+  melody:
+    - no frantic-runs
+    - no extreme-register-jumps
+    - no threatening-motifs
+    - no melodramatic-lines
+    - no constant-busy-melody
+
+  dynamics:
+    - no sudden-loud-accents
+    - no dramatic-crescendos
+    - no jump-scare-dynamics
+    - no extreme-volume-contrast
+
+generation:
+
+  essential_prompt_tokens:
+    - gentle children's nature music
+    - peaceful park atmosphere
+    - preschool cinematic music
+    - gentle flute
+    - acoustic guitar
+    - soft piano
+    - muted marimba
+    - light pastoral orchestration
+    - natural acoustic textures
+    - peaceful exploration
+    - cheerful curiosity
+    - flowing stream
+    - birds and breeze
+    - open green landscape
+    - flowers and trees
+    - gentle adventure
+    - emotional safety
+    - low-medium energy
+    - spacious arrangement
+    - dialogue-friendly
+    - ages 3-6
+
+  negative_prompt_tokens:
+    - suspense
+    - horror
+    - danger
+    - threatening drone
+    - dark ambient
+    - heavy percussion
+    - epic orchestra
+    - aggressive rhythm
+    - dramatic crescendo
+    - intense bass
+    - frantic tempo
+    - dark forest
+    - ominous nature
+    - dangerous adventure
+    - overstimulating music
+
+  variation_allowed:
+    - flute-phrase-variation
+    - acoustic-guitar-pattern-variation
+    - piano-voicing-variation
+    - marimba-pattern-variation
+    - clarinet-response-variation
+    - subtle-string-texture
+    - motif-orchestration
+    - arrangement-density
+    - environmental-density
+    - walking-rhythm
+
+  preserve_between_generations:
+    - emotional-identity
+    - nature-and-parks-exploration-motif
+    - primary-instrumentation
+    - open-acoustic-character
+    - peaceful-exploration-energy
+    - dialogue-space
+    - bird-ambience-space
+    - water-ambience-space
+    - natural-spaciousness
+
+stems:
+
+  preferred: true
+
+  tracks:
+    - flute
+    - acoustic-guitar
+    - piano
+    - marimba
+    - strings
+    - clarinet
+    - harp
+    - percussion
+    - secondary-instruments
+    - music-full-mix
+
+  purpose:
+    - dialogue-ducking
+    - environmental-mixing
+    - scene-rearrangement
+    - adaptive-editing
+    - music-extension
+    - energy-adjustment
+    - motif-reuse
+    - ambience-preservation
+    - transition-editing
+
+adaptive_music:
+
+  enabled: true
+
+  editable_layers:
+    - melody
+    - harmony
+    - rhythm
+    - texture
+    - instrumentation-density
+    - environmental-space
+    - exploration-intensity
+
+  priority_order_when_reducing:
+    - remove-secondary-instruments
+    - remove-percussion
+    - remove-bells
+    - remove-harp
+    - reduce-marimba
+    - reduce-strings
+    - reduce-clarinet
+    - reduce-flute
+    - simplify-guitar
+    - simplify-piano
+
+  priority_order_when-building:
+    - acoustic-guitar
+    - piano
+    - flute
+    - marimba
+    - clarinet
+    - soft-strings
+    - optional-percussion
+    - optional-harp
+    - optional-bells
+
+validation:
+
+  emotional_checks:
+    - music feels peaceful
+    - music feels welcoming
+    - nature feels safe
+    - curiosity remains positive
+    - exploration feels gentle
+    - wonder remains child-scaled
+    - energy remains controlled
+    - no unintended suspense is present
+
+  location_checks:
+    - music feels appropriate for a bright natural park
+    - music reflects trees flowers paths water and open landscape
+    - outdoor scale feels spacious
+    - bridge and stream scenes remain connected to overall park identity
+    - nature remains central to the musical character
+
+  dialogue_checks:
+    - dialogue remains clearly intelligible
+    - flute does not compete with speech
+    - guitar remains subtle beneath dialogue
+    - marimba reduces during conversation
+    - bells remain absent beneath important lines
+
+  ambience_checks:
+    - birds remain audible
+    - breeze remains audible
+    - foliage remains audible
+    - stream remains clearly audible where present
+    - footsteps remain readable when important
+    - music does not mask natural ambience
+
+  continuity_checks:
+    - nature-and-parks motif remains recognizable
+    - primary instrumentation remains consistent
+    - acoustic character remains stable
+    - energy transitions remain gradual
+    - environment remains peaceful
+    - music remains appropriate for ages 3-6
+
+context_dependencies:
+
+  location:
+    source: location.yaml
+
+  location_audio:
+    source: location.yaml#audio
+
+  color_palette:
+    source: ../../visual_style/palette-v2.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scene:
+    source: ../../03-scenes/
+
+  cinematography:
+    source: ../../cinematography/
+
+  continuity:
+    source: ../../continuity/
+
+  editing:
+    source: ../../editing/
+
+authority:
+
+  location_music_identity: this-file
+  nature_and_parks_motif: this-file
+  default_music_energy: this-file
+  default_instrumentation: this-file
+  music_dialogue_behavior: this-file
+  adaptive_music_behavior: this-file
+
+  environmental_audio: location-context
+  dialogue_content: scene-context
+  character_voice: character-context
+  scene_emotion_override: scene-context
+  final_mix: editing-context

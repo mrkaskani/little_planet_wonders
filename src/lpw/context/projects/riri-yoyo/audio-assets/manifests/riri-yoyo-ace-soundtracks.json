@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-08-18T17:21:40.932860+00:00",
+  "source_config": "src/lpw/context/projects/riri-yoyo/audios/ace-soundtracks.yaml",
+  "engine": "ace-step-1.5",
+  "model": "acestep-v15-turbo",
+  "lm_model": "disabled-for-local-memory",
+  "source_profiles": [
+    {
+      "character": "riri",
+      "profile_id": "riri-music-profile",
+      "path": "src/lpw/context/projects/riri-yoyo/characters/riri/music-profile.yaml",
+      "sha256": "7052fa3017e5469ab710f28c7c2c0dee1347e6d2b95a37190407245b3cd9200a"
+    },
+    {
+      "character": "yoyo",
+      "profile_id": "yoyo-music-profile",
+      "path": "src/lpw/context/projects/riri-yoyo/characters/yoyo/music-profile.yaml",
+      "sha256": "6b973357a60c5c9ea4a748b6ef35b55a29086ca8c612483ac60753c28f4f6530"
+    }
+  ],
+  "soundtracks": [
+    {
+      "id": "playful-playing",
+      "path": "assets/music/soundtracks/riri-yoyo/ace-step/playful-playing/playful-playing-30s.wav",
+      "status": "generated",
+      "seconds_requested": 30.0,
+      "bpm": 122,
+      "time_signature": "4/4",
+      "profile_prompt_key": "happy_variation",
+      "seed": 2051316263,
+      "seed_mode": "random",
+      "prompt": "Instrumental preschool animation soundtrack. Scenario: Riri and Yoyo play a funny, energetic preschool movement game with tiny hops, wobbly tiptoes, safe slides, peekaboo pauses, soft comic landings, delighted reactions, and cheerful cooperation. Keep a steady danceable kindergarten pulse and bright playful momentum without becoming frantic. Target tempo: 122 BPM. Time signature: 4/4. Riri identity from riri-music-profile: Riri sounds like a soft musical hug: a warm felt-piano theme with gentle harp plucks, rounded clarinet phrases, light pizzicato strings, and tiny tail-wag percussion. The music should feel cuddly, reassuring, pastel, affectionate, and quietly playful. Canonical motif notes in exact order: G5, B5, D6, B5, G5. Canonical note durations in exact order: 0.46s, 0.52s, 0.74s, 0.56s, 0.82s. Rhythmic identity: One soft home note, one gently rising name note, one long glowing high note, then two increasingly relaxed notes descending back home. The phrase is one connected breath, with the central high note acting like an affectionate open-paw hug. Register: approximately G5 to D6; keep clearly above Yoyo except in explicitly approved low variations. Production identity: This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Scenario arrangement from the character profile: Arrange Riri's established five-note felt-piano arch as a happy preschool cue at about 114 BPM in 6/8. Add fingerpicked nylon-string guitar, gentle pizzicato strings, soft shaker, and a smiling harp or clarinet answer. Preserve the spacious upward thirds, long central high note, symmetrical descent, and home-note landing. Use open major harmony and moderate dynamics. Yoyo identity from yoyo-music-profile: Yoyo sounds like a tiny, buoyant burst of curiosity: a warm celesta-led theme with soft marimba pulses, light pizzicato strings, airy woodwinds, and gentle hand percussion. The music should feel plush, sparkling, friendly, and always ready for one more cheerful try. Canonical motif notes in exact order: D4, D4, A4, F#4, E4, G4, D4. Canonical note durations in exact order: 0.1s, 0.1s, 0.24s, 0.15s, 0.15s, 0.2s, 0.38s. Rhythmic identity: Two very short equal bounce notes, a separated high surprise note, two quick descending slide notes, one cheeky rebound note, and a low final landing. Hard gaps divide the bounce, jump, slide, and landing into a playful stop-start penguin phrase. Register: approximately D4 to A4; keep clearly below Riri except for isolated sparkle accents. Production identity: This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Scenario arrangement from the character profile: Arrange Yoyo's established seven-note celesta motif as a happy preschool cue at about 124 BPM. Add gentle ukulele, pizzicato strings, soft shaker, and a smiling flute response. Preserve the two repeated opening notes, early perfect-fifth jump, stepwise slide, rebound, and low comic landing. Use open major harmony, added-sixth color, moderate dynamics, and a warm playful finish. This is a close cover and controlled extension of the supplied WAV, not a new composition. Treat the reference recording as authoritative. Preserve its recognizable main melody, chord loop, tempo family, meter, phrase lengths, rhythmic groove, instrumentation, registers, soft timbres, dynamics, stereo space, and warm production. Stay very close to its musical identity from the first bar through the ending. Add only a small preschool-energy lift: a more buoyant pulse, tiny rhythmic hops, smiling call-and-response, and light toy-box sparkle. Make it funny, active, innocent, and immediately enjoyable for children before school age, like friendly movement music in a colorful kindergarten. Use short, simple, singable two-to-four-bar ideas and repeat them steadily with one tiny variation at a time. The energy must be cheerful and bouncy, never loud, frantic, harsh, busy, cinematic, heroic, or mature. Do not introduce a new tune, new chord progression, key change, modulation, sudden chord change, rhythm switch, tempo jump, breakdown, build-up, climax, dense counterpoint, dramatic percussion, or orchestration change. Keep Riri and Yoyo distinct through occasional short character replies, but do not continuously repeat or over-feature either leitmotif. Riri's reply remains a high, connected felt-piano arch; Yoyo's reply remains a lower, detached celesta bounce-and-slide. Begin inside the existing groove with no title-card introduction, keep dialogue-safe dynamics, and finish with a gentle playful resolution. Instrumental only: no voice, lyrics, singing, speech, chanting, environmental ambience, or sound effects.",
+      "prompt_sha256": "92a852fd644e767e0d2e3afb56e70aa7654669db5c6a9fbf02552aedbfed7c4d",
+      "instrumental": true,
+      "reference_audio": {
+        "path": "assets/music/soundtracks/riri-yoyo/playful-playing.wav",
+        "sha256": "cd9cdd4954fb3dd4b08ac74eb5be1478aff73d13a810c335dbd0f09286fc6f17",
+        "task_type": "cover",
+        "audio_cover_strength": 1.0,
+        "cover_noise_strength": 0.6
+      },
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 2,
+        "duration_seconds": 20.0,
+        "frames": 960000,
+        "bytes": 3840044,
+        "sha256": "dad9b27b7ffac7f34803448b2049de2e6011d55af08fe103d8b0efd80dd5420a"
+      }
+    },
+    {
+      "id": "puzzle-solving",
+      "path": "assets/music/soundtracks/riri-yoyo/ace-step/puzzle-solving/puzzle-solving-30s.wav",
+      "status": "verified-existing",
+      "seconds_requested": 30.0,
+      "bpm": 92,
+      "time_signature": "4/4",
+      "profile_prompt_key": "curious_variation",
+      "seed": 56086087,
+      "seed_mode": "explicit",
+      "prompt": "Instrumental preschool animation soundtrack. Scenario: Riri and Yoyo quietly solve a colorful preschool puzzle with musical questions, thinking space, gentle clues, reassuring answers, and one warm discovery while leaving generous room for dialogue. Target tempo: 92 BPM. Time signature: 4/4. Riri identity from riri-music-profile: Riri sounds like a soft musical hug: a warm felt-piano theme with gentle harp plucks, rounded clarinet phrases, light pizzicato strings, and tiny tail-wag percussion. The music should feel cuddly, reassuring, pastel, affectionate, and quietly playful. Canonical motif notes in exact order: G5, B5, D6, B5, G5. Canonical note durations in exact order: 0.46s, 0.52s, 0.74s, 0.56s, 0.82s. Rhythmic identity: One soft home note, one gently rising name note, one long glowing high note, then two increasingly relaxed notes descending back home. The phrase is one connected breath, with the central high note acting like an affectionate open-paw hug. Register: approximately G5 to D6; keep clearly above Yoyo except in explicitly approved low variations. Production identity: This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Scenario arrangement from the character profile: Arrange Riri's established motif as a curious cue at about 88 BPM with sparse felt piano, soft harp, clarinet, and flute. Add breathing space before the central high note and delay the descending home-note resolution. Use a tonic pedal, gentle suspended seconds that resolve quickly, light dynamics, and generous space for dialogue. Yoyo identity from yoyo-music-profile: Yoyo sounds like a tiny, buoyant burst of curiosity: a warm celesta-led theme with soft marimba pulses, light pizzicato strings, airy woodwinds, and gentle hand percussion. The music should feel plush, sparkling, friendly, and always ready for one more cheerful try. Canonical motif notes in exact order: D4, D4, A4, F#4, E4, G4, D4. Canonical note durations in exact order: 0.1s, 0.1s, 0.24s, 0.15s, 0.15s, 0.2s, 0.38s. Rhythmic identity: Two very short equal bounce notes, a separated high surprise note, two quick descending slide notes, one cheeky rebound note, and a low final landing. Hard gaps divide the bounce, jump, slide, and landing into a playful stop-start penguin phrase. Register: approximately D4 to A4; keep clearly below Riri except for isolated sparkle accents. Production identity: This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Scenario arrangement from the character profile: Arrange Yoyo's established motif as a curious cue at about 96 BPM with sparse celesta, soft marimba, flute, and clarinet. Leave a small pause before the rebound note so the phrase feels like a friendly question. Use a tonic pedal, gentle suspended seconds that resolve quickly, light dynamics, and plenty of space for dialogue. Keep Riri and Yoyo musically distinct in friendly call-and-response. Never merge their canonical note sequences into one generic melody. Let Riri retain her high connected five-note felt-piano arch and let Yoyo retain the lower detached seven-note celesta bounce-and-slide riff. Begin directly in the activity groove without a title-card introduction. Use gentle preschool melody, simple harmony, rounded attacks, dialogue-safe dynamics, smooth transitions, and a soft resolved ending. Instrumental only: no voice, lyrics, singing, speech, chanting, environmental ambience, or sound effects.",
+      "prompt_sha256": "31647da123debf8f2d2db9178e3265fa7b36af6f7f296375d0477ac97caed952",
+      "instrumental": true,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 2,
+        "duration_seconds": 30.0,
+        "frames": 1440000,
+        "bytes": 5760044,
+        "sha256": "4d54b89d47d992fbba7e9dd1764bf8d296739630fbb02642aa8ea33fb46b064d"
+      }
+    },
+    {
+      "id": "doing-activities",
+      "path": "assets/music/soundtracks/riri-yoyo/ace-step/doing-activities/doing-activities-30s.wav",
+      "status": "generated",
+      "seconds_requested": 30.0,
+      "bpm": 106,
+      "time_signature": "4/4",
+      "profile_prompt_key": "action_variation",
+      "seed": 1998817486,
+      "seed_mode": "random",
+      "prompt": "Instrumental preschool animation soundtrack. Scenario: Riri and Yoyo sort, draw, build, tidy, and help each other with steady everyday progress, small successful moments, calm energy, and cooperative kindergarten play rather than chase action. Target tempo: 106 BPM. Time signature: 4/4. Riri identity from riri-music-profile: Riri sounds like a soft musical hug: a warm felt-piano theme with gentle harp plucks, rounded clarinet phrases, light pizzicato strings, and tiny tail-wag percussion. The music should feel cuddly, reassuring, pastel, affectionate, and quietly playful. Canonical motif notes in exact order: G5, B5, D6, B5, G5. Canonical note durations in exact order: 0.46s, 0.52s, 0.74s, 0.56s, 0.82s. Rhythmic identity: One soft home note, one gently rising name note, one long glowing high note, then two increasingly relaxed notes descending back home. The phrase is one connected breath, with the central high note acting like an affectionate open-paw hug. Register: approximately G5 to D6; keep clearly above Yoyo except in explicitly approved low variations. Production identity: This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Scenario arrangement from the character profile: Create a lively but non-threatening action variation of Riri's theme at about 132 BPM in 6/8. Use quick rounded pizzicato strings, harp pulses, felt-piano motif fragments, soft shaker, and brushed snare to suggest tiny paw steps, playful bounds, ear bounces, and tail swishes. Preserve the motif contour and use the full phrase at successful actions or safe landings. Yoyo identity from yoyo-music-profile: Yoyo sounds like a tiny, buoyant burst of curiosity: a warm celesta-led theme with soft marimba pulses, light pizzicato strings, airy woodwinds, and gentle hand percussion. The music should feel plush, sparkling, friendly, and always ready for one more cheerful try. Canonical motif notes in exact order: D4, D4, A4, F#4, E4, G4, D4. Canonical note durations in exact order: 0.1s, 0.1s, 0.24s, 0.15s, 0.15s, 0.2s, 0.38s. Rhythmic identity: Two very short equal bounce notes, a separated high surprise note, two quick descending slide notes, one cheeky rebound note, and a low final landing. Hard gaps divide the bounce, jump, slide, and landing into a playful stop-start penguin phrase. Register: approximately D4 to A4; keep clearly below Riri except for isolated sparkle accents. Production identity: This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Scenario arrangement from the character profile: Create a lively but non-threatening action variation of Yoyo's theme at about 144 BPM. Use soft marimba, quick rounded pizzicato strings, celesta motif fragments, brushed snare, and light shaker to suggest rapid tiny steps, hops, and safe sliding. Preserve the motif contour and use the full phrase at successful turns or landings. Keep the cue playful, clear, and child-friendly rather than intense or heroic. Keep Riri and Yoyo musically distinct in friendly call-and-response. Never merge their canonical note sequences into one generic melody. Let Riri retain her high connected five-note felt-piano arch and let Yoyo retain the lower detached seven-note celesta bounce-and-slide riff. Begin directly in the activity groove without a title-card introduction. Use gentle preschool melody, simple harmony, rounded attacks, dialogue-safe dynamics, smooth transitions, and a soft resolved ending. Instrumental only: no voice, lyrics, singing, speech, chanting, environmental ambience, or sound effects.",
+      "prompt_sha256": "e1ba3fe9b2a646054bfab478f03829a0cae55bf66c835a38e01e9c19de5b7820",
+      "instrumental": true,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 2,
+        "duration_seconds": 30.0,
+        "frames": 1440000,
+        "bytes": 5760044,
+        "sha256": "8a73e38840c1d9fb7518bceeda53d2db05d4c093819a4389132198e95da57327"
+      }
+    }
+  ]
+}

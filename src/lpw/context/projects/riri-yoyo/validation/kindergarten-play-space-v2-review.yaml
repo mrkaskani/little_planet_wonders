@@ -1,0 +1,79 @@
+id: riri-yoyo-kindergarten-play-space-v2-review-v001
+type: location-version-review-context
+version: 1
+status: creative-review-awaiting-reconciliation-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-play-space
+  candidate_version: v002
+  review_date: 2026-08-20
+  reviewer: codex-visual-and-technical-review
+  authority: locations/play_spaces/location-v2.yaml
+  package_id: kindergarten-play-space-design-package-v002
+
+package_checks:
+  supplied-files: 5
+  registered-files: 5
+  source-package-complete: true
+  filenames-derived-from-visible-headings-and-follow-project-convention: pass
+  sha256-recorded: pass
+  pixel-dimensions-recorded: pass
+  panel-groups-and-context-purposes-transcribed: pass
+  printed-relative-values-preserved-per-board: pass
+  cross-board-measurement-conflicts-explicitly-recorded: pass
+  all-files-design-review-only: true
+  direct-generation-conditioning-forbidden: true
+
+records:
+  - candidate-id: kindergarten-play-space-overall-room-understanding-reference-board-v002
+    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key-evidence: [three-room-views, four-wall-technical-coverage, plan, ceiling, proportions, zones, materials]
+    conditioning-eligible: false
+  - candidate-id: kindergarten-play-space-four-view-type-reference-package-v002
+    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key-evidence: [quantity-lock, anchor-list, floor-plan, equipment-position, proportions, color-palette]
+    conditioning-eligible: false
+  - candidate-id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
+    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key-evidence: [five-room-views, four-elevations, plans, circulation, twelve-zone-details, twelve-material-details]
+    conditioning-eligible: false
+  - candidate-id: kindergarten-play-space-spatial-anchors-reference-board-v002
+    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key-evidence: [locked-spatial-anchor-proposal, circulation, overall-proportion-summary]
+    conditioning-eligible: false
+  - candidate-id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
+    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key-evidence: [fixed-permanent-anchor-list, zone-diagram, circulation, proportion-summary]
+    conditioning-eligible: false
+
+consistency_review:
+  stable-visual-identity: pass-codex-review
+  stable-object-family-and-pastel-material-language: pass-codex-review
+  stable-playhouse-rug-window-shelving-soft-seating-concept: pass-codex-review
+  printed-measurements-consistent: fail-reconciliation-required
+  wall-orientation-consistent: fail-reconciliation-required
+  activity-table-consistent: fail-present-on-board-b-only
+  ceiling-fixture-system-consistent: fail-hanging-lanterns-versus-fan-and-recessed-lights
+  object-quantity-intent: pass-with-diagram-ambiguity-noted
+
+reconciliation_gate:
+  project-owner-must-select:
+    - one-window-width-and-height
+    - one-door-width
+    - one-playhouse-depth
+    - one-shelf-height-vocabulary
+    - one-rug-diameter
+    - one-cushion-or-pouf-height
+    - one-front-back-left-right-wall-orientation
+    - whether-round-activity-table-is-canonical
+    - whether-hanging-lanterns-or-fan-and-recessed-lights-are-canonical
+  automatic-averaging: forbidden
+  automatic-layout-selection: forbidden
+
+approval_boundary:
+  technical-registration: complete
+  project-owner-v2-package-approval: pending
+  v2-canonical-promotion: blocked
+  existing-v1-location-authority-remains-active: true
+  existing-v1-primary-master-conditioning-remains-active: true

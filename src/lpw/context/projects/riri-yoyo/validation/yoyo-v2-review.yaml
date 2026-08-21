@@ -1,0 +1,74 @@
+id: riri-yoyo-yoyo-v2-review-v001
+type: character-version-review-context
+version: 1
+status: creative-review-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  character_id: yoyo
+  candidate_version: v002
+  review_date: 2026-08-20
+  reviewer: codex-visual-and-technical-review
+  authority: characters/yoyo/character-v2.yaml
+  package_id: yoyo-design-package-v002
+
+package_checks:
+  supplied-files: 5
+  registered-files: 5
+  filenames-follow-project-convention: pass
+  sha256-recorded: pass
+  pixel-dimensions-recorded: pass
+  source-purpose-derived-from-filename-and-visible-content: pass
+  all-files-design-review-only: true
+  direct-generation-conditioning-forbidden: true
+
+records:
+  - candidate-id: yoyo-close-up-detail-sheet-v002
+    purpose: close-up-material-and-feature-detail
+    checks:
+      face-eyes-beak-mask-plumage-flippers-and-feet-readable: pass
+      multi-panel-review-sheet: true
+      conditioning-eligible: false
+  - candidate-id: yoyo-color-palette-sheet-v002
+    purpose: canonical-character-color-swatches
+    checks:
+      eight-permanent-color-tokens-readable: pass
+      optional-petal-pink-emotional-token-readable: pass
+      hex-and-rgb-values-transcribed-to-yaml: pass
+      text-and-table-present: true
+      conditioning-eligible: false
+  - candidate-id: yoyo-eight-expression-sheet-v002
+    purpose: eight-facial-expression-range
+    checks:
+      expression-count: pass-exactly-eight
+      face-identity-consistency: pass-codex-review
+      multi-instance-review-board: true
+      conditioning-eligible: false
+  - candidate-id: yoyo-five-view-turnaround-v002
+    purpose: five-view-character-turnaround
+    checks:
+      view-count: pass-exactly-five
+      front-three-quarter-side-rear-three-quarter-back: present
+      silhouette-and-volume-consistency: pass-codex-review
+      multi-instance-review-board: true
+      conditioning-eligible: false
+  - candidate-id: yoyo-scale-and-proportion-sheet-v002
+    purpose: construction-scale-and-proportion-authority
+    checks:
+      front-side-construction-and-head-unit-guides: present
+      total-height-head-units: pass-2-point-7
+      detailed-proportion-callouts-transcribed-to-yaml: pass
+      annotations-and-guides-present: true
+      conditioning-eligible: false
+
+version_comparison:
+  v001_remains_active: true
+  v002_visual-differences-recorded: true
+  automatic-v001-deprecation: forbidden
+  v002-generation-frames-created: false
+
+approval_boundary:
+  technical-and-codex-visual-review-complete: true
+  project-owner-v2-package-approval: pending
+  v2-canonical-promotion: blocked
+  existing-v1-generation-conditioning-remains-active: true

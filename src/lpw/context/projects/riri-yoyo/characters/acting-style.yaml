@@ -1,0 +1,264 @@
+id: riri-yoyo-acting-style
+type: character-acting-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  purpose: reusable-non-story-performance-language-for-riri-and-yoyo
+
+source_authority:
+  project: ../project.yaml
+  wan_2_2: ../wan22-preproduction.yaml
+  animation: animation-style.yaml
+  voice_production: ../audios/voice-production.yaml
+  s2v_input: ../audios/s2v-input-spec.yaml
+  riri: riri/character.yaml
+  yoyo: yoyo/character.yaml
+
+acting_principles:
+  - emotion-is-clear-before-it-is-large
+  - eyes-head-face-and-body-tell-the-same-emotion
+  - one-primary-emotion-at-a-time
+  - listening-is-visible-and-active
+  - reactions-follow-a-readable-notice-process-respond-order
+  - worry-frustration-or-sadness-remain-mild-brief-and-reassured
+  - expression-changes-have-a-neutral-or-readable-bridge
+  - performance-never-breaks-species-anatomy-or-character-identity
+
+intensity_scale:
+  level_0:
+    name: neutral-rest
+    use: listening-silence-or-settle
+  level_1:
+    name: subtle
+    use: gentle-thought-or-small-reaction
+  level_2:
+    name: clear
+    use: default-preschool-performance
+  level_3:
+    name: brief-emphasis
+    use: short-safe-delight-surprise-or-concern-peak
+  default_maximum: level_2
+  level_3_rules:
+    - lasts-briefly
+    - no-shouting-terror-rage-or-humiliation
+    - returns-through-readable-settle
+
+eye_and_gaze_language:
+  eye_priority: highest-facial-signal
+  gaze_targets:
+    - partner-face
+    - approved-prop-contact-region
+    - approved-environment-point
+    - camera-only-for-approved-direct-address
+  rules:
+    - both-eyes-share-one-clear-target
+    - gaze-shifts-before-head-or-body-turn
+    - hold-target-long-enough-to-read
+    - avoid-rapid-darting-or-independent-eye-drift
+    - preserve-canonical-eye-shape-spacing-color-and-highlights
+  blink:
+    default: occasional-natural
+    double-blink: yoyo-thinking-or-idea-only
+    slow-blink: riri-contentment-or-reassurance-only
+    speech_onset_or_emphasis: avoid-blink-over-critical-mouth-cue
+
+face_and_head_language:
+  neutral_start_and_end_preferred: true
+  head_turn:
+    gaze-leads: true
+    range: small-to-medium
+    speed: slow-to-medium
+  head_tilt:
+    riri: small-soft-listening-or-curiosity
+    yoyo: medium-clear-curiosity
+  face_rules:
+    - preserve-riri-muzzle-nose-cheeks-eyelashes-and-mouth-edges
+    - preserve-yoyo-face-mask-forehead-wedge-beak-cheeks-eyelashes-and-mouth-edges
+    - no-asymmetrical-eye-size-or-marking-drift
+    - no-teeth
+    - no-exaggerated-jaw-stretch
+    - no-smirk-sneer-or-uncanny-fixed-grin
+
+expression_transitions:
+  required_fields:
+    - starting-expression
+    - noticed-trigger-class
+    - primary-eye-change
+    - primary-mouth-or-beak-change
+    - head-response
+    - body-response
+    - peak-intensity
+    - settle-expression
+  order:
+    - gaze-or-notice
+    - eyes-and-lids
+    - mouth-or-beak
+    - head
+    - body-and-secondary-motion
+    - settle
+  forbid:
+    - instantaneous-expression-snap
+    - mismatched-eyes-and-mouth
+    - emotion-pulsing-between-frames
+    - expression-change-without-visible-cause
+
+listening_and_turn_taking:
+  listener:
+    - mouth-or-beak-rests-closed-or-neutral
+    - gaze-stays-on-speaker-or-shared-focus
+    - one-small-nod-head-tilt-or-posture-response-at-most
+    - no-speech-like-mouth-motion
+    - no-large-competing-gesture
+  speaker:
+    - gaze-target-is-clear
+    - one-primary-emotion
+    - one-supporting-gesture-at-most
+    - pauses-have-mouth-rest-and-held-attention
+  handoff:
+    - first-speaker-finishes-and-settles
+    - brief-listening-beat
+    - next-speaker-begins
+  overlapping-speech-or-mouth-motion: forbidden-by-default
+
+character_performance_signatures:
+  riri:
+    emotional_baseline: warm-gentle-affectionate
+    energy: medium-high-but-soft
+    primary_signals:
+      - warm-eye-softening
+      - small-head-tilt
+      - gentle-forward-lean
+      - tiny-paw-lift
+      - broad-soft-tail-wag
+    restraint:
+      - no-sharp-or-sassy-gesture
+      - no-smirk
+      - no-large-aggressive-bark-like-mouth-shape
+  yoyo:
+    emotional_baseline: playful-curious-optimistic
+    energy: high-but-controlled
+    primary_signals:
+      - bright-focused-eyes
+      - clear-head-tilt
+      - one-flipper-lift-or-open
+      - small-preparation-bounce
+      - slight-forward-lean
+    restraint:
+      - no-chaotic-flapping
+      - no-sarcastic-expression
+      - no-adult-confidence-or-aggression
+
+emotion_contracts:
+  happiness:
+    maximum: clear-with-brief-emphasis
+    require: soft-eyes-open-posture-and-controlled-smile
+  curiosity:
+    maximum: clear
+    require: single-gaze-target-head-tilt-and-still-observation-beat
+  surprise:
+    maximum: brief-emphasis
+    require: short-freeze-small-mouth-or-beak-opening-and-gentle-recovery
+  worry_or_concern:
+    maximum: clear
+    require: mild-face-soft-body-and-reassurance-path
+  frustration:
+    maximum: subtle-to-clear
+    require: no-blame-no-aggression-and-visible-pause-before-retry
+  sadness:
+    maximum: clear
+    require: brief-duration-comfort-and-visible-recovery
+  fear:
+    maximum: mild-brief-concern
+    forbid: panic-terror-screaming-trembling-or-prolonged-distress
+
+framing_contract:
+  close_or_half_body:
+    allow:
+      - eye-and-mouth-or-beak-performance
+      - small-head-turn
+      - one-small-upper-body-gesture
+    require:
+      - full-eye-shape-and-highlights
+      - full-mouth-muzzle-or-beak-boundary
+      - gesture-remains-inside-frame
+    forbid:
+      - locomotion
+      - large-tail-or-full-flipper-dependent-action
+      - hands-paws-or-flippers-entering-as-unreadable-crops
+  full_body:
+    allow:
+      - clear-posture-shift
+      - small-step-or-bounce
+      - full-tail-flipper-paw-and-foot-performance
+    require:
+      - visible-ground-contact
+      - silhouette-separation
+      - face-large-enough-to-read
+
+s2v_performance_contract:
+  audio_authority: ../audios/s2v-input-spec.yaml
+  event_response:
+    leading_silence:
+      mouth: closed-or-resting
+      body: quiet-attentive-idle
+    speech_onset:
+      mouth: begins-with-audio-not-before
+      gesture: none-or-small-preparation
+    pause:
+      mouth: returns-to-rest
+      body: holds-thought-with-small-breathing-only
+    emphasized_word:
+      mouth: preserves-audio-aligned-shape
+      gesture: one-small-broad-accent-if-annotated
+    speech_end:
+      mouth: completes-last-phoneme-then-closes-or-rests
+      body: decelerates
+    final_settle:
+      mouth: stable-rest
+      eyes: hold-clear-target
+      body: stable-neutral-or-emotional-end-pose
+  rules:
+    - no-mouth-or-beak-chatter-during-silence
+    - no-random-nod-on-every-syllable
+    - no-large-gesture-without-audio-emphasis-opportunity
+    - preserve-face-boundaries-through-vowels-and-consonant-closures
+    - simplify-body-motion-before-compromising-lip-sync-or-face-identity
+
+wan_2_2_interface:
+  t2v:
+    use: broad-emotion-and-pose-exploration
+    exact-recurring-face-approval: forbidden
+  i2v:
+    use: controlled-nonspeaking-expression-or-reaction
+    prompt: one-expression-transition-one-head-or-body-response-and-one-settle
+  ti2v:
+    use: draft-gaze-emotion-blocking-and-transition-screening
+    not-authority-for: exact-eye-mouth-muzzle-beak-or-marking-detail
+  s2v:
+    use: approved-frame-plus-locked-speech-performance
+    priority_order:
+      - face-identity
+      - audio-aligned-mouth-or-beak
+      - gaze-and-emotion
+      - one-supporting-gesture
+      - secondary-motion
+
+quality_control:
+  approve_when:
+    - emotion-is-readable-and-within-intensity-limit
+    - eyes-mouth-head-and-body-agree
+    - gaze-and-turn-taking-are-clear
+    - face-and-character-identity-remain-stable
+    - silence-pause-and-final-settle-are-correct
+  reject_when:
+    - uncanny-face-or-fixed-grin
+    - asymmetric-eye-or-marking-drift
+    - speech-like-listener-mouth-motion
+    - emotion-pulsing-or-abrupt-snap
+    - gesture-competes-with-dialogue
+    - prolonged-distress-or-unsafe-performance
+

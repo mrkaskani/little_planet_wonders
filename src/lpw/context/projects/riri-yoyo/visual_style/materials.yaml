@@ -1,0 +1,959 @@
+id: riri-yoyo-materials
+type: material-style-context
+version: 2
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  title: Riri & Yoyo Material Foundation
+  purpose: >-
+    Define stable, readable, and reusable surface treatments for characters,
+    locations, props, reference images, and Wan 2.2 video generation.
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  scope: whole-project
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - tone
+      - visual-medium
+      - emotional-safety
+  visual_style:
+    source: visual_style.yaml
+    controls:
+      - realism-level
+      - shape-language
+      - detail-limits
+      - character-environment-cohesion
+  palette:
+    source: palette-v2.yaml
+    controls:
+      - canonical-surface-colors
+      - color-family
+      - saturation
+      - light-and-dark-behavior
+  lighting:
+    source: lighting.yaml
+    controls:
+      - illumination
+      - temporary-light-color
+      - highlight-strength
+      - shadow-readability
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-task-modes
+      - conditioning-authority
+      - prompt-budget
+      - temporal-validation
+  characters:
+    riri: ../characters/riri/character.yaml
+    yoyo: ../characters/yoyo/character.yaml
+  locations:
+    kindergarten_exterior: ../locations/exteriors/location.yaml
+    kindergarten_interior: ../locations/interiors/location.yaml
+    kindergarten_play_space: ../locations/play_spaces/location.yaml
+    nature_park: ../locations/nature_and_parks/location.yaml
+    countryside_golden_hour: ../locations/sunset_golden_hour/location.yaml
+    kindergarten_evening_night: ../locations/evening_night/location.yaml
+  authority_rules:
+    - character YAML controls permanent character color and anatomy
+    - location YAML controls permanent architectural and landscape surfaces
+    - palette-v2.yaml controls canonical base colors
+    - lighting.yaml controls temporary illumination but never changes material identity
+    - approved reference images control visible surface placement and pattern layout
+    - this file controls shared material response, detail, stability, and temporary states
+
+material_philosophy:
+  target: believable-stylized-premium-soft-3d
+  core_impression:
+    - soft
+    - tactile
+    - clean
+    - safe
+    - warm
+    - readable
+    - gently-crafted
+  identity_method:
+    - use a stable canonical base color
+    - use a broad and readable roughness response
+    - use large simple texture features rather than micro-detail
+    - use restrained highlights that do not obscure form or facial expression
+    - preserve the same material family across shots and lighting states
+  realism_balance:
+    physically_coherent: true
+    photorealistic_microstructure: false
+    handcrafted_storybook_simplification: true
+    visible_age_and_wear: minimal-and-purposeful
+  primary_rule: >-
+    A surface must remain identifiable by its color family, broad light response,
+    and silhouette even when fine texture is softened or omitted by video generation.
+  child_readability_rule: >-
+    Materials must be instantly distinguishable without sharp detail, harsh glare,
+    grime, visual threat, or complex reflective noise.
+
+wan_2_2_material_interface:
+  contract_source: ../wan22-preproduction.yaml
+  scope: materials-only
+  purpose: >-
+    Keep material identity stable across the four supported Wan 2.2 task modes
+    while respecting the different authority and detail budget of each workflow.
+
+  common_generation_rules:
+    - put identity-critical material requirements early in the prompt
+    - describe broad material class, canonical color, and light response before texture detail
+    - keep texture language short, concrete, and compatible with visible scale
+    - favor broad soft texture clusters over individual fibers, feather barbs, pores, or scratches
+    - use slow controlled motion when a surface has fur, water, glass, or repeated patterns
+    - shorten the shot and reduce unrelated motion if material shimmer appears
+    - never use lighting words to redefine a canonical surface color
+    - keep negative prompts concise and limited to likely material failures
+
+  task_modes:
+    t2v_a14b:
+      model: wan2.2-t2v-a14b
+      workflow: text-to-video
+      intended_stage: final-text-driven-shot-candidate
+      source_image_authority: absent
+      material_prompt_requirement: full-but-prioritized
+      strengths:
+        - broad material mood and environment exploration
+        - coherent stylized surface families when the prompt is concise
+      limitations:
+        - exact recurring material identity is weaker without an approved source image
+        - complex fine texture may drift between frames
+      rules:
+        - state the subject material and canonical color in the opening prompt clause
+        - describe only the most visible environment materials
+        - use one broad texture phrase per important surface
+        - require stable matte or satin response and restrained highlights
+        - compare final candidates against approved character and location references
+      example_material_clause: >-
+        Riri has stable cotton-candy-pink ultra-soft plush fur with broad soft fuzz,
+        low specular response, and no visible individual hair strands.
+
+    i2v_a14b:
+      model: wan2.2-i2v-a14b
+      workflow: image-to-video
+      intended_stage: final-reference-driven-shot-candidate
+      source_image_authority: primary-for-visible-starting-state
+      material_prompt_requirement: preservation-plus-change-only
+      strengths:
+        - preserves approved material placement and recurring visual identity better than text-only generation
+        - supports controlled motion from an approved neutral or shot-specific frame
+      limitations:
+        - the source frame does not guarantee perfect temporal texture stability
+        - motion that contradicts the source pose can deform surfaces
+      rules:
+        - do not redescribe every visible surface already established by the reference
+        - state what must remain unchanged and describe only motion or temporary material change
+        - preserve canonical colors, pattern placement, roughness family, and character markings
+        - avoid introducing new gloss, wetness, dirt, damage, or patterning unless the shot requires it
+        - keep movement slow and physically compatible with the source image
+      example_material_clause: >-
+        Preserve all approved fur colors and plush material placement from the source image;
+        only the soft tail fur follows the gentle wag with minimal secondary motion.
+
+    ti2v_5b_text:
+      model: wan2.2-ti2v-5b
+      workflow: text-image-to-video-text-mode
+      intended_stage: draft-and-screening
+      source_image_authority: absent
+      material_prompt_requirement: simplified-full-description
+      strengths:
+        - rapid material-language and motion testing
+        - useful for checking broad separation between characters, props, and environment
+      limitations:
+        - fine material identity and texture quality are not final approval evidence
+        - small repeated details and subtle roughness differences may be lost
+      rules:
+        - limit each surface to material class, color family, and matte-or-satin response
+        - evaluate clarity, hierarchy, and stability rather than fine texture quality
+        - escalate approved candidates to an A14B workflow for final review
+      example_material_clause: >-
+        Soft pink plush puppy, matte painted wood furniture, broad woven fabric,
+        clean child-safe plastic toys, all with simple stable texture.
+
+    ti2v_5b_image:
+      model: wan2.2-ti2v-5b
+      workflow: text-image-to-video-image-mode
+      intended_stage: reference-guided-draft-and-screening
+      source_image_authority: primary-for-draft-starting-state
+      material_prompt_requirement: preservation-plus-motion
+      strengths:
+        - fast testing of approved composition and broad material continuity
+        - useful before spending final A14B render time
+      limitations:
+        - source image improves but does not guarantee exact texture preservation
+        - final material approval still requires the production workflow and QC
+      rules:
+        - preserve reference colors and surface categories
+        - request only necessary deformation and secondary motion
+        - ignore small draft softness unless it damages identity or readability
+        - reject crawling patterns, changing colors, or material-category swaps even at draft stage
+      example_material_clause: >-
+        Preserve the reference materials and colors; keep fabric weave broad and stable
+        while the cushion compresses slightly under Yoyo's weight.
+
+    s2v_14b:
+      model: wan2.2-s2v-14b
+      workflow: sound-to-video
+      intended_stage: locked-dialogue-performance
+      source_image_authority: primary-for-visible-starting-state
+      audio_authority: primary-for-mouth-timing-and-performance-energy
+      material_prompt_requirement: face-stability-and-preservation
+      strengths:
+        - dialogue-timed character performance from an approved reference
+      limitations:
+        - facial fur or feather detail can crawl around moving mouth and eyes
+        - dense material language can compete with performance instructions
+      rules:
+        - keep face material instructions short and subordinate to clean locked audio
+        - preserve eye, muzzle, beak, mouth-edge, cheek, and facial-color boundaries
+        - use broad plush fur or down with no individual strands near the mouth
+        - prevent surface pulsing, shimmer, or color change in response to speech energy
+        - require a still closed mouth during audio silence unless acting direction says otherwise
+        - do not introduce wetness, crumbs, face paint, or new reflective detail during dialogue
+      example_material_clause: >-
+        Preserve the approved soft facial materials and color boundaries;
+        keep eyes, muzzle or beak, and mouth edges stable without fur or feather shimmer.
+
+  prompt_budget:
+    priority_order:
+      - identity-critical-character-surface
+      - canonical-base-color
+      - broad-roughness-or-sheen
+      - required-temporary-state
+      - one-or-two-visible-environment-materials
+      - concise-material-negative-prompt
+    omit_before_shortening:
+      - invisible-back-side-materials
+      - microscopic-texture
+      - redundant-color-synonyms
+      - technical-shader-jargon
+      - material-details-already-clear-in-an-approved-source-image
+
+  temporal_failure_response:
+    shimmer_or_crawling_texture:
+      - remove fine texture wording
+      - replace individual fibers with broad soft fuzz or plush surface
+      - reduce camera and subject motion
+      - shorten the shot
+      - use a cleaner approved source image
+    waxy_or_plastic_character_surface:
+      - specify matte plush material
+      - specify low restrained specular response
+      - remove glossy, polished, wet, or luminous language
+    unstable_reflections:
+      - reduce reflected scene detail
+      - request broad soft highlights
+      - keep camera movement slow or locked
+    changing_surface_color:
+      - restate the canonical base color once near the start
+      - separate temporary light color from permanent material color
+      - reject the candidate if identity color changes persist
+    unstable_pattern_scale:
+      - enlarge and simplify the pattern
+      - remove fine stripes, grids, text, or dense repeats
+      - anchor pattern placement to a named object region
+
+material_parameter_language:
+  purpose: >-
+    Provide consistent qualitative terms for artists and generation prompts.
+    Numeric shader values may be chosen during asset production but must preserve
+    these perceptual targets.
+  roughness_scale:
+    very_matte: broad-diffuse-response-with-almost-no-distinct-highlight
+    matte: soft-diffuse-response-with-a-faint-broad-highlight
+    soft_satin: restrained-broad-highlight-without-polished-glare
+    gentle_gloss: clear-but-small-soft-highlight-used-only-on-controlled-accents
+  texture_scale:
+    none: flat-clean-surface
+    low: large-soft-variation-visible-only-near-camera
+    medium: broad-readable-pattern-without-micro-detail
+    forbidden_high_frequency: dense-detail-likely-to-flicker-or-crawl
+  default_limits:
+    metallic: only-when-object-function-requires-metal
+    transparency: limited-and-controlled
+    translucency: subtle-and-purposeful
+    subsurface_scattering: gentle-character-and-plant-softness-only
+    displacement: broad-and-shallow
+    normal_detail: low-frequency-and-low-amplitude
+    anisotropy: avoided-unless-essential
+    emissive: small-story-motivated-elements-only
+
+global_surface_rules:
+  required:
+    - clean silhouette and edge readability
+    - visible separation between touching objects
+    - rounded highlights that support form
+    - stable texture scale across frames
+    - consistent base color across lighting conditions
+    - safe clean well-maintained appearance
+  avoid:
+    - photorealistic pores
+    - individual fur strands covering the silhouette
+    - realistic feather barbs
+    - dense procedural noise
+    - micro-scratches
+    - chipped sharp edges
+    - oily residue
+    - greasy fingerprints
+    - severe grime
+    - rust flakes
+    - harsh mirror reflections
+    - chrome-like glare
+    - glitter noise
+    - holographic surfaces
+    - iridescent color crawling
+    - moire-producing patterns
+    - readable micro-text
+    - unexplained wetness
+    - material-category changes during a shot
+
+character_materials:
+  shared_rules:
+    identity_priority: critical
+    reference_priority: approved-character-reference-first
+    texture_motion: subtle-secondary-follow-through
+    silhouette_rule: fuzz-may-soften-but-never-obscure-the-character-outline
+    face_rule: eyes-mouth-nose-or-beak-and-cheeks-remain-clean-and-stable
+    avoid:
+      - photoreal-animal-surface
+      - strand-level-simulation
+      - wet-or-matted-coat
+      - plastic-toy-skin
+      - metallic-character-surface
+      - texture-pulsing-with-expression
+
+  riri:
+    authority: ../characters/riri/character.yaml
+    primary_surface:
+      material: ultra-soft-plush-fur
+      identity: broad-short-stylized-fuzz
+      roughness: matte-to-soft-satin
+      specular: low-and-broad
+      texture_scale: low
+      fiber_visibility: soft-fuzz-only
+      softness_priority: critical
+      motion_behavior: >-
+        Fur follows body motion as one soft mass with minimal lag; only the chest,
+        ear edges, and fluffy tail may show gentle secondary softness.
+    regional_treatment:
+      face: short-smooth-plush-for-expression-readability
+      body: short-medium-plush-with-broad-soft-clusters
+      chest: slightly-fluffier-without-strand-detail
+      tail: fluffiest-region-with-simple-cohesive-volume
+      paws: short-plush-with-minimal-toe-definition
+    canonical_color_rule: preserve-all-character-yaml-color-regions
+    nose:
+      material: soft-rubber-like-stylized-nose
+      response: gentle-gloss
+      highlight: one-small-soft-highlight
+      avoid: wet-realistic-nose-detail
+    paw_pads:
+      material: soft-matte-rubber-like-pad
+      response: matte-to-soft-satin
+      avoid: pores-cracks-or-claw-detail
+    prompt_fragment: >-
+      stable ultra-soft plush fur, broad soft fuzz, low specular response,
+      clean canonical color regions, no individual hairs
+
+  yoyo:
+    authority: ../characters/yoyo/character.yaml
+    primary_surface:
+      material: ultra-soft-plush-down-feathers
+      identity: dense-smooth-down-with-fine-soft-fuzz-only
+      roughness: matte-to-soft-satin
+      specular: low-and-broad
+      texture_scale: low
+      feather_visibility: no-individual-barbs-or-layered-flight-feathers
+      softness_priority: critical
+      motion_behavior: >-
+        Down follows the body as a stable plush volume; cheek and belly softness may
+        react subtly while facial boundaries and the outer silhouette remain clean.
+    regional_treatment:
+      head: short-smooth-down
+      cheeks: softly-outward-plush-down
+      belly: gently-fluffed-broad-surface
+      flippers: short-dense-plush-with-no-feather-layer-lines
+      feet: smooth-matte-rubber-like-surface
+    canonical_color_rule: preserve-all-character-yaml-color-regions
+    beak:
+      material: smooth-stylized-keratin-like-surface
+      response: soft-satin
+      highlight: restrained-and-broad
+      avoid: hard-sharp-or-wet-realistic-detail
+    feet:
+      material: smooth-soft-rubber-like-surface
+      response: matte
+      avoid: scales-claws-cracks-or-wet-gloss
+    prompt_fragment: >-
+      stable ultra-soft plush down, smooth broad feather surface, low specular response,
+      clean canonical color regions, no individual feather barbs
+
+  shared_eyes:
+    material: clear-stylized-eye-surface
+    response: controlled-gentle-gloss
+    required:
+      - preserve-canonical-iris-colors
+      - preserve-pupil-shape-and-scale
+      - preserve-approved-highlight-count-and-placement-style
+      - keep-sclera-soft-not-pure-white
+      - keep-highlights-stable-through-motion
+    avoid:
+      - glass-marble-look
+      - mirror-like-environment-reflection
+      - changing-iris-texture
+      - glowing-eyes
+      - dead-black-eyes
+      - extra-highlights-that-flicker
+
+  shared_mouth_interior:
+    material: simple-soft-matte-mouth-surface
+    response: matte
+    detail: minimal
+    required:
+      - stable-mouth-edge
+      - approved-soft-rose-or-coral-family
+      - no-unrequested-teeth
+      - no-wet-stringy-saliva
+    s2v_priority: critical
+
+environment_material_library:
+  fabric:
+    intended_uses:
+      - cushions
+      - curtains
+      - rugs
+      - soft-toys
+      - child-safe-upholstery
+    identity: soft-broad-woven-or-felted-surface
+    roughness: matte
+    texture_scale: low
+    deformation: rounded-soft-folds-with-gentle-compression
+    wan_safe_detail: broad-weave-impression-without-visible-thread-grid
+    avoid:
+      - fine-knit-patterns
+      - dense-thread-detail
+      - sharp-creases
+      - sequins
+      - glitter
+      - silk-like-glare
+
+  natural_wood:
+    intended_uses:
+      - furniture
+      - doors
+      - shelves
+      - park-elements
+    identity: warm-clean-storybook-wood
+    palette_tokens:
+      - caramel_wood
+      - cocoa_wood
+    roughness: matte-to-soft-satin
+    texture_scale: low
+    wan_safe_detail: few-wide-curved-grain-lines-with-stable-direction
+    edge_treatment: rounded-and-gently-beveled
+    avoid:
+      - dense-photoreal-grain
+      - splinters
+      - deep-cracks
+      - severe-knots
+      - glossy-varnish-glare
+
+  painted_wood:
+    intended_uses:
+      - kindergarten-furniture
+      - trim
+      - shelves
+      - play-structures
+    identity: smooth-child-safe-painted-surface-with-subtle-wood-softness
+    roughness: matte-to-soft-satin
+    texture_scale: none-to-low
+    edge_treatment: rounded
+    avoid:
+      - peeling-paint
+      - sharp-chips
+      - high-gloss-enamel
+      - visible-brush-noise
+
+  child_safe_plastic:
+    intended_uses:
+      - toys
+      - blocks
+      - play-equipment
+      - washable-containers
+    identity: clean-solid-color-rounded-plastic
+    roughness: soft-satin
+    specular: restrained-broad
+    texture_scale: none
+    edge_treatment: fully-rounded
+    avoid:
+      - mirror-polish
+      - translucent-edge-noise
+      - injection-mold-microdetail
+      - scratches
+      - greasy-shine
+
+  foam_and_rubber:
+    intended_uses:
+      - floor-mats
+      - soft-play-elements
+      - balls
+      - safe-grips
+    identity: soft-dense-compressible-surface
+    roughness: matte
+    texture_scale: none-to-low
+    deformation: mild-compression-with-quick-gentle-recovery
+    avoid:
+      - pores
+      - tacky-wet-shine
+      - deep-dents
+      - cracked-rubber
+
+  paper_and_cardboard:
+    intended_uses:
+      - books
+      - drawings
+      - craft-paper
+      - safe-packaging
+    identity: clean-matte-fibrous-surface
+    roughness: very-matte
+    texture_scale: none-to-low
+    deformation: broad-bends-without-brittle-tearing
+    text_rule: use-large-simple-approved-marks-only
+    avoid:
+      - visible-paper-fibers
+      - tiny-readable-text
+      - sharp-paper-cuts
+      - dense-print-patterns
+      - stained-or-torn-look-unless-story-required
+
+  metal:
+    intended_uses:
+      - small-hardware
+      - safe-fixtures
+      - cookware-or-tools-when-required
+    identity: softly-brushed-or-coated-metal
+    roughness: matte-to-soft-satin
+    metallic_response: present-but-controlled
+    reflection: broad-environment-color-only
+    use_limit: small-supporting-elements
+    avoid:
+      - chrome
+      - mirror-finish
+      - sharp-reflection-detail
+      - rust
+      - sparks
+      - blade-like-edges
+
+  glass_and_clear_plastic:
+    intended_uses:
+      - windows
+      - safe-containers
+      - controlled-display-elements
+    identity: clean-clear-surface-with-soft-broad-reflection
+    roughness: gentle-gloss
+    transparency: readable-but-not-invisible
+    edge_treatment: visible-soft-edge-or-frame
+    wan_safe_detail: one-or-two-broad-highlights
+    avoid:
+      - complex-multiple-reflections
+      - prism-rainbows
+      - harsh-caustics
+      - cracks
+      - sharp-shards
+      - reflection-flicker
+
+  ceramic_and_clay:
+    intended_uses:
+      - cups
+      - plates
+      - flower-pots
+      - craft-objects
+    identity: handcrafted-rounded-clean-surface
+    palette_tokens:
+      - terracotta
+      - storybook_cream
+    roughness: matte-to-soft-satin
+    texture_scale: low
+    avoid:
+      - crazed-glaze
+      - chips
+      - sharp-breaks
+      - wet-glaze-glare
+
+  stone_and_path:
+    intended_uses:
+      - garden-paths
+      - low-walls
+      - safe-landscape-accents
+    identity: softened-storybook-stone-with-large-simple-variation
+    palette_tokens:
+      - sandstone_beige
+      - storybook_cream
+    roughness: matte
+    texture_scale: low-to-medium
+    edge_treatment: weather-softened-and-rounded
+    avoid:
+      - sharp-rubble
+      - dense-gravel-noise
+      - deep-cracks
+      - realistic-grit
+
+  soil_and_sand:
+    intended_uses:
+      - garden-beds
+      - planting-areas
+      - supervised-play-areas
+    identity: broad-soft-granular-color-mass
+    roughness: very-matte
+    texture_scale: low
+    particle_behavior: minimal-and-controlled
+    avoid:
+      - individually-resolved-grains
+      - dust-clouds-near-faces
+      - gritty-skin-contact-detail
+      - crawling-speckle
+
+  grass:
+    intended_uses:
+      - park-lawns
+      - countryside
+      - kindergarten-grounds
+    identity: soft-clumped-storybook-grass
+    palette_tokens:
+      - leaf_green
+      - meadow_green
+      - sunlit_olive
+    roughness: matte
+    texture_scale: medium-broad-clumps
+    motion: coherent-gentle-patches-not-independent-blades
+    avoid:
+      - individual-photoreal-blades-across-the-frame
+      - spiky-silhouette
+      - noisy-wind-motion
+      - color-flicker
+
+  foliage_and_flowers:
+    intended_uses:
+      - trees
+      - shrubs
+      - garden-plants
+      - flowers
+    identity: grouped-rounded-leaf-masses-and-simple-petal-shapes
+    roughness: matte-to-soft-satin
+    texture_scale: low-to-medium
+    translucency: subtle-at-sunlit-edges-only
+    motion: coherent-branch-or-cluster-motion
+    avoid:
+      - dense-independent-leaf-motion
+      - sharp-thorns
+      - micro-veins
+      - waxy-plastic-leaves
+      - sparkling-dew-unless-story-required
+
+  bark:
+    intended_uses:
+      - tree-trunks
+      - large-branches
+    identity: broad-rounded-grooves-with-soft-color-variation
+    roughness: matte
+    texture_scale: medium-low-frequency
+    avoid:
+      - sharp-splinters
+      - dense-photoreal-cracks
+      - crawling-noise
+
+  water:
+    intended_uses:
+      - calm-ponds
+      - shallow-puddles
+      - controlled-water-play
+    identity: clear-friendly-stylized-water-with-broad-soft-ripples
+    roughness: gentle-gloss
+    reflection: simplified-sky-and-large-color-masses
+    transparency: shallow-and-readable
+    motion: slow-coherent-ripples
+    safety_readability: bottom-or-depth-boundary-visible-when-characters-are-nearby
+    avoid:
+      - chaotic-high-frequency-waves
+      - mirror-perfect-reflections
+      - complex-caustics
+      - dark-unknown-depth
+      - turbulent-or-threatening-water
+      - sparkling-pixel-noise
+
+  painted_architecture:
+    intended_uses:
+      - walls
+      - doors
+      - trim
+      - play-space-surfaces
+    identity: clean-soft-matte-painted-surface
+    roughness: matte
+    texture_scale: none-to-low
+    palette_rule: use-approved-palette-token-and-preserve-it-across-scenes
+    avoid:
+      - stains
+      - peeling
+      - harsh-concrete-grit
+      - high-gloss-walls
+
+surface_detail_budget:
+  rule: >-
+    Spend material detail only where it supports identity, touch, or the current
+    action; reduce all other surfaces to broad stable color and light response.
+  allocations:
+    character_face:
+      level: low-and-precise
+      focus: stable-color-boundaries-and-expression
+    character_body:
+      level: low
+      focus: broad-plush-softness
+    hero_prop:
+      level: medium
+      focus: function-and-contact-point
+    foreground_environment:
+      level: low-to-medium
+      focus: tactile-category-and-depth
+    middle_ground_environment:
+      level: low
+      focus: broad-material-separation
+    background_environment:
+      level: very-low
+      focus: color-mass-and-silhouette
+    reflective_or_transparent_surface:
+      level: low
+      focus: one-broad-readable-highlight
+  reduction_order:
+    - remove-micro-scratches-and-fibers
+    - simplify-repeating-patterns
+    - reduce-reflection-detail
+    - merge-small-color-variations
+    - preserve-identity-color-and-broad-roughness-last
+
+patterns_and_surface_graphics:
+  default: sparse-large-simple-and-story-relevant
+  scale_rule: pattern-elements-must-remain-readable-at-final-delivery-resolution
+  placement_rule: anchor-patterns-to-fixed-object-regions
+  contrast: low-to-medium
+  allowed:
+    - large-polka-dots
+    - broad-soft-stripes
+    - simple-leaf-or-flower-motifs
+    - large-child-readable-symbols
+  avoid:
+    - fine-checks
+    - dense-grids
+    - narrow-high-contrast-stripes
+    - tiny-dots
+    - complex-wallpaper-repeats
+    - unapproved-logos
+    - generated-gibberish-text
+    - pattern-drift-between-frames
+
+temporary_material_states:
+  general_rules:
+    - temporary states require a story reason
+    - preserve the underlying canonical material and color
+    - record the state for shot-to-shot continuity
+    - use one dominant temporary state per object whenever possible
+    - return to the canonical clean state explicitly when the story removes the condition
+
+  wet:
+    visual_change: slightly-darker-base-and-one-broader-highlight
+    texture_change: minimal-clumping-only-when-needed
+    allowed_on_characters: only-for-gentle-story-motivated-water-contact
+    avoid:
+      - soaked-matted-fur
+      - dripping-face-detail
+      - mirror-like-skin
+      - unexplained-wetness
+    wan_rule: use-short-shot-slow-motion-and-simple-reflection
+
+  mud_or_dirt:
+    visual_change: few-large-soft-edged-marks
+    amount: minimal
+    color: warm-natural-and-non-threatening
+    avoid:
+      - dense-speckle
+      - face-obscuration
+      - grime-horror
+      - realistic-filth
+    wan_rule: anchor-each-mark-to-a-named-body-or-object-region
+
+  dust:
+    visual_change: faint-broad-matte-lightening
+    amount: minimal
+    airborne_particles: rare-large-soft-and-brief
+    avoid:
+      - dense-clouds
+      - breathing-hazard-imagery
+      - persistent-particle-flicker
+
+  wear:
+    visual_change: slight-softening-at-contact-edges
+    amount: very-low
+    allowed_on: established-environment-props-only
+    forbidden_on:
+      - character-eyes
+      - character-faces
+      - child-contact-safety-surfaces
+    avoid:
+      - sharp-chips
+      - rust
+      - splinters
+      - severe-aging
+
+  condensation:
+    visual_change: few-large-soft-droplets-on-controlled-glass-only
+    amount: low
+    avoid:
+      - hundreds-of-droplets
+      - crawling-highlights
+      - face-obscuration
+
+lighting_response:
+  authority: lighting.yaml
+  invariant: temporary-lighting-color-never-becomes-canonical-material-color
+  neutral_day:
+    response: clean-base-color-with-soft-broad-highlights
+    preserve: character-and-prop-color-separation
+  warm_interior:
+    response: gentle-warmth-on-lit-planes
+    preserve: whites-remain-warm-cream-and-colors-remain-identifiable
+  golden_hour:
+    response: warm-rim-and-soft-amber-bounce
+    preserve: local-color-in-midtones-and-shadows
+    avoid: turning-all-materials-orange
+  evening_and_night:
+    response: simplified-cool-shadow-with-warm-safe-practical-highlights
+    preserve: face-material-and-eye-readability
+    avoid: crushed-black-fur-feathers-or-backgrounds
+  overcast_or_rain:
+    response: broad-soft-diffuse-light
+    preserve: roughness-family-and-canonical-color
+    avoid: making-every-surface-glossy-or-wet
+
+scale_and_contact_rules:
+  scale_cues:
+    - use broad weave on fabric rather than miniature threads
+    - use few large grain lines on wood rather than dense grain
+    - use grouped grass and leaves rather than frame-wide micro-geometry
+    - keep material detail proportional to the preschool-scale world
+  contact_behavior:
+    soft_surface: gentle-compression-with-rounded-recovery
+    hard_surface: stable-contact-without-brittle-chipping
+    loose_surface: minimal-coherent-displacement
+    water_surface: one-broad-contact-ripple-family
+  grounding_rule: >-
+    Contact shadows and small deformations should communicate weight without adding
+    noisy surface simulation.
+
+material_continuity:
+  required_state_fields:
+    - entity_id
+    - surface_region
+    - canonical_material_id
+    - canonical_color_token
+    - temporary_state
+    - temporary_state_amount
+    - pattern_or_mark_anchor
+    - first_active_shot
+    - last_active_shot
+    - restoration_event
+    - approved_reference
+  locked_between_shots:
+    - material-category
+    - canonical-base-color
+    - roughness-family
+    - pattern-scale
+    - pattern-placement
+    - temporary-mark-placement
+    - wetness-or-dirt-state
+  may_change_with_light_only:
+    - rendered-highlight-intensity
+    - rendered-shadow-value
+    - reflected-environment-color
+  never_change_without-explicit-design-approval:
+    - Riri-fur-material-family
+    - Yoyo-down-material-family
+    - character-color-region-boundaries
+    - eye-material-and-highlight-style
+    - recurring-prop-material-category
+
+prompt_components:
+  global_positive: >-
+    believable stylized preschool materials, soft tactile surfaces, clean canonical
+    colors, broad stable texture, restrained matte-to-satin highlights, rounded safe edges
+  global_negative: >-
+    photoreal microtexture, texture flicker, crawling detail, plastic-looking characters,
+    wet fur, wet feathers, harsh glare, chrome reflections, dense grain, moire, material swaps
+  reference_preservation: >-
+    preserve the approved source image material categories, canonical colors,
+    surface-region boundaries, pattern placement, and broad roughness response
+  dialogue_face_stability: >-
+    stable soft facial material, stable eyes and mouth edges, no fur or feather shimmer,
+    no surface pulsing during speech
+  environment_simplification: >-
+    broad matte painted surfaces, simplified warm wood grain, grouped soft foliage,
+    controlled glass highlights, low-frequency texture only
+  temporary_state_template: >-
+    add [state] only to [entity and region], preserve the underlying canonical
+    material and color, keep the state broad and stable through the shot
+
+shot_material_checklist:
+  before_generation:
+    - identify-the-wan-2-2-task-mode
+    - confirm-approved-reference-requirement-for-i2v-ti2v-image-or-s2v
+    - list-only-visible-identity-critical-materials
+    - confirm-canonical-color-source
+    - declare-any-temporary-state-and-anchor
+    - remove-unnecessary-microtexture-language
+    - match-motion-complexity-to-material-complexity
+  after_generation:
+    - compare-character-surfaces-with-approved-reference
+    - compare-location-and-prop-material-categories-with-canonical-files
+    - inspect-fur-feathers-water-glass-and-patterns-frame-by-frame
+    - verify-no-color-drift-under-changing-light
+    - verify-no-shimmer-crawling-or-reflection-popping
+    - verify-temporary-states-remain-anchored
+    - verify-face-materials-remain-stable-during-dialogue
+
+approval_criteria:
+  required:
+    - surface-category-is-immediately-readable
+    - canonical-color-is-preserved
+    - roughness-and-highlight-response-match-this-file
+    - texture-remains-stable-through-motion
+    - character-face-and-silhouette-remain-clean
+    - temporary-states-are-story-motivated-and-continuous
+    - reflective-and-transparent-surfaces-remain-simple-and-controlled
+    - result-is-soft-safe-and-preschool-appropriate
+  reject_if:
+    - Riri-looks-plastic-wet-wiry-or-photoreal
+    - Yoyo-shows-crawling-layered-or-wet-realistic-feathers
+    - eyes-or-mouth-surfaces-flicker
+    - fine-patterns-crawl-or-change-scale
+    - grass-fur-feathers-or-water-boil-between-frames
+    - object-material-category-changes-without-story-cause
+    - lighting-permanently-recolors-an-identity-critical-surface
+    - reflections-distract-from-character-action
+    - dirt-damage-or-wear-feels-disturbing-or-unsafe
+
+review_status:
+  visual_style_alignment: passed
+  palette_alignment: passed
+  lighting_alignment: passed
+  riri_surface_alignment: passed
+  yoyo_surface_alignment: passed
+  wan_2_2_task_alignment: passed
+  shared_contract_alignment: passed
+  ready_for_art_direction: true

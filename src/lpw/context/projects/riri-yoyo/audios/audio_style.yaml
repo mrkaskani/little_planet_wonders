@@ -1,0 +1,766 @@
+metadata:
+  id: riri-yoyo-dialogue-style
+  type: audio-style-context
+  version: 2
+  status: approved
+  project_id: riri-yoyo
+  purpose: deterministic character dialogue for generation, review, and lip sync
+  default_language: English
+  approval_required: true
+  continuity_priority: critical
+
+source_authority:
+  wan_2_2_contract: ../wan22-preproduction.yaml
+  s2v_input_contract: s2v-input-spec.yaml
+  voice_production: voice-production.yaml
+  pronunciation: pronunciation.yaml
+  character_voice_profiles: ../characters/{character_id}/voice-profile.yaml
+
+wan_2_2_interface:
+  supported_task: s2v
+  role: shared_dialogue_quality_and_timing_authority
+  input_policy:
+    use_final_approved_take: true
+    one_visible_speaker_per_clean_asset: true
+    audio_is_timing_authority: true
+    require_approved_single_frame: true
+    forbid_voice_cloning_reference_as_final_dialogue_unless_words_match_exactly: true
+  prompt_scope:
+    include:
+      - current_visible_state
+      - one_broad_performance_action
+      - emotional_intent
+      - one_camera_behavior
+      - identity_and_silence_invariants
+    exclude:
+      - full_transcript_restatement
+      - music_direction
+      - ambience_direction
+      - sound_effect_direction
+  timing_policy:
+    cover_complete_audio_duration: true
+    preserve_speech_onset_pauses_and_ending: true
+    require_resting_mouth_during_silence: true
+    prefer_short_segments: true
+    preferred_maximum_segment_seconds: 6
+    longer_audio_requires_safe_boundary_plan: true
+
+dialogue:
+  sample_rate: 48000
+  bit_depth: 24
+  channel_format: mono
+  internal_processing_format: pcm_s24le
+  target_lufs: -16
+  maximum_true_peak_db: -1
+  preferred_headroom_db: 3
+  normalized_before_video_generation: true
+  retain_original_generation_file: true
+  production_assets_must_remain_lossless: true
+  one_clean_asset_per_speaker_per_shot: true
+
+  naturalism:
+    preserve_breathing: true
+    preserve_short_pauses: true
+    remove_long_accidental_silence: true
+    avoid_robotic_timing: true
+    allow_contextual_hesitation: true
+    preserve_natural_micro_pauses: true
+    vary_sentence_rhythm_naturally: true
+    allow_small_nondistracting_breaths: true
+    avoid_mechanical_word_spacing: true
+    avoid_identical_sentence_timing: true
+    avoid_excessive_filler_sounds: true
+    avoid_exaggerated_inhalation: true
+    preserve_natural_phrase_grouping: true
+    use_conversational_cadence: true
+    performed_not_read_aloud: true
+
+  timing:
+    minimum_pause_between_sentences_ms: 250
+    maximum_unplanned_silence_ms: 1000
+    dialogue_pre_roll_ms: 150
+    dialogue_post_roll_ms: 250
+    minimum_word_spacing_ms: 35
+    maximum_unnatural_word_gap_ms: 500
+    phrase_boundary_pause_ms:
+      minimum: 120
+      maximum: 500
+    emotional_pause_ms:
+      minimum: 250
+      maximum: 1200
+    interruption_lead_ms:
+      minimum: 60
+      maximum: 250
+    controlled_overlap_ms:
+      minimum: 0
+      maximum: 400
+    speech_start_tolerance_ms: 80
+    speech_end_tolerance_ms: 100
+    maximum_retiming_percent: 5
+    maximum_automatic_time_stretch_percent: 5
+    duration_adaptation_policy: adjust_shot_before_distorting_speech
+    shot_duration_fit_policy: flag_for_duration_adjustment
+    forbid_aggressive_time_compression: true
+    preserve_intentional_pause_timing: true
+    preserve_locked_timing_after_approval: true
+
+  performance:
+    acting_style: restrained cinematic realism
+    avoid_exaggerated_emotion: true
+    match_scene_emotional_state: true
+    intensity_range:
+      minimum: 0.0
+      maximum: 0.6
+    voice_profile_is_identity_authority: true
+    character_personality_source: characters/{character_id}/character.yaml
+    character_voice_source: characters/{character_id}/voice-profile.yaml
+    use_scene_emotional_arc: true
+    use_shot_emotional_state: true
+    use_speaker_intent: true
+    use_listener_relationship: true
+    preserve_subtext: true
+    reaction_timing_must_match_action: true
+    dialogue_confidence_must_match_character_state: true
+    vocal_performance_independent_of_eye_line: true
+    conversational_realism: true
+    emotional_transitions:
+      preserve_character_identity: true
+      use_gradual_transition_when_context_allows: true
+      allow_abrupt_transition_only_when_scripted: true
+      resolve_distress_within_scene_when_required: true
+    avoid_stage_acting: true
+    avoid_announcer_voice: true
+    avoid_audiobook_delivery: true
+    avoid_overly_theatrical_performance: true
+
+  prosody:
+    preserve_natural_sentence_contour: true
+    emphasize_semantic_keywords: true
+    preserve_contrastive_emphasis: true
+    question_intonation: natural_character_specific
+    statement_intonation: natural_character_specific
+    sentence_final_behavior: follow_intent_and_language
+    suspense_delivery: restrained
+    emotional_emphasis: context_driven
+    avoid_uniform_word_stress: true
+    avoid_monotone_speech: true
+    avoid_sing_song_delivery: true
+    avoid_excessive_pitch_movement: true
+    preserve_phrase_level_rhythm: true
+
+  pitch:
+    base_pitch_source: voice_profile.voice_identity.pitch
+    preserve_character_base_pitch: true
+    maximum_normal_deviation_semitones: 3
+    emotional_adjustments:
+      excitement: slight_increase
+      happiness: slight_increase
+      curiosity: gentle_rise_on_questions
+      sadness: slight_reduction
+      concern: restrained_variation
+      fear: controlled_narrow_increase
+      whisper: preserve_identity_without_pitch_exaggeration
+    allow_larger_deviation_only_when_explicitly_directed: true
+    avoid_sudden_unexplained_pitch_changes: true
+    avoid_pitch_correction_artifacts: true
+
+  speaking_rate:
+    default_source: voice_profile.voice_identity.speaking_speed
+    character_profile_override_required: true
+    minimum_words_per_minute: 90
+    maximum_words_per_minute: 180
+    maximum_automatic_time_stretch_percent: 5
+    emotional_adjustments:
+      calm: slightly_slower
+      comforting: slightly_slower
+      worried: slightly_variable
+      excited: slightly_faster
+      determined: steady
+    action_scene_adjustment: preserve_intelligibility
+    calm_scene_adjustment: allow_more_phrase_space
+    child_character_adjustment: preserve_short_clear_phrases
+    never_force_line_to_fit_undersized_shot: true
+    request_shot_duration_change_when_needed: true
+
+  dynamics:
+    normal_dynamic_range_db: 8
+    quiet_dialogue: intimate_but_fully_intelligible
+    intense_dialogue: controlled_without_clipping
+    preserve_sentence_level_variation: true
+    preserve_expressive_dynamics_before_compression: true
+    whisper:
+      allowed_only_when_scripted: true
+      remain_intelligible: true
+      maximum_duration_seconds: 4
+      forbid_frightening_delivery: true
+    shouting:
+      allowed: false
+      maximum_emotional_intensity: 0.6
+    maximum_sudden_loudness_change_db: 4
+    avoid_flat_loudness: true
+    avoid_aggressive_compression: true
+
+  articulation:
+    clear_consonants: true
+    natural_vowels: true
+    preserve_character_articulation: true
+    preserve_emotional_articulation: true
+    language_specific_rules: true
+    character_source: voice_profile.voice_identity.articulation
+    names_source: project.pronunciation.entries
+    technical_terms_source: project.pronunciation.entries
+    avoid_over_articulation: true
+    avoid_unrequested_mumbling: true
+    detect_unintelligible_words: true
+
+  pronunciation:
+    character_dictionary_supported: true
+    project_dictionary_source: audios/pronunciation.yaml
+    language_specific_pronunciation: true
+    preserve_proper_nouns: true
+    foreign_words_require_explicit_guidance: true
+    expand_numbers_before_generation: true
+    abbreviations_require_spoken_form: true
+    acronyms_require_spoken_form: true
+    detect_missing_words: true
+    detect_extra_words: true
+    detect_repeated_words: true
+    detect_mispronunciation: true
+    transcript_match_required: exact
+    allow_word_insertion: false
+    allow_word_substitution: false
+    allow_word_removal: false
+
+  breathing:
+    preserve_natural_breaths: true
+    remove_distracting_breaths: true
+    allow_at_phrase_boundaries: true
+    avoid_between_tightly_connected_words: true
+    emotional_breathing: restrained_and_contextual
+    physical_exertion_breathing: only_when_action_requires
+    fear_breathing: brief_and_child_safe
+    calm_breathing: quiet_and_natural
+    maximum_breath_level_relative_to_dialogue_db: -12
+    avoid_repeated_identical_breath_samples: true
+    avoid_artificial_breath_insertion: true
+    preserve_performance_without_distraction: true
+
+  pauses:
+    grammatical:
+      minimum_ms: 100
+      maximum_ms: 500
+      preserve: true
+    emotional:
+      minimum_ms: 250
+      maximum_ms: 1200
+      preserve_when_intentional: true
+    hesitation:
+      minimum_ms: 120
+      maximum_ms: 650
+      allowed_only_when_character_or_scene_supports: true
+    reaction:
+      minimum_ms: 180
+      maximum_ms: 1000
+      align_to_visible_action: true
+    interruption:
+      minimum_ms: 0
+      maximum_ms: 250
+      require_explicit_speaker_timing: true
+    audience_response:
+      minimum_seconds: 3
+      maximum_seconds: 5
+      preserve_exactly_after_approval: true
+    distinguish_intentional_from_accidental_silence: true
+    remove_only_accidental_excess_silence: true
+
+  emotional_delivery:
+    identity_rule: emotion_changes_performance_not_voice_identity
+    reference_source: voice_profile.references
+    fallback_reference: neutral-friendly
+    neutral:
+      reference_preference: neutral-friendly
+      pitch: baseline
+      pace: baseline
+      intensity: low
+      pauses: natural
+      breath: natural
+      articulation: clear
+    happy:
+      reference_preference: happy-gentle
+      pitch: slightly_higher
+      pace: baseline_to_slightly_faster
+      intensity: low_to_moderate
+      pauses: light
+      breath: natural
+      articulation: bright_and_clear
+    excited:
+      reference_preference: happy-gentle
+      pitch: moderately_higher_within_profile_limits
+      pace: slightly_faster
+      intensity: moderate
+      pauses: shorter_but_readable
+      breath: lightly_increased
+      articulation: clear
+    curious:
+      reference_preference: curious
+      pitch: gentle_question_rise
+      pace: baseline
+      intensity: low_to_moderate
+      pauses: thoughtful
+      breath: natural
+      articulation: clear
+    suspicious:
+      reference_preference: mild-concern
+      pitch: slightly_lower_and_narrower
+      pace: slightly_slower
+      intensity: low
+      pauses: deliberate
+      breath: quiet
+      articulation: precise
+    worried:
+      reference_preference: mild-concern
+      pitch: slightly_variable
+      pace: slightly_slower
+      intensity: moderate
+      pauses: brief_emotional
+      breath: lightly_audible
+      articulation: clear
+    sad:
+      reference_preference: mild-concern
+      pitch: slightly_lower
+      pace: slower
+      intensity: low
+      pauses: longer
+      breath: soft
+      articulation: gentle
+    afraid:
+      reference_preference: mild-concern
+      pitch: controlled_increase
+      pace: slightly_variable
+      intensity: moderate_or_lower
+      pauses: brief
+      breath: restrained
+      articulation: intelligible
+    restrained_fear:
+      reference_preference: mild-concern
+      pitch: narrow_controlled_increase
+      pace: steady
+      intensity: low_to_moderate
+      pauses: short
+      breath: quiet
+      articulation: precise
+    determined:
+      reference_preference: neutral-friendly
+      pitch: stable
+      pace: steady
+      intensity: moderate
+      pauses: purposeful
+      breath: controlled
+      articulation: firm_but_gentle
+    angry_but_controlled:
+      reference_preference: mild-concern
+      pitch: stable_or_slightly_lower
+      pace: deliberate
+      intensity: moderate
+      pauses: controlled
+      breath: restrained
+      articulation: firm_without_harshness
+    gentle:
+      reference_preference: neutral-friendly
+      pitch: baseline
+      pace: slightly_slower
+      intensity: low
+      pauses: natural
+      breath: soft
+      articulation: clear
+    comforting:
+      reference_preference: reassuring
+      pitch: stable_and_warm
+      pace: slower
+      intensity: low
+      pauses: reassuring
+      breath: quiet
+      articulation: warm_and_clear
+    playful:
+      reference_preference: happy-gentle
+      pitch: lightly_varied
+      pace: baseline_to_slightly_faster
+      intensity: moderate_or_lower
+      pauses: lively
+      breath: natural
+      articulation: bright_and_clear
+
+  dialogue_types:
+    on_screen:
+      performance: match_visible_character_action
+      processing: clean_source
+      spatial_treatment: apply_during_mix
+      lip_sync_required: true
+      retain_clean_source: true
+    off_screen:
+      performance: preserve_character_identity_and_scene_distance
+      processing: retain_clean_source
+      spatial_treatment: apply_off_screen_position_during_mix
+      lip_sync_required: false
+      retain_clean_source: true
+    voice_over:
+      performance: intimate_and_narratively_clear
+      processing: minimal_cleanup
+      spatial_treatment: centered_non_diegetic
+      lip_sync_required: false
+      retain_clean_source: true
+    whisper:
+      performance: quiet_intelligible_and_nonfrightening
+      processing: minimal_cleanup
+      spatial_treatment: apply_during_mix
+      lip_sync_required: when_speaker_is_visible
+      retain_clean_source: true
+    internal_thought:
+      performance: restrained_and_personal
+      processing: optional_nondestructive_treatment
+      spatial_treatment: centered_non_diegetic
+      lip_sync_required: false
+      retain_clean_source: true
+    phone:
+      performance: natural_conversation
+      processing: nondestructive_phone_effect_on_mix_copy
+      spatial_treatment: source_device_position
+      lip_sync_required: when_visible_speaker_is_talking
+      retain_clean_source: true
+    radio:
+      performance: clear_and_concise
+      processing: nondestructive_radio_effect_on_mix_copy
+      spatial_treatment: source_device_position
+      lip_sync_required: false
+      retain_clean_source: true
+    memory:
+      performance: match_approved_memory_context
+      processing: subtle_nondestructive_treatment
+      spatial_treatment: scene_defined
+      lip_sync_required: false
+      retain_clean_source: true
+    dream:
+      performance: emotionally_clear_not_frightening
+      processing: subtle_nondestructive_treatment
+      spatial_treatment: scene_defined
+      lip_sync_required: when_visible_speaker_is_talking
+      retain_clean_source: true
+
+  recording_perspective:
+    source_recording_default: close_clean_and_intelligible
+    bake_distance_into_source: false
+    preserve_dry_source: true
+    close:
+      microphone_character: warm_neutral_close
+      performance_adjustment: subtle_detail_allowed
+      final_distance_created_in_mix: true
+    medium:
+      microphone_character: neutral_clean
+      performance_adjustment: normal_articulation
+      final_distance_created_in_mix: true
+    distant:
+      microphone_character: neutral_clean
+      performance_adjustment: slightly_stronger_articulation_not_shouting
+      final_distance_created_in_mix: true
+    off_screen:
+      microphone_character: neutral_clean
+      performance_adjustment: preserve_character_identity
+      final_distance_created_in_mix: true
+    behind_camera:
+      microphone_character: neutral_clean
+      performance_adjustment: conversational
+      final_distance_created_in_mix: true
+
+  cleanup:
+    processing_policy: minimal_and_nondestructive
+    noise_reduction: light
+    de_click: light_when_detected
+    de_pop: light_when_detected
+    de_ess: light
+    hum_removal: only_when_detected
+    breath_cleanup: remove_only_distracting_breaths
+    silence_cleanup: preserve_intentional_pauses
+    plosive_reduction: light_when_detected
+    mouth_click_handling: remove_when_distracting
+    clipping_prevention: true
+    preserve_transients: true
+    preserve_natural_vocal_texture: true
+    preserve_original_clean_file: true
+    avoid_overprocessing: true
+    avoid_aggressive_noise_reduction: true
+    avoid_aggressive_compression: true
+
+  lip_sync:
+    generate_final_audio_before_video: true
+    preserve_word_timing: true
+    never_replace_audio_after_final_lip_sync: true
+    transcript_required: true
+    word_timestamps_required: true
+    phoneme_timestamps_preferred: true
+    detect_missing_words: true
+    detect_extra_words: true
+    detect_wrong_pronunciation: true
+    maximum_word_offset_ms: 80
+    maximum_phoneme_offset_ms: 50
+    audio_is_timing_authority: true
+    video_must_follow_audio_timing: true
+    regenerate_video_when_audio_changes: true
+    invalidate_lip_sync_when_audio_hash_changes: true
+    store_audio_hash: true
+    store_transcript_hash: true
+    store_alignment_metadata: true
+    clean_dialogue_only: true
+    forbid_music_in_source: true
+    forbid_ambience_in_source: true
+    forbid_foley_in_source: true
+    forbid_sound_effects_in_source: true
+    pipeline_order:
+      - approve_script
+      - generate_dialogue
+      - validate_transcript
+      - approve_dialogue
+      - freeze_audio
+      - extract_word_and_phoneme_timing
+      - generate_s2v_or_lip_sync_video
+
+voice_identity:
+  use_character_voice_profile: true
+  profile_path_template: characters/{character_id}/voice-profile.yaml
+  character_path_template: characters/{character_id}/character.yaml
+  approved_profiles:
+    riri: characters/riri/voice-profile.yaml
+    yoyo: characters/yoyo/voice-profile.yaml
+  preserve_speaker_identity: true
+  preserve_base_pitch: true
+  preserve_accent: true
+  preserve_speaking_manner: true
+  preserve_perceived_age: true
+  preserve_gender_presentation_when_defined: true
+  preserve_timbre: true
+  preserve_articulation_characteristics: true
+  preserve_approved_reference_voice: true
+  prevent_speaker_swapping: true
+  emotion_may_change_performance_not_identity: true
+  profile_overrides_shared_defaults: true
+
+language:
+  default_language: English
+  source: episode.dialogue_script.language
+  automatic_language_detection: false
+  preserve_exact_scripted_language: true
+  automatic_translation: false
+  mixed_language_support: true
+  mixed_language_requires_explicit_markup: true
+  pronunciation_dictionary: audios/pronunciation.yaml
+  script_normalization: conservative
+  unicode_normalization: NFC
+  punctuation_interpretation: semantic_and_language_aware
+  numbers: expand_using_script_language
+  proper_nouns: use_pronunciation_dictionary
+  abbreviations: require_spoken_form
+  acronyms: require_spoken_form
+  transliteration: use_only_when_explicitly_approved
+
+multi_speaker:
+  one_clean_asset_per_speaker_per_shot: true
+  maximum_simultaneous_speakers: 2
+  prevent_voice_swapping: true
+  prevent_accidental_voice_blending: true
+  preserve_each_speaker_timing_independently: true
+  store_speaker_specific_timestamps: true
+  controlled_overlap_allowed: true
+  overlap_requires_explicit_timing: true
+  interruption_requires_explicit_direction: true
+  each_speaker_must_reference_own_character_context: true
+  each_speaker_must_reference_own_voice_profile: true
+  lip_sync_each_visible_speaker_independently: true
+
+scene_adaptation:
+  enabled: true
+  allowed_inputs:
+    emotional_arc: scene.emotional_arc
+    location: scene.imports.locations
+    time_of_day: scene.environment.time_of_day
+    character_relationships: scene.character_relationships
+    tension: scene.tension
+    purpose: scene.story.purpose
+  may_adjust:
+    - acting_intensity
+    - emotional_transition
+    - pause_length
+    - pace_within_profile_limits
+    - breath_behavior
+  must_preserve:
+    - character_voice_identity
+    - approved_dialogue_text
+    - pronunciation
+    - profile_constraints
+
+shot_adaptation:
+  enabled: true
+  allowed_inputs:
+    shot_type: shot.role
+    speaker: dialogue.character_id
+    dialogue: dialogue.exact_dialogue
+    action: shot.action
+    emotional_state: shot.emotional_state
+    camera_framing: shot.camera.framing
+    character_distance: shot.camera.character_distance
+    shot_duration: shot.duration_seconds
+    continuity_state: shot.continuity
+  close_up_behavior: quieter_subtler_detail_allowed
+  wide_shot_behavior: slightly_stronger_articulation_without_identity_change
+  action_behavior: preserve_intelligibility_and_safety
+  duration_conflict_behavior: request_shot_duration_adjustment
+  overrides_require_explicit_shot_context: true
+  overrides_must_not_change_voice_identity: true
+  locked_audio_timing_must_not_be_overridden: true
+
+continuity_constraints:
+  preserve_character_voice_identity_across_scenes: true
+  preserve_character_accent: true
+  preserve_base_timbre: true
+  preserve_base_pitch: true
+  preserve_perceived_age: true
+  preserve_approved_pronunciation: true
+  preserve_natural_breath_behavior: true
+  preserve_speaking_personality: true
+  preserve_clean_dialogue_assets: true
+  preserve_finalized_timing_after_lip_sync_approval: true
+  maintain_comparable_loudness_across_adjacent_shots: true
+  maximum_adjacent_dialogue_loudness_difference_lu: 2
+  preserve_microphone_character_across_connected_shots: true
+  preserve_audio_and_transcript_hashes: true
+  material_audio_change_requires_new_dialogue_version: true
+  material_audio_change_invalidates_downstream_video: true
+
+validation:
+  approval_required: true
+  failure_blocks_lip_sync: true
+  failure_blocks_s2v: true
+  technical:
+    required_sample_rate: 48000
+    required_bit_depth: 24
+    required_channel_format: mono
+    required_lossless_source: true
+    maximum_true_peak_db: -1
+    target_lufs: -16
+    loudness_warning_deviation_lu: 2
+    loudness_failure_deviation_lu: 4
+    clipping_samples_allowed: 0
+    maximum_unplanned_silence_ms: 1000
+    minimum_non_silent_duration_ms: 100
+    reject_corrupt_audio: true
+    reject_empty_audio: true
+    reject_truncated_audio: true
+  speech:
+    transcript_match_required: exact
+    minimum_transcript_match_ratio: 1.0
+    missing_words_allowed: 0
+    extra_words_allowed: 0
+    substituted_words_allowed: 0
+    repeated_words_allowed: 0
+    pronunciation_review_required: true
+    voice_identity_review_required: true
+    character_consistency_review_required: true
+    speaking_rate_range_words_per_minute:
+      minimum: 90
+      maximum: 180
+    maximum_unplanned_pause_ms: 1000
+    reject_robotic_timing: true
+    reject_unnatural_pitch: true
+    reject_unintelligible_words: true
+    reject_forbidden_voice_traits: true
+  lip_sync:
+    word_timing_required: true
+    phoneme_timing_preferred: true
+    maximum_word_offset_ms: 80
+    maximum_phoneme_offset_ms: 50
+    audio_hash_required: true
+    transcript_hash_required: true
+    alignment_metadata_required: true
+    reject_audio_hash_mismatch: true
+    reject_transcript_hash_mismatch: true
+    reject_missing_alignment: true
+  review_fields:
+    - identity
+    - dialogue_accuracy
+    - emotional_safety
+    - listening_comfort
+
+forbidden_changes:
+  - changing_character_voice_identity
+  - swapping_voices_between_speakers
+  - unexplained_accent_changes
+  - unexplained_pitch_changes
+  - robotic_equal_spacing_between_words
+  - removing_meaningful_pauses
+  - removing_all_breathing
+  - excessive_breath_amplification
+  - excessive_noise_reduction
+  - excessive_compression
+  - excessive_de_essing
+  - clipping
+  - adding_unrequested_words
+  - removing_scripted_words
+  - substituting_scripted_words
+  - changing_approved_dialogue_text
+  - changing_final_dialogue_timing_after_lip_sync
+  - replacing_approved_audio_without_invalidating_downstream_video
+  - artificially_speeding_dialogue_to_fit_an_undersized_shot
+  - excessively_slowing_dialogue_to_fill_an_oversized_shot
+  - baking_music_ambience_foley_or_effects_into_clean_dialogue
+  - destructive_distance_processing_on_the_only_clean_source
+  - translating_dialogue_without_explicit_approval
+
+location_dialogue_adaptation:
+  authority:
+    voice_identity: character_voice_profile
+    performance: scene_and_shot_context
+    acoustic_response: location_sound_profile
+    global_processing_limits: this_file
+  profiles:
+    kindergarten_classroom:
+      source: ../locations/interiors/sound-profile.yaml
+      room_size: medium
+      reverb_amount: low
+      decay: short
+      clarity: high
+      exterior_bleed_direction: left
+      preserve_room_tone: true
+    kindergarten_play_space:
+      source: ../locations/play_spaces/sound-profile.yaml
+      room_size: medium_large
+      reverb_amount: very_low
+      decay: short
+      clarity: high
+      absorption: high
+      exterior_bleed_direction: left
+      preserve_room_tone: true
+    kindergarten_exterior_garden:
+      source: ../locations/exteriors/sound-profile.yaml
+      response: open_garden
+      early_reflections: minimal
+      preserve_open_air: true
+    nature_park:
+      source: ../locations/nature_and_parks/sound-profile.yaml
+      response: open_natural_space
+      early_reflections: sparse
+      protect_consonants_from_water_masking: true
+    countryside_golden_hour:
+      source: ../locations/sunset_golden_hour/sound-profile.yaml
+      response: open_meadow
+      early_reflections: minimal
+      protect_consonants_from_wind_masking: true
+    kindergarten_evening_night:
+      source: ../locations/evening_night/sound-profile.yaml
+      response: quiet_open_garden
+      early_reflections: sparse
+      protect_consonants_from_insect_masking: true
+  rules:
+    never_change_character_identity_for_location: true
+    apply_room_response_non_destructively: true
+    match_connected_shots: true
+    off_screen_filtering_uses_physical_geometry: true
+    dialogue_remains_highest_priority: true
+    background_children_remain_indistinct: true

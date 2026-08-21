@@ -10,7 +10,7 @@ approvals, edits, and continuity updates belong under `runtime/`, `renders/`,
 `edits/`, or `archive/`, never inside the context directory.
 
 For a complete working example, compare each step with the
-[`classroom` project](../src/lpw/context/projects/classroom/).
+[`riri-yoyo` project](../src/lpw/context/projects/riri-yoyo/).
 
 ## 1. Choose the context layout
 
@@ -874,7 +874,7 @@ continuity_rules:
 Create `export.yaml` when finalization begins. Its frame rate, dimensions, aspect
 ratio, and sample rate must agree with `project.yaml`, `editing_style.yaml`, and
 the approved media. See the
-[`classroom` export policy](../src/lpw/context/projects/classroom/export.yaml) for
+[`classroom` export policy](../src/lpw/context/projects/riri-yoyo/export.yaml) for
 review, web, master, and archive profiles.
 
 ## 18. Validate the project before production

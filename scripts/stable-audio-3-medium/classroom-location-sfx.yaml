@@ -1,0 +1,258 @@
+metadata:
+  id: classroom-location-sfx-library
+  version: 1
+  project: riri-yoyo
+  purpose: playful child-safe ambience and material sounds for every approved location
+
+generator:
+  command: sfx
+  model: medium
+  decoder: same-l
+  steps: 8
+  cfg: 1.0
+  output_root: src/lpw/context/projects/riri-yoyo/audio-assets/sound-effects
+  manifest_path: src/lpw/context/projects/riri-yoyo/audio-assets/manifests/classroom-location-sfx.json
+  default_peak_ceiling_dbfs: -9.0
+  prompt_prefix: >-
+    Fun, cool preschool cartoon sound design for children ages 3 to 6: colorful,
+    playful, gently funny, polished, friendly and safe.
+
+locations:
+  - id: kindergarten-exterior-garden
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/exteriors/sound-profile.yaml
+    source_profile_id: kindergarten-sound
+    assets:
+      - id: sunny-garden-ambience
+        path: kindergarten-exterior-garden/ambience/sunny-garden-ambience.wav
+        seconds: 8.0
+        seed: 7101
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Cheerful storybook kindergarten garden ambience for a preschool cartoon:
+          gentle small birds, soft leafy trees, warm light breeze and very subtle
+          garden insects, spacious, sunny, welcoming and safe, no children speaking,
+          no distinct voices, no music, no harsh wind.
+      - id: garden-birds-and-foliage
+        path: kindergarten-exterior-garden/environment/garden-birds-and-foliage.wav
+        seconds: 5.0
+        seed: 7102
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Playful preschool garden layer: a few gentle tiny songbirds among soft
+          colorful leaves moving in a light breeze, natural variation, bright and
+          friendly, clean environment recording, no voices, no music.
+      - id: front-door-open
+        path: kindergarten-exterior-garden/interactions/front-door-open.wav
+        seconds: 2.5
+        seed: 7103
+        prompt: >-
+          Friendly painted wooden kindergarten front door opening: cute soft handle
+          click, smooth warm wood movement and a tiny cheerful hinge chirp, playful
+          preschool cartoon, one isolated action, no slam, no music.
+      - id: mailbox-open
+        path: kindergarten-exterior-garden/interactions/mailbox-open.wav
+        seconds: 2.0
+        seed: 7104
+        prompt: >-
+          Small colorful cartoon mailbox lid opens with a light rounded metal click
+          and gentle tin movement, cute, curious and child-sized, one isolated
+          preschool sound effect, no harsh clang, no music.
+
+  - id: kindergarten-classroom
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/interiors/sound-profile.yaml
+    source_profile_id: kindergarten-interior-sound
+    assets:
+      - id: warm-classroom-ambience
+        path: kindergarten-classroom/ambience/warm-classroom-ambience.wav
+        seconds: 8.0
+        seed: 7201
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Cozy sunny preschool classroom ambience: warm softly damped room tone,
+          quiet ceiling fan overhead and faint filtered garden birds through closed
+          windows, cheerful and safe, no children, no speech, no distinct voices,
+          no music, no echo.
+      - id: ceiling-fan
+        path: kindergarten-classroom/environment/ceiling-fan.wav
+        seconds: 5.0
+        seed: 7202
+        peak_ceiling_dbfs: -15.0
+        prompt: >-
+          Gentle classroom ceiling fan turning smoothly at slow-medium speed,
+          soft stable electric air movement, warm unobtrusive preschool room layer,
+          no rattle, no grinding, no voices, no music.
+      - id: crayons-and-paper
+        path: kindergarten-classroom/interactions/crayons-and-paper.wav
+        seconds: 3.0
+        seed: 7203
+        prompt: >-
+          Close playful preschool drawing sounds: one wax crayon softly scribbling
+          on paper with a tiny page rustle, tactile, colorful and gentle, isolated
+          Foley, no hands hitting table, no voices, no music.
+      - id: wooden-block-stack
+        path: kindergarten-classroom/interactions/wooden-block-stack.wav
+        seconds: 2.0
+        seed: 7204
+        prompt: >-
+          Two small colorful wooden learning blocks placed and stacked with cute
+          rounded click-clacks, light child-scale weight, playful preschool cartoon,
+          clean isolated Foley, no crash, no music.
+
+  - id: kindergarten-play-space
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/play_spaces/sound-profile.yaml
+    source_profile_id: kindergarten-play-space-sound
+    assets:
+      - id: cozy-playroom-ambience
+        path: kindergarten-play-space/ambience/cozy-playroom-ambience.wav
+        seconds: 8.0
+        seed: 7301
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Cozy colorful preschool playroom ambience: warm soft room tone, very faint
+          filtered sunny garden through closed windows and occasional subtle fabric
+          movement, imaginative, cheerful and safe, no children, no speech, no
+          distinct voices, no music.
+      - id: cushion-and-beanbag
+        path: kindergarten-play-space/interactions/cushion-and-beanbag.wav
+        seconds: 3.0
+        seed: 7302
+        prompt: >-
+          Small cartoon character sits gently on a plush beanbag: soft cushion
+          compression, friendly fabric rustle and tiny filling shift, cozy, funny
+          and child-safe, isolated preschool Foley, no impact, no music.
+      - id: lightweight-toy-placement
+        path: kindergarten-play-space/interactions/lightweight-toy-placement.wav
+        seconds: 2.0
+        seed: 7303
+        prompt: >-
+          Tiny colorful plastic preschool toy picked up and placed softly on a
+          padded rug, cute light click and muffled contact, playful child-scale
+          isolated Foley, no crash, no music.
+      - id: playhouse-knock
+        path: kindergarten-play-space/interactions/playhouse-knock.wav
+        seconds: 1.5
+        seed: 7304
+        prompt: >-
+          Two tiny friendly knocks on a painted wooden toy playhouse, warm hollow
+          wooden tok-tok, cute and inviting preschool cartoon sound, soft isolated
+          action, no voices, no music.
+
+  - id: nature-park
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/nature_and_parks/sound-profile.yaml
+    source_profile_id: nature-park-sound
+    assets:
+      - id: sunny-park-ambience
+        path: nature-park/ambience/sunny-park-ambience.wav
+        seconds: 8.0
+        seed: 7401
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Bright peaceful storybook nature park ambience for preschool animation:
+          gentle shallow stream, sparse tiny songbirds, soft tree leaves and light
+          open breeze, cheerful, spacious and relaxing, no people, no voices, no
+          music, no rushing river.
+      - id: gentle-park-stream
+        path: nature-park/environment/gentle-park-stream.wav
+        seconds: 6.0
+        seed: 7402
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Gentle clear shallow park stream flowing around small rounded stones,
+          light ripples and friendly trickling water, calm storybook preschool
+          nature layer, no waterfall, no deep rumble, no birds, no voices, no music.
+      - id: wooden-bridge-step
+        path: nature-park/interactions/wooden-bridge-step.wav
+        seconds: 2.0
+        seed: 7403
+        prompt: >-
+          One tiny character takes two light steps on a safe wooden park bridge,
+          soft warm plank taps with child-scale weight, playful preschool Foley,
+          clean isolated action, no creak, no music.
+      - id: shallow-water-splash
+        path: nature-park/interactions/shallow-water-splash.wav
+        seconds: 2.0
+        seed: 7404
+        prompt: >-
+          One small playful step into very shallow clear water, cute gentle splash
+          with tiny sparkling droplets, happy child-safe preschool cartoon Foley,
+          isolated action, no large splash, no music.
+
+  - id: countryside-golden-hour
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/sunset_golden_hour/sound-profile.yaml
+    source_profile_id: sunset-golden-hour-sound
+    assets:
+      - id: golden-hour-ambience
+        path: countryside-golden-hour/ambience/golden-hour-ambience.wav
+        seconds: 8.0
+        seed: 7501
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Warm storybook countryside at golden hour for preschool animation:
+          gentle evening breeze through meadow grass and flowers, very sparse soft
+          birds and subtle friendly insects, peaceful, spacious and comforting,
+          no people, no voices, no music, no harsh wind.
+      - id: meadow-breeze
+        path: countryside-golden-hour/environment/meadow-breeze.wav
+        seconds: 6.0
+        seed: 7502
+        peak_ceiling_dbfs: -12.0
+        prompt: >-
+          Soft warm evening breeze moving through meadow grass and delicate
+          wildflowers, gentle broad rustle with natural variation, beautiful and
+          reassuring preschool storybook layer, no insects, no voices, no music.
+      - id: stone-path-steps
+        path: countryside-golden-hour/interactions/stone-path-steps.wav
+        seconds: 2.5
+        seed: 7503
+        prompt: >-
+          Three light child-sized cartoon footsteps on a natural stone country path,
+          soft rounded taps and one tiny pebble shift, playful and gentle preschool
+          Foley, isolated action, no heavy boots, no music.
+      - id: wooden-fence-touch
+        path: countryside-golden-hour/interactions/wooden-fence-touch.wav
+        seconds: 1.5
+        seed: 7504
+        prompt: >-
+          Tiny paw gently touches a warm weathered wooden countryside fence,
+          subtle friendly wood tap and soft surface rub, cute child-scale preschool
+          Foley, one isolated action, no crack, no music.
+
+  - id: kindergarten-evening-night
+    source_profile: src/lpw/context/projects/riri-yoyo/locations/evening_night/sound-profile.yaml
+    source_profile_id: kindergarten-evening-night-sound
+    assets:
+      - id: reassuring-night-garden
+        path: kindergarten-evening-night/ambience/reassuring-night-garden.wav
+        seconds: 8.0
+        seed: 7601
+        peak_ceiling_dbfs: -15.0
+        prompt: >-
+          Cozy magical kindergarten garden at early night for preschool animation:
+          gentle crickets, soft calm night air, very light leaves and distant warm
+          neighborhood room tone, reassuring, safe and peaceful, no owl, no scary
+          sounds, no voices, no music.
+      - id: gentle-night-insects
+        path: kindergarten-evening-night/environment/gentle-night-insects.wav
+        seconds: 6.0
+        seed: 7602
+        peak_ceiling_dbfs: -15.0
+        prompt: >-
+          Sparse gentle garden crickets and tiny friendly night insects, soft natural
+          variation in calm clear air, cozy child-safe preschool night layer, no
+          swarm, no loud buzzing, no birds, no voices, no music.
+      - id: night-gate-open
+        path: kindergarten-evening-night/interactions/night-gate-open.wav
+        seconds: 2.5
+        seed: 7603
+        prompt: >-
+          Painted wooden kindergarten garden gate opens gently at night, soft warm
+          hinge movement and cute rounded latch click, reassuring preschool cartoon
+          Foley, isolated action, no eerie creak, no music.
+      - id: night-stone-steps
+        path: kindergarten-evening-night/interactions/night-stone-steps.wav
+        seconds: 2.5
+        seed: 7604
+        prompt: >-
+          Three tiny careful footsteps on a smooth garden stone path at night,
+          light natural taps with soft child-scale weight, cozy and non-scary
+          preschool Foley, isolated action, no heavy boots, no music.

@@ -1,0 +1,170 @@
+id: nature-park
+type: location-context
+version: 2
+status: approved-primary-master-secondary-views-open
+name: Nature Park
+
+metadata:
+  project_id: riri-yoyo
+  folder_id: nature_and_parks
+  category: park
+  reusable: true
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+
+source_authority:
+  project: ../../project.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+  palette: ../../visual_style/palette-v2.yaml
+  lighting: ../../visual_style/lighting.yaml
+  materials: ../../visual_style/materials.yaml
+  wan_2_2: ../../wan22-preproduction.yaml
+  asset_registry: ../../locations-assets.yaml
+  sound_profile: sound-profile.yaml
+  music_profile: music-profile.yaml
+
+identity:
+  summary: fresh-open-natural-peaceful-storybook-park
+  emotional_character:
+    - peaceful
+    - curious
+    - open
+    - gentle
+    - safe
+  default_time_of_day: daytime
+  palette_preset: nature_park
+  material_family:
+    - grouped-soft-grass-and-foliage
+    - warm-rounded-wood
+    - softened-storybook-stone
+    - calm-clear-water
+
+known_landmark_roles:
+  - readable-walking-path
+  - shallow-calm-stream
+  - child-safe-wooden-bridge
+  - grouped-tree-masses
+  - meadow-and-flower-zone
+
+geometry:
+  approval_state: locked-to-nature-park-primary-master-v001
+  rule: do-not-invent-stream-bridge-path-or-tree-placement-before-reference-approval
+  preserve_after_approval:
+    - path-layout
+    - stream-course
+    - bridge-position-and-orientation
+    - tree-group-count-and-placement
+    - safe-water-boundary
+
+spatial_contract:
+  dimensions:
+    status: awaiting-approved-reference-measurement
+    unit: centimeters
+    width_cm: null
+    depth_cm: null
+    maximum-height-change_cm: null
+  entrances:
+    - primary-path-entry
+  exits:
+    - primary-path-entry
+    - continuing-path-boundary
+  navigation_areas:
+    - readable-walking-path
+    - bridge-crossing-lane
+  safe_interaction_zones:
+    - path-action-area
+    - meadow-and-flower-zone
+    - supervised-stream-edge-zone
+  camera_safe_views:
+    - primary-master-view
+    - reverse-master-view
+    - bridge-and-stream-view
+    - path-action-area-view
+  movement_spaces:
+    - path-travel-lane
+    - meadow-action-area
+  permanent_landmarks:
+    - readable-walking-path
+    - shallow-calm-stream
+    - child-safe-wooden-bridge
+    - grouped-tree-masses
+  approved_movable_asset_ids: []
+  movable_asset_source: ../../assets/props.yaml
+  rule: exact-path-stream-bridge-tree-and-water-boundary-geometry-cannot-be-invented-before-reference-approval
+
+reference_requirements:
+  primary_master_view:
+    required: true
+    status: approved
+    path: ../../assets/locations/nature-park/design-review/nature-park--primary-master-view--v001.png
+    sha256: ed3f84b7704a5b0445f30605ba1646af336c563ad386c6440609cf8820d14503
+    pixel_dimensions: 1672x941
+    aspect_ratio: "1672:941"
+    review_record: ../../validation/location-master-review.yaml
+  reverse_view:
+    required: true
+    status: missing
+  bridge_and_stream_view:
+    required: true
+    status: missing
+  path_action_area:
+    required: true
+    status: missing
+  scale_reference:
+    required: true
+    status: missing
+  generation_frame_rules:
+    - use-one-coherent-image
+    - show-safe-ground-and-water-boundaries
+    - preserve-movement-space
+    - remove-text-watermarks-visitors-and-accidental-faces
+    - never-use-a-reference-board-or-collage-as-conditioning-input
+
+wan_2_2_interface:
+  contract_source: ../../wan22-preproduction.yaml
+  t2v:
+    eligibility: exploratory-only-until-geometry-is-approved
+    prompt_fragment: >-
+      Fresh peaceful nature park with a clear curved path, shallow calm stream,
+      one rounded wooden bridge, grouped soft trees and meadow flowers, premium
+      soft stylized 3D preschool animation.
+  ti2v_text:
+    eligibility: draft-only
+    evaluate:
+      - path-stream-and-bridge-hierarchy
+      - safe-water-readability
+      - broad-foliage-grouping
+  ti2v_image:
+    eligibility: blocked-until-approved-single-frame-reference
+  i2v:
+    eligibility: blocked-until-approved-single-frame-reference
+  s2v:
+    eligibility: blocked-until-approved-character-and-location-composite-frame
+  temporal_constraints:
+    - trees-and-foliage-move-in-coherent-groups
+    - water-uses-broad-slow-ripples
+    - bridge-path-and-stream-course-remain-fixed
+    - use-one-primary-action-and-one-camera-behavior
+
+continuity:
+  locked_after_reference_approval:
+    - path-stream-and-bridge-geometry
+    - tree-groups
+    - permanent-materials
+    - permanent-colors
+    - safe-water-depth-cues
+  temporary_states:
+    - approved-weather
+    - water-ripple-state
+    - ground-wetness
+    - foliage-motion
+
+quality_control:
+  reject:
+    - changing-stream-or-path-course
+    - duplicated-bridge-or-tree-groups
+    - dark-or-unclear-water-depth
+    - noisy-independent-leaf-motion
+    - sparkling-or-reflection-flicker
+    - unapproved-reference-path

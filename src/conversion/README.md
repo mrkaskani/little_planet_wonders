@@ -21,7 +21,7 @@ Minimal JSON contract:
 ```json
 {
   "title": "Our Tiny Classroom Seed",
-  "project": "classroom",
+  "project": "riri-yoyo",
   "language": "English",
   "target_seconds": 30,
   "seed": 424242,

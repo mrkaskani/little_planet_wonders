@@ -1,0 +1,313 @@
+id: riri
+type: character-voice-profile
+version: 2
+status: approved
+project_id: riri-yoyo
+
+source_authority:
+  s2v_input_contract: ../../audios/s2v-input-spec.yaml
+  voice_reference_audit: ../../audios/voice-reference-audit.yaml
+  dialogue_contract: ../../audios/audio_style.yaml
+  pronunciation: ../../audios/pronunciation.yaml
+  character_visual_identity: character.yaml
+
+wan_2_2_interface:
+  supported_task: s2v
+  role: speaker_identity_reference_only
+  reference_assets_are_not_final_dialogue: true
+  final_conditioning_audio_must:
+    - match-the-approved-transcript-exactly
+    - use-the-approved-riri-voice-identity
+    - pass-the-s2v-input-contract
+    - receive-a-new-audio-hash-and-timing-lock
+  audited_reference_format:
+    files_checked: 5
+    sample_rate_hz: 24000
+    bit_depth: 16
+    channels: 1
+    result: valid-for-voice-cloning-reference-role
+    s2v_final_audio_format: resynthesize-or-export-to-48000-hz-24-bit-mono
+    audible_cleanliness_status: approved-human-listening-review
+    approval_record: ../../validation/project-owner-approvals.yaml
+
+voice_identity:
+  voice_type: very-young-soft-feminine
+  gender_presentation: clearly-feminine
+  apparent_age: approximately three-to-four years old; distinctly younger than Yoyo
+  pitch: very high natural little-girl pitch, well above Yoyo's range
+  timbre: smooth, round, non-nasal, gentle, and lightly airy
+  speaking_speed: unhurried; approximately 15 percent slower than Yoyo
+  articulation: soft-edged, connected, flowing, lightly elongated, and clear
+  emotional_baseline: sweet, cheerful, affectionate, and reassuring
+  emotional_range: expressive but soft
+  maximum_emotional_intensity: moderate
+
+performance:
+  pause_style: slower flowing rhythm with soft connected phrasing
+  vocal_energy: light, gentle, airy, and engaged
+  default_volume: moderate and comfortable
+  laugh_style: tiny sweet giggle
+  pronunciation_style: simple and clear
+
+generation:
+  provider: qwen3-tts-base-local-clone
+  voice_id: riri-v1
+  identity_reference: audio-assets/voice-references/riri/neutral-friendly.wav
+
+references:
+  neutral-friendly:
+    path: audio-assets/voice-references/riri/neutral-friendly.wav
+    target_duration_seconds: 6-10
+    artifact:
+      status: approved
+      method: selected-voice-design-identity
+      seed: 314164
+
+    text: >
+      Hello! I'm happy to see you.
+      It's a lovely day.
+      Shall we look around together?
+
+    prompt: >
+      Generate a clean neutral-friendly voice-reference recording for Riri.
+
+      HARD IDENTITY ANCHOR: Riri must sound like a tiny three-to-four-year-old
+      girl and must be instantly distinguishable from Yoyo in a blind A/B
+      test. Do not reuse an older child's vocal identity. Keep her perceived
+      pitch and vocal size clearly above and smaller than Yoyo's on every word.
+
+      Riri has a clearly four-year-old, clearly feminine voice with a higher
+      child pitch. Use light head resonance and a smooth, round, non-nasal,
+      gentle airy timbre. Use soft-edged connected consonants and a slower,
+      flowing speaking rhythm. Let vowels bloom slightly; avoid clipped word
+      endings. Use noticeable melodic movement and light upward phrase endings.
+
+      Deliver the lines with a sweet, friendly, affectionate,
+      and naturally welcoming tone.
+
+      Keep the speaking speed slow-medium, articulation soft and connected,
+      vocal energy light and engaged, and volume moderate and comfortable.
+
+      Use short natural pauses between thoughts.
+
+      The performance should feel warm and emotionally open without
+      sounding overly excited.
+
+      Preserve a clearly four-year-old identity and the same high, light-head,
+      smooth, round, non-nasal, gentle airy resonance. Never drift toward a
+      lower-mid, dry, direct, chest-forward, nasal/reedy, staccato voice.
+      Do not sound like an adult imitating a child.
+      Avoid exaggerated cartoon delivery, excessive breathiness,
+      or overly theatrical emotion.
+
+  happy-gentle:
+    path: audio-assets/voice-references/riri/happy-gentle.wav
+    target_duration_seconds: 6-10
+    artifact:
+      status: approved
+      method: base-cloned-from-neutral-friendly
+      seed: 314260
+
+    text: >
+      Oh, look at that!
+      That's wonderful!
+      You did it!
+      That makes me really happy.
+
+    prompt: >
+      Generate a happy-gentle voice-reference recording for Riri.
+
+      HARD IDENTITY ANCHOR: this is the tiny, high-voiced three-to-four-year-old
+      girl, not the older low-voiced boy. The two characters must never sound
+      like one actor changing delivery. Keep Riri's vocal size small, pitch
+      very high and natural, and cadence unhurried even when she is happy.
+
+      Preserve Riri's four-year-old, clearly feminine identity, higher child
+      pitch, light head resonance, smooth round non-nasal gentle airy timbre,
+      soft connected consonants, and slower flowing rhythm.
+
+      Deliver the lines with gentle childlike happiness,
+      affectionate encouragement, and a small sense of delight.
+
+      Increase the vocal energy slightly compared with the neutral reference,
+      while keeping the performance soft, controlled, and emotionally safe.
+
+      "You did it!" should sound warmly encouraging rather than loud.
+
+      Keep articulation clear and volume moderate.
+
+      Avoid hyperactive excitement, shouting, shrillness,
+      exaggerated cartoon energy, or dramatic celebration.
+
+  curious:
+    path: audio-assets/voice-references/riri/curious.wav
+    target_duration_seconds: 6-10
+    artifact:
+      status: approved
+      method: base-cloned-from-neutral-friendly
+      seed: 314361
+
+    text: >
+      Hmm... what's that?
+      I wonder where it came from.
+      Maybe we can take a closer look?
+
+    prompt: >
+      Generate a curious voice-reference recording for Riri.
+
+      HARD IDENTITY ANCHOR: preserve the tiny, very-high-voiced
+      three-to-four-year-old girl. She must remain unmistakably younger,
+      smaller-sounding, softer, and more melodic than Yoyo; never render this
+      as the same base speaker with gentler acting.
+
+      Maintain the exact same four-year-old, clearly feminine identity,
+      higher child pitch, light head resonance, smooth round non-nasal gentle
+      airy timbre, soft connected consonants, and slower flowing rhythm.
+
+      Perform with sweet, thoughtful curiosity rather than energetic
+      investigation.
+
+      Give questions a natural light upward intonation.
+
+      Use a brief thoughtful pause after "Hmm..." and short natural
+      pauses after caring or inviting questions.
+
+      Keep the speaking speed around medium,
+      with a slight slowdown while wondering or observing.
+
+      The curiosity should feel gentle, interested, affectionate,
+      and safe.
+
+      Do not make Riri sound suspicious, nervous, frightened,
+      overly excited, or dramatic.
+
+  mild-concern:
+    path: audio-assets/voice-references/riri/mild-concern.wav
+    target_duration_seconds: 6-10
+    artifact:
+      status: approved
+      method: base-cloned-from-neutral-friendly
+      seed: 314462
+
+    text: >
+      Oh...
+      That doesn't look quite right.
+      Are you okay?
+      Maybe we should check carefully.
+
+    prompt: >
+      Generate a mild-concern voice-reference recording for Riri.
+
+      HARD IDENTITY ANCHOR: use Riri's tiny three-to-four-year-old girl voice,
+      with a very high natural pitch, small vocal size, light head resonance,
+      and flowing cadence. It must not resemble Yoyo slowed down or softened.
+
+      Preserve Riri's four-year-old, clearly feminine identity, higher child
+      pitch, light head resonance, smooth round non-nasal gentle airy timbre,
+      soft connected consonants, and recognizable slower flowing rhythm.
+
+      Reduce her normal cheerful energy slightly.
+
+      Deliver the lines with tenderness, gentle concern,
+      attentiveness, and emotional warmth.
+
+      "Are you okay?" should sound caring and sincere.
+
+      Use slightly slower pacing than the neutral reference,
+      with a short natural pause after the caring question.
+
+      Keep volume moderate-to-soft and articulation clear.
+
+      Emotional intensity must remain mild and reassuring.
+
+      Do not introduce panic, trembling, crying, fear,
+      shouting, breathless urgency, or dramatic distress.
+
+  reassuring:
+    path: audio-assets/voice-references/riri/reassuring.wav
+    target_duration_seconds: 6-10
+    artifact:
+      status: approved
+      method: base-cloned-from-neutral-friendly
+      seed: 314563
+
+    text: >
+      It's okay.
+      I'm right here with you.
+      We can try it slowly together.
+      There we go!
+
+    prompt: >
+      Generate a reassuring voice-reference recording for Riri.
+
+      HARD IDENTITY ANCHOR: keep the tiny, very-high-voiced
+      three-to-four-year-old girl identity. Even in a calm performance, retain
+      her small vocal size, light head resonance, gentle melodic contour, and
+      clear separation from Yoyo's older, lower, grounded boy voice.
+
+      Preserve the exact same four-year-old, clearly feminine identity,
+      higher child pitch, light head resonance, smooth round non-nasal gentle
+      airy timbre, soft connected consonants, and slower flowing rhythm.
+
+      Deliver the lines with gentle affection,
+      calm encouragement, emotional openness,
+      and quiet confidence.
+
+      Slow the speaking speed slightly compared with Riri's normal delivery.
+
+      Use short natural pauses after reassurance
+      and after encouraging statements.
+
+      "I'm right here with you" should feel especially warm and supportive.
+
+      Gradually introduce a little cheerful confidence toward
+      "There we go!" while remaining soft and restrained.
+
+      The performance should communicate safety,
+      kindness, companionship, patience, and reassurance.
+
+      Do not sound adult-parental, patronizing, sleepy,
+      whispery, overly emotional, or theatrical.
+
+forbidden_voice_traits:
+  - harsh
+  - aggressive
+  - robotic
+  - sarcastic
+  - mature-sultry
+  - shrill
+  - frightening
+  - lower-mid-pitch
+  - chest-forward-resonance
+  - nasal-reedy-timbre
+  - crisp-staccato-consonants
+  - dry-direct-tone
+  - quick-stop-start-rhythm
+
+consistency_constraints:
+  - preserve Riri's four-year-old impression, clearly feminine identity, higher pitch, light-head resonance, smooth round non-nasal airy timbre, and slower flowing rhythm
+  - require unmistakable blind-listening separation from Yoyo; never treat the pair as one speaker performing two styles
+  - keep her delivery sweet, emotionally open, and distinct from Yoyo
+  - keep emotional performance readable but gentle and restrained
+  - never shout directly at the audience
+  - never use a reference as final dialogue unless its words match exactly
+  - all five references must sound like the exact same speaker
+  - emotional state may change performance but must not change voice identity
+  - preserve the same apparent age across every reference
+  - preserve the same accent and pronunciation style across every reference
+  - keep Riri softer, calmer, and more affectionate than Yoyo
+  - never drift toward Yoyo's older, lower-mid, dry, chest-forward, nasal/reedy, crisp staccato, quick stop-start identity
+  - avoid making Riri's curious reference as energetic as Yoyo's curious reference
+  - avoid making Riri's happy reference as bubbly as Yoyo's happy reference
+  - maintain consistent microphone distance and recording character
+
+reference_audio_requirements:
+  format: wav
+  channels: mono
+  background: silent
+  music: false
+  sound_effects: false
+  reverb: minimal
+  clipping: forbidden
+  normalization: consistent-across-all-references
+  purpose: voice-conditioning-and-identity-reference-only

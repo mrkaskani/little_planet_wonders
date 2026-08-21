@@ -1,0 +1,458 @@
+id: kindergarten-interior-location-v2
+type: location-visual-version-context
+version: 2
+version_tag: v002
+status: complete-candidate-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-interior
+  title: Kindergarten Interior Visual and Spatial Identity Version 2
+  purpose: >-
+    Record the supplied V2 classroom reference boards as structured spatial,
+    scale, composition, material, lighting, and retrieval context without
+    replacing the approved V1 location authority.
+  created_date: 2026-08-20
+  completed_date: 2026-08-21
+  source: project-owner-supplied-location-design-package
+  review_record: ../../validation/kindergarten-interior-v2-review.yaml
+
+versioning:
+  base_location_authority: location.yaml
+  base_reference_id: kindergarten-interior-reference-set-v001
+  base_primary_master_id: kindergarten-interior-primary-master-v001
+  candidate_package_id: kindergarten-interior-design-package-v002
+  active_canonical_version: v001
+  candidate_version: v002
+  promotion_rule: >-
+    V2 becomes canonical only after all five supplied boards are present and the
+    project owner explicitly approves the complete package. Until then,
+    location.yaml and the approved V1 primary master remain active.
+  package_completeness:
+    expected_source_boards: 5
+    present_source_boards: 5
+    missing_source_boards: 0
+    complete: true
+
+source_images:
+  scale_and_proportion_reference_board:
+    id: kindergarten-interior-scale-and-proportion-reference-board-v002
+    visible_title: Interior Location — Scale & Proportion Reference Board
+    purpose_tag: spatial-scale-proportion-and-object-position-authority
+    path: ../../assets/locations/kindergarten-interior/design-review/kindergartenInteriorScaleAndProportionReferenceBoardV002.png
+    sha256: 2fcf17fa1a51654304317171a2f086e5e375e63005cc189c14e36f7f40fa051e
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    reference_class: design-review-only
+  cinematic_four_side_reference_board:
+    id: kindergarten-interior-transformation-1-cinematic-four-side-four-picture-type-reference-board-v002
+    visible_title: Transformation 1 — Cinematic Four-Side / Four-Picture-Type Interior Reference Board
+    purpose_tag: cinematic-view-structural-zone-material-and-lighting-authority
+    path: ../../assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation1CinematicFourSideFourPictureTypeReferenceBoardV002.png
+    sha256: 1396445f014038bd904ddfcf89f30aab15e7ca01992efc53e2a0051fecad4b30
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    reference_class: design-review-only
+  structured_four_side_reference_board:
+    id: kindergarten-interior-transformation-2-structured-four-side-four-picture-type-reference-board-v002
+    visible_title: Transformation 2 — Structured Four-Side / Four-Picture-Type Interior Reference Board
+    purpose_tag: locked-spatial-elevation-zone-material-and-furniture-authority
+    path: ../../assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation2StructuredFourSideFourPictureTypeReferenceBoardV002.png
+    sha256: d11e3eba6d312f25f79bcd15ea69fba9b4cfcc9db4d6005f44389deee2adbcb5
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    reference_class: design-review-only
+  titled_technical_four_side_reference_board:
+    id: kindergarten-interior-transformation-3-titled-technical-four-side-four-picture-type-reference-board-v002
+    visible_title: Transformation 3 — Titled Technical Four-Side / Four-Picture-Type Interior Reference Board
+    supplied_filename_note: supplied-filename-said-transformation-2-visible-title-is-authoritative-transformation-3
+    purpose_tag: dimensioned-technical-construction-material-lighting-and-mood-authority
+    path: ../../assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
+    sha256: b2e6840b1d34f5439b83c1260fbf552caff9198270f5f235ef39ea5a526fa628
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    reference_class: design-review-only
+  polished_production_four_side_reference_board:
+    id: kindergarten-interior-transformation-4-polished-production-four-side-four-picture-type-interior-board-v002
+    visible_title: Transformation 4 — Polished Production Four-Side / Four-Picture-Type Interior Board
+    purpose_tag: production-composition-zone-furniture-surface-color-and-lighting-authority
+    path: ../../assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation4PolishedProductionFourSideFourPictureTypeInteriorBoardV002.png
+    sha256: f905190ed2f537a62df05f2ba6b0e0bbd1642a8cd22300d66bd2196c88cd1a20
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    reference_class: design-review-only
+
+source_recovery:
+  status: complete
+  source_batch_label: project-owner-downloads-interior
+  all_project_paths_are_relative: true
+  source_files_preserved: true
+  project_asset_filenames: lower-camel-case
+
+location_identity:
+  category: classroom
+  summary: warm-sunlit-child-scale-kindergarten-learning-room
+  emotional_character:
+    - welcoming
+    - warm
+    - playful
+    - calm
+    - educational
+    - safe
+  medium: premium-soft-stylized-3d-preschool-animation
+  default_time_of_day: warm-interior-day
+  permanent_visual_anchors:
+    - front-whiteboard-and-bunting-wall
+    - left-window-bank
+    - right-artwork-and-bulletin-wall
+    - rear-opposite-simple-wall
+    - perimeter-low-shelving-and-cubbies
+    - two-child-scale-group-table-sets
+    - centered-multicolor-circular-activity-rug
+    - centered-ceiling-fan
+
+orientation_contract:
+  coordinate_system: room-relative-units
+  unit_symbol: RU
+  scale_rule: all-values-are-proportional-not-metric-or-imperial
+  room_width_reference: 1.00
+  axes:
+    horizontal_left_to_right:
+      extent_ru: 1.00
+      left_boundary: window-wall
+      right_boundary: artwork-and-bulletin-wall
+    depth_front_to_rear:
+      extent_ru: 0.90
+      front_boundary: whiteboard-and-bunting-wall
+      rear_boundary: opposite-simple-wall
+    vertical_floor_to_ceiling:
+      extent_ru: 0.78
+      lower_boundary: wood-floor
+      upper_boundary: paneled-ceiling
+  camera_orientation:
+    front: wall-with-whiteboard-and-bunting
+    left: window-bank-wall
+    right: artwork-and-bulletin-wall
+    rear: opposite-wall-behind-primary-camera
+  invariants:
+    - never-mirror-left-window-and-right-artwork-walls
+    - never-move-whiteboard-away-from-front-wall
+    - never-rotate-the-floor-plan-between-views
+    - preserve-object-position-logic-across-all-camera-angles
+
+relative_scale_authority:
+  source: scale_and_proportion_reference_board
+  architecture:
+    room_width_ru: 1.00
+    room_depth_ru: 0.90
+    ceiling_height_ru: 0.78
+    window_bank_width_ru: 0.66
+    window_bank_height_ru: 0.60
+    whiteboard_width_ru: 0.72
+    whiteboard_height_ru: 0.40
+    ceiling_fan_span_ru: 0.40
+  fixed_storage:
+    front_shelf_height_ru: 0.50
+    rear_shelf_height_ru: 0.50
+    right_shelf_height_ru: 0.50
+    typical_shelf_or_cubby_width_ru: 0.30
+    typical_shelf_or_cubby_height_ru: 0.50
+    arrangement_rule: low-perimeter-storage-running-along-three-room-sides
+  child_reference:
+    typical_height_ru: 0.62
+    purpose: relative-human-scale-only
+  table:
+    width_ru: 0.45
+    depth_ru: 0.45
+    height_ru: 0.50
+    surface: rounded-solid-wood
+  chair:
+    width_ru: 0.26
+    depth_ru: 0.24
+    seat_height_ru: 0.28
+    surface: rounded-solid-wood
+  activity_rug:
+    shape: circular
+    construction: concentric-pastel-color-rings
+    diameter_ru: not-explicitly-defined-on-this-package
+    placement: right-of-center-between-table-zone-and-open-play-zone
+    scale_rule: preserve-board-relative-footprint-do-not-invent-a-numeric-diameter
+  interpretation_rules:
+    - preserve-proportions-across-perspective-elevation-overview-and-floor-plan-views
+    - do-not-convert-relative-units-to-centimeters-without-an-approved-real-world-anchor
+    - do-not-change-furniture-scale-to-fit-a-camera-composition
+    - child-table-chair-whiteboard-and-storage-relations-are-locked-together
+
+spatial_layout:
+  floor_plan:
+    shape: simple-rectangular-room
+    front_wall:
+      fixed_elements: [whiteboard, bunting, low-shelving, plants, globe, learning-display]
+    left_wall:
+      fixed_elements: [broad-window-bank, low-storage-below-window, plants]
+    right_wall:
+      fixed_elements: [artwork-board, low-shelving, storage-bins, display-items]
+    rear_wall:
+      fixed_elements: [simple-artwork, low-shelving, tall-cubby-at-corner, plants]
+    center:
+      fixed_layout: [two-group-table-sets, circular-activity-rug]
+      circulation: keep-clear-between-table-zone-rug-and-perimeter-storage
+  functional_zones:
+    primary_learning_instruction_zone:
+      location: front-half-facing-whiteboard
+      contains: [whiteboard, group-tables, instructional-display, low-storage]
+      use: teacher-led-learning-group-table-activity-and-front-facing-composition
+    secondary_learning_activity_zone:
+      location: left-window-and-rug-side
+      contains: [natural-window-light, plants, circular-rug, blocks, small-group-work-area]
+      use: play-floor-work-small-group-activity-and-gentle-side-light-composition
+    storage_display_zone:
+      location: perimeter-low-shelving
+      contains: [cubbies, colored-storage-bins, books, plants, globe, child-safe-displays]
+      use: background-continuity-prop-origin-and-cleanup-blocking
+    open_circulation_zone:
+      location: central-lanes-between-tables-rug-and-shelves
+      contains: []
+      use: character-travel-camera-clearance-and-action-readability
+  production_zone_overlay:
+    instruction_zone:
+      location: front-whiteboard-wall
+      board_source: polished_production_four_side_reference_board-panel-07
+    group_learning_zone:
+      location: central-left-table-cluster
+      board_source: polished_production_four_side_reference_board-panel-07
+    circle_play_zone:
+      location: circular-rug
+      board_source: polished_production_four_side_reference_board-panel-07
+    nature_and_light_zone:
+      location: left-window-bank-and-plants
+      board_source: polished_production_four_side_reference_board-panel-08
+    display_and_art_zone:
+      location: right-artwork-wall
+      board_source: polished_production_four_side_reference_board-panel-08
+    storage_and_organization_zone:
+      location: perimeter-low-shelving-and-cubbies
+      board_source: polished_production_four_side_reference_board-panel-08
+    manipulative_play_materials_zone:
+      location: rug-edge-and-open-floor
+      board_source: polished_production_four_side_reference_board-panel-08
+
+materials_and_surfaces:
+  architecture:
+    walls: warm-matte-light-wood-plank-panels
+    window_trim: warm-painted-or-natural-wood
+    ceiling: light-wood-panels
+    floor: smooth-warm-wood-planks
+  furniture:
+    tables_and_chairs: solid-warm-wood-with-smooth-surfaces-and-rounded-edges
+    shelves_and_cubbies: low-warm-wood-child-safe-storage
+    storage_bins: matte-pastel-molded-plastic
+    planter_pots: child-safe-matte-ceramic
+  soft_surfaces:
+    activity_rug: concentric-rounded-pastel-color-rings
+  production_detail_lookup:
+    wall_finish: warm-cream-painted-vertical-paneling
+    ceiling_finish: warm-cream-acoustic-tile-grid-or-light-paneling
+    flooring: light-natural-wood-planks
+    window_frame: white-painted-wood
+    baseboard: painted-wood-matching-wall
+    built_in_shelf: light-natural-wood-clear-finish
+    tabletop: smooth-rounded-solid-warm-wood
+    chair: smooth-rounded-solid-warm-wood
+    shelf_top: smooth-warm-wood
+    bin: pastel-molded-plastic
+  safety_rules:
+    - rounded-furniture-edges
+    - stable-child-scale-furniture
+    - no-sharp-metal-corners
+    - no-glass-at-child-contact-height
+    - keep-circulation-lanes-unobstructed
+
+lighting_and_color:
+  primary_light_source: warm-natural-daylight-from-left-window-bank
+  direction: left-to-right
+  secondary_fill: soft-warm-interior-bounce
+  exposure: bright-readable-open-shadows
+  color_identity:
+    base: warm-honey-wood-and-soft-cream
+    accents: [pastel-yellow, pastel-pink, muted-teal, soft-blue, gentle-orange, soft-green]
+    accent_locations: [bunting, rug, storage-bins, child-artwork, small-learning-props]
+  rules:
+    - preserve-local-colors-under-warm-sunlight
+    - avoid-harsh-contrast-or-deep-threatening-shadows
+    - sunlight-always-enters-from-the-left-window-side-in-default-day-state
+    - child-artwork-remains-graphic-and-non-readable-not-generated-text
+
+board_catalog:
+  scale_and_proportion_reference_board:
+    panel_01: {title: primary-front-perspective, context: master-layout-and-front-orientation}
+    panel_02: {title: left-side-interior-view, context: window-wall-table-and-rug-parallax}
+    panel_03: {title: right-side-interior-view, context: artwork-wall-front-zone-and-rug-parallax}
+    panel_04: {title: rear-opposite-interior-view, context: reverse-view-rear-storage-and-table-spacing}
+    panel_05: {title: elevated-overview, context: full-room-object-placement-and-circulation}
+    panel_06: {title: front-wall-elevation, context: whiteboard-bunting-storage-width-and-height}
+    panel_07: {title: left-wall-elevation, context: window-bank-storage-and-plant-placement}
+    panel_08: {title: right-wall-elevation, context: artwork-board-storage-and-display-placement}
+    panel_09: {title: rear-wall-elevation, context: simple-wall-art-storage-and-plant-placement}
+    panel_10: {title: floor-plan-footprint-object-position-logic, context: normalized-plan-and-world-orientation}
+    panel_11: {title: major-furniture-architectural-scale-relationships, context: child-table-chair-shelf-whiteboard-and-fan-scale}
+    panel_12: {title: overall-relative-proportion-summary, context: locked-relative-unit-table-and-key-notes}
+  cinematic_four_side_reference_board:
+    panel_01: {title: primary-front-hero-establishing-view-type-1, context: front-hero-camera-and-master-composition}
+    panel_02: {title: left-side-interior-view-type-1, context: left-window-side-establishing-coverage}
+    panel_03: {title: right-side-interior-view-type-1, context: right-artwork-side-establishing-coverage}
+    panel_04: {title: rear-opposite-interior-view-type-1, context: reverse-establishing-coverage}
+    panel_05: {title: elevated-room-overview-type-2, context: spatial-continuity-and-blocking-overview}
+    panel_06: {title: floor-plan-four-wall-structural-reference-type-2, context: architectural-orientation-and-object-position-lock}
+    panel_07: {title: primary-functional-zone-type-3, context: front-learning-instruction-zone}
+    panel_08: {title: secondary-functional-zone-type-3, context: naturally-lit-learning-and-activity-zone}
+    panel_09: {title: furniture-built-in-storage-group-type-3, context: shelf-cubby-bin-book-plant-globe-and-display-continuity}
+    panel_10: {title: architectural-material-detail-type-4, context: plank-wall-window-trim-ceiling-floor-and-fan-materials}
+    panel_11: {title: furniture-surface-detail-type-4, context: solid-wood-table-chair-rounded-edge-and-surface-finish}
+    panel_12: {title: lighting-color-identity-detail-type-4, context: warm-daylight-pastel-accents-child-artwork-and-playful-identity}
+  structured_four_side_reference_board:
+    panel_01: {title: front-spatial-view-type-1, context: front-whiteboard-bunting-tables-storage-and-rug-layout}
+    panel_02: {title: left-side-spatial-view-type-1, context: window-bank-daylight-table-depth-and-rug-placement}
+    panel_03: {title: right-side-spatial-view-type-1, context: artwork-wall-display-shelving-and-front-zone-parallax}
+    panel_04: {title: rear-opposite-spatial-view-type-1, context: reverse-wall-storage-table-and-rug-relationship}
+    panel_05: {title: four-wall-elevation-structural-reference-type-2, context: front-left-right-rear-elevations-and-locked-anchor-placement}
+    panel_06: {title: floor-plan-elevated-plan-type-2, context: 1-point-00-by-0-point-90-footprint-two-table-sets-and-right-side-rug}
+    panel_07: {title: primary-functional-area-type-3, context: classroom-activity-table-area-for-group-activities-learning-craft-and-small-group-work}
+    panel_08: {title: secondary-functional-area-type-3, context: rug-play-area-for-free-play-blocks-toys-and-circle-time}
+    panel_09: {title: furniture-storage-group-type-3, context: square-table-chair-low-open-shelf-cubby-storage-whiteboard-fan-bins-and-plants}
+    panel_10: {title: materials-surfaces-type-4, context: wood-floor-wood-furniture-warm-cream-wall-ceiling-panel-rug-textile-and-ceramic-planter}
+    panel_11: {title: architectural-furniture-details-type-4, context: window-fan-whiteboard-shelf-table-and-chair-construction-details}
+    panel_12: {title: color-lighting-reference-type-4, context: dominant-pastels-bright-left-window-daylight-warm-ambient-fill-and-soft-shadows}
+  titled_technical_four_side_reference_board:
+    panel_01: {title: front-view-type-1, context: room-width-whiteboard-width-and-whiteboard-height-dimension-overlay}
+    panel_02: {title: left-side-view-type-1, context: room-depth-window-bank-width-and-window-height-dimension-overlay}
+    panel_03: {title: right-side-view-type-1, context: room-depth-right-artwork-wall-and-storage-continuity}
+    panel_04: {title: rear-opposite-view-type-1, context: room-width-rear-wall-storage-and-reverse-composition}
+    panel_05: {title: elevated-room-overview-type-2, context: room-width-depth-object-placement-and-open-circulation}
+    panel_06: {title: floor-plan-four-wall-logic-type-2, context: labeled-front-left-right-rear-orientation-and-object-position-lock}
+    panel_07: {title: primary-functional-zone-type-3, context: learning-group-area-at-center-tables-and-play-rug-area-on-open-floor}
+    panel_08: {title: secondary-functional-zone-type-3, context: storage-display-zone-and-plant-nature-zone}
+    panel_09: {title: furniture-built-in-reference-type-3, context: dimensioned-table-chair-low-shelf-whiteboard-fan-plus-rug-plants-and-bin}
+    panel_10: {title: architectural-material-detail-type-4, context: wall-ceiling-floor-window-baseboard-and-built-in-shelf-finishes}
+    panel_11: {title: furniture-construction-detail-type-4, context: dimensioned-table-chair-low-shelf-whiteboard-and-ceiling-fan}
+    panel_12: {title: lighting-color-detail-type-4, context: left-window-daylight-warm-ambient-fill-fan-palette-key-colors-and-calm-mood}
+  polished_production_four_side_reference_board:
+    panel_01: {title: front-production-view-type-1, context: polished-front-whiteboard-hero-composition}
+    panel_02: {title: left-side-production-view-type-1, context: polished-window-side-composition-and-daylight-direction}
+    panel_03: {title: right-side-production-view-type-1, context: polished-artwork-side-composition}
+    panel_04: {title: rear-opposite-production-view-type-1, context: polished-reverse-view-and-rear-storage-spacing}
+    panel_05: {title: elevated-production-overview-type-2, context: polished-room-layout-object-density-and-camera-clearance}
+    panel_06: {title: floor-plan-four-wall-structural-reference-type-2, context: locked-1-point-00-by-0-point-90-room-orientation-and-anchor-layout}
+    panel_07: {title: primary-functional-zone-reference-type-3, context: instruction-group-learning-and-circle-play-zone-overlays}
+    panel_08: {title: secondary-functional-zone-reference-type-3, context: nature-light-display-art-storage-organization-and-manipulative-play-overlays}
+    panel_09: {title: furniture-built-in-storage-reference-type-3, context: child-table-chair-low-shelf-window-plant-shelf-bins-and-open-wall-shelving}
+    panel_10: {title: architectural-material-reference-type-4, context: wall-ceiling-floor-furniture-shelving-and-whiteboard-material-swatches}
+    panel_11: {title: furniture-surface-detail-type-4, context: tabletop-chair-shelf-top-and-plastic-bin-production-finishes}
+    panel_12: {title: color-lighting-material-reference-type-4, context: overall-palette-natural-light-warm-daylight-and-material-texture-feel}
+
+cross_board_measurement_consensus:
+  authority_order:
+    - scale_and_proportion_reference_board
+    - titled_technical_four_side_reference_board
+    - structured_four_side_reference_board
+    - cinematic_four_side_reference_board
+    - polished_production_four_side_reference_board
+  confirmed_across_package:
+    room_width_ru: 1.00
+    room_depth_ru: 0.90
+    ceiling_height_ru: 0.78
+    window_bank_width_ru: 0.66
+    window_bank_height_ru: 0.60
+    whiteboard_width_ru: 0.72
+    whiteboard_height_ru: 0.40
+    shelf_height_ru: 0.50
+    table_width_ru: 0.45
+    table_depth_ru: 0.45
+    table_height_ru: 0.50
+    chair_width_ru: 0.26
+    chair_depth_ru: 0.24
+    chair_seat_height_ru: 0.28
+    ceiling_fan_span_ru: 0.40
+  annotation_quality_rules:
+    - use-the-scale-board-and-package-header-values-when-small-generated-labels-are-ambiguous
+    - preserve-semantic-dimensions-such-as-chair-seat-height-versus-total-chair-height
+    - never-average-conflicting-or-illegible-generated-micro-labels
+    - rug-diameter-remains-unspecified-because-no-trusted-board-gives-a-numeric-value
+  observed_micro_label_cautions:
+    - structured-board-front-elevation-height-label-is-less-clear-than-the-locked-0-point-78-header
+    - structured-board-chair-detail-has-small-ambiguous-height-annotations
+    - these-annotations-do-not-override-the-confirmed-scale-table
+
+mcp_context:
+  retrieval_key: kindergarten-interior-v002
+  package_status: complete-candidate
+  preferred_authority_order:
+    - location-v2.yaml-for-v002-structured-review-context
+    - location.yaml-for-current-canonical-location-policy
+    - approved-v001-primary-master-for-current-generation-conditioning
+    - v002-design-review-boards-for-human-review-only
+  query_routing:
+    room_dimensions_and_scale: relative_scale_authority
+    orientation_and_wall_identity: orientation_contract
+    prop_and_furniture_placement: spatial_layout.floor_plan
+    blocking_and_action_zones: spatial_layout.functional_zones
+    camera_view_selection: board_catalog
+    surface_and_material_prompting: materials_and_surfaces
+    lighting_and_palette_prompting: lighting_and_color
+    board_file_lookup: source_images
+    measurement_consensus_and_conflicts: cross_board_measurement_consensus
+    production_zone_blocking: spatial_layout.production_zone_overlay
+    production_surface_lookup: materials_and_surfaces.production_detail_lookup
+  board_selection_by_task:
+    exact_scale_and_proportions: scale_and_proportion_reference_board
+    cinematic_camera_and_four-side-coverage: cinematic_four_side_reference_board
+    spatial-elevations-zones-and-surface-groups: structured_four_side_reference_board
+    technical-dimensions-construction-lighting-and-mood: titled_technical_four_side_reference_board
+    polished-production-zones-furniture-surfaces-color-and-light: polished_production_four_side_reference_board
+  prompt_context_fragment: >-
+    Warm sunlit preschool classroom, front whiteboard-and-bunting wall, broad left
+    window bank, right artwork wall, simple rear wall, child-scale rounded warm-wood
+    tables and chairs, low perimeter cubbies, centered pastel activity rug, clear
+    circulation lanes, soft natural daylight entering from camera-left.
+  continuity_constraints:
+    - room-width-depth-height-ratio-is-1-point-00-to-0-point-90-to-0-point-78
+    - front-left-right-and-rear-wall-identities-never-swap
+    - two-group-table-layout-and-circular-rug-position-remain-consistent
+    - fixed-shelving-whiteboard-window-bank-and-ceiling-fan-do-not-move
+    - relative-scale-table-must-be-used-as-a-group-not-selected-values-in-isolation
+  direct_conditioning_policy:
+    these_boards_allowed: false
+    reason: multi-panel-collages-with-labels-guides-and-duplicate-room-views
+    current_allowed_location_frame: kindergarten-interior-primary-master-v001
+    v2_single_frame_requirement_after_approval:
+      - clean-primary-front-hero-frame
+      - clean-left-side-frame
+      - clean-right-side-frame
+      - clean-rear-opposite-frame
+  prohibited_inference:
+    - absolute-centimeter-or-meter-dimensions
+    - unseen-door-position
+    - readable-poster-or-whiteboard-text
+    - additional-furniture-windows-fans-or-storage-runs
+    - numeric-rug-diameter
+    - treating-ambiguous-generated-micro-labels-as-higher-authority-than-the-scale-board
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_present_boards: [t2v, i2v, ti2v-image, s2v]
+  active_generation_reference: kindergarten-interior-primary-master-v001
+  active_generation_reference_version: v001
+
+review_gate:
+  technical_registration_of_all-five-files: complete
+  missing_source_reattachment: complete
+  complete_package_review: ready
+  project_owner_visual_and_spatial_approval: pending
+  compare_against_v001: required
+  partial_canonical_promotion: forbidden

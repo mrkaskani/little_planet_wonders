@@ -1,0 +1,87 @@
+metadata:
+  id: riri-yoyo-soundtrack-samples
+  version: 1
+  status: audition
+  project: riri-yoyo
+  purpose: short preschool soundtrack auditions built from both canonical character themes
+
+generator:
+  command: soundtrack
+  model: medium
+  decoder: same-l
+  steps: 8
+  cfg: 4.0
+  init_noise_level: 0.58
+  project_root: src/lpw/context/projects/riri-yoyo
+  output_root: assets/music/soundtracks/riri-yoyo
+  manifest_path: audio-assets/manifests/riri-yoyo-soundtrack-samples.json
+  sample_rate: 48000
+  bit_depth: 24
+  channels: stereo
+  peak_ceiling_dbfs: -1.0
+  motif_gap_seconds: 0.35
+  prompt_prefix: >-
+    Polished instrumental preschool cartoon underscore for children ages three
+    to six. Riri and Yoyo are together, so the music must contain two clearly
+    distinguishable character identities in friendly call-and-response. Riri's
+    identity is a high, slow, connected felt-piano arch: G5, B5, D6, B5, G5.
+    Yoyo's identity is a low, brisk, detached celesta-and-marimba riff: D4, D4,
+    A4, F-sharp4, E4, G4, D4. Never merge these into one melody: let Riri sound
+    tender and reassuring, and let Yoyo sound energetic, punchy, and playful.
+  negative_prompt: >-
+    vocals, singing, speech, chanting, generic identical character themes,
+    merged leitmotifs, replacing either canonical melody, horror, threat,
+    aggressive brass, distorted guitar, trap beat, hard 808 bass, industrial
+    percussion, heavy drums, chaotic counterpoint, shrill piercing highs,
+    sentimental adult drama, dense orchestration, environmental sound effects
+
+characters:
+  - id: riri
+    profile: characters/riri/music-profile.yaml
+    motif_asset: leitmotif
+  - id: yoyo
+    profile: characters/yoyo/music-profile.yaml
+    motif_asset: leitmotif
+
+soundtracks:
+  - id: playful-playing
+    path: playful-playing.wav
+    seconds: 20.0
+    seed: 9101
+    feeling: joyful-free-play
+    prompt: >-
+      Riri and Yoyo play a friendly movement game together. Use a light 118 BPM
+      groove with muted ukulele, soft pizzicato strings, tiny shaker, brushed
+      hand percussion, and warm upright bass. After both opening themes, let
+      Yoyo's short low bounce riff suggest hops and safe slides; answer it with
+      Riri's high felt-piano arch like an affectionate cheer. Keep playful gaps,
+      small surprises, soft landings, and room for laughter and dialogue. Energetic
+      but never frantic, competitive, loud, or heroic.
+
+  - id: puzzle-solving
+    path: puzzle-solving.wav
+    seconds: 20.0
+    seed: 9102
+    feeling: focused-friendly-curiosity
+    prompt: >-
+      Riri and Yoyo quietly solve a colorful preschool puzzle together. Use a
+      sparse 92 BPM pulse with soft marimba, felt piano, muted pizzicato, warm
+      clarinet, and occasional delicate harp. Create short question-and-answer
+      phrases with thinking pauses: Yoyo's low detached riff asks the curious
+      question, then Riri's high connected arch offers reassurance. Thin the
+      arrangement around imagined dialogue and end with a small warm discovery,
+      never suspenseful, mysterious, busy, or academically serious.
+
+  - id: doing-activities
+    path: doing-activities.wav
+    seconds: 20.0
+    seed: 9103
+    feeling: cheerful-cooperative-progress
+    prompt: >-
+      Riri and Yoyo do friendly classroom activities together: sorting, drawing,
+      building, tidying, and helping each other. Use a steady 106 BPM everyday
+      adventure groove with fingerpicked nylon guitar, soft ukulele, rounded
+      marimba, gentle felt piano, light shaker, and restrained pizzicato strings.
+      Alternate Yoyo's low rhythmic motif for active steps with Riri's high legato
+      arch for encouragement and successful little moments. Keep the structure
+      modular, loop-friendly, optimistic, dialogue-safe, and moderately energetic.

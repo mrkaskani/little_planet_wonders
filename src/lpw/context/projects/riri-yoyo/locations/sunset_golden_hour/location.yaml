@@ -1,0 +1,168 @@
+id: countryside-golden-hour
+type: location-context
+version: 2
+status: approved-primary-master-secondary-views-open
+name: Countryside Meadow at Golden Hour
+
+metadata:
+  project_id: riri-yoyo
+  folder_id: sunset_golden_hour
+  category: countryside
+  reusable: true
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+
+source_authority:
+  project: ../../project.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+  palette: ../../visual_style/palette-v2.yaml
+  lighting: ../../visual_style/lighting.yaml
+  materials: ../../visual_style/materials.yaml
+  wan_2_2: ../../wan22-preproduction.yaml
+  asset_registry: ../../locations-assets.yaml
+  sound_profile: sound-profile.yaml
+  music_profile: music-profile.yaml
+
+identity:
+  summary: warm-spacious-reflective-wondrous-countryside-meadow
+  emotional_character:
+    - warm
+    - spacious
+    - calm
+    - wondrous
+    - safe
+  default_time_of_day: golden-hour
+  palette_preset: sunset_golden_hour
+  material_family:
+    - grouped-soft-meadow-grass
+    - broad-simple-flowers
+    - softened-warm-path
+    - rounded-natural-wood
+
+known_landmark_roles:
+  - readable-meadow-path
+  - broad-flower-groups
+  - distant-valley-or-hills
+  - sparse-tree-group
+  - child-safe-wooden-fence-element
+
+geometry:
+  approval_state: locked-to-countryside-golden-hour-primary-master-v001
+  rule: do-not-invent-path-fence-tree-or-horizon-layout-before-reference-approval
+  preserve_after_approval:
+    - path-direction
+    - fence-position-and-scale
+    - tree-group-count
+    - horizon-and-valley-shape
+    - camera-accessible-areas
+
+spatial_contract:
+  dimensions:
+    status: awaiting-approved-reference-measurement
+    unit: centimeters
+    width_cm: null
+    depth_cm: null
+    horizon-height-reference_cm: null
+  entrances:
+    - meadow-path-entry
+  exits:
+    - meadow-path-entry
+    - continuing-path-boundary
+  navigation_areas:
+    - readable-meadow-path
+    - fence-side-walking-lane
+  safe_interaction_zones:
+    - meadow-action-area
+    - path-and-fence-observation-zone
+  camera_safe_views:
+    - primary-master-view
+    - reverse-master-view
+    - path-and-fence-view
+    - meadow-action-area-view
+  movement_spaces:
+    - meadow-path-travel-lane
+    - broad-meadow-action-area
+  permanent_landmarks:
+    - readable-meadow-path
+    - distant-valley-or-hills
+    - sparse-tree-group
+    - child-safe-wooden-fence-element
+  approved_movable_asset_ids: []
+  movable_asset_source: ../../assets/props.yaml
+  rule: exact-path-fence-tree-horizon-and-valley-geometry-cannot-be-invented-before-reference-approval
+
+reference_requirements:
+  primary_master_view:
+    required: true
+    status: approved
+    path: ../../assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--primary-master-view--v001.png
+    sha256: c67a8510515b58cb5925c0b2f2089f4c7610460e3c4f192dbfc24d4a0530eb37
+    pixel_dimensions: 1672x941
+    aspect_ratio: "1672:941"
+    review_record: ../../validation/location-master-review.yaml
+  reverse_view:
+    required: true
+    status: missing
+  path_and_fence_view:
+    required: true
+    status: missing
+  meadow_action_area:
+    required: true
+    status: missing
+  scale_reference:
+    required: true
+    status: missing
+  generation_frame_rules:
+    - use-one-coherent-image
+    - preserve-horizon-and-movement-space
+    - keep-flower-and-grass-detail-broad
+    - remove-text-watermarks-visitors-and-accidental-faces
+    - never-use-a-reference-board-or-collage-as-conditioning-input
+
+wan_2_2_interface:
+  contract_source: ../../wan22-preproduction.yaml
+  t2v:
+    eligibility: exploratory-only-until-geometry-is-approved
+    prompt_fragment: >-
+      Spacious countryside meadow at gentle golden hour with a clear warm path,
+      broad flower groups, sparse rounded trees, a distant soft valley, and
+      premium soft stylized 3D preschool animation.
+  ti2v_text:
+    eligibility: draft-only
+    evaluate:
+      - path-and-horizon-composition
+      - broad-meadow-depth
+      - readable-golden-light-direction
+  ti2v_image:
+    eligibility: blocked-until-approved-single-frame-reference
+  i2v:
+    eligibility: blocked-until-approved-single-frame-reference
+  s2v:
+    eligibility: blocked-until-approved-character-and-location-composite-frame
+  temporal_constraints:
+    - meadow-and-flowers-move-in-coherent-patches
+    - horizon-path-fence-and-trees-remain-fixed
+    - golden-light-does-not-turn-all-local-colors-orange
+    - use-one-primary-action-and-one-camera-behavior
+
+continuity:
+  locked_after_reference_approval:
+    - path-fence-tree-and-horizon-layout
+    - permanent-materials
+    - meadow-and-flower-groups
+    - permanent-colors
+  temporary_states:
+    - sun-angle
+    - approved-weather
+    - gentle-foliage-motion
+    - ground-wetness
+
+quality_control:
+  reject:
+    - horizon-or-path-drift
+    - multiplied-flowers-trees-or-fence-elements
+    - full-frame-orange-color-wash
+    - noisy-independent-grass-motion
+    - generated-text-or-watermark
+    - unapproved-reference-path

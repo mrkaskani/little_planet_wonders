@@ -1,0 +1,430 @@
+{
+  "generated_at": "2026-08-16T15:13:53.520920+00:00",
+  "source_library": "scripts/stable-audio-3-medium/classroom-sfx-library.json",
+  "spec": "src/lpw/context/projects/riri-yoyo/audios/sound-effects.yaml",
+  "principles": "src/lpw/context/projects/riri-yoyo/sound/sound-effects-bible.md",
+  "model": "medium",
+  "decoder": "same-l",
+  "assets": [
+    {
+      "path": "kindergarten-play-space/movement/jump-soft-takeoff.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Cheerful preschool cartoon jump takeoff: a tiny rubbery boing and bubbly airy poof, bright, bouncy, cute and silly, one clean isolated action, soft rounded transient, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5101,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -6.0,
+        "bytes": 264644,
+        "sha256": "5cc0b74553706d6a6251ccaeff5573b7276be11bde206e9d0a0c25f23fe4b63d"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/jump-soft-landing.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Cute preschool cartoon character lands like a plush toy on a cushion: soft pom-pom pat with one tiny happy bounce, warm, gentle and funny, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5102,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -6.18,
+        "bytes": 264644,
+        "sha256": "24c89c8002847a0ced695a8160346a40b9e8a152b1ecdc1f505f3d69bd2fe92b"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/jump-light-whoosh.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Playful preschool cartoon jump whoosh: short light airy swoop rising upward, smooth, sparkly-bright and friendly, soft rounded edges, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5103,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -6.0,
+        "bytes": 264644,
+        "sha256": "87b9de4a2c7469ad75e5e5c41aae3bd7b55a90f39755f51a3d38292e798892a3"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-start-soft.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Funny preschool cartoon slide begins: quick silky swish with a tiny rubbery squeak, playful, bright and gentle, one isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5111,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -6.0,
+        "bytes": 264644,
+        "sha256": "7abdbc1b90513b948532d92b2545a0139b8f634a3b61df79fe216b0684c73b39"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-loop-playful.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Cute cartoon character happily sliding across a smooth playroom floor: soft continuous silky friction with light bubbly motion, steady playful preschool sound, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5112,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -9.54,
+        "bytes": 529244,
+        "sha256": "9d2710ab857a59c35725e15744da181c7618d14d9d32fbb2886a2ec6abfc94ea"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/slide-stop-soft.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Playful preschool cartoon slide slows to a stop: descending soft swish ending in a tiny cushioned pop, funny, safe and rounded, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5113,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -7.5,
+        "bytes": 264644,
+        "sha256": "81e21116482e18f73775858b61383b2bf0c09a2e0c6a877eb50ea829432bf3c4"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/movement/quick-stop-soft.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Very short silly cartoon quick-stop: tiny rubbery skid, soft squeak and cute padded pop, cheerful preschool animation, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.5,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5121,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 66150,
+        "duration_seconds": 1.5,
+        "peak_dbfs": -6.0,
+        "bytes": 264644,
+        "sha256": "a2e65618e8385da2138bb280463dd5aa75cef473641adabfcbe753e4cbe9e206"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/reactions/tiny-pop.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "One tiny colorful bubble pop for a happy preschool cartoon reaction: plump, rounded, cute and friendly, very short isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 1.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5131,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 44100,
+        "duration_seconds": 1.0,
+        "peak_dbfs": -6.0,
+        "bytes": 176444,
+        "sha256": "6fe3dd7bc4fc2ca143662e1315b824ae01ec2786a63edfd5484cbfef67a4776d"
+      }
+    },
+    {
+      "path": "kindergarten-exterior-garden/interactions/maintenance-door-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Child-friendly cartoon metal maintenance door opens: friendly latch click, smooth rounded metal movement and a light comic clonk, weighty but not scary, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5141,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -6.0,
+        "bytes": 529244,
+        "sha256": "dbb351bd96392a17a194633769d493358e580ac8d7054b121ee4e4fe5161f73d"
+      }
+    },
+    {
+      "path": "kindergarten-exterior-garden/interactions/maintenance-door-close.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Child-friendly cartoon metal maintenance door closes gently: smooth rounded metal movement ending in a soft comic ker-plunk latch, playful and safe, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5142,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -6.0,
+        "bytes": 529244,
+        "sha256": "06d3ded73938fd24499e59ba12ba498f042ecfc4d10a5e4c3a97adac2c6ab764"
+      }
+    },
+    {
+      "path": "kindergarten-classroom/interactions/light-wood-door-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Bright preschool cartoon classroom door opens: warm light-wood swish, cute tidy latch click and a tiny friendly hinge chirp, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5151,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -6.0,
+        "bytes": 529244,
+        "sha256": "efd11b5f36d1ff2a0c1f83cd5a1ba9cb5e578eac7bad556a8f3edbcafe1d0554"
+      }
+    },
+    {
+      "path": "kindergarten-classroom/interactions/light-wood-door-close.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Bright preschool cartoon classroom door closes gently: warm light-wood movement and a cute rounded click-clack latch, soft isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5152,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -6.0,
+        "bytes": 529244,
+        "sha256": "79f1f82bd509a215ff77c3747f4be7f62d2ea268a5a87642eaf3a842d977e0ac"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-open.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Tiny colorful wooden toy door opens in a preschool cartoon: miniature squeaky hinge and cute wooden click, whimsical, light and playful, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 2.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5161,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -6.0,
+        "bytes": 352844,
+        "sha256": "2c7397198c863e8b27addedcc22d4b8cb248ccf7b826243c9a45293042523c00"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-close.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Tiny colorful wooden toy door closes in a preschool cartoon: miniature wooden clack and soft toy-like click, cute, whimsical and playful, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 2.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5162,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -6.0,
+        "bytes": 352844,
+        "sha256": "9d8039be1070cb2c4e82cef7272659d13fc616fede87c2377b3ed64e2c06d68a"
+      }
+    },
+    {
+      "path": "kindergarten-play-space/interactions/toy-door-chime.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Magical preschool toy-door chime: two tiny warm twinkly bell notes, bright, innocent, curious and delightful, very short isolated cartoon sound, no background music.",
+      "negative_prompt": "",
+      "seconds_requested": 2.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5163,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -6.0,
+        "bytes": 352844,
+        "sha256": "50dceaec286a29016d172ed8a72b889cfa72efb4c38c95346adbb03899d7f830"
+      }
+    },
+    {
+      "path": "kindergarten-classroom/interactions/device-activate-soft.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Friendly preschool cartoon gadget activates: soft jelly-button click, bubbly electronic bloop and brief magical shimmer, curious and exciting, isolated sound effect, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 2.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5171,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -6.43,
+        "bytes": 352844,
+        "sha256": "6012b4fd6842d49a5cafff6300ba04b6415092f5aa94f83a61d49acf25000bb0"
+      }
+    },
+    {
+      "path": "kindergarten-classroom/interactions/device-alert-muted.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Cute preschool cartoon gadget notification: two soft rounded boop-beeps, friendly, curious and non-urgent, clean isolated sound effect, no alarm, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 2.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5172,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 88200,
+        "duration_seconds": 2.0,
+        "peak_dbfs": -6.0,
+        "bytes": 352844,
+        "sha256": "2b8cfcc54cd1b3550ae150c40aaa58345b1de44ce1495375f07cacbee93643d6"
+      }
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/rain-on-leather-close.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Cozy preschool cartoon rain: tiny playful raindrops pitter-patter on a little leather raincoat, close, soft, warm and comforting, clean isolated texture, no thunder, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5181,
+      "peak_ceiling_dbfs": -9.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -9.0,
+        "bytes": 529244,
+        "sha256": "03929835308913f15d13f11e4ad49c04523413f789dd9005b532c5da46daaa9d"
+      }
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/gentle-wind.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Gentle storybook breeze in a cheerful preschool garden: soft airy flow and delicate happy leaves, cozy, bright, calm and child-safe, steady ambience, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 4.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5191,
+      "peak_ceiling_dbfs": -12.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 176400,
+        "duration_seconds": 4.0,
+        "peak_dbfs": -12.0,
+        "bytes": 705644,
+        "sha256": "58e158843097254b458ec8bce4e30569aba10db20d55bd574101a50ba2e2b50b"
+      }
+    },
+    {
+      "path": "kindergarten-exterior-garden/environment/playful-gust.wav",
+      "status": "existing-within-ceiling",
+      "prompt": "Playful storybook breeze gust swoops past in a preschool cartoon: smooth whimsical airy rise and fall, light, bouncy, friendly and non-scary, isolated sound effect, no voice, no music.",
+      "negative_prompt": "",
+      "seconds_requested": 3.0,
+      "steps": 8,
+      "cfg": 1.0,
+      "seed": 5192,
+      "peak_ceiling_dbfs": -6.0,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 44100,
+        "sample_width_bytes": 2,
+        "frames": 132300,
+        "duration_seconds": 3.0,
+        "peak_dbfs": -6.0,
+        "bytes": 529244,
+        "sha256": "9c1d3894567cd2c2bc1115861570999073227548e9ec14b0d1ab0df9e2b225a8"
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+id: riri-yoyo-generation-frame-review-v001
+type: character-generation-frame-review-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  review_date: 2026-08-20
+  reviewer: codex-visual-review
+  human_reviewer: project-owner
+  human_approval_date: 2026-08-20
+  human_approval_record: project-owner-approvals.yaml
+  purpose: single-frame-i2v-and-s2v-candidate-review
+  criteria_sources:
+    - reference-views.yaml
+    - preproduction-checklist.yaml
+    - characters/riri/character.yaml
+    - characters/yoyo/character.yaml
+
+common_results:
+  exact-one-character: pass
+  one-coherent-image-not-board-or-collage: pass
+  aspect-ratio: pass-1672x941-near-exact-16x9
+  minimum-pixel-dimensions: pass
+  simple-stable-background: pass
+  clothing-accessories-and-props: none
+  text-logo-watermark: none
+  human-creative-approval: approved
+
+records:
+  - candidate-id: riri-neutral-full-body-v001
+    intended-modes: [i2v, s2v]
+    framing: full-body-front-three-quarter
+    identity: pass-codex-review
+    anatomy-and-ground-contact: pass
+    face-and-eyes-unobstructed: pass
+    resting-mouth-or-beak: pass
+    movement-or-gesture-space: pass
+    status: approved
+  - candidate-id: riri-neutral-half-body-v001
+    intended-modes: [s2v]
+    framing: half-body-front
+    identity: pass-codex-review
+    complete-face-boundary: pass
+    eyes-muzzle-and-cheeks-readable: pass
+    resting-mouth-or-beak: pass
+    movement-or-gesture-space: pass
+    status: approved
+  - candidate-id: yoyo-neutral-full-body-v001
+    intended-modes: [i2v, s2v]
+    framing: full-body-front
+    identity: pass-codex-review
+    anatomy-and-ground-contact: pass
+    face-and-eyes-unobstructed: pass
+    resting-mouth-or-beak: pass
+    movement-or-gesture-space: pass
+    status: approved
+  - candidate-id: yoyo-neutral-half-body-v001
+    intended-modes: [s2v]
+    framing: half-body-front
+    identity: pass-codex-review
+    complete-face-boundary: pass
+    eyes-beak-mask-wedge-and-cheeks-readable: pass
+    resting-mouth-or-beak: pass
+    movement-or-gesture-space: pass
+    status: approved
+
+approval_boundary:
+  codex-technical-and-visual-review-complete: true
+  promotion-to-approved-authority: completed-by-project-owner
+  generation-conditioning-allowed-for-registered-modes: true

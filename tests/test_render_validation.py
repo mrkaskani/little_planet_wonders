@@ -63,7 +63,7 @@ def _review_all(
 
 def test_validation_context_compiles_scene_and_shot_rules() -> None:
     package = ContextCompiler().compile_validation_scene(
-        "episode-001", "rooftop-confrontation"
+        "episode-001", "garden-discovery"
     )
 
     assert package["validation"]["automatic"]["video"]["expected_fps"] == 24
@@ -78,10 +78,10 @@ def test_attempts_are_versioned_and_snapshot_context(tmp_path: Path) -> None:
     video = _source_video(tmp_path)
 
     first = pipeline.create_attempt(
-        "episode-001", "rooftop-confrontation", "shot-001", video
+        "episode-001", "garden-discovery", "shot-001", video
     )
     second = pipeline.create_attempt(
-        "episode-001", "rooftop-confrontation", "shot-001", video
+        "episode-001", "garden-discovery", "shot-001", video
     )
 
     assert first["generation_attempt"] == 1
@@ -98,7 +98,7 @@ def test_approval_is_blocked_until_semantic_review_passes(tmp_path: Path) -> Non
     pipeline = _pipeline(tmp_path)
     attempt = pipeline.create_attempt(
         "episode-001",
-        "rooftop-confrontation",
+        "garden-discovery",
         "shot-002",
         _source_video(tmp_path),
     )
@@ -128,18 +128,18 @@ def test_release_requires_and_records_an_approved_attempt_for_every_shot(
 
     with pytest.raises(GenerationPipelineError, match="no approved attempt"):
         pipeline.create_scene_release(
-            "episode-001", "rooftop-confrontation", video
+            "episode-001", "garden-discovery", video
         )
 
     for shot_id in ("shot-001", "shot-002", "shot-003", "shot-004"):
         attempt = pipeline.create_attempt(
-            "episode-001", "rooftop-confrontation", shot_id, video
+            "episode-001", "garden-discovery", shot_id, video
         )
         _review_all(pipeline, attempt["attempt_directory"])
         pipeline.approve_attempt(attempt["attempt_directory"], "reviewer-one")
 
     release = pipeline.create_scene_release(
-        "episode-001", "rooftop-confrontation", video
+        "episode-001", "garden-discovery", video
     )
 
     assert release["approved"] is True
@@ -153,7 +153,7 @@ def test_release_requires_and_records_an_approved_attempt_for_every_shot(
     release_directory = (
         tmp_path
         / "renders"
-        / "rooftop-confrontation"
+        / "garden-discovery"
         / "releases"
         / "release-0001"
     )
@@ -176,7 +176,7 @@ def test_attempt_validation_detects_modified_stored_media(tmp_path: Path) -> Non
     pipeline = _pipeline(tmp_path)
     attempt = pipeline.create_attempt(
         "episode-001",
-        "rooftop-confrontation",
+        "garden-discovery",
         "shot-001",
         _source_video(tmp_path),
     )
@@ -218,7 +218,7 @@ def test_media_validator_checks_probe_metadata_without_external_processes(
     monkeypatch.setattr(validator, "_check_black_frames", lambda *_: passed)
     monkeypatch.setattr(validator, "_check_audio_peak", lambda *_: passed)
     rules = ContextCompiler().compile_validation_scene(
-        "episode-001", "rooftop-confrontation"
+        "episode-001", "garden-discovery"
     )["validation"]
 
     checks = validator.run_checks(

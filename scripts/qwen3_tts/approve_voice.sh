@@ -37,7 +37,7 @@ esac
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
-target="${PROJECT_ROOT}/src/lpw/context/projects/classroom/audio-assets/voice-references/${character}/${reference}.wav"
+target="${PROJECT_ROOT}/src/lpw/context/projects/riri-yoyo/audio-assets/voice-references/${character}/${reference}.wav"
 mkdir -p "$(dirname "${target}")"
 
 if [[ -e "${target}" && ${force} -ne 1 ]]; then

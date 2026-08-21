@@ -1,0 +1,535 @@
+id: riri-yoyo-vehicle-catalog
+type: vehicle-catalog-context
+version: 1
+status: approved-schema-awaiting-vehicle-definitions
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  purpose: >-
+    Define the reusable identity, scale, orientation, construction, seating,
+    character-contact, safe-motion, sound-link, reference, continuity, and
+    Wan 2.2 requirements for vehicles that may be approved later.
+  registry_status: empty-awaiting-approved-recurring-vehicles
+  current_scope: no-vehicles-defined
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - tone
+      - emotional-safety
+      - continuity-principles
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-tasks
+      - conditioning-authority
+      - prompt-budget
+      - reference-input-rules
+  visual_style: ../visual_style/visual_style.yaml
+  art_direction: ../visual_style/art-direction.yaml
+  palette: ../visual_style/palette-v2.yaml
+  materials: ../visual_style/materials.yaml
+  lighting: ../visual_style/lighting.yaml
+  prop_catalog: props.yaml
+  asset_vocabulary: ../locations-assets.yaml
+  characters:
+    riri: ../characters/riri/character.yaml
+    yoyo: ../characters/yoyo/character.yaml
+  sound_effects: ../audios/sound-effects.yaml
+  authority_rules:
+    - this-file-controls-approved-recurring-vehicle-identity-states-and-generation-eligibility
+    - character-yaml-controls-anatomy-scale-and-safe-contact-compatibility
+    - palette-v2-yaml-controls-canonical-color-tokens
+    - materials-yaml-controls-shared-surface-and-deformation-language
+    - props-yaml-controls-detachable-or-carried-objects-that-are-not-vehicle-parts
+    - sound-effects-yaml-controls-approved-sound-assets-and-treatment
+    - later-production-files-may-select-an-approved-vehicle-but-must-not-redesign-it
+
+phase_boundary:
+  allowed:
+    - reusable-vehicle-schema
+    - approved-recurring-vehicle-definitions
+    - scale-orientation-and-capacity-rules
+    - safe-contact-and-movement-contracts
+    - reference-requirements
+    - mode-specific-generation-gates
+    - validation-rules
+  forbidden:
+    - story-or-episode-vehicle-invention
+    - scene-or-shot-assignment
+    - route-or-journey-planning
+    - character-action
+    - generation-request
+    - render
+
+catalog_policy:
+  actual_approved_vehicles_defined: 0
+  registry_must_remain_empty_until_human_approved: true
+  future_additions_allowed: true
+  one_canonical_definition_per_vehicle_id: true
+  recurring-vehicle-must-have-reuse-purpose: true
+  unregistered-vehicle: forbidden
+  no-placeholder-path-may-be-treated-as-approved-reference: true
+  definition_statuses:
+    - proposed
+    - design-review
+    - reference-missing
+    - approved
+    - deprecated
+  generation_eligible_status: approved
+  current_generation_rule: do-not-introduce-a-vehicle
+
+identifier_and_file_conventions:
+  vehicle_id_format: lowercase-kebab-case
+  instance_id_format: "{vehicle_id}-{instance_number}"
+  part_id_format: "{vehicle_id}-{part-name}"
+  definition_location: assets/vehicles.yaml
+  reference_root: assets/vehicles/{vehicle_id}/references
+  generation_frame_root: assets/vehicles/{vehicle_id}/generation-frames
+  sound_root: audio-assets/sound-effects/vehicles/{vehicle_id}
+  rules:
+    - ids-never-depend-on-episode-scene-shot-or-random-workflow-node-numbers
+    - filename-version-and-approval-state-must-be-recorded
+    - renamed-or-replaced-vehicles-retain-deprecation-history
+    - a-color-size-or-capacity-variant-needs-an-approved-variant-id-and-reference
+
+vehicle_definition_schema:
+  required_fields:
+    - id
+    - name
+    - status
+    - category
+    - reuse-purpose
+    - uniqueness
+    - dimensions
+    - character-scale-comparison
+    - silhouette
+    - orientation
+    - materials
+    - colors
+    - construction
+    - capacity
+    - seating-or-riding-positions
+    - entry-exit-and-contact-regions
+    - controls-or-none
+    - safe-movement
+    - moving-parts
+    - state-model
+    - reference-plan
+    - wan-2-2-eligibility
+    - sound-identity
+    - validation
+  optional_fields:
+    - approved-variants
+    - cargo-capacity
+    - detachable-approved-prop-ids
+    - location-compatibility
+    - known-generation-limitations
+  prohibited_fields:
+    - episode-event
+    - scene-id
+    - shot-id
+    - route
+    - dialogue
+    - unapproved-readable-text
+
+identity_contract:
+  required:
+    silhouette:
+      broad-shape-description: required
+      identifying-medium-sized-features: required
+      readable-at-480P-and-720P: required
+      recognizable-without-text-or-logo: required
+    dimensions:
+      length_cm: required-positive-number
+      width_cm: required-positive-number
+      height_cm: required-positive-number
+      ground-clearance-or-support-height_cm: required-nonnegative-number
+      scale-anchor-character-or-environment: required
+      tolerances: explicit
+    orientation:
+      canonical-front: required
+      canonical-up: required
+      forward-travel-direction: required
+      left-right-asymmetry: explicit
+    construction:
+      major-parts: required
+      visible-part-count: small-and-explicit
+      support-or-contact-system: required
+      moving-parts: explicit
+  preserve:
+    - overall-silhouette
+    - dimensions-and-relative-scale
+    - orientation
+    - visible-part-count
+    - wheel-runner-float-or-support-count-as-applicable
+    - canonical-colors
+    - material-categories
+    - seating-and-contact-layout
+    - approved-marks-or-icons
+  forbid:
+    - unexplained-redesign
+    - scale-drift
+    - front-back-or-left-right-reversal
+    - color-or-material-drift
+    - part-multiplication-or-disappearance
+    - accidental-duplication
+    - transformation-into-another-object
+    - spontaneous-damage-dirt-wetness-or-decoration
+
+visual_design_limits:
+  preferred:
+    - one-broad-readable-silhouette
+    - two-to-four-large-color-regions
+    - one-or-two-medium-sized-identity-features
+    - rounded-child-safe-edges
+    - simple-visible-construction
+    - broad-stable-material-response
+    - clearly-readable-front-and-travel-direction
+  avoid:
+    - tiny-labels-or-instrument-text
+    - dense-writing-or-license-like-text
+    - identity-dependent-logo
+    - fine-stripes-checkers-grilles-or-grids
+    - repeated-micro-detail
+    - excessive-small-parts
+    - exposed-sharp-or-fragile-looking-mechanisms
+    - mirror-like-reflections
+    - accidental-face-like-front-decoration
+  generated_text_policy:
+    readable-text-generated-by-wan: forbidden
+    critical-text-or-brand-mark: add-as-approved-overlay-later
+    simple-approved-symbol: allowed-only-with-registered-reference
+
+material_and_color_contract:
+  material_source: ../visual_style/materials.yaml
+  palette_source: ../visual_style/palette-v2.yaml
+  required_per_material_region:
+    - region-id
+    - material-family
+    - canonical-color-token
+    - roughness-family
+    - texture-scale
+    - deformation-response
+  defaults:
+    surface-detail: low-to-medium
+    highlights: broad-soft-and-controlled
+    reflective-area: minimal
+    canonical-color-must-survive-lighting-change: true
+  rules:
+    - use-broad-color-and-material-regions-that-remain-stable-during-motion
+    - windows-if-present-must-not-become-mirrors-or-hide-character-faces
+    - repeated-detail-must-be-sparse-large-and-fixed
+    - motion-blur-must-not-redefine-color-or-part-count
+
+capacity_seating_and_contact:
+  capacity:
+    required_fields:
+      - maximum-character-count
+      - approved-character-size-range
+      - cargo-count-or-none
+      - overload-state-forbidden
+  each-seating-or-riding-position:
+    required_fields:
+      - position-id
+      - role
+      - body-support-regions
+      - facing-direction
+      - entry-and-exit-direction
+      - visibility-and-expression-clearance
+      - balance-or-restraint-method
+  contact_regions:
+    required_fields:
+      - region-id
+      - surface-location
+      - compatible-contact-type
+      - compatible-character-body-part
+      - contact-direction
+      - visibility-requirement
+  controls:
+    controls-required: explicit-boolean
+    if-present-require:
+      - control-id
+      - operation
+      - compatible-character-body-part
+      - movement-axis-and-range
+      - safe-rest-state
+    rules:
+      - controls-must-fit-paws-or-flippers-without-inventing-human-hands-or-fingers
+      - one-control-action-at-a-time-is-preferred
+      - controls-cannot-obscure-face-or-critical-contact
+  anatomy_rules:
+    - preserve-riri-and-yoyo-body-proportions-from-character-yaml
+    - do-not-stretch-limbs-or-create-human-anatomy-to-reach-a-seat-or-control
+    - keep-eyes-mouth-muzzle-beak-ears-tail-flippers-paws-and-feet-readable-as-applicable
+    - entry-exit-seating-and-riding-poses-must-be-stable-and-child-safe
+    - character-and-vehicle-scale-must-be-proven-in-an-approved-reference
+
+safe_movement_contract:
+  required_fields:
+    - movement-system
+    - permitted-surface-or-medium
+    - primary-travel-direction
+    - speed-class
+    - acceleration-and-deceleration-class
+    - steering-or-turning-limit
+    - stopping-distance-class
+    - slope-or-terrain-limit
+    - character-balance-rule
+    - safe-start-state
+    - safe-end-state
+  movement_rules:
+    - one-clear-primary-travel-direction-per-generation
+    - one-observable-vehicle-action-per-generation
+    - start-and-end-state-must-be-explicit
+    - use-gentle-controlled-speed-and-broad-readable-motion
+    - accelerate-turn-and-stop-without-jerks-collisions-or-loss-of-balance
+    - vehicle-motion-must-match-the-visible-support-and-contact-system
+    - entry-or-exit-and-travel-should-not-occur-as-competing-actions
+  forbidden:
+    - dangerous-speed
+    - reckless-driving-or-riding
+    - collision-or-near-miss
+    - uncontrolled-roll-slide-spin-or-fall
+    - wheel-or-support-slip-without-translation
+    - teleportation
+    - impossible-turn-radius
+    - movement-through-characters-or-environment
+    - character-dragging-or-unsafe-hanging
+
+moving_parts:
+  independent_motion_groups:
+    preferred_maximum: 2
+    definition-required: true
+    note: synchronized-wheels-or-repeated-supports-count-as-one-coherent-group
+  animated_groups_per_generation:
+    preferred_maximum-beyond-primary-translation: 1
+  each_group_requires:
+    - group-id
+    - member-part-ids
+    - axis-or-path
+    - direction
+    - speed
+    - range-or-cycle
+    - driver-or-cause
+    - locked-neighbor-parts
+  rules:
+    - repeated-moving-parts-remain-synchronized-and-keep-fixed-count
+    - doors-hatches-or-controls-use-one-simple-state-transition-at-a-time
+    - no-independent-wobble-flapping-detachment-or-topology-change
+    - simplify-parts-or-motion-if-temporal-drift-appears
+
+state_model:
+  required_dimensions:
+    - condition
+    - location
+    - position
+    - orientation
+    - stationary-or-moving
+    - speed-class
+    - occupant-ids-and-seat-positions
+    - control-state-if-applicable
+    - door-or-hatch-state-if-applicable
+    - detachable-part-state-if-applicable
+  canonical-state-required: true
+  allowed-transitions-required: true
+  restoration-transition-required-for-temporary-state: true
+  continuity_rules:
+    - no-unexplained-appearance-disappearance-duplication-or-teleportation
+    - no-unexplained-occupant-or-seat-change
+    - orientation-position-and-travel-direction-remain-coherent
+    - occupant-and-vehicle-state-update-together
+    - one-unique-vehicle-cannot-occupy-two-locations-at-once
+    - stopped-state-is-required-before-entry-exit-or-storage-transition
+
+sound_identity_schema:
+  purpose: link-approved-sound-identity-without-authoring-a-production-sound-plan
+  required_fields:
+    - sound-profile-id-or-none
+    - source-authority
+    - start-sound-family-or-none
+    - movement-sound-family-or-none
+    - stop-sound-family-or-none
+    - control-or-mechanism-sounds-or-none
+    - forbidden-sounds
+  rules:
+    - sound-character-must-remain-gentle-child-safe-and-nonthreatening
+    - sound-events-must-align-with-visible-contact-speed-and-motion-later
+    - sound-does-not-change-visual-state-unless-a-valid-transition-is-defined
+    - s2v-conditioning-audio-never-includes-vehicle-sounds
+    - final-vehicle-sounds-remain-separate-production-assets
+
+reference_plan:
+  design_review_assets:
+    required:
+      - front-view
+      - side-view
+      - back-view
+      - three-quarter-view
+      - top-or-plan-view
+      - character-scale-comparison
+      - seating-entry-exit-and-contact-map
+      - materials-and-color-regions
+      - approved-state-variants
+    use: human-design-scale-safety-and-continuity-review-only
+    direct-i2v-or-s2v-conditioning: forbidden-when-board-or-collage
+  single_frame_generation_assets:
+    required-for-exact-recurring-vehicle-i2v: true
+    required-for-vehicle-visible-in-s2v: true
+    each-frame-must-record:
+      - reference-id
+      - vehicle-id
+      - version
+      - approval-status
+      - file-path
+      - aspect-ratio
+      - pixel-dimensions
+      - orientation
+      - visible-part-count
+      - state-and-occupants
+      - framing
+      - contact-visibility
+      - movement-direction-and-space
+      - allowed-modes
+      - known-limitations
+    frame_rules:
+      - one-coherent-image
+      - correct-scale-orientation-silhouette-and-part-count
+      - correct-occupants-seating-and-contact-if-applicable
+      - clear-travel-direction-and-endpoint-space
+      - stable-background
+      - no-collage-label-watermark-extra-face-or-duplicate-vehicle
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  shared:
+    vehicle-and-character-count-explicit: true
+    one-primary-vehicle-action: true
+    one-primary-travel-direction: true
+    one-camera-behavior: true
+    preserve-id-scale-orientation-part-count-colors-materials-and-occupants: true
+    text-logo-or-micro-detail-dependent-identity: forbidden
+  t2v:
+    use_for:
+      - broad-noncanonical-vehicle-shape-color-and-movement-exploration
+      - generic-vehicle-environment-compatibility-tests
+    recurring-vehicle-final-identity-or-safety-approval: forbidden-without-approved-reference
+    prompt_fields:
+      - vehicle-and-character-count
+      - broad-silhouette-and-relative-scale
+      - orientation-and-one-travel-direction
+      - main-material-and-large-color-regions
+      - occupants-and-contact-if-any
+      - one-action-speed-and-endpoint
+      - framing-and-one-camera-behavior
+      - short-invariants
+  i2v:
+    required_for:
+      - exact-recurring-vehicle-identity
+      - exact-scale-orientation-and-part-count
+      - visible-character-seating-or-contact
+      - controlled-travel-or-part-state-transition
+    source_frame_must_show:
+      - correct-vehicle-character-and-part-count
+      - correct-scale-orientation-start-state-and-occupants
+      - visible-seating-control-or-contact-regions-as-applicable
+      - clear-motion-path-and-endpoint-space
+    motion_prompt_fields:
+      - brief-current-state
+      - one-vehicle-action
+      - one-travel-direction-speed-range-and-endpoint
+      - one-coherent-moving-part-group-if-needed
+      - character-contact-and-balance
+      - one-camera-behavior
+      - locked-identity-scale-parts-and-occupants
+    do_not: redescribe-redesign-or-add-to-the-approved-visible-vehicle
+  ti2v:
+    role: draft-silhouette-scale-orientation-contact-and-motion-screening
+    simplify:
+      - fine-surface-detail
+      - secondary-parts
+      - small-patterns-or-marks
+      - complex-mechanisms
+      - background-decoration
+    evaluate:
+      - vehicle-character-and-part-count
+      - silhouette-and-relative-scale
+      - orientation-and-travel-direction
+      - seating-or-contact-readability
+      - start-end-state-and-motion
+    final-vehicle-identity-material-safety-or-text-approval: forbidden
+  s2v:
+    vehicle_role: stable-secondary-context-for-the-speaking-character
+    allowed_when:
+      - vehicle-is-correct-in-the-approved-speaking-character-frame
+      - speaking-character-face-is-unobstructed-and-stable
+      - seating-or-contact-is-simple-clear-and-already-established
+      - vehicle-is-stationary-or-has-only-gentle-simple-motion
+    preferred_behavior:
+      - stationary
+      - gentle-straight-constant-motion
+      - no-moving-parts-near-the-face
+    forbid:
+      - complex-driving-or-control-manipulation-during-speech
+      - sharp-turn-acceleration-stop-or-camera-shake
+      - vehicle-or-part-crossing-the-face
+      - occupant-seat-contact-or-vehicle-identity-change
+      - vehicle-sound-in-locked-speech-conditioning-audio
+
+reusable_prompt_fragments:
+  t2v_vehicle_description_order: >-
+    Vehicle and character count, broad silhouette, relative scale, orientation,
+    one travel direction, main materials and large color regions, occupants and
+    contact, one safe action with speed and endpoint, one camera behavior, and
+    short identity constraints.
+  i2v_preservation: >-
+    Preserve the approved vehicle silhouette, dimensions, relative scale,
+    orientation, visible part count, canonical colors, materials, seating layout,
+    occupants, and contact; allow only the requested safe movement or state change.
+  ti2v_simplification: >-
+    Test vehicle count, broad silhouette, character scale, orientation, contact,
+    travel direction, speed, and endpoint while simplifying surface detail,
+    secondary parts, mechanisms, marks, and background decoration.
+  s2v_vehicle_protection: >-
+    Keep the approved vehicle secondary and stable, preserve its scale, identity,
+    orientation, parts, occupants, seating, and contact, keep the speaking face
+    unobstructed, and allow only stationary or gentle controlled movement.
+  concise_negative: >-
+    extra vehicle, duplicate vehicle, extra parts, missing parts, scale drift,
+    orientation flip, color drift, material swap, occupant swap, unsafe contact,
+    wheel slip, collision, impossible turn, face occlusion, random text, watermark.
+
+registry: []
+
+validation:
+  schema-approval: passed
+  registry-readiness: waiting-for-approved-vehicle-definitions
+  required-before-vehicle-approval:
+    - unique-canonical-id-and-reuse-purpose
+    - dimensions-character-scale-silhouette-and-orientation
+    - visible-part-count-materials-and-large-color-regions
+    - capacity-seating-entry-exit-controls-and-contact
+    - safe-movement-direction-speed-limits-and-endpoint
+    - moving-part-groups-and-allowed-states
+    - child-safety-and-anatomy-review
+    - sound-identity-link-or-explicit-none
+    - design-review-reference-plan
+    - approved-single-frame-strategy
+    - task-specific-wan-eligibility
+  blocks_generation_eligibility_when:
+    - status-is-not-approved
+    - approved-reference-is-required-but-missing
+    - dimensions-or-character-scale-are-undefined
+    - seating-contact-capacity-or-controls-are-undefined
+    - safe-speed-direction-start-or-end-state-is-undefined
+    - part-count-or-moving-groups-are-undefined
+    - safety-review-is-incomplete
+    - source-frame-is-a-board-collage-or-placeholder
+  no-generation-required-for-schema-validation: true

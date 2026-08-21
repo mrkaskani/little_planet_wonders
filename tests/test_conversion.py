@@ -28,7 +28,7 @@ def test_load_conversation_defaults_and_turn_pause(tmp_path: Path) -> None:
 
     spec = load_conversation(source)
 
-    assert spec.project == "classroom"
+    assert spec.project == "riri-yoyo"
     assert spec.language == "English"
     assert spec.target_seconds == 30
     assert spec.turns[0].speaker == "yoyo"
@@ -58,7 +58,7 @@ def test_load_conversation_rejects_invalid_payload(
 
 
 def test_resolve_locked_voice_from_profile(tmp_path: Path) -> None:
-    project_root = tmp_path / "src/lpw/context/projects/classroom"
+    project_root = tmp_path / "src/lpw/context/projects/riri-yoyo"
     profile = project_root / "characters/riri/voice-profile.yaml"
     audio = project_root / "audio-assets/voice-references/riri/neutral.wav"
     profile.parent.mkdir(parents=True)
@@ -71,7 +71,7 @@ def test_resolve_locked_voice_from_profile(tmp_path: Path) -> None:
         "    text: Hello from Riri.\n"
     )
 
-    reference = resolve_locked_voice(tmp_path, "classroom", "riri")
+    reference = resolve_locked_voice(tmp_path, "riri-yoyo", "riri")
 
     assert reference.audio_path == audio
     assert reference.text == "Hello from Riri."

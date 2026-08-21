@@ -1,0 +1,336 @@
+id: riri-character-v2
+type: character-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  character_id: riri
+  title: Riri Visual Identity Version 2
+  purpose: >-
+    Define Riri's proposed second visual identity from the supplied turnaround,
+    expression, close-up, palette, and scale-and-proportion sheets without
+    overwriting the existing approved version.
+  created_date: 2026-08-20
+  source: project-owner-supplied-design-package
+  review_record: ../../validation/riri-v2-review.yaml
+
+versioning:
+  base_character_authority: character.yaml
+  base_reference_id: riri-identity-sheet-v001
+  candidate_package_id: riri-design-package-v002
+  replaces_after_approval: riri-identity-sheet-v001
+  active_canonical_version: v001
+  candidate_version: v002
+  promotion_rule: >-
+    V2 becomes canonical only after explicit project-owner approval. Until then,
+    character.yaml and the approved V1 single-frame references remain active.
+  changed_fields:
+    - canonical-design-review-image-set
+    - head-unit-proportions
+    - silhouette-measurements
+    - face-eye-muzzle-nose-and-mouth-placement
+    - canonical-character-colors
+    - material-and-close-up-detail-evidence
+  unchanged_invariants:
+    - canonical-character-id-riri
+    - protagonist-role
+    - stylized-toy-breed-puppy-species
+    - preschool-age-readability
+    - sweet-cheerful-gentle-playful-personality
+    - rounded-child-safe-shape-language
+    - no-default-wardrobe-or-accessories
+    - dialogue-voice-music-acting-and-movement-authorities
+
+source_images:
+  close_up_detail_sheet:
+    id: riri-close-up-detail-sheet-v002
+    purpose_tag: close-up-material-and-feature-detail
+    path: ../../assets/characters/riri/design-review/riri--close-up-detail-sheet--v002.png
+    sha256: 7b54ef6e0a8d700fb3c95cd35e881e2ba7268eafaed3035685016d3024eac9c7
+    pixel_dimensions: 1402x1122
+    aspect_ratio: "701:561"
+    reference_class: design-review-only
+  color_palette_sheet:
+    id: riri-color-palette-sheet-v002
+    purpose_tag: canonical-character-color-swatches
+    path: ../../assets/characters/riri/design-review/riri--color-palette-sheet--v002.png
+    sha256: a4e7f8ed7ed51fd8146351524bd5d58969a8b23c835a6803ee97c84a7c715d63
+    pixel_dimensions: 1491x1055
+    aspect_ratio: "1491:1055"
+    reference_class: design-review-only
+  expression_sheet:
+    id: riri-eight-expression-sheet-v002
+    purpose_tag: eight-facial-expression-range
+    path: ../../assets/characters/riri/design-review/riri--eight-expression-sheet--v002.png
+    sha256: 00dc2ba0c649796d207ef9e56584fd5ce252f04f50df03f5bc12dbb8c19aa8a4
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    reference_class: design-review-only
+  turnaround_sheet:
+    id: riri-five-view-turnaround-v002
+    purpose_tag: five-view-character-turnaround
+    path: ../../assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
+    sha256: 7274dee714373290ccd0fd5d379434191503b1732a664ff8f36ab26eafe4c0d7
+    pixel_dimensions: 1491x1055
+    aspect_ratio: "1491:1055"
+    reference_class: design-review-only
+  scale_and_proportion_sheet:
+    id: riri-scale-and-proportion-sheet-v002
+    purpose_tag: construction-scale-and-proportion-authority
+    path: ../../assets/characters/riri/design-review/riri--scale-and-proportion-sheet--v002.png
+    sha256: 12b628f2e57c9b52e321320093b2f5f42c462ea80d8dadce014fb51280b573b2
+    pixel_dimensions: 1491x1055
+    aspect_ratio: "1491:1055"
+    reference_class: design-review-only
+
+visual_identity:
+  species: stylized-toy-breed-puppy
+  medium: premium-soft-stylized-3d-preschool-animation
+  visual_age: very-young-child
+  presentation: softly-feminine
+  silhouette:
+    summary: >-
+      Oversized rounded head over a plush chubby body, very short stubby legs,
+      small high-set floppy ears, broad paws, and a fluffy curved accent tail.
+    front: rounded-head-over-compact-soft-rectangular-oval-body
+    side: compact-seated-puppy-with-forward-muzzle-and-upturned-tail
+    back: rounded-head-and-body-with-centered-fluffy-tail
+    center_of_gravity: low
+    neck_visibility: none
+    wardrobe: none
+    accessories: none
+
+proportions:
+  source: scale_and_proportion_sheet
+  measurement_system: head-unit
+  total_height_head_units: 4.00
+  head:
+    height_head_units: 1.00
+    width_head_units: 1.25
+    shape: oversized-rounded
+  body:
+    widest_width_head_units: 1.35
+    approximate_height_head_units: 1.60
+    head_to_body_height_ratio: "1:1.6"
+    shape: plush-chubby-compact
+  eyes:
+    width_each_head_units: 0.45
+    height_each_head_units: 0.40
+    spacing_between_eyes_head_units: 0.30
+    combined_eye-width-to-head-width_percent: 72
+  muzzle:
+    width_head_units: 0.60
+  nose:
+    width_head_units: 0.18
+    height_from_chin_head_units: 0.58
+  mouth:
+    width_head_units: 0.55
+    height_head_units: 0.18
+  legs:
+    front_length_head_units: 0.60
+    hind_length_head_units: 0.50
+  paws:
+    width_each_head_units: 0.40
+    pad_width_head_units: 0.24
+  tail:
+    base_to_tip_length_head_units: 1.25
+    start_height_from_ground_head_units: 0.60
+    widest_thickness_head_units: 0.40
+    shape: fluffy-curved-soft-flow
+  interpretation_rules:
+    - measurements-are-relative-design-guides-not-world-centimeter-scale
+    - preserve-the-4-head-unit-total-height-silhouette
+    - preserve-the-1-point-25-head-unit-head-width
+    - keep-body-width-near-1-point-35-head-units
+    - do-not-substitute-camera-perspective-for-physical-proportion-change
+    - preserve-front-side-three-quarter-and-back-volume-consistency
+
+face_design:
+  head:
+    shape: oversized-soft-rounded
+    ears: small-high-set-floppy-rounded
+  eyes:
+    count: 2
+    size: very-large
+    shape: rounded-vertical-oval
+    iris_color_token: sky-blue
+    pupil_color_token: near-black
+    highlight_color_token: bright-white
+    eyelash_style: long-curved-upper-lashes-strongest-at-outer-corners
+  muzzle:
+    color_token: strawberry-milk
+    shape: short-soft-double-cheek-muzzle
+  nose:
+    color_token: petal-pink
+    shape: tiny-rounded-heart-like-triangle
+  mouth:
+    color_token: petal-pink
+    default_state: warm-gentle-small-smile
+  cheeks:
+    base_color_token: strawberry-milk
+    optional_emotional_blush_token: rose-blush
+    blush_rule: temporary-emotional-color-not-permanent-base-color
+
+canonical_color_palette:
+  source: color_palette_sheet
+  tokens:
+    cotton_candy_pink:
+      name: Cotton Candy Pink
+      hex: "#F5B6D2"
+      rgb: [245, 182, 210]
+      usage: [main-body-fur, head, ears, outer-legs]
+      role: primary-body-color
+    strawberry_milk:
+      name: Strawberry Milk
+      hex: "#FBE3EE"
+      rgb: [251, 227, 238]
+      usage: [muzzle, inner-cheeks, belly-highlights, soft-forehead-highlights]
+      role: secondary-body-color
+    pastel_periwinkle:
+      name: Pastel Periwinkle
+      hex: "#BFD4FF"
+      rgb: [191, 212, 255]
+      usage: [chest-fur-accent, front-paw-accent-fur, tail-accent-fur]
+      role: accent-color
+    soft_muzzle_highlight:
+      name: Soft Muzzle Highlight
+      hex: "#FBE3EE"
+      rgb: [251, 227, 238]
+      usage: [face-muzzle-marking, soft-chest-highlight, soft-belly-highlight]
+      role: face-or-belly-marking-color
+    sky_blue:
+      name: Sky Blue
+      hex: "#7FC6FF"
+      rgb: [127, 198, 255]
+      usage: [main-iris-color, pale-inner-iris-glow]
+      role: eye-iris-color
+    near_black:
+      name: Near Black
+      hex: "#1A1A22"
+      rgb: [26, 26, 34]
+      usage: [pupils, deepest-eye-details]
+      role: pupil-color
+    bright_white:
+      name: Bright White
+      hex: "#FFFFFF"
+      rgb: [255, 255, 255]
+      usage: [eye-catchlights]
+      role: eye-highlight-color
+    petal_pink:
+      name: Petal Pink
+      hex: "#F2A6BC"
+      rgb: [242, 166, 188]
+      usage: [nose, mouth, lip-details]
+      role: nose-and-mouth-color
+    rose_blush:
+      name: Rose Blush
+      hex: "#E79BBC"
+      rgb: [231, 155, 188]
+      usage: [optional-cheek-blush, temporary-emotional-warmth]
+      role: temporary-emotional-color
+  wardrobe_colors: none
+  accessory_colors: none
+
+surface_and_materials:
+  material: ultra-soft-short-plush-puppy-fur
+  main_fur: dense-cotton-candy-pink-plush
+  highlight_fur: soft-strawberry-milk-plush
+  accent_fur: wispy-pastel-periwinkle-with-soft-pink-blending
+  nose_and_paw_pads: soft-matte-petal-pink
+  eyes: controlled-gloss-with-large-readable-catchlights
+  tail: longer-fluffy-fur-with-curved-flow
+  avoid:
+    - realistic-coarse-dog-hair
+    - wet-or-matted-fur
+    - plastic-body-surface
+    - metallic-fur
+    - individual-high-frequency-hair-strands
+
+expression_reference:
+  source: expression_sheet
+  required_expression_count: 8
+  visible_range:
+    - neutral-gentle
+    - happy-small-open-smile
+    - excited-wide-open-smile
+    - curious-upward-gaze
+    - surprised-small-open-mouth
+    - sad-raised-inner-brows
+    - worried-soft-frown
+    - determined-lowered-brows
+  invariant_rules:
+    - head-ear-muzzle-and-cheek-volumes-remain-stable
+    - eye-size-and-spacing-remain-stable
+    - nose-size-and-position-remain-stable
+    - mouth-opening-does-not-change-muzzle-width
+    - blush-may-intensify-only-within-rose-blush-family
+
+turnaround_reference:
+  source: turnaround_sheet
+  views:
+    - front
+    - three-quarter-front
+    - side
+    - three-quarter-back
+    - back
+  rules:
+    - preserve-head-and-body-volume-across-all-five-views
+    - keep-ear-size-height-and-droop-consistent
+    - keep-legs-short-and-paws-broad
+    - keep-tail-root-length-curve-and-accent-placement-consistent
+
+close_up_reference:
+  source: close_up_detail_sheet
+  controls:
+    - front-and-three-quarter-face-identity
+    - iris-gradient-catchlights-and-eyelashes
+    - nose-muzzle-and-mouth-detail
+    - short-plush-fur-and-floppy-ear-material
+    - chest-paw-pad-and-tail-accent-materials
+    - seated-mini-turnaround-evidence
+  optional_design_exploration:
+    visible_item: lavender-polka-dot-bow-collar
+    canonical: false
+    approved: false
+    default_wardrobe_or_accessory: false
+    rule: exclude-from-riri-v2-identity-and-all-generation-references-unless-separately-approved
+
+continuity:
+  visual_invariants:
+    - 4-head-unit-total-height
+    - 1-point-25-head-unit-head-width
+    - 1-point-35-head-unit-maximum-body-width
+    - enormous-sky-blue-eyes
+    - cotton-candy-pink-main-fur
+    - strawberry-milk-muzzle-and-soft-highlights
+    - pastel-periwinkle-chest-paw-and-tail-accents
+    - tiny-petal-pink-nose-and-mouth
+    - short-stubby-legs-and-broad-soft-paws
+    - fluffy-curved-accent-tail
+    - no-default-clothing-or-accessories
+  inherited_nonvisual_authorities:
+    personality_and_behavior: character.yaml
+    movement: ../animation-style.yaml
+    acting: ../acting-style.yaml
+    relationships: ../relationships.yaml
+    voice: voice-profile.yaml
+    music: music-profile.yaml
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  reason: boards-collages-labels-guides-and-multiple-character-instances
+  active_generation_frames: v001-until-v2-promotion-and-new-frame-approval
+  v2_generation_frames_required_after_approval:
+    - neutral-full-body-16x9
+    - neutral-half-body-16x9
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_these_five_sheets: [t2v, i2v, ti2v-image, s2v]
+
+review_gate:
+  technical_registration: complete
+  human_visual_identity_approval: pending
+  compare_against_v001: required
+  approve_or_reject_as_one-package: required
+  partial_canonical_promotion: forbidden

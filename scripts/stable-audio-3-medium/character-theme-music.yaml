@@ -1,0 +1,20 @@
+metadata:
+  id: classroom-character-music-pipeline
+  version: 3
+  project: riri-yoyo
+  purpose: render a locked leitmotif, then rearrange it into character music
+
+generator:
+  command: soundtrack
+  model: medium
+  decoder: same-l
+  steps: 8
+  project_root: src/lpw/context/projects/riri-yoyo
+  profile_glob: characters/*/music-profile.yaml
+  manifest_path: src/lpw/context/projects/riri-yoyo/audio-assets/manifests/character-theme-music.json
+  peak_ceiling_dbfs: -1.0
+  prompt_suffix: >-
+    Instrumental underscore only, with no singing, speech, vocalizations, lyrics,
+    sound effects, or environmental ambience. Keep the arrangement uncluttered and
+    preschool-safe, state the character motif clearly near the beginning, and finish
+    at a musically compatible loop point.

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-08-18T16:32:26.541407+00:00",
+  "source_config": "src/lpw/context/projects/riri-yoyo/audios/soundtrack-continuations.yaml",
+  "model": "medium",
+  "decoder": "same-l",
+  "strategy": "preserve-third-part-and-continue",
+  "target_seconds": 30.0,
+  "tracks": [
+    {
+      "id": "playful-playing",
+      "source": "assets/music/soundtracks/riri-yoyo/playful-playing.wav",
+      "source_sha256": "cd9cdd4954fb3dd4b08ac74eb5be1478aff73d13a810c335dbd0f09286fc6f17",
+      "path": "assets/music/soundtracks/riri-yoyo/continuations/playful-playing/playful-playing-30s.wav",
+      "status": "generated",
+      "prompt": "Gentle preschool free-play at 118 BPM: muted ukulele, soft pizzicato, tiny shaker, brushed hand percussion, warm marimba, felt-piano answers, rounded bass. Derive fresh two-to-four-note hop-and-answer phrases from the reference. Add soft rhythmic anticipation, playful pauses, and gentle landings. Keep its key, chord-loop family, ensemble, and softness, but make a clearly different take. Never frantic, competitive, heroic, loud, or busy. Fresh alternative continuation of the supplied WAV. Same musicians and recording session. Retain its key, tempo, meter, core chord loop, ensemble, register, timbre, softness, and preschool identity. Create clearly new gentle melody and rhythm derived from its contour, cadence, phrase length, and groove. Use subtle chord inversions and accompaniment answers. Make this take audibly different but closely related, smooth, simple, playful, and dialogue-safe. Never quote Riri's or Yoyo's leitmotif.",
+      "prompt_sha256": "97a9e754153ae6e7c714710e7890389114fdb3ea277a60af46e33fa07f01c372",
+      "negative_prompt": "unrelated composition, unrelated melody, unrelated genre, character leitmotif, motif repetition, abrupt key change, modulation, abrupt tempo change, harsh groove change, different ensemble, major orchestration change, style drift, timbre drift, dramatic build-up, climax, complex harmony, busy countermelody, aggressive fills, harsh percussion, adult drama, vocals, speech, sound effects",
+      "third_part_start_seconds": 6.47,
+      "reference_context_seconds": 13.53,
+      "seed": 961623621,
+      "seed_mode": "random",
+      "init_noise_level": 0.65,
+      "cfg": 4.5,
+      "reference_included_in_output": false,
+      "opening_theme_included": false,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "duration_seconds": 30.0,
+        "frames": 1440000,
+        "bytes": 8640080,
+        "sha256": "ad37eac7edcba34b146c7d3acff0e9011ad749593b0d862a82413d54fcb51af0"
+      }
+    },
+    {
+      "id": "puzzle-solving",
+      "source": "assets/music/soundtracks/riri-yoyo/puzzle-solving.wav",
+      "source_sha256": "82ce26e952fc33bbc06449f838eb4bf7edf5259a47e50fd93a121013baf2c7ed",
+      "path": "assets/music/soundtracks/riri-yoyo/continuations/puzzle-solving/puzzle-solving-30s.wav",
+      "status": "generated",
+      "prompt": "Friendly preschool puzzle music at 92 BPM: sparse soft marimba, warm felt piano, muted pizzicato, gentle clarinet, delicate harp, quiet rounded bass. Derive new musical questions and warm answers from the reference contour. Vary note spacing, phrase endings, accompaniment answers, and chord voicing. Keep its key, gentle pulse, ensemble, and quiet density, but make a clearly different take with dialogue space. Never mysterious, suspenseful, or busy. Fresh alternative continuation of the supplied WAV. Same musicians and recording session. Retain its key, tempo, meter, core chord loop, ensemble, register, timbre, softness, and preschool identity. Create clearly new gentle melody and rhythm derived from its contour, cadence, phrase length, and groove. Use subtle chord inversions and accompaniment answers. Make this take audibly different but closely related, smooth, simple, playful, and dialogue-safe. Never quote Riri's or Yoyo's leitmotif.",
+      "prompt_sha256": "1acbfd5d5dc14941801b27773f67d968b3f470555c1eb5fed17acd20dc30f984",
+      "negative_prompt": "unrelated composition, unrelated melody, unrelated genre, character leitmotif, motif repetition, abrupt key change, modulation, abrupt tempo change, harsh groove change, different ensemble, major orchestration change, style drift, timbre drift, dramatic build-up, climax, complex harmony, busy countermelody, aggressive fills, harsh percussion, adult drama, vocals, speech, sound effects",
+      "third_part_start_seconds": 6.47,
+      "reference_context_seconds": 13.53,
+      "seed": 749774873,
+      "seed_mode": "random",
+      "init_noise_level": 0.65,
+      "cfg": 4.5,
+      "reference_included_in_output": false,
+      "opening_theme_included": false,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "duration_seconds": 30.0,
+        "frames": 1440000,
+        "bytes": 8640080,
+        "sha256": "831a6507efff08e85805324a1cac6127b812030e63f3e88b9ce4fca9525970c3"
+      }
+    },
+    {
+      "id": "doing-activities",
+      "source": "assets/music/soundtracks/riri-yoyo/doing-activities.wav",
+      "source_sha256": "159dcaef230cc8ba685066fbadbc91b5196ad624e5f94937e1c9b8e867e3538e",
+      "path": "assets/music/soundtracks/riri-yoyo/continuations/doing-activities/doing-activities-30s.wav",
+      "status": "generated",
+      "prompt": "Cooperative preschool activity music at 106 BPM: fingerpicked nylon guitar, soft ukulele, rounded marimba, felt piano, restrained pizzicato, light shaker, warm bass. Derive new short phrases, gentle progress patterns, chord inversions, and rhythmic answers from the reference. Retain its key, tempo, phrase scale, ensemble, and energy, but make a clearly different take for sorting, drawing, building, and tidying. Optimistic, calm, and dialogue-safe. Fresh alternative continuation of the supplied WAV. Same musicians and recording session. Retain its key, tempo, meter, core chord loop, ensemble, register, timbre, softness, and preschool identity. Create clearly new gentle melody and rhythm derived from its contour, cadence, phrase length, and groove. Use subtle chord inversions and accompaniment answers. Make this take audibly different but closely related, smooth, simple, playful, and dialogue-safe. Never quote Riri's or Yoyo's leitmotif.",
+      "prompt_sha256": "7bc1cf9b97e59b284caee02fb9e1de7f5ce197964ba1b7746f87bca23d412e90",
+      "negative_prompt": "unrelated composition, unrelated melody, unrelated genre, character leitmotif, motif repetition, abrupt key change, modulation, abrupt tempo change, harsh groove change, different ensemble, major orchestration change, style drift, timbre drift, dramatic build-up, climax, complex harmony, busy countermelody, aggressive fills, harsh percussion, adult drama, vocals, speech, sound effects",
+      "third_part_start_seconds": 6.47,
+      "reference_context_seconds": 13.53,
+      "seed": 1388201036,
+      "seed_mode": "random",
+      "init_noise_level": 0.65,
+      "cfg": 4.5,
+      "reference_included_in_output": false,
+      "opening_theme_included": false,
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "duration_seconds": 30.0,
+        "frames": 1440000,
+        "bytes": 8640080,
+        "sha256": "bfc6f7ad2897e7a51e8d00ab390dfa611e50e2a6b44e562c517e4b71e93fd5cc"
+      }
+    }
+  ]
+}

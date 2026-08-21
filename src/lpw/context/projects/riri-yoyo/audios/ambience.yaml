@@ -1,0 +1,888 @@
+# FILE NAME: ambience.yaml
+locations:
+  kindergarten_classroom:
+    source_profiles:
+      location: ../locations/interiors/location.yaml
+      sound: ../locations/interiors/sound-profile.yaml
+      canonical_sound_profile_id: kindergarten-interior-sound
+
+    supported_states:
+      - kindergarten-interior-empty
+      - kindergarten-interior-default
+      - kindergarten-quiet-learning
+      - kindergarten-free-play
+      - kindergarten-story-time
+      - kindergarten-art-activity
+      - kindergarten-interior-dialogue
+      - kindergarten-interior-quiet
+      - kindergarten-interior-arrival
+      - kindergarten-interior-departure
+
+    base_layer:
+      asset: audio-assets/ambience/kindergarten-classroom-room-tone.wav
+      loop: true
+      gain_db: -27
+
+    layers:
+      - id: soft-ventilation
+        asset: audio-assets/ambience/kindergarten-soft-ventilation.wav
+        gain_db: -33
+        loop: true
+
+      - id: wooden-room-resonance
+        asset: audio-assets/ambience/kindergarten-wooden-room-resonance.wav
+        gain_db: -35
+        loop: true
+
+      - id: filtered-garden
+        asset: audio-assets/ambience/kindergarten-filtered-garden.wav
+        gain_db: -34
+        loop: true
+
+    spatial_sources:
+      - id: ceiling-fan
+        asset: audio-assets/ambience/kindergarten-ceiling-fan.wav
+        position: overhead
+        distance: medium
+        gain_db: -34
+        loop: true
+
+      - id: garden-windows
+        asset: audio-assets/ambience/kindergarten-window-garden-bleed.wav
+        position: left
+        distance: medium
+        gain_db: -35
+        loop: true
+
+      - id: classroom-door
+        asset: audio-assets/ambience/kindergarten-hallway-bleed.wav
+        position: rear
+        distance: adjacent_room
+        gain_db: -37
+        loop: true
+
+    activity_layers:
+      quiet:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/kindergarten-quiet-classroom-bed.wav
+
+      normal:
+        assets:
+          - audio-assets/ambience/kindergarten-distant-classroom-activity.wav
+
+      busy:
+        assets:
+          - audio-assets/ambience/kindergarten-active-classroom-bed.wav
+
+    time_of_day_layers:
+      morning:
+        assets:
+          - audio-assets/ambience/kindergarten-morning-window-birds.wav
+        gain_db: -36
+
+      daytime:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/kindergarten-daytime-window-garden.wav
+        gain_db: -35
+
+      golden_hour:
+        assets:
+          - audio-assets/ambience/kindergarten-golden-hour-window-garden.wav
+        gain_db: -36
+
+      evening:
+        assets:
+          - audio-assets/ambience/kindergarten-evening-interior-bed.wav
+        gain_db: -35
+
+      night:
+        assets:
+          - audio-assets/ambience/kindergarten-night-interior-bed.wav
+        gain_db: -36
+
+    weather_layers:
+      rain:
+        assets:
+          - audio-assets/ambience/kindergarten-rain-on-windows.wav
+        gain_db: -30
+
+      heavy_rain:
+        assets:
+          - audio-assets/ambience/kindergarten-heavy-rain-on-windows.wav
+        gain_db: -27
+
+      post_rain:
+        assets:
+          - audio-assets/ambience/kindergarten-window-post-rain-drips.wav
+        gain_db: -34
+
+    conditional_layers:
+      - id: open-window-garden
+        asset: audio-assets/ambience/kindergarten-open-window-garden.wav
+        trigger: windows_open
+        position: left
+        loop: true
+        gain_db: -31
+
+      - id: adjacent-classroom
+        asset: audio-assets/ambience/kindergarten-adjacent-classroom.wav
+        trigger: adjacent_classroom_occupied
+        position: adjacent_room
+        gain_db: -37
+
+    exclusions:
+      - individual_child_voices
+      - foreground_laughter
+      - footsteps
+      - chair_movements
+      - toy_impacts
+      - door_actions
+      - harsh_hvac
+      - school_bell_without_trigger
+
+    mixing:
+      dialogue_priority: true
+      music_priority: true
+      ambience_bus: ambience
+      duck_under_dialogue_db: -4
+      max_simultaneous_layers: 4
+
+    continuity:
+      preserve_across_cuts: true
+      restart_on_every_shot: false
+      crossfade_ms: 400
+      maintain_phase_when_possible: true
+
+    transition_rules:
+      same_location:
+        preserve_base_layer: true
+        crossfade_ms: 300
+
+      interior_to_exterior:
+        crossfade_ms: 800
+
+      exterior_to_interior:
+        crossfade_ms: 700
+
+      classroom_to_play_space:
+        crossfade_ms: 600
+
+  kindergarten_play_space:
+    source_profiles:
+      location: ../locations/play_spaces/location.yaml
+      sound: ../locations/play_spaces/sound-profile.yaml
+      canonical_sound_profile_id: kindergarten-play-space-sound
+
+    supported_states:
+      - kindergarten-play-space-empty
+      - kindergarten-play-space-default
+      - kindergarten-play-space-quiet-play
+      - kindergarten-play-space-imaginative-play
+      - kindergarten-play-space-active-play
+      - kindergarten-play-space-reading
+      - kindergarten-play-space-rest
+      - kindergarten-play-space-dialogue
+      - kindergarten-play-space-arrival
+      - kindergarten-play-space-departure
+
+    base_layer:
+      asset: audio-assets/ambience/indoor-play-space-room-tone.wav
+      loop: true
+      gain_db: -27
+
+    layers:
+      - id: soft-material-resonance
+        asset: audio-assets/ambience/play-space-soft-material-resonance.wav
+        gain_db: -35
+        loop: true
+
+      - id: filtered-garden
+        asset: audio-assets/ambience/play-space-filtered-garden.wav
+        gain_db: -35
+        loop: true
+
+      - id: gentle-ventilation
+        asset: audio-assets/ambience/play-space-gentle-ventilation.wav
+        gain_db: -34
+        loop: true
+
+    spatial_sources:
+      - id: garden-windows
+        asset: audio-assets/ambience/play-space-window-garden-bleed.wav
+        position: left
+        distance: medium
+        gain_db: -35
+        loop: true
+
+      - id: playhouse-zone
+        asset: audio-assets/ambience/play-space-playhouse-resonance.wav
+        position: rear_right
+        distance: medium
+        gain_db: -37
+        loop: true
+
+      - id: classroom-connection
+        asset: audio-assets/ambience/play-space-classroom-bleed.wav
+        position: adjacent_room
+        distance: distant
+        gain_db: -37
+        loop: true
+
+    activity_layers:
+      quiet:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/play-space-quiet-room-bed.wav
+
+      normal:
+        assets:
+          - audio-assets/ambience/play-space-gentle-activity-bed.wav
+
+      busy:
+        assets:
+          - audio-assets/ambience/play-space-active-background-bed.wav
+
+    time_of_day_layers:
+      daytime:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/play-space-daytime-window-bed.wav
+        gain_db: -36
+
+      golden_hour:
+        assets:
+          - audio-assets/ambience/play-space-golden-hour-window-bed.wav
+        gain_db: -36
+
+      evening:
+        assets:
+          - audio-assets/ambience/play-space-evening-room-bed.wav
+        gain_db: -36
+
+    weather_layers:
+      rain:
+        assets:
+          - audio-assets/ambience/play-space-rain-on-windows.wav
+        gain_db: -31
+
+      post_rain:
+        assets:
+          - audio-assets/ambience/play-space-post-rain-window-drips.wav
+        gain_db: -35
+
+    conditional_layers:
+      - id: open-window-garden
+        asset: audio-assets/ambience/play-space-open-window-garden.wav
+        trigger: windows_open
+        position: left
+        loop: true
+        gain_db: -31
+
+      - id: adjacent-classroom-activity
+        asset: audio-assets/ambience/play-space-adjacent-classroom.wav
+        trigger: adjacent_classroom_occupied
+        position: adjacent_room
+        gain_db: -37
+
+    exclusions:
+      - individual_toy_impacts
+      - character_footsteps
+      - foreground_child_voices
+      - furniture_actions
+      - exaggerated_bounce_sounds
+      - chaotic_child_noise
+
+    mixing:
+      dialogue_priority: true
+      music_priority: true
+      ambience_bus: ambience
+      duck_under_dialogue_db: -4
+      max_simultaneous_layers: 4
+
+    continuity:
+      preserve_across_cuts: true
+      restart_on_every_shot: false
+      crossfade_ms: 400
+      maintain_phase_when_possible: true
+
+    transition_rules:
+      same_location:
+        preserve_base_layer: true
+        crossfade_ms: 300
+
+      play_space_to_classroom:
+        crossfade_ms: 600
+
+      interior_to_exterior:
+        crossfade_ms: 800
+
+      exterior_to_interior:
+        crossfade_ms: 700
+
+  kindergarten_exterior_garden:
+    source_profiles:
+      location: ../locations/exteriors/location.yaml
+      daytime_sound: ../locations/exteriors/sound-profile.yaml
+      evening_night_sound: ../locations/evening_night/sound-profile.yaml
+      canonical_daytime_sound_profile_id: kindergarten-sound
+      canonical_evening_night_sound_profile_id: kindergarten-evening-night-sound
+
+    supported_states:
+      - kindergarten-default
+      - kindergarten-active-day
+      - kindergarten-dialogue
+      - kindergarten-exploration
+      - kindergarten-quiet
+      - kindergarten-playful
+      - kindergarten-arrival
+      - kindergarten-departure
+      - kindergarten-evening
+      - kindergarten-early-night
+      - kindergarten-night-default
+      - kindergarten-night-quiet
+      - kindergarten-night-exploration
+      - kindergarten-night-dialogue
+      - kindergarten-night-arrival
+      - kindergarten-night-departure
+      - kindergarten-night-door-open
+
+    base_layer:
+      asset: audio-assets/ambience/kindergarten-garden-open-air.wav
+      loop: true
+      gain_db: -27
+
+    layers:
+      - id: gentle-birds
+        asset: audio-assets/ambience/kindergarten-garden-birds.wav
+        gain_db: -32
+        loop: true
+
+      - id: light-garden-breeze
+        asset: audio-assets/ambience/kindergarten-garden-breeze.wav
+        gain_db: -31
+        loop: true
+
+      - id: soft-leaf-rustle
+        asset: audio-assets/ambience/kindergarten-garden-leaves.wav
+        gain_db: -33
+        loop: true
+
+      - id: distant-neighborhood
+        asset: audio-assets/ambience/kindergarten-distant-neighborhood.wav
+        gain_db: -36
+        loop: true
+
+    spatial_sources:
+      - id: kindergarten-building
+        asset: audio-assets/ambience/kindergarten-building-presence.wav
+        position: rear
+        distance: medium
+        gain_db: -36
+        loop: true
+
+      - id: large-garden-trees
+        asset: audio-assets/ambience/kindergarten-tree-leaves.wav
+        position: left
+        distance: medium
+        gain_db: -34
+        loop: true
+
+    activity_layers:
+      quiet:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/kindergarten-quiet-garden-bed.wav
+
+      normal:
+        assets:
+          - audio-assets/ambience/kindergarten-distant-children.wav
+
+      busy:
+        assets:
+          - audio-assets/ambience/kindergarten-active-garden-bed.wav
+
+    time_of_day_layers:
+      morning:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-morning-birds.wav
+        gain_db: -32
+
+      daytime:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/kindergarten-garden-daytime.wav
+        gain_db: -30
+
+      golden_hour:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-golden-hour.wav
+        gain_db: -32
+
+      evening:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-evening.wav
+        gain_db: -32
+
+      night:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-night.wav
+        gain_db: -31
+
+    weather_layers:
+      clear:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/kindergarten-garden-clear-air.wav
+        gain_db: -35
+
+      light_wind:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-light-wind.wav
+        gain_db: -30
+
+      rain:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-rain.wav
+          - audio-assets/ambience/kindergarten-rain-on-building.wav
+        gain_db: -28
+
+      heavy_rain:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-heavy-rain.wav
+        gain_db: -24
+
+      post_rain:
+        assets:
+          - audio-assets/ambience/kindergarten-garden-post-rain-drips.wav
+        gain_db: -31
+
+    conditional_layers:
+      - id: flower-bed-insects
+        asset: audio-assets/ambience/kindergarten-flower-bed-insects.wav
+        trigger: near_flower_beds
+        position: front
+        loop: true
+        gain_db: -37
+
+      - id: building-activity
+        asset: audio-assets/ambience/kindergarten-building-activity.wav
+        trigger: building_occupied
+        position: rear
+        gain_db: -37
+
+      - id: garden-lamp-active
+        asset: audio-assets/ambience/kindergarten-garden-lamp-hum.wav
+        trigger: garden_lamp_active
+        position: front_right
+        loop: true
+        gain_db: -38
+
+      - id: sprinkler-system
+        asset: audio-assets/ambience/kindergarten-garden-sprinkler.wav
+        trigger: sprinkler_active
+        position: right
+        loop: true
+        gain_db: -34
+
+    exclusions:
+      - dense_forest_ambience
+      - jungle_insects
+      - aggressive_buzzing
+      - foreground_child_voices
+      - automatic_owls
+      - automatic_dogs
+      - automatic_sirens
+      - character_footsteps
+
+    mixing:
+      dialogue_priority: true
+      music_priority: true
+      ambience_bus: ambience
+      duck_under_dialogue_db: -3
+      max_simultaneous_layers: 5
+
+    continuity:
+      preserve_across_cuts: true
+      restart_on_every_shot: false
+      crossfade_ms: 400
+      maintain_phase_when_possible: true
+
+    transition_rules:
+      same_location:
+        preserve_base_layer: true
+        crossfade_ms: 300
+
+      daytime_to_golden_hour:
+        crossfade_ms: 1800
+        preserve_garden_bed: true
+
+      golden_hour_to_evening:
+        crossfade_ms: 1800
+        preserve_garden_bed: true
+
+      evening_to_night:
+        crossfade_ms: 2000
+        preserve_garden_bed: true
+
+      exterior_to_interior:
+        crossfade_ms: 700
+
+      interior_to_exterior:
+        crossfade_ms: 800
+
+  nature_park:
+    source_profiles:
+      location: ../locations/nature_and_parks/location.yaml
+      sound: ../locations/nature_and_parks/sound-profile.yaml
+      canonical_sound_profile_id: nature-park-sound
+
+    supported_states:
+      - nature-park-default
+      - nature-park-quiet
+      - nature-park-exploration
+      - nature-park-bridge
+      - nature-park-streamside
+      - nature-park-dialogue
+      - nature-park-active
+
+    base_layer:
+      asset: audio-assets/ambience/nature-park-open-air.wav
+      loop: true
+      gain_db: -27
+
+    layers:
+      - id: park-birds
+        asset: audio-assets/ambience/nature-park-birds.wav
+        gain_db: -33
+        loop: true
+
+      - id: light-tree-breeze
+        asset: audio-assets/ambience/nature-park-light-breeze.wav
+        gain_db: -32
+        loop: true
+
+      - id: grass-and-leaves
+        asset: audio-assets/ambience/nature-park-grass-and-leaves.wav
+        gain_db: -34
+        loop: true
+
+    spatial_sources:
+      - id: park-stream
+        asset: audio-assets/ambience/nature-park-gentle-stream.wav
+        position: right
+        distance: medium
+        gain_db: -29
+        loop: true
+
+      - id: limited-tree-group
+        asset: audio-assets/ambience/nature-park-tree-group.wav
+        position: rear_left
+        distance: medium
+        gain_db: -35
+        loop: true
+
+      - id: distant-neighborhood
+        asset: audio-assets/ambience/nature-park-distant-neighborhood.wav
+        position: distant
+        distance: distant
+        gain_db: -38
+        loop: true
+
+    activity_layers:
+      quiet:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/nature-park-quiet-bed.wav
+
+      normal:
+        assets:
+          - audio-assets/ambience/nature-park-distant-visitors.wav
+
+      active:
+        assets:
+          - audio-assets/ambience/nature-park-active-background.wav
+
+    time_of_day_layers:
+      morning:
+        assets:
+          - audio-assets/ambience/nature-park-morning.wav
+        gain_db: -31
+
+      daytime:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/nature-park-day.wav
+        gain_db: -31
+
+      golden_hour:
+        assets:
+          - audio-assets/ambience/nature-park-golden-hour.wav
+        gain_db: -32
+
+      evening:
+        assets:
+          - audio-assets/ambience/nature-park-evening.wav
+        gain_db: -33
+
+      night:
+        assets:
+          - audio-assets/ambience/nature-park-night.wav
+        gain_db: -33
+
+    weather_layers:
+      clear:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/nature-park-clear-air.wav
+        gain_db: -36
+
+      light_wind:
+        assets:
+          - audio-assets/ambience/nature-park-wind-through-trees.wav
+        gain_db: -30
+
+      rain:
+        assets:
+          - audio-assets/ambience/nature-park-rain.wav
+          - audio-assets/ambience/nature-park-rain-on-leaves.wav
+        gain_db: -28
+
+      post_rain:
+        assets:
+          - audio-assets/ambience/nature-park-post-rain-drips.wav
+          - audio-assets/ambience/nature-park-fuller-stream.wav
+        gain_db: -31
+
+    conditional_layers:
+      - id: flower-insects
+        asset: audio-assets/ambience/nature-park-flower-insects.wav
+        trigger: near_flowers
+        position: front
+        loop: true
+        gain_db: -37
+
+      - id: stream-proximity
+        asset: audio-assets/ambience/nature-park-stream-near.wav
+        trigger: near_stream
+        position: right
+        loop: true
+        gain_db: -27
+
+      - id: distant-children
+        asset: audio-assets/ambience/nature-park-distant-children.wav
+        trigger: park_occupied
+        position: distant
+        gain_db: -38
+
+    exclusions:
+      - dense_forest_ambience
+      - jungle_wildlife
+      - waterfall_scale_water
+      - aggressive_rushing_water
+      - foreground_footsteps
+      - bridge_contacts
+      - automatic_night_animals
+
+    mixing:
+      dialogue_priority: true
+      music_priority: true
+      ambience_bus: ambience
+      duck_under_dialogue_db: -3
+      max_simultaneous_layers: 5
+
+    continuity:
+      preserve_across_cuts: true
+      restart_on_every_shot: false
+      crossfade_ms: 450
+      maintain_phase_when_possible: true
+
+    transition_rules:
+      same_location:
+        preserve_base_layer: true
+        preserve_stream_phase: true
+        crossfade_ms: 300
+
+      path_to_streamside:
+        crossfade_ms: 700
+        increase_stream_proximity: true
+
+      streamside_to_path:
+        crossfade_ms: 700
+        decrease_stream_proximity: true
+
+      park_to_built_environment:
+        crossfade_ms: 900
+
+  countryside_meadow:
+    source_profiles:
+      location: ../locations/sunset_golden_hour/location.yaml
+      sound: ../locations/sunset_golden_hour/sound-profile.yaml
+      canonical_sound_profile_id: sunset-golden-hour-sound
+
+    supported_states:
+      - sunset-golden-hour
+      - sunset-late-golden-hour
+      - sunset-horizon
+      - sunset-quiet
+      - sunset-exploration
+      - sunset-dialogue
+      - sunset-walking
+      - sunset-near-twilight
+
+    base_layer:
+      asset: audio-assets/ambience/countryside-meadow-open-air.wav
+      loop: true
+      gain_db: -27
+
+    layers:
+      - id: meadow-breeze
+        asset: audio-assets/ambience/countryside-meadow-breeze.wav
+        gain_db: -31
+        loop: true
+
+      - id: grass-and-flowers
+        asset: audio-assets/ambience/countryside-grass-and-flowers.wav
+        gain_db: -33
+        loop: true
+
+      - id: distant-valley
+        asset: audio-assets/ambience/countryside-distant-valley.wav
+        gain_db: -36
+        loop: true
+
+      - id: sparse-birds
+        asset: audio-assets/ambience/countryside-sparse-birds.wav
+        gain_db: -35
+        loop: true
+
+    spatial_sources:
+      - id: meadow-trees
+        asset: audio-assets/ambience/countryside-meadow-tree-leaves.wav
+        position: rear_left
+        distance: medium
+        gain_db: -35
+        loop: true
+
+    activity_layers:
+      quiet:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/countryside-quiet-meadow.wav
+
+      normal:
+        assets:
+          - audio-assets/ambience/countryside-distant-activity.wav
+
+    time_of_day_layers:
+      morning:
+        assets:
+          - audio-assets/ambience/countryside-meadow-morning.wav
+        gain_db: -31
+
+      daytime:
+        assets:
+          - audio-assets/ambience/countryside-meadow-daytime.wav
+        gain_db: -31
+
+      golden_hour:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/countryside-meadow-golden-hour.wav
+        gain_db: -30
+
+      evening:
+        assets:
+          - audio-assets/ambience/countryside-meadow-evening.wav
+        gain_db: -32
+
+      night:
+        assets:
+          - audio-assets/ambience/countryside-meadow-night.wav
+        gain_db: -33
+
+    weather_layers:
+      clear:
+        enabled_by_default: true
+        assets:
+          - audio-assets/ambience/countryside-clear-open-air.wav
+        gain_db: -36
+
+      light_wind:
+        assets:
+          - audio-assets/ambience/countryside-light-wind.wav
+        gain_db: -30
+
+      rain:
+        assets:
+          - audio-assets/ambience/countryside-meadow-rain.wav
+        gain_db: -28
+
+      post_rain:
+        assets:
+          - audio-assets/ambience/countryside-post-rain.wav
+        gain_db: -32
+
+    conditional_layers:
+      - id: meadow-insects
+        asset: audio-assets/ambience/countryside-meadow-insects.wav
+        trigger: insects_active
+        position: front
+        loop: true
+        gain_db: -36
+
+      - id: distant-village-activity
+        asset: audio-assets/ambience/countryside-distant-village.wav
+        trigger: village_active
+        position: distant
+        loop: true
+        gain_db: -39
+
+      - id: distant-bird-call
+        asset: audio-assets/ambience/countryside-distant-bird-call.wav
+        trigger: bird_activity_present
+        position: distant
+        gain_db: -38
+
+    exclusions:
+      - dense_forest_ambience
+      - jungle_insects
+      - farm_machinery_without_visual_basis
+      - automatic_owls
+      - character_footsteps
+      - fence_contacts
+      - music_like_pads
+
+    mixing:
+      dialogue_priority: true
+      music_priority: true
+      ambience_bus: ambience
+      duck_under_dialogue_db: -3
+      max_simultaneous_layers: 5
+
+    continuity:
+      preserve_across_cuts: true
+      restart_on_every_shot: false
+      crossfade_ms: 450
+      maintain_phase_when_possible: true
+
+    transition_rules:
+      same_location:
+        preserve_base_layer: true
+        crossfade_ms: 300
+
+      daytime_to_golden_hour:
+        crossfade_ms: 1800
+        preserve_meadow_bed: true
+
+      golden_hour_to_evening:
+        crossfade_ms: 1800
+        preserve_meadow_bed: true
+
+      evening_to_night:
+        crossfade_ms: 2000
+        preserve_meadow_bed: true
+
+      meadow_to_built_environment:
+        crossfade_ms: 900

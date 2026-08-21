@@ -1,0 +1,373 @@
+id: riri-yoyo-wan22-preproduction
+type: wan-generation-policy-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  scope: reusable-preproduction-foundation
+  purpose: >-
+    Define the supported Wan 2.2 task modes, conditioning requirements, prompt
+    contracts, technical boundaries, and validation gates without creating
+    episode, scene, shot, dialogue, or render content.
+
+source_authority:
+  local_runtime_contract: ../../../../../docs/wan22-setup.md
+  official_model_catalog: https://github.com/Wan-Video/Wan2.2
+  project: project.yaml
+  visual_style: visual_style/visual_style.yaml
+  art_direction: visual_style/art-direction.yaml
+  lighting: visual_style/lighting.yaml
+  materials: visual_style/materials.yaml
+  camera_language: cinematography/camera-language.yaml
+  composition: cinematography/composition-rules.yaml
+  lens_package: cinematography/lens-package.yaml
+  movement: cinematography/movement-rules.yaml
+  prop_catalog: assets/props.yaml
+  costume_catalog: assets/costumes.yaml
+  vehicle_catalog: assets/vehicles.yaml
+  background_character_catalog: assets/background-characters.yaml
+  animation_style: characters/animation-style.yaml
+  acting_style: characters/acting-style.yaml
+  relationships: characters/relationships.yaml
+  brand: brand.yaml
+  references: references.yaml
+  reference_views: reference-views.yaml
+  asset_conventions: asset-conventions.yaml
+  safety: safety.yaml
+  educational_direction: educational-direction.yaml
+  preproduction_checklist: preproduction-checklist.yaml
+  review_cards: wan22-review-cards.yaml
+  audio_style: audios/audio_style.yaml
+  voice_production: audios/voice-production.yaml
+  s2v_input_spec: audios/s2v-input-spec.yaml
+  voice_reference_audit: audios/voice-reference-audit.yaml
+  authority_rules:
+    - local runtime support determines which official model families may be used
+    - project YAML controls identity audience safety and delivery requirements
+    - specialized domain files supply only their own prompt fragments and invariants
+    - approved conditioning inputs never redefine canonical identity by themselves
+
+phase_boundary:
+  phase: preproduction
+  allowed:
+    - reusable-mode-selection-rules
+    - reusable-prompt-schemas
+    - reference-input-specifications
+    - audio-input-specifications
+    - continuity-invariants
+    - validation-and-rejection-criteria
+    - neutral-dry-run-manifests
+  forbidden:
+    - episode-story
+    - script
+    - scene-plan
+    - shot-specific-prompt
+    - final-dialogue
+    - queued-generation
+    - render
+    - edit
+    - export
+
+supported_tasks:
+  t2v:
+    model: wan2.2-t2v-a14b
+    workflow_id: wan-t2v
+    input_types:
+      - text
+    role: final-text-driven-candidate-when-invention-is-acceptable
+    best_for:
+      - exploratory-environments
+      - non-recurring-backgrounds
+      - distant-or-simple-subjects
+      - compositions-without-exact-reference-dependence
+    not_for:
+      - exact-recurring-character-identity
+      - exact-recurring-location-layout
+      - readable-generated-text
+      - complex-multi-step-action
+    prompt_schema:
+      - subject-and-count
+      - appearance-or-stable-medium-sized-features
+      - one-observable-action
+      - critical-object-relationship
+      - environment
+      - framing-and-one-camera-behavior
+      - lighting
+      - visual-style
+      - short-motion-and-continuity-constraints
+    approval_rule: >-
+      A T2V candidate may be approved only when the requested identity and layout
+      do not require an exact source image and all continuity checks pass.
+
+  i2v:
+    model: wan2.2-i2v-a14b
+    workflow_id: wan-i2v
+    input_types:
+      - text
+      - approved-single-frame-image
+    role: final-reference-driven-candidate
+    required_when:
+      - recurring-character-identity-is-visible
+      - exact-location-layout-is-visible
+      - wardrobe-or-prop-placement-is-continuity-critical
+      - starting-composition-must-be-preserved
+    source_image_authority:
+      controls:
+        - visible-starting-pose
+        - visible-composition
+        - visible-object-relationships
+        - visible-lighting-state
+      does_not_control:
+        - permanent-identity-changes
+        - hidden-geometry
+        - unapproved-artifacts
+    motion_prompt_schema:
+      - brief-current-state
+      - one-observable-movement
+      - direction
+      - speed
+      - range-or-repetition
+      - endpoint
+      - one-emotional-change-if-needed
+      - one-camera-behavior
+      - essential-invariants
+    approval_rule: approved-source-image-and-temporal-identity-review-required
+
+  ti2v:
+    model: wan2.2-ti2v-5b
+    workflow_id: wan-ti2v
+    input_types:
+      - text
+      - optional-approved-single-frame-image
+    role: efficient-draft-and-screening
+    use_for:
+      - prompt-clarity-tests
+      - composition-tests
+      - motion-direction-tests
+      - reference-compatibility-tests
+      - seed-comparisons
+    never_final_evidence_for:
+      - exact-face-detail
+      - fine-fur-or-feather-detail
+      - small-patterns
+      - readable-text
+      - final-material-quality
+    escalation:
+      text-draft: t2v
+      image-draft: i2v
+      dialogue-draft: s2v
+    documented_native_path:
+      resolution_class: 720P
+      landscape_dimensions: "1280x704"
+      portrait_dimensions: "704x1280"
+      frame_rate: 24
+
+  s2v:
+    model: wan2.2-s2v-14b
+    workflow_id: wan-s2v
+    input_types:
+      - text-direction
+      - approved-single-frame-character-image
+      - locked-clean-speech-audio
+      - optional-pose-guidance-video
+    role: final-locked-dialogue-or-vocal-performance-candidate
+    required_inputs:
+      approved_character_frame: true
+      locked_clean_speech: true
+      verified_transcript: true
+      audio_hash: true
+    performance_scope:
+      - half-body
+      - full-body
+      - facial-expression
+      - speech-synchronized-gesture
+      - optional-pose-guided-broad-body-performance
+    pose_guidance:
+      required_by_default: false
+      use_when: exact-broad-body-gesture-is-required-and-audio-alone-is-insufficient
+      must_agree_with_audio_emphasis_and_source_pose: true
+      more_conditioning_is_not_automatically_better: true
+    timing_authority: locked-speech-audio
+    timing_events:
+      - leading-silence
+      - speech-onset
+      - phrase-boundaries
+      - pauses
+      - emphasized-words
+      - speech-end
+      - final-settle
+    reject_if:
+      - mouth-moves-during-unmotivated-silence
+      - lip-onset-or-ending-is-misaligned
+      - face-or-identity-drifts
+      - gesture-conflicts-with-audio-emphasis
+      - music-ambience-or-effects-are-baked-into-conditioning-audio
+
+unsupported_tasks:
+  animate:
+    official_model: wan2.2-animate-14b
+    enabled: false
+    policy: reject
+    reason: deliberately-excluded-by-local-runtime-contract
+    forbidden_inputs:
+      - performer-video-for-character-replacement-or-animation
+      - replacement-mask
+      - relighting-lora
+    clarification: optional-s2v-pose-guidance-remains-supported-and-does-not-enable-animate
+
+reference_input_contract:
+  applies_to:
+    - i2v
+    - ti2v-image
+    - s2v
+  required:
+    - one-coherent-image
+    - one-unambiguous-primary-subject
+    - correct-anatomy
+    - clear-silhouette
+    - visible-action-contact-points
+    - movement-space-in-action-direction
+    - framing-compatible-with-action
+    - output-compatible-aspect-ratio
+    - stable-large-scale-background-geometry
+    - approved-version-and-source-path
+  forbidden:
+    - collage
+    - split-screen
+    - multi-view-character-sheet-as-generation-input
+    - watermark
+    - caption
+    - label
+    - interface-element
+    - accidental-face
+    - duplicate-subject
+    - anatomy-error
+    - severe-background-clutter
+    - source-pose-that-conflicts-with-requested-motion
+  identity_sheet_rule: >-
+    Turnarounds, expression boards, and pose sheets support human identity review
+    but are never passed directly as the single conditioning frame.
+
+motion_contract:
+  primary_action_count: 1
+  camera_behavior_count: 1
+  default_speed: slow-controlled
+  required_fields:
+    - moving-entity-or-body-part
+    - direction
+    - speed
+    - scope
+    - endpoint
+    - locked-regions
+  complexity_rule: >-
+    If subject action, camera motion, material motion, and background motion compete,
+    simplify the action or lock the camera before changing seeds or resolution.
+  source_pose_rule: requested-motion-must-begin-plausibly-from-source-pose
+
+prompt_budget:
+  rule: use-only-information-that-changes-or-protects-the-visible-result
+  place_first:
+    - subject-and-count
+    - primary-action
+    - identity-critical-invariants
+    - critical-object-relationship
+  omit:
+    - invisible-details
+    - repeated-synonyms
+    - full-YAML-dumps
+    - audio-mix-rules-in-visual-prompts
+    - visual-rules-in-clean-speech-audio
+    - long-negative-lists-unrelated-to-known-failures
+  positive_over_negative: true
+
+technical_contract:
+  delivery:
+    aspect_ratio: "16:9"
+    resolution: "1920x1080"
+    frame_rate: 24
+  generation:
+    resolution_is_task_specific: true
+    frame_rate_is_workflow_specific: true
+    supported_resolution_classes:
+      t2v:
+        - 480P
+        - 720P
+      i2v:
+        - 480P
+        - 720P
+      ti2v:
+        - 720P
+      s2v:
+        - 480P
+        - 720P
+    frame_count_rule: "4n+1 when required by the selected workflow"
+    never_assume_native_delivery_resolution: true
+  conform:
+    preserve_aspect_ratio: true
+    stretching: forbidden
+    crop_or_pad_requires_approval: true
+    upscale_requires_quality-control: true
+    frame_rate_conversion_requires-quality-control: true
+
+reproducibility:
+  required_record_fields:
+    - project_id
+    - model
+    - task
+    - prompt_version
+    - negative_prompt_version
+    - reference_id
+    - reference_version
+    - audio_hash
+    - seed
+    - dimensions
+    - frame_rate
+    - frame_count
+    - workflow_version
+    - context_hash
+    - candidate_number
+    - approval_status
+  null_when_not_applicable:
+    - reference_id
+    - reference_version
+    - audio_hash
+
+review_order:
+  - global-structure
+  - composition-and-subject-count
+  - identity-and-anatomy
+  - primary-action
+  - camera-motion
+  - temporal-stability
+  - materials-and-lighting
+  - fine-detail
+  - audio-alignment-when-applicable
+
+failure_actions:
+  regenerate:
+    when: isolated-seed-variation
+  adjust_one_variable:
+    when: prompt-or-parameter-effect-is-uncertain
+  simplify:
+    when: action-camera-or-background-complexity-competes
+  replace_reference:
+    when: source-anatomy-framing-or-starting-pose-is-weak
+  replace_audio:
+    when: speech-is-noisy-unlocked-clipped-or-misaligned
+  switch_supported_task:
+    when: current-conditioning-mode-cannot-protect-the-required-identity-or-layout
+  redesign_later_production_work:
+    when: requested-action-cannot-fit-one-clear-generation-segment
+
+preproduction_validation:
+  require_supported_task: true
+  require_approved_reference_for:
+    - i2v
+    - s2v
+  require_locked_audio_for:
+    - s2v
+  reject_placeholder_reference_paths: true
+  reject_missing_reference_files: true
+  reject_animate: true
+  allow_no-generation-dry-run: true

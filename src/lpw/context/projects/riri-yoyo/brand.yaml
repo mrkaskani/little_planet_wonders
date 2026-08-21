@@ -1,0 +1,188 @@
+id: riri-yoyo-brand
+type: brand-context
+version: 1
+status: approved-policy-awaiting-authored-brand-assets
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  purpose: reusable-series-name-logo-typography-icon-and-overlay-governance
+
+source_authority:
+  project: project.yaml
+  palette: visual_style/palette-v2.yaml
+  visual_style: visual_style/visual_style.yaml
+  art_direction: visual_style/art-direction.yaml
+  asset_conventions: asset-conventions.yaml
+  references: references.yaml
+
+identity:
+  canonical_series_name: Riri & Yoyo
+  canonical_project_id: riri-yoyo
+  spelling:
+    riri: Riri
+    yoyo: Yoyo
+    conjunction: "&"
+  permitted_plain_text_fallback: Riri & Yoyo
+  forbidden_variants:
+    - Riri and YoYo
+    - RIRI & YOYO
+    - Riri-Yoyo
+    - Riri + Yoyo
+
+logo:
+  status: not-yet-authored
+  canonical_asset_path: null
+  expected_master_path: assets/brand/logo/riri-yoyo-logo-master.svg
+  expected_raster_path: assets/brand/logo/riri-yoyo-logo-2048.png
+  design_requirements:
+    - original-authored-mark
+    - canonical-title-spelling
+    - broad-rounded-readable-letterforms
+    - simple-silhouette
+    - no-character-face-as-letter
+    - no-tiny-detail-or-thin-outline
+    - readable-on-light-and-dark-approved-backgrounds
+    - no-visual-dependence-on-animation
+  clear_space:
+    unit: logo-cap-height
+    minimum_each_side: 0.5
+  minimum_size:
+    digital_width_px: 160
+    video_1080p_width_px: 240
+  variants_allowed_after-approval:
+    - full-color
+    - one-color-dark
+    - one-color-light
+  effects_forbidden:
+    - bevel
+    - chrome
+    - glass
+    - harsh-drop-shadow
+    - glow-that-reduces-readability
+    - stretch-skew-or-perspective-distortion
+    - unapproved-recolor
+    - generated-or-reconstructed-lettering
+
+typography:
+  status: style-approved-font-files-and-licenses-pending
+  display_style:
+    category: rounded-friendly-sans
+    weight: bold
+    width: normal-to-slightly-wide
+    terminals: soft-rounded
+    counters: open
+  supporting_style:
+    category: clean-rounded-sans
+    weight_range:
+      - regular
+      - semibold
+      - bold
+    readability:
+      - open-counters
+      - distinct-letter-shapes
+      - no-single-storey-letterform-if-it-reduces-early-reader-clarity
+  font_asset_paths: []
+  minimum_1080p_sizes:
+    title_px: 72
+    heading_px: 56
+    short_label_px: 44
+    caregiver_or-legal-copy_px: 36
+  text_rules:
+    - use-short-phrases
+    - use-sentence-case-for-supporting-copy
+    - avoid-all-caps-except-a-short-approved-mark
+    - avoid-condensed-light-script-or-decorative-body-text
+    - preserve-high-contrast-and-generous-line-spacing
+    - never-place-critical-text-over-busy-motion
+
+title_treatment:
+  default:
+    alignment: centered-or-balanced-horizontal
+    line_count_preferred: 1
+    maximum_line_count: 2
+    character_spacing: open-and-even
+    background: simple-approved-solid-or-low-detail-field
+  punctuation: use-canonical-ampersand
+  animation_policy:
+    authored-motion-graphics-only: true
+    wan-generated-title-animation: forbidden
+  no_story_or_episode_title_template_created_in-preproduction: true
+
+icons:
+  style:
+    - original
+    - rounded
+    - flat-or-soft-matte
+    - one-broad-silhouette
+    - one-to-two-color-regions
+    - readable-at-small-size
+  minimum_digital_size_px: 32
+  stroke:
+    style: rounded
+    consistent-weight: true
+  forbidden:
+    - sharp-threatening-shapes
+    - tiny-interior-detail
+    - photoreal-miniature
+    - text-dependent-meaning
+    - unapproved-character-likeness
+
+brand_colors:
+  canonical_source: visual_style/palette-v2.yaml
+  usage:
+    primary_light: storybook_cream
+    primary_warm: warm_salmon
+    primary_cool: clear_sky_blue
+    supporting_green: sage_green
+    dark_text: approved-dark-neutral-from-canonical-palette
+  rules:
+    - reference-tokens-not-copied-hex-values-control-color
+    - maintain-readable-light-dark-contrast
+    - character-colors-are-not-automatically-brand-background-colors
+    - lighting-never-redefines-brand-token
+    - test-logo-variants-on-approved-light-and-dark-fields
+
+child_readability:
+  required:
+    - simple-wording
+    - large-type
+    - generous-spacing
+    - stable-placement
+    - strong-figure-ground-separation
+    - no-flashing-or-rapid-text-motion
+  avoid:
+    - dense-copy
+    - long-lines
+    - low-contrast-pastel-on-pastel
+    - text-over-faces
+    - fast-scrolling
+    - color-alone-as-the-only-meaning-signal
+
+wan_2_2_policy:
+  generated_video_pixels:
+    critical-readable-text: forbidden
+    canonical-logo: forbidden
+    title-card-lettering: forbidden
+    watermarks: forbidden
+  conditioning_frames:
+    logo-or-text-present: forbidden
+    reason: generated-letterforms-may-warp-flicker-or-become-unreadable
+  authored_overlay_workflow:
+    permitted_later: true
+    requires:
+      - approved-logo-or-type-asset
+      - exact-copy
+      - approved-position-and-safe-area
+      - accessibility-review
+      - separate-versioned-overlay-record
+  prompt_fragment: no text, no lettering, no logo, no watermark
+
+approval:
+  policy: approved
+  logo-artwork: pending
+  font-selection-files-and-license-record: pending
+  icon-library: pending-until-needed
+  blocks-final-brand-exit-gate: true
+

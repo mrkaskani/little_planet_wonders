@@ -23,7 +23,7 @@ rewriting source YAML.
 
 ## Nested cinematic context
 
-The nested classroom context contains studio, project, character, location,
+The nested Riri & Yoyo context contains studio, project, character, location,
 audio, sequence, scene, shot, segment, editing, export, and continuity policies.
 `load_project_context()` normalizes flat and nested variants and appends a stable
 context hash.
@@ -34,10 +34,10 @@ context hash.
 
 ```text
 cinema://studio/cinematic-defaults@1
-cinema://projects/classroom@1
-cinema://projects/classroom/scenes/rooftop-confrontation@1
-cinema://projects/classroom/scenes/rooftop-confrontation/shots/shot-004@1
+cinema://projects/riri-yoyo@1
 ```
+
+Scene and shot URIs are added after production context exists.
 
 Supported mechanisms:
 

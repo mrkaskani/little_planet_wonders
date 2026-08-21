@@ -1,0 +1,726 @@
+{
+  "generated_at": "2026-08-16T16:25:33.026821+00:00",
+  "source_config": "scripts/stable-audio-3-medium/character-theme-music.yaml",
+  "pipeline": "locked-leitmotif-to-reference-conditioned-arrangement",
+  "model": "medium",
+  "decoder": "same-l",
+  "profile_glob": "characters/*/music-profile.yaml",
+  "assets": [
+    {
+      "character": "riri",
+      "kind": "canonical-leitmotif",
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "path": "assets/music/characters/riri/leitmotif.wav",
+      "notes": [
+        "G5",
+        "B5",
+        "D6",
+        "B5",
+        "G5"
+      ],
+      "note_durations_seconds": [
+        0.46,
+        0.52,
+        0.74,
+        0.56,
+        0.82
+      ],
+      "note_onsets_seconds": [
+        0.0,
+        0.42,
+        0.96,
+        1.7,
+        2.16
+      ],
+      "signature_instrument": "felt-piano",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "seed": 8117,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 170880,
+        "duration_seconds": 3.56,
+        "bytes": 1025360,
+        "sha256": "d4e3b5213bc3d3c930d4ad4609ba82f1392000c3ace78bd1405ff22b31059cdb"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "entrance",
+      "feeling": "welcoming-and-cuddly",
+      "emotion": "affectionate-recognition",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/entrance-cue.wav",
+      "prompt_key": "short_entrance_cue",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: welcoming-and-cuddly. Target emotion: affectionate-recognition. Generate a 4-to-7-second entrance cue for Riri using felt piano, soft harp, and one light pizzicato-string layer. State her five-note welcoming arch clearly within the first two seconds at about 104 BPM in 6/8, ending on a warm major-add-six chord. Keep it cuddly, bright, polished, and loop-safe. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8121,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "1eb66dae64e67d2e0119bd6c4e779eed84909ae652e90d15e1137cc8e119b955"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "happy",
+      "feeling": "sunny-tail-wag-playfulness",
+      "emotion": "cheerful-affection",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/happy-leitmotif.wav",
+      "prompt_key": "happy_variation",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: sunny-tail-wag-playfulness. Target emotion: cheerful-affection. Arrange Riri's established five-note felt-piano arch as a happy preschool cue at about 114 BPM in 6/8. Add fingerpicked nylon-string guitar, gentle pizzicato strings, soft shaker, and a smiling harp or clarinet answer. Preserve the spacious upward thirds, long central high note, symmetrical descent, and home-note landing. Use open major harmony and moderate dynamics. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8122,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "a99c90cf6f2e3c8720355d755c6ec1163fd20b1e12a683c77793fdc9391333f5"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "curious",
+      "feeling": "soft-pause-and-listen-curiosity",
+      "emotion": "gentle-wonder",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/curious-leitmotif.wav",
+      "prompt_key": "curious_variation",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: soft-pause-and-listen-curiosity. Target emotion: gentle-wonder. Arrange Riri's established motif as a curious cue at about 88 BPM with sparse felt piano, soft harp, clarinet, and flute. Add breathing space before the central high note and delay the descending home-note resolution. Use a tonic pedal, gentle suspended seconds that resolve quickly, light dynamics, and generous space for dialogue. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8123,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "8a1b42a0958bc7eb976dfa8578149804d1de742e6cbf20a65281422c3597faf1"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "sad",
+      "feeling": "slow-tender-vulnerability",
+      "emotion": "temporary-sadness-with-comfort",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/sad-leitmotif.wav",
+      "prompt_key": "sad_variation",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: slow-tender-vulnerability. Target emotion: temporary-sadness-with-comfort. Create a gentle sad variation of Riri's theme at about 62 BPM using soft felt piano, clarinet, and warm strings. Stretch the same five-note arch into legato phrases, use brief relative-minor color, and return clearly to warm major harmony. Keep sadness tender, safe, temporary, and followed by a reassuring home-note resolution. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8124,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 384000,
+        "duration_seconds": 8.0,
+        "bytes": 2304080,
+        "sha256": "94627d8eabbd864360802bee8d45d2e01662ba8968abb5fc5b9fd6039d820894"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "action",
+      "feeling": "tiny-paw-step-adventure",
+      "emotion": "safe-playful-excitement",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/action-leitmotif.wav",
+      "prompt_key": "action_variation",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: tiny-paw-step-adventure. Target emotion: safe-playful-excitement. Create a lively but non-threatening action variation of Riri's theme at about 132 BPM in 6/8. Use quick rounded pizzicato strings, harp pulses, felt-piano motif fragments, soft shaker, and brushed snare to suggest tiny paw steps, playful bounds, ear bounces, and tail swishes. Preserve the motif contour and use the full phrase at successful actions or safe landings. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8125,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "fa3bca5f2edcf75c986f61bfa1aaeb79d5fee78f1593098ac87452e91f8ef52c"
+      }
+    },
+    {
+      "character": "riri",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "calm-ending",
+      "feeling": "bedtime-rocking-softness",
+      "emotion": "reassured-and-loved",
+      "generation_profile_id": "riri-felt-piano-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.98,
+      "profile_id": "riri-music-profile",
+      "motif_id": "riri-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "tiny-young",
+          "affectionate",
+          "high-light-airy",
+          "slow-connected-flow",
+          "gentle-reassurance"
+        ],
+        "musical_translation": "high-register legato arch in one warm breath, opening and closing on the same home note",
+        "character_profile": {
+          "path": "characters/riri/character.yaml",
+          "sha256": "74538b50ef636bc1d514812d6d685119531ec71211c5e8ae020f8ce272365d37"
+        },
+        "voice_profile": {
+          "path": "characters/riri/voice-profile.yaml",
+          "sha256": "178bdf3999419a5ee0ffbd275b372896a698a61da2bf903fc7d4a4c229d5c06c"
+        }
+      },
+      "motif_path": "assets/music/characters/riri/leitmotif.wav",
+      "path": "assets/music/characters/riri/variations/calm-leitmotif.wav",
+      "prompt_key": "calm_ending",
+      "prompt": "This is Riri's music only. Keep warm felt piano unmistakably in front, in a small, high, light singing register, with connected legato phrasing and a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from breathy clarinet, delicate concert harp, soft sustained strings, and restrained upright bass. The emotional center is affectionate reassurance: even energetic or sad versions must feel like a soft musical hug. Use spacious acoustic storybook production, cushioned attacks, warm resonance, and a clear downward return to Riri's home note. Target feeling: bedtime-rocking-softness. Target emotion: reassured-and-loved. Create a calm bedtime-style ending for Riri at about 64 BPM using soft felt piano, gentle harp, warm clarinet, and quiet strings. Slow the established five-note arch into one legato breath, let the central high note bloom, and sustain the final home note over a gentle plagal cadence and major-add-six harmony. Make it soothing, affectionate, and reassuring. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8126,
+      "cfg": 4.2,
+      "init_noise_level": 0.46,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 384000,
+        "duration_seconds": 8.0,
+        "bytes": 2304080,
+        "sha256": "63fcbaab3e9abbe4dc924144a4bafae07106b0d0571f6263dc14789d90f7c28e"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "canonical-leitmotif",
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "path": "assets/music/characters/yoyo/leitmotif.wav",
+      "notes": [
+        "D4",
+        "D4",
+        "A4",
+        "F#4",
+        "E4",
+        "G4",
+        "D4"
+      ],
+      "note_durations_seconds": [
+        0.1,
+        0.1,
+        0.24,
+        0.15,
+        0.15,
+        0.2,
+        0.38
+      ],
+      "note_onsets_seconds": [
+        0.0,
+        0.16,
+        0.52,
+        0.88,
+        1.08,
+        1.42,
+        1.88
+      ],
+      "signature_instrument": "celesta",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "seed": 8293,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 122879,
+        "duration_seconds": 2.56,
+        "bytes": 737354,
+        "sha256": "3a40ba861b0a0520b2d5fe0600b4a3d5c18fa269879086fa108551052c577656"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "entrance",
+      "feeling": "bright-two-bounce-arrival",
+      "emotion": "delighted-recognition",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/entrance-cue.wav",
+      "prompt_key": "short_entrance_cue",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: bright-two-bounce-arrival. Target emotion: delighted-recognition. Generate a 4-to-7-second entrance cue for Yoyo using celesta, soft marimba, and one light pizzicato-string layer. State her seven-note jump-and-slide motif clearly within the first two seconds at about 116 BPM, ending on a warm major-add-six chord. Keep it bright, tiny, friendly, polished, and loop-safe. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8301,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "86690148748fc04f1749469369708261667a852cfe9bec6828899dc144fff739"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "happy",
+      "feeling": "sparkling-hop-and-waddle-play",
+      "emotion": "bubbly-joy",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/happy-leitmotif.wav",
+      "prompt_key": "happy_variation",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: sparkling-hop-and-waddle-play. Target emotion: bubbly-joy. Arrange Yoyo's established seven-note celesta motif as a happy preschool cue at about 124 BPM. Add gentle ukulele, pizzicato strings, soft shaker, and a smiling flute response. Preserve the two repeated opening notes, early perfect-fifth jump, stepwise slide, rebound, and low comic landing. Use open major harmony, added-sixth color, moderate dynamics, and a warm playful finish. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8302,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "4844c8c263c2a1278cc29f83155518b4c8d679a617cd14f7c44507ae4f0551b1"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "curious",
+      "feeling": "tiptoe-stop-and-peek",
+      "emotion": "eager-wonder",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/curious-leitmotif.wav",
+      "prompt_key": "curious_variation",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: tiptoe-stop-and-peek. Target emotion: eager-wonder. Arrange Yoyo's established motif as a curious cue at about 96 BPM with sparse celesta, soft marimba, flute, and clarinet. Leave a small pause before the rebound note so the phrase feels like a friendly question. Use a tonic pedal, gentle suspended seconds that resolve quickly, light dynamics, and plenty of space for dialogue. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8303,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "471a9a86aea0247d04bd61f7ad1f5af514fbc5890c707a32fff9bff35a1d0926"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "sad",
+      "feeling": "small-slow-drooping-bounce",
+      "emotion": "tender-disappointment-with-recovery",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/sad-leitmotif.wav",
+      "prompt_key": "sad_variation",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: small-slow-drooping-bounce. Target emotion: tender-disappointment-with-recovery. Create a gentle sad variation of Yoyo's theme at about 68 BPM using soft celesta, clarinet, and a warm string pad. Stretch the same seven-note angular contour into gentler phrases, use brief relative-minor color, and resolve toward warm major harmony. Keep the sadness tender, safe, and temporary, with no frightening dissonance or heavy low-end weight. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8304,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 384000,
+        "duration_seconds": 8.0,
+        "bytes": 2304080,
+        "sha256": "209feb65e79a9181d2e6d20d4102c8cd6c268a47c37ddbf6c4c360173ff3d27d"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "action",
+      "feeling": "quick-hops-and-safe-sliding",
+      "emotion": "playful-thrill",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/action-leitmotif.wav",
+      "prompt_key": "action_variation",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: quick-hops-and-safe-sliding. Target emotion: playful-thrill. Create a lively but non-threatening action variation of Yoyo's theme at about 144 BPM. Use soft marimba, quick rounded pizzicato strings, celesta motif fragments, brushed snare, and light shaker to suggest rapid tiny steps, hops, and safe sliding. Preserve the motif contour and use the full phrase at successful turns or landings. Keep the cue playful, clear, and child-friendly rather than intense or heroic. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8305,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 336000,
+        "duration_seconds": 7.0,
+        "bytes": 2016080,
+        "sha256": "6350b67046bc65e4bfd7425db4bd1cff1cd41fc60946cc755358c2ddc6f3e673"
+      }
+    },
+    {
+      "character": "yoyo",
+      "kind": "leitmotif-conditioned-arrangement",
+      "arrangement": "calm-ending",
+      "feeling": "sleepy-soft-landing",
+      "emotion": "peaceful-reassurance",
+      "generation_profile_id": "yoyo-celesta-bounce-emotional-rearrangement",
+      "motif_preservation_mode": "inpaint-after-canonical-motif",
+      "preserved_motif_seconds": 2.26,
+      "profile_id": "yoyo-music-profile",
+      "motif_id": "yoyo-main-motif",
+      "motif_revision": "3-character-derived",
+      "character_basis": {
+        "traits": [
+          "older-child",
+          "energetic",
+          "low-grounded-direct",
+          "brisk-stop-start",
+          "playful-physical-comedy"
+        ],
+        "musical_translation": "low-mid detached rhythmic riff with two bounces, a jump, a tumble, a rebound, and a firm landing",
+        "character_profile": {
+          "path": "characters/yoyo/character.yaml",
+          "sha256": "3652c00afc9870218967f3844b657de70ffd9e293670fe94b6d1688fbe8745b0"
+        },
+        "voice_profile": {
+          "path": "characters/yoyo/voice-profile.yaml",
+          "sha256": "f394389ab353762f3b80b32324768e1952ba939b62730a04d7f128e43e1bb545"
+        }
+      },
+      "motif_path": "assets/music/characters/yoyo/leitmotif.wav",
+      "path": "assets/music/characters/yoyo/variations/calm-leitmotif.wav",
+      "prompt_key": "calm_ending",
+      "prompt": "This is Yoyo's music only. Keep bright warm celesta unmistakably in front, in a grounded low-middle register, with short detached notes and an obvious two-bounce penguin rhythm. Supporting color must emphasize dry wooden marimba, rounded pizzicato strings, brisk muted ukulele, tiny shaker ticks, and occasional airy flute. The emotional center is cheerful curiosity: every version must retain the repeated opening bounce, immediate perfect-fifth jump, quick descending slide, cheeky rebound, and low comic landing. Use crisp stop-and-start spacing and sparkling playful motion rather than flowing sentimentality. Target feeling: sleepy-soft-landing. Target emotion: peaceful-reassurance. Create a calm bedtime-style ending for Yoyo at about 70 BPM using soft celesta, warm clarinet, gentle strings, and very light marimba. Slow the established seven-note motif while retaining its two opening bounces, early jump, slide, rebound, and home-note landing; resolve with a quiet plagal cadence and major-add-six warmth. Make the ending soothing, reassuring, spacious, and suitable for a preschool episode close. The opening audio is the character's locked canonical leitmotif. Keep that complete opening melody unchanged, then continue and answer it in the requested emotional arrangement. Reuse recognizable fragments of its exact note order, rhythm, and contour in the generated continuation. Instrumental underscore only, with no singing, speech, vocalizations, lyrics, sound effects, or environmental ambience. Keep the arrangement uncluttered and preschool-safe, state the character motif clearly near the beginning, and finish at a musically compatible loop point.",
+      "seed": 8306,
+      "cfg": 4.6,
+      "init_noise_level": 0.64,
+      "status": "skipped-existing",
+      "wav": {
+        "channels": 2,
+        "sample_rate_hz": 48000,
+        "sample_width_bytes": 3,
+        "frames": 384000,
+        "duration_seconds": 8.0,
+        "bytes": 2304080,
+        "sha256": "aa98438c14d265a66d908ca7e60c93bf3cc4121893090688715c171317675ddb"
+      }
+    }
+  ],
+  "source_profiles": [
+    {
+      "character": "riri",
+      "path": "src/lpw/context/projects/riri-yoyo/characters/riri/music-profile.yaml",
+      "profile_id": "riri-music-profile",
+      "sha256": "7052fa3017e5469ab710f28c7c2c0dee1347e6d2b95a37190407245b3cd9200a"
+    },
+    {
+      "character": "yoyo",
+      "path": "src/lpw/context/projects/riri-yoyo/characters/yoyo/music-profile.yaml",
+      "profile_id": "yoyo-music-profile",
+      "sha256": "6b973357a60c5c9ea4a748b6ef35b55a29086ca8c612483ac60753c28f4f6530"
+    }
+  ]
+}

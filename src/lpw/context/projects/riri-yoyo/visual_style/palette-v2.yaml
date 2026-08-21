@@ -1,0 +1,663 @@
+# FILE NAME: color-palette.yaml
+# Master project palette rebuilt from the new high-resolution scene references.
+
+id: riri-yoyo-palette-v2
+type: color-palette-context
+version: 2
+status: approved
+
+metadata:
+  file_name: palette-v2.yaml
+  version: '2.0'
+  palette_role: master_project_color_palette
+  canonical: true
+  source_reference: six_new_high_resolution_location_images
+  scope: whole_project
+  character_specific: false
+  extraction_method: consolidated_from_repeated_midtone_colors_across_new_scene_references
+  core_rule: Use these colors as the project's shared visual language. Lighting may alter rendered pixels, but must not redefine
+    canonical surface colors.
+project_color_identity:
+  overall_feel:
+  - warm
+  - sunny
+  - storybook
+  - playful
+  - natural
+  - welcoming
+  - preschool_friendly
+  - richer_than_soft_pastel
+  - high_color_clarity
+  dominant_temperature: warm_golden_with_fresh_blue_and_green_counterbalance
+  global_contrast: medium
+  saturation: moderate_to_rich
+  white_behavior: warm_cream_not_pure_white
+  dark_behavior: deep_natural_brown_charcoal_or_navy_not_pure_black
+canonical_palette:
+  storybook_cream:
+    color_name: Storybook Cream
+    hex: '#F7EFE0'
+    rgb:
+      r: 247
+      g: 239
+      b: 224
+    usage:
+    - large_light_surfaces
+    - walls
+    - stone
+    - background_balance
+    surface_or_material: multi_material
+    priority: identity_critical
+  sunlit_ivory:
+    color_name: Sunlit Ivory
+    hex: '#F2D3A4'
+    rgb:
+      r: 242
+      g: 211
+      b: 164
+    usage:
+    - architecture
+    - interior_walls
+    - soft_neutral_surfaces
+    surface_or_material: multi_material
+    priority: identity_critical
+  sandstone_beige:
+    color_name: Sandstone Beige
+    hex: '#E1A982'
+    rgb:
+      r: 225
+      g: 169
+      b: 130
+    usage:
+    - stone
+    - paths
+    - architecture
+    - neutral_warm_surfaces
+    surface_or_material: multi_material
+    priority: important
+  soft_peach:
+    color_name: Soft Peach
+    hex: '#ECB299'
+    rgb:
+      r: 236
+      g: 178
+      b: 153
+    usage:
+    - walls
+    - fabric
+    - decor
+    - play_spaces
+    surface_or_material: multi_material
+    priority: identity_critical
+  warm_salmon:
+    color_name: Warm Salmon
+    hex: '#DF7768'
+    rgb:
+      r: 223
+      g: 119
+      b: 104
+    usage:
+    - decor
+    - flowers
+    - painted_accents
+    - play_elements
+    surface_or_material: multi_material
+    priority: identity_critical
+  rose_pink:
+    color_name: Rose Pink
+    hex: '#DB888E'
+    rgb:
+      r: 219
+      g: 136
+      b: 142
+    usage:
+    - play_spaces
+    - soft_furnishings
+    - decor
+    - flowers
+    surface_or_material: multi_material
+    priority: important
+  soft_lavender:
+    color_name: Soft Lavender
+    hex: '#B997BB'
+    rgb:
+      r: 185
+      g: 151
+      b: 187
+    usage:
+    - play_elements
+    - fabric
+    - decor
+    - small_accents
+    surface_or_material: multi_material
+    priority: important
+  fresh_mint:
+    color_name: Fresh Mint
+    hex: '#96B3A9'
+    rgb:
+      r: 150
+      g: 179
+      b: 169
+    usage:
+    - painted_wood
+    - fabric
+    - decor
+    - play_spaces
+    surface_or_material: multi_material
+    priority: important
+  clear_sky_blue:
+    color_name: Clear Sky Blue
+    hex: '#65BCF6'
+    rgb:
+      r: 101
+      g: 188
+      b: 246
+    usage:
+    - sky
+    - painted_accents
+    - play_elements
+    - cool_balance
+    surface_or_material: multi_material
+    priority: identity_critical
+  powder_sky:
+    color_name: Powder Sky
+    hex: '#BADCF4'
+    rgb:
+      r: 186
+      g: 220
+      b: 244
+    usage:
+    - soft_sky
+    - windows
+    - cool_neutral_accents
+    surface_or_material: multi_material
+    priority: important
+  sage_green:
+    color_name: Sage Green
+    hex: '#829965'
+    rgb:
+      r: 130
+      g: 153
+      b: 101
+    usage:
+    - soft_foliage
+    - painted_accents
+    - nature_support
+    surface_or_material: vegetation_or_painted_surface
+    priority: important
+  leaf_green:
+    color_name: Leaf Green
+    hex: '#5F7C57'
+    rgb:
+      r: 95
+      g: 124
+      b: 87
+    usage:
+    - trees
+    - shrubs
+    - garden_foliage
+    surface_or_material: vegetation
+    priority: identity_critical
+  meadow_green:
+    color_name: Meadow Green
+    hex: '#466525'
+    rgb:
+      r: 70
+      g: 101
+      b: 37
+    usage:
+    - grass
+    - deep_foliage
+    - park_landscape
+    surface_or_material: vegetation
+    priority: identity_critical
+  sunlit_olive:
+    color_name: Sunlit Olive
+    hex: '#8B8F20'
+    rgb:
+      r: 139
+      g: 143
+      b: 32
+    usage:
+    - sunlit_grass
+    - foliage_accents
+    - natural_transition
+    surface_or_material: vegetation
+    priority: supporting
+  butter_gold:
+    color_name: Butter Gold
+    hex: '#F4C761'
+    rgb:
+      r: 244
+      g: 199
+      b: 97
+    usage:
+    - play_elements
+    - sunlit_accents
+    - decor
+    - flowers
+    surface_or_material: multi_material
+    priority: identity_critical
+  apricot_orange:
+    color_name: Apricot Orange
+    hex: '#F09B51'
+    rgb:
+      r: 240
+      g: 155
+      b: 81
+    usage:
+    - warm_accents
+    - decor
+    - sunlit_materials
+    - play_elements
+    surface_or_material: multi_material
+    priority: identity_critical
+  terracotta:
+    color_name: Terracotta
+    hex: '#B86E44'
+    rgb:
+      r: 184
+      g: 110
+      b: 68
+    usage:
+    - roof_tiles
+    - clay
+    - flower_pots
+    - architectural_accents
+    surface_or_material: clay_or_painted_surface
+    priority: identity_critical
+  caramel_wood:
+    color_name: Caramel Wood
+    hex: '#AF6118'
+    rgb:
+      r: 175
+      g: 97
+      b: 24
+    usage:
+    - wood_furniture
+    - doors
+    - shelving
+    - trim
+    surface_or_material: wood
+    priority: identity_critical
+  cocoa_wood:
+    color_name: Cocoa Wood
+    hex: '#763F14'
+    rgb:
+      r: 118
+      g: 63
+      b: 20
+    usage:
+    - dark_wood
+    - structural_trim
+    - furniture_depth
+    surface_or_material: wood
+    priority: important
+  soft_charcoal:
+    color_name: Soft Charcoal
+    hex: '#464045'
+    rgb:
+      r: 70
+      g: 64
+      b: 69
+    usage:
+    - metal_details
+    - deep_neutral_accents
+    - small_contrast_anchors
+    surface_or_material: multi_material
+    priority: important
+playful_accent_palette:
+  bubblegum_rose:
+    color_name: Bubblegum Rose
+    hex: '#E46C74'
+    rgb:
+      r: 228
+      g: 108
+      b: 116
+    usage:
+    - toys
+    - cushions
+    - art_materials
+    - small_playful_accents
+    surface_or_material: multi_material
+    priority: supporting
+  tangerine:
+    color_name: Tangerine
+    hex: '#E59746'
+    rgb:
+      r: 229
+      g: 151
+      b: 70
+    usage:
+    - toys
+    - blocks
+    - small_high_energy_accents
+    surface_or_material: multi_material
+    priority: supporting
+  sunny_yellow:
+    color_name: Sunny Yellow
+    hex: '#EFCC63'
+    rgb:
+      r: 239
+      g: 204
+      b: 99
+    usage:
+    - toys
+    - flowers
+    - signage
+    - small_accents
+    surface_or_material: multi_material
+    priority: supporting
+  aqua_blue:
+    color_name: Aqua Blue
+    hex: '#7ECAFC'
+    rgb:
+      r: 126
+      g: 202
+      b: 252
+    usage:
+    - toys
+    - soft_furnishings
+    - painted_details
+    surface_or_material: multi_material
+    priority: supporting
+  violet_lilac:
+    color_name: Violet Lilac
+    hex: '#C8A8CD'
+    rgb:
+      r: 200
+      g: 168
+      b: 205
+    usage:
+    - toys
+    - fabric
+    - small_decorative_accents
+    surface_or_material: multi_material
+    priority: supporting
+nature_palette:
+  deep_tree_green:
+    color_name: Deep Tree Green
+    hex: '#344017'
+    rgb:
+      r: 52
+      g: 64
+      b: 23
+    usage:
+    - shadowed_foliage
+    - tree_canopies
+    - natural_depth
+    surface_or_material: vegetation
+    priority: important
+  fresh_grass_green:
+    color_name: Fresh Grass Green
+    hex: '#687324'
+    rgb:
+      r: 104
+      g: 115
+      b: 36
+    usage:
+    - grass
+    - sunlit_foliage
+    - park_surfaces
+    surface_or_material: vegetation
+    priority: important
+  spring_leaf:
+    color_name: Spring Leaf
+    hex: '#AEA235'
+    rgb:
+      r: 174
+      g: 162
+      b: 53
+    usage:
+    - sunlit_leaves
+    - flower_meadow_transitions
+    surface_or_material: vegetation
+    priority: supporting
+  tree_bark:
+    color_name: Tree Bark
+    hex: '#91562B'
+    rgb:
+      r: 145
+      g: 86
+      b: 43
+    usage:
+    - tree_trunks
+    - natural_wood
+    - outdoor_structure
+    surface_or_material: wood
+    priority: important
+lighting_and_atmosphere_palette:
+  canonical_surface_colors: false
+  note: These colors describe illumination and atmosphere only. Do not assign them as permanent material colors.
+  warm_daylight:
+    color_name: Warm Daylight
+    hex: '#F4E2AE'
+    rgb:
+      r: 244
+      g: 226
+      b: 174
+    usage:
+    - daylight
+    - sunlit_exteriors
+    - bright_interiors
+    surface_or_material: light
+    priority: important
+  golden_sunlight:
+    color_name: Golden Sunlight
+    hex: '#FDC453'
+    rgb:
+      r: 253
+      g: 196
+      b: 83
+    usage:
+    - golden_hour
+    - sunbeams
+    - warm_highlights
+    surface_or_material: light
+    priority: important
+  golden_hour_orange:
+    color_name: Golden Hour Orange
+    hex: '#FC984F'
+    rgb:
+      r: 252
+      g: 152
+      b: 79
+    usage:
+    - sunset_atmosphere
+    - warm_sky
+    - sunset_illumination
+    surface_or_material: light
+    priority: identity_critical
+  sunset_coral:
+    color_name: Sunset Coral
+    hex: '#F2795F'
+    rgb:
+      r: 242
+      g: 121
+      b: 95
+    usage:
+    - sunset_clouds
+    - warm_horizon
+    - evening_glow
+    surface_or_material: light
+    priority: identity_critical
+  sunset_rose:
+    color_name: Sunset Rose
+    hex: '#C36A6B'
+    rgb:
+      r: 195
+      g: 106
+      b: 107
+    usage:
+    - distant_sunset_shadows
+    - rose_evening_atmosphere
+    surface_or_material: light
+    priority: supporting
+  night_navy:
+    color_name: Night Navy
+    hex: '#0D2A70'
+    rgb:
+      r: 13
+      g: 42
+      b: 112
+    usage:
+    - night_sky
+    - deep_evening_atmosphere
+    surface_or_material: light_or_atmosphere
+    priority: identity_critical
+  deep_night_blue:
+    color_name: Deep Night Blue
+    hex: '#18408A'
+    rgb:
+      r: 24
+      g: 64
+      b: 138
+    usage:
+    - night_sky_gradient
+    - moonlit_environment
+    surface_or_material: light_or_atmosphere
+    priority: important
+  moon_blue:
+    color_name: Moon Blue
+    hex: '#375CAA'
+    rgb:
+      r: 55
+      g: 92
+      b: 170
+    usage:
+    - moonlit_fill
+    - night_rim_light
+    - cool_evening_accents
+    surface_or_material: light
+    priority: important
+  warm_window_glow:
+    color_name: Warm Window Glow
+    hex: '#DEAB6A'
+    rgb:
+      r: 222
+      g: 171
+      b: 106
+    usage:
+    - windows_at_night
+    - lamps
+    - safe_warm_practical_light
+    surface_or_material: light
+    priority: important
+scene_palette_presets:
+  day_exterior:
+    base:
+    - storybook_cream
+    - sunlit_ivory
+    - terracotta
+    - caramel_wood
+    nature:
+    - leaf_green
+    - meadow_green
+    - sage_green
+    accents:
+    - butter_gold
+    - warm_salmon
+    - clear_sky_blue
+    lighting:
+    - warm_daylight
+  classroom_interior:
+    base:
+    - sunlit_ivory
+    - sandstone_beige
+    - caramel_wood
+    accents:
+    - butter_gold
+    - apricot_orange
+    - warm_salmon
+    - fresh_mint
+    - clear_sky_blue
+    lighting:
+    - warm_daylight
+  play_space:
+    base:
+    - storybook_cream
+    - soft_peach
+    - caramel_wood
+    accents:
+    - rose_pink
+    - soft_lavender
+    - fresh_mint
+    - butter_gold
+    - aqua_blue
+    lighting:
+    - warm_daylight
+  nature_park:
+    base:
+    - sandstone_beige
+    - tree_bark
+    nature:
+    - deep_tree_green
+    - leaf_green
+    - meadow_green
+    - fresh_grass_green
+    - spring_leaf
+    accents:
+    - clear_sky_blue
+    - warm_salmon
+    - butter_gold
+    lighting:
+    - warm_daylight
+  sunset_golden_hour:
+    base:
+    - sandstone_beige
+    - terracotta
+    - tree_bark
+    - meadow_green
+    accents:
+    - apricot_orange
+    - warm_salmon
+    - butter_gold
+    lighting:
+    - golden_sunlight
+    - golden_hour_orange
+    - sunset_coral
+    - sunset_rose
+  evening_night:
+    base:
+    - soft_charcoal
+    - cocoa_wood
+    - leaf_green
+    lighting:
+    - night_navy
+    - deep_night_blue
+    - moon_blue
+    - warm_window_glow
+    rule: Keep warm practical lights localized so the scene remains calm, safe, and readable.
+palette_relationships:
+  dominant_family: warm_cream_gold_apricot
+  secondary_family: natural_green
+  cool_counterbalance: clear_sky_blue_mint_lavender
+  primary_playful_accent: warm_salmon
+  darkest_daytime_anchor: soft_charcoal
+  darkest_night_color: night_navy
+  lightest_surface_color: storybook_cream
+  highest_daytime_contrast_pair:
+  - storybook_cream
+  - soft_charcoal
+  highest_night_contrast_pair:
+  - night_navy
+  - warm_window_glow
+rendering_guidance:
+  surface_color_rule: Use canonical palette colors as material midtones, not literal final pixels.
+  highlights: Warm, clean, luminous; avoid clipping large areas to pure white.
+  shadows: Colored and readable; avoid crushed black.
+  day_saturation: Moderate to rich while remaining child-friendly.
+  nature_saturation: Fresh and lively, with layered green values rather than a single flat green.
+  interior_temperature: Warm golden neutral base with controlled colorful accents.
+  night_temperature: Deep blue environment with localized amber warmth.
+  golden_hour_behavior: Allow orange/coral lighting to dominate atmosphere without permanently recoloring surfaces.
+quality_control:
+  character_specific_colors_included: false
+  old_infographic_palette_used: false
+  new_high_resolution_scene_palette_used: true
+  canonical_surface_and_lighting_colors_separated: true
+  pure_black_required: false
+  pure_white_required: false
+  new_locations_should_inherit_this_palette: true
+  avoid_uncontrolled_neon_colors: true
+  avoid_muddy_low_saturation_color_grading: true

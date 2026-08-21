@@ -19,7 +19,7 @@ from qwen_tts import Qwen3TTSModel
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-CONTEXT_ROOT = PROJECT_ROOT / "src/lpw/context/projects/classroom"
+CONTEXT_ROOT = PROJECT_ROOT / "src/lpw/context/projects/riri-yoyo"
 MODEL_DIR = PROJECT_ROOT / "models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-Base"
 DEFAULT_OUTPUT = PROJECT_ROOT / "outputs/qwen3-tts/cloned-reference-auditions"
 PROFILES = {

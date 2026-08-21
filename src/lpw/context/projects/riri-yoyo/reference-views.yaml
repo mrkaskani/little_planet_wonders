@@ -1,0 +1,183 @@
+id: riri-yoyo-reference-views
+type: reference-view-requirements-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: required-design-review-and-single-frame-generation-reference-views
+
+source_authority:
+  references: references.yaml
+  asset_conventions: asset-conventions.yaml
+  wan_2_2: wan22-preproduction.yaml
+  characters:
+    riri: characters/riri/character.yaml
+    riri_v2_candidate: characters/riri/character-v2.yaml
+    yoyo: characters/yoyo/character.yaml
+    yoyo_v2_candidate: characters/yoyo/character-v2.yaml
+  locations: locations-assets.yaml
+  location_candidates:
+    kindergarten_interior_v2: locations/interiors/location-v2.yaml
+    kindergarten_play_space_v2: locations/play_spaces/location-v2.yaml
+    nature_park_v2: locations/nature_and_parks/location-v2.yaml
+    countryside_golden_hour_v2: locations/sunset_golden_hour/location-v2.yaml
+  props: assets/props.yaml
+  vehicles: assets/vehicles.yaml
+
+reference_classes:
+  design_review:
+    may-be-board-sheet-turnaround-or-collage: true
+    purpose: human-design-scale-material-anatomy-and-continuity-review
+    allowed-as-i2v-or-s2v-conditioning: false
+  generation_single_frame:
+    one-coherent-image: true
+    purpose: approved-visible-starting-state-for-i2v-ti2v-image-or-s2v
+    boards-sheets-collages: forbidden
+    text-labels-watermarks-and-duplicate-subjects: forbidden
+
+characters:
+  design_review_required:
+    - full-body-front
+    - full-body-three-quarter-front
+    - full-body-side
+    - full-body-back
+    - neutral-pose
+    - seated-pose
+    - characteristic-motion-pose
+    - expression-set
+    - canonical-color-regions
+    - two-character-scale-comparison
+  generation_frames_required_per-character:
+    i2v-neutral-full-body:
+      framing: full-body
+      view: front-or-three-quarter-front
+      pose: stable-neutral-action-ready
+      require:
+        - full-anatomy-and-ground-contact
+        - visible-paws-or-feet-and-contact-regions
+        - clear-silhouette
+        - movement-space
+        - simple-stable-background
+    s2v-neutral-full-body:
+      framing: full-body
+      view: front-or-three-quarter-front
+      pose: neutral-attentive
+      require:
+        - resting-or-closed-mouth-or-beak
+        - eyes-and-face-unobstructed
+        - gesture-space
+        - simple-stable-background
+    s2v-neutral-half-body:
+      framing: half-body
+      view: front-or-three-quarter-front
+      pose: neutral-attentive
+      require:
+        - complete-face-boundary
+        - resting-or-closed-mouth-or-beak
+        - eyes-highlights-muzzle-or-beak-and-cheeks-readable
+        - small-gesture-space
+  generation_frame_common:
+    aspect_ratio: "16:9"
+    minimum_pixel_dimensions: "1280x704"
+    preferred_review_dimensions: "1920x1080"
+    exact-one-character: true
+    clothing-and-accessories: none
+    props: none
+    text-logo-watermark: forbidden
+
+locations:
+  required_per_canonical_location:
+    - primary-master-view
+    - reverse-master-view
+    - primary-entrance-and-exit-view
+    - primary-landmark-view
+    - primary-action-area-view
+    - character-scale-reference-view
+    - approved-lighting-state-views
+    - clean-single-frame-i2v-master
+  design_review_rules:
+    - preserve-one-world-orientation-across-views
+    - show-fixed-landmark-count-and-relative-position
+    - show-navigation-and-safe-action-zones
+    - show-dimensions-or-scale-anchors-outside-generation-frame
+  generation_frame_rules:
+    - one-coherent-view
+    - exact-approved-geometry-and-landmark-count
+    - correct-aspect-ratio-and-movement-space
+    - no-characters-unless-the-reference-id-explicitly-authorizes-a-composite
+    - no-movable-unregistered-props
+    - no-text-signage-label-watermark-or-accidental-face
+  canonical_location_ids:
+    - kindergarten-exterior
+    - kindergarten-interior
+    - kindergarten-play-space
+    - nature-park
+    - countryside-golden-hour
+    - kindergarten-evening-night
+
+props:
+  required_when-registry-entry-exists:
+    - front
+    - side
+    - back
+    - three-quarter
+    - dimensions-and-character-scale
+    - orientation-and-part-map
+    - contact-and-interaction-view
+    - canonical-state
+    - each-approved-simple-state-variant
+    - clean-single-frame-i2v-start-state
+  current_registry_count: 0
+
+vehicles:
+  required_when-registry-entry-exists:
+    - front
+    - side
+    - back
+    - three-quarter
+    - top-or-plan
+    - dimensions-and-character-scale
+    - seating-entry-exit-and-contact
+    - orientation-and-moving-part-map
+    - canonical-state
+    - each-approved-simple-state-variant
+    - clean-single-frame-i2v-start-state
+  current_registry_count: 0
+
+materials_and_lighting:
+  required_review_examples:
+    - canonical-local-color-under-neutral-light
+    - approved-indoor-light-family
+    - approved-day-exterior-light-family
+    - approved-evening-night-light-family
+    - broad-material-response-without-micro-detail
+  direct-generation-use: only-when-registered-as-one-coherent-approved-frame
+
+registration_required_fields:
+  - reference-id
+  - entity-id
+  - reference-class
+  - view-or-framing
+  - version
+  - status
+  - source-path-or-null
+  - expected-path-when-missing
+  - sha256-when-file-exists
+  - aspect-ratio
+  - pixel-dimensions
+  - starting-pose-or-state
+  - movement-space
+  - background
+  - allowed-modes
+  - forbidden-modes
+  - known-limitations
+
+validation:
+  design-sheet-used-as-conditioning: reject
+  missing-approved-path: reject
+  wrong-subject-count: reject
+  wrong-aspect-ratio-or-dimensions: reject
+  text-logo-label-watermark-or-collage-in-generation-frame: reject
+  unapproved-version: reject

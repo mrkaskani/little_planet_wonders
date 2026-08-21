@@ -1,0 +1,75 @@
+id: riri-yoyo-project-owner-approvals-v001
+type: project-owner-approval-record
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  approval_date: 2026-08-20
+  reviewer: project-owner
+  evidence: direct-confirmation-in-current-codex-task
+  recorded_by: codex
+
+approved_visual_assets:
+  character-identity-sheets:
+    - riri-identity-sheet-v001
+    - yoyo-identity-sheet-v001
+  character-scale-reference:
+    - riri-yoyo-scale-comparison-v001
+  character-generation-frames:
+    - riri-neutral-full-body-v001
+    - riri-neutral-half-body-v001
+    - yoyo-neutral-full-body-v001
+    - yoyo-neutral-half-body-v001
+  location-primary-masters:
+    - kindergarten-exterior-primary-master-v001
+    - kindergarten-interior-primary-master-v001
+    - kindergarten-play-space-primary-master-v001
+    - nature-park-primary-master-v001
+    - countryside-golden-hour-primary-master-v001
+    - kindergarten-evening-night-primary-master-v001
+
+approved_audio_identity:
+  voice-cloning-reference-files:
+    riri:
+      - riri-neutral-friendly-v001
+      - riri-happy-gentle-v001
+      - riri-curious-v001
+      - riri-mild-concern-v001
+      - riri-reassuring-v001
+    yoyo:
+      - yoyo-neutral-friendly-v001
+      - yoyo-happy-gentle-v001
+      - yoyo-curious-v001
+      - yoyo-mild-concern-v001
+      - yoyo-reassuring-v001
+  listening-confirmations:
+    exactly-one-speaker-per-file: approved
+    stable-identity-within-character: approved
+    expected-apparent-age-and-gender-presentation: approved
+    pronunciation: approved
+    clean-background-and-silence: approved
+    artifact-cleanliness: approved
+    riri-yoyo-blind-distinguishability: approved
+    no-cross-character-identity-contamination: approved
+  music-identity:
+    riri-character-profile: approved
+    yoyo-character-profile: approved
+    shared-project-music-direction: approved
+  ambience-and-sound-effect-identity: approved
+
+scope_limits:
+  design-sheets-remain-review-only: true
+  voice-files-remain-cloning-references-not-final-s2v-dialogue: true
+  secondary-and-reverse-location-views-approved: false
+  production-shots-or-generated-video-approved: false
+  final-s2v-dialogue-approved: false
+
+remaining_actions:
+  - review-and-approve-or-reject-complete-kindergarten-interior-v2-package
+  - recover-missing-kindergarten-exterior-and-evening-night-v2-sources
+  - resolve-and-approve-or-reject-all-v2-candidate-packages
+  - promote-accepted-v2-packages-and-create-clean-location-generation-frames
+  - close-remaining-combined-preproduction-exit-gates
+  - rerun-strict-validation

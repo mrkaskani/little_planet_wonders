@@ -1,0 +1,1518 @@
+id: kindergarten-interior-sound
+type: location-sound-context
+version: 1.1
+name: Sunny Kindergarten Interior Sound Profile
+
+identity:
+  location: kindergarten
+  area: interior-classroom
+  category: location
+
+  sonic_identity:
+    primary:
+      - warm-classroom-room-tone
+      - soft-child-activity
+      - subtle-wooden-room-acoustics
+
+    secondary:
+      - gentle-ceiling-fan
+      - filtered-outdoor-birds
+      - soft-paper-and-pencil-activity
+      - wooden-chair-movement
+      - quiet-toy-interactions
+      - subtle-shelf-and-book-sounds
+
+  character:
+    - warm
+    - cheerful
+    - playful
+    - cozy
+    - educational
+    - gentle
+    - safe
+    - welcoming
+    - child-friendly
+
+  intensity: low-medium
+
+base_ambience:
+
+  id: sunny-kindergarten-classroom
+
+  layers:
+
+    room_tone:
+      type: warm-quiet-classroom
+      intensity: low
+      persistence: continuous
+      importance: high
+
+    ceiling_fan:
+      type: gentle-ceiling-fan
+      intensity: very-low
+      persistence: continuous
+      position: overhead-center
+
+    exterior_nature:
+      type: filtered-sunny-garden-ambience
+      intensity: very-low
+      persistence: continuous
+      position: windows-left
+
+    child_activity:
+      type: gentle-kindergarten-activity
+      intensity: low
+      persistence: conditional
+
+    furniture:
+      type: subtle-classroom-material-noise
+      intensity: very-low
+      persistence: intermittent
+
+recurring_details:
+
+  room_tone:
+    enabled: true
+    intensity: low
+    spatial_width: medium
+
+  ceiling_fan:
+    enabled: true
+    intensity: very-low
+    variation: minimal
+    spatial_position: overhead-center
+
+  filtered_birdsong:
+    enabled: true
+    intensity: very-low
+    position: windows-left
+    distance: exterior
+
+  filtered_leaf_rustle:
+    enabled: true
+    intensity: minimal
+    position: windows-left
+
+  children:
+    enabled: conditional
+    intensity: low
+    distance: variable
+
+    characteristics:
+      - gentle-laughter
+      - soft-chatter
+      - quiet-play
+      - occasional-excited-reaction
+      - simple-learning-activity
+
+  classroom_materials:
+    enabled: conditional
+    intensity: low
+
+    sounds:
+      - paper-rustle
+      - pencil-on-paper
+      - crayon-on-paper
+      - book-page-turn
+      - wooden-block-contact
+      - toy-placement
+
+room_acoustics:
+
+  character:
+    - warm
+    - soft
+    - lightly-reflective
+    - intimate
+
+  room_size: medium
+
+  reverberation:
+    amount: low
+    decay: short
+    clarity: high
+
+  absorption:
+    rug: medium
+    furniture: medium
+    books_and_soft_materials: medium
+    curtains_or_decor: low
+
+  reflective_surfaces:
+    windows: moderate
+    wooden_floor: moderate
+    walls: low-moderate
+
+  rules:
+    - dialogue must remain clear
+    - room must not sound cavernous
+    - avoid excessive echo
+    - avoid sterile studio silence
+    - preserve a warm lived-in classroom character
+
+windows:
+
+  position: left
+
+  state:
+    default: closed
+
+  exterior_transmission:
+
+    birds:
+      intensity: very-low
+
+    breeze:
+      intensity: minimal
+
+    foliage:
+      intensity: minimal
+
+    distant_children:
+      intensity: very-low
+      enabled: conditional
+
+  open_state:
+
+    ambience_change:
+      birds: slightly-increased
+      breeze: slightly-increased
+      foliage: slightly-increased
+      room_openness: increased
+
+  closed_state:
+
+    ambience_change:
+      exterior_filtering: strong
+      birds: very-low
+      wind: minimal
+
+  interaction:
+
+    open:
+      sound:
+        - soft-window-latch
+        - gentle-window-slide
+
+      intensity: low
+
+    close:
+      sound:
+        - gentle-window-slide
+        - soft-latch-click
+
+      intensity: low
+
+  rules:
+    - exterior sounds remain filtered when windows are closed
+    - outdoor ambience must remain spatially anchored to windows
+    - open windows must increase exterior detail gradually
+    - no sudden exterior ambience jump
+
+ceiling_fan:
+
+  id: classroom-ceiling-fan
+  position: overhead-center
+
+  state:
+    default: active
+
+  sound:
+    type: soft-electric-fan
+    intensity: very-low
+
+  characteristics:
+    - smooth
+    - gentle
+    - stable
+    - unobtrusive
+
+  movement:
+    speed: slow-medium
+
+  rules:
+    - no rattling
+    - no mechanical grinding
+    - no unstable motor noise
+    - fan sound must remain beneath dialogue
+    - fan speed and sound must match visible rotation
+
+classroom_activity:
+
+  default_state: calm-active
+
+  children:
+
+    quiet_learning:
+
+      sounds:
+        - pencil-on-paper
+        - crayon-on-paper
+        - page-turn
+        - quiet-whisper
+        - soft-chair-adjustment
+
+      intensity: low
+
+    free_play:
+
+      sounds:
+        - wooden-block-contact
+        - toy-placement
+        - gentle-laughter
+        - soft-footsteps
+        - quiet-conversation
+
+      intensity: low-medium
+
+    group_activity:
+
+      sounds:
+        - gentle-group-response
+        - soft-clapping
+        - quiet-laughter
+        - simple-spoken-reactions
+
+      intensity: medium-low
+
+    story_time:
+
+      sounds:
+        - page-turn
+        - subtle-body-movement
+        - quiet-child-reactions
+
+      intensity: low
+
+    art_activity:
+
+      sounds:
+        - crayon-on-paper
+        - pencil-on-paper
+        - paper-rustle
+        - small-object-placement
+        - container-movement
+
+      intensity: low
+
+  teacher:
+
+    presence:
+      enabled: scene-dependent
+
+    sounds:
+      - soft-footsteps
+      - book-handling
+      - paper-handling
+      - gentle-object-placement
+
+  rules:
+    - child activity must remain positive
+    - avoid constant talking
+    - avoid chaotic overlapping voices
+    - avoid continuous screaming
+    - avoid harsh shouting
+    - preserve clear narrative foreground
+    - background speech remains indistinct unless scripted
+
+furniture:
+
+  material:
+    primary: wood
+
+  tables:
+
+    interaction:
+
+      touch:
+        sound: soft-wood-contact
+
+      object_place:
+        sound: gentle-object-on-wood
+
+      object_slide:
+        sound: subtle-object-slide
+
+    intensity: low
+
+  chairs:
+
+    movement:
+
+      adjust:
+        sound: soft-wood-chair-movement
+        intensity: low
+
+      pull:
+        sound: gentle-chair-slide
+        intensity: low
+
+      push:
+        sound: gentle-chair-slide
+        intensity: low
+
+    rules:
+      - avoid harsh scraping
+      - movement should reflect child-sized furniture
+      - furniture should sound lightweight but stable
+
+  shelves:
+
+    interaction:
+
+      book_remove:
+        sound:
+          - soft-book-slide
+          - subtle-shelf-contact
+
+      book_replace:
+        sound:
+          - gentle-book-contact
+          - soft-shelf-touch
+
+      toy_remove:
+        sound: small-object-movement
+
+      toy_replace:
+        sound: gentle-toy-placement
+
+    intensity: low
+
+floor:
+
+  material: wooden-floor
+
+  acoustic_character:
+    - warm
+    - dry
+    - slightly-resonant
+    - clean
+
+  footsteps:
+
+    children:
+
+      walk:
+        intensity: low
+        character:
+          - light
+          - small
+          - soft
+
+      run:
+        intensity: medium-low
+        character:
+          - quick
+          - light
+          - controlled
+
+      skip:
+        intensity: low-medium
+
+    adults:
+
+      walk:
+        intensity: low-medium
+        character:
+          - soft
+          - controlled
+
+  rug:
+
+    position: play-area
+
+    footsteps:
+      intensity: very-low
+      character:
+        - muted
+        - soft
+
+    toy_interaction:
+      intensity: low
+      character:
+        - soft
+        - damped
+
+  rules:
+    - footsteps must reflect character size
+    - children should sound lighter than adults
+    - avoid heavy cinematic footfalls
+    - rug contact should significantly soften movement
+    - running must remain appropriate for an indoor classroom
+
+toys:
+
+  general:
+
+    material_character:
+      - wood
+      - soft-plastic
+      - paper
+      - fabric
+
+    intensity: low
+
+  wooden_blocks:
+
+    sounds:
+      pick_up: soft-wood-contact
+      place: gentle-wood-tap
+      stack: light-wood-click
+      fall: small-block-tumble
+
+    rules:
+      - avoid exaggerated cartoon impacts
+      - block falls remain lightweight
+      - scale sound to child-sized objects
+
+  toy_boxes:
+
+    sounds:
+      open: subtle-container-movement
+      close: gentle-container-close
+      search: soft-toy-rummage
+
+    intensity: low
+
+  educational_toys:
+
+    sounds:
+      interaction:
+        - gentle-piece-placement
+        - light-object-click
+        - soft-object-slide
+
+    intensity: low
+
+books_and_paper:
+
+  books:
+
+    interaction:
+
+      open:
+        sound: soft-cover-open
+
+      close:
+        sound: gentle-book-close
+
+      page_turn:
+        sound: soft-page-turn
+
+      place:
+        sound: soft-book-on-wood
+
+  paper:
+
+    interaction:
+
+      handle:
+        sound: gentle-paper-rustle
+
+      draw:
+        sound:
+          - pencil-on-paper
+          - crayon-on-paper
+
+      fold:
+        sound: soft-paper-fold
+
+  intensity: low
+
+  rules:
+    - paper sounds should remain delicate
+    - writing sounds become more prominent in close shots
+    - avoid excessive Foley detail during dialogue
+
+art_materials:
+
+  pencils:
+    sound: light-pencil-on-paper
+
+  crayons:
+    sound: soft-waxy-crayon-on-paper
+
+  markers:
+    sound: subtle-marker-on-paper
+
+  cups:
+    interaction:
+      move:
+        sound: gentle-container-contact
+
+  craft_objects:
+    interaction:
+      sound:
+        - small-object-placement
+        - soft-paper-contact
+        - subtle-plastic-click
+
+  intensity: low
+
+plants:
+
+  position:
+    - windows-left
+    - shelves
+    - room-edges
+
+  sound:
+    primary: none
+
+  interaction:
+
+    touch:
+      sound: very-soft-leaf-contact
+
+    move:
+      sound: subtle-plant-rustle
+
+  intensity: minimal
+
+classroom_door:
+
+  id: kindergarten-classroom-door
+
+  state:
+    default: closed
+
+  open:
+
+    sound:
+      - soft-handle-click
+      - gentle-wooden-door-movement
+
+    intensity: low
+
+  close:
+
+    sound:
+      - gentle-wooden-door-close
+      - soft-latch
+
+    intensity: low
+
+  open_ambience:
+
+    hallway:
+      enabled: conditional
+      intensity: very-low
+
+    exterior:
+      enabled: conditional
+      intensity: very-low
+
+  rules:
+    - avoid door slams
+    - avoid loud latch sounds
+    - preserve consistent door character across scenes
+    - opening door may reveal neighboring ambience gradually
+
+fixed_sources:
+
+  ceiling_fan:
+
+    id: classroom-ceiling-fan
+    position: overhead-center
+
+    sound:
+      type: soft-fan-hum
+      intensity: very-low
+
+    continuity:
+      continuous: true
+
+  windows:
+
+    id: classroom-windows
+    position: left
+
+    sound:
+      type: filtered-exterior-garden
+      intensity: very-low
+
+    continuity:
+      continuous: true
+
+  classroom_door:
+
+    id: classroom-door
+    position: scene-dependent
+
+    sound:
+      primary: none
+
+  play_area:
+
+    id: classroom-play-area
+    position: right-foreground
+
+    sound:
+      primary: none
+
+    interaction:
+      - wooden-blocks
+      - educational-toys
+      - rug-footsteps
+
+  work_tables:
+
+    id: classroom-work-tables
+    position:
+      - left-center
+      - center
+
+    sound:
+      primary: none
+
+    interaction:
+      - chairs
+      - drawing-materials
+      - books
+      - paper
+      - small-toys
+
+  shelves:
+
+    id: classroom-storage
+    position:
+      - back
+      - right
+      - left
+
+    sound:
+      primary: none
+
+    interaction:
+      - books
+      - toy-containers
+      - learning-materials
+
+interaction_sounds:
+
+  footsteps:
+
+    wooden_floor:
+
+      walk:
+        intensity: low
+        character: light-wood-footstep
+
+      run:
+        intensity: medium-low
+        character: quick-light-wood-footstep
+
+    rug:
+
+      walk:
+        intensity: very-low
+        character: soft-muted-step
+
+      run:
+        intensity: low
+        character: muted-quick-step
+
+  chair:
+
+    pull:
+      sound: gentle-chair-slide
+
+    push:
+      sound: gentle-chair-slide
+
+    sit:
+      sound: subtle-chair-contact
+
+  table:
+
+    touch:
+      sound: soft-wood-contact
+
+    object_place:
+      sound: gentle-table-contact
+
+  blocks:
+
+    pick_up:
+      sound: soft-block-contact
+
+    stack:
+      sound: gentle-block-click
+
+    fall:
+      sound: small-block-tumble
+
+  books:
+
+    open:
+      sound: soft-book-open
+
+    page_turn:
+      sound: gentle-page-turn
+
+    close:
+      sound: soft-book-close
+
+  drawing:
+
+    pencil:
+      sound: light-pencil-on-paper
+
+    crayon:
+      sound: soft-crayon-on-paper
+
+  toy_bin:
+
+    search:
+      sound: subtle-toy-rummage
+
+    close:
+      sound: gentle-container-close
+
+  rules:
+    - interaction sounds occur only when physically motivated
+    - avoid excessive Foley
+    - preserve material consistency
+    - maintain child-scale object weight
+    - important story actions may temporarily increase detail
+
+spatial_audio:
+
+  enabled: true
+
+  listener_reference: camera
+
+  sources:
+
+    windows:
+      position: left
+      sound:
+        - filtered-birds
+        - filtered-foliage
+        - subtle-outdoor-breeze
+
+    ceiling:
+      position: overhead-center
+      sound:
+        - ceiling-fan
+
+    play_area:
+      position: right-foreground
+      sound:
+        - toy-interactions
+        - rug-movement
+
+    work_tables:
+      position: center-left
+      sound:
+        - paper
+        - pencils
+        - chair-movement
+
+    shelves:
+      position: back-and-sides
+      sound:
+        - book-interactions
+        - toy-storage-interactions
+
+  rules:
+    - physical sources remain spatially anchored
+    - camera movement changes listener perspective
+    - exterior ambience remains anchored to windows
+    - ceiling fan remains overhead
+    - character-generated sounds follow character movement
+    - do not reposition fixed sounds arbitrarily between shots
+
+camera_audio_behavior:
+
+  establishing_wide:
+
+    ambience_width: wide
+
+    emphasis:
+      room_tone: normal
+      classroom_activity: normal
+      filtered_exterior: normal
+      ceiling_fan: subtle
+
+    individual_detail_sfx: reduced
+
+  medium_shot:
+
+    ambience_width: medium
+
+    environmental_detail: normal
+
+    nearby_character_activity: slightly-increased
+
+  activity_medium:
+
+    ambience_width: medium
+
+    emphasis:
+      nearby-toys: increased
+      furniture: increased
+      footsteps: increased
+
+  close_up:
+
+    ambience_width: reduced
+
+    emphasis:
+      nearby-hand-actions: increased
+      paper: increased
+      toy-interactions: increased
+      character-movement: increased
+
+    background_activity: reduced
+
+  emotional_close_up:
+
+    ambience_width: reduced
+
+    classroom_activity: reduced
+    room_tone: preserved
+    filtered_exterior: very-subtle
+
+  window_shot:
+
+    ambience_width: medium-wide
+
+    exterior_presence: slightly-increased
+
+    emphasis:
+      birds: increased
+      foliage: increased
+      breeze: slightly-increased
+
+  rules:
+    - perspective changes must be gradual
+    - underlying room tone remains continuous
+    - shot cuts do not restart ambience
+    - foreground Foley follows camera proximity
+    - close shots reduce irrelevant background detail
+
+dialogue:
+
+  priority: highest
+
+  ambience_behavior:
+
+    during_dialogue:
+
+      volume: low-beneath-dialogue
+
+      reduction:
+        children: moderate
+        toys: moderate
+        furniture: moderate
+        exterior_birds: slight
+        ceiling_fan: slight
+        room_tone: minimal
+
+    between_dialogue:
+
+      volume: normal-low
+
+  background_voice:
+
+    intelligibility: indistinct
+    intensity: very-low-low
+
+  rules:
+    - foreground dialogue remains fully intelligible
+    - background children must not produce understandable competing sentences
+    - room tone must remain present
+    - do not completely mute classroom identity
+    - reduce repetitive sounds during important dialogue
+    - restore activity smoothly after dialogue
+
+music_relationship:
+
+  music_profile: kindergarten-music
+
+  priority:
+    - dialogue
+    - important-story-sfx
+    - character-action
+    - classroom-interaction
+    - location-ambience
+    - music
+
+  rules:
+    - music must support rather than replace classroom ambience
+    - dialogue always remains clear
+    - important educational interactions remain audible
+    - music must not compete with child voices
+    - music should preserve warm playful kindergarten identity
+    - ambience continues beneath music transitions
+
+states:
+
+  empty:
+
+    id: kindergarten-interior-empty
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      exterior_birds: very-low
+      exterior_foliage: minimal
+
+    purpose:
+      - establishing-shot
+      - before-class
+      - after-class
+
+  default:
+
+    id: kindergarten-interior-default
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      exterior_birds: very-low
+      child_activity: low
+      classroom_materials: very-low
+
+  quiet_learning:
+
+    id: kindergarten-quiet-learning
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      child_activity: very-low
+
+    details:
+      paper: low
+      pencils: low
+      crayons: low
+      page_turns: very-low
+      chair_movements: very-low
+
+  free_play:
+
+    id: kindergarten-free-play
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      child_activity: low-medium
+
+    details:
+      toys: medium-low
+      footsteps: low
+      laughter: low
+      furniture: very-low
+
+  story_time:
+
+    id: kindergarten-story-time
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      child_activity: minimal
+
+    details:
+      page_turns: low
+      subtle_child_reactions: very-low
+
+  art_activity:
+
+    id: kindergarten-art-activity
+
+    layers:
+      room_tone: low
+      child_activity: low
+
+    details:
+      crayons: low
+      pencils: low
+      paper: low
+      small_object_interaction: low
+
+  dialogue:
+
+    id: kindergarten-interior-dialogue
+
+    layers:
+      room_tone: low
+      ceiling_fan: minimal
+      exterior_birds: minimal
+      child_activity: very-low
+
+    rules:
+      - foreground dialogue dominates
+      - classroom identity remains perceptible
+
+  quiet:
+
+    id: kindergarten-interior-quiet
+
+    layers:
+      room_tone: low
+      ceiling_fan: very-low
+      exterior_birds: very-low
+
+    purpose:
+      - calm-moment
+      - reflection
+      - observation
+      - emotional-focus
+
+  arrival:
+
+    id: kindergarten-interior-arrival
+
+    temporary_sources:
+      - classroom-door
+      - footsteps
+      - chair-movement
+
+    transition:
+      exterior_to_interior: gradual
+
+  departure:
+
+    id: kindergarten-interior-departure
+
+    temporary_sources:
+      - footsteps
+      - classroom-door
+
+transitions:
+
+  entering_classroom:
+
+    behavior:
+      - reduce-exterior-garden-width
+      - filter-birds-and-foliage
+      - introduce-warm-room-tone
+      - introduce-ceiling-fan
+      - introduce-classroom-activity-if-active
+      - preserve-exterior-through-open-door
+      - close-exterior-perspective-after-door-closes
+
+  leaving_classroom:
+
+    behavior:
+      - introduce-exterior-before-full-exit
+      - increase-bird-presence
+      - increase-foliage-presence
+      - expand-spatial-width
+      - gradually-reduce-room-tone
+
+  approaching_window:
+
+    behavior:
+      - slightly-increase-birds
+      - slightly-increase-foliage
+      - slightly-increase-exterior-spatial-detail
+
+  moving_away_from_window:
+
+    behavior:
+      - gradually-filter-exterior
+      - restore-interior-dominance
+
+  shot_cut:
+
+    behavior:
+      ambience: continuous
+      environment_state: preserved
+
+    rules:
+      - preserve room tone
+      - preserve fan phase
+      - preserve classroom activity state
+      - preserve exterior ambience timing
+      - do not restart environmental layers
+
+continuity:
+
+  preserve_across_visual_cuts: true
+
+  do_not_restart_on_each_shot: true
+
+  continuous_layers:
+    - room-tone
+    - ceiling-fan
+    - filtered-exterior-ambience
+
+  conditional_continuous_layers:
+    - child-activity
+    - classroom-learning-activity
+
+  preserve_state:
+    - classroom-occupancy
+    - activity-mode
+    - ceiling-fan-state
+    - window-state
+    - door-state
+    - exterior-weather-state
+    - exterior-ambience-level
+    - character-positions
+    - active-object-interactions
+
+  rules:
+    - classroom ambience belongs to the scene timeline
+    - cuts must not reset room ambience
+    - fan sound remains continuous while fan is active
+    - background children continue naturally across cuts
+    - objects remain sonically consistent between shots
+    - exterior ambience remains consistent with kindergarten exterior
+    - activity changes require narrative or physical motivation
+
+event_memory:
+
+  track:
+    - classroom-door-state
+    - window-state
+    - ceiling-fan-state
+    - classroom-occupancy
+    - current-classroom-activity
+    - chair-positions
+    - active-toys
+    - moved-books
+    - temporary-sound-events
+
+  examples:
+
+    classroom_door:
+      states:
+        - closed
+        - opening
+        - open
+        - closing
+
+    windows:
+      states:
+        - closed
+        - opening
+        - open
+        - closing
+
+    ceiling_fan:
+      states:
+        - off
+        - starting
+        - active
+        - stopping
+
+    classroom_activity:
+      states:
+        - empty
+        - quiet-learning
+        - art-activity
+        - story-time
+        - free-play
+        - dialogue
+        - transition
+
+priority_system:
+
+  level_1:
+    category: dialogue
+
+  level_2:
+    category: narrative-action
+
+    examples:
+      - important-object-interaction
+      - door
+      - story-action
+
+  level_3:
+    category: character-action
+
+    examples:
+      - footsteps
+      - chair-movement
+      - toy-use
+      - drawing
+      - book-use
+
+  level_4:
+    category: classroom-identity
+
+    examples:
+      - child-activity
+      - room-tone
+      - learning-materials
+
+  level_5:
+    category: environmental-background
+
+    examples:
+      - ceiling-fan
+      - filtered-birds
+      - foliage
+
+  level_6:
+    category: music
+
+volume:
+
+  overall: low-beneath-dialogue
+
+  relative_levels:
+
+    dialogue:
+      level: foreground
+
+    narrative_sfx:
+      level: foreground-support
+
+    character_interactions:
+      level: foreground-support
+
+    nearby_classroom_activity:
+      level: background-support
+
+    child_background_activity:
+      level: background
+
+    room_tone:
+      level: background
+
+    ceiling_fan:
+      level: very-subtle-background
+
+    exterior_birds:
+      level: distant-background
+
+    exterior_foliage:
+      level: very-distant-background
+
+forbidden:
+
+  children:
+    - prolonged-screaming
+    - chaotic-yelling
+    - aggressive-shouting
+    - bullying
+    - panic
+    - frightening-crying
+    - uncontrolled-crowd-noise
+
+  classroom:
+    - harsh-chair-scraping
+    - heavy-object-impacts
+    - breaking-glass
+    - violent-door-slams
+    - aggressive-toy-impacts
+    - excessive-room-echo
+
+  mechanical:
+    - fan-rattling
+    - electrical-buzzing
+    - harsh-fluorescent-hum
+    - machinery
+    - construction-noise
+    - harsh-alarms
+
+  exterior:
+    - heavy-traffic
+    - aggressive-horns
+    - sirens
+    - thunder
+    - storms
+    - violent-wind
+
+  emotional:
+    - horror-drones
+    - ominous-rumbles
+    - jump-scare-effects
+    - suspense-stingers
+    - threatening-low-frequency-effects
+
+negative_constraints:
+
+  - no harsh alarms
+  - no frightening sounds
+  - no chaotic child screaming
+  - no aggressive shouting
+  - no excessive room echo
+  - no harsh chair scraping
+  - no heavy cinematic footsteps
+  - no exaggerated toy impacts
+  - no excessive Foley
+  - no mechanical fan rattling
+  - no storm ambience
+  - no heavy traffic
+  - no horror ambience
+  - no ominous drones
+  - no unnecessary cinematic impacts
+  - no sudden ambience resets
+  - no background sound competing with dialogue
+  - no environmental sound contradicting sunny exterior conditions
+
+generation:
+
+  essential_prompt_tokens:
+    - warm sunny kindergarten classroom ambience
+    - cozy preschool interior
+    - gentle classroom room tone
+    - soft child activity
+    - light wooden furniture sounds
+    - subtle paper and drawing sounds
+    - gentle wooden toy interactions
+    - quiet ceiling fan
+    - filtered garden birds through windows
+    - warm natural indoor acoustics
+    - calm playful educational environment
+    - preschool ages 3 to 6
+    - dialogue-friendly
+    - continuous ambience
+
+  negative_prompt_tokens:
+    - screaming children
+    - chaotic classroom
+    - harsh chair scraping
+    - loud impacts
+    - alarm
+    - storm
+    - thunder
+    - heavy traffic
+    - mechanical rattling
+    - strong electrical hum
+    - horror ambience
+    - ominous drone
+    - exaggerated cartoon sounds
+    - cinematic impacts
+
+  preserve_between_generations:
+    - room-tone-character
+    - room-acoustic-character
+    - ceiling-fan-character
+    - filtered-exterior-character
+    - classroom-activity-level
+    - wooden-material-character
+    - overall-volume
+    - spatial-source-layout
+
+  variation_allowed:
+    - individual-page-turns
+    - individual-pencil-strokes
+    - subtle-child-movement
+    - individual-toy-interactions
+    - gentle-chair-adjustments
+    - individual-bird-chirps
+    - small-classroom-textures
+
+stems:
+
+  preferred: true
+
+  tracks:
+    - room-tone
+    - ceiling-fan
+    - filtered-exterior
+    - background-children
+    - footsteps
+    - furniture
+    - books-and-paper
+    - art-materials
+    - toys
+    - door-and-window
+    - interaction-sfx
+    - full-ambience-mix
+
+  purpose:
+    - dialogue-mixing
+    - activity-state-control
+    - adaptive-level-control
+    - spatial-repositioning
+    - shot-continuity
+    - scene-extension
+    - exterior-interior-transition
+
+validation:
+
+  environment_checks:
+    - room sounds like a warm kindergarten classroom
+    - exterior ambience is filtered through windows
+    - ceiling fan matches visible state
+    - wooden furniture retains consistent material character
+    - classroom acoustics remain soft and intimate
+
+  continuity_checks:
+    - room tone does not restart after cuts
+    - ceiling fan remains continuous
+    - child activity remains consistent
+    - door and window states remain consistent
+    - object sounds retain material identity
+    - exterior ambience matches kindergarten exterior profile
+
+  dialogue_checks:
+    - foreground speech remains fully intelligible
+    - child background chatter remains indistinct
+    - toy activity does not mask dialogue
+    - ceiling fan remains unobtrusive
+    - repetitive background sounds reduce during important dialogue
+
+  activity_checks:
+    - learning activity sounds match visible actions
+    - toy sounds occur only during interaction
+    - footsteps match visible floor surface
+    - rug movement sounds softer than wooden-floor movement
+    - chair movements correspond to physical chair movement
+
+  emotional_checks:
+    - classroom remains warm
+    - classroom remains cheerful
+    - classroom remains safe
+    - soundscape remains gentle
+    - no unintended fear is introduced
+    - no unintended suspense is introduced
+
+  preschool_checks:
+    - soundscape remains appropriate for ages 3-6
+    - sudden loud sounds are minimized
+    - individual sounds are clear but not overstimulating
+    - background activity remains controlled
+    - playful sounds remain gentle
+    - educational activity remains understandable
+    - overall environment supports calm playful attention
+
+context_dependencies:
+
+  location:
+    source: location.yaml
+
+  exterior_location:
+    source: ../exteriors/location.yaml
+
+  music:
+    source: music-profile.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scenes:
+    source: ../../03-scenes/
+
+  editing:
+    source: ../../editing/
+
+authority:
+
+  location_ambience: this-file
+  interior_room_tone: this-file
+  classroom_interaction_sfx: this-file
+  classroom_material_audio: this-file
+  fixed_source_audio: this-file
+  spatial_audio_layout: this-file
+  ambience_continuity: this-file
+  interior_exterior_audio_transition: this-file
+
+  physical_geometry: location-context
+  exterior_environment: exterior-location-context
+  weather_visual_state: exterior-location-context
+  music_identity: location-music-context
+  character_voice: character-context
+  dialogue_content: scene-context
+  narrative_sound_events: scene-context
+  final_mix: editing-context

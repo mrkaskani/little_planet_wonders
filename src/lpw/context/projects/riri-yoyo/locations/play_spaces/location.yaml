@@ -1,0 +1,169 @@
+id: kindergarten-play-space
+type: location-context
+version: 2
+status: approved-primary-master-secondary-views-open
+name: Kindergarten Indoor Play Space
+
+metadata:
+  project_id: riri-yoyo
+  folder_id: play_spaces
+  category: activity-room
+  reusable: true
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+
+source_authority:
+  project: ../../project.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+  palette: ../../visual_style/palette-v2.yaml
+  lighting: ../../visual_style/lighting.yaml
+  materials: ../../visual_style/materials.yaml
+  wan_2_2: ../../wan22-preproduction.yaml
+  asset_registry: ../../locations-assets.yaml
+  sound_profile: sound-profile.yaml
+  music_profile: music-profile.yaml
+
+identity:
+  summary: soft-playful-imaginative-cozy-indoor-play-space
+  emotional_character:
+    - playful
+    - safe
+    - imaginative
+    - soft
+    - welcoming
+  default_time_of_day: interior-day
+  palette_preset: play_space
+  material_family:
+    - broad-soft-fabric
+    - child-safe-foam-and-rubber
+    - rounded-painted-wood
+    - clean-solid-color-plastic
+
+known_landmark_roles:
+  - soft-play-zone
+  - small-playhouse
+  - cushion-or-beanbag-zone
+  - toy-storage-zone
+  - clear-entry-and-exit
+
+geometry:
+  approval_state: locked-to-kindergarten-play-space-primary-master-v001
+  rule: do-not-invent-playhouse-layout-or-equipment-placement-before-reference-approval
+  preserve_after_approval:
+    - room-proportions
+    - playhouse-position-and-scale
+    - soft-play-zone-boundaries
+    - entry-and-exit
+    - camera-safe-action-space
+
+spatial_contract:
+  dimensions:
+    status: awaiting-approved-reference-measurement
+    unit: centimeters
+    width_cm: null
+    depth_cm: null
+    ceiling_height_cm: null
+  entrances:
+    - play-space-entry
+  exits:
+    - play-space-entry
+  navigation_areas:
+    - entry-clearance-lane
+    - open-play-circulation-lane
+  safe_interaction_zones:
+    - soft-play-zone
+    - cushion-or-beanbag-zone
+    - playhouse-approach-zone
+  camera_safe_views:
+    - primary-master-view
+    - reverse-master-view
+    - playhouse-view
+    - soft-play-action-area-view
+  movement_spaces:
+    - clear-open-play-zone
+    - playhouse-entry-space
+  permanent_landmarks:
+    - small-playhouse
+    - fixed-soft-play-zone-boundary
+    - play-space-entry
+    - built-in-toy-storage-zone
+  approved_movable_asset_ids: []
+  movable_asset_source: ../../assets/props.yaml
+  rule: exact-room-equipment-and-playhouse-layout-cannot-be-invented-before-reference-approval
+
+reference_requirements:
+  primary_master_view:
+    required: true
+    status: approved
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--primary-master-view--v001.png
+    sha256: 46284edd84ddfb879863aa3059a981109c218272f1986cd7a3af6314a8bff231
+    pixel_dimensions: 1672x941
+    aspect_ratio: "1672:941"
+    review_record: ../../validation/location-master-review.yaml
+  reverse_view:
+    required: true
+    status: missing
+  playhouse_view:
+    required: true
+    status: missing
+  soft_play_action_area:
+    required: true
+    status: missing
+  scale_reference:
+    required: true
+    status: missing
+  generation_frame_rules:
+    - use-one-coherent-image
+    - keep-feet-ground-contact-and-action-space-visible
+    - keep-toy-count-low-and-unambiguous
+    - remove-text-labels-watermarks-and-accidental-faces
+    - never-use-a-reference-board-or-collage-as-conditioning-input
+
+wan_2_2_interface:
+  contract_source: ../../wan22-preproduction.yaml
+  t2v:
+    eligibility: exploratory-only-until-geometry-is-approved
+    prompt_fragment: >-
+      Cozy indoor kindergarten play space with one small rounded playhouse,
+      broad soft cushions, a clear open play zone, sparse colorful toys, and
+      premium soft stylized 3D preschool design.
+  ti2v_text:
+    eligibility: draft-only
+    evaluate:
+      - broad-play-zone-layout
+      - safe-movement-space
+      - playhouse-and-toy-hierarchy
+  ti2v_image:
+    eligibility: blocked-until-approved-single-frame-reference
+  i2v:
+    eligibility: blocked-until-approved-single-frame-reference
+  s2v:
+    eligibility: blocked-until-approved-character-and-location-composite-frame
+  temporal_constraints:
+    - playhouse-and-room-geometry-remain-fixed
+    - cushions-deform-broadly-without-boiling-texture
+    - toys-do-not-multiply-or-change-category
+    - use-one-primary-action-and-one-camera-behavior
+
+continuity:
+  locked_after_reference_approval:
+    - geometry
+    - playhouse-and-zone-layout
+    - permanent-materials
+    - permanent-colors
+    - fixed-equipment
+  temporary_states:
+    - cushion-compression
+    - toy-position
+    - organization-state
+    - door-or-playhouse-opening
+
+quality_control:
+  reject:
+    - duplicated-or-transforming-toys
+    - changing-playhouse-layout
+    - unsafe-or-crowded-movement-space
+    - crawling-fabric-patterns
+    - generated-text-or-watermark
+    - unapproved-reference-path

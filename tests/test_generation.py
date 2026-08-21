@@ -14,10 +14,10 @@ def make_request(**overrides) -> ShotRequest:
         "project_id": "demo",
         "shot_id": "shot-001",
         "scene_id": "scene-001",
-        "character_ids": ["roxana"],
-        "location_id": "rooftop",
+        "character_ids": ["riri"],
+        "location_id": "kindergarten_garden",
         "shot_type": "image_to_video",
-        "action": "Roxana turns toward the maintenance door.",
+        "action": "Riri turns toward the maintenance door.",
         "framing": "medium close-up",
         "lens": "85mm",
         "camera_height": "eye level",
@@ -36,7 +36,7 @@ def test_compiles_wan_package(context_root) -> None:
     assert package.task == "i2v-A14B"
     assert package.frame_count == 117
     assert package.primary_reference_image == "keyframes/shot-001.png"
-    assert "references/roxana-three-quarter.png" in package.supporting_references
+    assert "references/riri-three-quarter.png" in package.supporting_references
     assert "anime" in package.negative_prompt
     assert package.seed == 42
     assert len(package.package_hash) == 16

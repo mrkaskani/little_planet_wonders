@@ -1,0 +1,152 @@
+id: riri-yoyo-color-state-library
+type: reusable-color-state-context
+version: 2
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  scope: reusable-preproduction-color-states
+  canonical_palette: palette-v2.yaml
+  purpose: >-
+    Define reusable color-state families without creating episode, scene, or shot
+    content and without changing canonical material colors.
+
+source_authority:
+  project: ../project.yaml
+  visual_style: visual_style.yaml
+  palette: palette-v2.yaml
+  lighting: lighting.yaml
+  wan_2_2: ../wan22-preproduction.yaml
+
+global_rules:
+  canonical_surface_colors_remain_locked: true
+  lighting_and_atmosphere_are_temporary: true
+  strongest_accent_supports_one_primary_focus: true
+  character_background_separation_required: true
+  readable_at_480p_and_720p: true
+  dense_high_contrast_patterns: forbidden
+  generated_text_as_color_focus: forbidden
+
+reusable_color_states:
+  safe_learning_day:
+    emotional_use:
+      - calm-learning
+      - everyday-discovery
+      - gentle-participation
+    dominant_family:
+      - storybook_cream
+      - sunlit_ivory
+      - caramel_wood
+    supporting_family:
+      - fresh_mint
+      - clear_sky_blue
+    accent_family:
+      - butter_gold
+      - warm_salmon
+    contrast: low-to-medium
+    saturation: moderate
+
+  playful_activity:
+    emotional_use:
+      - play
+      - cooperation
+      - happy-movement
+    dominant_family:
+      - soft_peach
+      - fresh_mint
+      - powder_sky
+    accent_family:
+      - bubblegum_rose
+      - tangerine
+      - sunny_yellow
+      - aqua_blue
+    contrast: medium
+    saturation: moderate-to-rich
+    accent_limit: two-active-accent-families
+
+  curious_discovery:
+    emotional_use:
+      - curiosity
+      - observation
+      - gentle-surprise
+    dominant_family:
+      - storybook_cream
+      - powder_sky
+      - sage_green
+    accent_family:
+      - clear_sky_blue
+      - soft_lavender
+      - butter_gold
+    contrast: medium
+    saturation: moderate
+
+  warm_reassurance:
+    emotional_use:
+      - comfort
+      - empathy
+      - recovery-from-mild-worry
+    dominant_family:
+      - sunlit_ivory
+      - soft_peach
+      - rose_pink
+    accent_family:
+      - butter_gold
+      - fresh_mint
+    contrast: low
+    saturation: moderate
+
+  golden_wonder:
+    emotional_use:
+      - accomplishment
+      - wonder
+      - reflective-calm
+    dominant_family:
+      - butter_gold
+      - apricot_orange
+      - sunlit_olive
+    supporting_family:
+      - meadow_green
+      - sandstone_beige
+    accent_family:
+      - sunset-coral-from-lighting-palette
+    contrast: medium
+    saturation: moderate-to-rich
+
+  safe_evening:
+    emotional_use:
+      - calm-evening
+      - bedtime-adjacent-quiet
+      - gentle-night-discovery
+    dominant_family:
+      - night-navy-from-lighting-palette
+      - deep-night-blue-from-lighting-palette
+    supporting_family:
+      - moon-blue-from-lighting-palette
+      - warm-window-glow-from-lighting-palette
+    accent_family:
+      - butter_gold
+    contrast: medium-with-open-shadows
+    saturation: controlled
+    safety_rule: darkness-never-implies-threat
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  t2v:
+    rule: name-one-state-and-only-its-dominant-and-accent-families
+  i2v:
+    rule: preserve-source-local-colors-and-describe-only-an-approved-state-change
+  ti2v:
+    rule: evaluate-broad-color-separation-not-fine-gradients
+  s2v:
+    rule: keep-face-color-value-and-background-separation-stable-through-speech
+  reject:
+    - permanent-color-drift
+    - full-frame-single-color-wash
+    - accent-flicker
+    - lighting-color-becoming-a-character-marking
+    - unsafe-crushed-night-values
+
+review_status:
+  legacy-thriller-states-removed: true
+  canonical-palette-alignment: passed
+  wan-2-2-alignment: passed

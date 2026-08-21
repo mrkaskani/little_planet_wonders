@@ -11,7 +11,7 @@ from lpw.mcp.tools import plan_scene_production
 
 
 STORY_ID = "episode-001"
-SCENE_ID = "rooftop-confrontation"
+SCENE_ID = "garden-discovery"
 
 
 def test_compiler_resolves_production_tools_and_used_workflows() -> None:
@@ -89,8 +89,8 @@ def test_wan_animate_is_explicitly_rejected(context_root: Path) -> None:
         project_id="demo",
         scene_id="scene-001",
         shot_id="shot-001",
-        character_ids=["roxana"],
-        location_id="rooftop",
+        character_ids=["riri"],
+        location_id="kindergarten_garden",
         shot_type="performance",  # type: ignore[arg-type]
         action="Reserved unsupported mode.",
         framing="medium",

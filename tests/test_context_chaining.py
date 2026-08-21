@@ -16,10 +16,10 @@ def _write(path: Path, content: str) -> None:
 
 def test_classroom_shot_resolves_a_pinned_context_chain() -> None:
     result = CinematicExtensionPipeline().resolve_context_chain(
-        "classroom", "rooftop-confrontation", "shot-004"
+        "riri-yoyo", "garden-discovery", "shot-004"
     )
 
-    assert result["context"]["project"]["id"] == "classroom"
+    assert result["context"]["project"]["id"] == "riri-yoyo"
     assert result["context"]["camera"]["lens"] == "85mm"
     assert result["context"]["technical"]["frame_rate"] == 24
     assert result["base_context_hash"]
@@ -70,7 +70,7 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
     pipeline = CinematicExtensionPipeline(source, state)
 
     plan = pipeline.extend_cinematic_shot(
-        "classroom", "rooftop-confrontation", "shot-004", 12
+        "riri-yoyo", "garden-discovery", "shot-004", 12
     )
 
     assert plan["status"] == "awaiting-segment-generation"
@@ -80,8 +80,8 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
     first_directory = (
         state
         / "extensions"
-        / "classroom"
-        / "rooftop-confrontation"
+        / "riri-yoyo"
+        / "garden-discovery"
         / "shot-004"
         / "v001"
         / "segments"
@@ -93,8 +93,8 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
 
     with pytest.raises(GenerationPipelineError, match="approved predecessor"):
         pipeline.compile_segment_context(
-            "classroom",
-            "rooftop-confrontation",
+            "riri-yoyo",
+            "garden-discovery",
             "shot-004",
             1,
             "shot-004-segment-002",
@@ -105,8 +105,8 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
     video.write_bytes(b"real-provider-output")
     frame.write_bytes(b"approved-stable-frame")
     approval = pipeline.approve_segment(
-        project_id="classroom",
-        scene_id="rooftop-confrontation",
+        project_id="riri-yoyo",
+        scene_id="garden-discovery",
         shot_id="shot-004",
         extension_version=1,
         segment_id="shot-004-segment-001",
@@ -116,7 +116,7 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
         approved_end_frame=108,
         continuity_delta={
             "character_changes": {
-                "roxana": {"head_direction": {"from": "down", "to": "raised"}}
+                "riri": {"head_direction": {"from": "down", "to": "raised"}}
             },
             "audio_state": {"music_position_seconds": 4.0},
         },
@@ -124,8 +124,8 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
         reviewer="director",
     )
     second = pipeline.compile_segment_context(
-        "classroom",
-        "rooftop-confrontation",
+        "riri-yoyo",
+        "garden-discovery",
         "shot-004",
         1,
         "shot-004-segment-002",
@@ -135,7 +135,7 @@ def test_extension_requires_approved_real_artifacts_before_next_segment(
     assert approval["runtime_state_hash"]
     assert approval["edit_event"]["event_id"] == "v-shot-004-001"
     assert second["runtime_state_hash"]
-    assert second["context"]["runtime_state"]["character_changes"]["roxana"]
+    assert second["context"]["runtime_state"]["character_changes"]["riri"]
     assert (first_directory / "continuity-delta.yaml").is_file()
     assert (first_directory / "runtime-output-state.yaml").is_file()
     second_directory = first_directory.parent / "shot-004-segment-002"

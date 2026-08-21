@@ -1,0 +1,123 @@
+id: riri-yoyo-wan-2-2-review-cards
+type: wan-review-card-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: reusable-ordered-review-and-failure-routing-for-supported-wan-tasks
+
+review_order:
+  - structure
+  - composition
+  - subject-count
+  - identity-and-anatomy
+  - motion-and-contact
+  - temporal-stability
+  - materials-and-lighting
+  - fine-detail
+  - audio-alignment-when-applicable
+
+cards:
+  structure:
+    pass:
+      - correct-task-model-and-input-types
+      - approved-or-correctly-blocked-references
+      - prompt-record-seed-dimensions-frame-count-and-versions-present
+      - no-unsupported-animate-workflow
+    failure_action: correct-manifest-before-generation
+  composition:
+    pass:
+      - focal-hierarchy-is-clear
+      - subject-silhouettes-do-not-overlap
+      - movement-and-endpoint-space-are-visible
+      - one-camera-behavior
+    failure_action: adjust-one-variable-or-replace-source-frame
+  subject-count:
+    pass:
+      - exact-approved-count
+      - no-duplicate-character-prop-vehicle-or-accidental-face
+      - each-action-and-prop-has-one-owner
+    failure_action: simplify-prompt-or-regenerate
+  identity-and-anatomy:
+    pass:
+      - riri-and-yoyo-match-approved-yaml-and-reference
+      - species-age-proportions-face-eyes-markings-and-colors-are-stable
+      - limb-and-contact-anatomy-is-correct
+      - no-unapproved-clothing-accessory-prop-or-character
+    failure_action: replace-source-image-if-present-otherwise-regenerate-or-redesign
+  motion-and-contact:
+    pass:
+      - one-action-direction-speed-range-repetition-and-endpoint
+      - balance-grounding-contact-and-prop-ownership-are-coherent
+      - camera-does-not-compete
+      - action-is-child-safe
+    failure_action: simplify-motion-or-divide-later-production-action
+  temporal-stability:
+    pass:
+      - face-body-background-and-landmarks-do-not-warp-pulse-or-flicker
+      - part-count-color-material-pattern-and-lighting-remain-stable
+      - no-foot-slip-contact-teleport-or-state-reset
+    failure_action: shorten-segment-adjust-one-variable-or-switch-supported-mode
+  materials-and-lighting:
+    pass:
+      - canonical-local-color-survives-lighting
+      - material-family-and-broad-response-remain-stable
+      - no-microtexture-crawl-reflection-flicker-or-exposure-pump
+    failure_action: simplify-surface-language-or-replace-reference
+  fine-detail:
+    pass:
+      - eyes-eyelashes-muzzle-beak-paws-feet-fur-and-feathers-remain-clean
+      - no-random-text-logo-watermark-tiny-pattern-or-accessory
+    failure_action: reduce-detail-or-regenerate-never-promote-ti2v-detail
+  audio-alignment-when-applicable:
+    applies_to: s2v
+    pass:
+      - exact-audio-and-transcript-hashes
+      - mouth-onset-closures-vowels-pauses-emphasis-and-final-settle-align
+      - no-mouth-motion-during-silence
+      - no-music-ambience-effects-or-background-vocals-in-conditioning-audio
+    failure_action: replace-audio-correct-timing-or-simplify-performance
+
+mode_addenda:
+  t2v:
+    - exact-recurring-identity-or-layout-cannot-pass-without-approved-reference-evidence
+  i2v:
+    - source-frame-quality-is-reviewed-before-motion-output
+    - prompt-redesign-of-visible-identity-is-an-automatic-fail
+  ti2v:
+    - approve-only-structure-composition-and-motion-evidence
+    - fine-identity-material-pattern-and-text-detail-is-never-final-evidence
+  s2v:
+    - image-audio-transcript-timing-and-face-readability-all-must-pass
+    - speaker-face-has-priority-over-body-background-prop-or-vehicle-motion
+
+failure_classes:
+  regenerate:
+    use_when: isolated-seed-variation-or-random-artifact
+  adjust_one_variable:
+    use_when: one-prompt-parameter-camera-or-motion-cause-can-be-tested
+  simplify_prompt:
+    use_when: competing-actions-subjects-details-or-camera-cues-cause-drift
+  replace_source_image:
+    use_when: anatomy-framing-contact-lighting-or-movement-space-is-weak
+  replace_source_audio:
+    use_when: transcript-noise-reverb-clipping-performance-or-timing-is-wrong
+  switch_supported_mode:
+    use_when: current-mode-cannot-protect-required-identity-layout-or-audio-timing
+  redesign_later_production_work:
+    use_when: requested-complexity-cannot-fit-one-clear-safe-generation-segment
+
+decision_record:
+  required_fields:
+    - review-id
+    - record-id-and-candidate-id
+    - reviewer-and-date
+    - task-and-model
+    - card-results-in-review-order
+    - first-failing-card
+    - failure-class
+    - one-next-action
+    - approval-status
+  rule: stop-at-first-structural-or-safety-critical-failure

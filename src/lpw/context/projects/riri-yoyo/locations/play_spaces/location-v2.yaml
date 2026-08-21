@@ -1,0 +1,551 @@
+id: kindergarten-play-space-location-v2
+type: location-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-measurement-layout-reconciliation-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-play-space
+  title: Kindergarten Indoor Play Space Visual and Spatial Identity Version 2
+  purpose: >-
+    Structure the five supplied V2 play-space boards as visual, spatial, scale,
+    equipment, material, lighting, camera, and MCP retrieval context while
+    preserving all printed conflicts for explicit review.
+  created_date: 2026-08-20
+  source: project-owner-supplied-location-design-package
+  review_record: ../../validation/kindergarten-play-space-v2-review.yaml
+
+versioning:
+  base_location_authority: location.yaml
+  base_reference_id: kindergarten-play-space-reference-set-v001
+  base_primary_master_id: kindergarten-play-space-primary-master-v001
+  candidate_package_id: kindergarten-play-space-design-package-v002
+  active_canonical_version: v001
+  candidate_version: v002
+  package_completeness:
+    expected_source_boards: 5
+    present_source_boards: 5
+    complete: true
+  promotion_rule: >-
+    V2 becomes canonical only after the project owner selects one reconciled
+    measurement table and one wall-orientation layout, approves the five-board
+    visual identity as a package, and approves clean V2 single-frame references.
+    Until then, location.yaml and the V1 primary master remain active.
+
+source_images:
+  overall_room_understanding_board:
+    id: kindergarten-play-space-overall-room-understanding-reference-board-v002
+    visible_title: TYPE 1 – SPATIAL / ENVIRONMENT VIEWS (Overall Room Understanding)
+    title_scope: first-prominent-section-heading-no-global-board-title
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
+    sha256: 43df7981f85747e0b67f09b48567c8e4e2907e1b6373559847781e60e2c09df4
+    pixel_dimensions: 1402x1122
+    aspect_ratio: "701:561"
+    reference_class: design-review-only
+  four_view_type_reference_package:
+    id: kindergarten-play-space-four-view-type-reference-package-v002
+    visible_title: KINDERGARTEN INDOOR PLAY SPACE — FOUR-VIEW-TYPE REFERENCE PACKAGE
+    title_scope: global-board-title
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
+    sha256: fec55ab193dd2f42979328b8049bba56b7b9765993b0cd5ea433bb19eac14c40
+    pixel_dimensions: 1369x1149
+    aspect_ratio: "1369:1149"
+    reference_class: design-review-only
+  four_type_comprehensive_board:
+    id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
+    visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS
+    visible_subtitle: Overall room views showing the space, layout and relationships.
+    title_scope: first-prominent-section-heading-no-global-board-title
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
+    sha256: b6189ec22ceaf640cccd02eb2db541c3e562bcb47541100a120c5a49de911527
+    pixel_dimensions: 1402x1122
+    aspect_ratio: "701:561"
+    reference_class: design-review-only
+  spatial_anchors_board:
+    id: kindergarten-play-space-spatial-anchors-reference-board-v002
+    visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS (OVERALL ROOM UNDERSTANDING)
+    title_scope: first-prominent-section-heading-no-global-board-title
+    distinguishing_heading: SPATIAL ANCHORS (LOCKED ELEMENTS)
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
+    sha256: 7493c82e675deb3803665819bef3553d4dcc42142ae287e5432ee48abb985d67
+    pixel_dimensions: 1402x1122
+    aspect_ratio: "701:561"
+    reference_class: design-review-only
+  fixed_permanent_anchors_board:
+    id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
+    visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS
+    visible_subtitle: Overall room layout and spatial relationships
+    title_scope: first-prominent-section-heading-no-global-board-title
+    distinguishing_heading: SPATIAL ANCHORS (Fixed & Permanent)
+    path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
+    sha256: 5c540291307ffd22bbbcca3e1077a2ac8630348c3fcdbc76047b015301811ff5
+    pixel_dimensions: 1402x1122
+    aspect_ratio: "701:561"
+    reference_class: design-review-only
+
+location_identity:
+  category: activity-room
+  summary: pastel-pink-preschool-playroom-with-one-playhouse-centered-rug-and-soft-seating
+  emotional_character: [playful, warm, safe, cozy, cheerful, gentle, imaginative]
+  medium: premium-soft-stylized-3d-preschool-animation
+  default_time_of_day: bright-interior-day
+  quantity_consensus:
+    large_window: 1
+    entry_door: 1
+    playhouse: 1
+    centered_round_rug: 1
+    ceiling_fan: 1
+    fixed_shelving_groups: multiple-along-perimeter
+  permanent_visual_anchors:
+    - one-large-window-with-mint-curtains
+    - one-small-wood-playhouse-with-mint-roof-and-heart-mark
+    - one-centered-pink-round-rug
+    - warm-wood-low-shelving-and-cubbies
+    - soft-couch-beanbags-poufs-and-round-floor-cushions
+    - one-entry-door
+    - fixed-potted-plants
+    - pastel-bunting-rainbows-clouds-stars-and-child-safe-wall-art
+
+board_catalog:
+  overall_room_understanding_board:
+    spatial_environment_views:
+      - primary-establishing-view
+      - opposite-corner-view
+      - elevated-overview-diagonal
+    technical_structural_views:
+      - front-elevation-window-wall
+      - right-wall-elevation
+      - rear-elevation-door-wall
+      - left-wall-elevation
+      - floor-plan-birds-eye
+      - ceiling-plan
+      - proportional-summary
+    play_zone_equipment_views:
+      - playhouse-area
+      - soft-seating-and-rug-zone
+      - storage-and-toy-shelves
+      - activity-and-book-area
+      - open-movement-area
+      - toy-and-play-materials
+    detail_material_lighting_views:
+      - window-and-curtain-detail
+      - playhouse-material-detail
+      - rug-and-cushion-material
+      - storage-unit-detail
+      - wall-decor-and-graphics
+      - lighting-and-ceiling-detail
+    mcp_best_for:
+      - first-pass-room-understanding
+      - elevation-and-plan-lookup
+      - baseline-relative-scale-set-a
+      - equipment-and-material-prompt-fragments
+  four_view_type_reference_package:
+    package_rule: same-room-same-content-no-additions-quantity-lock
+    spatial_environment_views:
+      - primary-establishing-view
+      - opposite-facing-view
+      - corner-to-corner-view
+    technical_structural_views:
+      - front-elevation
+      - left-wall-elevation
+      - birds-eye-floor-plan
+      - ceiling-plan
+      - equipment-position-diagram
+      - proportional-diagram-relative-units
+    play_zone_equipment_views:
+      - playhouse-area
+      - soft-seating-and-rug-area
+      - activity-and-toy-storage-area
+    detail_material_lighting_views:
+      - material-and-texture-detail
+      - toy-and-storage-detail
+      - lighting-and-window-detail
+    side_context:
+      - room-summary
+      - color-palette-from-source-image
+      - locked-anchor-object-list
+      - quantity-lock-reminder
+    mcp_best_for:
+      - object-quantity-control
+      - spatial-anchor-retrieval
+      - equipment-position-and-circulation
+      - baseline-relative-scale-set-b
+  four_type_comprehensive_board:
+    spatial_environment_views:
+      - primary-establishing-view
+      - front-facing-view
+      - corner-to-corner-view
+      - left-side-view
+      - right-side-view
+    technical_structural_views:
+      - front-elevation
+      - rear-opposite-elevation
+      - left-elevation
+      - right-elevation
+      - birds-eye-floor-plan-top-view
+      - ceiling-plan
+      - simplified-floor-footprint
+      - equipment-position-diagram
+      - circulation-diagram
+      - proportion-key-relative-units
+    play_zone_equipment_views:
+      - main-playhouse
+      - soft-seating-area
+      - rug-and-foam-cushions
+      - storage-and-toy-shelves
+      - activity-and-book-area
+      - plant-and-window-area
+      - wall-decor-and-graphics
+      - open-movement-area
+      - toy-bins-and-containers
+      - soft-beanbag-seats
+      - reading-calm-corner
+      - door-and-entry-side
+    detail_material_lighting_views:
+      - window-and-curtain-detail
+      - playhouse-material-detail
+      - shelf-and-wood-finish
+      - toy-and-accessory-detail
+      - rug-texture-detail
+      - foam-cushion-material
+      - storage-bin-material
+      - flooring-detail
+      - planter-and-pot-detail
+      - wall-paint-and-decor-finish
+      - natural-daylight
+      - overall-lighting-mood
+    room_identity_note: >-
+      Pastel pink preschool playroom with playhouse, soft seating, open rug area,
+      wooden storage shelves, plants, wall art and natural daylight.
+    style_guideline: keep-colors-materials-objects-positions-and-quantities-consistent-across-views
+    mcp_best_for:
+      - broadest-panel-level-semantic-retrieval
+      - material-closeups
+      - activity-zone-and-entry-context
+      - baseline-relative-scale-set-c
+  spatial_anchors_board:
+    spatial_environment_views:
+      - primary-establishing-view
+      - opposite-view
+      - right-side-view
+      - corner-to-corner-view
+      - elevated-perspective
+    technical_structural_views:
+      - front-elevation-window-wall
+      - opposite-elevation-door-wall
+      - left-wall-elevation
+      - right-wall-elevation
+      - floor-plan-birds-eye
+      - ceiling-plan
+      - equipment-position-diagram
+      - circulation-diagram
+    play_zone_equipment_views:
+      - main-playhouse
+      - soft-seating-area
+      - rug-and-cushion-area
+      - storage-and-shelving-left
+      - storage-and-shelving-right
+      - activity-and-toy-area
+      - reading-quiet-area
+      - open-movement-area
+      - wall-decor-and-theme-elements
+    detail_material_lighting_views:
+      - window-and-curtains-detail
+      - playhouse-material-detail
+      - shelving-and-toy-detail
+      - soft-cushion-and-fabric-detail
+      - flooring-and-rug-detail
+      - wall-finish-and-graphics-detail
+      - daylight-detail
+      - ceiling-and-light-fixtures-detail
+      - storage-bin-and-material-detail
+    spatial_anchors_printed:
+      window: back-wall
+      door: opposite-wall
+      playhouse: right-of-window
+      shelving: left-and-right-walls
+      rug_center: room-center
+    mcp_best_for:
+      - fixed-anchor-proposal-d
+      - circulation-loop
+      - paired-left-right-shelving-context
+      - baseline-relative-scale-set-d
+  fixed_permanent_anchors_board:
+    spatial_environment_views:
+      - primary-establishing-view
+      - front-facing-view
+      - opposite-facing-view
+      - left-side-view
+      - right-side-view
+      - corner-to-corner-view
+    technical_structural_views:
+      - front-elevation-window-wall
+      - back-elevation-playhouse-wall
+      - left-elevation
+      - right-elevation
+      - floor-plan-top-view
+      - ceiling-plan
+      - equipment-and-zone-diagram
+      - circulation-diagram
+    play_zone_equipment_views:
+      - playhouse-area
+      - soft-seating-area
+      - open-play-area
+      - storage-and-shelf-area
+      - activity-and-toy-area
+      - reading-quiet-corner
+      - soft-poufs-and-cushions
+      - toy-bins-and-organizers
+      - plant-and-decor-elements
+    detail_material_lighting_views:
+      - window-and-curtain-detail
+      - playhouse-material-detail
+      - shelf-and-wood-finish-detail
+      - rug-and-floor-detail
+      - soft-material-and-pouf-detail
+      - wall-decor-and-graphics-detail
+      - storage-bin-and-toy-detail
+      - lighting-and-sunlight-detail
+      - door-and-hardware-detail
+    spatial_anchors_printed:
+      window: fixed-position
+      playhouse: fixed-position
+      shelving_units: fixed
+      door: right-wall
+      rug: centered
+      plants: fixed-locations
+      matching_wall_decor: fixed
+      storage_bins: fixed-areas
+    mcp_best_for:
+      - fixed-permanent-anchor-proposal-e
+      - zone-diagram-and-circulation
+      - door-hardware-and-sunlight-detail
+      - baseline-relative-scale-set-e
+
+printed_measurements_by_board:
+  units: relative-to-room-width-unless-source-prints-otherwise
+  board_a_overall_room_understanding:
+    room_width: 1.00
+    room_depth: 0.82
+    ceiling_height: 0.40
+    window_width: 0.34
+    window_height: 0.28
+    door_width: 0.16
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_height: 0.24
+    shelf_height: 0.22
+    shelf_depth: 0.12
+    round_rug_diameter: 0.60
+  board_b_four_view_type_package:
+    room_width: implied-1.00-reference
+    room_depth: 0.82
+    ceiling_height: 0.40
+    window_width: 0.34
+    window_height: 0.36
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_height: 0.24
+    low_shelf_height: 0.12
+    rug_diameter: 0.70
+    soft_cushion_diameter: 0.12
+  board_c_four_type_comprehensive:
+    room_width: 0.80
+    room_depth: 0.82
+    ceiling_height: 0.40
+    window_width: 0.34
+    window_height: 0.36
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_height: 0.24
+    low_shelf_height: 0.12
+    tall_shelf_height: 0.18
+    rug_diameter: 0.74
+    round_cushion_diameter: 0.12
+    clear_floor_margin: 0.10
+  board_d_spatial_anchors:
+    room_width: 1.00
+    room_depth: 0.82
+    ceiling_height: 0.40
+    window_width: 0.34
+    window_height: 0.36
+    door_width: 0.18
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_height: 0.24
+    playhouse_depth: 0.20
+    low_shelf_height: 0.12
+    shelf_module_width: 0.22
+    rug_diameter: 0.76
+    round_cushion_diameter: 0.12
+    cushion_height: 0.04
+  board_e_fixed_permanent_anchors:
+    room_width: 1.00
+    room_depth: 0.82
+    ceiling_height: 0.40
+    window_width: 0.56
+    window_height: 0.48
+    door_width: 0.18
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_depth: 0.18
+    playhouse_height: 0.24
+    low_shelf_height: 0.12
+    tall_shelf_height: 0.18
+    rug_diameter: 0.78
+    pouf_diameter: 0.12
+    pouf_height: 0.05
+
+measurement_reconciliation:
+  status: required-before-v2-promotion
+  stable_consensus_values:
+    room_depth: 0.82
+    ceiling_height: 0.40
+    door_height: 0.30
+    playhouse_width: 0.28
+    playhouse_height: 0.24
+    low_shelf_height: 0.12
+    round_cushion_or_pouf_diameter: 0.12
+  likely_normalized_value_pending-human-confirmation:
+    room_width: 1.00
+    reason: four-boards-normalize-to-1-point-00-while-board-c-prints-0-point-80
+  unresolved_values:
+    window_width: [0.34, 0.56]
+    window_height: [0.28, 0.36, 0.48]
+    door_width: [0.16, 0.18]
+    playhouse_depth: [0.18, 0.20]
+    shelf_height_semantics: [generic-0.22, low-0.12, tall-0.18]
+    rug_diameter: [0.60, 0.70, 0.74, 0.76, 0.78]
+    cushion_or_pouf_height: [0.04, 0.05]
+  rules:
+    - do-not-average-conflicting-values
+    - do-not-use-unresolved-values-in-generation-prompts-or-layout-solvers
+    - preserve-each-board-table-verbatim-for-review-traceability
+    - project-owner-must-select-one-reconciled-value-per-unresolved-field
+
+layout_reconciliation:
+  status: required-before-v2-promotion
+  stable_consensus:
+    - one-centered-round-rug
+    - one-playhouse
+    - one-large-window
+    - one-entry-door
+    - perimeter-wood-shelving-and-storage
+    - soft-seating-near-window-side
+    - open-circulation-around-centered-rug
+  conflicts_or_ambiguities:
+    - wall-names-and-front-back-left-right-orientation-vary-between-boards
+    - board-b-adds-a-round-activity-table-near-the-rear-center-while-other-boards-show-open-rug-space
+    - board-b-shows-hanging-lanterns-while-other-boards-emphasize-ceiling-fan-and-recessed-lights
+    - some-elevation-diagrams-visually-suggest-more-than-one-door-despite-one-door-quantity-notes
+    - playhouse-wall-is-called-right-of-window-front-or-back-across-different-boards
+  rules:
+    - use-v1-primary-master-for-current-canonical-world-orientation
+    - do-not-add-the-activity-table-or-hanging-lanterns-to-v2-without-explicit-selection
+    - do-not-mirror-or-relocate-fixed-anchors-based-on-an-unreconciled-board
+
+zones_and_interaction_context:
+  playhouse_zone:
+    anchor: one-small-playhouse
+    uses: [pretend-play, peek-in-and-out, approach-and-entry-blocking]
+  soft_seating_zone:
+    anchors: [couch, beanbags, poufs]
+    uses: [calm-conversation, resting, reading, gentle-group-play]
+  centered_rug_open_play_zone:
+    anchors: [round-pink-rug, round-floor-cushions]
+    uses: [circle-play, puzzles, blocks, movement, group-activity]
+  storage_and_activity_zone:
+    anchors: [low-shelves, cubbies, colored-bins, books, toys]
+    uses: [toy-selection, cleanup, tabletop-or-floor-activity]
+  reading_quiet_zone:
+    anchors: [books, low-shelf, soft-seat]
+    uses: [quiet-reading, emotional-reset, one-to-one-conversation]
+  circulation_zone:
+    geometry: loop-around-centered-rug-with-door-playhouse-and-storage-access
+    rules: [keep-clear, do-not-fill-with-new-furniture, preserve-camera-and-character-access]
+
+materials_and_surfaces:
+  walls: matte-pastel-pink-with-simple-fixed-preschool-graphics
+  floor: smooth-warm-light-wood-planks
+  window_and_curtains: broad-daylight-window-with-soft-mint-fabric-curtains
+  playhouse: rounded-warm-wood-body-mint-painted-roof-and-trim-pink-heart-accent
+  shelving: rounded-warm-wood-low-child-scale-units
+  rug: thick-soft-pink-pile-with-gentle-concentric-or-spiral-pattern
+  cushions_and_poufs: broad-solid-pastel-fabric-or-foam-soft-matte-finish
+  storage_bins: soft-sided-or-rounded-solid-color-bins-with-simple-friendly-face-motifs
+  plants_and_pots: broad-leaf-child-safe-plants-in-pastel-rounded-pots
+  hardware: rounded-child-safe-door-and-storage-hardware
+
+lighting_and_color:
+  primary_light_source: warm-natural-daylight-through-large-window
+  fill: soft-warm-interior-bounce
+  ceiling_sources: unresolved-between-fan-recessed-lights-and-hanging-lantern-proposals
+  palette:
+    base: [pastel-pink, warm-light-wood, soft-cream]
+    accents: [mint-green, teal-blue, sunny-yellow, coral-pink, lavender, gentle-orange]
+  rules:
+    - bright-readable-open-shadows
+    - no-harsh-contrast-or-nightlike-darkness
+    - keep-pastels-soft-not-neon
+    - preserve-material-local-color-under-sunlight
+    - wall-graphics-must-remain-non-readable-simple-shapes
+
+mcp_context:
+  retrieval_key: kindergarten-play-space-v002
+  package_status: complete-candidate-with-unresolved-cross-board-conflicts
+  preferred_authority_order:
+    - location-v2.yaml-for-v002-structured-review-context
+    - location.yaml-for-current-canonical-location-policy
+    - kindergarten-play-space-primary-master-v001-for-current-generation-conditioning
+    - v002-design-review-boards-for-human-review-only
+  query_routing:
+    source_board_lookup: source_images
+    panel_and_view_lookup: board_catalog
+    exact_board_printed_values: printed_measurements_by_board
+    safe-consensus-measurements: measurement_reconciliation.stable_consensus_values
+    disputed-measurements: measurement_reconciliation.unresolved_values
+    orientation_and-layout_conflicts: layout_reconciliation
+    action_blocking_and-zone_selection: zones_and_interaction_context
+    material_prompting: materials_and_surfaces
+    lighting_and_palette_prompting: lighting_and_color
+  safe_prompt_context_fragment: >-
+    Cozy pastel-pink kindergarten indoor play space with one small rounded wood
+    playhouse, one centered soft pink round rug, broad pastel floor cushions,
+    warm low wooden shelving and storage bins, one large daylight window with
+    mint curtains, soft seating, plants, simple fixed wall decorations, and a
+    clear circulation loop around the open play zone.
+  generation_constraints:
+    - exact-one-playhouse-one-window-one-door-and-one-centered-round-rug
+    - do-not-add-remove-duplicate-or-relocate-anchor-objects
+    - keep-object-colors-materials-positions-and-quantities-consistent
+    - keep-open-movement-and-circulation-space-clear
+    - use-stable-consensus-measurements-only-until-reconciliation
+  prohibited_context_use:
+    - direct-conditioning-with-any-five-board-collage
+    - averaging-or-randomly-selecting-conflicting-relative-values
+    - selecting-wall-orientation-from-one-board-without-reconciliation
+    - treating-the-round-activity-table-or-hanging-lanterns-as-canonical
+    - generating-readable-wall-art-or-labels
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  reason: multi-panel-collages-with-labels-diagrams-duplicate-views-and-conflicting-values
+  allowed_modes_before_v2_approval: []
+  forbidden_modes_for_these_five_boards: [t2v, i2v, ti2v-image, s2v]
+  active_generation_reference: kindergarten-play-space-primary-master-v001
+  active_generation_reference_version: v001
+  clean_v2_frames_required_after_reconciliation_and_approval:
+    - primary-establishing-frame
+    - reverse-or-opposite-frame
+    - playhouse-zone-frame
+    - open-play-action-area-frame
+
+review_gate:
+  technical_registration: complete
+  source_package_complete: true
+  measurement_reconciliation: pending
+  layout_and_orientation_reconciliation: pending
+  project_owner_visual_identity_approval: pending
+  compare_against_v001: required
+  partial_canonical_promotion: forbidden

@@ -1,0 +1,295 @@
+id: riri-yoyo-background-character-catalog
+type: background-character-catalog-context
+version: 1
+status: approved-schema-awaiting-background-character-definitions
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  purpose: >-
+    Define restrained reusable background-character roles, visual separation,
+    behavior, reference, safety, continuity, and Wan 2.2 limits without adding
+    a named character, species, story role, episode event, scene, or shot.
+  registry_status: empty-awaiting-approved-background-characters
+
+source_authority:
+  project: ../project.yaml
+  wan_2_2: ../wan22-preproduction.yaml
+  visual_style: ../visual_style/visual_style.yaml
+  art_direction: ../visual_style/art-direction.yaml
+  palette: ../visual_style/palette-v2.yaml
+  materials: ../visual_style/materials.yaml
+  characters:
+    riri: ../characters/riri/character.yaml
+    yoyo: ../characters/yoyo/character.yaml
+  authority_rules:
+    - Riri-and-Yoyo-remain-the-only-canonical-main-characters
+    - this-file-controls-background-character-eligibility-and-simplification
+    - each-recurring-background-character-needs-one-approved-definition-and-reference
+    - later-production-files-may-select-approved-ids-but-must-not-invent-or-redesign-them
+
+phase_boundary:
+  allowed:
+    - reusable-role-classes
+    - reusable-design-and-behavior-limits
+    - subject-count-and-density-limits
+    - reference-and-wan-eligibility-rules
+    - safety-and-validation-rules
+  forbidden:
+    - named-character-invention
+    - species-selection-without-approval
+    - story-role-or-personality-arc
+    - episode-scene-or-shot-assignment
+    - dialogue
+    - generation-request
+    - render
+
+catalog_policy:
+  actual_approved_background_characters: 0
+  registry_must_remain_empty_until_human_approved: true
+  unregistered-background-character: forbidden
+  recurring-character-requires-canonical-id: true
+  anonymous-extra-still-requires-an-approved-type-id: true
+  current_generation_rule: do-not-introduce-background-characters
+  statuses:
+    - proposed
+    - design-review
+    - reference-missing
+    - approved
+    - deprecated
+
+allowed_function_types:
+  single_readable_extra:
+    purpose: one-secondary-nonspeaking-presence
+    identity_detail: simplified-but-coherent
+    source_reference_required: true
+  small_group_extra:
+    purpose: two-or-three-secondary-nonspeaking-presences
+    identity_detail: simplified-and-visually-separated
+    source_reference_required: true
+  distant_population_shape:
+    purpose: low-detail-distant-context-only
+    face_detail: absent-or-minimal
+    recurring_identity: forbidden
+  current_approved_type_ids: []
+
+definition_schema:
+  required_fields:
+    - id
+    - name-or-functional-label
+    - status
+    - function-type
+    - species-or-form
+    - perceived-age-class
+    - body-scale
+    - broad-silhouette
+    - large-color-regions
+    - material-family
+    - identity-features
+    - separation-from-riri
+    - separation-from-yoyo
+    - allowed-behaviors
+    - forbidden-behaviors
+    - speaking-eligibility
+    - reference-plan
+    - wan-2-2-eligibility
+    - safety-review
+  prohibited_fields:
+    - episode-event
+    - scene-id
+    - shot-id
+    - unapproved-dialogue
+    - generated-readable-text
+
+visual_design_contract:
+  priorities:
+    - readable-broad-silhouette
+    - one-to-three-large-color-regions
+    - low-frequency-matte-or-soft-satin-materials
+    - one-medium-sized-recognition-feature-at-most
+    - simple-face-and-limb-boundaries
+    - clear-scale-relative-to-riri-and-yoyo
+  simplify:
+    - eye-highlights
+    - markings
+    - fur-or-feather-detail
+    - fingers-or-toes
+    - accessories
+    - clothing-layers
+    - repeated-patterns
+  forbid:
+    - Riri-like-pink-puppy-silhouette-and-blue-accent-combination
+    - Yoyo-like-charcoal-ivory-penguin-silhouette-and-lavender-eye-combination
+    - copying-main-character-face-markings-eye-design-or-proportions
+    - oversized-eyes-that-compete-with-main-character-focus
+    - fine-stripes-checkers-grids-or-micro-patterns
+    - tiny-logo-label-or-readable-text
+    - jewelry-dependent-identity
+    - extra-limbs-merged-bodies-or-accidental-faces
+    - frightening-photoreal-or-uncanny-detail
+
+silhouette_separation:
+  minimum_requirements:
+    - different-head-body-ratio-from-both-main-characters
+    - different-ear-beak-or-head-outline-from-both-main-characters
+    - different-primary-color-family-from-nearest-main-character
+    - different-height-or-width-class-when-sharing-a-plane
+    - no-copy-of-riri-tail-or-yoyo-forehead-wedge
+  screen_test:
+    - readable-at-480P
+    - readable-at-720P
+    - distinguishable-in-grayscale-silhouette
+    - distinguishable-with-fine-detail-removed
+
+subject_count_and_density:
+  identity_critical_i2v:
+    preferred_total_visible_characters: 1
+    maximum_total_visible_characters: 3
+    maximum_background_characters: 1
+  two_main_character_i2v:
+    maximum_background_characters: 1
+    preferred: 0
+  s2v:
+    preferred_background_characters: 0
+    maximum_background_characters: 1
+    background-face-motion: still-or-minimal
+  non_identity_critical_t2v_or_ti2v_draft:
+    maximum_total_visible_characters: 5
+    maximum_readable_faces: 3
+  crowd_policy:
+    dense-crowds: forbidden
+    overlapping-faces: forbidden
+    repeated-cloned-extra: forbidden
+    unclear-subject-count: forbidden
+    increase-count-only-after-lower-count-temporal-test-passes: true
+
+blocking_and_depth:
+  rules:
+    - keep-background-characters-behind-or-clearly-beside-main-action
+    - preserve-visible-space-between-heads-and-silhouettes
+    - never-occlude-riri-or-yoyo-eyes-mouth-muzzle-beak-paws-feet-or-contact-region
+    - avoid-crossing-behind-a-speaking-face
+    - do-not-stage-similar-color-and-shape-directly-behind-a-main-character
+    - assign-one-clear-screen-zone-and-one-action-to-each-visible-character
+
+behavior_contract:
+  allowed_reusable_behavior_classes:
+    - still-attentive-presence
+    - gentle-idle-breathing
+    - slow-look-or-head-turn
+    - one-small-wave-or-nod
+    - slow-walk-in-one-direction
+    - quiet-listening
+  rules:
+    - one-observable-action-per-background-character
+    - background-motion-remains-slower-and-smaller-than-main-action
+    - no-unscripted-contact-with-main-characters-or-props
+    - no-speech-like-mouth-motion-unless-explicitly-approved-as-speaking
+    - no-attention-stealing-reaction-or-camera-address
+    - motion-has-direction-speed-range-repetition-count-and-endpoint
+  forbidden:
+    - chaotic-running
+    - crowd-swarming
+    - bullying-or-mocking
+    - threatening-pursuit
+    - collision
+    - prolonged-distress
+    - unsafe-imitation
+
+reference_plan:
+  design_sheet:
+    required-for-recurring-definition: true
+    use: identity-and-separation-review-only
+    direct-generation-conditioning: forbidden
+  single_frame:
+    required-for-recurring-i2v: true
+    required-when-visible-in-s2v: true
+    must_record:
+      - reference-id
+      - character-or-type-id
+      - version
+      - approval-status
+      - path
+      - aspect-ratio
+      - pixel-dimensions
+      - framing
+      - pose
+      - depth-plane
+      - allowed-modes
+      - known-limitations
+    rules:
+      - one-coherent-frame-not-a-board-or-collage
+      - exact-visible-character-count
+      - correct-anatomy-and-clear-separated-silhouettes
+      - stable-simple-background
+      - no-text-label-watermark-or-duplicate-subject
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  t2v:
+    role: broad-type-count-and-blocking-exploration-only
+    final-recurring-identity-approval: forbidden
+    require:
+      - explicit-subject-count
+      - separate-broad-silhouettes-and-color-families
+      - one-action-per-visible-character
+      - one-camera-behavior
+  i2v:
+    required-for: recurring-or-identity-sensitive-background-character
+    source-frame-locks:
+      - subject-count
+      - identity
+      - scale
+      - depth-plane
+      - blocking
+      - start-pose
+    prompt-only-adds: one-controlled-motion-and-endpoint
+  ti2v:
+    role: draft-count-blocking-silhouette-and-motion-screening
+    not-authority-for:
+      - exact-face
+      - species-markings
+      - material-detail
+      - recurring-identity
+  s2v:
+    speaking-character-priority: absolute
+    preferred-background-count: 0
+    if-one-background-character-is-approved:
+      - keep-face-separated-from-speaker
+      - no-speech-like-mouth-motion
+      - no-crossing-or-large-gesture
+      - no-identity-or-count-change
+
+reusable_prompt_fragments:
+  count_and_separation: >-
+    Keep exactly the approved number of background characters, each with a
+    separated broad silhouette, distinct large color regions, one assigned
+    depth plane, and one small controlled action; preserve Riri and Yoyo as the
+    only focal main characters.
+  concise_negative: >-
+    extra character, duplicate character, cloned face, merged bodies, extra
+    limbs, identity mixing, Riri copy, Yoyo copy, face occlusion, crowd clutter,
+    speaking background mouth, random accessory, text, logo, watermark.
+
+registry: []
+
+validation:
+  schema-approval: passed
+  registry-readiness: waiting-for-approved-background-character-definitions
+  required-before-definition-approval:
+    - canonical-id-and-function-type
+    - approved-species-form-and-age-class
+    - silhouette-color-material-and-scale
+    - separation-tests-from-riri-and-yoyo
+    - behavior-speaking-and-safety-rules
+    - design-sheet-and-single-frame-plan
+    - mode-specific-wan-eligibility
+  blocks_generation_when:
+    - registry-is-empty-and-a-background-character-is-requested
+    - type-or-character-id-is-unapproved
+    - subject-count-is-unclear-or-exceeds-mode-limit
+    - source-reference-is-required-but-missing
+    - silhouette-overlaps-or-copies-a-main-character
+    - face-anatomy-or-contact-is-ambiguous
+  no-generation-required-for-schema-validation: true

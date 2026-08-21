@@ -26,16 +26,16 @@ APPROVAL_SCORES = {
 
 
 def test_neon_city_recommendation_is_configured_as_classroom() -> None:
-    project_directory = PROJECT_ROOT / "src" / "lpw" / "context" / "projects" / "classroom"
+    project_directory = PROJECT_ROOT / "src" / "lpw" / "context" / "projects" / "riri-yoyo"
     project = load_yaml(project_directory / "project.yaml")
     export = load_yaml(project_directory / "export.yaml")
     timeline = load_yaml(
-        project_directory / "scenes" / "rooftop-confrontation" / "timeline.yaml"
+        project_directory / "scenes" / "garden-discovery" / "timeline.yaml"
     )
 
-    assert project["project"]["id"] == "classroom"
-    assert project["project"]["title"] == "Classroom"
-    assert timeline["scene"]["project_id"] == "classroom"
+    assert project["project"]["id"] == "riri-yoyo"
+    assert project["project"]["title"] == "Riri & Yoyo"
+    assert timeline["scene"]["project_id"] == "riri-yoyo"
     assert all("renders/classroom/" in shot["video_path"] for shot in timeline["shots"])
     assert export["video"]["width"] == 1920
     assert export["video"]["height"] == 804
@@ -74,11 +74,11 @@ def test_completed_wan_render_receives_one_immutable_scored_approval(
     tmp_path: Path,
 ) -> None:
     render_directory = (
-        tmp_path / "renders" / "classroom" / "scene-001" / "shot-001" / "hash001"
+        tmp_path / "renders" / "riri-yoyo" / "scene-001" / "shot-001" / "hash001"
     )
     render_directory.mkdir(parents=True)
     identity = {
-        "project_id": "classroom",
+        "project_id": "riri-yoyo",
         "scene_id": "scene-001",
         "shot_id": "shot-001",
         "package_hash": "hash001",
@@ -113,7 +113,7 @@ def test_completed_wan_render_receives_one_immutable_scored_approval(
 
 def test_classroom_finalizer_rejects_missing_render_inputs_without_running_ffmpeg() -> None:
     result = SceneFinalizationService(PROJECT_ROOT).finalize_scene(
-        "classroom", "rooftop-confrontation", 1
+        "riri-yoyo", "garden-discovery", 1
     )
 
     assert result["status"] == "rejected"
@@ -130,11 +130,11 @@ def test_successful_finalization_commits_runtime_continuity_only_after_export(
 ) -> None:
     project_root = tmp_path / "workspace"
     context_root = tmp_path / "context"
-    project_directory = context_root / "projects" / "classroom"
+    project_directory = context_root / "projects" / "riri-yoyo"
     scene_directory = project_directory / "scenes" / "scene-001"
     scene_directory.mkdir(parents=True)
     (project_directory / "project.yaml").write_text(
-        "project:\n  id: classroom\n  title: Classroom\n", encoding="utf-8"
+        "project:\n  id: riri-yoyo\n  title: Riri & Yoyo\n", encoding="utf-8"
     )
     (project_directory / "export.yaml").write_text(
         """video:
@@ -167,13 +167,13 @@ approval:
 """,
         encoding="utf-8",
     )
-    video = project_root / "renders" / "classroom" / "scene-001" / "shot-001" / "hash001" / "output-00.mp4"
+    video = project_root / "renders" / "riri-yoyo" / "scene-001" / "shot-001" / "hash001" / "output-00.mp4"
     video.parent.mkdir(parents=True)
     video.write_bytes(b"video")
     (video.parent / "approval.json").write_text(
         __import__("json").dumps(
             {
-                "project_id": "classroom",
+                "project_id": "riri-yoyo",
                 "scene_id": "scene-001",
                 "shot_id": "shot-001",
                 "package_hash": "hash001",
@@ -198,7 +198,7 @@ approval:
     (scene_directory / "timeline.yaml").write_text(
         f"""scene:
   id: scene-001
-  project_id: classroom
+  project_id: riri-yoyo
 shots:
   - id: shot-001
     package_hash: hash001
@@ -241,7 +241,7 @@ output:
     monkeypatch.setattr(timeline_module, "mix_scene_audio", copy_stage)
 
     result = SceneFinalizationService(project_root).finalize_scene(
-        "classroom", "scene-001", 2
+        "riri-yoyo", "scene-001", 2
     )
 
     assert result["status"] == "completed"
@@ -249,5 +249,5 @@ output:
     assert Path(result["output"]).is_file()
     assert result["continuity"]["state"] == {"door_state": "closed"}
     assert (
-        tmp_path / "runtime" / "continuity" / "classroom" / "scene-001.yaml"
+        tmp_path / "runtime" / "continuity" / "riri-yoyo" / "scene-001.yaml"
     ).is_file()

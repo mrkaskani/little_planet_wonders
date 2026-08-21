@@ -1,0 +1,174 @@
+id: riri-yoyo-asset-conventions
+type: asset-conventions-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: canonical-ids-paths-versions-approval-and-generation-record-naming
+
+id_conventions:
+  canonical_id:
+    format: lowercase-kebab-case
+    regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+  version_id:
+    format: v-followed-by-three-digit-positive-integer
+    regex: "^v[0-9]{3}$"
+  candidate_id:
+    format: c-followed-by-three-digit-positive-integer
+    regex: "^c[0-9]{3}$"
+  rules:
+    - one-id-has-one-canonical-meaning
+    - ids-do-not-change-with-folder-renames
+    - aliases-are-recorded-not-silently-substituted
+    - random-workflow-node-id-is-never-semantic-identity
+
+filename_conventions:
+  separator: hyphen-by-default
+  case: lowercase-by-default
+  extension_case: lowercase
+  forbidden:
+    - spaces
+    - ambiguous-final-final2-names
+    - date-only-identity
+    - random-number-only-name
+    - unsupported-mode-name
+  reference_image: "{entity-id}--{view-or-framing}--{version}.{ext}"
+  design_sheet: "{entity-id}--{sheet-type}--{version}.{ext}"
+  explicit_exceptions:
+    kindergarten-interior-v002-design-review-boards:
+      format: lower-camel-case
+      reason: project-owner-requested-title-derived-camel-case-board-filenames
+      scope: assets/locations/kindergarten-interior/design-review/*V002.png
+      examples:
+        - kindergartenInteriorScaleAndProportionReferenceBoardV002.png
+        - kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
+      constraints:
+        - no-spaces-or-punctuation
+        - preserve-version-suffix
+        - ids-remain-lowercase-kebab-case
+        - every-path-and-hash-must-be-updated-together
+  audio_reference: "{character-id}--{emotion-or-role}--{version}.wav"
+  prompt_record: "{entity-or-purpose}--{task-mode}--prompt-{prompt-version}.yaml"
+  generation_record: >-
+    {entity-or-purpose}--{task-mode}--p{prompt-version}--r{reference-version}
+    --s{seed}--{width}x{height}--f{frame-count}--c{candidate-number}{audio-hash-suffix}.{ext}
+  audio_hash_suffix:
+    s2v_required: true
+    format: "--a{first-12-sha256-characters}"
+    non_s2v: omitted
+
+folder_conventions:
+  character_design_review: assets/characters/{character-id}/design-review
+  character_generation_frames: assets/characters/{character-id}/generation-frames
+  location_design_review: assets/locations/{location-id}/design-review
+  location_generation_frames: assets/locations/{location-id}/generation-frames
+  prop_references: assets/props/{prop-id}/references
+  vehicle_references: assets/vehicles/{vehicle-id}/references
+  brand_assets: assets/brand
+  audio_voice_references: audio-assets/voice-references/{character-id}
+  validation_reports: validation/reports
+  prompt_records: generation-records/prompts
+  dry_run_manifests: generation-records/dry-runs
+
+versioning:
+  initial: v001
+  increment_when:
+    - pixels-or-waveform-change
+    - canonical-description-or-identity-changes
+    - crop-framing-pose-or-background-changes
+    - approval-status-is-revoked-and-replaced
+    - audio-trim-normalization-or-timing-changes
+  no_increment_when:
+    - metadata-typo-does-not-change-authority-or-asset-content
+  immutable_after_approval: true
+  replacement_creates_new-version: true
+  old-version-remains-in-history: true
+
+approval_states:
+  ordered:
+    - planned
+    - candidate
+    - technical-review
+    - creative-review
+    - approved
+    - deprecated
+    - rejected
+  generation_eligible: approved
+  rules:
+    - file-existence-does-not-equal-approval
+    - generated-candidate-is-not-automatically-authority
+    - technical-pass-does-not-replace-creative-or-listening-review
+    - rejected-or-deprecated-assets-remain-traceable-but-are-never-conditioned
+
+variant_policy:
+  variant_requires:
+    - parent-canonical-id
+    - variant-id
+    - changed-fields
+    - unchanged-invariants
+    - purpose
+    - reference-version
+    - approval-status
+  temporary-state-is-not-a-variant-when: canonical-identity-remains-unchanged
+  untracked-variant: forbidden
+
+hashing:
+  algorithm: sha256
+  record:
+    - asset-file
+    - prompt-source
+    - reference-input
+    - locked-s2v-audio
+    - exact-transcript
+    - dry-run-manifest
+  use:
+    full-hash-in-metadata: true
+    first-12-characters-in-human-readable-generation-name: true
+  invalidation:
+    file-content-change: new-hash-and-version-review
+    s2v-audio-or-transcript-change: invalidate-downstream-video-record
+
+generation_record_required_fields:
+  - record-id
+  - project-id
+  - task-mode
+  - model-id
+  - prompt-id-and-version
+  - prompt-sha256
+  - reference-ids-and-versions
+  - reference-sha256-values
+  - seed
+  - native-width
+  - native-height
+  - frame-count
+  - native-frame-rate
+  - candidate-number
+  - approval-status
+  - output-path-or-null-for-dry-run
+  - audio-id-version-and-sha256-for-s2v
+  - crop-pad-upscale-and-frame-rate-conversion-plan
+  - created-at-iso-8601
+  - tool-or-workflow-version
+
+deprecation:
+  requires:
+    - deprecated-version-or-id
+    - replacement-id-and-version-or-none
+    - reason
+    - date
+    - affected-dependencies
+  rules:
+    - do-not-delete-history-needed-for-reproducibility
+    - do-not-resolve-deprecated-id-to-new-design-silently
+    - validators-reject-deprecated-conditioning-assets
+
+path_rules:
+  project_relative: true
+  absolute_paths_in_yaml: forbidden
+  path_traversal: forbidden
+  symbolic-link-outside-project: forbidden
+  extension-must-match-actual-format: true
+  approved-path-must-exist: true
+  missing-planned-path-is-null-with-expected-path: true

@@ -1,0 +1,659 @@
+metadata:
+  id: riri-yoyo-kids-pop-music
+  type: music-style-context
+  version: 1
+  status: approved
+  project_id: riri-yoyo
+  purpose: cheerful dialogue-safe background music for English-learning adventures
+  target_audience:
+    minimum_age: 3
+    maximum_age: 6
+  approval_required: true
+  continuity_priority: high
+
+identity:
+  style: soft-kids-pop
+  genre:
+    - warm acoustic
+    - playful melodic
+    - gentle cinematic
+    - soft kids pop
+    - playful cartoon background music
+
+  emotional_character:
+    - happy
+    - sweet
+    - playful
+    - relaxed
+    - curious
+    - positive
+    - reassuring
+    - emotionally safe
+
+  overall_feeling: happy everyday adventure with a soft playful bounce
+  energy: light-and-bouncy
+  dialogue_relationship: supportive-never-dominant
+  melodic_identity: simple-cute-memorable-and-gently-repetitive
+  rhythmic_identity: smooth-friendly-bounce-with-clear-breathing-space
+
+  instrumentation:
+    primary:
+      - marimba
+      - soft piano
+      - ukulele
+      - gentle flute
+      - acoustic guitar
+      - xylophone
+
+    rhythm_section:
+      - light pop drums
+      - soft shaker
+      - subtle claps
+      - muted tambourine
+      - soft woodblock
+
+    harmonic_support:
+      - warm bass
+      - felt piano
+      - nylon-string guitar
+      - soft synthesizer pads
+
+    decorative:
+      - soft bells
+      - toy bells
+      - celesta
+      - soft synth plucks
+      - gentle flute
+
+    usage_rules:
+      - use ukulele or acoustic guitar as the friendly rhythmic foundation
+      - use piano, marimba, or xylophone for short memorable melodic phrases
+      - use warm bass only as a soft rounded foundation
+      - use bells and synth plucks as sparse discovery accents
+      - use no more than three prominent melodic layers at once
+      - keep percussion soft and behind melody and dialogue
+      - thin the arrangement whenever English dialogue begins
+
+  forbidden:
+    - horror music
+    - aggressive action music
+    - heavy bass impacts
+    - harsh electronic sounds
+    - intense suspense
+    - chaotic percussion
+    - loud orchestral hits
+    - dark threatening drones
+    - strong drums
+    - fast rhythms
+    - loud vocal shouts
+    - heavy bass
+    - dramatic builds
+    - hyperactive arrangement
+    - distorted electric guitar
+    - hard trap drums
+    - aggressive brass
+    - shrill synth leads
+
+tempo:
+  default_bpm: 105
+  minimum_bpm: 100
+  maximum_bpm: 110
+  preferred_range_bpm:
+    minimum: 100
+    maximum: 110
+  lock_to_dialogue_safe_range: true
+  location_profile_override_allowed: true
+  location_override_requires_registered_profile: true
+  active_profile_range_is_authoritative: true
+  allow_tempo_map: true
+  tempo_changes_must_be_gradual: true
+  maximum_transition_change_bpm: 4
+  scene_defaults:
+    walking: 104
+    playing: 108
+    exploring: 105
+    talking: 102
+    discovering: 106
+    thinking: 100
+    gentle_celebration: 110
+  forbidden:
+    - tempo_above_110_bpm
+    - tempo_outside_the_active_approved_profile_range
+    - abrupt_tempo_jump
+    - rushed_double_time_feel
+
+meter:
+  primary: 4-4
+  alternatives:
+    - gentle-6-8
+    - light-2-4
+  pulse: clear-soft-and-even
+  subdivision: simple-eighth-notes
+  syncopation: light
+  swing: subtle-or-none
+  avoid:
+    - irregular-meter
+    - rapidly-changing-meter
+    - heavy-march-feel
+    - relentless-sixteenth-note-motion
+
+harmony:
+  default_mode: warm modal
+  primary_mode: major
+  secondary_color:
+    - major-pentatonic
+    - added-sixth
+    - gentle-suspended-second
+  complexity: simple
+  use_clear_reassuring_resolutions: true
+  preferred_progressions:
+    - I-IV-V-I
+    - I-vi-IV-V
+    - I-IV-I-V-I
+    - I-add6-IV-add6-I
+    - tonic-pedal-with-gentle-upper-neighbor-color
+  chord_change_rate: slow-to-moderate
+  dissonance_level: low
+  curiosity_behavior: brief-soft-suspension-resolving-quickly
+  forbidden:
+    - prolonged-dissonance
+    - unresolved-tritone
+    - threatening-minor-ostinato
+    - dense-jazz-harmony
+    - dark-chromatic-descent
+    - horror-suspension
+
+melody:
+  role: supportive-background-identity
+  phrase_length_bars:
+    minimum: 2
+    maximum: 4
+  range: compact
+  contour:
+    - small-step-motion
+    - gentle-upward-discovery-shape
+    - soft-return-to-home-note
+  repetition: recognizable-with-small-variations
+  memorability: high
+  complexity: simple
+  register: mid-to-high-without-shrillness
+  note_density: low-to-moderate
+  target_vocabulary_behavior:
+    reduce_note_density: true
+    avoid_melody_on_word_onsets: true
+    avoid_competing_rhythm: true
+  avoid:
+    - long-virtuosic-lines
+    - large-dramatic-leaps
+    - busy-countermelody
+    - sing-song-imitation-of-dialogue
+    - melody-that-reveals-an-answer
+
+rhythm:
+  feel: soft-playful-bounce
+  intensity: light
+  groove: smooth-and-gently-upbeat
+  kick: soft-and-sparse
+  snare: brushed-or-muted
+  claps: subtle-and-occasional
+  shaker: light-and-consistent
+  bass_rhythm: simple-root-and-fifth-support
+  dialogue_behavior:
+    simplify_during_speech: true
+    remove_fills_before_important_words: true
+    avoid_accents_on_word_endings: true
+  participation_behavior:
+    remove_percussion: true
+    avoid_new_rhythmic_idea: true
+  forbidden:
+    - hard-backbeat
+    - rapid-drum-fill
+    - aggressive-syncopation
+    - dense-percussion-layering
+    - sudden-stop-impact
+
+arrangement:
+  ensemble_size: small
+  density: light
+  texture: clean-layered-acoustic-hybrid
+  maximum_simultaneous_prominent_layers: 4
+  maximum_simultaneous_melodic_layers: 3
+  main_bed:
+    foundation:
+      - ukulele-or-acoustic-guitar
+      - warm-bass
+      - light-pop-drums
+    melody:
+      - soft-piano-or-marimba
+    color:
+      - sparse-bells-or-soft-synth-plucks
+  dialogue_reduction:
+    maximum_prominent_melodic_layers: 1
+    reduce_percussion: true
+    reduce_midrange_density: true
+    preserve_soft_pulse: true
+    preserve_character_theme_only_as_short_fragment: true
+  build_policy:
+    dramatic_builds_allowed: false
+    add_layers_one_at_a_time: true
+    maximum_energy: low-to-moderate
+    use_small_lifts_not_crescendos: true
+  loopability:
+    seamless_loop_required: true
+    loop_length_bars:
+      preferred: 16
+      allowed:
+        - 8
+        - 16
+        - 32
+    avoid_obvious_loop_clicks: true
+    avoid_unresolved_loop_boundary: true
+
+dynamics:
+  default: mp
+  range:
+    minimum: pp
+    maximum: mf
+  energy_ceiling: low-to-moderate
+  change_style: smooth-and-playful
+  preserve_headroom_for_dialogue: true
+  maximum_sudden_level_change_db: 3
+  avoid:
+    - sudden-extreme-volume-jump
+    - prolonged-forte
+    - explosive-accent
+    - harsh-transient-peak
+    - jump-scare-silence-to-impact
+    - dramatic-crescendo
+
+everyday_scene_cues:
+  walking:
+    tempo_bpm: 104
+    groove: light-ukulele-with-soft-shaker
+    melody: short-marimba-step-pattern
+    energy: low
+  playing:
+    tempo_bpm: 108
+    groove: gentle-pop-bounce-with-subtle-claps
+    melody: cute-xylophone-and-piano-answer
+    energy: low-to-moderate
+  exploring:
+    tempo_bpm: 105
+    groove: soft-acoustic-pulse
+    melody: curious-marimba-and-synth-pluck-fragments
+    energy: low
+  talking:
+    tempo_bpm: 102
+    groove: simplified-ukulele-pulse
+    melody: sparse-soft-piano
+    energy: very-low
+  discovering:
+    tempo_bpm: 106
+    groove: light-steady-bounce
+    melody: gentle-upward-bells-and-marimba
+    energy: low
+  learning_word:
+    tempo_bpm: 102
+    groove: minimal-soft-pulse
+    melody: pause-or-single-soft-sustained-note
+    energy: very-low
+  audience_question:
+    tempo_bpm: 100
+    groove: percussion-free
+    melody: no-new-melody
+    energy: very-low
+  gentle_success:
+    tempo_bpm: 110
+    groove: soft-clap-and-ukulele-lift
+    melody: two-or-three-note-positive-resolution
+    energy: low-to-moderate
+
+themes:
+  riri:
+    profile: characters/riri/music-profile.yaml
+    identity: warm-sweet-and-reassuring
+    motif: two soft felt-piano notes, a gentle rocking answer, and a warm home note
+    signature_instrument: felt-piano
+    instruments:
+      - felt piano
+      - ukulele
+      - nylon-string guitar
+      - soft marimba
+      - gentle bells
+    rhythm: tiny-paw-step-and-tail-wag-bounce
+    dialogue_treatment: use-only-the-opening-two-note-fragment
+    preserve_profile_identity: true
+
+  yoyo:
+    profile: characters/yoyo/music-profile.yaml
+    identity: bright-curious-and-playfully-bouncy
+    motif: two light celesta bounces, a small upward marimba phrase, and a soft landing
+    signature_instrument: celesta
+    instruments:
+      - celesta
+      - marimba
+      - ukulele
+      - soft synth plucks
+      - toy bells
+    rhythm: tiny-waddle-and-two-bounce-pattern
+    dialogue_treatment: use-only-the-opening-two-note-fragment
+    preserve_profile_identity: true
+
+  friendship:
+    identity: warm-everyday-adventure
+    motif: Riri's soft piano answer joins Yoyo's two-note celesta bounce
+    instruments:
+      - ukulele
+      - felt piano
+      - celesta
+      - marimba
+      - warm bass
+    energy: low
+
+  discovery:
+    identity: gentle-curious-reveal
+    motif: three rising marimba notes with one quiet bell resolution
+    instruments:
+      - marimba
+      - soft piano
+      - soft bells
+      - synth pluck
+    energy: low
+
+english_learning:
+  dialogue_has_absolute_priority: true
+  simplify_under_english_speech: true
+  protect_initial_and_final_consonants: true
+  protect_target_vocabulary: true
+  reduce_music_before_target_word_ms: 150
+  restore_music_after_target_word_ms: 300
+  avoid_accent_on_spoken_word_onset: true
+  avoid_fill_during_new_vocabulary: true
+  repeated_word_behavior:
+    keep_accompaniment_consistent: true
+    allow_only_small_orchestration_variation: true
+    do_not_change_pronunciation_cue_context: true
+  question_behavior:
+    reduce_to_soft_stable_tone: true
+    remove_percussion: true
+    preserve_response_space: true
+  feedback:
+    correct_answer: two-soft-positive-marimba-notes
+    try_again: warm-curious-note-followed-by-gentle-resolution
+    negative_buzzer_allowed: false
+
+mixing:
+  dialogue_ducking_db: -6
+  maximum_music_true_peak_db: -3
+  preserve_low_frequency_space_for_dialogue: true
+  dialogue_has_priority: true
+  ducking_attack_ms: 100
+  ducking_release_ms: 500
+  reduce_midrange_under_dialogue: true
+  maximum_music_width_percent: 80
+  center_space_reserved_for_dialogue: true
+  keep_bass_mono_and_soft: true
+  retain_music_stem_separately: true
+  never_bake_music_into_lip_sync_audio: true
+
+production:
+  style: clean-warm-acoustic-hybrid
+  sound_quality: soft-friendly-child-safe
+  sample_rate: 48000
+  delivery_channels: stereo
+  clean_music_only: true
+  vocals_allowed: false
+  vocal_shouts_allowed: false
+  reverb: small-warm-room
+  compression: light
+  transient_shaping: soft
+  bass_character: warm-rounded-and-light
+  stereo_image: wide-but-mono-compatible
+  preserve_separate_stems:
+    - melodic
+    - harmonic
+    - bass
+    - percussion
+  external_provider_status: not-run
+
+child_safety:
+  audience_age: 3-6
+  maximum_energy: low-to-moderate
+  maximum_complexity: simple
+  preserve_participation_pauses: true
+  avoid_sudden_loudness: true
+  avoid_frightening_dissonance: true
+  avoid_hyperactive_rhythm: true
+  avoid_heavy_low_frequency_energy: true
+  avoid_prolonged_high_energy: true
+  avoid_negative_or_punishing_cues: true
+  listening_comfort_required: true
+
+participation_pause:
+  minimum_seconds: 3
+  maximum_seconds: 5
+  remove_percussion: true
+  hold_soft_stable_tone: true
+  do_not_reveal_answer: true
+  no_new_melody: true
+  no_character_motif_statement: true
+  no_rhythmic_fill: true
+  avoid_distracting_stereo_motion: true
+
+transitions:
+  default: short-musical-bridge
+  maximum_transition_seconds: 2
+  use_shared_harmonic_tone_when_possible: true
+  preserve_tempo_range: true
+  preserve_motif_identity: true
+  avoid_dramatic_riser: true
+  avoid_cymbal_swell: true
+  avoid_bass_drop: true
+  scene_endings:
+    default: gentle-resolved-cadence
+    allow_soft_button_ending: true
+    allow_fade: true
+    maximum_fade_seconds: 2
+
+continuity:
+  reuse_approved_themes: true
+  preserve_motif_identity_across_instrument_variations: true
+  preserve_main_tempo_range: true
+  main_tempo_range_source: active_registered_profile_or_global_default
+  preserve_instrument_palette: true
+  preserve_dialogue_ducking_behavior: true
+  preserve_character_theme_assignment: true
+  preserve_scene_cue_position_when_locked: true
+  continue_music_position_across_connected_cuts: true
+  avoid_restart_on_every_shot: true
+  material_theme_change_requires_review: true
+
+validation:
+  require_approved_style: true
+  tempo_bpm:
+    minimum: 100
+    maximum: 110
+  allow_registered_location_tempo_range: true
+  require_tempo_within_active_profile_range: true
+  require_simple_memorable_melody: true
+  require_light_dialogue_safe_arrangement: true
+  require_child_safe_instrumentation: true
+  require_mono_compatibility: true
+  require_seamless_loop_when_requested: true
+  require_dialogue_headroom: true
+  maximum_true_peak_db: -3
+  reject_vocals_or_shouts: true
+  reject_heavy_bass: true
+  reject_strong_drums: true
+  reject_dramatic_builds: true
+  reject_hyperactive_rhythm: true
+  reject_target_word_masking: true
+  reject_answer_revealing_cue: true
+  reject_participation_pause_percussion: true
+
+forbidden_changes:
+  - changing_the_approved_kids-pop-identity
+  - changing_main_tempo_outside_the_active_approved_profile_range
+  - replacing_simple_melody_with_busy_counterpoint
+  - increasing_energy_above_low-to-moderate
+  - adding_strong_drums
+  - adding_fast_hyperactive_rhythms
+  - adding_loud_vocal_shouts
+  - adding_heavy_bass
+  - adding_dramatic_builds_or_drops
+  - masking_dialogue_or_target_vocabulary
+  - changing_Riri_or_Yoyo_theme_identity
+  - adding_percussion_during_participation_pauses
+  - revealing_answers_with_music
+  - embedding_dialogue_ambience_or_sound-effects_in_music-assets
+
+location_profile_registry:
+  authority:
+    global_music_identity: this_file
+    location_music_identity: location_music_profile
+    active_music_state: scene_or_continuity_context
+    environmental_audio: location_sound_profile
+    final_mix: audios/mixing.yaml
+  profiles:
+    kindergarten_exterior_garden:
+      source: ../locations/exteriors/music-profile.yaml
+      profile_id: kindergarten-music
+      preferred_bpm: 86
+      default_bpm_range: {minimum: 72, maximum: 100}
+      energy: low_medium
+      motif_id: kindergarten-friendship-motif
+      motif_instrument: gentle_flute
+      state_ids:
+        - kindergarten-welcome
+        - kindergarten-arrival
+        - kindergarten-exploration
+        - kindergarten-learning
+        - kindergarten-dialogue
+        - kindergarten-group-play
+        - kindergarten-discovery
+        - kindergarten-celebration
+        - kindergarten-reflective
+        - kindergarten-goodbye
+    kindergarten_classroom:
+      source: ../locations/interiors/music-profile.yaml
+      profile_id: kindergarten-interior-music
+      preferred_bpm: 82
+      default_bpm_range: {minimum: 70, maximum: 96}
+      energy: low_medium
+      motif_id: kindergarten-interior-learning-motif
+      motif_instrument: gentle_clarinet
+      state_ids:
+        - kindergarten-interior-warm-learning
+        - kindergarten-interior-arrival
+        - kindergarten-interior-free-play
+        - kindergarten-interior-learning
+        - kindergarten-interior-drawing
+        - kindergarten-interior-building
+        - kindergarten-interior-story-time
+        - kindergarten-interior-discovery
+        - kindergarten-interior-group-activity
+        - kindergarten-interior-dialogue
+        - kindergarten-interior-accomplishment
+        - kindergarten-interior-reflective
+        - kindergarten-interior-cleanup
+        - kindergarten-interior-goodbye
+    kindergarten_play_space:
+      source: ../locations/play_spaces/music-profile.yaml
+      profile_id: kindergarten-play-space-music
+      preferred_bpm: 90
+      default_bpm_range: {minimum: 78, maximum: 102}
+      energy: medium
+      motif_id: kindergarten-play-space-imagination-motif
+      motif_instrument: gentle_clarinet
+      state_ids:
+        - kindergarten-play-space-default
+        - kindergarten-play-space-free-play
+        - kindergarten-play-space-pretend-play
+        - kindergarten-play-space-playhouse
+        - kindergarten-play-space-building
+        - kindergarten-play-space-toy-discovery
+        - kindergarten-play-space-group-play
+        - kindergarten-play-space-movement-play
+        - kindergarten-play-space-friendship
+        - kindergarten-play-space-sharing
+        - kindergarten-play-space-dialogue
+        - kindergarten-play-space-quiet-play
+        - kindergarten-play-space-accomplishment
+        - kindergarten-play-space-cleanup
+        - kindergarten-play-space-calming-down
+        - kindergarten-play-space-leaving
+    nature_park:
+      source: ../locations/nature_and_parks/music-profile.yaml
+      profile_id: nature-and-parks-music
+      preferred_bpm: 80
+      default_bpm_range: {minimum: 68, maximum: 94}
+      energy: low_medium
+      motif_id: nature-and-parks-exploration-motif
+      motif_instrument: gentle_flute
+      state_ids:
+        - nature-and-parks-peaceful
+        - nature-and-parks-establishing
+        - nature-and-parks-walking
+        - nature-and-parks-exploration
+        - nature-and-parks-observation
+        - nature-and-parks-stream
+        - nature-and-parks-bridge
+        - nature-and-parks-flower-discovery
+        - nature-and-parks-animal-discovery
+        - nature-and-parks-playful
+        - nature-and-parks-friendship
+        - nature-and-parks-dialogue
+        - nature-and-parks-reflective
+        - nature-and-parks-departure
+    countryside_golden_hour:
+      source: ../locations/sunset_golden_hour/music-profile.yaml
+      profile_id: sunset-golden-hour-music
+      preferred_bpm: 70
+      default_bpm_range: {minimum: 58, maximum: 82}
+      energy: low
+      motif_id: sunset-golden-hour-warmth-motif
+      motif_instrument: gentle_flute
+      state_ids:
+        - sunset-golden-hour-warm
+        - sunset-golden-hour-arrival
+        - sunset-golden-hour-scenic-reveal
+        - sunset-golden-hour-walk
+        - sunset-golden-hour-friendship
+        - sunset-golden-hour-reflection
+        - sunset-golden-hour-discovery-resolution
+        - sunset-golden-hour-returning-home
+        - sunset-golden-hour-dialogue
+        - sunset-golden-hour-reassurance
+        - sunset-golden-hour-episode-resolution
+        - sunset-golden-hour-to-evening
+    kindergarten_evening_night:
+      source: ../locations/evening_night/music-profile.yaml
+      profile_id: evening-night-music
+      preferred_bpm: 62
+      default_bpm_range: {minimum: 50, maximum: 72}
+      energy: very_low
+      motif_id: evening-night-starlight-motif
+      motif_instrument: gentle_celesta
+      state_ids:
+        - evening-night-calm
+        - evening-night-early
+        - evening-night-establishing
+        - evening-night-moon-reveal
+        - evening-night-star-observation
+        - evening-night-walking-home
+        - evening-night-home-lights
+        - evening-night-friendship
+        - evening-night-dialogue
+        - evening-night-reassurance
+        - evening-night-reflection
+        - evening-night-bedtime-transition
+        - evening-night-sleeping-environment
+        - evening-night-episode-resolution
+  adaptation_rules:
+    preserve_parent_location_motif: true
+    time_of_day_motif_is_an_overlay: true
+    simplify_location_motif_beneath_dialogue: true
+    preserve_environmental_frequency_space: true
+    retain_ambience_during_music_transitions: true
+    state_changes_must_crossfade: true
+    do_not_infer_emotion_from_location_alone: true

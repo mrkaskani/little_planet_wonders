@@ -1,0 +1,114 @@
+id: riri-yoyo-character-identity-review-v001
+type: character-identity-review-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  review_date: 2026-08-20
+  reviewer: codex-visual-review
+  human_reviewer: project-owner
+  human_approval_date: 2026-08-20
+  human_approval_record: project-owner-approvals.yaml
+  purpose: design-review-only-not-wan-conditioning-approval
+  criteria_sources:
+    - reference-views.yaml
+    - wan22-review-cards.yaml
+    - characters/riri/character.yaml
+    - characters/yoyo/character.yaml
+
+records:
+  - review-id: riri-identity-sheet-review-v001
+    record-id-and-candidate-id: riri-identity-sheet-v001
+    path: assets/characters/riri/design-review/riri--identity-sheet--v001.png
+    reviewer-and-date: codex-visual-review--2026-08-19
+    task-and-model: design-review--built-in-imagegen
+    card-results-in-review-order:
+      structure: pass-review-board-never-conditioning-frame
+      composition: pass-readable-separated-views
+      subject-count: pass-one-riri-per-review-cell
+      identity-and-anatomy: pass-required-views-poses-expressions-colors-and-limbs
+      motion-and-contact: pass-review-poses-have-readable-grounding
+      temporal-stability: not-applicable-still-design-sheet
+      materials-and-lighting: pass-soft-plush-and-neutral-studio-light
+      fine-detail: pass-blue-eyes-lashes-pink-nose-muzzle-paws-ears-and-tail-readable
+      audio-alignment-when-applicable: not-applicable
+    required-view-evidence:
+      full-body-front: present
+      full-body-three-quarter-front: present
+      full-body-side: present
+      full-body-back: present
+      neutral-pose: present
+      seated-pose: present
+      characteristic-motion-pose: present
+      expression-set: present
+      canonical-color-regions: present
+      two-character-scale-comparison: present-as-creative-review-candidate
+    clothing-accessories-and-props: none
+    first-failing-card: none-in-this-sheet
+    failure-class: none
+    one-next-action: none-approved
+    approval-status: approved-by-project-owner
+
+  - review-id: yoyo-identity-sheet-review-v001
+    record-id-and-candidate-id: yoyo-identity-sheet-v001
+    path: assets/characters/yoyo/design-review/yoyo--identity-sheet--v001.png
+    reviewer-and-date: codex-visual-review--2026-08-19
+    task-and-model: design-review--built-in-imagegen
+    card-results-in-review-order:
+      structure: pass-review-board-never-conditioning-frame
+      composition: pass-readable-separated-views
+      subject-count: pass-one-yoyo-per-review-cell
+      identity-and-anatomy: pass-required-views-poses-expressions-colors-flippers-and-feet
+      motion-and-contact: pass-review-poses-have-readable-grounding
+      temporal-stability: not-applicable-still-design-sheet
+      materials-and-lighting: pass-soft-plush-and-neutral-studio-light
+      fine-detail: pass-lavender-blue-eyes-lashes-face-mask-wedge-beak-and-cheeks-readable
+      audio-alignment-when-applicable: not-applicable
+    required-view-evidence:
+      full-body-front: present
+      full-body-three-quarter-front: present
+      full-body-side: present
+      full-body-back: present
+      neutral-pose: present
+      seated-pose: present
+      characteristic-motion-pose: present
+      expression-set: present
+      canonical-color-regions: present
+      two-character-scale-comparison: present-as-creative-review-candidate
+    clothing-accessories-and-props: none
+    first-failing-card: none-in-this-sheet
+    failure-class: none
+    one-next-action: none-approved
+    approval-status: approved-by-project-owner
+
+package_gate:
+  required_scale:
+    yoyo_height_cm: 55
+    riri_height_cm: 35
+    riri_height_relative_to_yoyo_percent: 64
+    same-ground-plane: required
+    separate-path: assets/characters/scale-review/riri-yoyo--scale-comparison--v001.png
+    candidate-id: riri-yoyo-scale-comparison-v001
+    sha256: 1242dfd7b941d9e97d369174d58b240be45ad76869b3aee6cc99c6f03a7e7ef0
+    pixel-dimensions: 1536x1024
+    observed-soft-silhouette-ratio: approximately-61-to-64-percent
+    status: approved-by-project-owner
+  generation_conditioning_allowed: false
+  reason:
+    - design-sheets-are-collages
+    - shared-scale-reference-is-candidate-not-approved
+    - use-approved-single-frame-generation-references-for-conditioning
+
+imagegen_attempts:
+  - date: 2026-08-19
+    mode: built-in
+    result: failed-network-endpoint
+    partial-file-registered: false
+    cli-fallback-used: false
+  - date: 2026-08-20
+    mode: built-in
+    result: candidate-created-and-registered
+    candidate-id: riri-yoyo-scale-comparison-v001
+    human-creative-approval: approved-by-project-owner

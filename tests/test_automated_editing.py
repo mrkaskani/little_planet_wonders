@@ -31,9 +31,9 @@ def _write(path: Path, content: str) -> None:
 def _automated_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     project_root = tmp_path / "workspace"
     context_root = tmp_path / "context"
-    project = context_root / "projects" / "classroom"
+    project = context_root / "projects" / "riri-yoyo"
     _write(context_root / "studio.yaml", "generation:\n  frame_rate: 24\n")
-    _write(project / "project.yaml", "project:\n  id: classroom\n  title: Classroom\n")
+    _write(project / "project.yaml", "project:\n  id: riri-yoyo\n  title: Riri & Yoyo\n")
     _write(project / "continuity.yaml", "state:\n  door_state: closed\n")
     _write(
         project / "editing_style.yaml",
@@ -74,14 +74,14 @@ approval:
         project / "scenes" / "scene-001" / "edit-context.yaml",
         "scene:\n  id: scene-001\n  preferred_order: [shot-001]\n",
     )
-    render = project_root / "renders" / "classroom" / "scene-001" / "shot-001" / "hash001"
+    render = project_root / "renders" / "riri-yoyo" / "scene-001" / "shot-001" / "hash001"
     render.mkdir(parents=True)
     (render / "output-00.mp4").write_bytes(b"video")
     _write(
         render / "approval.json",
         json.dumps(
             {
-                "project_id": "classroom",
+                "project_id": "riri-yoyo",
                 "scene_id": "scene-001",
                 "shot_id": "shot-001",
                 "package_hash": "hash001",
@@ -107,7 +107,7 @@ approval:
         project / "scenes" / "scene-001" / "timeline.yaml",
         f"""scene:
   id: scene-001
-  project_id: classroom
+  project_id: riri-yoyo
 shots:
   - id: shot-001
     package_hash: hash001
@@ -155,13 +155,13 @@ def test_three_stage_automated_editing_state_machine(
     monkeypatch.setattr(automation_module, "concatenate_clips", fake_concat)
     pipeline = AutomatedEditingPipeline(project_root)
 
-    prepared = pipeline.prepare_automated_edit("classroom", "scene-001")
-    automated = pipeline.automate_scene_edit("classroom", "scene-001", 1)
+    prepared = pipeline.prepare_automated_edit("riri-yoyo", "scene-001")
+    automated = pipeline.automate_scene_edit("riri-yoyo", "scene-001", 1)
     approval = pipeline.approve_edit_preview(
-        "classroom", "scene-001", 1, "director"
+        "riri-yoyo", "scene-001", 1, "director"
     )
     post = pipeline.post_edit_scene(
-        "classroom",
+        "riri-yoyo",
         "scene-001",
         1,
         [
@@ -232,17 +232,17 @@ def test_approved_edit_creates_delivery_and_archive_manifest(
         automation_module, "SceneFinalizationService", FakeFinalizationService
     )
     pipeline = AutomatedEditingPipeline(project_root)
-    pipeline.prepare_automated_edit("classroom", "scene-001")
-    pipeline.automate_scene_edit("classroom", "scene-001", 1)
-    pipeline.approve_edit_preview("classroom", "scene-001", 1, "director")
+    pipeline.prepare_automated_edit("riri-yoyo", "scene-001")
+    pipeline.automate_scene_edit("riri-yoyo", "scene-001", 1)
+    pipeline.approve_edit_preview("riri-yoyo", "scene-001", 1, "director")
 
-    result = pipeline.post_edit_scene("classroom", "scene-001", 1, [])
+    result = pipeline.post_edit_scene("riri-yoyo", "scene-001", 1, [])
 
     archive = result["archive"]
     manifest_path = (
         project_root
         / "archive"
-        / "classroom"
+        / "riri-yoyo"
         / "scene-001"
         / "v001"
         / "archive-manifest.json"
@@ -260,7 +260,7 @@ def test_approved_edit_creates_delivery_and_archive_manifest(
 
 
 def test_classroom_automated_editing_context_is_separated_by_concern() -> None:
-    root = Path(__file__).resolve().parents[1] / "src" / "lpw" / "context" / "projects" / "classroom"
+    root = Path(__file__).resolve().parents[1] / "src" / "lpw" / "context" / "projects" / "riri-yoyo"
 
     assert (root / "editing_style.yaml").is_file()
     assert (root / "auto-editing.yaml").is_file()
@@ -268,4 +268,4 @@ def test_classroom_automated_editing_context_is_separated_by_concern() -> None:
     assert (root / "take-selection.yaml").is_file()
     assert (root / "color-grade.yaml").is_file()
     assert (root / "subtitles.yaml").is_file()
-    assert (root / "scenes" / "rooftop-confrontation" / "edit-context.yaml").is_file()
+    assert (root / "scenes" / "garden-discovery" / "edit-context.yaml").is_file()

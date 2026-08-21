@@ -37,7 +37,7 @@ class ConversationSpec:
         """Build a validated specification from decoded JSON data."""
 
         title = str(payload.get("title", "Conversation")).strip()
-        project = str(payload.get("project", "classroom")).strip()
+        project = str(payload.get("project", "riri-yoyo")).strip()
         language = str(payload.get("language", "English")).strip()
         target_seconds = payload.get("target_seconds", 30.0)
         seed = payload.get("seed", 424_242)

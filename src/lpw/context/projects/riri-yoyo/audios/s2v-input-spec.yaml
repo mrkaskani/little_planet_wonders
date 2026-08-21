@@ -1,0 +1,198 @@
+id: riri-yoyo-s2v-input-spec
+type: s2v-input-context
+version: 1
+status: approved
+project_id: riri-yoyo
+
+scope:
+  phase: preproduction
+  task: s2v
+  purpose: validate_reusable_image_audio_and_timing_requirements
+  does_not_author:
+    - dialogue
+    - story
+    - scene
+    - shot_prompt
+    - final_mix
+
+source_authority:
+  wan_2_2_contract: ../wan22-preproduction.yaml
+  dialogue_style: audio_style.yaml
+  performance_style: voice-production.yaml
+  pronunciation: pronunciation.yaml
+  character_voice_profiles: ../characters/{character_id}/voice-profile.yaml
+  character_visual_context: ../characters/{character_id}/character.yaml
+
+input_roles:
+  voice_cloning_reference:
+    purpose: speaker_identity_conditioning
+    authority: ../characters/{character_id}/voice-profile.yaml
+    may_contain_reference_text_only: true
+    cannot_replace_final_conditioning_audio: true
+  final_s2v_conditioning_audio:
+    purpose: exact_words_performance_and_timing
+    must_be_newly_approved_for_its_exact_transcript: true
+    must_not_be_a_mix_stem: true
+    audio_hash_is_timing_lock: true
+  character_frame:
+    purpose: visible_identity_pose_framing_and_background
+    must_be_one_coherent_approved_image: true
+    design_sheet_or_collage_forbidden: true
+
+audio_format:
+  container: wav
+  codec: pcm_s24le
+  sample_rate_hz: 48000
+  bit_depth: 24
+  channels: 1
+  layout: mono
+  lossless_required: true
+  target_integrated_lufs: -16
+  loudness_warning_deviation_lu: 2
+  maximum_true_peak_dbtp: -1
+  clipping_samples_allowed: 0
+
+audio_cleanliness:
+  dialogue_only: true
+  one_speaker_per_asset: true
+  background_noise: inaudible
+  preferred_noise_floor_dbfs_or_lower: -60
+  reverb: none_or_incredibly_dry
+  audible_reverb_tail_allowed: false
+  delay_allowed: false
+  music_allowed: false
+  ambience_allowed: false
+  foley_allowed: false
+  sound_effects_allowed: false
+  background_vocals_allowed: false
+  overlapping_unrelated_dialogue_allowed: false
+  aggressive_denoising_artifacts_allowed: false
+  aggressive_time_stretch_allowed: false
+
+trim_and_duration:
+  leading_silence_ms: 150
+  trailing_settle_ms: 250
+  preserve_natural_leading_breath_when_needed: true
+  remove_long_accidental_silence: true
+  cover_complete_audio_with_video: true
+  preferred_maximum_reusable_segment_seconds: 6
+  longer_segment_policy: split_or_explicitly_review_for_drift
+  hard_limit_source: selected_runtime_model_and_workflow
+  do_not_invent_a_hard_model_limit_in_project_context: true
+
+text_and_alignment:
+  exact_transcript_required: true
+  missing_words_allowed: 0
+  extra_words_allowed: 0
+  substituted_words_allowed: 0
+  audio_hash_required: true
+  transcript_hash_required: true
+  word_timestamps_required: true
+  phoneme_timestamps_preferred: true
+  maximum_word_offset_ms: 80
+  maximum_phoneme_offset_ms: 50
+  audio_change_invalidates_video: true
+  transcript_change_invalidates_video: true
+  timing_change_invalidates_video: true
+
+timing_annotation_schema:
+  timebase: seconds
+  frame_rate_for_review: 24
+  required_event_types:
+    - silence
+    - speech_onset
+    - pause
+    - emphasized_word
+    - gesture_opportunity
+    - speech_end
+    - final_settle
+  required_fields:
+    - event_id
+    - event_type
+    - start_seconds
+    - end_seconds
+    - expected_visible_response
+  frame_mapping_rule: approximate_frame_equals_time_seconds_times_24
+
+chunk_boundaries:
+  preferred:
+    - natural_sentence_end
+    - long_pause
+    - moment_of_stillness
+    - edit_point
+    - camera_change
+  forbidden:
+    - middle_of_word_or_vowel
+    - consonant_closure
+    - rapid_head_turn
+    - large_gesture
+    - hand_object_contact
+    - emotional_peak
+  continuity_required:
+    - face_identity
+    - mouth_state
+    - head_pose
+    - body_pose
+    - gesture_trajectory
+    - background
+    - lighting
+    - framing
+
+character_frame_requirements:
+  approval_required: true
+  permitted_framing:
+    - half_body
+    - full_body
+  eyes_visible: true
+  mouth_or_beak_visible: true
+  mouth_start_state: closed_or_resting
+  face_unobstructed: true
+  anatomy_correct: true
+  silhouette_clear: true
+  movement_space_sufficient: true
+  pose_compatible_with_planned_performance: true
+  intended_aspect_ratio_required: true
+  text_labels_watermarks_and_extra_faces_forbidden: true
+
+optional_pose_guidance:
+  required_by_default: false
+  use_only_when: exact_broad_body_gesture_is_important
+  purpose: choreography_not_voice_or_identity
+  must_match:
+    - reference_image_starting_pose
+    - audio_emphasis_and_timing
+    - requested_framing_and_movement_space
+  reject_when:
+    - pose_conflicts_with_audio_emotion
+    - pose_requires_hands_or_body_to_leave_frame
+    - pose_changes_character_identity_or_proportions
+    - pose_adds_unnecessary_motion_complexity
+  animate_replacement_workflow: forbidden
+
+review:
+  required_checks:
+    - exact_transcript_and_pronunciation
+    - clean_silence_and_speech_onset
+    - vowel_openings_and_consonant_closures
+    - pause_mouth_rest
+    - emphasized_gesture_timing
+    - speech_end_and_final_settle
+    - character_identity
+    - background_lighting_and_framing_stability
+  failure_actions:
+    noisy_or_reverberant_audio: replace_or_reprocess_audio_before_generation
+    timing_or_transcript_change: create_new_lock_and_invalidate_downstream_video
+    drift_risk: shorten_or_split_at_safe_boundary
+    weak_or_obstructed_face: replace_character_frame
+    conflicting_large_motion: simplify_performance_direction
+    conflicting_pose_guidance: remove_or_replace_pose_guidance
+
+validation:
+  blocks_s2v_when_failed: true
+  required_approvals:
+    - character_frame
+    - final_audio_take
+    - transcript
+    - pronunciation
+    - timing_alignment
+  separate_mix_elements_added_later: true

@@ -332,9 +332,9 @@ prompt-v03-approved
 ```
 
 ```text
-roxana-front-v01
-roxana-front-v02-corrected
-roxana-front-v03-approved
+riri-front-v01
+riri-front-v02-corrected
+riri-front-v03-approved
 ```
 
 Avoid ambiguous labels such as:

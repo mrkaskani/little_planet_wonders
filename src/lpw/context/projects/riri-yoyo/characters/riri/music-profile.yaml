@@ -1,0 +1,740 @@
+music_profile:
+  id: riri-music-profile
+  type: character-music-profile
+  version: 1
+  status: approved
+  character:
+    id: riri
+    name: Riri
+    role: protagonist
+    target_audience: preschool-ages-3-to-6
+  musical_identity:
+    summary: 'Riri sounds like a soft musical hug: a warm felt-piano theme with gentle harp plucks, rounded
+      clarinet phrases, light pizzicato strings, and tiny tail-wag percussion. The music should feel cuddly,
+      reassuring, pastel, affectionate, and quietly playful.
+
+      '
+    core_attributes:
+    - sweet
+    - cuddly
+    - cheerful
+    - gentle
+    - affectionate
+    - reassuring
+    - softly-playful
+    - preschool-readable
+    emotional_center: affectionate-reassurance
+    energy_level: medium-high
+    perceived_weight: light
+    musical_age_impression: young-child
+    complexity: simple
+  leitmotif:
+    id: riri-main-motif
+    revision: 3-character-derived
+    character_basis:
+      character_profile: characters/riri/character.yaml
+      voice_profile: characters/riri/voice-profile.yaml
+      traits:
+      - tiny-young
+      - affectionate
+      - high-light-airy
+      - slow-connected-flow
+      - gentle-reassurance
+      musical_translation: high-register legato arch in one warm breath, opening and closing on the same home note
+    description: 'A five-note welcoming arch written only for Riri. It rises from her warm home note through
+      two spacious thirds to a long glowing high point, then retraces the arch and settles on the original
+      home note. It should feel like Riri lifting her ears, opening her paws for a hug, and cuddling home.
+
+      '
+    note_count: 5
+    approximate_duration_seconds: 2.8
+    melodic_contour:
+      start: middle
+      movement:
+      - upward-major-third
+      - upward-minor-third
+      - downward-minor-third
+      - downward-major-third
+      ending: resolved-warm
+    interval_language:
+      preferred:
+      - major-second
+      - major-third
+      - perfect-fourth
+      - perfect-fifth
+      avoid:
+      - minor-second-clusters
+      - tritone
+      - wide-dissonant-leaps
+      - chromatic-falls
+    rhythm:
+      pattern_description: 'One soft home note, one gently rising name note, one long glowing high note,
+        then two increasingly relaxed notes descending back home. The phrase is one connected breath,
+        with the central high note acting like an affectionate open-paw hug.
+
+        '
+      syllabic_pattern: ri-ri, big-hug, home
+      syncopation: none
+      bounce: low
+    register:
+      primary: mid-high
+      range: approximately G5 to D6; keep clearly above Yoyo except in explicitly approved low variations
+    optional_note_example:
+      key: g-major
+      notes:
+      - G5
+      - B5
+      - D6
+      - B5
+      - G5
+    canonical_note_durations_seconds:
+    - 0.46
+    - 0.52
+    - 0.74
+    - 0.56
+    - 0.82
+    canonical_note_onsets_seconds:
+    - 0.00
+    - 0.42
+    - 0.96
+    - 1.70
+    - 2.16
+    identity_rules:
+    - preserve-the-core-rhythmic-shape
+    - preserve-the-main-melodic-contour
+    - keep-the-motif-recognizable-in-all-variations
+    - retain-the-five-note-symmetrical-arch
+    - retain-the-long-central-high-note
+    - preserve-the-warm-return-to-the-home-note
+  leitmotif_generation_profile:
+    id: riri-felt-piano-emotional-rearrangement
+    motif_seed: 8117
+    cfg: 4.2
+    init_noise_level: 0.46
+    motif_preservation_mode: inpaint-after-canonical-motif
+    identity_prompt: >-
+      This is Riri's music only. Keep warm felt piano unmistakably in front,
+      in a small, high, light singing register, with connected legato phrasing and
+      a gentle swaying 6/8 puppy-tail rhythm. Supporting color may come from
+      breathy clarinet, delicate concert harp, soft sustained strings, and
+      restrained upright bass. The emotional center is affectionate reassurance:
+      even energetic or sad versions must feel like a soft musical hug. Use
+      spacious acoustic storybook production, cushioned attacks, warm resonance,
+      and a clear downward return to Riri's home note.
+    identity_negative_prompt: >-
+      No celesta lead, marimba ostinato, glockenspiel lead, toy bells, mechanical
+      clockwork pulse, penguin waddle rhythm, clipped two-bounce opening, brittle
+      high-register sparkle, rapid stop-start gaps, or generic cartoon jingle.
+  leitmotif_samples:
+  - id: entrance
+    feeling: welcoming-and-cuddly
+    emotion: affectionate-recognition
+    prompt: short_entrance_cue
+    asset: entrance_cue
+    seconds: 7.0
+    seed: 8121
+  - id: happy
+    feeling: sunny-tail-wag-playfulness
+    emotion: cheerful-affection
+    prompt: happy_variation
+    asset: happy_leitmotif
+    seconds: 7.0
+    seed: 8122
+  - id: curious
+    feeling: soft-pause-and-listen-curiosity
+    emotion: gentle-wonder
+    prompt: curious_variation
+    asset: curious_leitmotif
+    seconds: 7.0
+    seed: 8123
+  - id: sad
+    feeling: slow-tender-vulnerability
+    emotion: temporary-sadness-with-comfort
+    prompt: sad_variation
+    asset: sad_leitmotif
+    seconds: 8.0
+    seed: 8124
+  - id: action
+    feeling: tiny-paw-step-adventure
+    emotion: safe-playful-excitement
+    prompt: action_variation
+    asset: action_leitmotif
+    seconds: 7.0
+    seed: 8125
+  - id: calm-ending
+    feeling: bedtime-rocking-softness
+    emotion: reassured-and-loved
+    prompt: calm_ending
+    asset: calm_leitmotif
+    seconds: 8.0
+    seed: 8126
+  tempo:
+    default_bpm: 104
+    minimum_bpm: 58
+    maximum_bpm: 136
+    usage:
+      calm: 68
+      normal: 104
+      excited: 124
+      action: 132
+      sad: 62
+  meter:
+    primary: 6-8
+    alternatives:
+    - 3-4
+    - 4-4
+    avoid:
+    - irregular-meters
+    - rapidly-changing-meter
+    - heavy-2-4-march-meter
+  tonality:
+    primary_mode: major
+    preferred_keys:
+    - g-major
+    - c-major
+    - f-major
+    modal_color: 'Warm major harmony with major-pentatonic melody, added-sixth color, gentle suspended
+      seconds, and occasional soft subdominant warmth.
+
+      '
+    dissonance:
+      level: low
+      allowed_usage: 'Brief soft suspensions, neighboring seconds, and gentle incomplete cadences may
+        support curiosity or worry, but they must resolve quickly into warm consonance.
+
+        '
+  harmony:
+    complexity: simple
+    preferred_progressions:
+    - I-vi-IV-V
+    - I-IV-I-V-I
+    - I-iii-IV-I
+    - I-add6-ii7-V-I
+    - tonic-pedal-with-gentle-subdominant-color
+    chord_character:
+    - warm-rounded
+    - tender-open
+    - pastel-soft
+    - reassuring
+    - affectionate
+    avoid:
+    - harsh-chromatic-harmony
+    - horror-suspensions
+    - prolonged-diminished-chords
+    - aggressive-minor-ostinatos
+    - dense-jazz-extensions
+    - unresolved-tritone-motion
+  instrumentation:
+    signature_instrument:
+      name: felt-piano
+      role: melody-and-emotional-warmth
+      reason: 'The soft felt-piano tone matches Riri''s plush pink fur, gentle smile, cuddly scale, emotional
+        sensitivity, and reassuring presence while remaining clear and memorable for preschool listeners.
+
+        '
+    primary_instruments:
+    - instrument: felt-piano
+      role: main-leitmotif
+      articulation: soft-rounded-legato-with-light-detachment
+    - instrument: concert-harp
+      role: affectionate-pulse-and-sparkle
+      articulation: gentle-plucks-and-short-arpeggios
+    - instrument: clarinet
+      role: warm-melodic-answer
+      articulation: smooth-soft-legato
+    - instrument: pizzicato-violin-and-viola
+      role: tiny-trot-and-tail-wag-motion
+      articulation: short-rounded-pizzicato
+    - instrument: nylon-string-guitar
+      role: friendly-harmonic-support
+      articulation: light-fingerpicked
+    supporting_instruments:
+    - instrument: flute
+      role: curiosity-and-discovery-echoes
+    - instrument: soft-vibraphone
+      role: sparse-pastel-shimmer
+    - instrument: soft-string-pad
+      role: comfort-and-emotional-support
+    - instrument: bassoon
+      role: occasional-gentle-comedic-response
+    - instrument: upright-bass
+      role: light-plucked-foundation
+    - instrument: ukulele
+      role: occasional-happy-scene-strum
+    percussion:
+      enabled: true
+      instruments:
+      - soft-shaker
+      - brushed-tambourine
+      - fingertip-frame-drum
+      - muted-woodblock
+      - soft-hand-claps
+      - tiny-triangle
+      style: 'Small, cushioned, friendly pulses shaped like tiny paw steps and a gentle tail wag. Percussion
+        must remain supportive and never overpower the melody or dialogue.
+
+        '
+      intensity: low-medium
+    forbidden_instruments:
+    - distorted-electric-guitar
+    - aggressive-brass-section
+    - industrial-percussion
+    - hard-trap-808
+    - thunderous-taiko
+    - harsh-synth-lead
+    - pipe-organ-horror-registration
+    - shrill-piccolo-screeches
+  orchestration:
+    ensemble_size: small
+    density: light
+    texture: layered
+    stereo_width: medium
+    layering_rules:
+    - keep-the-felt-piano-clearly-audible-when-the-motif-appears
+    - use-no-more-than-three-active-melodic-layers-at-once
+    - reserve-vibraphone-and-triangle-for-sparse-highlights
+    - keep-low-register-support-soft-and-simple
+    - thin-the-arrangement-under-dialogue
+    - add-layers-gradually-during-excitement
+    - avoid-wall-of-sound-or-chaotic-counterpoint
+  articulation:
+    melody:
+    - soft
+    - rounded
+    - gently-bouncy
+    - warm-legato
+    accompaniment:
+    - light-pizzicato
+    - gentle-swaying
+    - fingerpicked
+    - soft-sustained
+    transitions:
+    - tiny-harp-turn
+    - soft-piano-rise
+    - gentle-flute-breath
+    - short-pizzicato-pickup
+  dynamics:
+    default: mp
+    range:
+      minimum: pp
+      maximum: mf
+    change_style: smooth-playful
+    avoid:
+    - sudden-extreme-volume-jumps
+    - prolonged-forte
+    - explosive-accents
+    - harsh-transient-peaks
+    - jump-scare-silence-to-impact
+  production:
+    style: acoustic-hybrid
+    sound_quality: clean-warm-child-friendly
+    reverb: small-room
+    compression: light
+    stereo_image: 'Center the felt piano and core motif, place harp and guitar gently to opposite sides,
+      keep clarinet near the center, and use wide shimmer accents only at very low volume.
+
+      '
+    texture_keywords:
+    - cuddly
+    - pastel
+    - warm
+    - rounded
+    - tender
+    - airy
+    - reassuring
+    - friendly
+  emotional_variations:
+    neutral:
+      tempo_bpm: 100
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - clarinet
+      harmony: warm-major-with-added-sixth-color
+      dynamics: mp
+      motif_treatment: 'State the full motif once, then use the opening two-note name gesture as a quiet
+        recurring sign of Riri''s presence.
+
+        '
+    happy:
+      tempo_bpm: 114
+      instrumentation:
+      - felt-piano
+      - nylon-string-guitar
+      - pizzicato-strings
+      - soft-shaker
+      harmony: open-I-vi-IV-V-with-added-sixths
+      dynamics: mf
+      motif_treatment: 'Play the motif clearly with a light harp answer and a smiling clarinet echo, preserving
+        the warm home-note return.
+
+        '
+    excited:
+      tempo_bpm: 124
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - pizzicato-strings
+      - brushed-tambourine
+      - soft-hand-claps
+      rhythm: quick-rolling-6-8-pulses-with-two-tail-wag-pickups
+      dynamics: mf
+      motif_treatment: 'Shorten the rising notes slightly, repeat the central high point, and let
+        the full motif land warmly after each excited bounce.
+
+        '
+    curious:
+      tempo_bpm: 88
+      instrumentation:
+      - felt-piano
+      - clarinet
+      - flute
+      - soft-harp
+      harmony: tonic-pedal-with-gentle-suspended-seconds
+      motif_treatment: 'Separate the middle notes with small pauses, delay the high note, and resolve
+        the final home note only after the discovery becomes clear.
+
+        '
+    comedic:
+      tempo_bpm: 108
+      instrumentation:
+      - bassoon
+      - pizzicato-cello
+      - felt-piano
+      - muted-woodblock
+      rhythm: gentle-stop-start-tail-wag-pattern-with-safe-pauses
+      motif_treatment: 'Preserve the pitch order while adding playful rests, one soft bassoon echo, and
+        a cushioned woodblock tap on the final home note.
+
+        '
+    sad:
+      tempo_bpm: 62
+      instrumentation:
+      - felt-piano
+      - clarinet
+      - soft-string-pad
+      harmony: gentle-relative-minor-color-that-returns-to-major
+      dynamics: p
+      motif_treatment: 'Stretch the motif into warm legato notes, soften the high point, and resolve through
+        a tender major-sixth chord that signals comfort.
+
+        '
+    worried:
+      tempo_bpm: 74
+      instrumentation:
+      - muted-felt-piano
+      - clarinet
+      - soft-pizzicato-viola
+      harmony: tonic-pedal-with-brief-incomplete-cadences
+      motif_treatment: 'Use the first four notes with hesitant spacing and delay the final home-note return
+        until reassurance or friendship appears.
+
+        '
+    determined:
+      tempo_bpm: 106
+      instrumentation:
+      - felt-piano
+      - pizzicato-strings
+      - concert-harp
+      - fingertip-frame-drum
+      rhythm: steady-dotted-quarter-pulse-with-clear-forward-motion
+      motif_treatment: 'Place the motif over a firmer 6-8 pulse, clarify the high note, and finish with
+        a confident but still gentle tonic landing.
+
+        '
+    brave:
+      tempo_bpm: 112
+      instrumentation:
+      - felt-piano
+      - warm-clarinet
+      - soft-horns
+      - strings
+      harmony: broad-I-IV-I-V-I-with-open-fifths
+      motif_treatment: 'Present the motif in a slightly broader register with warm sustained support while
+        keeping the felt piano as Riri''s emotional center.
+
+        '
+    friendship:
+      tempo_bpm: 82
+      instrumentation:
+      - felt-piano
+      - nylon-string-guitar
+      - clarinet
+      - soft-strings
+      harmony: warm-I-vi-IV-I-with-added-sixths
+      motif_treatment: 'Let a friend''s signature instrument answer Riri''s central high note and descending arch while
+        the felt piano keeps her opening name gesture and final home note.
+
+        '
+    discovery:
+      tempo_bpm: 96
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - soft-vibraphone
+      - flute
+      harmony: rising-major-pedal-with-open-fifths-and-added-ninths
+      motif_treatment: 'Begin with the opening two-note gesture, reveal the complete motif as the discovery
+        is understood, and finish with one quiet shimmer accent.
+
+        '
+    action:
+      tempo_bpm: 132
+      instrumentation:
+      - pizzicato-strings
+      - concert-harp
+      - felt-piano
+      - soft-shaker
+      - brushed-snare
+      percussion: 'Fast but cushioned 6-8 pulses suggesting tiny paw steps, ear bounces, and playful bounds
+        without military weight or threatening impact.
+
+        '
+      motif_treatment: 'Use short motif fragments every two or four bars, preserve the five-note arch,
+        and state the full phrase at a safe landing or successful help.
+
+        '
+    mistake:
+      tempo_bpm: 84
+      instrumentation:
+      - bassoon
+      - felt-piano
+      - pizzicato-cello
+      harmony: brief-soft-diminished-passing-color-resolving-immediately
+      motif_treatment: 'Pause before the high note, add a gentle downward comic response, then restate
+        the opening name gesture to show Riri''s calm willingness to try again.
+
+        '
+    recovery:
+      tempo_bpm: 98
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - nylon-string-guitar
+      - flute
+      harmony: clear-return-from-relative-minor-to-major-tonic
+      motif_treatment: 'Rebuild the motif from its first two notes, restore the warm high note, and complete
+        the home-note landing with supportive harmony.
+
+        '
+    victory:
+      tempo_bpm: 120
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - pizzicato-strings
+      - soft-hand-claps
+      - soft-vibraphone
+      harmony: bright-I-IV-V-I-with-added-sixth-ending
+      motif_treatment: 'State the motif twice, first warmly and then with a higher harp answer, keeping
+        the celebration sweet rather than oversized.
+
+        '
+    calm_ending:
+      tempo_bpm: 64
+      instrumentation:
+      - felt-piano
+      - concert-harp
+      - clarinet
+      - soft-strings
+      harmony: warm-tonic-with-added-sixth-and-gentle-plagal-cadence
+      motif_treatment: 'Slow the motif into a soft rocking phrase, let the high note bloom gently, and
+        sustain the final home note as a musical cuddle.
+
+        '
+  movement_mapping:
+    idle:
+      musical_behavior: 'Quiet felt-piano notes and soft harp pulses in a gentle 6-8 sway, with occasional
+        two-note gestures matching Riri''s slow blink and tail sway.
+
+        '
+    walking:
+      musical_behavior: 'Light pizzicato pairs and soft shaker pulses follow her tiny cheerful trot, with
+        a small piano pickup every few steps.
+
+        '
+    running:
+      musical_behavior: 'Quick rounded 6-8 pizzicato patterns, light harp motion, and short motif fragments
+        follow her playful mini-bounds and fluffy tail swishes.
+
+        '
+    jumping:
+      musical_behavior: 'A short rising harp figure, a tiny suspended pause, and a cushioned felt-piano
+        landing without heavy impact.
+
+        '
+    thinking:
+      musical_behavior: 'Sparse piano notes, a warm clarinet question, and small pauses mirror Riri''s
+        head tilt, listening posture, and gentle attention.
+
+        '
+    celebrating:
+      musical_behavior: 'Two clear motif statements with soft hand claps, harp, and light vibraphone shimmer,
+        matching her happy wag and tiny bounce.
+
+        '
+  scene_usage:
+    entrance:
+      motif_usage: 'Present the five-note arch clearly on felt piano within the first two seconds, supported
+        by one gentle harp or pizzicato pulse.
+
+        '
+      maximum_duration_seconds: 7
+    dialogue_underscoring:
+      motif_usage: 'Use only two- or three-note fragments between spoken phrases; avoid complete motif
+        statements beneath important dialogue.
+
+        '
+      density: low
+      dialogue_priority: true
+    emotional_scene:
+      motif_usage: 'Preserve the contour while changing tempo, register, harmony, and articulation. Restore
+        a complete warm statement when comfort returns.
+
+        '
+    action_scene:
+      motif_usage: 'Use rocking rhythmic fragments during movement and reserve the full motif for a successful
+        bound, helpful action, safe landing, or reunion.
+
+        '
+    transition:
+      motif_usage: 'Use a one- to two-second piano or harp tag based on the opening name gesture plus
+        the final home note.
+
+        '
+    exit:
+      motif_usage: 'End with the last three notes on felt piano or clarinet over a warm tonic-add-six
+        chord.
+
+        '
+  pairing_rules:
+    with_friends:
+      approach: 'Let the friend''s signature instrument answer Riri''s middle motif notes while Riri''s
+        felt piano preserves the opening name gesture and final home-note resolution.
+
+        '
+    with_antagonist:
+      approach: 'Keep Riri''s motif warm and recognizable, reduce shimmer, and use soft lower-register
+        support. Never twist her theme into frightening harmony.
+
+        '
+    with_environment:
+      approach: 'Adapt secondary instruments to the setting while retaining felt piano, the five-note symmetrical
+        arch, its long central note, and warm tonal center.
+
+        '
+    motif_combination_rules:
+    - alternate-motifs-before-layering-them
+    - keep-riris-felt-piano-audible-when-her-motif-is-present
+    - preserve-each-characters-original-rhythmic-signature
+    - avoid-simultaneous-dense-counterpoint
+    - resolve-combined-themes-to-a-warm-shared-tonic
+    - never-give-another-character-riris-name-gesture-and-home-note-as-a-primary-identity
+  continuity_constraints:
+  - preserve-signature-instrument
+  - preserve-core-leitmotif
+  - preserve-character-rhythmic-identity
+  - preserve-target-audience-safety
+  - preserve-recognizable-melodic-contour
+  - preserve-the-two-note-opening-name-gesture
+  - preserve-the-gentle-rocking-middle-motion
+  - preserve-warm-major-centered-harmony
+  - preserve-soft-cushioned-percussion
+  - preserve-clear-musical-comfort-after-worry-or-sadness
+  forbidden_changes:
+  - replacing-the-main-leitmotif
+  - changing-the-signature-instrument-without-story-reason
+  - using-harsh-horror-dissonance
+  - using-aggressive-percussion-for-friendly-scenes
+  - making-the-theme-too-complex-for-the-target-audience
+  - removing-the-character-rhythmic-identity
+  - copying-another-characters-theme
+  - turning-the-theme-into-a-heavy-march
+  - using-prolonged-dark-minor-harmony
+  - using-shrill-sparkle-instruments-at-high-volume
+  - making-action-music-threatening
+  - using-sudden-jump-scare-dynamics
+  - replacing-acoustic-warmth-with-cold-industrial-production
+  - obscuring-the-motif-with-dense-counterpoint
+  generation_prompts:
+    main_theme: 'Compose Riri''s unmistakably warm, flowing acoustic character theme. Write a gentle
+      6/8 felt-piano waltz in G major at about 92 BPM, led by an intimate high-register felt
+      piano playing her connected five-note arch motif G5, B5, D6, B5, G5. Use long legato phrases,
+      breathing space, rounded phrase endings, and a soft swaying pulse. Support the piano only with an
+      occasional breathy clarinet answer, delicate concert-harp sweep, very quiet warm sustained strings,
+      and restrained upright bass. Keep it tender, cuddly, reassuring, unhurried, pastel, and emotionally
+      safe. This must sound like a musical hug, not a generic bouncy cartoon cue. Do not use celesta,
+      marimba, glockenspiel, toy bells, pizzicato strings, ukulele, shaker, staccato ostinatos, syncopated
+      hops, or busy percussion. Make the ending seamlessly loopable.
+
+      '
+    short_entrance_cue: 'Generate a 4-to-7-second entrance cue for Riri using felt piano, soft harp, and
+      one light pizzicato-string layer. State her five-note welcoming arch clearly within the first two
+      seconds at about 104 BPM in 6/8, ending on a warm major-add-six chord. Keep it cuddly, bright, polished,
+      and loop-safe.
+
+      '
+    happy_variation: 'Arrange Riri''s established five-note felt-piano arch as a happy preschool cue at
+      about 114 BPM in 6/8. Add fingerpicked nylon-string guitar, gentle pizzicato strings, soft shaker,
+      and a smiling harp or clarinet answer. Preserve the spacious upward thirds, long central high note,
+      symmetrical descent, and home-note landing. Use open major harmony and moderate dynamics.
+
+      '
+    curious_variation: 'Arrange Riri''s established motif as a curious cue at about 88 BPM with sparse
+      felt piano, soft harp, clarinet, and flute. Add breathing space before the central high note and
+      delay the descending home-note resolution. Use a tonic pedal, gentle suspended seconds that resolve quickly,
+      light dynamics, and generous space for dialogue.
+
+      '
+    sad_variation: 'Create a gentle sad variation of Riri''s theme at about 62 BPM using soft felt piano,
+      clarinet, and warm strings. Stretch the same five-note arch into legato phrases, use brief relative-minor
+      color, and return clearly to warm major harmony. Keep sadness tender, safe, temporary, and followed
+      by a reassuring home-note resolution.
+
+      '
+    action_variation: 'Create a lively but non-threatening action variation of Riri''s theme at about
+      132 BPM in 6/8. Use quick rounded pizzicato strings, harp pulses, felt-piano motif fragments, soft
+      shaker, and brushed snare to suggest tiny paw steps, playful bounds, ear bounces, and tail swishes.
+      Preserve the motif contour and use the full phrase at successful actions or safe landings.
+
+      '
+    calm_ending: 'Create a calm bedtime-style ending for Riri at about 64 BPM using soft felt piano, gentle
+      harp, warm clarinet, and quiet strings. Slow the established five-note arch into one legato breath,
+      let the central high note bloom, and sustain the final home note over a gentle plagal cadence
+      and major-add-six harmony. Make it soothing, affectionate, and reassuring.
+
+      '
+    negative_prompt: 'Avoid horror harmony, harsh dissonance, tritones, minor-second clusters, aggressive
+      brass, distorted guitars, industrial percussion, thunderous drums, trap beats, hard 808 bass, military
+      marching, chaotic orchestration, dense counterpoint, shrill bells, piercing piccolo, cold synthetic
+      textures, adult dramatic scoring, prolonged dark minor harmony, jump-scare dynamics, extreme loudness
+      changes, threatening action music, sadness without comfort, overly complex jazz harmony, copied
+      melodies, alternate leitmotifs, and any arrangement that hides the felt-piano signature or removes
+      the five-note arch and connected legato identity.
+
+      '
+  technical_defaults:
+    sample_rate: 48000
+    bit_depth: 24
+    channels: stereo
+    loudness_target_lufs: -16
+    true_peak_max_db: -1
+    loopable: true
+  asset_paths:
+    main_theme: assets/music/characters/riri/main-theme.wav
+    leitmotif: assets/music/characters/riri/leitmotif.wav
+    entrance_cue: assets/music/characters/riri/variations/entrance-cue.wav
+    happy_leitmotif: assets/music/characters/riri/variations/happy-leitmotif.wav
+    curious_leitmotif: assets/music/characters/riri/variations/curious-leitmotif.wav
+    sad_leitmotif: assets/music/characters/riri/variations/sad-leitmotif.wav
+    action_leitmotif: assets/music/characters/riri/variations/action-leitmotif.wav
+    calm_leitmotif: assets/music/characters/riri/variations/calm-leitmotif.wav
+    variations_directory: assets/music/characters/riri/variations
+  metadata:
+    generated_from_character_yaml: true
+    generated_from_reference_image: true
+    approval_required: true
+    approval_status: approved-by-project-owner
+    approval_date: 2026-08-20
+    approval_record: validation/project-owner-approvals.yaml
+    continuity_priority: critical

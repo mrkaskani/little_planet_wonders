@@ -1,0 +1,510 @@
+id: riri-yoyo-costume-catalog
+type: costume-catalog-context
+version: 1
+status: approved-schema-awaiting-costume-definitions
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  purpose: >-
+    Define reusable costume classification, identity, fit, material, safety,
+    continuity, reference, and Wan 2.2 requirements without inventing an outfit
+    or assigning clothing to an episode, scene, or shot.
+  registry_status: empty-awaiting-approved-costume-definitions
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - tone
+      - emotional-safety
+      - continuity-principles
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-tasks
+      - conditioning-authority
+      - prompt-budget
+      - reference-input-rules
+  visual_style: ../visual_style/visual_style.yaml
+  art_direction: ../visual_style/art-direction.yaml
+  palette: ../visual_style/palette-v2.yaml
+  materials: ../visual_style/materials.yaml
+  lighting: ../visual_style/lighting.yaml
+  prop_catalog: props.yaml
+  characters:
+    riri: ../characters/riri/character.yaml
+    yoyo: ../characters/yoyo/character.yaml
+  authority_rules:
+    - this-file-controls-shared-costume-policy-and-approved-reusable-definitions
+    - character-yaml-controls-anatomy-default-wardrobe-and-character-specific-restrictions
+    - palette-v2-yaml-controls-canonical-color-tokens
+    - materials-yaml-controls-shared-surface-and-deformation-language
+    - handheld-items-belong-to-the-prop-catalog-not-the-costume-catalog
+    - later-production-files-may-select-an-approved-item-but-must-not-redesign-it
+
+phase_boundary:
+  allowed:
+    - reusable-costume-schema
+    - character-baseline-record
+    - approved-reusable-costume-definitions
+    - category-and-state-policy
+    - reference-requirements
+    - safe-fit-and-motion-rules
+    - mode-specific-generation-gates
+    - validation-rules
+  forbidden:
+    - story-or-episode-costume-invention
+    - scene-or-shot-assignment
+    - character-action
+    - dialogue
+    - generation-request
+    - render
+
+catalog_policy:
+  actual_approved_costumes_defined: 0
+  registry_must_remain_empty_until_human_approved: true
+  one_canonical_definition_per_costume_id: true
+  unregistered-clothing-or-accessory: forbidden
+  character-default-may-change-only-through-character-bible-approval: true
+  temporary-selection-never-changes-character-identity: true
+  no-placeholder-path-may-be-treated-as-approved-reference: true
+  definition_statuses:
+    - proposed
+    - design-review
+    - reference-missing
+    - approved
+    - deprecated
+  generation_eligible_status: approved
+
+character_baselines:
+  riri:
+    character_source: ../characters/riri/character.yaml
+    default_costume_id: none
+    default_clothing_enabled: false
+    default_accessories: []
+    contextual_costumes_enabled: false
+    rule: character-yaml-approval-is-required-before-any-visible-item
+  yoyo:
+    character_source: ../characters/yoyo/character.yaml
+    default_costume_id: none
+    default_clothing_enabled: false
+    default_accessories: []
+    contextual_costumes_enabled: false
+    rule: character-yaml-approval-is-required-before-any-visible-item
+  current_generation_rule: >-
+    Until a costume definition and its character use are approved, generate Riri
+    and Yoyo with their character-bible default of no clothing and no accessories.
+
+classification:
+  costume: a registered clothing ensemble worn on the body
+  wearable_accessory: a registered non-clothing item attached to the body
+  prop: a held carried placed or separately manipulated object defined in props.yaml
+  physical_state: dirt wetness damage or deformation tracked as continuity not as a new costume
+  boundary_rules:
+    - an-item-cannot-switch-between-costume-and-prop-without-an-explicit-approved-definition
+    - a-handheld-object-is-never-implied-by-a-costume
+    - body-markings-fur-feathers-beak-muzzle-and-anatomy-are-character-identity-not-costume
+
+category_policy:
+  canonical:
+    meaning: approved default wardrobe that persists unless explicitly changed
+    approval_requires:
+      - character-bible-update
+      - costume-definition
+      - approved-character-reference
+    current_items: []
+  optional:
+    meaning: approved reusable variant that never replaces the canonical default
+    selection_requires: explicit-later-production-selection-and-valid-context
+    current_items: []
+  seasonal:
+    meaning: approved weather-functional variant with a defined temperature or weather use
+    selection_requires: explicit-later-production-selection-and-valid-weather-state
+    restoration_rule_required: true
+    current_items: []
+  temporary:
+    meaning: approved short-lived wearable state with a start end and restoration rule
+    selection_requires: explicit-later-production-selection-and-valid-continuity-transition
+    restoration_rule_required: true
+    current_items: []
+  forbidden:
+    meaning: item or feature that may not be selected or generated
+    global_feature_classes:
+      - sharp-or-hard-dangerous-adornment
+      - loose-cords-or-long-dangling-ties
+      - jewelry-dependent-character-identity
+      - fine-stripes-checkers-grids-or-micro-patterns
+      - tiny-logo-label-or-generated-readable-text
+      - glitter-sequins-or-mirror-like-surfaces
+      - excessive-independent-layers-or-moving-pieces
+      - face-eye-mouth-muzzle-or-beak-obstruction
+      - anatomy-hiding-or-silhouette-redefining-coverage
+      - unapproved-character-specific-item
+    character_specific_items: controlled-by-each-character-yaml
+
+identifier_and_file_conventions:
+  costume_id_format: lowercase-kebab-case
+  item_id_format: "{costume_id}-{item-name}"
+  definition_location: assets/costumes.yaml
+  reference_root: assets/costumes/{costume_id}/references
+  generation_frame_root: assets/costumes/{costume_id}/generation-frames
+  rules:
+    - ids-never-depend-on-episode-scene-shot-or-random-workflow-node-numbers
+    - filename-version-and-approval-state-must-be-recorded
+    - renamed-or-replaced-costumes-retain-deprecation-history
+    - a-color-variant-needs-an-approved-variant-id-and-reference
+
+costume_definition_schema:
+  required_fields:
+    - id
+    - name
+    - status
+    - category
+    - character-id
+    - reuse-purpose
+    - item-count
+    - items
+    - silhouette-impact
+    - coverage-map
+    - attachment-map
+    - layer-order
+    - fit-and-clearance
+    - material-regions
+    - color-regions
+    - motion-behavior
+    - allowed-states
+    - restoration-rule
+    - safety
+    - reference-plan
+    - wan-2-2-eligibility
+    - validation
+  optional_fields:
+    - approved-color-variants
+    - approved-open-close-states
+    - seasonal-use-boundary
+    - known-generation-limitations
+  prohibited_fields:
+    - episode-event
+    - scene-id
+    - shot-id
+    - dialogue
+    - story-action
+    - unapproved-readable-text
+
+identity_and_fit_contract:
+  required_per_item:
+    - item-id
+    - item-type
+    - broad-shape-description
+    - body-coverage-regions
+    - attachment-points
+    - front-back-and-up-orientation
+    - layer-index
+    - material-and-color-region-ids
+    - permitted-motion
+    - removal-state
+  preserve:
+    - item-count
+    - broad-silhouette
+    - coverage
+    - attachment-points
+    - layer-order
+    - canonical-color-regions
+    - material-family
+    - pattern-scale-and-placement
+    - approved-open-close-state
+  fit_rules:
+    - fit-must-follow-the-character-anatomy-in-the-character-yaml
+    - preserve-the-character-head-to-body-ratio-and-primary-species-silhouette
+    - keep-eyes-mouth-muzzle-beak-ears-tail-flippers-paws-and-feet-readable-as-applicable
+    - allow-clearance-for-approved-limb-head-ear-tail-and-flipper-motion
+    - do-not-create-human-limbs-fingers-neck-or-torso-anatomy-to-support-clothing
+    - attachment-must-remain-physically-coherent-through-motion
+  forbid:
+    - unexplained-item-addition-removal-or-swap
+    - layer-order-change
+    - attachment-drift
+    - color-or-material-drift
+    - garment-merging-with-body
+    - garment-merging-with-another-item
+    - body-part-disappearance
+    - topology-change
+    - spontaneous-decoration-dirt-wetness-or-damage
+
+visual_design_limits:
+  preferred:
+    - broad-simple-shape
+    - one-to-three-large-color-regions-per-item
+    - medium-sized-identity-feature-if-needed
+    - matte-or-soft-satin-material-response
+    - low-to-medium-surface-detail
+    - minimal-visible-layer-count
+    - rounded-child-safe-edges
+  avoid:
+    - fine-stripes
+    - tiny-checks-or-grids
+    - micro-patterns
+    - tiny-buttons-buckles-or-fasteners
+    - small-logo-or-readable-text
+    - high-contrast-repeated-detail
+    - reflective-jewelry-or-metal-clutter
+    - loose-fringe-tassels-cords-or-ribbons
+    - multiple-overlapping-independent-layers
+    - identity-that-depends-on-a-small-accessory
+  generated_text_policy:
+    readable-text-generated-by-wan: forbidden
+    critical-text-or-mark: add-as-approved-overlay-later
+    simple-approved-symbol: allowed-only-with-registered-reference
+
+material_and_color_contract:
+  material_source: ../visual_style/materials.yaml
+  palette_source: ../visual_style/palette-v2.yaml
+  required_per_material_region:
+    - region-id
+    - material-family
+    - canonical-color-token
+    - roughness-family
+    - texture-scale
+    - fold-behavior
+    - deformation-limit
+  defaults:
+    texture-frequency: low
+    folds: broad-and-few
+    highlights: broad-soft-and-controlled
+    pattern-contrast: low-to-medium
+    canonical-color-must-survive-lighting-change: true
+  fabric_rules:
+    - use-broad-weave-or-simplified-fabric-without-visible-thread-grids
+    - use-broad-folds-that-follow-body-motion
+    - avoid-fine-knit-fibers-sequins-glitter-and-mirror-like-trim
+    - patterns-if-approved-must-be-large-sparse-simple-and-reference-locked
+  temporary_state_rule: >-
+    Wetness, dirt, compression, wrinkling, opening, damage, or removal must be an
+    allowed state with a restoration transition and may not redefine canonical
+    color, material, fit, item count, or character identity.
+
+layer_and_motion_contract:
+  visible_layers:
+    preferred_maximum: 2
+    more_requires: explicit-design-review-and-temporal-test
+  independently_moving_wearable_elements:
+    preferred_maximum: 1
+    more_requires: explicit-design-review-and-temporal-test
+  required_motion_fields:
+    - driven-body-region
+    - movement-direction
+    - speed
+    - range
+    - lag-or-secondary-motion
+    - locked-attachment-points
+    - endpoint-or-rest-state
+  rules:
+    - garment-motion-is-secondary-to-character-action
+    - cloth-response-must-be-broad-controlled-and-low-frequency
+    - no-independent-flapping-twisting-or-crawling-pattern
+    - no-cloth-intersection-with-face-body-or-other-items
+    - reduce-action-camera-motion-or-layer-complexity-if-temporal-drift-appears
+
+safety_and_readability:
+  required_checks:
+    - no-sharp-edges-or-threatening-shapes
+    - no-choking-or-entanglement-like-small-loose-parts
+    - no-long-cords-or-neck-pressure
+    - no-impaired-balance-or-locomotion
+    - no-obstructed-vision-hearing-breathing-mouth-or-beak
+    - no-loss-of-emotional-expression-readability
+    - no-confusion-between-riri-and-yoyo-silhouettes
+  contact_rule: wearable-contact-must-be-comfortable-readable-and-anatomically-plausible
+  child-audience-review: required
+
+state_model:
+  required_dimensions:
+    - worn-or-removed
+    - correct-character-or-none
+    - layer-order
+    - attachment-state
+    - open-close-state-if-applicable
+    - dry-wet-state-if-applicable
+    - clean-dirty-state-if-applicable
+    - intact-damaged-state-if-applicable
+  canonical-state-required: true
+  allowed-transitions-required: true
+  restoration-transition-required-for-temporary-state: true
+  continuity_rules:
+    - no-unexplained-appearance-disappearance-or-swap
+    - no-unexplained-color-material-fit-or-layer-change
+    - removed-item-location-must-be-tracked-later-as-a-prop-like-continuity-state
+    - one-unique-item-cannot-be-worn-and-stored-at-the-same-time
+    - character-and-item-state-must-update-together
+
+reference_plan:
+  design_review_assets:
+    required:
+      - front-view
+      - side-view
+      - back-view
+      - three-quarter-view
+      - dressed-character-scale-view
+      - material-and-color-regions
+      - attachment-and-layer-map
+      - approved-state-variants
+    use: human-design-fit-safety-and-continuity-review-only
+    direct-i2v-or-s2v-conditioning: forbidden-when-board-or-collage
+  single_frame_generation_assets:
+    required-for-exact-costume-i2v: true
+    required-for-costume-visible-in-s2v: true
+    each-frame-must-record:
+      - reference-id
+      - costume-id
+      - character-id
+      - version
+      - approval-status
+      - file-path
+      - aspect-ratio
+      - pixel-dimensions
+      - visible-item-count
+      - layer-and-attachment-state
+      - pose-and-framing
+      - movement-space
+      - allowed-modes
+      - known-limitations
+    frame-rules:
+      - one-coherent-image
+      - one-correct-character-in-the-approved-costume
+      - correct-anatomy-fit-item-count-layering-colors-and-materials
+      - clear-character-and-costume-silhouette
+      - stable-background-and-action-compatible-start-pose
+      - unobstructed-eyes-and-mouth-muzzle-or-beak
+      - no-collage-label-watermark-extra-face-or-duplicate-subject
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  shared:
+    costume-and-visible-item-count-explicit: true
+    one-primary-character-action: true
+    one-camera-behavior: true
+    preserve-character-identity-and-approved-costume-state: true
+    text-logo-jewelry-or-micro-pattern-dependent-identity: forbidden
+  t2v:
+    use_for:
+      - broad-costume-shape-color-and-material-exploration
+      - generic-noncanonical-wardrobe-tests
+    recurring-costume-final-identity-approval: forbidden-without-approved-character-source-image
+    prompt_fields:
+      - character-id-and-count
+      - simple-costume-category
+      - item-count-and-broad-shapes
+      - large-color-and-material-regions
+      - clear-face-and-species-silhouette
+      - one-action-and-one-camera-behavior
+      - short-character-and-costume-invariants
+  i2v:
+    required_for:
+      - exact-approved-costume-identity
+      - exact-fit-layering-color-and-attachment
+      - continuity-critical-wardrobe
+      - controlled-garment-motion-or-state-transition
+    source_frame_must_show:
+      - approved-character-identity-and-anatomy
+      - correct-costume-and-visible-item-count
+      - correct-starting-layer-attachment-and-state
+      - unobstructed-face-and-readable-silhouette
+      - action-compatible-pose-and-movement-space
+    motion_prompt_fields:
+      - brief-current-state
+      - one-character-action
+      - broad-garment-response
+      - direction-speed-range-and-endpoint
+      - one-camera-behavior
+      - locked-character-and-costume-invariants
+    do_not: redescribe-redesign-or-add-to-the-approved-visible-costume
+  ti2v:
+    role: draft-fit-silhouette-layer-count-and-motion-screening
+    simplify:
+      - fine-surface-detail
+      - folds-and-seams
+      - fasteners-and-trim
+      - patterns
+      - secondary-motion
+      - background-decoration
+    evaluate:
+      - character-and-item-count
+      - silhouette-and-face-readability
+      - coverage-layering-and-attachment
+      - action-and-cloth-response
+      - endpoint-and-continuity
+    final-character-costume-material-pattern-or-fit-approval: forbidden
+  s2v:
+    costume_role: secondary-to-speaking-face-and-vocal-performance
+    source_frame_requirements:
+      - approved-speaking-character-in-approved-costume
+      - resting-or-closed-mouth
+      - unobstructed-eyes-mouth-muzzle-or-beak
+      - simple-stable-layering
+      - clear-neck-chest-and-limb-boundaries-as-applicable
+    preferred_behavior:
+      - costume-held-in-stable-worn-state
+      - broad-minimal-cloth-response
+      - no-accessory-motion-near-the-face
+    forbid:
+      - garment-or-accessory-crossing-the-face
+      - fast-layered-cloth-motion-during-speech
+      - attachment-or-item-count-change
+      - costume-driven-mouth-or-face-deformation
+      - identity-fit-color-material-or-pattern-drift
+
+reusable_prompt_fragments:
+  t2v_costume_description_order: >-
+    Character identity and count, costume category and item count, broad item
+    shapes, large canonical color and material regions, unobstructed face and
+    species silhouette, one action, one camera behavior, and short invariants.
+  i2v_preservation: >-
+    Preserve the approved character identity, costume item count, broad shapes,
+    fit, coverage, layer order, attachment points, canonical colors, materials,
+    and pattern placement; allow only broad cloth response to the requested motion.
+  ti2v_simplification: >-
+    Test character silhouette, costume coverage, layer and attachment stability,
+    one action, broad cloth response, and endpoint while simplifying folds, seams,
+    trim, patterns, secondary motion, and background detail.
+  s2v_costume_protection: >-
+    Keep the approved costume stable and secondary to the speaking face, preserve
+    fit, item count, layers, attachments, colors, and materials, keep all wearables
+    clear of the eyes and mouth, muzzle, or beak, and use minimal cloth response.
+  concise_negative: >-
+    extra clothing, missing clothing, accessory invention, item duplication, layer
+    swap, attachment drift, color drift, material swap, crawling pattern, fused
+    cloth and body, hidden limb, face occlusion, random text, logo, watermark.
+
+registry: []
+
+validation:
+  schema-approval: passed
+  character-baseline-check: passed-no-clothing-or-accessories
+  registry-readiness: waiting-for-approved-costume-definitions
+  required-before-costume-approval:
+    - unique-canonical-id-and-category
+    - explicit-character-approval
+    - reusable-purpose
+    - item-count-shape-coverage-attachment-and-layer-order
+    - approved-material-and-large-color-regions
+    - anatomy-fit-motion-clearance-and-safety-review
+    - allowed-states-and-restoration-rule
+    - design-review-reference-plan
+    - approved-single-frame-strategy
+    - task-specific-wan-eligibility
+  blocks-generation-eligibility-when:
+    - status-is-not-approved
+    - character-use-is-not-approved
+    - approved-reference-is-required-but-missing
+    - fit-layering-attachment-or-item-count-is-undefined
+    - face-anatomy-or-silhouette-is-obscured
+    - safety-review-is-incomplete
+    - allowed-motion-or-restoration-transition-is-undefined
+    - source-frame-is-a-board-collage-or-placeholder
+  no-generation-required-for-schema-validation: true

@@ -1,0 +1,873 @@
+# FILE NAME: audio.yaml
+timeline:
+  sample_rate: 48000
+  channels: 2
+  bit_depth: 24
+  channel_layout: stereo
+  internal_format: pcm_s24le
+  time_reference: picture_timecode
+  sync_to_picture: true
+  preserve_sync_across_edits: true
+  preserve_source_timecode: true
+  render_tail_ms: 1000
+  frame_boundary_alignment: true
+
+master:
+  integrated_loudness_target_lufs: -16
+  loudness_tolerance_lu: 1
+  maximum_true_peak_db: -1
+  minimum_headroom_db: 1
+  limiter:
+    enabled: true
+    mode: transparent
+    ceiling_db: -1
+    lookahead_ms: 2
+    maximum_gain_reduction_db: 3
+  clipping_prevention: true
+  prevent_inter_sample_clipping: true
+  normalization_policy: normalize_after_final_layer_balance
+  normalize_individual_stems: false
+  preserve_program_dynamics: true
+  aggressive_mastering: false
+  output:
+    format: pcm_s24le
+    channel_layout: stereo
+    sample_rate: 48000
+    mono_compatible: true
+    preserve_center_image: true
+    avoid_stereo_overexpansion: true
+
+dialogue:
+  target_lufs: -16
+  maximum_true_peak_db: -1
+  noise_reduction: "light"
+  compression: "subtle"
+  preserve_breathing: true
+  preserve_natural_pauses: true
+  priority: highest
+  intelligibility:
+    required: true
+    preserve_initial_consonants: true
+    preserve_word_endings: true
+    preserve_vowel_shape: true
+    minimum_headroom_over_background_db: 8
+    preferred_headroom_over_background_db: 12
+    avoid_masking_from_other_buses: true
+  equalization:
+    mode: corrective_and_speaker_specific
+    high_pass_filter_hz: 70
+    maximum_presence_boost_db: 2
+    avoid_harsh_brightness: true
+    avoid_excessive_bass: true
+    preserve_vocal_warmth: true
+  de_essing:
+    mode: light
+    speaker_specific: true
+    avoid_lisping_artifacts: true
+    avoid_piercing_sibilance: true
+  compression_settings:
+    ratio: 2.0
+    attack_ms: 20
+    release_ms: 160
+    maximum_gain_reduction_db: 4
+    preserve_sentence_dynamics: true
+    preserve_quiet_word_endings: true
+  noise_reduction_settings:
+    remove_steady_noise_only_when_detected: true
+    preserve_vocal_texture: true
+    maximum_processing_intensity: light
+    avoid_robotic_artifacts: true
+  gating:
+    mode: gentle_expansion
+    hard_gate_allowed: false
+    preserve_soft_phrases: true
+    preserve_breaths: true
+    avoid_gate_chatter: true
+  plosive_control:
+    enabled_when_detected: true
+    mode: spectral_reduction
+    preserve_low_frequency_body: true
+  editing:
+    remove_clicks_and_pops: true
+    remove_only_distracting_breaths: true
+    preserve_natural_micro_pauses: true
+    preserve_approved_timing: true
+    destructive_retiming_allowed: false
+    maximum_automatic_time_stretch_percent: 5
+    clip_crossfade_ms: 12
+    pre_roll_ms: 150
+    post_roll_ms: 250
+  consistency:
+    match_room_tone_between_edits: true
+    match_proximity_between_connected_shots: true
+    maximum_adjacent_line_difference_lu: 2
+    avoid_identical_line_intensity: true
+    preserve_character_voice_identity: true
+  overlap:
+    preserve_separate_speaker_stems: true
+    automate_independently: true
+    prioritize_primary_speaker: true
+    do_not_raise_all_speakers_equally: true
+  off_screen:
+    remain_intelligible: true
+    use_physical_direction: true
+    use_moderate_distance_filtering: true
+    avoid_extreme_level_reduction: true
+  distance_treatment:
+    near:
+      presence: natural
+      room_reflections: low
+    medium:
+      presence: clear
+      room_reflections: moderate
+    distant:
+      presence: reduced
+      room_reflections: increased
+      minimum_intelligibility: high
+  child_audience:
+    extremely_clear_speech: true
+    gentle_tonal_balance: true
+    moderate_dynamics: true
+    comfortable_listening_level: true
+    preserve_natural_expression: true
+    separate_simultaneous_speakers: true
+    avoid_harsh_sibilance: true
+    avoid_excessive_low_frequency_energy: true
+    avoid_character_level_jumps: true
+
+multiple_speakers:
+  preserve_individual_stems: true
+  one_primary_instructional_speaker_at_a_time: true
+  alternating_speakers:
+    match_perceived_loudness: true
+    preserve_character_tonal_identity: true
+    maximum_level_change_lu: 2
+  overlapping_speech:
+    allowed_when_scripted: true
+    maximum_prominent_speakers: 2
+    protect_primary_words: true
+    use_level_eq_and_spatial_separation: true
+    avoid_blanket_gain_increase: true
+  interruptions:
+    preserve_natural_timing: true
+    keep_interrupted_word_readable_when_required: true
+    automate_speaker_priority: true
+  group_dialogue:
+    foreground_speaker_priority: true
+    background_voices_remain_indistinct: true
+    reduce_background_midrange_when_needed: true
+  background_dialogue:
+    narrative_words_allowed: false
+    maximum_prominence: background
+    avoid_competing_syllabic_rhythm: true
+  off_screen_speakers:
+    preserve_physical_direction: true
+    preserve_intelligibility: true
+    use_distance_and_occlusion_cues: true
+
+music:
+  dialogue_ducking_db: -6
+  fade_in_ms: 400
+  fade_out_ms: 600
+  dialogue_ducking:
+    enabled: true
+    attack_ms: 100
+    release_ms: 500
+    maximum_reduction_db: -6
+    smooth_automation: true
+    avoid_pumping: true
+    active_only_during_dialogue: true
+  under_dialogue:
+    maximum_prominence: supportive
+    reduce_midrange_density: true
+    protect_educational_information: true
+    protect_character_reactions: true
+  entry:
+    avoid_masking_line_onsets: true
+    start_in_dialogue_gap_when_possible: true
+    use_fade_unless_intentional_transient: true
+  exit:
+    avoid_cutting_reverb_tails: true
+    use_fade_unless_narratively_justified: true
+  scene_transitions:
+    preserve_position_when_cue_continues: true
+    crossfade_ms: 800
+    avoid_abrupt_cut: true
+  montage:
+    maximum_prominence: foreground_support
+    preserve_critical_sound_effects: true
+    reduce_for_spoken_information: true
+  ending_cues:
+    preserve_natural_resolution: true
+    maximum_level_lift_db: 2
+    avoid_aggressive_final_hit: true
+  balance:
+    yield_to_dialogue: true
+    yield_to_critical_sound_effects: true
+    preserve_ambience_location_identity: true
+    avoid_masking_ambience_transitions: true
+  continuity:
+    continue_across_camera_cuts: true
+    restart_on_camera_cut: false
+    preserve_tempo_and_phase_when_possible: true
+
+ambience:
+  continuous_room_tone: true
+  crossfade_ms: 300
+  avoid_sudden_environment_changes: true
+  source_policy: location_definitions_from_ambience_yaml
+  preserve_across_camera_cuts: true
+  restart_loops_on_camera_cut: false
+  maintain_room_tone_during_dialogue: true
+  maintain_environmental_presence_in_quiet_scenes: true
+  dialogue_ducking:
+    enabled: true
+    maximum_reduction_db: -3
+    attack_ms: 150
+    release_ms: 600
+    reduce_competing_midrange_first: true
+  location_transitions:
+    preserve_departure_tail: true
+    introduce_destination_bed_gradually: true
+    standard_crossfade_ms: 700
+    architecture_can_require_sharp_change: true
+  interior_exterior:
+    apply_physical_filtering: true
+    preserve_shared_sources_when_audible: true
+    transition_through_openings: true
+    avoid_instant_full_bed_replacement: true
+  perspective:
+    preserve_source_world_position: true
+    respond_to_meaningful_camera_distance: true
+    avoid_cut_based_level_jumps: true
+    change_detail_before_overall_level: true
+  spatial_continuity:
+    fixed_sources_remain_location_relative: true
+    preserve_width_across_connected_shots: true
+    avoid_camera_relative_source_flips: true
+
+sound_effects:
+  realistic_distance: true
+  match_room_acoustics: true
+  avoid_exaggerated_impacts: true
+  physical_source_required: true
+  match_visible_action: true
+  dialogue_priority: true
+  foreground:
+    maximum_prominence: narrative_support
+    preserve_action_readability: true
+    duck_when_masking_dialogue: true
+  background:
+    maximum_prominence: background
+    reduce_density_during_dialogue: true
+    avoid_constant_minor_motion_detail: true
+  object_interaction:
+    match_material: true
+    match_size_and_weight: true
+    match_contact_force: true
+    match_distance: true
+  movement:
+    follow_physical_path: true
+    use_controlled_stereo_motion: true
+    avoid_unmotivated_whooshes: true
+  impacts:
+    scale_to_visible_force: true
+    soften_child_safe_actions: true
+    avoid_heavy_bass_transients: true
+    maximum_prominence: moderate
+  distance:
+    attenuation: physically_plausible
+    reduce_high_frequencies_with_distance: true
+    increase_environmental_reflections_with_distance: true
+  occlusion:
+    enabled: true
+    match_obstruction_material: true
+    avoid_excessive_muffling: true
+  perspective:
+    follow_source_not_camera_edit: true
+    preserve_level_across_minor_angle_changes: true
+  frequency_balance:
+    avoid_dialogue_masking: true
+    avoid_piercing_high_frequencies: true
+    avoid_excessive_low_frequency_energy: true
+  stereo_position:
+    follow_physical_world: true
+    avoid_extreme_panning: true
+    preserve_mono_compatibility: true
+
+footsteps:
+  enabled_for_visible_or_narratively_required_movement: true
+  variation_policy: weighted_random_no_immediate_repeat
+  match_character:
+    size: true
+    weight: true
+    footwear_or_contact_type: true
+    small_characters_remain_light: true
+  match_movement:
+    walking: true
+    running: true
+    jumping: true
+    landing_force: true
+    cadence: true
+  match_surface:
+    floor_material: true
+    outdoor_terrain: true
+    surface_condition: true
+    use_identical_steps_across_surfaces: false
+  perspective:
+    match_distance: true
+    match_room_acoustics: true
+    match_occlusion: true
+    preserve_screen_direction: true
+  mixing:
+    maximum_prominence: action_support
+    duck_under_dialogue_when_needed: true
+    avoid_overly_heavy_low_end: true
+
+object_interactions:
+  match_material: true
+  match_size: true
+  match_weight: true
+  match_impact_force: true
+  match_distance: true
+  match_acoustic_environment: true
+  material_profiles:
+    wood:
+      transient: rounded
+      resonance: warm
+    plastic:
+      transient: light
+      resonance: short
+    metal:
+      transient: controlled
+      resonance: moderate
+      avoid_harsh_ringing: true
+    fabric:
+      transient: soft
+      resonance: minimal
+    rubber:
+      transient: damped
+      resonance: short
+    glass:
+      transient: delicate
+      avoid_piercing_resonance: true
+    paper:
+      transient: soft
+      low_frequency_content: minimal
+    grass:
+      transient: diffuse
+      moisture_sensitive: true
+    soil:
+      transient: muted
+      moisture_sensitive: true
+    stone:
+      transient: firm
+      resonance: environment_dependent
+  safeguards:
+    no_sound_without_contact_or_motion: true
+    avoid_oversized_object_sound: true
+    avoid_repetitive_identical_variants: true
+
+spatial_audio:
+  output_format: stereo
+  coordinate_reference: physical_location
+  preserve_world_space_positions: true
+  stereo_positioning:
+    enabled: true
+    center_dialogue_by_default: true
+    maximum_dialogue_pan_percent: 15
+    avoid_hard_panning: true
+  source_direction:
+    follow_physical_source: true
+    remain_coherent_across_reverse_angles: true
+    camera_composition_is_not_source_position: true
+  distance_attenuation:
+    enabled: true
+    curve: gentle_natural
+    preserve_narrative_intelligibility: true
+    avoid_extreme_near_far_changes: true
+  off_screen_sources:
+    preserve_direction: true
+    use_distance_cues: true
+    remain_subtle_unless_narratively_important: true
+  source_movement:
+    interpolate_smoothly: true
+    follow_visible_or_established_motion: true
+    avoid_fast_stereo_sweeps: true
+  occlusion:
+    enabled: true
+    walls_reduce_high_frequencies: true
+    open_doors_reduce_occlusion: true
+    closed_windows_filter_exterior_sources: true
+  environments:
+    interior:
+      width: controlled
+      reflections: room_dependent
+    exterior:
+      width: open
+      reflections: sparse
+  depth_separation:
+    foreground_detail: high
+    background_detail: reduced
+    preserve_center_space_for_dialogue: true
+
+camera_perspective:
+  continuity_over_cut: true
+  meaningful_physical_movement_required_for_major_change: true
+  wide_establishing:
+    environmental_width: wide
+    source_detail: reduced
+    dialogue_intelligibility: preserved
+  medium_shot:
+    environmental_width: natural
+    source_detail: normal
+  close_up:
+    dialogue_presence: slightly_increased
+    environment_detail: reduced
+    maximum_level_change_db: 2
+  distant_view:
+    high_frequency_detail: reduced
+    direct_to_reflected_ratio: reduced
+  interior_view:
+    apply_room_response: true
+  exterior_view:
+    apply_open_air_response: true
+  camera_movement:
+    interpolate_perspective: true
+    avoid_abrupt_filter_changes: true
+
+room_acoustics:
+  speech_intelligibility_priority: true
+  response_source: canonical_location_profile
+  room_size_affects_decay: true
+  ceiling_height_affects_early_reflections: true
+  surfaces:
+    hard_surfaces_increase_reflections: true
+    carpet_reduces_high_frequency_reflections: true
+    curtains_reduce_flutter_echo: true
+    soft_play_materials_increase_absorption: true
+    wood_adds_warm_short_reflections: true
+    tile_requires_controlled_reverb: true
+    glass_adds_early_reflections: true
+  openings:
+    open_doors_share_adjacent_room_tone: true
+    closed_doors_apply_occlusion: true
+    open_windows_increase_exterior_bleed: true
+    closed_windows_filter_exterior_bleed: true
+  kindergarten_interiors:
+    preferred_decay: short
+    maximum_reverb_prominence: low
+    warmth: gentle
+    speech_clarity: high
+    avoid_large_room_echo: true
+  exterior:
+    artificial_reverb: minimal
+    use_environmental_reflections_when_present: true
+  processing:
+    match_reverb_between_connected_dialogue_edits: true
+    preserve_pre_delay_consistency: true
+    excessive_reverb_allowed: false
+
+indoor_outdoor_transitions:
+  room_to_room:
+    crossfade_ms: 600
+    preserve_shared_building_tone: true
+  interior_to_exterior:
+    crossfade_ms: 800
+    open_frequency_range_gradually: true
+    widen_environment_gradually: true
+  exterior_to_interior:
+    crossfade_ms: 700
+    apply_room_response_gradually: true
+    narrow_environment_gradually: true
+  hallway_to_room:
+    crossfade_ms: 500
+    transition_through_doorway: true
+  indoor_to_outdoor_play_space:
+    crossfade_ms: 800
+    preserve_shared_activity_when_audible: true
+  park_area_change:
+    crossfade_ms: 700
+    preserve_continuous_natural_sources: true
+  open_to_enclosed:
+    crossfade_ms: 700
+    apply_occlusion_gradually: true
+  abrupt_replacement_on_normal_cut: false
+
+dynamic_range:
+  audience_profile: preschool_comfortable
+  quiet_scene_floor_lufs: -36
+  normal_dialogue_short_term_lufs:
+    minimum: -18
+    maximum: -14
+  maximum_adjacent_program_change_lu: 4
+  maximum_impact_over_dialogue_db: 3
+  music_range_lufs:
+    minimum: -32
+    maximum: -18
+  ambience_range_lufs:
+    minimum: -40
+    maximum: -24
+  peak_control:
+    maximum_true_peak_db: -1
+    soften_unexpected_transients: true
+    preserve_intentional_gentle_dynamics: true
+  avoid_sudden_extreme_loudness: true
+  avoid_overly_quiet_dialogue: true
+  avoid_aggressive_impacts: true
+  avoid_excessive_bass_transients: true
+
+frequency_management:
+  policy: gentle_corrective_separation
+  dialogue_intelligibility_region_hz:
+    minimum: 1500
+    maximum: 4500
+  low_frequency:
+    control_rumble_below_hz: 60
+    preserve_natural_voice_body: true
+    prevent_music_and_effects_buildup: true
+  low_midrange:
+    monitor_range_hz:
+      minimum: 180
+      maximum: 500
+    reduce_mud_when_detected: true
+  upper_midrange:
+    avoid_harshness: true
+    protect_child_voice_comfort: true
+  high_frequency:
+    control_piercing_tones: true
+    control_excessive_sibilance: true
+    preserve_natural_air: true
+  separation:
+    dialogue_has_priority: true
+    reduce_competing_music_midrange: true
+    reduce_competing_ambience_midrange: true
+    reduce_competing_sfx_midrange: true
+  extreme_eq_allowed: false
+
+mix_priority:
+  dialogue: 1
+  critical_sound_effects: 2
+  music: 3
+  ambience: 4
+  background_sound_effects: 5
+  policy:
+    preserve_all_supporting_beds_when_possible: true
+    do_not_mute_all_background_during_dialogue: true
+    use_subtle_controlled_ducking: true
+
+ducking:
+  detector_source: foreground_dialogue
+  automation: smooth
+  lookahead_ms: 20
+  attack_ms: 100
+  release_ms: 500
+  music_reduction_db: -6
+  ambience_reduction_db: -3
+  background_sound_effects_reduction_db: -4
+  critical_sound_effects_reduction_db: -2
+  frequency_conscious_when_available: true
+  avoid_pumping: true
+  bypass_without_dialogue: true
+
+transitions:
+  hard_visual_cut:
+    preserve_continuous_audio: true
+    minimum_edit_crossfade_ms: 8
+  soft_visual_cut:
+    preserve_continuous_audio: true
+    ambience_crossfade_ms: 400
+  dissolve:
+    follow_visual_duration_when_appropriate: true
+    minimum_audio_crossfade_ms: 500
+  scene_change:
+    standard_crossfade_ms: 700
+    preserve_natural_tails: true
+  location_change:
+    standard_crossfade_ms: 800
+    apply_acoustic_perspective_change: true
+  time_jump:
+    crossfade_ms: 900
+    allow_clear_audio_boundary: true
+  montage:
+    preserve_music_continuity: true
+    bridge_ambience_when_appropriate: true
+    transition_crossfade_ms: 500
+  episode_opening:
+    fade_in_ms: 600
+    avoid_abrupt_peak: true
+  episode_ending:
+    fade_out_ms: 1000
+    preserve_music_resolution: true
+    preserve_ambience_tail: true
+  prevent_clicks: true
+  avoid_unmotivated_discontinuities: true
+
+crossfades:
+  dialogue_edit_ms:
+    minimum: 5
+    preferred: 12
+    maximum: 40
+  ambience_change_ms:
+    minimum: 300
+    preferred: 700
+    maximum: 2000
+  music_transition_ms:
+    minimum: 400
+    preferred: 800
+    maximum: 2000
+  sound_effect_loop_ms:
+    minimum: 20
+    preferred: 100
+    maximum: 300
+  location_transition_ms:
+    minimum: 500
+    preferred: 800
+    maximum: 2000
+  preserve_transient_precision: true
+  over_crossfade_transients: false
+
+loops:
+  seamless_required: true
+  prevent_clicks: true
+  avoid_obvious_repetition: true
+  minimum_variant_count_when_available: 2
+  preserve_phase_when_possible: true
+  preserve_position_across_camera_cuts: true
+  restart_on_camera_cut: false
+  restart_requires_physical_or_narrative_reason: true
+  use_crossfade_at_loop_boundary: true
+  validate_loop_boundary: true
+
+continuity:
+  preserve_room_tone_across_cuts: true
+  preserve_ambience_across_cuts: true
+  preserve_music_position_across_cuts: true
+  preserve_spatial_sources_across_cuts: true
+  preserve_dialogue_room_response_across_cuts: true
+  restart_loops_on_camera_cut: false
+  avoid_abrupt_gain_changes: true
+  avoid_abrupt_eq_changes: true
+  avoid_abrupt_reverb_changes: true
+  maintain_phase_when_possible: true
+  camera_cut_is_audio_reset: false
+  material_audio_change_requires_continuity_review: true
+
+scene_mix_states:
+  dialogue_focus:
+    dialogue_gain_db: 0
+    music_offset_db: -6
+    ambience_offset_db: -3
+    background_sound_effects_offset_db: -4
+    preserve_room_tone: true
+  normal:
+    dialogue_gain_db: 0
+    music_offset_db: 0
+    ambience_offset_db: 0
+    background_sound_effects_offset_db: 0
+  quiet:
+    dialogue_gain_db: 0
+    music_offset_db: -3
+    ambience_offset_db: -2
+    background_sound_effects_offset_db: -4
+    preserve_room_tone: true
+    allow_digital_silence: false
+  active:
+    dialogue_gain_db: 0
+    music_offset_db: -1
+    ambience_offset_db: 0
+    background_sound_effects_offset_db: 1
+    protect_dialogue_transients: true
+    maximum_prominent_sound_effects: 3
+  montage:
+    music_offset_db: 1
+    ambience_offset_db: -2
+    background_sound_effects_offset_db: -1
+    critical_sound_effects_remain_readable: true
+  transition:
+    preserve_departure_tail: true
+    introduce_destination_bed: true
+    use_transition_crossfades: true
+
+silence:
+  absolute_digital_silence_by_default: false
+  quiet_scenes_preserve_room_tone: true
+  quiet_scenes_preserve_subtle_exterior_bleed: true
+  quiet_scenes_preserve_air_movement: true
+  quiet_scenes_preserve_environmental_presence: true
+  true_silence_requires_intentional_scene_state: true
+  participation_pauses:
+    preserve_room_tone: true
+    avoid_prominent_sound_effects: true
+    avoid_distracting_stereo_motion: true
+
+child_safe_audio:
+  target_age_range:
+    minimum: 3
+    maximum: 6
+  favor:
+    - gentle_dynamics
+    - warm_tonal_balance
+    - clear_dialogue
+    - controlled_transients
+    - readable_sound_staging
+    - smooth_transitions
+  prohibit:
+    - painfully_loud_effects
+    - sudden_aggressive_peaks
+    - frightening_drones
+    - harsh_alarms
+    - prolonged_high_frequency_tones
+    - excessive_bass_impacts
+    - horror_style_ambience
+    - jump_scare_mixing
+    - extreme_stereo_movement
+    - chaotic_simultaneous_layers
+  maximum_simultaneous_prominent_layers: 5
+  soften_startling_transients: true
+  preserve_emotional_safety: true
+  listening_fatigue_check_required: true
+
+routing:
+  dialogue_bus: dialogue
+  dialogue_foreground_bus: dialogue_foreground
+  dialogue_background_bus: dialogue_background
+  music_bus: music
+  ambience_bus: ambience
+  ambience_interior_bus: ambience_interior
+  ambience_exterior_bus: ambience_exterior
+  sound_effects_bus: sound_effects
+  critical_sound_effects_bus: sfx_critical
+  background_sound_effects_bus: sfx_background
+  master_bus: master
+  policy:
+    route_all_buses_to_master: true
+    preserve_separate_stems: true
+    process_dialogue_before_master_ducking: true
+    keep_routing_reusable_across_episodes: true
+
+speaker_profiles:
+  riri:
+    dialogue_track: "dialogue_riri"
+    pan: 0
+    eq_profile: "riri_dialogue_eq"
+    compression_profile: "riri_subtle_compression"
+    de_esser_profile: "riri_light_de_esser"
+    nominal_gain_db: 0
+    vocal_presence: warm_clear
+    proximity_behavior: preserve_natural_warmth
+    loudness_consistency: moderate
+    voice_preservation:
+      preserve_pitch: true
+      preserve_timbre: true
+      preserve_articulation: true
+      preserve_natural_breaths: true
+    processing_limits:
+      maximum_eq_boost_db: 2
+      maximum_compression_gain_reduction_db: 4
+      aggressive_pitch_correction: false
+      identity_altering_processing: false
+
+  yoyo:
+    dialogue_track: "dialogue_yoyo"
+    pan: 0
+    eq_profile: "yoyo_dialogue_eq"
+    compression_profile: "yoyo_subtle_compression"
+    de_esser_profile: "yoyo_light_de_esser"
+    nominal_gain_db: 0
+    vocal_presence: bright_gentle
+    proximity_behavior: preserve_natural_clarity
+    loudness_consistency: moderate
+    voice_preservation:
+      preserve_pitch: true
+      preserve_timbre: true
+      preserve_articulation: true
+      preserve_natural_breaths: true
+    processing_limits:
+      maximum_eq_boost_db: 2
+      maximum_compression_gain_reduction_db: 4
+      aggressive_pitch_correction: false
+      identity_altering_processing: false
+
+quality_control:
+  required: true
+  checks:
+    clipping: true
+    inter_sample_peaks: true
+    integrated_loudness: true
+    dialogue_intelligibility: true
+    dialogue_loudness_consistency: true
+    character_level_consistency: true
+    missing_room_tone: true
+    abrupt_ambience_changes: true
+    incorrect_spatial_placement: true
+    excessive_noise_reduction: true
+    excessive_reverb: true
+    phase_problems: true
+    mono_compatibility: true
+    loop_clicks: true
+    obvious_loop_repetition: true
+    music_masking_dialogue: true
+    sound_effects_masking_dialogue: true
+    extreme_peaks: true
+    stereo_imbalance: true
+    unexpected_silence: true
+    picture_sync: true
+  failure_policy:
+    clipping: reject
+    unintelligible_dialogue: reject
+    missing_or_swapped_speaker: reject
+    broken_sync: reject
+    severe_phase_problem: reject
+    unexpected_silence: review
+    masking: repair_and_recheck
+  deliverables:
+    verify_master: true
+    verify_dialogue_stem: true
+    verify_music_stem: true
+    verify_ambience_stem: true
+    verify_sound_effects_stem: true
+
+location_context_resolution:
+  source_authority:
+    physical_geometry: location_yaml
+    environmental_identity: sound_profile_yaml
+    musical_identity: music_profile_yaml
+    global_mix_policy: audio_yaml
+    active_state: scene_or_continuity_yaml
+  selection_order:
+    - resolve_physical_location
+    - resolve_time_of_day_and_weather
+    - select_location_sound_profile
+    - select_location_music_profile
+    - apply_scene_mix_state
+    - apply_global_dialogue_priority
+  profiles:
+    kindergarten_exterior_garden:
+      location: ../locations/exteriors/location.yaml
+      sound: ../locations/exteriors/sound-profile.yaml
+      music: ../locations/exteriors/music-profile.yaml
+      evening_night_sound: ../locations/evening_night/sound-profile.yaml
+      evening_night_music: ../locations/evening_night/music-profile.yaml
+    kindergarten_classroom:
+      location: ../locations/interiors/location.yaml
+      sound: ../locations/interiors/sound-profile.yaml
+      music: ../locations/interiors/music-profile.yaml
+    kindergarten_play_space:
+      location: ../locations/play_spaces/location.yaml
+      sound: ../locations/play_spaces/sound-profile.yaml
+      music: ../locations/play_spaces/music-profile.yaml
+    nature_park:
+      location: ../locations/nature_and_parks/location.yaml
+      sound: ../locations/nature_and_parks/sound-profile.yaml
+      music: ../locations/nature_and_parks/music-profile.yaml
+    countryside_meadow:
+      location: ../locations/sunset_golden_hour/location.yaml
+      sound: ../locations/sunset_golden_hour/sound-profile.yaml
+      music: ../locations/sunset_golden_hour/music-profile.yaml
+  rules:
+    do_not_copy_location_assets_into_global_policy: true
+    do_not_replace_location_identity_with_scene_state: true
+    preserve_profile_state_across_camera_cuts: true
+    time_of_day_overlays_modify_not_replace_location_identity: true
+    location_profile_change_requires_physical_location_change: true

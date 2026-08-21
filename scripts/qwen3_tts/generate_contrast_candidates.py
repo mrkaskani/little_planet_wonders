@@ -22,7 +22,7 @@ from qwen_tts import Qwen3TTSModel
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-CONTEXT_ROOT = PROJECT_ROOT / "src/lpw/context/projects/classroom"
+CONTEXT_ROOT = PROJECT_ROOT / "src/lpw/context/projects/riri-yoyo"
 MODEL_DIR = PROJECT_ROOT / "models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
 SPEAKER_MODEL_DIR = PROJECT_ROOT / "models/speaker-embeddings/wavlm-base-plus-sv"
 ANALYZER = Path(__file__).resolve().with_name("analyze_voice_contrast.py")

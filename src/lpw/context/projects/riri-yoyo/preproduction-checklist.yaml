@@ -1,0 +1,208 @@
+id: riri-yoyo-preproduction-checklist
+type: preproduction-checklist-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: machine-and-human-readable-readiness-gates-before-production
+
+phase_boundary:
+  allowed_inputs:
+    - reusable-yaml-authorities
+    - approved-or-candidate-reference-assets
+    - technical-audit-evidence
+    - neutral-dry-run-manifests
+  forbidden_inputs:
+    - episode-story
+    - script
+    - scene
+    - shot
+    - dialogue-content
+    - generated-video
+    - edit-or-export-plan
+
+required_files:
+  project_and_model:
+    - project.yaml
+    - wan22-preproduction.yaml
+  visual:
+    - visual_style/visual_style.yaml
+    - visual_style/art-direction.yaml
+    - visual_style/palette-v2.yaml
+    - visual_style/lighting.yaml
+    - visual_style/materials.yaml
+    - visual_style/color_scripts.yaml
+  cinematography:
+    - cinematography/camera-language.yaml
+    - cinematography/composition-rules.yaml
+    - cinematography/lens-package.yaml
+    - cinematography/movement-rules.yaml
+  characters:
+    - characters/riri/character.yaml
+    - characters/riri/character-v2.yaml
+    - characters/yoyo/character.yaml
+    - characters/yoyo/character-v2.yaml
+    - characters/animation-style.yaml
+    - characters/acting-style.yaml
+    - characters/relationships.yaml
+  assets:
+    - assets/props.yaml
+    - assets/costumes.yaml
+    - assets/vehicles.yaml
+    - assets/background-characters.yaml
+    - locations-assets.yaml
+  location_candidates:
+    - locations/interiors/location-v2.yaml
+    - locations/play_spaces/location-v2.yaml
+    - locations/nature_and_parks/location-v2.yaml
+    - locations/sunset_golden_hour/location-v2.yaml
+  governance:
+    - brand.yaml
+    - references.yaml
+    - reference-views.yaml
+    - asset-conventions.yaml
+    - safety.yaml
+    - educational-direction.yaml
+  audio:
+    - audios/audio_style.yaml
+    - audios/voice-production.yaml
+    - audios/s2v-input-spec.yaml
+    - audios/voice-reference-audit.yaml
+    - characters/riri/voice-profile.yaml
+    - characters/yoyo/voice-profile.yaml
+  validation:
+    - validation/dry-run-manifests.yaml
+    - validation/character-identity-review.yaml
+    - validation/generation-frame-review.yaml
+    - validation/kindergarten-interior-v2-review.yaml
+    - validation/kindergarten-play-space-v2-review.yaml
+    - validation/nature-park-v2-review.yaml
+    - validation/location-master-review.yaml
+    - validation/countryside-golden-hour-v2-review.yaml
+    - validation/project-owner-approvals.yaml
+    - validation/riri-v2-review.yaml
+    - validation/yoyo-v2-review.yaml
+    - validation/final-consistency-review.yaml
+
+global_checks:
+  - all-yaml-parses
+  - project-id-is-riri-yoyo
+  - audience-is-ages-3-to-6
+  - canonical-main-character-ids-are-riri-and-yoyo
+  - canonical-palette-is-palette-v2
+  - canonical-ids-are-unique
+  - approved-paths-exist
+  - existing-approved-assets-have-sha256
+  - no-placeholder-is-treated-as-approved
+  - inheritance-and-source-authority-paths-resolve
+  - no-production-content-exists-in-preproduction-authority
+  - supported-modes-are-exactly-t2v-i2v-ti2v-s2v
+  - animate-is-disabled
+
+reference_checks:
+  design_review:
+    - correct-entity-and-version
+    - required-views-present
+    - anatomy-scale-color-and-materials-readable
+    - approval-status-recorded
+    - explicitly-forbidden-as-direct-conditioning
+  generation_single_frame:
+    - one-coherent-image
+    - approved-entity-identity
+    - exact-subject-count
+    - correct-anatomy-and-silhouette
+    - correct-starting-pose-or-state
+    - movement-space
+    - intended-aspect-ratio
+    - pixel-dimensions-recorded
+    - simple-stable-background
+    - no-collage-text-label-logo-watermark-duplicate-or-accidental-face
+
+mode_gates:
+  t2v:
+    require:
+      - full-prioritized-text-description
+      - explicit-subject-count
+      - one-action-direction-speed-and-endpoint
+      - one-camera-behavior
+      - short-invariants-and-negative-prompt
+    forbid:
+      - exact-recurring-character-prop-vehicle-or-location-identity-approval-without-reference
+      - invented-unregistered-entity
+  i2v:
+    require:
+      - approved-single-frame-reference
+      - reference-version-and-sha256
+      - source-frame-anatomy-layout-contact-and-movement-space-pass
+      - preservation-plus-change-only-prompt
+      - one-action-and-one-camera-behavior
+    forbid:
+      - board-sheet-collage-placeholder-or-missing-reference
+      - prompt-redesign-of-visible-approved-identity
+  ti2v:
+    require:
+      - explicit-draft-status
+      - text-or-approved-image-input-role
+      - structure-motion-and-composition-review-only
+    forbid:
+      - final-face-fur-feather-material-pattern-or-text-approval
+  s2v:
+    require:
+      - approved-single-character-frame
+      - half-body-or-full-body-framing
+      - visible-eyes-and-resting-mouth-or-beak
+      - exact-transcript
+      - approved-48000-hz-24-bit-mono-dialogue-only-audio
+      - audio-and-transcript-sha256
+      - word-timing-and-required-events
+      - final-settle
+    forbid:
+      - cloning-reference-used-as-final-dialogue
+      - music-ambience-effects-or-background-vocal-in-conditioning-audio
+      - board-collage-or-obstructed-face
+  animate:
+    result: reject
+    reason: unsupported-by-local-runtime-contract
+
+audio_checks:
+  cloning_references:
+    - technical-audit-passes
+    - path-hash-format-duration-and-role-recorded
+    - audible-listening-review-recorded-before-final-voice-approval
+  final_s2v_audio:
+    - wav-pcm-s24le-48000-hz-mono
+    - exact-one-speaker-and-exact-transcript
+    - no-clipping-noise-reverb-music-ambience-effects-or-artifacts
+    - leading-silence-and-trailing-settle-pass
+    - timing-events-and-hashes-pass
+
+safety_and_education_checks:
+  - emotional-intensity-within-limit
+  - no-common-fear-hazard-or-dangerous-imitation-failure
+  - sensory-limits-pass
+  - generated-anatomy-contact-and-expression-pass
+  - learning-goal-vocabulary-participation-repetition-and-accuracy-pass
+  - visible-action-and-spoken-explanation-agree
+
+dry_run_manifest_checks:
+  allowed: true
+  queues-generation: false
+  downloads-weights: false
+  enables-provider: false
+  must_include:
+    - model-and-supported-task
+    - prompt-version-and-hash
+    - reference-versions-and-hashes
+    - seed
+    - native-dimensions-frame-count-and-frame-rate
+    - audio-hash-for-s2v
+    - delivery-conversion-plan
+    - approval-status
+
+completion_rule:
+  technical-checks-must-pass: true
+  subjective-visual-and-listening-approvals-must-be-recorded: true
+  unresolved-required-approval-blocks-production: true
+  a-missing-optional-future-catalog-entry-does-not-block: true

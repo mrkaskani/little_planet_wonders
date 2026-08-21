@@ -1,0 +1,1396 @@
+id: kindergarten-play-space-music
+type: location-music-context
+version: 1.1
+name: Kindergarten Play Space Music Profile
+
+identity:
+  location: kindergarten-play-space
+  parent_location: kindergarten-interior
+  root_location: kindergarten
+
+  theme:
+    - imaginative play
+    - friendship
+    - gentle movement
+    - creativity
+    - social interaction
+    - emotional safety
+
+  emotional_identity:
+    primary:
+      - playful
+      - cheerful
+      - warm
+      - friendly
+      - imaginative
+      - safe
+
+    secondary:
+      - curious
+      - cozy
+      - energetic
+      - cooperative
+      - comforting
+      - optimistic
+      - expressive
+
+  energy: medium
+
+  purpose:
+    - establish a dedicated indoor play environment
+    - support imaginative preschool play
+    - support friendship and cooperation
+    - encourage physical movement without overstimulation
+    - support toy interaction
+    - support pretend play
+    - reinforce emotional safety
+    - create a recognizable play-space identity
+    - remain connected to the wider kindergarten musical language
+
+musical_character:
+
+  style:
+    - playful children's cinematic
+    - warm acoustic
+    - light storybook
+    - gentle toy-like orchestration
+    - preschool-friendly
+    - soft chamber ensemble
+
+  tone:
+    warmth: very-high
+    softness: high
+    playfulness: high
+    curiosity: medium-high
+    brightness: high
+    imagination: high
+    coziness: high
+    movement: medium
+    mystery: very-low
+    tension: very-low
+
+  emotional_direction:
+    default: warm-imaginative-play
+
+  avoid_emotional_direction:
+    - fear
+    - danger
+    - suspense
+    - chaos
+    - frantic-excitement
+    - competitive-aggression
+    - sadness-heavy
+    - threatening
+    - heroic-epic
+
+instrumentation:
+
+  primary:
+
+    muted_marimba:
+      role:
+        - playful-rhythm
+        - toy-interaction
+        - movement-support
+        - building-play
+        - curiosity-pattern
+
+      playing_style:
+        - soft
+        - rounded
+        - bouncy
+        - simple
+        - spacious
+
+      register: mid
+      intensity: low-medium
+
+    light_ukulele:
+      role:
+        - friendly-rhythm
+        - warm-acoustic-character
+        - social-play-support
+        - movement-support
+
+      playing_style:
+        - gentle-strumming
+        - soft-plucking
+        - simple-repeating-patterns
+
+      register: mid
+      intensity: low-medium
+
+    soft_piano:
+      role:
+        - harmonic-foundation
+        - emotional-support
+        - gentle-melodic-support
+        - transition-support
+
+      playing_style:
+        - warm
+        - light
+        - simple
+        - rounded
+        - sparse
+
+      register: mid
+      intensity: low
+
+    gentle_clarinet:
+      role:
+        - playful-melody
+        - pretend-play-character
+        - friendly-musical-voice
+        - play-space-motif
+
+      playing_style:
+        - soft
+        - rounded
+        - expressive
+        - short-phrases
+        - lightly-bouncy
+
+      register: mid
+      intensity: low
+
+  secondary:
+
+    pizzicato_strings:
+      allowed: true
+
+      role:
+        - movement-support
+        - hide-and-find-play
+        - building-play
+        - gentle-comedy
+
+      intensity: very-low
+
+      rules:
+        - remain friendly
+        - avoid sneaky tension
+        - avoid fast ostinatos
+        - use short simple gestures
+
+    gentle_flute:
+      allowed: true
+
+      role:
+        - imagination-accent
+        - discovery-response
+        - light-airy-color
+
+      intensity: very-low
+
+      rules:
+        - use sparingly
+        - prefer short phrases
+        - keep secondary to clarinet
+        - reduce beneath dialogue
+
+    soft_bells:
+      allowed: limited
+
+      possible_sources:
+        - soft-glockenspiel
+        - celesta
+        - gentle-chime
+
+      role:
+        - pretend-play-accent
+        - discovery-accent
+        - successful-action-accent
+
+      intensity: very-low
+
+      rules:
+        - use individual notes
+        - avoid constant sparkle
+        - avoid piercing frequencies
+        - avoid magical overload
+
+    soft_hand_percussion:
+      allowed: true
+
+      possible_sources:
+        - soft-shaker
+        - muted-wood-block
+        - finger-taps
+        - soft-tambourine
+        - gentle-hand-claps
+
+      role:
+        - movement-support
+        - group-play-support
+        - cleanup-support
+
+      intensity: very-low
+
+      rules:
+        - keep patterns simple
+        - avoid strong transients
+        - never dominate the arrangement
+
+    soft_strings:
+      allowed: true
+
+      role:
+        - emotional-support
+        - imaginative-play-support
+        - quiet-play-support
+
+      intensity: very-low
+
+      rules:
+        - use sustained textures
+        - keep warm and soft
+        - no dramatic swells
+
+harmony:
+
+  character:
+    - bright
+    - warm
+    - playful
+    - stable
+    - reassuring
+    - simple
+
+  complexity: low
+
+  preferred:
+    - major
+    - major-add6
+    - major-add9
+    - gentle-suspended-harmony
+    - simple-diatonic-progressions
+    - open-fifths
+    - warm-tonic-pedal
+    - playful-I-IV-V-motion
+    - gentle-plagal-motion
+
+  dissonance: minimal
+
+  rules:
+    - preserve tonal clarity
+    - favor consonant harmony
+    - use harmonic repetition for familiarity
+    - use suspended harmony only for gentle curiosity
+    - resolve movement quickly and softly
+    - avoid dramatic modulation
+    - avoid unresolved tension
+    - maintain emotional safety
+
+melody:
+
+  complexity: simple
+
+  phrase_length: short
+
+  contour:
+    - gently-rising
+    - gently-falling
+    - small-step-motion
+    - playful-small-skips
+    - question-and-answer-shapes
+
+  repetition:
+    allowed: true
+    amount: high
+
+  characteristics:
+    - memorable
+    - playful
+    - singable
+    - friendly
+    - imaginative
+    - easy-to-follow
+    - non-intrusive
+
+  rules:
+    - use clear short motifs
+    - allow simple repetition
+    - use musical call-and-response
+    - leave space for children's voices
+    - avoid rapid runs
+    - avoid extreme interval jumps
+    - avoid continuous melody
+    - preserve recognizable play-space motif
+
+rhythm:
+
+  activity: medium
+
+  pulse:
+    strength: gentle
+    consistency: stable
+    character:
+      - bouncy
+      - friendly
+      - predictable
+      - playful
+
+  percussion:
+    amount: low
+
+  preferred:
+    - muted-marimba-pattern
+    - gentle-ukulele-strum
+    - wooden-tap-pattern
+    - soft-shaker
+    - light-pizzicato
+    - simple-step-rhythm
+    - gentle-clap-pattern
+
+  activity_relationship:
+
+    quiet_play:
+      activity: very-low
+
+    pretend_play:
+      activity: low-medium
+
+    building:
+      activity: low-medium
+
+    toy_play:
+      activity: medium
+
+    group_play:
+      activity: medium
+
+    physical_play:
+      activity: medium
+
+    circle_play:
+      activity: low-medium
+
+    cleanup:
+      activity: low-medium
+
+  rules:
+    - rhythm may follow physical movement gently
+    - use predictable repeating patterns
+    - preserve rhythmic breathing space
+    - reduce rhythm during conversation
+    - increase activity through additional small layers
+    - never create urgency
+    - avoid overstimulation
+
+  avoid:
+    - heavy-drums
+    - aggressive-percussion
+    - frantic-beats
+    - complex-syncopation
+    - sharp-impacts
+    - fast-ostinatos
+    - driving-bass
+    - dense-rhythmic-layers
+
+tempo:
+
+  default_bpm:
+    min: 78
+    max: 102
+
+  preferred_bpm: 90
+
+  states:
+
+    quiet_play:
+      min: 66
+      max: 76
+
+    pretend_play:
+      min: 76
+      max: 88
+
+    normal_play:
+      min: 84
+      max: 96
+
+    group_play:
+      min: 90
+      max: 102
+
+    movement_play:
+      min: 94
+      max: 106
+
+    calming_down:
+      min: 68
+      max: 78
+
+  rules:
+    - follow play energy gently
+    - allow tempo increase during movement
+    - maintain comfortable preschool pacing
+    - avoid fast tempo escalation
+    - slow naturally when activity calms
+    - never use tempo to create urgency
+
+dynamics:
+
+  default: soft-medium
+
+  range:
+    minimum: very-soft
+    maximum: medium
+
+  variation: gentle
+
+  rules:
+    - keep listening levels comfortable
+    - avoid sudden loud accents
+    - avoid dramatic crescendos
+    - build activity through arrangement rather than volume
+    - keep play energetic without becoming noisy
+    - preserve dialogue intelligibility
+
+dialogue:
+
+  priority: highest
+
+  music_behavior:
+
+    during_dialogue:
+      volume: reduced
+      melodic_activity: reduced
+      rhythmic_activity: reduced
+      instrumentation_density: reduced
+
+    during_group_conversation:
+      volume: very-low
+      melody: minimal
+      percussion: minimal
+
+    during_imaginative_dialogue:
+      volume: low
+      melody: sparse
+      rhythm: subtle
+
+    between_dialogue:
+      volume: normal-low
+      melodic_activity: slightly-increased
+      rhythmic_activity: slightly-increased
+
+  ducking:
+    enabled: true
+    behavior: smooth
+    attack: gentle
+    release: gentle
+
+  rules:
+    - children's voices remain clearly understandable
+    - reduce clarinet during speech
+    - reduce marimba beneath dialogue
+    - remove bells beneath important lines
+    - simplify ukulele patterns beneath conversation
+    - reduce percussion during group speech
+    - restore music gradually after dialogue
+
+ambience:
+
+  priority:
+    - dialogue
+    - important-character-sounds
+    - toy-and-play-sounds
+    - room-ambience
+    - music
+
+  preserve:
+    - soft-room-tone
+    - children-playing
+    - toy-movement
+    - wooden-blocks
+    - fabric-cushion-movement
+    - footsteps
+    - soft-laughter
+    - books-and-toys
+    - gentle-window-breeze
+    - distant-birds
+    - subtle-shelf-interactions
+
+  toys:
+    importance: high
+
+    music_relationship:
+      - leave rhythmic space for toy sounds
+      - avoid masking block and object interactions
+      - allow toy sounds to become natural rhythmic accents
+
+  cushions:
+    importance: medium
+
+    music_relationship:
+      - preserve soft movement textures
+      - avoid overly-busy percussion
+
+  playhouse:
+    importance: high
+    role: imaginative-play-identity
+
+    music_relationship:
+      - support pretend-play with small motif variations
+      - preserve warm acoustic character
+      - avoid exaggerated fantasy scoring
+
+  children:
+    importance: highest
+
+    music_relationship:
+      - prioritize laughter and speech
+      - reduce arrangement density during active group play
+      - keep music supportive rather than dominant
+
+  windows:
+    importance: medium
+
+    preserve:
+      - soft-breeze
+      - distant-birds
+      - subtle-outdoor-presence
+
+  rules:
+    - preserve recognizable play-room atmosphere
+    - allow physical play sounds to remain clear
+    - avoid filling every silence
+    - music should sit around children's activity
+    - ambience remains continuous through music transitions
+
+mix:
+
+  dialogue_priority: highest
+
+  music_position:
+    width: medium
+    depth: background
+
+  ambience_position:
+    width: medium-wide
+    depth: environment
+
+  marimba:
+    position: subtle-wide
+
+  ukulele:
+    position: medium-wide
+
+  piano:
+    position: center-soft
+
+  clarinet:
+    position: slightly-off-center
+
+  flute:
+    position: opposite-clarinet-soft
+
+  bells:
+    position: subtle-upper-space
+
+  percussion:
+    position: soft-wide
+
+  rules:
+    - preserve clear dialogue center
+    - keep low frequencies light
+    - avoid dense midrange
+    - soften high-frequency percussion
+    - preserve toy sounds
+    - maintain intimate indoor scale
+    - avoid excessive stereo movement
+    - keep music behind physical play
+
+states:
+
+  default:
+    id: kindergarten-play-space-default
+    emotion:
+      - playful
+      - warm
+      - safe
+
+    energy: low-medium
+
+    instrumentation:
+      - muted-marimba
+      - light-ukulele
+      - soft-piano
+      - gentle-clarinet
+
+  free_play:
+    id: kindergarten-play-space-free-play
+    emotion:
+      - joy
+      - curiosity
+      - freedom
+
+    energy: medium
+
+    changes:
+      marimba: playful-simple-pattern
+      ukulele: gentle-strumming
+      piano: light-support
+      clarinet: short-friendly-phrases
+      percussion: optional-soft
+
+  pretend_play:
+    id: kindergarten-play-space-pretend-play
+    emotion:
+      - imagination
+      - curiosity
+      - playful-storytelling
+
+    energy: low-medium
+
+    changes:
+      clarinet: primary
+      piano: warm-support
+      marimba: sparse
+      flute: optional-short-responses
+      bells: occasional
+      strings: optional-soft
+
+  playhouse:
+    id: kindergarten-play-space-playhouse
+    emotion:
+      - imagination
+      - friendship
+      - cozy-adventure
+
+    energy: low-medium
+
+    changes:
+      clarinet: play-space-motif-variation
+      ukulele: soft-plucking
+      piano: gentle-harmony
+      marimba: small-interaction-notes
+
+    rules:
+      - maintain child-scale imagination
+      - avoid epic adventure scoring
+      - avoid suspense
+
+  building:
+    id: kindergarten-play-space-building
+    emotion:
+      - focus
+      - curiosity
+      - problem-solving
+
+    energy: low-medium
+
+    changes:
+      marimba: simple-repeating-pattern
+      pizzicato_strings: optional
+      piano: sparse
+      ukulele: subtle-pulse
+      clarinet: minimal
+
+  toy_discovery:
+    id: kindergarten-play-space-toy-discovery
+    emotion:
+      - curiosity
+      - delight
+      - surprise
+
+    energy: low-medium
+
+    changes:
+      piano: short-rising-figure
+      clarinet: curiosity-response
+      marimba: single-pattern-response
+      bell_accent: optional-single-note
+
+  group_play:
+    id: kindergarten-play-space-group-play
+    emotion:
+      - friendship
+      - cooperation
+      - happiness
+
+    energy: medium
+
+    changes:
+      ukulele: rhythmic-support
+      marimba: playful-pulse
+      piano: bright-harmony
+      clarinet: short-answer-phrases
+      hand_percussion: optional
+
+  movement_play:
+    id: kindergarten-play-space-movement-play
+    emotion:
+      - energy
+      - joy
+      - physical-play
+
+    energy: medium
+
+    changes:
+      marimba: slightly-more-active
+      ukulele: steady-friendly-rhythm
+      percussion: light
+      piano: simple-harmonic-support
+      clarinet: sparse
+
+    rules:
+      - keep tempo controlled
+      - avoid frantic motion
+      - avoid aggressive percussion
+      - preserve safe playful character
+
+  friendship:
+    id: kindergarten-play-space-friendship
+    emotion:
+      - kindness
+      - connection
+      - warmth
+
+    energy: low
+
+    changes:
+      piano: primary
+      clarinet: gentle-motif
+      ukulele: soft-plucks
+      marimba: minimal
+      strings: very-soft
+
+  sharing:
+    id: kindergarten-play-space-sharing
+    emotion:
+      - cooperation
+      - kindness
+      - reassurance
+
+    energy: low
+
+    changes:
+      piano: soft
+      clarinet: short-friendly-phrase
+      ukulele: subtle
+      rhythm: minimal
+
+  dialogue:
+    id: kindergarten-play-space-dialogue
+    emotion:
+      - friendly
+      - supportive
+
+    energy: very-low
+
+    changes:
+      piano: sparse
+      ukulele: minimal
+      clarinet: absent-or-minimal
+      marimba: nearly-absent
+      percussion: absent
+      bells: absent
+
+  quiet_play:
+    id: kindergarten-play-space-quiet-play
+    emotion:
+      - calm
+      - comfort
+      - imagination
+
+    energy: very-low
+
+    changes:
+      piano: primary
+      clarinet: sparse
+      ukulele: occasional-soft-pluck
+      marimba: absent
+      strings: optional-soft-bed
+
+  accomplishment:
+    id: kindergarten-play-space-accomplishment
+    emotion:
+      - pride
+      - happiness
+      - encouragement
+
+    energy: low-medium
+
+    changes:
+      piano: warm-resolution
+      clarinet: short-positive-phrase
+      marimba: gentle-answer
+      bell_accent: optional
+      ukulele: slightly-brighter
+
+    rules:
+      - remain gentle
+      - avoid fanfare
+      - avoid competitive feeling
+
+  cleanup:
+    id: kindergarten-play-space-cleanup
+    emotion:
+      - cooperation
+      - completion
+      - positive-routine
+
+    energy: low-medium
+
+    changes:
+      ukulele: steady-gentle-pattern
+      marimba: predictable-pulse
+      piano: supportive
+      clarinet: minimal
+      percussion: light
+
+  calming_down:
+    id: kindergarten-play-space-calming-down
+    emotion:
+      - calm
+      - reassurance
+      - comfort
+
+    energy: very-low
+
+    changes:
+      piano: primary
+      clarinet: sparse
+      ukulele: very-soft
+      marimba: absent
+      strings: subtle
+
+  leaving:
+    id: kindergarten-play-space-leaving
+    emotion:
+      - warmth
+      - satisfaction
+      - completion
+
+    energy: low
+
+    changes:
+      piano: gentle-resolution
+      clarinet: play-space-motif-resolution
+      ukulele: soft-final-pattern
+      marimba: minimal
+
+motif:
+
+  id: kindergarten-play-space-imagination-motif
+
+  relationship_to_parent:
+    parent_motif: kindergarten-interior-learning-motif
+    root_motif: kindergarten-friendship-motif
+    relationship: playful-interior-variation
+
+  purpose:
+    - identify-kindergarten-play-space
+    - symbolize-imaginative-play
+    - reinforce-friendship
+    - support location continuity
+    - connect play-space scenes to kindergarten identity
+
+  primary_instrument: gentle-clarinet
+
+  supporting_instruments:
+    - muted-marimba
+    - light-ukulele
+    - soft-piano
+
+  structure:
+    length: short
+    complexity: simple
+
+    character:
+      - playful
+      - gently-rising
+      - rounded
+      - bouncy
+      - memorable
+
+  emotional_shape:
+    beginning: curious
+    middle: playful
+    ending: warm
+
+  usage:
+    - play-space-establishing-shot
+    - entering-play-space
+    - pretend-play
+    - playhouse-interaction
+    - friendship-moment
+    - toy-discovery
+    - return-to-play-space
+    - scene-resolution
+
+  rules:
+    - preserve recognizable melodic identity
+    - remain related to parent kindergarten motif
+    - allow rhythmic variation during active play
+    - simplify beneath dialogue
+    - never become dramatic
+    - never become frantic
+
+environmental_relationship:
+
+  visual_character:
+    - pastel
+    - warm
+    - soft
+    - colorful
+    - cozy
+    - sunny
+    - cushioned
+    - imaginative
+    - child-scaled
+    - welcoming
+
+  music_translation:
+
+    pastel_colors:
+      musical_quality:
+        - soft-rounded-timbres
+        - bright-consonant-harmony
+        - gentle-instrumental-layering
+
+    sunlight:
+      musical_quality:
+        - warm-major-harmony
+        - open-piano-voicing
+        - light-high-register-detail
+
+    cushions:
+      musical_quality:
+        - soft-articulation
+        - rounded-percussion
+        - gentle-rhythmic-feel
+
+    play_rug:
+      musical_quality:
+        - playful-pulse
+        - muted-marimba
+        - stable-repeating-patterns
+
+    playhouse:
+      musical_quality:
+        - clarinet-motif
+        - ukulele-plucks
+        - imaginative-phrase-variation
+
+    toys:
+      musical_quality:
+        - short-marimba-notes
+        - pizzicato-details
+        - small-musical-responses
+
+    books:
+      musical_quality:
+        - sparse-piano
+        - soft-clarinet
+        - calm-harmony
+
+    plants:
+      musical_quality:
+        - gentle-flute
+        - soft-airy-texture
+
+    large_windows:
+      musical_quality:
+        - spacious-arrangement
+        - gentle-flute
+        - subtle-outdoor-ambience
+
+    soft_seating:
+      musical_quality:
+        - warm-acoustic-texture
+        - reduced-transients
+        - relaxed-pacing
+
+transitions:
+
+  classroom_to_play_space:
+    behavior:
+      - preserve-parent-kindergarten-motif
+      - increase-playfulness-gradually
+      - introduce-marimba
+      - strengthen-ukulele-rhythm
+      - shift-clarinet-to-playful-variation
+      - maintain-interior-acoustic-character
+
+  play_space_to_classroom:
+    behavior:
+      - reduce-marimba-pattern
+      - soften-ukulele
+      - return-clarinet-to-learning-variation
+      - reduce-rhythmic-density
+      - preserve-parent-motif-continuity
+
+  entering_play_space:
+    behavior:
+      - begin-with-room-and-toy-ambience
+      - introduce-ukulele-or-piano
+      - introduce-play-space-motif
+      - add-marimba-after-location-establishes
+
+  leaving_play_space:
+    behavior:
+      - reduce-percussion
+      - simplify-marimba
+      - resolve-play-space-motif
+      - preserve-room-ambience
+      - transition-gently
+
+  quiet_to_active_play:
+    behavior:
+      - introduce-ukulele-pulse
+      - add-marimba-gradually
+      - increase-rhythmic-density-slightly
+      - preserve-soft-dynamics
+
+  active_to_quiet_play:
+    behavior:
+      - remove-hand-percussion
+      - reduce-marimba
+      - soften-ukulele
+      - transition-to-piano
+      - slow-tempo-gradually
+
+  dialogue_to_play:
+    behavior:
+      - restore-ukulele
+      - reintroduce-marimba
+      - restore-short-clarinet-phrases
+      - increase-density-gradually
+
+  play_to_dialogue:
+    behavior:
+      - remove-percussion
+      - reduce-marimba
+      - simplify-ukulele
+      - reduce-clarinet
+      - preserve-soft-piano
+
+  pretend_play_to_friendship:
+    behavior:
+      - reduce-rhythm
+      - shift-to-piano-led-harmony
+      - soften-clarinet
+      - optionally-introduce-soft-strings
+
+continuity_constraints:
+
+  identity:
+    - preserve imaginative play character
+    - preserve warmth
+    - preserve emotional safety
+    - preserve friendship
+    - preserve play-space motif
+    - maintain connection to kindergarten interior identity
+    - maintain connection to root kindergarten identity
+
+  instrumentation:
+    - muted marimba remains primary playful texture
+    - ukulele remains primary rhythmic warmth
+    - piano remains harmonic foundation
+    - clarinet remains melodic identity
+    - flute remains secondary
+    - bells remain occasional accents only
+
+  energy:
+    - baseline energy remains medium
+    - quiet states reduce to very-low
+    - active play never exceeds controlled-medium
+    - avoid overstimulation
+    - energy changes remain gradual
+
+  environment:
+    - preserve toy sounds
+    - preserve children's voices
+    - preserve soft indoor ambience
+    - retain subtle outdoor connection through windows
+    - maintain cozy acoustic scale
+
+  emotional:
+    - play remains positive
+    - curiosity remains safe
+    - competition remains friendly
+    - mistakes remain emotionally safe
+    - sharing remains positive
+    - accomplishment remains gentle
+    - conflict does not redefine location identity
+
+  mixing:
+    - dialogue always has priority
+    - toy interaction remains audible
+    - physical play remains readable
+    - music remains background-supportive
+    - avoid dense arrangement
+
+negative_constraints:
+
+  emotion:
+    - no horror
+    - no fear
+    - no threat
+    - no strong suspense
+    - no chaotic-excitement
+    - no aggressive-competition
+    - no intense-sadness
+    - no emotional-manipulation
+
+  instrumentation:
+    - no heavy-brass
+    - no aggressive-strings
+    - no heavy-drums
+    - no distorted-synths
+    - no threatening-drones
+    - no industrial-impacts
+    - no horror-textures
+    - no piercing-bells
+    - no harsh-metallic-percussion
+    - no aggressive-electric-guitar
+
+  rhythm:
+    - no frantic-percussion
+    - no aggressive-pulse
+    - no tension-ostinato
+    - no club-style-beats
+    - no complex-driving-rhythm
+    - no high-speed-repetition
+
+  harmony:
+    - no dark-unresolved-harmony
+    - no horror-dissonance
+    - no strong-chromatic-tension
+    - no ominous-low-pedals
+    - no dramatic-modulation
+
+  melody:
+    - no frantic-runs
+    - no extreme-register-jumps
+    - no threatening-motifs
+    - no melodramatic-lines
+    - no constant-busy-melody
+
+  dynamics:
+    - no sudden-loud-accents
+    - no dramatic-crescendos
+    - no jump-scare-dynamics
+    - no extreme-volume-contrast
+
+generation:
+
+  essential_prompt_tokens:
+    - playful preschool indoor music
+    - warm kindergarten play space
+    - imaginative children's cinematic music
+    - muted marimba
+    - light ukulele
+    - soft piano
+    - gentle clarinet
+    - warm acoustic textures
+    - soft toy-like percussion
+    - friendship
+    - pretend play
+    - creativity
+    - cheerful curiosity
+    - pastel cozy atmosphere
+    - sunny indoor playroom
+    - emotional safety
+    - medium gentle energy
+    - sparse arrangement
+    - dialogue-friendly
+    - ages 3-6
+
+  negative_prompt_tokens:
+    - suspense
+    - horror
+    - danger
+    - threatening drone
+    - dark ambient
+    - heavy percussion
+    - epic orchestra
+    - aggressive rhythm
+    - dramatic crescendo
+    - intense bass
+    - chaotic children's music
+    - piercing bells
+    - frantic tempo
+    - overstimulating music
+    - competitive sports energy
+
+  variation_allowed:
+    - clarinet-phrase-variation
+    - marimba-pattern-variation
+    - ukulele-pattern-variation
+    - piano-voicing-variation
+    - pizzicato-variation
+    - flute-response-variation
+    - motif-orchestration
+    - activity-based-rhythm
+    - arrangement-density
+
+  preserve_between_generations:
+    - emotional-identity
+    - play-space-imagination-motif
+    - relationship-to-kindergarten-interior
+    - relationship-to-root-kindergarten
+    - primary-instrumentation
+    - warm-acoustic-character
+    - controlled-playful-energy
+    - dialogue-space
+    - toy-and-room-ambience-space
+
+stems:
+
+  preferred: true
+
+  tracks:
+    - marimba
+    - ukulele
+    - piano
+    - clarinet
+    - flute
+    - percussion
+    - pizzicato-strings
+    - secondary-instruments
+    - music-full-mix
+
+  purpose:
+    - dialogue-ducking
+    - play-state-rearrangement
+    - adaptive-editing
+    - music-extension
+    - energy-adjustment
+    - toy-interaction-editing
+    - motif-reuse
+    - classroom-play-space-transition
+
+adaptive_music:
+
+  enabled: true
+
+  editable_layers:
+    - melody
+    - harmony
+    - rhythm
+    - texture
+    - instrumentation-density
+    - play-intensity
+
+  priority_order_when_reducing:
+    - remove-secondary-instruments
+    - remove-hand-percussion
+    - remove-bells
+    - reduce-pizzicato
+    - reduce-marimba
+    - reduce-flute
+    - reduce-clarinet
+    - simplify-ukulele
+    - simplify-piano
+
+  priority_order_when-building:
+    - piano
+    - ukulele
+    - clarinet
+    - marimba
+    - pizzicato-strings
+    - flute
+    - optional-hand-percussion
+    - optional-bells
+
+validation:
+
+  emotional_checks:
+    - music feels playful
+    - music feels warm
+    - music feels safe
+    - music encourages imagination
+    - friendship remains central
+    - energy remains controlled
+    - music does not become overstimulating
+    - no unintended suspense is present
+
+  location_checks:
+    - music feels appropriate for an indoor preschool play space
+    - music reflects the soft pastel environment
+    - musical articulation feels rounded and comfortable
+    - playhouse and toy interactions feel supported
+    - location remains distinguishable from the main classroom
+    - location remains connected to kindergarten interior identity
+
+  dialogue_checks:
+    - children's voices remain intelligible
+    - music reduces beneath dialogue
+    - clarinet does not compete with speech
+    - bells remain absent beneath important dialogue
+    - marimba activity reduces during group conversation
+    - percussion remains minimal beneath speech
+
+  ambience_checks:
+    - toy interaction remains audible
+    - children's movement remains audible
+    - room tone remains recognizable
+    - soft outdoor ambience may remain audible
+    - music does not mask physical play sounds
+
+  continuity_checks:
+    - play-space motif remains recognizable
+    - parent interior motif relationship remains recognizable
+    - root kindergarten identity remains recognizable
+    - instrumentation remains consistent
+    - energy transitions remain gradual
+    - music remains appropriate for ages 3-6
+
+context_dependencies:
+
+  location:
+    source: location.yaml
+
+  parent_location:
+    source: ../interiors/location.yaml
+
+  root_location:
+    source: ../exteriors/location.yaml
+
+  parent_music:
+    source: ../interiors/music-profile.yaml
+
+  root_music:
+    source: ../exteriors/music-profile.yaml
+
+  location_audio:
+    source: location.yaml#audio
+
+  color_palette:
+    source: ../../visual_style/palette-v2.yaml
+
+  characters:
+    source: ../../02-characters/
+
+  scene:
+    source: ../../03-scenes/
+
+  cinematography:
+    source: ../../cinematography/
+
+  continuity:
+    source: ../../continuity/
+
+  editing:
+    source: ../../editing/
+
+authority:
+
+  location_music_identity: this-file
+  play_space_motif: this-file
+  default_music_energy: this-file
+  default_instrumentation: this-file
+  music_dialogue_behavior: this-file
+  adaptive_music_behavior: this-file
+
+  parent_location_music_identity: ../interiors/music-profile.yaml
+  root_location_music_identity: ../exteriors/music-profile.yaml
+  environmental_audio: location-context
+  dialogue_content: scene-context
+  character_voice: character-context
+  scene_emotion_override: scene-context
+  final_mix: editing-context

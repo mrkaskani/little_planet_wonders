@@ -1,0 +1,694 @@
+id: riri-yoyo-lighting
+type: lighting-style-context
+version: 2
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  title: Riri & Yoyo Master Lighting Bible
+  purpose: >-
+    Define reusable child-safe lighting behavior across characters, locations,
+    times of day, weather states, reference images, and generated animation.
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  scope: whole-project
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - supported-lighting-conditions
+      - project-tone
+      - character-and-location-continuity
+  visual_style:
+    source: visual_style.yaml
+    controls:
+      - visual-medium
+      - readability
+      - hierarchy
+      - child-safety
+  palette:
+    source: palette-v2.yaml
+    controls:
+      - illumination-colors
+      - atmosphere-colors
+      - canonical-surface-color-boundary
+  materials:
+    source: materials.yaml
+    status: approved
+    controls:
+      - surface-response
+      - reflectance
+      - roughness-and-highlight-behavior
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-task-modes
+      - conditioning-authority
+      - prompt-budget
+      - temporal-validation
+  locations:
+    kindergarten_exterior: ../locations/exteriors/location.yaml
+    kindergarten_interior: ../locations/interiors/location.yaml
+    kindergarten_play_space: ../locations/play_spaces/location.yaml
+    nature_park: ../locations/nature_and_parks/location.yaml
+    countryside_golden_hour: ../locations/sunset_golden_hour/location.yaml
+    kindergarten_evening_night: ../locations/evening_night/location.yaml
+  authority_rules:
+    - character YAML controls canonical character colors
+    - location YAML controls physical light-source positions and geometry
+    - palette YAML controls canonical surface and illumination color families
+    - lighting changes perceived color but never redefines material identity
+    - temporary shadows highlights reflections and color casts are not permanent features
+    - wan22-preproduction.yaml controls task selection and input requirements
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  scope: lighting-only
+  shared_rules:
+    - express one dominant lighting state and one motivated key direction
+    - preserve visible local color in midtones and readable shadows
+    - use broad stable highlights instead of small sparkling reflections
+    - avoid rapid light changes flicker strobe and animated exposure
+    - keep faces and eyes readable at 480P and 720P
+  task_guidance:
+    t2v:
+      prompt_contents:
+        - time-of-day
+        - one-key-direction
+        - light-softness
+        - contrast-level
+        - broad-color-temperature
+      rule: do-not-stack-incompatible-lighting-descriptions
+    i2v:
+      source_frame_authority: visible-starting-lighting
+      prompt_rule: describe-only-required-light-change-and-preserve-the-rest
+      reject:
+        - unrequested-key-direction-change
+        - background-exposure-pumping
+        - canonical-color-replacement
+    ti2v:
+      role: draft-lighting-direction-and-readability-test
+      evaluate:
+        - face-exposure
+        - subject-background-separation
+        - broad-shadow-stability
+      do_not_evaluate_as_final:
+        - subtle-highlight-quality
+        - fine-reflection-quality
+    s2v:
+      source_frame_requirements:
+        - even-readable-face-exposure
+        - visible-eyes-and-mouth
+        - no-moving-patterned-shadow-across-face
+        - no-clipped-eye-or-nose-highlights
+      temporal_rules:
+        - lighting-must-not-pulse-with-speech
+        - practical-lights-remain-stable
+        - face-value-and-color-remain-stable-through-pauses
+  failure_response:
+    flicker:
+      - remove-small-moving-light-sources
+      - simplify-reflections
+      - lock-camera-or-background-motion
+    color_drift:
+      - restate-local-color-invariant
+      - remove-competing-colored-lights
+      - reject-if-character-identity-color-changes
+    unreadable_face:
+      - raise-soft-fill
+      - reduce-key-to-fill-ratio
+      - remove-face-crossing-shadow
+
+lighting_identity:
+  approach: cinematic-naturalistic-stylized
+  baseline:
+    - soft
+    - warm
+    - luminous
+    - readable
+    - welcoming
+    - physically-motivated
+    - emotionally-safe
+    - preschool-friendly
+  goals:
+    - reveal faces eyes gestures and learning objects immediately
+    - preserve location depth without creating threatening darkness
+    - support emotion without overpowering character performance
+    - preserve canonical colors under every approved condition
+    - maintain comfortable contrast on television tablet and phone screens
+  realism:
+    source-logic: physically-coherent
+    rendering: stylized-and-controlled
+    bounce-light: generous-but-motivated
+    contact-shadows: present-soft-and-stable
+    atmospheric-light: subtle-and-state-specific
+
+global_exposure:
+  priority_order:
+    - character-faces-and-eyes
+    - learning-or-discovery-object
+    - primary-action
+    - interaction-zone
+    - location-landmarks
+    - background-atmosphere
+  face_exposure:
+    target: clear-comfortable-and-natural
+    preserve-eye-whites-and-iris-color: true
+    preserve-fur-feather-and-facial-markings: true
+    shadow-side-must-remain-readable: true
+    avoid-flat-front-lighting: true
+  highlight_behavior:
+    rolloff: soft
+    clipping: avoid
+    preserve-light-surface-detail: true
+    pure-white-hotspots: forbidden
+  shadow_behavior:
+    color: palette-related-not-pure-black
+    density: open-and-readable
+    edge: soft-to-medium
+    contact: visible-but-gentle
+    crushed-shadows: forbidden
+  dynamic_range:
+    default: comfortable-medium
+    daytime: medium
+    interior: low-to-medium
+    golden-hour: medium
+    evening-night: medium-with-open-shadows
+    high-dynamic-range-display-dependence: forbidden
+
+contrast_system:
+  global_contrast: medium
+  key_to_fill:
+    default: soft-balanced
+    bright-day: moderate
+    interior-day: soft
+    golden-hour: moderate
+    evening-night: moderate-with-warm-face-fill
+  local_contrast:
+    faces: medium-and-clear
+    learning-objects: medium-and-clear
+    backgrounds: lower-than-primary-focus
+    small-patterns: restrained
+  rules:
+    - strongest useful contrast belongs to the primary focal point
+    - do not silhouette a speaking character unless the face remains readable
+    - do not hide eyes beneath brows hats props or hard top-light shadows
+    - reduce background contrast during dialogue and learning demonstrations
+    - preserve separation between character edges and the background
+
+light_quality:
+  key_light:
+    default_size: broad
+    default_quality: soft-directional
+    motivation: sun-window-sky-or-approved-practical
+  fill_light:
+    quality: broad-soft-bounce
+    purpose:
+      - open-face-shadows
+      - preserve-eye-and-mouth-readability
+      - maintain-child-safe-darkness
+    must-not-look-unmotivated: true
+  rim_light:
+    use: restrained-separation-only
+    width: soft
+    intensity: low-to-moderate
+    avoid-neon-outline: true
+  practical_lights:
+    must-have-visible-or-established-source: true
+    glow: soft-localized-and-controlled
+    bloom: restrained
+    preserve-fixture-shape: true
+  ambient_light:
+    preserve-location-volume: true
+    avoid-flat-shadowless-rendering: true
+    avoid-unmotivated-colored-ambient-fill: true
+
+illumination_palette:
+  source: palette-v2.yaml#lighting_and_atmosphere_palette
+  warm_daylight:
+    token: warm_daylight
+    hex: "#F4E2AE"
+    role:
+      - daylight
+      - sunlit-exteriors
+      - bright-interiors
+  golden_sunlight:
+    token: golden_sunlight
+    hex: "#FDC453"
+    role:
+      - golden-hour-key
+      - sunbeams
+      - warm-highlights
+  golden_hour_orange:
+    token: golden_hour_orange
+    hex: "#FC984F"
+    role:
+      - sunset-atmosphere
+      - horizon-key
+  sunset_coral:
+    token: sunset_coral
+    hex: "#F2795F"
+    role:
+      - sunset-clouds
+      - warm-horizon-bounce
+  sunset_rose:
+    token: sunset_rose
+    hex: "#C36A6B"
+    role:
+      - distant-sunset-shadows
+      - restrained-evening-atmosphere
+  night_navy:
+    token: night_navy
+    hex: "#0D2A70"
+    role:
+      - night-sky
+      - deepest-environment-tone
+  deep_night_blue:
+    token: deep_night_blue
+    hex: "#18408A"
+    role:
+      - night-sky-gradient
+      - moonlit-environment
+  moon_blue:
+    token: moon_blue
+    hex: "#375CAA"
+    role:
+      - moonlit-fill
+      - restrained-night-rim
+  warm_window_glow:
+    token: warm_window_glow
+    hex: "#DEAB6A"
+    role:
+      - windows-at-night
+      - lamps
+      - safe-warm-practicals
+  color_rules:
+    - illumination tokens are light and atmosphere colors not material colors
+    - never copy a temporary color cast into a canonical character or environment palette
+    - keep warm and cool light relationships simple and visually legible
+    - do not introduce unapproved neon or saturated effect lighting
+
+time_of_day_presets:
+  morning:
+    identity: fresh-warm-gentle-beginning
+    key:
+      direction: low-to-medium-angle
+      quality: broad-soft
+      color: warm_daylight
+      intensity: moderate
+    fill:
+      color: soft-sky-neutral
+      intensity: gentle
+    shadows: long-soft-and-open
+    atmosphere: clean-with-subtle-warmth
+    rules:
+      - avoid harsh sunrise orange on faces
+      - retain fresh blue-green counterbalance outdoors
+  daytime:
+    identity: bright-cheerful-clear
+    key:
+      direction: medium-to-high-angle
+      quality: broad-soft-directional
+      color: warm_daylight
+      intensity: moderate-to-bright
+    fill:
+      color: neutral-warm-sky
+      intensity: moderate
+    shadows: soft-medium-length-and-readable
+    atmosphere: clean-and-luminous
+    rules:
+      - sunlight may feel lively but never glaring
+      - protect forehead muzzle beak and white-surface detail
+  interior_day:
+    identity: warm-cozy-learning-space
+    key:
+      source: windows
+      quality: very-broad-soft
+      color: warm_daylight
+      intensity: moderate
+    fill:
+      source: room-bounce
+      color: warm-neutral
+      intensity: moderate
+    practicals:
+      use: subtle-support-only
+      mixed-color-temperature: restrained
+    shadows: short-soft-and-open
+    rules:
+      - preserve window direction across camera angles
+      - do not let ceiling light flatten faces
+  golden_hour:
+    identity: warm-wondrous-peaceful-completion
+    key:
+      direction: low-angle
+      quality: soft-directional
+      color: golden_sunlight
+      intensity: moderate
+    atmospheric-colors:
+      - golden_hour_orange
+      - sunset_coral
+      - sunset_rose
+    fill:
+      color: warm-neutral-with-soft-sky-balance
+      intensity: gentle-to-moderate
+    shadows: long-colored-and-readable
+    rules:
+      - orange and coral may dominate atmosphere but not permanent surfaces
+      - preserve blue green and neutral identity beneath the warm cast
+      - never allow faces to become uniformly orange
+  evening:
+    identity: calm-transition-toward-rest
+    key:
+      source: remaining-sky-and-approved-practicals
+      quality: broad-soft
+      color: deep_night_blue
+      intensity: low-to-moderate
+    practicals:
+      color: warm_window_glow
+      intensity: localized-moderate
+    fill:
+      color: moon_blue
+      intensity: gentle
+    shadows: open-soft-blue
+    rules:
+      - transition gradually from golden hour
+      - keep characters warmer than distant background where motivated
+  night:
+    identity: deep-blue-reassuring-magical-and-safe
+    sky:
+      colors:
+        - night_navy
+        - deep_night_blue
+      gradient: smooth
+    key:
+      source: moon-or-soft-sky
+      color: moon_blue
+      quality: broad-soft
+      intensity: low-to-moderate
+    practicals:
+      color: warm_window_glow
+      intensity: localized-and-comforting
+    face-fill:
+      color: warm-neutral-or-soft-moon-blue
+      intensity: sufficient-for-full-expression-readability
+    shadows: blue-open-and-never-black
+    rules:
+      - night must read through color relationships rather than darkness alone
+      - retain visible pathways landmarks and safe boundaries
+      - no isolated character in a black field
+      - no horror underlighting or threatening silhouettes
+
+weather_presets:
+  clear:
+    key-definition: soft-directional
+    color-clarity: high
+    atmosphere: clean
+  light_cloud:
+    key-definition: softened
+    fill-level: slightly-increased
+    saturation: preserve
+    atmosphere: gentle
+  overcast:
+    key-definition: broad-diffuse
+    fill-level: high
+    contrast: low-to-medium
+    rules:
+      - preserve shape with subtle directional gradient
+      - avoid gray muddy color
+  light_rain:
+    key-definition: broad-diffuse
+    contrast: medium-low
+    reflections: localized-and-controlled
+    specular-response: soft
+    rules:
+      - wet surfaces may darken temporarily but retain material identity
+      - faces remain warmer and clearer than the environment
+      - no storm-horror treatment
+  post_rain:
+    key-definition: soft-returning-directionality
+    color-clarity: refreshed
+    reflections: sparse-and-motivated
+    atmosphere: clean-with-light-moisture
+  unsupported:
+    - explosive-thunderstorm
+    - destructive-storm
+    - lightning-strobe
+    - dense-threatening-fog
+    - sandstorm
+    - wildfire-light
+
+character_lighting:
+  shared_rules:
+    - preserve canonical fur feather eye beak nose and marking colors
+    - keep both eyes readable unless an approved pose naturally occludes one
+    - preserve iris gradients and eye highlights without artificial sparkle overload
+    - keep mouth shape readable during dialogue
+    - avoid hard nose beak muzzle or brow shadows
+    - preserve soft round volume without flattening the face
+    - prevent colored spill from merging character edges into the background
+  riri:
+    source: ../characters/riri/character.yaml
+    priorities:
+      - preserve pink-and-blue facial identity
+      - retain soft fur volume without photorealistic strand detail
+      - protect pale surfaces from highlight clipping
+      - keep floppy ears and tail silhouette readable
+  yoyo:
+    source: ../characters/yoyo/character.yaml
+    priorities:
+      - preserve ivory face and lavender-blue eye identity
+      - retain readable separation in dark feather areas
+      - protect beak and cheek color from warm-light oversaturation
+      - keep flippers and feet separated from dark backgrounds
+  multi-character:
+    equal-readability-when-both-are-primary: true
+    preserve-relative-color-identity: true
+    do-not-light-one-character-as-an-unmotivated-secondary-subject: true
+
+location_presets:
+  kindergarten_exterior:
+    source: ../locations/exteriors/location.yaml
+    palette_preset: day_exterior
+    default_time: daytime
+    identity: sunny-warm-cheerful-garden
+    key: warm-daylight-through-open-sky
+    fill: soft-sky-and-building-bounce
+    practicals: off-during-normal-day
+    preserve:
+      - building-face-readability
+      - garden-path-clarity
+      - foliage-color-variety
+      - entrance-visibility
+  kindergarten_interior:
+    source: ../locations/interiors/location.yaml
+    palette_preset: classroom_interior
+    default_time: interior_day
+    identity: warm-cozy-clear-learning-room
+    key: broad-window-light
+    fill: warm-wall-floor-and-furniture-bounce
+    practicals: subtle-ceiling-support-when-needed
+    preserve:
+      - window-direction
+      - table-and-play-zone-readability
+      - warm-wood-identity
+      - clear-learning-object-colors
+  kindergarten_play_space:
+    source: ../locations/play_spaces/location.yaml
+    palette_preset: play_space
+    default_time: interior_day
+    identity: soft-playful-imaginative-and-cozy
+    key: broad-window-or-room-light
+    fill: soft-high-level-bounce
+    practicals: gentle-support-only
+    preserve:
+      - cushion-and-fabric-volume
+      - playhouse-interior-readability
+      - toy-color-separation
+      - uncluttered-character-focus
+  nature_park:
+    source: ../locations/nature_and_parks/location.yaml
+    palette_preset: nature_park
+    default_time: daytime
+    identity: fresh-open-natural-and-peaceful
+    key: warm-daylight-filtered-by-open-foliage
+    fill: soft-sky-and-ground-bounce
+    foliage-shadow-pattern: broad-sparse-and-stable
+    preserve:
+      - stream-readability-without-glare
+      - bridge-and-path-safety
+      - layered-green-values
+      - character-separation-from-foliage
+  countryside_golden_hour:
+    source: ../locations/sunset_golden_hour/location.yaml
+    palette_preset: sunset_golden_hour
+    default_time: golden_hour
+    identity: warm-spacious-reflective-and-wondrous
+    key: low-golden-sun
+    fill: soft-sky-and-meadow-bounce
+    atmosphere: subtle-orange-coral-horizon
+    preserve:
+      - path-readability
+      - meadow-green-and-flower-identity
+      - distant-valley-depth
+      - readable-character-surface-colors
+  kindergarten_evening_night:
+    source: ../locations/evening_night/location.yaml
+    palette_preset: evening_night
+    default_time: night
+    identity: calm-blue-night-with-safe-amber-warmth
+    key: soft-moon-and-sky
+    fill: open-blue-environment-fill
+    practicals: localized-warm-window-and-garden-lights
+    preserve:
+      - entrance-and-path-visibility
+      - tree-and-building-silhouettes-with-interior-detail
+      - readable-character-faces
+      - calm-not-threatening-negative-space
+
+emotional_modulation:
+  principle: emotion-adjusts-emphasis-not-world-identity
+  neutral:
+    contrast-change: none
+    color-change: none
+  curiosity:
+    focal-emphasis: gentle-local-lift
+    contrast-change: slight-increase-at-discovery-object
+  happiness:
+    exposure-change: subtle-brightening-only
+    saturation-change: slight-local-increase
+  mild_confusion:
+    contrast-change: none
+    preserve-safe-baseline: true
+  mild_frustration:
+    contrast-change: slight-local-decrease
+    color-change: none
+  concern:
+    contrast-change: slight-increase
+    shadow-density: remain-open
+  reassurance:
+    warmth-change: subtle-increase-when-motivated
+    face-fill: gentle-increase
+  accomplishment:
+    key-or-practical-lift: subtle
+    avoid-celebratory-glare: true
+  forbidden_emotional-techniques:
+    - horror-underlighting
+    - sudden-red-wash
+    - black-background-isolation
+    - extreme-dutch-shadow-patterns
+    - flashing-celebration-light
+    - aggressive-high-contrast-chiaroscuro
+
+continuity:
+  required_state:
+    - preset-id
+    - time-of-day
+    - weather-state
+    - key-source
+    - key-direction
+    - key-color-token
+    - fill-color-token
+    - practical-light-states
+    - shadow-direction
+    - exposure-family
+  rules:
+    - preserve physical source positions across camera cuts
+    - preserve key direction across reverse angles
+    - preserve time of day until explicitly changed
+    - preserve weather lighting until explicitly changed
+    - preserve practical on-off states until explicitly changed
+    - preserve shadow direction and softness within continuous action
+    - camera movement does not move the sun moon windows or practicals
+    - exposure adaptation must be gradual and motivated
+    - generated-reference artifacts never become canonical lighting features
+
+transitions:
+  same-condition-cut:
+    preserve-state-exactly: true
+  indoor-outdoor:
+    adaptation: gradual
+    preserve-character-color-readability: true
+    avoid-one-shot-exposure-jump: true
+  daytime-to-golden-hour:
+    progression: slow
+    preserve-location-and-surface-identity: true
+  golden-hour-to-evening:
+    progression: slow
+    introduce-cool-fill-before-deepening-background: true
+  evening-to-night:
+    progression: slow
+    activate-practicals-gradually: true
+    maintain-path-and-face-readability: true
+  weather-change:
+    progression: motivated-and-continuous
+    preserve-source-direction-when-physically-plausible: true
+
+forbidden_lighting:
+  - crushed-black-shadows
+  - clipped-white-highlights
+  - horror-underlighting
+  - threatening-top-light
+  - unmotivated-red-or-green-face-light
+  - strobe-or-flashing-light
+  - rapid-exposure-pulsing
+  - harsh-lens-flare-over-faces
+  - excessive-bloom
+  - neon-rim-outline
+  - flat-shadowless-lighting
+  - muddy-gray-overcast-treatment
+  - black-night-without-readable-environment
+  - random-source-direction-between-shots
+  - lighting-that-changes-permanent-colors
+  - reflections-or-shadows-treated-as-permanent-design
+
+quality_control:
+  required_checks:
+    - approved-location-preset-is-used
+    - time-of-day-and-weather-state-are-declared
+    - key-and-fill-have-motivated-sources
+    - faces-eyes-mouths-and-gestures-are-readable
+    - learning-and-discovery-objects-are-readable
+    - canonical-character-and-location-colors-remain-identifiable
+    - highlights-retain-surface-detail
+    - shadows-retain-important-detail
+    - physical-source-direction-is-continuous
+    - practical-light-state-is-continuous
+    - night-scenes-remain-calm-safe-and-navigable
+    - no-forbidden-lighting-treatment-is-present
+  reject_if:
+    - face-or-eye-readability-fails
+    - character-color-identity-drifts
+    - location-color-or-material-identity-drifts
+    - key-direction-changes-without-motivation
+    - practical-light-state-jumps
+    - time-of-day-or-weather-lighting-is-inconsistent
+    - shadows-are-crushed
+    - highlights-are-clipped
+    - night-environment-is-unreadable
+    - lighting-feels-frightening-or-overstimulating
+
+generation_summary:
+  t2v_positive_fragment: >-
+    Soft cinematic naturalistic-stylized lighting for premium preschool 3D
+    animation, broad motivated key light, gentle open fill, readable faces eyes
+    gestures and learning objects, warm clean highlights, colored readable
+    shadows, controlled practical glow, canonical surface colors preserved,
+    clear spatial depth, comfortable contrast, calm child-safe atmosphere.
+  i2v_preservation_fragment: >-
+    Preserve the approved source-frame light direction, face exposure, local
+    colors, practical-light state, and background value structure.
+  ti2v_draft_fragment: >-
+    One broad stable key, soft fill, readable face, restrained contrast, no
+    complex reflection or moving shadow pattern.
+  s2v_face_fragment: >-
+    Stable even face exposure, readable eyes and mouth, no light pulsing, no
+    moving shadow across the face, stable practical lights.
+  concise_negative_fragment: >-
+    Crushed shadows, clipped highlights, horror underlighting, threatening top
+    light, black unreadable night, strobe, flashing, exposure pumping, harsh
+    glare, excessive bloom, neon rim light, unmotivated colored face light,
+    muddy gray lighting, flat shadowless render, random light direction,
+    permanent color drift, frightening silhouettes.

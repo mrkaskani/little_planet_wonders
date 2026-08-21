@@ -6,75 +6,75 @@ from typing import Any
 
 
 VOICE_DEFAULTS: dict[str, dict[str, Any]] = {
-    "roxana": {
-        "id": "roxana",
-        "display_name": "Roxana",
+    "riri": {
+        "id": "riri",
+        "display_name": "Riri",
         "voice_identity": {
-            "language": "Persian",
-            "secondary_language": "English",
-            "apparent_age": "late twenties",
-            "pitch": "medium-low",
-            "timbre": "warm and slightly husky",
-            "speaking_speed": "slow to moderate",
-            "vocal_energy": "restrained",
+            "language": "English",
+            "apparent_age": "four-year-old child",
+            "gender_presentation": "feminine",
+            "pitch": "high",
+            "timbre": "smooth, round, light, airy, and non-nasal",
+            "speaking_speed": "slow and flowing",
+            "vocal_energy": "gentle",
             "articulation": "clear",
-            "emotional_baseline": "calm and observant",
+            "emotional_baseline": "sweet, warm, and cheerful",
         },
         "performance": {
-            "default_volume": "quiet",
-            "pause_style": "deliberate",
-            "breathing": "subtle",
-            "emotional_expression": "controlled",
-            "laughter": "rare and quiet",
-            "shouting": "avoid unless explicitly required",
+            "default_volume": "soft conversational",
+            "pause_style": "natural and unhurried",
+            "breathing": "light and natural",
+            "emotional_expression": "clear and child-friendly",
+            "laughter": "small and warm",
+            "shouting": "forbidden",
         },
         "consistency_constraints": [
-            "preserve the same vocal age",
-            "preserve the same accent",
-            "preserve speaking speed",
-            "do not randomly increase vocal energy",
-            "do not change voice identity between scenes",
+            "preserve Riri's four-year-old feminine identity",
+            "preserve the high pitch and light-head resonance",
+            "preserve the smooth round non-nasal airy timbre",
+            "keep delivery gentle and clearly distinct from Yoyo",
         ],
         "generation": {
             "provider": "local-tts",
             "model": "configured-model-name",
-            "voice_id": "roxana-v1",
+            "voice_id": "riri-v1",
             "default_seed": 843121,
         },
         "references": {
-            "neutral": "audio-assets/voice-references/roxana-neutral.wav",
-            "emotional": "audio-assets/voice-references/roxana-emotional.wav",
-            "whisper": "audio-assets/voice-references/roxana-whisper.wav",
+            "neutral": "audio-assets/voice-references/riri-neutral.wav",
+            "emotional": "audio-assets/voice-references/riri-emotional.wav",
         },
     },
-    "shakiba": {
-        "id": "shakiba",
-        "display_name": "Shakiba",
+    "yoyo": {
+        "id": "yoyo",
+        "display_name": "Yoyo",
         "voice_identity": {
-            "language": "Persian",
-            "pitch": "medium",
-            "timbre": "clear and bright",
-            "speaking_speed": "moderate",
-            "vocal_energy": "confident",
-            "articulation": "precise",
-            "emotional_baseline": "focused",
+            "language": "English",
+            "apparent_age": "seven-to-eight-year-old child",
+            "gender_presentation": "boy",
+            "pitch": "low natural prepubescent-boy range",
+            "timbre": "grounded, dry, chest-forward, slightly nasal and reedy",
+            "speaking_speed": "quick with clear stops",
+            "vocal_energy": "lively but controlled",
+            "articulation": "firm and punchy",
+            "emotional_baseline": "playful, curious, and energetic",
         },
         "performance": {
             "default_volume": "conversational",
             "pause_style": "short",
             "breathing": "natural",
-            "emotional_expression": "more expressive than Roxana",
+            "emotional_expression": "bright and clearly readable",
         },
         "consistency_constraints": [
-            "preserve vocal brightness",
-            "preserve pronunciation style",
-            "keep the voice clearly distinct from Roxana",
-            "do not merge Roxana and Shakiba voice profiles",
+            "preserve Yoyo's boy identity and natural child pitch",
+            "preserve firm consonants and quick stop-start rhythm",
+            "keep the voice clearly distinct from Riri",
+            "do not make the voice feminine, adult, or artificially lowered",
         ],
         "generation": {
             "provider": "local-tts",
             "model": "configured-model-name",
-            "voice_id": "shakiba-v1",
+            "voice_id": "yoyo-v1",
             "default_seed": 334921,
         },
     },
@@ -83,8 +83,8 @@ VOICE_DEFAULTS: dict[str, dict[str, Any]] = {
 
 PRONUNCIATION_DEFAULTS = {
     "entries": {
-        "Roxana": {"language": "Persian", "phonetic": "rok-saa-naa"},
-        "Shakiba": {"language": "Persian", "phonetic": "sha-ki-baa"},
+        "Riri": {"language": "English", "phonetic": "REE-ree"},
+        "Yoyo": {"language": "English", "phonetic": "YO-yo"},
         "Wan": {"language": "English", "phonetic": "wahn"},
         "MCP": {"language": "English", "spoken_form": "M C P"},
     },
@@ -114,8 +114,8 @@ DIALOGUE_DEFAULTS = {
         "dialogue_post_roll_ms": 250,
     },
     "performance": {
-        "acting_style": "restrained cinematic realism",
-        "avoid_exaggerated_emotion": True,
+        "acting_style": "clear natural preschool animation",
+        "avoid_excessive_emotion": True,
         "match_scene_emotional_state": True,
     },
     "lip_sync": {
@@ -151,9 +151,9 @@ MUSIC_DEFAULTS = {
     },
     "tempo": {"default_bpm": 72, "tension_range_bpm": {"minimum": 75, "maximum": 92}},
     "harmony": {
-        "default_mode": "minor",
-        "complexity": "moderate",
-        "avoid_clear_happy_resolutions": True,
+        "default_mode": "major",
+        "complexity": "simple",
+        "prefer_clear_happy_resolutions": True,
     },
     "mixing": {
         "dialogue_ducking_db": -6,
@@ -168,17 +168,13 @@ MUSIC_DEFAULTS = {
         "avoid_sudden_loudness": True,
     },
     "themes": {
-        "roxana": {
-            "motif": "three descending piano notes",
-            "instruments": ["processed piano", "low synth pad"],
+        "riri": {
+            "motif": "high connected felt-piano arch",
+            "instruments": ["felt piano", "soft glockenspiel"],
         },
-        "shakiba": {
-            "motif": "short rising string phrase",
-            "instruments": ["soft strings", "granular texture"],
-        },
-        "danger": {
-            "motif": "low repeating electronic pulse",
-            "tempo_bpm": 86,
+        "yoyo": {
+            "motif": "lower detached bounce-and-slide phrase",
+            "instruments": ["celesta", "marimba"],
         },
     },
 }
@@ -193,24 +189,24 @@ SOUND_EFFECT_DEFAULTS = {
     },
     "categories": {
         "footsteps": {
-            "rooftop": {
-                "surface": "wet concrete",
-                "asset_set": "wet-concrete-boots",
+            "kindergarten_garden": {
+                "surface": "soft grass and stone path",
+                "asset_set": "gentle-preschool-steps",
                 "variation_policy": "round-robin",
                 "minimum_repeat_distance": 4,
             }
         },
         "doors": {
-            "rooftop_maintenance_door": {
-                "material": "heavy metal",
-                "open_asset": "maintenance-door-open.wav",
-                "close_asset": "maintenance-door-close.wav",
+            "kindergarten_garden_door": {
+                "material": "painted wood",
+                "open_asset": "kindergarten-door-open.wav",
+                "close_asset": "kindergarten-door-close.wav",
             }
         },
         "devices": {
-            "black_data_device": {
-                "activate_asset": "device-activate-soft.wav",
-                "alert_asset": "device-alert-muted.wav",
+            "learning_tablet": {
+                "activate_asset": "tablet-activate-soft.wav",
+                "alert_asset": "tablet-alert-gentle.wav",
             }
         },
         "weather": {

@@ -1,0 +1,1078 @@
+id: riri-yoyo-reference-registry
+type: reference-registry-context
+version: 1
+status: approved-registry-with-open-location-and-character-v2-reviews
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  purpose: canonical-versioned-reference-inventory-and-conditioning-authority
+  asset_conventions: asset-conventions.yaml
+  view_requirements: reference-views.yaml
+
+status_semantics:
+  planned: requirement-exists-but-no-file-has-been-created
+  candidate: file-exists-but-is-not-approved-authority
+  technical-review: objective-format-and-structure-review-in-progress
+  creative-review: visual-or-audible-identity-review-in-progress
+  approved: eligible-only-for-recorded-allowed-modes
+  rejected: never-use
+  deprecated: historical-record-only
+
+authority_rules:
+  - approved-yaml-remains-canonical-for-textual-identity-and-policy
+  - approved-reference-controls-only-the-visible-or-audible-properties-it-declares
+  - character-design-sheet-is-review-only-and-never-a-generation-frame
+  - one-coherent-approved-frame-is-required-for-identity-critical-i2v-and-all-s2v
+  - file-existence-generation-or-technical-pass-never-implies-creative-approval
+  - every-replacement-retains-history-and-requires-a-new-version-and-hash
+
+reference_schema:
+  required_fields:
+    - id
+    - entity-id
+    - kind
+    - version
+    - status
+    - authority
+    - path
+    - expected-path
+    - sha256
+    - allowed-modes
+    - forbidden-modes
+    - aspect-ratio
+    - pixel-dimensions
+    - framing
+    - starting-pose-or-state
+    - movement-space
+    - known-limitations
+    - replaces
+  path_rule: path-is-null-until-file-exists
+  hash_rule: sha256-is-required-when-path-is-not-null
+
+character_references:
+  - id: riri-identity-sheet-v001
+    entity-id: riri
+    kind: design-review-sheet
+    version: v001
+    status: approved
+    authority: characters/riri/character.yaml
+    path: assets/characters/riri/design-review/riri--identity-sheet--v001.png
+    expected-path: assets/characters/riri/design-review/riri--identity-sheet--v001.png
+    sha256: 8a084200c045056927825bb4724a7556f03f2e870a91c57d23a1e03eb4a2602b
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "3:2"
+    pixel-dimensions: 1536x1024
+    framing: multi-view-sheet
+    starting-pose-or-state: multiple-review-poses
+    movement-space: not-applicable
+    known-limitations: multi-view-review-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/character-identity-review.yaml
+    replaces: null
+  - id: riri-close-up-detail-sheet-v002
+    entity-id: riri
+    kind: design-review-detail-sheet
+    version: v002
+    status: candidate
+    authority: characters/riri/character-v2.yaml
+    path: assets/characters/riri/design-review/riri--close-up-detail-sheet--v002.png
+    expected-path: assets/characters/riri/design-review/riri--close-up-detail-sheet--v002.png
+    sha256: 7b54ef6e0a8d700fb3c95cd35e881e2ba7268eafaed3035685016d3024eac9c7
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "701:561"
+    pixel-dimensions: 1402x1122
+    framing: multi-panel-close-up-material-and-accessory-exploration-sheet
+    starting-pose-or-state: multiple-detail-crops-face-views-and-seated-mini-turnaround
+    movement-space: not-applicable
+    known-limitations: multi-panel-review-sheet-not-valid-as-direct-generation-conditioning-lavender-bow-collar-is-noncanonical
+    review-record: validation/riri-v2-review.yaml
+    package-id: riri-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: riri-identity-sheet-v001
+  - id: riri-color-palette-sheet-v002
+    entity-id: riri
+    kind: design-review-color-palette-sheet
+    version: v002
+    status: candidate
+    authority: characters/riri/character-v2.yaml
+    path: assets/characters/riri/design-review/riri--color-palette-sheet--v002.png
+    expected-path: assets/characters/riri/design-review/riri--color-palette-sheet--v002.png
+    sha256: a4e7f8ed7ed51fd8146351524bd5d58969a8b23c835a6803ee97c84a7c715d63
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1491:1055"
+    pixel-dimensions: 1491x1055
+    framing: character-render-with-labeled-color-table
+    starting-pose-or-state: seated-neutral-design-review-render
+    movement-space: not-applicable
+    known-limitations: contains-text-table-and-swatches-review-only-not-valid-as-direct-generation-conditioning
+    review-record: validation/riri-v2-review.yaml
+    package-id: riri-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: riri-identity-sheet-v001
+  - id: riri-eight-expression-sheet-v002
+    entity-id: riri
+    kind: design-review-expression-sheet
+    version: v002
+    status: candidate
+    authority: characters/riri/character-v2.yaml
+    path: assets/characters/riri/design-review/riri--eight-expression-sheet--v002.png
+    expected-path: assets/characters/riri/design-review/riri--eight-expression-sheet--v002.png
+    sha256: 00dc2ba0c649796d207ef9e56584fd5ce252f04f50df03f5bc12dbb8c19aa8a4
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "4:3"
+    pixel-dimensions: 1448x1086
+    framing: eight-cell-facial-expression-sheet
+    starting-pose-or-state: eight-review-expressions
+    movement-space: not-applicable
+    known-limitations: multi-instance-expression-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/riri-v2-review.yaml
+    package-id: riri-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: riri-identity-sheet-v001
+  - id: riri-five-view-turnaround-v002
+    entity-id: riri
+    kind: design-review-turnaround-sheet
+    version: v002
+    status: candidate
+    authority: characters/riri/character-v2.yaml
+    path: assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
+    expected-path: assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
+    sha256: 7274dee714373290ccd0fd5d379434191503b1732a664ff8f36ab26eafe4c0d7
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1491:1055"
+    pixel-dimensions: 1491x1055
+    framing: five-view-full-body-turnaround
+    starting-pose-or-state: neutral-standing-front-through-back-views
+    movement-space: not-applicable
+    known-limitations: five-character-instance-review-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/riri-v2-review.yaml
+    package-id: riri-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: riri-identity-sheet-v001
+  - id: riri-scale-and-proportion-sheet-v002
+    entity-id: riri
+    kind: design-review-scale-proportion-sheet
+    version: v002
+    status: candidate
+    authority: characters/riri/character-v2.yaml
+    path: assets/characters/riri/design-review/riri--scale-and-proportion-sheet--v002.png
+    expected-path: assets/characters/riri/design-review/riri--scale-and-proportion-sheet--v002.png
+    sha256: 12b628f2e57c9b52e321320093b2f5f42c462ea80d8dadce014fb51280b573b2
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1491:1055"
+    pixel-dimensions: 1491x1055
+    framing: annotated-front-side-construction-and-proportion-sheet
+    starting-pose-or-state: neutral-standing-measurement-views
+    movement-space: not-applicable
+    known-limitations: contains-text-measurement-guides-and-multiple-instances-review-only-not-valid-as-direct-generation-conditioning
+    review-record: validation/riri-v2-review.yaml
+    package-id: riri-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: riri-identity-sheet-v001
+  - id: yoyo-identity-sheet-v001
+    entity-id: yoyo
+    kind: design-review-sheet
+    version: v001
+    status: approved
+    authority: characters/yoyo/character.yaml
+    path: assets/characters/yoyo/design-review/yoyo--identity-sheet--v001.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--identity-sheet--v001.png
+    sha256: 855ef859a6b6eb65d8435d529ed745a58f0d31c4312cbff302ddbdabae1cbe25
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "3:2"
+    pixel-dimensions: 1536x1024
+    framing: multi-view-sheet
+    starting-pose-or-state: multiple-review-poses
+    movement-space: not-applicable
+    known-limitations: multi-view-review-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/character-identity-review.yaml
+    replaces: null
+  - id: yoyo-close-up-detail-sheet-v002
+    entity-id: yoyo
+    kind: design-review-detail-sheet
+    version: v002
+    status: candidate
+    authority: characters/yoyo/character-v2.yaml
+    path: assets/characters/yoyo/design-review/yoyo--close-up-detail-sheet--v002.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--close-up-detail-sheet--v002.png
+    sha256: e80d810a39a51dafbb71b0228d0007768e2423cf3bd43da428c00b84c598df19
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1055:1491"
+    pixel-dimensions: 1055x1491
+    framing: multi-panel-close-up-and-material-detail-sheet
+    starting-pose-or-state: multiple-detail-crops-and-neutral-face-views
+    movement-space: not-applicable
+    known-limitations: multi-panel-cropped-review-sheet-not-valid-as-direct-generation-conditioning
+    review-record: validation/yoyo-v2-review.yaml
+    package-id: yoyo-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: yoyo-identity-sheet-v001
+  - id: yoyo-color-palette-sheet-v002
+    entity-id: yoyo
+    kind: design-review-color-palette-sheet
+    version: v002
+    status: candidate
+    authority: characters/yoyo/character-v2.yaml
+    path: assets/characters/yoyo/design-review/yoyo--color-palette-sheet--v002.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--color-palette-sheet--v002.png
+    sha256: decd9067d2510395c1d10779d303b468d9a3af15c2e641bf055880ee6e1fca09
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1491:1055"
+    pixel-dimensions: 1491x1055
+    framing: character-render-with-labeled-color-table
+    starting-pose-or-state: seated-neutral-design-review-render
+    movement-space: not-applicable
+    known-limitations: contains-text-table-and-swatches-review-only-not-valid-as-direct-generation-conditioning
+    review-record: validation/yoyo-v2-review.yaml
+    package-id: yoyo-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: yoyo-identity-sheet-v001
+  - id: yoyo-eight-expression-sheet-v002
+    entity-id: yoyo
+    kind: design-review-expression-sheet
+    version: v002
+    status: candidate
+    authority: characters/yoyo/character-v2.yaml
+    path: assets/characters/yoyo/design-review/yoyo--eight-expression-sheet--v002.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--eight-expression-sheet--v002.png
+    sha256: 946b2360cddbac42344a0e2350310b64594972767e7ef6c4fc6e35d09e18b038
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "4:3"
+    pixel-dimensions: 1448x1086
+    framing: eight-cell-facial-expression-sheet
+    starting-pose-or-state: eight-review-expressions
+    movement-space: not-applicable
+    known-limitations: multi-instance-expression-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/yoyo-v2-review.yaml
+    package-id: yoyo-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: yoyo-identity-sheet-v001
+  - id: yoyo-five-view-turnaround-v002
+    entity-id: yoyo
+    kind: design-review-turnaround-sheet
+    version: v002
+    status: candidate
+    authority: characters/yoyo/character-v2.yaml
+    path: assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
+    sha256: ea3eb9801829b194889f4be58d84e5b262e0e1f32b520d4585972f328576e80f
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "3:2"
+    pixel-dimensions: 1536x1024
+    framing: five-view-full-body-turnaround
+    starting-pose-or-state: neutral-standing-front-through-back-views
+    movement-space: not-applicable
+    known-limitations: five-character-instance-review-board-not-valid-as-direct-generation-conditioning
+    review-record: validation/yoyo-v2-review.yaml
+    package-id: yoyo-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: yoyo-identity-sheet-v001
+  - id: yoyo-scale-and-proportion-sheet-v002
+    entity-id: yoyo
+    kind: design-review-scale-proportion-sheet
+    version: v002
+    status: candidate
+    authority: characters/yoyo/character-v2.yaml
+    path: assets/characters/yoyo/design-review/yoyo--scale-and-proportion-sheet--v002.png
+    expected-path: assets/characters/yoyo/design-review/yoyo--scale-and-proportion-sheet--v002.png
+    sha256: f613d8e259cad8876befcf2c1d630aedd5a8c78ebec1b36371526580296f5c7c
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "1491:1055"
+    pixel-dimensions: 1491x1055
+    framing: annotated-front-side-construction-and-proportion-sheet
+    starting-pose-or-state: neutral-standing-measurement-views
+    movement-space: not-applicable
+    known-limitations: contains-text-measurement-guides-and-multiple-instances-review-only-not-valid-as-direct-generation-conditioning
+    review-record: validation/yoyo-v2-review.yaml
+    package-id: yoyo-design-package-v002
+    replacement-scope: collective-v002-visual-package
+    replaces: yoyo-identity-sheet-v001
+  - id: riri-yoyo-scale-comparison-v001
+    entity-id: riri-yoyo
+    kind: two-character-scale-comparison
+    version: v001
+    status: approved
+    authority: characters/relationships.yaml
+    path: assets/characters/scale-review/riri-yoyo--scale-comparison--v001.png
+    expected-path: assets/characters/scale-review/riri-yoyo--scale-comparison--v001.png
+    sha256: 1242dfd7b941d9e97d369174d58b240be45ad76869b3aee6cc99c6f03a7e7ef0
+    allowed-modes: []
+    forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+    aspect-ratio: "3:2"
+    pixel-dimensions: 1536x1024
+    framing: two-character-neutral-full-body-front
+    starting-pose-or-state: both-standing-neutral-mouths-resting
+    movement-space: not-applicable-design-review-only
+    known-limitations: approximate-soft-silhouette-ratio-review-only-not-valid-as-direct-generation-conditioning
+    review-record: validation/character-identity-review.yaml
+    replaces: null
+
+generation_frame_references:
+  planned_per_character:
+    - i2v-neutral-full-body
+    - s2v-neutral-full-body
+    - s2v-neutral-half-body
+  records:
+    - id: riri-neutral-full-body-v001
+      entity-id: riri
+      kind: single-frame-generation-reference
+      version: v001
+      status: approved
+      authority: characters/riri/character.yaml
+      path: assets/characters/riri/generation-frames/riri--neutral-full-body--v001.png
+      expected-path: assets/characters/riri/generation-frames/riri--neutral-full-body--v001.png
+      sha256: 06e287aead32391caa93c27d86fee0e10f719f921deb61124be1df25a403cd1b
+      allowed-modes: [i2v, s2v]
+      forbidden-modes: [t2v, ti2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: neutral-full-body-front-three-quarter
+      starting-pose-or-state: standing-neutral-mouth-resting
+      movement-space: generous-clean-space-around-character
+      known-limitations: approved-still-reference-does-not-guarantee-temporal-anatomy-or-identity-stability
+      review-record: validation/generation-frame-review.yaml
+      replaces: null
+    - id: riri-neutral-half-body-v001
+      entity-id: riri
+      kind: single-frame-generation-reference
+      version: v001
+      status: approved
+      authority: characters/riri/character.yaml
+      path: assets/characters/riri/generation-frames/riri--neutral-half-body--v001.png
+      expected-path: assets/characters/riri/generation-frames/riri--neutral-half-body--v001.png
+      sha256: 24edfc9998958c9e0d0240cfc8a473313555b9a068148c3e56625e0a3641d35a
+      allowed-modes: [s2v]
+      forbidden-modes: [t2v, i2v, ti2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: neutral-half-body-front
+      starting-pose-or-state: attentive-neutral-mouth-resting
+      movement-space: small-clean-gesture-space-around-head-chest-and-front-paws
+      known-limitations: approved-still-reference-s2v-output-still-requires-face-mouth-and-identity-review
+      review-record: validation/generation-frame-review.yaml
+      replaces: null
+    - id: yoyo-neutral-full-body-v001
+      entity-id: yoyo
+      kind: single-frame-generation-reference
+      version: v001
+      status: approved
+      authority: characters/yoyo/character.yaml
+      path: assets/characters/yoyo/generation-frames/yoyo--neutral-full-body--v001.png
+      expected-path: assets/characters/yoyo/generation-frames/yoyo--neutral-full-body--v001.png
+      sha256: 617ab8b604da1d3d174369fd3c8629889f3b4397a495912ac6cd1c63a10d07ca
+      allowed-modes: [i2v, s2v]
+      forbidden-modes: [t2v, ti2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: neutral-full-body-front
+      starting-pose-or-state: standing-neutral-beak-resting
+      movement-space: generous-clean-space-around-character
+      known-limitations: approved-still-reference-does-not-guarantee-temporal-anatomy-or-identity-stability
+      review-record: validation/generation-frame-review.yaml
+      replaces: null
+    - id: yoyo-neutral-half-body-v001
+      entity-id: yoyo
+      kind: single-frame-generation-reference
+      version: v001
+      status: approved
+      authority: characters/yoyo/character.yaml
+      path: assets/characters/yoyo/generation-frames/yoyo--neutral-half-body--v001.png
+      expected-path: assets/characters/yoyo/generation-frames/yoyo--neutral-half-body--v001.png
+      sha256: 899e4e280e748962b906a5c890281571efcc395893aab9e741b77840e07530c4
+      allowed-modes: [s2v]
+      forbidden-modes: [t2v, i2v, ti2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: neutral-half-body-front
+      starting-pose-or-state: attentive-neutral-beak-resting
+      movement-space: small-clean-gesture-space-around-head-belly-and-flippers
+      known-limitations: approved-still-reference-s2v-output-still-requires-face-mouth-and-identity-review
+      review-record: validation/generation-frame-review.yaml
+      replaces: null
+
+location_references:
+  records:
+    - id: kindergarten-exterior-reference-set-v001
+      entity-id: kindergarten-exterior
+      status: planned
+      authority: locations/exteriors/location.yaml
+    - id: kindergarten-interior-reference-set-v001
+      entity-id: kindergarten-interior
+      status: planned
+      authority: locations/interiors/location.yaml
+    - id: kindergarten-interior-scale-and-proportion-reference-board-v002
+      entity-id: kindergarten-interior
+      kind: location-design-review-scale-and-proportion-board
+      version: v002
+      status: candidate
+      authority: locations/interiors/location-v2.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorScaleAndProportionReferenceBoardV002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorScaleAndProportionReferenceBoardV002.png
+      sha256: 2fcf17fa1a51654304317171a2f086e5e375e63005cc189c14e36f7f40fa051e
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-scale-proportion-perspective-elevation-and-plan-board
+      starting-pose-or-state: empty-warm-day-classroom-in-multiple-locked-views
+      movement-space: documented-in-floor-plan-and-functional-zones-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-board-with-labels-measurements-and-duplicate-room-views-review-only
+      review-record: validation/kindergarten-interior-v2-review.yaml
+      package-id: kindergarten-interior-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-interior-reference-set-v001
+    - id: kindergarten-interior-transformation-1-cinematic-four-side-four-picture-type-reference-board-v002
+      entity-id: kindergarten-interior
+      kind: location-design-review-cinematic-structural-zone-and-detail-board
+      version: v002
+      status: candidate
+      authority: locations/interiors/location-v2.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation1CinematicFourSideFourPictureTypeReferenceBoardV002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation1CinematicFourSideFourPictureTypeReferenceBoardV002.png
+      sha256: 1396445f014038bd904ddfcf89f30aab15e7ca01992efc53e2a0051fecad4b30
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-four-side-cinematic-structural-zone-material-and-lighting-board
+      starting-pose-or-state: empty-warm-day-classroom-in-locked-cinematic-and-technical-views
+      movement-space: documented-by-primary-secondary-and-circulation-zones-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-board-with-labels-values-and-duplicate-room-views-review-only
+      review-record: validation/kindergarten-interior-v2-review.yaml
+      package-id: kindergarten-interior-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-interior-reference-set-v001
+    - id: kindergarten-interior-transformation-2-structured-four-side-four-picture-type-reference-board-v002
+      entity-id: kindergarten-interior
+      kind: location-design-review-structured-spatial-zone-material-and-detail-board
+      version: v002
+      status: candidate
+      authority: locations/interiors/location-v2.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation2StructuredFourSideFourPictureTypeReferenceBoardV002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation2StructuredFourSideFourPictureTypeReferenceBoardV002.png
+      sha256: d11e3eba6d312f25f79bcd15ea69fba9b4cfcc9db4d6005f44389deee2adbcb5
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-structured-four-side-elevation-zone-material-and-detail-board
+      starting-pose-or-state: empty-warm-day-classroom-in-locked-spatial-and-technical-views
+      movement-space: documented-by-table-rug-storage-and-circulation-zones-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-board-with-labels-generated-microtext-and-duplicate-room-views-review-only
+      review-record: validation/kindergarten-interior-v2-review.yaml
+      package-id: kindergarten-interior-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-interior-reference-set-v001
+    - id: kindergarten-interior-transformation-3-titled-technical-four-side-four-picture-type-reference-board-v002
+      entity-id: kindergarten-interior
+      kind: location-design-review-dimensioned-technical-construction-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/interiors/location-v2.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
+      sha256: b2e6840b1d34f5439b83c1260fbf552caff9198270f5f235ef39ea5a526fa628
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-titled-technical-four-side-dimension-construction-material-and-lighting-board
+      starting-pose-or-state: empty-warm-day-classroom-with-dimensioned-views-and-detail-references
+      movement-space: documented-by-floor-plan-functional-zones-and-furniture-scale-not-applicable-as-board-conditioning
+      known-limitations: supplied-filename-misnumbered-as-transformation-2-multi-panel-board-review-only
+      review-record: validation/kindergarten-interior-v2-review.yaml
+      package-id: kindergarten-interior-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-interior-reference-set-v001
+    - id: kindergarten-interior-transformation-4-polished-production-four-side-four-picture-type-interior-board-v002
+      entity-id: kindergarten-interior
+      kind: location-design-review-polished-production-zone-surface-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/interiors/location-v2.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation4PolishedProductionFourSideFourPictureTypeInteriorBoardV002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation4PolishedProductionFourSideFourPictureTypeInteriorBoardV002.png
+      sha256: f905190ed2f537a62df05f2ba6b0e0bbd1642a8cd22300d66bd2196c88cd1a20
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-polished-production-four-side-zone-furniture-surface-color-and-lighting-board
+      starting-pose-or-state: empty-warm-day-classroom-in-polished-production-and-technical-views
+      movement-space: documented-by-instruction-group-circle-storage-and-play-zone-overlays-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-board-with-overlay-labels-and-duplicate-room-views-review-only
+      review-record: validation/kindergarten-interior-v2-review.yaml
+      package-id: kindergarten-interior-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-interior-reference-set-v001
+    - id: kindergarten-play-space-reference-set-v001
+      entity-id: kindergarten-play-space
+      status: planned
+      authority: locations/play_spaces/location.yaml
+    - id: kindergarten-play-space-overall-room-understanding-reference-board-v002
+      entity-id: kindergarten-play-space
+      kind: location-design-review-spatial-structural-equipment-detail-board
+      version: v002
+      status: candidate
+      authority: locations/play_spaces/location-v2.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
+      sha256: 43df7981f85747e0b67f09b48567c8e4e2907e1b6373559847781e60e2c09df4
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "701:561"
+      pixel-dimensions: 1402x1122
+      framing: multi-panel-overall-room-technical-zone-material-and-lighting-board
+      starting-pose-or-state: empty-daytime-play-space-in-multiple-perspective-and-technical-views
+      movement-space: documented-by-open-movement-zone-and-floor-plan-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-duplicate-room-views-and-unreconciled-measurements-review-only
+      review-record: validation/kindergarten-play-space-v2-review.yaml
+      package-id: kindergarten-play-space-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-play-space-reference-set-v001
+    - id: kindergarten-play-space-four-view-type-reference-package-v002
+      entity-id: kindergarten-play-space
+      kind: location-design-review-four-view-type-reference-package
+      version: v002
+      status: candidate
+      authority: locations/play_spaces/location-v2.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
+      sha256: fec55ab193dd2f42979328b8049bba56b7b9765993b0cd5ea433bb19eac14c40
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "1369:1149"
+      pixel-dimensions: 1369x1149
+      framing: fifteen-panel-four-view-type-room-structure-zone-and-detail-package
+      starting-pose-or-state: empty-daytime-play-space-with-locked-object-quantity-intent
+      movement-space: documented-by-circulation-and-equipment-position-diagrams-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-activity-table-and-light-fixture-proposals-not-consistent-across-package
+      review-record: validation/kindergarten-play-space-v2-review.yaml
+      package-id: kindergarten-play-space-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-play-space-reference-set-v001
+    - id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
+      entity-id: kindergarten-play-space
+      kind: location-design-review-comprehensive-four-type-reference-board
+      version: v002
+      status: candidate
+      authority: locations/play_spaces/location-v2.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
+      sha256: b6189ec22ceaf640cccd02eb2db541c3e562bcb47541100a120c5a49de911527
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "701:561"
+      pixel-dimensions: 1402x1122
+      framing: comprehensive-spatial-technical-twelve-zone-and-twelve-detail-reference-board
+      starting-pose-or-state: empty-daytime-play-space-in-multiple-locked-review-views
+      movement-space: documented-by-open-movement-area-and-circulation-diagram-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-prints-room-width-0-point-80-conflicting-with-package-normalization
+      review-record: validation/kindergarten-play-space-v2-review.yaml
+      package-id: kindergarten-play-space-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-play-space-reference-set-v001
+    - id: kindergarten-play-space-spatial-anchors-reference-board-v002
+      entity-id: kindergarten-play-space
+      kind: location-design-review-spatial-anchors-reference-board
+      version: v002
+      status: candidate
+      authority: locations/play_spaces/location-v2.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
+      sha256: 7493c82e675deb3803665819bef3553d4dcc42142ae287e5432ee48abb985d67
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "701:561"
+      pixel-dimensions: 1402x1122
+      framing: multi-panel-spatial-anchor-plan-circulation-proportion-zone-and-detail-board
+      starting-pose-or-state: empty-daytime-play-space-with-proposed-locked-anchor-layout
+      movement-space: documented-by-centered-rug-and-circulation-loop-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-anchor-orientation-and-measurements-require-package-reconciliation
+      review-record: validation/kindergarten-play-space-v2-review.yaml
+      package-id: kindergarten-play-space-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-play-space-reference-set-v001
+    - id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
+      entity-id: kindergarten-play-space
+      kind: location-design-review-fixed-permanent-anchors-reference-board
+      version: v002
+      status: candidate
+      authority: locations/play_spaces/location-v2.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
+      sha256: 5c540291307ffd22bbbcca3e1077a2ac8630348c3fcdbc76047b015301811ff5
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "701:561"
+      pixel-dimensions: 1402x1122
+      framing: multi-panel-fixed-anchor-orthographic-zone-circulation-material-and-lighting-board
+      starting-pose-or-state: empty-daytime-play-space-with-proposed-fixed-permanent-anchors
+      movement-space: documented-by-open-area-and-circulation-diagram-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-window-rug-playhouse-depth-and-layout-values-conflict-with-other-package-boards
+      review-record: validation/kindergarten-play-space-v2-review.yaml
+      package-id: kindergarten-play-space-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: kindergarten-play-space-reference-set-v001
+    - id: nature-park-reference-set-v001
+      entity-id: nature-park
+      status: planned
+      authority: locations/nature_and_parks/location.yaml
+    - id: nature-park-scale-and-proportion-reference-board-v002
+      entity-id: nature-park
+      kind: location-design-review-scale-site-terrain-structure-and-natural-feature-board
+      version: v002
+      status: candidate
+      authority: locations/nature_and_parks/location-v2.yaml
+      path: assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
+      sha256: a0a1ec9ca30875d27d855f0e347dff112a1bb3099c100f7c40d69d86daaf8772
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-perspective-site-plan-terrain-scale-and-proportion-board
+      starting-pose-or-state: empty-clear-day-nature-park-in-multiple-views-and-technical-diagrams
+      movement-space: documented-by-path-meadow-bridge-and-stream-boundaries-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-has-tree-flower-and-elevation-range-value-conflicts-review-only
+      review-record: validation/nature-park-v2-review.yaml
+      package-id: nature-park-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: nature-park-reference-set-v001
+    - id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+      entity-id: nature-park
+      kind: location-design-review-cinematic-multi-view-reference-board
+      version: v002
+      status: candidate
+      authority: locations/nature_and_parks/location-v2.yaml
+      path: assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
+      sha256: f5b1d3dbc10d29487df274d1ccd263959c08cf2bca35da6dd72779e1ef81d160
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-cinematic-view-landmark-material-lighting-and-scale-board
+      starting-pose-or-state: empty-nature-park-in-primary-alternate-dramatic-and-neutral-states
+      movement-space: path-and-meadow-action-space-shown-across-views-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-duplicate-site-and-lighting-views-review-only
+      review-record: validation/nature-park-v2-review.yaml
+      package-id: nature-park-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: nature-park-reference-set-v001
+    - id: nature-park-transformation-2-structured-location-reference-board-v002
+      entity-id: nature-park
+      kind: location-design-review-structured-geometry-material-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/nature_and_parks/location-v2.yaml
+      path: assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
+      sha256: 612d89c79901bd21fd4840818e9c2d7a3bf41f0c2bcbcca22418b213f310b2b3
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-camera-geometry-overview-landmark-material-and-atmosphere-board
+      starting-pose-or-state: empty-clear-day-park-with-camera-direction-and-bridge-span-annotations
+      movement-space: documented-by-elevated-path-stream-and-bridge-layout-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-and-annotated-board-not-valid-as-direct-generation-conditioning
+      review-record: validation/nature-park-v2-review.yaml
+      package-id: nature-park-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: nature-park-reference-set-v001
+    - id: nature-park-transformation-3-titled-technical-reference-board-v002
+      entity-id: nature-park
+      kind: location-design-review-titled-technical-reference-board
+      version: v002
+      status: candidate
+      authority: locations/nature_and_parks/location-v2.yaml
+      path: assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
+      sha256: 05b2f973779e57d8339e376fb56a11e7443bca78861bd9006e1bcc9b8ab67a73
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-camera-material-vegetation-lighting-atmosphere-and-neutral-board
+      starting-pose-or-state: empty-park-in-titled-primary-alternate-atmosphere-and-neutral-states
+      movement-space: path-and-meadow-space-visible-across-camera-views-not-applicable-as-board-conditioning
+      known-limitations: primary-lighting-shadow-description-conflicts-with-transformation-4-review-only
+      review-record: validation/nature-park-v2-review.yaml
+      package-id: nature-park-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: nature-park-reference-set-v001
+    - id: nature-park-transformation-4-polished-production-location-board-v002
+      entity-id: nature-park
+      kind: location-design-review-polished-production-location-board
+      version: v002
+      status: candidate
+      authority: locations/nature_and_parks/location-v2.yaml
+      path: assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
+      sha256: 2c8c663175a8c3285f3a361ecfba7da9e6feed5d1a7f3a03ba9e3be447d9bc03
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-production-geometry-material-lighting-atmosphere-and-neutral-board
+      starting-pose-or-state: empty-park-with-primary-alternate-atmosphere-and-neutral-quality-metadata
+      movement-space: path-bridge-stream-and-meadow-space-documented-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-primary-shadow-quality-requires-package-reconciliation
+      review-record: validation/nature-park-v2-review.yaml
+      package-id: nature-park-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: nature-park-reference-set-v001
+    - id: countryside-golden-hour-reference-set-v001
+      entity-id: countryside-golden-hour
+      status: planned
+      authority: locations/sunset_golden_hour/location.yaml
+    - id: countryside-golden-hour-scale-and-proportion-reference-board-v002
+      entity-id: countryside-golden-hour
+      kind: location-design-review-scale-site-terrain-and-landmark-board
+      version: v002
+      status: candidate
+      authority: locations/sunset_golden_hour/location-v2.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
+      sha256: e66cd16b517e76029cf06993807e4a7b91fe189ff25393049fd126dc8fa88a2b
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-perspective-site-plan-terrain-scale-and-proportion-board
+      starting-pose-or-state: empty-golden-hour-landscape-in-multiple-views-and-technical-diagrams
+      movement-space: documented-by-stone-path-and-meadow-depth-zones-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-duplicate-views-and-relative-diagrams-review-only
+      review-record: validation/countryside-golden-hour-v2-review.yaml
+      package-id: countryside-golden-hour-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: countryside-golden-hour-reference-set-v001
+    - id: countryside-golden-hour-cinematic-multi-view-reference-v002
+      entity-id: countryside-golden-hour
+      kind: location-design-review-cinematic-multi-view-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/sunset_golden_hour/location-v2.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
+      sha256: ce017f13af4e9d1d108f08c9540ce9ea804a7e1cfc0d813139ce591718708e7e
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-cinematic-view-landmark-material-lighting-and-neutral-board
+      starting-pose-or-state: empty-landscape-across-primary-late-near-sunset-and-neutral-states
+      movement-space: broad-path-and-meadow-action-space-shown-across-views-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-multiple-lighting-states-review-only
+      review-record: validation/countryside-golden-hour-v2-review.yaml
+      package-id: countryside-golden-hour-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: countryside-golden-hour-reference-set-v001
+    - id: countryside-golden-hour-structured-location-reference-v002
+      entity-id: countryside-golden-hour
+      kind: location-design-review-structured-geometry-material-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/sunset_golden_hour/location-v2.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
+      sha256: 35ace2261fc4caafe89c5d3f585d2d1094a36249e3ca71179a5b64f06cd17d14
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-geometry-landmark-material-vegetation-and-light-direction-board
+      starting-pose-or-state: empty-landscape-with-annotated-depth-material-and-lighting-context
+      movement-space: foreground-path-and-open-valley-remain-readable-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-and-annotated-board-not-valid-as-direct-generation-conditioning
+      review-record: validation/countryside-golden-hour-v2-review.yaml
+      package-id: countryside-golden-hour-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: countryside-golden-hour-reference-set-v001
+    - id: countryside-golden-hour-titled-technical-reference-v002
+      entity-id: countryside-golden-hour
+      kind: location-design-review-titled-technical-reference-board
+      version: v002
+      status: candidate
+      authority: locations/sunset_golden_hour/location-v2.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
+      sha256: 97141c35def1622e3d1479857c9e7ec0226b80099fc62722a18a8217f110ed2b
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-camera-material-vegetation-lighting-and-neutral-reference-board
+      starting-pose-or-state: empty-landscape-in-titled-geometry-and-lighting-review-states
+      movement-space: path-and-meadow-space-visible-across-camera-views-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-with-duplicate-site-and-lighting-variants-review-only
+      review-record: validation/countryside-golden-hour-v2-review.yaml
+      package-id: countryside-golden-hour-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: countryside-golden-hour-reference-set-v001
+    - id: countryside-golden-hour-polished-production-location-board-v002
+      entity-id: countryside-golden-hour
+      kind: location-design-review-polished-production-location-board
+      version: v002
+      status: candidate
+      authority: locations/sunset_golden_hour/location-v2.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
+      sha256: 989ae429c03b80ac1c1512d31d59e3005dd7a6f14d090fedfa572c65b2b59486
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-production-geometry-material-lighting-and-neutral-value-board
+      starting-pose-or-state: empty-landscape-with-relative-scale-anchor-and-lighting-progression
+      movement-space: path-entry-and-broad-meadow-space-documented-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-clean-neutral-panel-is-value-reference-not-a-generation-frame
+      review-record: validation/countryside-golden-hour-v2-review.yaml
+      package-id: countryside-golden-hour-design-package-v002
+      replacement-scope: collective-v002-location-package
+      replaces: countryside-golden-hour-reference-set-v001
+    - id: kindergarten-evening-night-reference-set-v001
+      entity-id: kindergarten-evening-night
+      status: planned
+      authority: locations/evening_night/location.yaml
+    - id: kindergarten-exterior-primary-master-v001
+      entity-id: kindergarten-exterior
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/exteriors/location.yaml
+      path: assets/locations/kindergarten-exterior/design-review/kindergarten-exterior--primary-master-view--v001.png
+      expected-path: assets/locations/kindergarten-exterior/design-review/kindergarten-exterior--primary-master-view--v001.png
+      sha256: e9d89d04d87a96c71dcd7d74d24808b29ac114d8949ff1865d75af11142295b1
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-primary-master-establishing-view
+      starting-pose-or-state: empty-daytime-exterior
+      movement-space: broad-garden-action-zone-and-readable-path
+      known-limitations: approved-primary-geometry-only-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+    - id: kindergarten-interior-primary-master-v001
+      entity-id: kindergarten-interior
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/interiors/location.yaml
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--primary-master-view--v001.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--primary-master-view--v001.png
+      sha256: 32a21892819b7b9786db06fb1fde77757640ae5f9d16dca77fae9aeb7943bdef
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-primary-master-corner-view
+      starting-pose-or-state: empty-interior-day-classroom
+      movement-space: broad-central-lane-table-circulation-and-open-floor-zone
+      known-limitations: approved-primary-geometry-only-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+    - id: kindergarten-play-space-primary-master-v001
+      entity-id: kindergarten-play-space
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/play_spaces/location.yaml
+      path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--primary-master-view--v001.png
+      expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--primary-master-view--v001.png
+      sha256: 46284edd84ddfb879863aa3059a981109c218272f1986cd7a3af6314a8bff231
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-primary-master-corner-view
+      starting-pose-or-state: empty-interior-day-play-space
+      movement-space: broad-open-play-zone-entry-lane-and-playhouse-approach
+      known-limitations: approved-primary-geometry-only-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+    - id: nature-park-primary-master-v001
+      entity-id: nature-park
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/nature_and_parks/location.yaml
+      path: assets/locations/nature-park/design-review/nature-park--primary-master-view--v001.png
+      expected-path: assets/locations/nature-park/design-review/nature-park--primary-master-view--v001.png
+      sha256: ed3f84b7704a5b0445f30605ba1646af336c563ad386c6440609cf8820d14503
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-primary-master-establishing-view
+      starting-pose-or-state: empty-daytime-nature-park
+      movement-space: clear-path-bridge-lane-and-broad-meadow-action-area
+      known-limitations: approved-primary-geometry-and-water-boundary-only-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+    - id: countryside-golden-hour-primary-master-v001
+      entity-id: countryside-golden-hour
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/sunset_golden_hour/location.yaml
+      path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--primary-master-view--v001.png
+      expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--primary-master-view--v001.png
+      sha256: c67a8510515b58cb5925c0b2f2089f4c7610460e3c4f192dbfc24d4a0530eb37
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-primary-master-establishing-view
+      starting-pose-or-state: empty-countryside-golden-hour
+      movement-space: clear-meadow-path-and-broad-open-meadow-action-area
+      known-limitations: approved-primary-geometry-and-golden-lighting-only-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+    - id: kindergarten-evening-night-primary-master-v001
+      entity-id: kindergarten-evening-night
+      kind: location-primary-master-view
+      version: v001
+      status: approved
+      authority: locations/evening_night/location.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--primary-master-view--v001.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--primary-master-view--v001.png
+      sha256: dd9c85291993aaa5718970e7f46be7368ea1426d4ed01086d15ed5ff8bbcac83
+      allowed-modes: [i2v, ti2v-image]
+      forbidden-modes: [s2v]
+      aspect-ratio: "1672:941"
+      pixel-dimensions: 1672x941
+      framing: empty-wide-night-master-matching-daylight-composition
+      starting-pose-or-state: empty-kindergarten-exterior-calm-blue-night
+      movement-space: inherited-readable-garden-path-and-broad-garden-action-zone
+      known-limitations: approved-night-primary-derived-from-approved-daylight-master-evening-and-additional-required-views-missing
+      review-record: validation/location-master-review.yaml
+      replaces: null
+  shared_defaults:
+    kind: required-view-set
+    version: v001
+    path: null
+    expected-path: assets/locations/{entity-id}/design-review
+    sha256: null
+    allowed-modes: []
+    forbidden-modes: [i2v, ti2v-image, s2v]
+    aspect-ratio: mixed-review-set
+    pixel-dimensions: pending
+    framing: per-reference-views-yaml
+    starting-pose-or-state: canonical-empty-location
+    movement-space: required
+    known-limitations: files-not-yet-created-or-approved
+    replaces: null
+
+prop_references:
+  source: assets/props.yaml
+  records: []
+  reason: no-approved-recurring-props
+
+vehicle_references:
+  source: assets/vehicles.yaml
+  records: []
+  reason: no-approved-recurring-vehicles
+
+background_character_references:
+  source: assets/background-characters.yaml
+  records: []
+  reason: no-approved-background-characters
+
+style_material_and_lighting_references:
+  - id: project-color-script-v001
+    entity-id: riri-yoyo-visual-style
+    kind: design-review-image
+    version: v001
+    status: rejected
+    authority: visual_style/color_scripts.yaml
+    path: visual_style/color-script.png
+    expected-path: visual_style/color-script.png
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    allowed-modes: []
+    forbidden-modes: [i2v, ti2v-image, s2v]
+    aspect-ratio: invalid-empty-file
+    pixel-dimensions: invalid-empty-file
+    framing: color-script-board
+    starting-pose-or-state: multiple-color-states
+    movement-space: not-applicable
+    known-limitations: zero-byte-invalid-image-replace-before-visual-review
+    replaces: null
+  - id: canonical-palette-v002
+    entity-id: riri-yoyo-palette
+    kind: yaml-authority
+    version: v002
+    status: approved
+    authority: visual_style/palette-v2.yaml
+    path: visual_style/palette-v2.yaml
+    expected-path: visual_style/palette-v2.yaml
+    sha256: 22b54e6bc191360fa87f68d3e6970bca735c22dc5f09ba22586a6eb60f8a8e94
+    allowed-modes: [t2v, i2v, ti2v, s2v]
+    forbidden-modes: []
+    aspect-ratio: not-applicable
+    pixel-dimensions: not-applicable
+    framing: not-applicable
+    starting-pose-or-state: not-applicable
+    movement-space: not-applicable
+    known-limitations: text-authority-not-image-conditioning
+    replaces: visual_style/palette.yaml
+  - id: canonical-materials-v002
+    entity-id: riri-yoyo-materials
+    kind: yaml-authority
+    version: v002
+    status: approved
+    authority: visual_style/materials.yaml
+    path: visual_style/materials.yaml
+    expected-path: visual_style/materials.yaml
+    sha256: 3eb6d5337c1f909a883e1567e5e8e6ad463e97c58220bd780b7aaa7978d86b32
+    allowed-modes: [t2v, i2v, ti2v, s2v]
+    forbidden-modes: []
+    aspect-ratio: not-applicable
+    pixel-dimensions: not-applicable
+    framing: not-applicable
+    starting-pose-or-state: not-applicable
+    movement-space: not-applicable
+    known-limitations: text-authority-not-image-conditioning
+    replaces: null
+  - id: canonical-lighting-v002
+    entity-id: riri-yoyo-lighting
+    kind: yaml-authority
+    version: v002
+    status: approved
+    authority: visual_style/lighting.yaml
+    path: visual_style/lighting.yaml
+    expected-path: visual_style/lighting.yaml
+    sha256: b096a7ef8f6a3573ab914abd18822b05dce17b0935600ce3987abf40761e8c6c
+    allowed-modes: [t2v, i2v, ti2v, s2v]
+    forbidden-modes: []
+    aspect-ratio: not-applicable
+    pixel-dimensions: not-applicable
+    framing: not-applicable
+    starting-pose-or-state: not-applicable
+    movement-space: not-applicable
+    known-limitations: text-authority-not-image-conditioning
+    replaces: null
+
+replacement_history: []
+
+validation:
+  approved-paths-must-exist: true
+  existing-paths-require-sha256: true
+  approved-image-references-require-dimensions: true
+  generation-frames-require-one-coherent-image: true
+  design-review-sheet-as-conditioning: reject
+  unresolved-planned-records-block-only-the-dependent-mode-or-exit-gate: true

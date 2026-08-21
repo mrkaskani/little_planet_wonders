@@ -1,0 +1,222 @@
+id: riri-yoyo-voice-reference-audit
+type: voice-reference-audit-context
+version: 1
+status: approved-for-voice-cloning-reference-role
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audit_date: "2026-08-20"
+  human_reviewer: project-owner
+  human_approval_record: ../validation/project-owner-approvals.yaml
+  scope: ten-voice-cloning-reference-files
+  purpose: >-
+    Record objective file evidence separately from subjective listening approval
+    and prevent voice-cloning references from being mistaken for final S2V speech.
+
+source_authority:
+  s2v_input: s2v-input-spec.yaml
+  voice_production: voice-production.yaml
+  riri_profile: ../characters/riri/voice-profile.yaml
+  yoyo_profile: ../characters/yoyo/voice-profile.yaml
+
+role_boundary:
+  audited_files_role: voice-cloning-reference-only
+  final_s2v_conditioning_audio: not-present-in-this-audit
+  final_s2v_requirement: new-exact-transcript-48000-hz-24-bit-mono-locked-speech
+  reference-format-exception: 24000-hz-16-bit-mono-is-approved-for-local-cloning-source-role
+  rule: passing-this-audit-does-not-authorize-a-reference-file-as-final-s2v-conditioning-audio
+
+measurement_method:
+  container_reader: Python-wave-standard-library
+  hash: sha256
+  peak: maximum-absolute-PCM-sample-relative-to-16-bit-full-scale
+  clipped_sample_threshold: absolute-sample-at-or-above-32767
+  edge_silence_threshold_dbfs: -45
+  edge_silence_note: objective-threshold-estimate-not-an-audible-cleanliness-judgment
+
+technical_acceptance:
+  required:
+    container: wav
+    channels: 1
+    sample_rate_hz: 24000
+    bit_depth: 16
+    duration_seconds_minimum: 6
+    duration_seconds_maximum: 10
+    clipped_samples: 0
+    sha256: present
+  result:
+    files_expected: 10
+    files_found: 10
+    files_passing-format-duration-clipping-and-hash: 10
+    files_failing: 0
+
+records:
+  - id: riri-curious-v001
+    character_id: riri
+    role: curious
+    path: audio-assets/voice-references/riri/curious.wav
+    sha256: 46f4cf0779c1372921fba4fff594da1b7479ee2d48faf1794aef04c19b436465
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.240
+    peak_sample_dbfs: -5.46
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 288
+    trailing_below_minus_45_db_ms: 167
+    technical_status: passed
+  - id: riri-happy-gentle-v001
+    character_id: riri
+    role: happy-gentle
+    path: audio-assets/voice-references/riri/happy-gentle.wav
+    sha256: 555dc81bd296b632a6584dbd68e095832129c11a99b192a6d3ae8737a325b6ec
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.320
+    peak_sample_dbfs: -7.02
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 298
+    trailing_below_minus_45_db_ms: 386
+    technical_status: passed
+  - id: riri-mild-concern-v001
+    character_id: riri
+    role: mild-concern
+    path: audio-assets/voice-references/riri/mild-concern.wav
+    sha256: 954eb06b21aa399697cce59d30edc5cbbab31115da8e784edbe41e5f4e7b74d6
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.800
+    peak_sample_dbfs: -6.24
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 382
+    trailing_below_minus_45_db_ms: 257
+    technical_status: passed
+  - id: riri-neutral-friendly-v001
+    character_id: riri
+    role: neutral-friendly
+    path: audio-assets/voice-references/riri/neutral-friendly.wav
+    sha256: a334efe3cb8726c7785c270a7c6cc2a3f0d427d4ee2069f91d9ef3df650a7627
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.160
+    peak_sample_dbfs: -3.52
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 26
+    trailing_below_minus_45_db_ms: 182
+    technical_status: passed
+  - id: riri-reassuring-v001
+    character_id: riri
+    role: reassuring
+    path: audio-assets/voice-references/riri/reassuring.wav
+    sha256: 0fc503daaefc2da42688055d521c3b4c1786e0eb05009f3875494968de9c76d7
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.960
+    peak_sample_dbfs: -6.49
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 771
+    trailing_below_minus_45_db_ms: 206
+    technical_status: passed
+  - id: yoyo-curious-v001
+    character_id: yoyo
+    role: curious
+    path: audio-assets/voice-references/yoyo/curious.wav
+    sha256: 89b0d9f1025f3975041960c6b245cbc1f6271dd14830c4580ac8bcf2657825db
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.560
+    peak_sample_dbfs: -3.96
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 573
+    trailing_below_minus_45_db_ms: 179
+    technical_status: passed
+  - id: yoyo-happy-gentle-v001
+    character_id: yoyo
+    role: happy-gentle
+    path: audio-assets/voice-references/yoyo/happy-gentle.wav
+    sha256: 6d3bf3320415d724e6d6307cfb9c1e702541a34059c49a24e3516d78b8abc53c
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.320
+    peak_sample_dbfs: -4.35
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 556
+    trailing_below_minus_45_db_ms: 671
+    technical_status: passed
+  - id: yoyo-mild-concern-v001
+    character_id: yoyo
+    role: mild-concern
+    path: audio-assets/voice-references/yoyo/mild-concern.wav
+    sha256: 030aca71ff6ccdaf89ff55eeb6d65ef2a2b0cbb5d50125e6d2b0a9647235349b
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.160
+    peak_sample_dbfs: -3.98
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 524
+    trailing_below_minus_45_db_ms: 150
+    technical_status: passed
+  - id: yoyo-neutral-friendly-v001
+    character_id: yoyo
+    role: neutral-friendly
+    path: audio-assets/voice-references/yoyo/neutral-friendly.wav
+    sha256: 8f8986e14b55711698b589e0fc87d737fc313c96b20076a584da78513032eea8
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 6.000
+    peak_sample_dbfs: -2.62
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 19
+    trailing_below_minus_45_db_ms: 129
+    technical_status: passed
+  - id: yoyo-reassuring-v001
+    character_id: yoyo
+    role: reassuring
+    path: audio-assets/voice-references/yoyo/reassuring.wav
+    sha256: ccf76dcb081c961f2081abee2d1a9bf481d1aff5e300b86a337f0054f1726d8f
+    sample_rate_hz: 24000
+    channels: 1
+    bit_depth: 16
+    duration_seconds: 7.200
+    peak_sample_dbfs: -4.21
+    clipped_samples: 0
+    leading_below_minus_45_db_ms: 876
+    trailing_below_minus_45_db_ms: 190
+    technical_status: passed
+
+listening_review:
+  status: approved
+  approval_date: 2026-08-20
+  reviewer: project-owner
+  evidence: direct-confirmation-in-current-codex-task
+  reviewer_must_confirm_per-file:
+    - exactly-one-speaker
+    - stable-character-identity
+    - expected-apparent-age-and-gender-presentation
+    - clear-exact-pronunciation-of-reference-text
+    - no-background-speech-music-ambience-or-effects
+    - no-audible-room-reverb-delay-hum-hiss-clicks-or-edits
+    - no-aggressive-denoising-time-stretch-or-pitch-artifacts
+  cross-character_checks:
+    - Riri-and-Yoyo-are-clearly-distinguishable-in-blind-A-B-review
+    - emotional-variants-preserve-the-same-speaker-within-each-character
+    - no-identity-cross-contamination
+  approval_rule: do-not-change-status-to-approved-until-listening-review-is-recorded
+  recorded_result:
+    all-ten-files-reviewed: true
+    all-per-file-criteria-approved: true
+    all-cross-character-checks-approved: true
+
+result:
+  technical: passed
+  audible: passed-human-listening-review
+  overall: approved-for-voice-cloning-reference-role

@@ -1,0 +1,458 @@
+id: riri-yoyo-visual-style
+type: visual-style-context
+version: 2
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  title: Riri & Yoyo Master Visual Style
+  purpose: >-
+    Define the reusable visual language for all characters, locations, props,
+    reference images, promotional images, and generated animation.
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  scope: whole-project
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - format
+      - tone
+      - canonical-characters
+      - visual-medium
+  palette:
+    source: palette-v2.yaml
+    controls:
+      - canonical-surface-colors
+      - shared-color-language
+      - contrast-and-saturation-family
+  characters:
+    riri: ../characters/riri/character.yaml
+    riri_v2_candidate: ../characters/riri/character-v2.yaml
+    yoyo: ../characters/yoyo/character.yaml
+    yoyo_v2_candidate: ../characters/yoyo/character-v2.yaml
+  locations:
+    kindergarten_exterior: ../locations/exteriors/location.yaml
+    kindergarten_interior: ../locations/interiors/location.yaml
+    kindergarten_interior_v2_candidate: ../locations/interiors/location-v2.yaml
+    kindergarten_play_space: ../locations/play_spaces/location.yaml
+    kindergarten_play_space_v2_candidate: ../locations/play_spaces/location-v2.yaml
+    nature_park: ../locations/nature_and_parks/location.yaml
+    nature_park_v2_candidate: ../locations/nature_and_parks/location-v2.yaml
+    countryside_golden_hour: ../locations/sunset_golden_hour/location.yaml
+    countryside_golden_hour_v2_candidate: ../locations/sunset_golden_hour/location-v2.yaml
+    kindergarten_evening_night: ../locations/evening_night/location.yaml
+  specialized_foundations:
+    art_direction:
+      source: art-direction.yaml
+      status: approved
+    lighting:
+      source: lighting.yaml
+      status: approved
+    materials:
+      source: materials.yaml
+      status: approved
+    wan_2_2:
+      source: ../wan22-preproduction.yaml
+      status: approved
+  authority_rules:
+    - specialized files may add implementation detail but must not contradict this file
+    - character YAML controls permanent character identity
+    - location YAML controls permanent location geometry and asset placement
+    - palette YAML controls canonical surface colors
+    - temporary lighting must never become permanent identity color
+    - wan22-preproduction.yaml controls model selection conditioning and prompt structure
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  scope: visual-style-only
+  shared_rules:
+    - expose concise prompt fragments rather than the entire visual bible
+    - preserve identity through silhouette proportions main colors and medium-sized features
+    - keep the primary subject readable at 480P and 720P
+    - avoid generated text dense patterns micro-detail and crowded backgrounds
+    - use one coherent source frame for I2V TI2V-image and S2V
+  task_guidance:
+    t2v:
+      describe:
+        - stylized-3d-preschool-medium
+        - primary-subject-and-count
+        - broad-character-or-environment-identity
+        - clear-focal-hierarchy
+        - simple-background-density
+      do_not_claim: exact-recurring-identity-without-a-source-image
+    i2v:
+      source_frame_controls:
+        - starting-composition
+        - visible-identity
+        - visible-layout
+        - visible-object-relationships
+      prompt_focus:
+        - requested-change
+        - visual-invariants
+      avoid: redescribing-every-visible-detail
+    ti2v:
+      role: draft-structure-composition-and-motion-screening
+      simplify:
+        - fine-fur-and-feather-detail
+        - small-patterns
+        - background-decoration
+      final_detail_approval: forbidden
+    s2v:
+      prioritize:
+        - unobstructed-face
+        - stable-eyes
+        - stable-mouth-muzzle-or-beak
+        - simple-background
+        - readable-half-body-or-full-body-silhouette
+      avoid:
+        - face-overlap
+        - profile-angle-that-hides-mouth
+        - reflective-or-patterned-face-adjacent-detail
+  source_frame_requirements:
+    one-coherent-image: true
+    clear-silhouette: true
+    correct-anatomy: true
+    movement-space: true
+    action-compatible-framing: true
+    no-collage-text-logo-or-watermark: true
+    identity-sheets-are-review-only: true
+  temporal_risk_controls:
+    - reduce-background-complexity-before-increasing-resolution
+    - lock-camera-when-testing-complex-character-motion
+    - use-broad-stable-shapes-and-color-regions
+    - reject-subject-count-identity-or-background-drift
+
+visual_identity:
+  medium: stylized-3d-animation
+  presentation: premium-soft-preschool-animation
+  overall_impression:
+    - polished
+    - soft
+    - colorful
+    - warm
+    - storybook
+    - playful
+    - natural
+    - welcoming
+    - cohesive
+    - emotionally-readable
+    - child-friendly
+  realism:
+    rendering: stylized
+    world_logic: physically-coherent
+    scale_logic: consistent
+    motion_expectation: physically-grounded-stylized
+    material_expectation: believable-stylized
+    detail_expectation: selective-and-controlled
+  emotional_baseline: safe-curious-cheerful-everyday-discovery
+
+shape_language:
+  primary:
+    - circles
+    - soft-ovals
+    - rounded-arches
+    - gentle-curves
+    - compact-friendly-masses
+  secondary:
+    - rounded-tapers
+    - softened-rectangles
+    - broad-simple-organic-shapes
+  edge_treatment:
+    default: soft-rounded
+    small_child_contact_surfaces: visibly-safe
+    architectural_edges: gently-beveled
+    prop_edges: rounded-unless-function-requires-otherwise
+  avoid:
+    - sharp-aggressive-silhouettes
+    - needle-like-details
+    - weapon-like-shapes
+    - harsh-industrial-geometry
+    - chaotic-asymmetry
+    - visually-threatening-overhangs
+
+character_treatment:
+  identity:
+    preserve-approved-reference-design: true
+    preserve-species: true
+    preserve-visual-age: true
+    preserve-head-to-body-ratio: true
+    preserve-body-proportions: true
+    preserve-face-and-eye-design: true
+    preserve-markings-and-permanent-colors: true
+    preserve-established-accessories-and-wardrobe: true
+  form:
+    soft-forms: true
+    readable-silhouettes: true
+    child-friendly-proportions: true
+    low-friendly-center-of-gravity: true
+    controlled-plushness: true
+    avoid-anatomical-redesign: true
+  face:
+    emotional-readability: very-high
+    expression-style: expressive-but-controlled
+    eye-readability: priority
+    mouth-readability: clear-and-simple
+    micro-detail: restrained
+    avoid-overacting: true
+  screen_readability:
+    recognizable-at-small-size: required
+    silhouette-must-read-without-facial-detail: true
+    character-must-separate-from-background: true
+    important-limbs-and-gestures-must-not-merge: true
+  rendering:
+    surface-detail: soft-and-selective
+    fur-and-feather-detail: identity-supporting-not-photorealistic
+    highlights: broad-soft-and-controlled
+    subsurface-feeling: gentle-not-waxy
+    avoid-plastic-toy-appearance: true
+
+environment_treatment:
+  identity:
+    treat-each-location-as-fixed-3d-environment: true
+    preserve-reference-geometry: true
+    preserve-reference-layout: true
+    preserve-relative-scale: true
+    preserve-object-quantities: true
+    preserve-landmarks-and-pathways: true
+    preserve-material-and-color-identity: true
+  visual_character:
+    - warm
+    - welcoming
+    - safe
+    - readable
+    - lived-in-but-uncluttered
+    - imaginative-without-random-decoration
+  construction:
+    forms: simplified-believable-and-softened
+    architecture: stable-readable-and-location-specific
+    furniture: preschool-scaled-and-visibly-safe
+    vegetation: friendly-natural-and-controlled
+    decoration: purposeful-and-limited
+  background_complexity:
+    default: low-to-medium
+    establishing_view: medium
+    dialogue_or_learning_focus: low
+    discovery_view: medium-with-one-clear-focal-detail
+    maximum_simultaneous_competing-focal-points: 2
+  environment_rules:
+    - do not redesign locations between views
+    - do not add decorative objects merely to fill empty space
+    - do not change architecture because the camera angle changes
+    - preserve negative space around characters and learning objects
+    - reduce background detail when it competes with comprehension
+
+scale_and_spatial_consistency:
+  character-to-character:
+    source: character-yaml
+    preserve-relative-height: true
+  character-to-environment:
+    doors-furniture-and-props-must-support-character-scale: true
+    interaction-points-must-be-reachable-and-safe: true
+    apparent-scale-must-not-change-with-lens-choice: true
+  object-scale:
+    recurring-props-use-one-canonical-size: true
+    duplicate-props-must-not-vary-unintentionally: true
+  perspective:
+    physically-coherent: true
+    child-readable: true
+    avoid-forced-perspective-that-changes-identity: true
+
+visual_hierarchy:
+  priority_order:
+    - speaking-character-or-primary-action
+    - learning-or-discovery-object
+    - listening-character-or-reaction
+    - supporting-props
+    - location-context
+    - background-decoration
+  focal_rules:
+    one-primary-focal-point: preferred
+    second-supporting-focal-point: allowed
+    important-information-must-not-compete: true
+    faces-and-learning-objects-require-clear-separation: true
+    contrast-must-support-story-clarity: true
+  clutter_control:
+    remove-nonessential-detail-near-faces: true
+    remove-nonessential-detail-near-learning-objects: true
+    avoid-dense-repeating-patterns: true
+    avoid-random-sparkles-and-floating-decoration: true
+
+color_direction:
+  canonical_source: palette-v2.yaml
+  identity:
+    temperature: warm-golden-with-fresh-blue-and-green-counterbalance
+    saturation: moderate-to-rich
+    contrast: medium
+    white: warm-cream-not-pure-white
+    dark: natural-brown-charcoal-or-navy-not-pure-black
+  rules:
+    preserve-canonical-surface-colors: true
+    permanent-character-colors-must-not-change: true
+    permanent-location-colors-must-not-change: true
+    lighting-may-shift-perceived-color: true
+    lighting-must-not-redefine-canonical-color: true
+    reserve-strongest-accent-for-primary-focus: true
+    maintain-character-background-separation: true
+  avoid:
+    - neon-overload
+    - muddy-low-clarity-color
+    - pure-black-dominance
+    - pure-white-glare
+    - unmotivated-color-shifts
+    - excessive-rainbow-decoration
+
+lighting_interface:
+  detailed_source: lighting.yaml
+  master_requirements:
+    style: cinematic-naturalistic-stylized
+    face-readability: required
+    eye-readability: required
+    spatial-readability: required
+    shadows: soft-and-readable
+    highlights: controlled
+    exposure: comfortable
+    preserve-canonical-colors: true
+    child-safe-darkness: required
+  forbid:
+    - crushed-shadows
+    - harsh-overexposure
+    - horror-lighting
+    - threatening-underlighting
+    - disorienting-strobe
+    - unmotivated-colored-light
+
+materials_interface:
+  detailed_source: materials.yaml
+  master_requirements:
+    style: believable-stylized
+    detail-level: moderate-and-selective
+    tactile-readability: clear
+    material-differences-must-read: true
+    preserve-canonical-material-identity: true
+    child-contact-surfaces-must-look-safe: true
+  avoid:
+    - photorealistic-micro-detail
+    - dirty-gritty-surface-noise
+    - excessive-gloss
+    - mirror-like-unmotivated-reflections
+    - waxy-skin-fur-or-feathers
+    - sharp-metallic-danger-cues
+
+depth_and_image_treatment:
+  depth_of_field:
+    default: gentle
+    establishing-views: deep-enough-for-location-readability
+    close-character-views: mild-background-separation
+    learning-objects: keep-character-and-object-readable-together
+    forbid-extreme-blur-on-required-information: true
+  atmosphere:
+    default: clean-clear-air
+    haze: subtle-and-distance-motivated-only
+    bloom: soft-and-restrained
+    lens-effects: minimal
+  image_finish:
+    sharpness: polished-but-not-brittle
+    noise: clean
+    vignette: none-or-imperceptible
+    chromatic-aberration: forbidden
+    film-grain: none
+
+accessibility_and_child_safety:
+  readability:
+    clear-silhouettes: required
+    clear-facial-expressions: required
+    clear-action-start-and-end: required
+    adequate-value-separation: required
+    important-details-must-survive-small-screens: true
+  sensory_safety:
+    avoid-flashing: true
+    avoid-rapid-high-contrast-patterns: true
+    avoid-visual-overstimulation: true
+    avoid-sudden-extreme-brightness: true
+    avoid-frightening-background-shapes: true
+  imitation_safety:
+    hazards-must-not-look-inviting: true
+    unsafe-climbing-or-edge-access-must-not-be-normalized: true
+    dangerous-tools-and-weapons: forbidden
+
+continuity_rules:
+  preserve-character-identity-across-all-images: true
+  preserve-location-geometry-across-all-views: true
+  preserve-prop-design-and-scale: true
+  preserve-object-counts-when-established: true
+  preserve-screen-readable-orientation: true
+  preserve-time-of-day-until-explicitly-changed: true
+  preserve-weather-until-explicitly-changed: true
+  camera-change-does-not-redesign-scene: true
+  crop-change-does-not-redesign-scene: true
+  lighting-change-does-not-redesign-scene: true
+
+forbidden_styles:
+  - photorealistic-live-action
+  - realistic-wildlife-documentary
+  - anime-or-manga
+  - gritty-realism
+  - horror
+  - dark-thriller
+  - aggressive-action-styling
+  - hyper-detailed-surface-noise
+  - cheap-plastic-toy-rendering
+  - flat-unlit-rendering
+  - harsh-neon-cyberpunk
+  - excessive-gloss-and-bloom
+  - chaotic-visual-clutter
+  - random-unapproved-redesign
+  - text-logos-watermarks-or-captions-inside-reference-art
+
+quality_control:
+  required_checks:
+    - medium-is-stylized-3d-animation
+    - image-feels-warm-gentle-playful-and-child-safe
+    - riri-and-yoyo-match-approved-character-references
+    - silhouettes-remain-readable
+    - faces-and-eyes-remain-clear
+    - location-geometry-and-scale-match-approved-references
+    - canonical-colors-and-material-identities-are-preserved
+    - primary-focus-is-immediately-obvious
+    - background-detail-does-not-compete
+    - no-forbidden-style-is-present
+  reject_if:
+    - character-identity-drift
+    - character-proportion-drift
+    - location-redesign
+    - unintended-object-count-change
+    - permanent-color-drift
+    - material-identity-drift
+    - unclear-action-or-expression
+    - unsafe-or-frightening-visual-treatment
+    - excessive-clutter
+    - photorealistic-style-drift
+
+generation_summary:
+  t2v_positive_fragment: >-
+    Premium soft stylized 3D preschool animation for Riri & Yoyo, polished
+    rounded forms, highly readable silhouettes and expressions, warm storybook
+    color, believable simplified environments, controlled detail, gentle
+    cinematic depth, clear focal hierarchy, welcoming child-safe atmosphere,
+    consistent approved character and location identity.
+  i2v_preservation_fragment: >-
+    Preserve the approved source-frame identity, proportions, color regions,
+    layout, object relationships, and background geometry; change only the
+    requested action, expression, or controlled camera behavior.
+  ti2v_draft_fragment: >-
+    Simple stable stylized 3D forms, one clear subject and action, readable
+    composition, broad color regions, restrained background detail.
+  s2v_face_fragment: >-
+    Preserve the approved face, eyes, muzzle or beak, mouth edges, proportions,
+    and color boundaries; keep the background and framing stable during speech.
+  concise_negative_fragment: >-
+    Photorealism, live action, anime, gritty realism, horror, threatening
+    lighting, sharp aggressive shapes, anatomical drift, character redesign,
+    location redesign, random props, changed object quantities, visual clutter,
+    excessive gloss, waxy surfaces, harsh neon, extreme depth-of-field blur,
+    crushed shadows, blown highlights, text, logo, watermark.

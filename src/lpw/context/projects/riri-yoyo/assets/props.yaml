@@ -1,0 +1,589 @@
+id: riri-yoyo-prop-catalog
+type: prop-catalog-context
+version: 1
+status: approved-schema-awaiting-prop-definitions
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience:
+    minimum_age: 3
+    maximum_age: 6
+  purpose: >-
+    Define the reusable identity, reference, scale, material, interaction,
+    movement, safety, sound-link, continuity, and Wan 2.2 requirements for
+    recurring props without inventing story-specific objects.
+  registry_status: empty-awaiting-approved-recurring-props
+  continuity_priority: critical
+
+source_authority:
+  project:
+    source: ../project.yaml
+    controls:
+      - audience
+      - tone
+      - emotional-safety
+      - continuity-principles
+  wan_2_2:
+    source: ../wan22-preproduction.yaml
+    controls:
+      - supported-tasks
+      - conditioning-authority
+      - prompt-budget
+      - reference-input-rules
+  visual_style: ../visual_style/visual_style.yaml
+  art_direction: ../visual_style/art-direction.yaml
+  palette: ../visual_style/palette-v2.yaml
+  materials: ../visual_style/materials.yaml
+  lighting: ../visual_style/lighting.yaml
+  asset_vocabulary: ../locations-assets.yaml
+  characters:
+    riri: ../characters/riri/character.yaml
+    yoyo: ../characters/yoyo/character.yaml
+  sound_effects: ../audios/sound-effects.yaml
+  authority_rules:
+    - this file controls recurring prop identity permitted states and generation eligibility
+    - palette-v2.yaml controls canonical color tokens
+    - materials.yaml controls shared surface behavior and deformation language
+    - locations-assets.yaml controls shared state interaction storage and ownership vocabulary
+    - character YAML controls anatomy scale and safe contact compatibility
+    - sound-effects.yaml controls approved sound assets and sound-design treatment
+    - scene-and-shot-files-may-select-props-later-but-must-not-redefine-them
+
+phase_boundary:
+  allowed:
+    - reusable-prop-schema
+    - approved-recurring-prop-definitions
+    - reference-requirements
+    - safe-interaction-rules
+    - motion-and-deformation-contracts
+    - mode-specific-generation-gates
+    - validation-rules
+  forbidden:
+    - story-prop-invention
+    - episode-assignment
+    - scene-placement
+    - shot-state
+    - character-action
+    - generation-request
+    - render
+
+catalog_policy:
+  actual_recurring_props_defined: 0
+  registry_must_remain_empty_until-human-approved: true
+  one-canonical-definition-per-prop-id: true
+  recurring-prop-must-have-reuse-purpose: true
+  one-off-story-object-belongs-to-later-production-review: true
+  no-placeholder-path-may-be-treated-as-approved-reference: true
+  definition-statuses:
+    - proposed
+    - design-review
+    - reference-missing
+    - approved
+    - deprecated
+  generation-eligible-status: approved
+
+identifier_and_file_conventions:
+  prop_id_format: lowercase-kebab-case
+  instance_id_format: "{prop_id}-{instance_number}"
+  definition_location: assets/props.yaml
+  reference_root: assets/props/{prop_id}/references
+  generation_frame_root: assets/props/{prop_id}/generation-frames
+  sound_root: audio-assets/sound-effects/props/{prop_id}
+  rules:
+    - ids-never-depend-on-random-workflow-node-numbers
+    - filename-version-and-approval-state-must-be-recorded
+    - renamed-or-replaced-props-retain-deprecation-history
+    - unique-props-never-receive-untracked-duplicate-instance-ids
+
+prop_definition_schema:
+  required_fields:
+    - id
+    - name
+    - status
+    - category
+    - reuse-purpose
+    - ownership
+    - uniqueness
+    - default-location-and-storage
+    - dimensions
+    - silhouette
+    - orientation
+    - materials
+    - colors
+    - construction
+    - contact-regions
+    - safe-interactions
+    - mobility
+    - deformation
+    - state-model
+    - reference-plan
+    - wan-2-2-eligibility
+    - sound-identity
+    - validation
+  optional_fields:
+    - approved-variants
+    - paired-prop-ids
+    - container-capacity
+    - assembly-parts
+    - restoration-rule
+    - known-generation-limitations
+  prohibited_fields:
+    - episode-event
+    - scene-id
+    - shot-id
+    - dialogue
+    - unapproved-readable-text
+
+identity_contract:
+  required:
+    silhouette:
+      broad-shape-description: required
+      identifying-medium-sized-features: required
+      readable-at-480P-and-720P: required
+      recognizable-without-text: required
+    dimensions:
+      width_cm: required-positive-number
+      height_cm: required-positive-number
+      depth_cm: required-positive-number
+      scale-anchor-character-or-environment: required
+      tolerances: explicit
+    orientation:
+      canonical-front: required
+      canonical-up: required
+      primary-use-direction: required
+      reversible-or-symmetrical: explicit-boolean
+    construction:
+      major-parts: required
+      part-count: small-and-explicit
+      moving-parts: explicit
+      independently-moving-parts-preferred-maximum: 1
+  preserve:
+    - overall-silhouette
+    - proportions
+    - dimensions-and-relative-scale
+    - part-count
+    - canonical-colors
+    - material-categories
+    - pattern-placement
+    - orientation-cues
+    - approved-marks-or-icons
+  forbid:
+    - unexplained-redesign
+    - scale-drift
+    - color-drift
+    - part-multiplication
+    - accidental-duplication
+    - transformation-into-another-object
+    - spontaneous-damage-dirt-wetness-or-decoration
+
+visual_design_limits:
+  preferred:
+    - one-broad-recognizable-silhouette
+    - two-to-four-large-color-regions
+    - rounded-child-safe-edges
+    - one-medium-sized-identity-feature
+    - simple-functional-construction
+    - broad-stable-material-response
+  avoid:
+    - tiny-labels
+    - dense-writing
+    - identity-dependent-logo
+    - fine-stripes-checkers-or-grids
+    - micro-patterns
+    - excessive-small-parts
+    - thin-fragile-looking-elements
+    - mirror-like-reflections
+    - accidental-face-like-decoration
+    - visually-ambiguous-duplicates
+  generated_text_policy:
+    readable-text-generated-by-wan: forbidden
+    critical-text-or-brand-mark: add-as-approved-overlay-later
+    simple-approved-icon: allowed-only-with-registered-reference
+
+material_and_color_contract:
+  material_source: ../visual_style/materials.yaml
+  palette_source: ../visual_style/palette-v2.yaml
+  required_per_material_region:
+    - region-id
+    - material-family
+    - canonical-color-token
+    - roughness-family
+    - texture-scale
+    - deformation-response
+  defaults:
+    surface-detail: low-to-medium
+    highlights: broad-soft-and-controlled
+    pattern-contrast: low-to-medium
+    canonical-color-must-survive-lighting-change: true
+  temporary-state-rule: >-
+    Wetness, dirt, wear, compression, bending, opening, filling, or damage must
+    be an allowed state and may not redefine the canonical material or color.
+
+ownership_and_uniqueness:
+  ownership_values:
+    - character-owned
+    - shared
+    - location-owned
+    - borrowed
+    - temporarily-assigned
+    - unowned
+  ownership_required: true
+  owner-id-required-when-character-or-location-owned: true
+  uniqueness:
+    allowed-values:
+      - unique
+      - repeatable
+      - set-with-fixed-count
+    unique:
+      canonical-instance-count: 1
+      duplication: forbidden
+    repeatable:
+      instance-ids-required: true
+      maximum-visible-count-required: true
+    set-with-fixed-count:
+      canonical-count-required: true
+      missing-or-extra-members: forbidden
+
+default_location_and_storage:
+  required_fields:
+    - default-location-id
+    - default-zone-id
+    - default-storage-relationship
+    - default-storage-asset-id-or-none
+  rules:
+    - a-movable-prop-does-not-teleport-back-to-default-storage
+    - storage-and-position-change-only-through-valid-later-production-transition
+    - one-prop-cannot-occupy-two-locations-at-once
+    - location-change-never-changes-prop-identity-or-scale
+
+contact_regions:
+  purpose: make-character-prop-interaction-readable-and-anatomically-safe
+  required_per_contact_region:
+    - region-id
+    - surface-location
+    - compatible-contact-type
+    - compatible-character-body-part
+    - grip-or-support-direction
+    - maximum-load-or-effort-class
+    - visibility-requirement
+  contact-types:
+    - hold
+    - support
+    - push
+    - pull
+    - press
+    - turn
+    - open
+    - close
+    - place
+    - carry
+  character-compatibility:
+    riri:
+      body-parts:
+        - front-paws
+        - mouth-only-when-explicitly-safe-and-character-appropriate
+      rules:
+        - keep-paws-visible-at-contact
+        - never-force-human-finger-grip
+        - avoid-prop-covering-muzzle-eyes-or-face
+    yoyo:
+      body-parts:
+        - flippers
+        - beak-only-when-explicitly-safe-and-character-appropriate
+      rules:
+        - keep-flipper-contact-readable
+        - never-invent-human-fingers
+        - avoid-prop-covering-beak-eyes-or-face
+  visual_rules:
+    - show-clear-separation-before-contact
+    - show-one-unambiguous-contact-region
+    - keep-contact-path-and-endpoint-inside-frame
+    - prevent-limb-prop-merging
+    - preserve-prop-orientation-through-contact
+
+safety_contract:
+  child-safe-appearance: required
+  imitation-risk-review: required
+  required_rules:
+    - rounded-or-visibly-safe-contact-edges
+    - stable-scale-and-weight-impression
+    - safe-two-handed-or-supported-use-when-size-requires-it
+    - no-mouth-contact-unless-approved-and-nonhazardous
+    - no-unsafe-climbing-throwing-striking-or-choking-imitation
+    - no-sharp-hot-electrical-toxic-medicinal-or-weapon-like-use
+    - no-disturbing-breakage-or-injury-detail
+  prohibited-default-categories:
+    - weapon
+    - medicine
+    - chemical
+    - ignition-source
+    - sharp-tool
+    - dangerous-electrical-device
+    - choking-hazard
+  exception-policy: requires-separate-safety-authority-and-human-approval
+
+mobility_and_motion_contract:
+  mobility_flags:
+    - fixed
+    - movable
+    - carryable
+    - rollable
+    - pushable
+    - pullable
+    - openable
+    - closable
+    - rotatable
+    - compressible
+    - flexible
+  rules:
+    - fixed-and-movable-cannot-both-be-true
+    - unsupported-motion-is-forbidden
+    - one-primary-prop-motion-per-generation-segment
+    - motion-begins-from-visible-start-state
+    - motion-has-direction-speed-range-and-endpoint
+    - character-contact-and-prop-motion-agree
+    - camera-behavior-does-not-hide-contact-or-endpoint
+  motion_schema:
+    required_fields:
+      - moving-prop-or-part-id
+      - start-state
+      - contact-region-or-driving-force
+      - direction
+      - speed
+      - range-or-repetition-count
+      - endpoint
+      - locked-parts
+      - allowed-secondary-motion
+  complexity_limits:
+    independently-moving-parts-preferred-maximum: 1
+    simultaneous-prop-actions-preferred-maximum: 1
+    if-more-are-required: divide-later-production-action-into-clear-segments
+
+deformation_contract:
+  allowed-models:
+    rigid:
+      deformation: none
+    hinged:
+      deformation: none-outside-approved-joint
+      hinge-axis-and-range-required: true
+    compressible:
+      deformation: broad-gentle-compression
+      maximum-compression-percent-required: true
+      recovery-state-required: true
+    flexible:
+      deformation: broad-controlled-bend
+      bend-axis-and-maximum-angle-required: true
+    rollable:
+      deformation: none-unless-separately-defined
+      rotation-axis-and-contact-surface-required: true
+  forbidden:
+    - melting
+    - rubbery-stretching-of-rigid-prop
+    - unexplained-squash-and-stretch
+    - topology-change
+    - part-detachment
+    - changing-volume-or-mass
+    - deformation-that-obscures-identity
+
+state_model:
+  source_vocabulary: ../locations-assets.yaml
+  required_dimensions:
+    - condition
+    - position
+    - orientation
+    - holder-or-none
+    - storage-relationship-or-none
+    - open-close-state-if-applicable
+    - fill-state-if-applicable
+    - deformation-state-if-applicable
+  canonical-state-required: true
+  allowed-transitions-required: true
+  restoration-transition-required-for-temporary-state: true
+  continuity_rules:
+    - no-unexplained-disappearance
+    - no-unexplained-duplication
+    - no-unexplained-teleportation
+    - no-unexplained-state-reset
+    - holder-and-position-update-together
+    - orientation-and-contact-remain-physically-coherent
+
+reference_plan:
+  design_review_assets:
+    required:
+      - front-view
+      - side-view
+      - back-view
+      - three-quarter-view
+      - scale-comparison
+      - material-and-color-reference
+      - contact-region-reference
+      - approved-state-variants
+    use: human-design-and-continuity-review-only
+    direct-i2v-or-s2v-conditioning: forbidden-when-board-or-collage
+  single_frame_generation_assets:
+    required_for-exact-recurring-prop-i2v: true
+    required_for-prop-visible-in-s2v-contact: true
+    each-frame-must-record:
+      - reference-id
+      - prop-id
+      - version
+      - approval-status
+      - file-path
+      - aspect-ratio
+      - pixel-dimensions
+      - orientation
+      - state
+      - framing
+      - contact-region-visibility
+      - movement-space
+      - allowed-modes
+      - known-limitations
+    frame-rules:
+      - one-coherent-image
+      - correct-proportions-and-part-count
+      - clear-silhouette
+      - stable-background
+      - action-compatible-start-state
+      - visible-contact-region
+      - no-collage-label-watermark-extra-face-or-duplicate-prop
+
+wan_2_2_interface:
+  contract_source: ../wan22-preproduction.yaml
+  shared:
+    prop-count-explicit: true
+    one-primary-prop-action: true
+    one-camera-behavior: true
+    preserve-id-scale-part-count-color-material-and-orientation: true
+    text-logo-and-micro-pattern-dependent-identity: forbidden
+  t2v:
+    use_for:
+      - generic-non-identity-critical-prop-exploration
+      - broad-shape-material-and-color-testing
+    recurring-prop-final-identity-approval: forbidden-without-approved-source-image
+    prompt-fields:
+      - prop-count
+      - broad-silhouette
+      - approximate-scale
+      - main-material-and-color-regions
+      - stable-or-one-simple-action
+      - relationship-to-character-or-environment
+      - framing-and-one-camera-behavior
+      - short-invariants
+  i2v:
+    required-for:
+      - exact-recurring-prop-identity
+      - exact-scale-orientation-and-placement
+      - visible-character-contact
+      - controlled-state-transition
+    source-frame-must-show:
+      - correct-prop-and-part-count
+      - starting-orientation-and-state
+      - contact-region
+      - character-contact-when-applicable
+      - motion-path-and-endpoint-space
+    motion-prompt-fields:
+      - brief-current-state
+      - one-moving-prop-or-part
+      - contact-or-driving-force
+      - direction-speed-range-and-endpoint
+      - one-camera-behavior
+      - locked-identity-and-parts
+    do-not: redescribe-or-redesign-the-approved-visible-prop
+  ti2v:
+    role: draft-silhouette-scale-contact-and-motion-screening
+    simplify:
+      - fine-surface-detail
+      - secondary-parts
+      - small-patterns
+      - background-decoration
+    evaluate:
+      - prop-count
+      - silhouette
+      - character-scale-relationship
+      - contact-readability
+      - start-and-end-state
+      - motion-direction
+    final-prop-identity-material-or-text-approval: forbidden
+  s2v:
+    prop-use: secondary-to-speaking-character
+    allowed-when:
+      - prop-is-already-correct-in-approved-character-frame
+      - prop-does-not-obscure-eyes-mouth-muzzle-or-beak
+      - contact-is-simple-and-visible
+      - prop-motion-matches-audio-emphasis
+    preferred-behavior:
+      - held-still
+      - one-small-controlled-gesture
+      - placed-outside-face-region
+    forbid:
+      - prop-crossing-the-face
+      - complex-manipulation-during-fast-speech
+      - multiple-moving-parts
+      - prop-motion-during-silence-without-direction
+      - identity-or-scale-change
+
+sound_identity_schema:
+  purpose: link-approved-sound-identity-without-authoring-a-production-sound-plan
+  required_fields:
+    - sound-profile-id-or-none
+    - source-authority
+    - contact-sound-family
+    - movement-sound-family
+    - open-close-or-mechanism-sound-if-applicable
+    - forbidden-sounds
+  rules:
+    - sound-does-not-change-visual-state-unless-a-valid-transition-is-defined
+    - sound-events-must-align-with-visible-contact-and-motion-later
+    - s2v-conditioning-audio-never-includes-prop-sounds
+    - final-sound-effects-remain-separate-production-assets
+
+reusable_prompt_fragments:
+  t2v_prop_description_order: >-
+    Prop count, broad silhouette, relative scale, main material and large color
+    regions, one stable state or simple movement, clear relationship to the
+    character or environment, and short identity constraints.
+  i2v_preservation: >-
+    Preserve the approved prop silhouette, dimensions, part count, canonical
+    colors, materials, orientation cues, and visible contact region; change only
+    the requested state or movement and keep all locked parts stable.
+  ti2v_simplification: >-
+    Test broad prop silhouette, relative scale, contact readability, orientation,
+    start state, motion direction, and endpoint while simplifying texture,
+    secondary parts, patterns, decoration, and background detail.
+  s2v_prop_protection: >-
+    Keep the prop secondary to the speaking face, preserve its scale and identity,
+    keep it clear of the eyes and mouth, muzzle, or beak, and allow only one small
+    controlled movement aligned with the speech performance.
+  concise-negative: >-
+    duplicate prop, extra parts, missing parts, scale drift, color drift, material
+    swap, orientation flip, unreadable contact, fused hand or flipper, face
+    occlusion, rubbery rigid object, random text, logo, watermark, disappearing prop.
+
+registry: []
+
+validation:
+  schema-approval: passed
+  registry-readiness: waiting-for-approved-prop-definitions
+  required-before-prop-approval:
+    - unique-canonical-id
+    - reusable-purpose
+    - ownership-and-uniqueness
+    - exact-dimensions-and-scale-anchor
+    - readable-silhouette
+    - approved-material-and-color-regions
+    - orientation-and-part-count
+    - contact-and-safety-review
+    - allowed-motion-deformation-and-states
+    - design-review-reference-plan
+    - approved-single-frame-strategy
+    - task-specific-wan-eligibility
+    - sound-identity-link-or-explicit-none
+  blocks-generation-eligibility-when:
+    - status-is-not-approved
+    - approved-reference-is-required-but-missing
+    - dimensions-or-contact-region-are-undefined
+    - safety-review-is-incomplete
+    - allowed-motion-or-state-transition-is-undefined
+    - source-frame-is-a-board-collage-or-placeholder
+  no-generation-required-for-schema-validation: true

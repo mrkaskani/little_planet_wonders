@@ -1,0 +1,88 @@
+id: riri-yoyo-nature-park-v2-review-v001
+type: location-version-review-context
+version: 1
+status: creative-review-awaiting-reconciliation-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: nature-park
+  candidate_version: v002
+  review_date: 2026-08-20
+  reviewer: codex-visual-and-technical-review
+  authority: locations/nature_and_parks/location-v2.yaml
+  package_id: nature-park-design-package-v002
+
+package_checks:
+  supplied-files: 5
+  registered-files: 5
+  source-package-complete: true
+  filenames-derived-from-visible-global-titles: pass
+  sha256-recorded: pass
+  pixel-dimensions-recorded: pass
+  panel-count-per-board: pass-exactly-twelve
+  panel-purpose-and-mcp-routing-recorded: pass
+  internal-scale-conflicts-explicitly-recorded: pass
+  all-files-design-review-only: true
+  direct-generation-conditioning-forbidden: true
+
+records:
+  - candidate-id: nature-park-scale-and-proportion-reference-board-v002
+    checks:
+      five-perspectives-and-elevated-overview: present
+      top-down-site-plan: present
+      side-profile-terrain-elevation: present
+      tree-path-bridge-bench-lamp-stream-lawn-and-flower-scales: present
+      overall-proportion-summary: present
+      conditioning-eligible: false
+  - candidate-id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+    checks:
+      six-camera-views: present
+      bridge-landmark-and-material-details: present
+      lighting-variants-and-neutral-reference: present
+      stable-scale-strip: present
+      conditioning-eligible: false
+  - candidate-id: nature-park-transformation-2-structured-location-reference-board-v002
+    checks:
+      five-geometry-views-and-camera-marked-overview: present
+      bridge-span-detail: present
+      hardscape-and-vegetation-grid: present
+      lighting-atmosphere-and-neutral-states: present
+      conditioning-eligible: false
+  - candidate-id: nature-park-transformation-3-titled-technical-reference-board-v002
+    checks:
+      titled-camera-and-landmark-coverage: present
+      eight-material-and-vegetation-tiles: present
+      printed-lighting-atmosphere-and-neutral-metadata: present
+      conditioning-eligible: false
+  - candidate-id: nature-park-transformation-4-polished-production-location-board-v002
+    checks:
+      production-camera-geometry-and-landmark-coverage: present
+      material-and-vegetation-palette: present
+      printed-primary-alternate-atmosphere-and-neutral-quality-metadata: present
+      conditioning-eligible: false
+
+consistency_review:
+  path-stream-bridge-tree-bench-lamp-and-meadow-identity: pass-codex-review
+  safe-shallow-water-and-readable-bank-language: pass-codex-review
+  hardscape-and-vegetation-language: pass-codex-review
+  camera-view-and-overview-coverage: pass-codex-review
+  stable-scale-values-cross-checked-by-transformation-1-strip: pass
+  medium-tree-canopy-width: fail-diagram-0-point-30-versus-table-0-point-36
+  large-flower-group-width: fail-diagram-0-point-12-versus-table-0-point-22
+  printed-elevation-range-semantics: fail-0-point-32-versus-derived-0-point-22
+  primary-shadow-quality: fail-direct-crisp-versus-soft
+
+reconciliation_gate:
+  project-owner-must-select-or-confirm:
+    - midground-medium-tree-canopy-width
+    - large-flower-group-width
+    - whether-elevation-range-means-maximum-height-or-high-minus-low
+    - primary-midday-shadow-quality
+  automatic-averaging: forbidden
+
+approval_boundary:
+  technical-registration: complete
+  project-owner-v2-package-approval: pending
+  v2-canonical-promotion: blocked
+  existing-v1-location-authority-remains-active: true
+  existing-v1-primary-master-conditioning-remains-active: true

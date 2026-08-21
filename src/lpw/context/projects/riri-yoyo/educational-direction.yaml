@@ -1,0 +1,176 @@
+id: riri-yoyo-educational-direction
+type: educational-direction-context
+version: 1
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  audience_age: "3-6"
+  purpose: reusable-learning-language-participation-and-caregiver-expectations
+
+source_authority:
+  project: project.yaml
+  safety: safety.yaml
+  acting: characters/acting-style.yaml
+  relationships: characters/relationships.yaml
+  dialogue_style: audios/audio_style.yaml
+
+learning_philosophy:
+  model: guided-discovery-through-play-observation-and-cooperation
+  principles:
+    - begin-with-a-clear-observable-question-or-pattern
+    - let-characters-notice-think-try-and-reflect
+    - model-curiosity-not-performance-pressure
+    - value-process-kindness-and-retry-not-only-correct-answer
+    - connect-words-to-visible-actions-or-objects
+    - invite-but-never-demand-viewer-participation
+    - close-with-a-simple-emotionally-positive-understanding
+  forbidden:
+    - lecture-first-teaching
+    - shame-for-mistakes
+    - trick-questions
+    - false-certainty
+    - magical-cause-presented-as-real-world-fact
+    - commercial-persuasion
+
+learning_domains:
+  permitted_reusable_families:
+    - social-emotional-learning
+    - friendship-and-cooperation
+    - observation-and-comparison
+    - simple-problem-solving
+    - early-language-and-vocabulary
+    - early-math-pattern-or-counting
+    - nature-and-everyday-world
+    - creativity-and-imagination
+    - routines-and-self-regulation
+  rule: a-specific-lesson-requires-later-approved-story-development
+
+vocabulary:
+  level: preschool-clear-concrete
+  new_terms_per-short-learning-unit:
+    preferred: 1
+    maximum: 3
+  sentence_length_words:
+    preferred: "3-9"
+    maximum_for-one-idea: 12
+  rules:
+    - define-new-word-through-visible-context
+    - use-concrete-verbs-and-familiar-nouns
+    - repeat-key-term-naturally
+    - pronounce-clearly-and-consistently
+    - explain-necessary-abstraction-with-one-concrete-example
+  avoid:
+    - sarcasm
+    - dense-idioms
+    - double-negatives
+    - jargon
+    - long-multi-clause-instructions
+    - baby-talk-that-distorts-correct-words
+
+participation_style:
+  allowed:
+    - invitation-to-look
+    - simple-choice-between-two-clear-options
+    - count-or-name-along
+    - brief-predictive-question
+    - copy-one-safe-small-gesture
+    - short-reflection-pause
+  pause_after_question_seconds:
+    preferred_minimum: 2
+    preferred_maximum: 4
+  rules:
+    - characters-remain-warm-if-viewer-does-not-respond
+    - do-not-claim-to-hear-or-see-the-viewer
+    - do-not-demand-personal-information
+    - do-not-pressure-repeat-or-punish-silence
+
+repetition:
+  purpose: comprehension-and-memory-not-padding
+  pattern:
+    - introduce
+    - demonstrate
+    - invite-or-apply
+    - recap
+  preferred-key-term-repetitions: "2-4"
+  variation: slight-contextual-variation-with-same-meaning
+  forbid:
+    - rapid-chanting
+    - excessive-looping
+    - repetition-that-becomes-sensory-pressure
+
+character_learning_roles:
+  source: characters/relationships.yaml
+  rules:
+    - either-character-may-notice-ask-try-help-or-explain
+    - Riri-may-model-patience-empathy-and-gentle-observation
+    - Yoyo-may-model-initiative-curiosity-and-positive-retry
+    - roles-must-rotate-over-time
+    - neither-character-is-permanently-the-smart-one-or-the-failure
+    - mistakes-are-safe-correctable-and-never-humiliating
+
+accuracy_and_uncertainty:
+  required:
+    - factual-claims-are-age-appropriate-and-correct
+    - visible-demonstration-matches-spoken-explanation
+    - uncertainty-is-stated-when-a-topic-needs-caregiver-or-expert-help
+    - safety-guidance-overrides-a-learning-demonstration
+  prohibited:
+    - medical-legal-or-emergency-instruction
+    - unsafe-experiment
+    - stereotype-as-explanation
+    - misleading-scale-cause-or-sequence
+
+caregiver_expectations:
+  series_should:
+    - support-co-viewing-without-requiring-it
+    - avoid-undisclosed-commercial-messages
+    - model-respectful-boundaries-and-help-seeking
+    - distinguish-fantasy-play-from-real-world-safety-when-needed
+    - avoid-promising-outcomes-outside-a-childs-control
+  caregiver_extension:
+    allowed_later: optional-simple-safe-offscreen-conversation-or-activity
+    requires: separate-safety-and-age-review
+
+assessment_without_testing:
+  observe:
+    - can-the-viewer-follow-the-visible-cause-and-effect
+    - is-the-key-word-connected-to-the-correct-visual
+    - is-the-participation-invitation-clear-and-optional
+    - do-characters-model-retry-cooperation-or-reflection
+    - is-the-recap-consistent-with-the-demonstration
+  forbid:
+    - score-or-rank-the-viewer
+    - shame-wrong-answer
+    - imply-intelligence-from-speed
+
+wan_2_2_interface:
+  visual_requirements:
+    - one-learning-focus-at-a-time
+    - visible-action-matches-the-concept
+    - subject-count-and-background-detail-remain-low-enough-to-read
+    - no-generated-readable-text-as-teaching-authority
+  text_and_labels:
+    critical-text: authored-overlay-later
+    Wan-generated-letters-numbers-or-diagrams: not-authoritative
+  motion:
+    - one-observable-action-direction-and-endpoint
+    - pause-long-enough-to-see-result
+    - do-not-use-camera-motion-that-hides-cause-and-effect
+  s2v:
+    - exact-approved-words-and-pronunciation
+    - pause-timing-supports-comprehension
+    - gesture-emphasis-supports-one-key-idea
+    - no-mouth-motion-during-thinking-or-response-pause
+
+review_schema:
+  required_checks:
+    - learning-goal-is-age-appropriate
+    - vocabulary-load-is-within-limit
+    - participation-is-optional-and-honest
+    - repetition-has-purpose
+    - visual-and-spoken-information-agree
+    - mistakes-are-treated-kindly
+    - factual-and-safety-review-pass
+

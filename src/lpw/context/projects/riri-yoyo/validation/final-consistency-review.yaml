@@ -1,0 +1,194 @@
+id: riri-yoyo-final-consistency-review-v001
+type: preproduction-final-consistency-review-context
+version: 1
+status: conditional-technical-pass-v2-reviews-missing-sources-and-secondary-view-sets-open
+
+metadata:
+  project_id: riri-yoyo
+  phase: preproduction
+  review_date: 2026-08-20
+  reviewer: codex-consistency-review
+  purpose: >-
+    Record the cross-file technical consistency result separately from human
+    creative and audible approval so a technical pass cannot authorize production.
+  validator: scripts/validate-preproduction.py
+
+scope:
+  yaml-authorities: all-project-yaml
+  reference-registry: references.yaml
+  reference-review-records:
+    - validation/character-identity-review.yaml
+    - validation/generation-frame-review.yaml
+    - validation/kindergarten-interior-v2-review.yaml
+    - validation/kindergarten-play-space-v2-review.yaml
+    - validation/nature-park-v2-review.yaml
+    - validation/location-master-review.yaml
+    - validation/countryside-golden-hour-v2-review.yaml
+    - validation/project-owner-approvals.yaml
+    - validation/riri-v2-review.yaml
+    - validation/yoyo-v2-review.yaml
+  voice-audit: audios/voice-reference-audit.yaml
+  dry-run-manifests: validation/dry-run-manifests.yaml
+  mode-contract: wan22-preproduction.yaml
+  checklist: preproduction-checklist.yaml
+
+technical_review:
+  command: PYTHONPATH=src python3 scripts/validate-preproduction.py src/lpw/context/projects/riri-yoyo
+  expected_result:
+    status: passed
+    parsed_yaml_files: 95
+    errors: 0
+    warnings: 38
+  checks:
+    yaml-parsing: pass
+    required-file-presence: pass
+    unique-typed-yaml-ids: pass
+    project-and-audience-identity: pass
+    supported-wan-modes-exactly-t2v-i2v-ti2v-s2v: pass
+    wan-animate-disabled: pass
+    reference-path-hash-and-image-header-integrity: pass
+    voice-reference-path-hash-and-wav-metadata-integrity: pass
+    dry-run-safety-no-generation-no-download-no-provider-enable: pass
+
+reference_inventory:
+  character-identity-sheets:
+    expected: 2
+    present: 2
+    status: approved-review-only
+  two-character-scale-comparisons:
+    expected: 1
+    present: 1
+    status: approved-review-only
+  riri-v2-design-package:
+    expected-design-sheets: 5
+    present: 5
+    status: candidate
+    direct-generation-conditioning: forbidden
+    v1-remains-active: true
+  yoyo-v2-design-package:
+    expected-design-sheets: 5
+    present: 5
+    status: candidate
+    direct-generation-conditioning: forbidden
+    v1-remains-active: true
+  single-frame-character-generation-candidates:
+    expected: 4
+    present: 4
+    status: approved
+  primary-location-masters:
+    expected: 6
+    present: 6
+    status: approved
+    all-files-hashed-and-dimensioned: true
+  kindergarten-interior-v2-design-package:
+    expected-design-boards: 5
+    present: 5
+    missing: 0
+    status: complete-candidate
+    direct-generation-conditioning: forbidden
+    panel-purpose-records: 60
+    scale-material-lighting-zone-and-mcp-context-recorded: true
+    v1-remains-active: true
+  kindergarten-exterior-v2-source-package:
+    expected-design-boards: 8
+    present: 0
+    missing: 8
+    status: unavailable-awaiting-reattachment
+    v1-remains-active: true
+  kindergarten-evening-night-v2-source-package:
+    expected-design-boards: 5
+    present: 0
+    missing: 5
+    status: unavailable-awaiting-reattachment
+    v1-remains-active: true
+  kindergarten-play-space-v2-design-package:
+    expected-design-boards: 5
+    present: 5
+    status: candidate-reconciliation-required
+    direct-generation-conditioning: forbidden
+    measurement-and-layout-conflicts-recorded: true
+    v1-remains-active: true
+  countryside-golden-hour-v2-design-package:
+    expected-design-boards: 5
+    present: 5
+    status: candidate
+    direct-generation-conditioning: forbidden
+    relative-unit-scale-and-lighting-states-recorded: true
+    board-label-to-project-taxonomy-confirmation: pending
+    v1-remains-active: true
+  nature-park-v2-design-package:
+    expected-design-boards: 5
+    present: 5
+    status: candidate-reconciliation-required
+    direct-generation-conditioning: forbidden
+    scale-lighting-and-safety-context-recorded: true
+    source-conflicts-recorded: true
+    v1-remains-active: true
+  complete-location-reference-sets:
+    expected-eventually: 6
+    complete-now: 0
+    status: planned
+    reason: reverse-landmark-action-scale-and-lighting-views-remain-missing
+  voice-cloning-references:
+    expected: 10
+    present: 10
+    technical-pass: 10
+    audible-human-review: approved
+
+strict_approval_review:
+  command: >-
+    PYTHONPATH=src python3 scripts/validate-preproduction.py
+    src/lpw/context/projects/riri-yoyo --strict-approvals
+  expected_result:
+    status: failed-as-required
+    errors: 36
+    warnings: 2
+  blockers:
+    - five-riri-v2-design-sheets-await-package-approval-or-rejection
+    - five-yoyo-v2-design-sheets-await-package-approval-or-rejection
+    - kindergarten-interior-v2-package-has-five-unapproved-candidate-boards-awaiting-package-decision
+    - kindergarten-exterior-v2-package-cannot-be-created-until-eight-source-boards-are-reattached
+    - kindergarten-evening-night-v2-package-cannot-be-created-until-five-source-boards-are-reattached
+    - kindergarten-play-space-v2-package-has-five-unapproved-boards-and-unresolved-measurement-and-layout-conflicts
+    - countryside-golden-hour-v2-package-has-five-unapproved-boards-and-pending-taxonomy-alias-confirmation
+    - nature-park-v2-package-has-five-unapproved-boards-and-unresolved-scale-range-and-shadow-quality-conflicts
+    - six-complete-location-reference-view-sets-remain-planned
+  correctly_blocked_modes:
+    i2v: missing-approved-single-frame-input
+    s2v: missing-approved-character-frame-and-locked-dialogue-input
+
+cross_file_conclusions:
+  textual-authorities-consistent: true
+  asset-records-technically-consistent: true
+  unresolved-technical-path-or-hash-errors: 0
+  production-authorized: false
+  final-promotion-requires:
+    - approve-or-reject-riri-v2-package
+    - if-approved-create-and-approve-clean-riri-v2-generation-frames
+    - approve-or-reject-yoyo-v2-package
+    - if-approved-create-and-approve-clean-yoyo-v2-generation-frames
+    - approve-or-reject-the-complete-kindergarten-interior-v2-package
+    - if-approved-create-and-approve-clean-kindergarten-interior-v2-generation-frames
+    - reattach-register-and-review-the-eight-kindergarten-exterior-v2-boards
+    - approve-or-reject-the-complete-kindergarten-exterior-v2-package
+    - if-approved-create-and-approve-clean-kindergarten-exterior-v2-generation-frames
+    - reattach-register-and-review-the-five-kindergarten-evening-night-v2-boards
+    - approve-or-reject-the-complete-kindergarten-evening-night-v2-package
+    - if-approved-create-and-approve-clean-kindergarten-evening-night-v2-generation-frames
+    - reconcile-kindergarten-play-space-v2-measurements-layout-and-optional-elements
+    - approve-or-reject-the-kindergarten-play-space-v2-package
+    - if-approved-create-and-approve-clean-kindergarten-play-space-v2-generation-frames
+    - confirm-countryside-golden-hour-v2-source-label-taxonomy
+    - approve-or-reject-the-countryside-golden-hour-v2-package
+    - if-approved-create-and-approve-clean-countryside-golden-hour-v2-generation-frames
+    - reconcile-nature-park-v2-scale-elevation-range-and-primary-shadow-quality
+    - approve-or-reject-the-nature-park-v2-package
+    - if-approved-create-and-approve-clean-nature-park-v2-generation-frames
+    - completion-and-review-of-required-secondary-location-views
+    - closure-of-remaining-combined-preproduction-exit-gates
+    - rerun-strict-validator-with-zero-errors
+
+approval_boundary:
+  this-review-completes-cross-file-technical-audit: true
+  scoped-human-creative-and-audible-approvals-recorded-separately: true
+  this-review-does-not-enable-production: true
