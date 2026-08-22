@@ -1,0 +1,597 @@
+id: kindergarten-evening-night-location-v2
+type: location-visual-version-context
+version: 2
+version_tag: v002
+status: candidate-awaiting-identity-taxonomy-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-evening-night
+  title: Evening and Night Exterior Visual and Spatial Identity Version 2
+  purpose: >-
+    Structure the five supplied V2 boards as location identity, site geometry,
+    relative scale, materials, night lighting, atmosphere, camera, child-safety,
+    continuity, and MCP retrieval context without silently treating the cottage
+    redesign as a lighting-only revision of the active kindergarten exterior.
+  created_date: 2026-08-22
+  updated_date: 2026-08-22
+  source: project-owner-supplied-location-design-package
+  review_record: ../../validation/kindergarten-evening-night-v2-review.yaml
+
+versioning:
+  base_location_authority: location.yaml
+  base_reference_id: kindergarten-evening-night-reference-set-v001
+  base_primary_master_id: kindergarten-evening-night-primary-master-v001
+  candidate_package_id: kindergarten-evening-night-design-package-v002
+  active_canonical_version: v001
+  candidate_version: v002
+  package_completeness:
+    expected_source_boards: 5
+    present_source_boards: 5
+    complete: true
+  promotion_rule: >-
+    V2 becomes canonical only after the project owner resolves whether the
+    storybook stone cottage replaces the existing modern kindergarten exterior
+    or becomes a separately named location, approves the complete package, and
+    approves clean single-frame V2 generation references. V1 remains active.
+
+source_package:
+  supplied_folder_label: evening-night_exterior_reference_package_v1
+  supplied_folder_path_for_provenance_only: /Users/oldowl/Downloads/evening-night_exterior_reference_package_v1
+  supplied_image_count: 5
+  project_copy_directory: ../../assets/locations/kindergarten-evening-night/design-review
+  source_files_preserved: true
+  project_copy_status: complete-and-byte-identical
+  naming_note: >-
+    The supplied folder is labeled v1, while these boards are registered in the
+    project as candidate visual package v002. Supplied filenames are retained
+    for provenance and project copies use the repository naming convention.
+
+source_images:
+  scale_and_proportion_board:
+    id: kindergarten-evening-night-scale-and-proportion-reference-board-v002
+    supplied_filename: 01_evening-night_exterior_scale-proportion_reference.png
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
+    sha256: 65fe514f6b3da280a83a67d6d0ae96d9e8773fbe7f50850ec3626ec54c026575
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: source-comparison-site-plan-elevation-and-relative-scale-authority
+    reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+  transformation_1_board:
+    id: kindergarten-evening-night-transformation-1-cinematic-reference-board-v002
+    supplied_filename: 02_evening-night_exterior_transformation-01_cinematic-reference.png
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
+    sha256: 41d2527a78938cc964de478678a6ae1662a07bf2c08e92591e08946b7c7c0ea1
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: original-source-cinematic-camera-material-and-lighting-reference
+    reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+  transformation_2_board:
+    id: kindergarten-evening-night-transformation-2-structured-reference-board-v002
+    supplied_filename: 03_evening-night_exterior_transformation-02_structured-reference.png
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
+    sha256: 26076e2d11264c7e3e326d5f3f00cd903a4a030be9503eb6b53f0a33775d1dbd
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: structured-geometry-site-lighting-material-and-zone-reference
+    reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+  transformation_3_board:
+    id: kindergarten-evening-night-transformation-3-technical-reference-board-v002
+    supplied_filename: 04_evening-night_exterior_transformation-03_technical-reference.png
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
+    sha256: 1b5adad9effadb91cd08ca9cfd0ff18e9db9f0f28c95b9c977297d73ea7c88dc
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: technical-camera-material-light-balance-shadow-and-value-reference
+    reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+  transformation_4_board:
+    id: kindergarten-evening-night-transformation-4-polished-production-board-v002
+    supplied_filename: 05_evening-night_exterior_transformation-04_polished-production.png
+    path: ../../assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-4-polished-production-board--v002.png
+    sha256: d09d337915edd8587ea712ff89d045da68df9eadbb8e6e712d2e9b56883f60a4
+    pixel_dimensions: 1448x1086
+    aspect_ratio: "4:3"
+    panel_count: 12
+    purpose_tag: polished-production-camera-material-lighting-atmosphere-and-value-reference
+    reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+
+source_authority:
+  image_a_original_source:
+    role: authoritative-source-of-visual-truth
+    controls:
+      - final-location-identity
+      - architectural-character
+      - material-appearance
+      - lighting-character
+      - atmosphere-and-production-finish
+  image_b_generated_scale_and_proportion_board:
+    role: continuity-foundation
+    controls:
+      - relative-measurements
+      - site-plan-relationships
+      - elevation-and-setback-proportions
+      - cross-view-continuity-guidance
+  precedence_rule: >-
+    When Image A and Image B conflict, Image A controls visible identity and
+    appearance; the scale conflict is escalated for human resolution rather
+    than averaged, invented, or silently substituted.
+  board_relationship: all-transformation-panels-derive-from-the-same-location-and-night-lighting-state
+
+candidate_identity_boundary:
+  status: unresolved-material-redesign-not-a-lighting-only-variant
+  active_v1_identity:
+    building: low-modern-curved-cream-stucco-kindergarten
+    roof: terracotta-roof-family
+    entrance: broad-arched-kindergarten-entry
+    geometry_relationship: inherits-daylight-kindergarten-exterior
+  supplied_v2_identity:
+    building: compact-two-story-storybook-stone-cottage
+    roof: steep-blue-gray-gabled-slate-or-shingle-roof
+    entrance: warm-stained-wood-arched-door-with-front-porch
+    geometry_relationship: does-not-match-active-daylight-or-night-kindergarten-geometry
+  prohibited_assumptions:
+    - do-not-describe-v2-as-the-same-building-under-night-light
+    - do-not-inherit-v1-kindergarten-geometry-into-the-cottage
+    - do-not-replace-v1-authority-without-owner-approval
+    - do-not-rename-the-cottage-without-owner-approval
+  owner_decision_options:
+    - approve-as-a-full-redesign-replacing-kindergarten-evening-night-v1
+    - approve-as-a-separate-storybook-cottage-night-location
+    - reject-the-v2-package-and-retain-v1
+  current_behavior: expose-as-retrievable-candidate-context-while-v1-remains-active
+
+location_identity:
+  category: unresolved-kindergarten-redesign-or-separate-storybook-cottage
+  summary: warm-windowed-storybook-stone-cottage-in-a-cool-moonlit-fenced-garden
+  emotional_character: [calm, cozy, magical, reassuring, quiet, safe, welcoming]
+  medium: premium-soft-stylized-3d-preschool-animation
+  represented_time_of_day: deep-night
+  represented_season: temperate-spring-or-summer
+  permanent_visual_anchors:
+    - one-compact-two-story-stone-cottage
+    - steep-blue-gray-gabled-roof
+    - one-stone-chimney
+    - front-gabled-upper-window
+    - round-upper-window-on-right-front-or-side
+    - warm-stained-wood-arched-front-door
+    - front-entry-porch-and-right-side-covered-porch
+    - curved-irregular-flagstone-path-from-front-boundary-to-entry
+    - light-painted-wood-picket-perimeter-fence
+    - four-principal-corner-tree-zones
+    - mixed-perennial-flower-beds-shrubs-lawn-and-natural-rocks
+    - warm-windows-and-fixed-warm-practical-lights
+    - crescent-moon-starry-cobalt-sky-and-soft-clouds
+  quantity_and_continuity_intent:
+    cottage: exactly-one
+    chimney: exactly-one
+    primary_path: exactly-one-continuous
+    perimeter_fence: one-continuous-site-boundary-with-entry-opening
+    principal_tree_zones: 4
+    front_entry: exactly-one
+    front_porch: exactly-one
+    right_side_porch: exactly-one
+
+site_geometry:
+  coordinate_system: relative-to-building-exterior-width
+  normalization:
+    building_width: 1.00
+  site_envelope:
+    width_fence_extents: 2.40
+    depth_fence_extents: 2.20
+  building_envelope:
+    width: 1.00
+    depth: 0.80
+    roof_peak_height: 2.35
+    eave_height: 1.75
+    chimney_top_height: 2.45
+  setbacks:
+    side_approx_each: 0.70
+    front_approx: 0.45
+    rear_approx: 0.55
+  plan_logic:
+    cottage: centered-within-rectangular-fenced-garden-site
+    primary_path: curves-from-lower-center-site-entry-to-front-door
+    front_garden: mixed-beds-and-lawn-flanking-the-path
+    porch: front-entry-landing-with-covered-extension-on-right-side
+    principal_tree_zones:
+      left_front: fixed-corner-framing-zone
+      left_rear: fixed-rear-framing-zone
+      right_front: fixed-corner-framing-zone
+      right_rear: fixed-rear-framing-zone
+    fence: encloses-site-and-remains-visible-as-a-soft-boundary
+    practical_positions: anchored-by-site-and-lighting-plan-after-human-approval
+  camera_access:
+    - primary-front-slightly-left
+    - secondary-front-slightly-right
+    - elevated-high-oblique-full-site
+    - front-elevation
+    - side-or-rear-elevation
+    - site-and-lighting-plan
+    - entry-path-and-practical-detail
+
+relative_scale_authority:
+  source: scale_and_proportion_board-image-b-continuity-foundation
+  unit: relative-to-building-exterior-width
+  building_values:
+    width: 1.00
+    depth: 0.80
+    roof_peak_height: 2.35
+    eave_height: 1.75
+    chimney_top_height: 2.45
+    door_height: 0.90
+    average_window_width: 0.32
+    average_window_height: 0.42
+    front_porch_width: 0.36
+    front_porch_depth: 0.20
+    step_rise_each: 0.20
+  site_and_landscape_values:
+    site_width_fence_extents: 2.40
+    site_depth_fence_extents: 2.20
+    primary_path_width: 0.24
+    fence_average_height: 0.60
+    fence_module_post_to_post: 0.20
+    lamp_post_height: 0.90
+    large_tree_average_height: 1.60
+    large_tree_average_canopy_width: 0.55
+    shrub_mass_average_height: 0.60
+    side_setback_approx_each: 0.70
+    front_setback_approx: 0.45
+    rear_setback_approx: 0.55
+  principal_tree_canopy_widths:
+    left_front: 0.60
+    left_rear: 0.50
+    right_front: 0.60
+    right_rear: 0.45
+  front_elevation_lateral_segments:
+    left_outer: 0.18
+    left_primary: 0.32
+    center: 0.16
+    right_primary: 0.32
+    right_outer: 0.18
+    total: 1.00
+  vertical_elevation_guides:
+    roof_peak: 2.35
+    eave: 1.75
+    second_floor_window_top: 1.55
+    first_floor_window_top: 1.05
+    door_height: 0.90
+  interpretation_rules:
+    - values-are-relative-not-metric-or-imperial
+    - preserve-the-normalized-building-site-and-landscape-relationships-across-views
+    - do-not-convert-to-real-world-measurements-without-an-approved-anchor
+    - use-the-stable-summary-values-and-do-not-transcribe-ambiguous-fine-print
+    - image-a-visual-truth-overrides-image-b-if-an-appearance-conflict-is-found
+
+architectural_zones:
+  roof_and_attic:
+    includes: [steep-gabled-roof, front-dormer-or-gable, chimney, upper-windows]
+    continuity: roof-pitch-chimney-and-window-positions-remain-fixed
+  main_facade:
+    includes: [rough-stone-masonry, lower-windows, arched-front-door, dark-trim]
+    continuity: opening-count-and-placement-lock-after-approval
+  porch_and_entry:
+    includes: [front-cover, right-side-covered-porch, steps, posts, lanterns]
+    safety_priority: highest-night-readability-zone
+  base_and_foundation:
+    includes: [stone-base, ground-contact, path-to-step-transition]
+    continuity: no-floating-or-shifting-foundation
+
+landscape_and_action_zones:
+  illuminated_path_travel_zone:
+    purpose: primary-character-walking-running-and-arrival-route
+    requirements:
+      - continuous-readable-curved-route
+      - stable-flush-flagstones
+      - no-loose-trip-stones-or-plant-overgrowth
+      - warm-guidance-with-cool-ambient-fill
+  entrance_waiting_zone:
+    purpose: arrival-greeting-caregiver-and-door-action
+    requirements:
+      - steps-and-door-edge-clearly-visible
+      - unobstructed-character-and-caregiver-sightlines
+      - enough-open-staging-space-for-preschool-scale-characters
+  supervised_garden_zone:
+    purpose: quiet-observation-and-gentle-nature-interaction
+    requirements:
+      - no-thorny-or-toxic-plants-in-touch-zones
+      - no-deep-hidden-shadow-pockets
+      - flower-and-rock-groups-remain-outside-travel-lanes
+  fence_boundary_zone:
+    purpose: soft-readable-site-boundary
+    requirements:
+      - rounded-post-and-picket-edges
+      - no-broken-or-sharp-elements
+      - not-presented-as-a-climbing-or-fall-barrier
+  tree_and_shrub_zones:
+    purpose: frame-site-and-soften-boundary-without-hiding-action
+    rule: four-principal-tree-zones-and-shrub-masses-never-block-path-or-entry-sightlines
+
+materials:
+  architecture:
+    exterior_walls: rough-warm-limestone-or-storybook-stone-masonry
+    roof: blue-to-blue-gray-slate-or-shingle
+    chimney: matching-rough-stone
+    front_door: warm-stained-wood
+    window_frames: painted-wood-with-dark-trim-or-shutters
+    windows: warm-glass-with-controlled-interior-glow
+    porch: stained-wood-posts-beams-and-deck-elements
+  site:
+    path: irregular-warm-gray-flagstone-with-soft-rounded-edges
+    fence: light-painted-wood-pickets-and-posts
+    rocks: rounded-natural-stone-accents
+    lawn: soft-cool-green-night-foliage
+    planting: mixed-perennial-flowers-shrubs-and-broad-tree-canopies
+  response_rules:
+    - keep-stone-readable-with-broad-soft-detail-not-noisy-photoreal-microtexture
+    - roof-remains-cool-and-distinct-from-warm-windows
+    - wood-retains-warm-local-color-without-looking-orange-or-fire-lit
+    - moonlit-vegetation-remains-readable-not-black-or-neon-blue
+    - wet-glossy-or-mirror-like-surfaces-are-not-part-of-the-approved-look
+
+lighting_and_atmosphere:
+  represented_state:
+    canonical_for_package: deep-calm-night
+    distinct_evening_or_twilight_state: unresolved-not-shown-in-supplied-boards
+    rule: do-not-claim-or-invent-a-separate-evening-state-from-this-package
+  sky:
+    color_family: deep-cobalt-to-navy
+    features: [small-crescent-moon, sparse-readable-stars, soft-clouds]
+    mood: calm-clear-magical-not-ominous
+  key_and_fill:
+    cool_ambient_source: crescent-moon-sky-and-starlight
+    cool_ambient_printed_temperature_approx: 4000K
+    warm_practical_printed_temperature_approx: 2700K
+    warm_sources:
+      - selected-window-interior-glow
+      - front-entry-and-porch-lanterns
+      - right-side-porch-practicals
+      - site-plan-anchored-lamp-posts
+    balance: controlled-warm-entry-and-window-pools-against-soft-cool-environment-fill
+  shadow_and_exposure:
+    shadow_character: soft-long-controlled-night-shadows
+    edge_light: subtle-window-and-practical-rake-on-nearby-stone-wood-and-plants
+    highlight_rule: warm-practicals-may-lead-but-must-not-clip-or-bloom-away-detail
+    dark_value_rule: preserve-readable-path-fence-planting-and-building-silhouette
+    prohibited:
+      - crushed-black-garden-or-path
+      - horror-style-underlighting
+      - hard-searchlight-beams
+      - lightning-or-storm-flashes
+      - fire-like-window-glow
+      - added-unplanned-practicals
+      - exposure-pumping-or-practical-flicker
+  practical_count_rule: >-
+    Use only the positions shown by the source and lighting-plan boards. Exact
+    count and window-on pattern lock at clean-frame approval because perspective
+    panels do not provide a safely inferable universal count.
+
+camera_and_composition:
+  primary_view:
+    orientation: front-three-quarter-slightly-from-left
+    focal_hierarchy: warm-front-entry-then-cottage-then-path-and-garden-frame
+    leading_line: curved-flagstone-path-from-lower-foreground-to-door
+  required_coverage:
+    - primary-front-three-quarter-left
+    - secondary-front-three-quarter-right
+    - elevated-high-oblique-full-site
+    - front-architectural-elevation
+    - side-or-rear-architectural-elevation
+    - top-down-site-and-lighting-plan
+    - architectural-stone-roof-window-and-porch-details
+    - landscape-tree-flower-fence-and-rock-details
+    - path-entry-step-and-practical-light-details
+    - material-and-fixture-reference
+  composition_rules:
+    - cottage-remains-the-clear-centered-subject
+    - path-remains-a-readable-leading-line-to-the-warm-entry
+    - trees-frame-the-site-edges-without-covering-the-door
+    - enough-fence-and-garden-remain-visible-to-explain-the-site
+    - crescent-moon-and-sky-may-read-without-overpowering-the-location
+    - preserve-front-side-orientation-and-landmark-parallax
+    - avoid-extreme-wide-angle-distortion-or-dutch-tilt
+    - allow-clear-character-scale-movement-space-on-path-and-entry
+
+child_safety:
+  audience: preschool-ages-3-to-6
+  path_and_steps:
+    - path-entry-and-step-edges-remain-lit-and-readable
+    - flagstones-are-flush-stable-rounded-and-non-slip
+    - no-loose-stones-holes-abrupt-drops-or-hidden-curbs
+    - warm-light-defines-each-step-rise-without-glare
+  garden:
+    - plants-in-interaction-zones-are-non-toxic-and-non-thorny
+    - rocks-have-rounded-edges-and-remain-outside-running-lines
+    - no-deep-shadow-pocket-can-hide-a-character-from-caregiver-view
+    - trees-and-shrubs-do-not-block-entry-or-path-sightlines
+  fence_and_fixtures:
+    - fence-has-rounded-intact-pickets-and-post-caps
+    - lanterns-and-lamp-posts-are-secure-and-non-hot-to-touch
+    - no-exposed-wiring-broken-glass-sharp-metal-or-loose-hardware
+  atmosphere:
+    - night-feels-cozy-familiar-and-supervised
+    - no-threatening-darkness-predators-isolated-forest-or-horror-cues
+    - moon-stars-and-clouds-remain-gentle-background-elements
+
+board_catalog:
+  scale_and_proportion_board:
+    mcp_topics:
+      - image-a-original-source-vs-image-b-continuity-foundation
+      - primary-and-opposite-perspectives
+      - elevated-full-site-view
+      - top-down-site-footprint-and-lighting-plan
+      - front-and-side-elevation-relationships
+      - tree-canopy-and-landscape-proportions
+      - fence-path-porch-door-window-lamp-and-step-scale
+      - overall-relative-proportion-summary
+  transformation_1_cinematic_board:
+    mcp_topics:
+      - authoritative-original-source-appearance
+      - front-left-and-front-right-cinematic-coverage
+      - warm-cool-night-composition
+      - architecture-landscape-path-and-entry-details
+      - production-material-and-practical-light-intent
+  transformation_2_structured_board:
+    mcp_topics:
+      - cross-view-geometry-and-site-continuity
+      - architectural-landscape-path-and-practical-zones
+      - material-grid
+      - lighting-plan-and-night-value-structure
+      - warm-2700k-practicals-and-cool-4000k-ambient
+  transformation_3_technical_board:
+    mcp_topics:
+      - titled-camera-and-elevation-coverage
+      - rough-stone-slate-wood-glass-path-fence-and-vegetation-materials
+      - warm-versus-cool-balance
+      - soft-long-shadow-depth
+      - subtle-window-edge-rake
+      - highlight-to-deep-shadow-contrast-range
+  transformation_4_polished_board:
+    mcp_topics:
+      - polished-production-finish
+      - stable-cottage-site-and-lighting-continuity
+      - child-friendly-cozy-night-atmosphere
+      - clean-material-and-fixture-detail
+      - final-value-readability-reference
+
+continuity:
+  spatial_invariants:
+    - exactly-one-cottage-on-one-fenced-site
+    - building-roof-chimney-door-window-and-porch-geometry
+    - curved-path-route-width-and-door-connection
+    - fence-extents-entry-opening-and-module-rhythm
+    - four-principal-tree-zones
+    - planting-bed-lawn-and-natural-rock-layout
+    - physical-practical-light-positions
+  lighting_invariants_after_approval:
+    - approved-window-on-pattern
+    - warm-practical-versus-cool-ambient-balance
+    - readable-path-entry-and-step-value-structure
+  permitted_temporary_motion:
+    - subtle-leaf-and-flower-movement
+    - slow-soft-cloud-drift
+    - extremely-subtle-star-twinkle-without-flicker
+    - crescent-moon-position-change-only-between-approved-shots-not-within-a-continuity-take
+  prohibited_temporal_drift:
+    - building-path-fence-tree-porch-or-chimney-shifting
+    - windows-or-practicals-randomly-switching-on-or-off
+    - practical-flicker
+    - exposure-or-shadow-pumping
+    - unapproved-transition-to-a-distinct-evening-state
+    - added-doors-windows-lights-trees-fence-sections-or-path-branches
+
+mcp_context:
+  resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-evening-night-location-v2
+  retrieval_scope: candidate-location-v2-design-review-context
+  summary: >-
+    Candidate deep-night location package showing one compact two-story
+    storybook stone cottage centered in a fenced flower garden, with a steep
+    blue-gray gabled roof, chimney, warm arched entry and windows, curved
+    flagstone path, four principal tree zones, crescent moon, cool ambient fill,
+    and fixed warm practical light. It materially conflicts with the active
+    modern kindergarten geometry and requires an identity/taxonomy decision.
+  use_for:
+    - candidate-location-design-review
+    - relative-scale-and-site-layout-retrieval
+    - camera-and-material-planning
+    - night-lighting-and-exposure-planning
+    - child-safety-and-path-readability-review
+    - continuity-prompt-authoring-after-approval
+  do_not_use_for:
+    - direct-i2v-ti2v-image-or-s2v-conditioning
+    - claiming-v2-is-only-a-lighting-variant-of-v1
+    - overriding-active-v1-location-authority
+    - inventing-a-distinct-evening-or-twilight-state
+    - generating-production-shots-before-owner-and-clean-frame-approval
+  concise_prompt_fragments:
+    identity: >-
+      One compact two-story storybook stone cottage in a fenced flower garden,
+      steep blue-gray gabled roof, one stone chimney, rough limestone walls,
+      warm arched wood entry, covered porch, curved flagstone path, four framing
+      tree zones, premium soft stylized 3D preschool animation.
+    night_lighting: >-
+      Calm deep-cobalt night with a small crescent moon and soft clouds, cool
+      readable ambient fill, localized 2700K-style warm window and porch glow,
+      gentle long shadows, safe readable path, steps, fence, and garden.
+    continuity: >-
+      Preserve the exact cottage, roof, chimney, door, windows, porch, curved
+      path, fence, four tree zones, planting layout, and practical positions;
+      no geometry drift, added lights, window toggling, flicker, or exposure pump.
+    safety: >-
+      Keep the stable rounded flagstone path and every entry step clearly lit,
+      preserve caregiver sightlines, non-thorny planting, rounded fence and rock
+      edges, secure cool-touch fixtures, and a cozy non-threatening night mood.
+  stable_scale_values:
+    normalization: building-width-1.00
+    site_width: 2.40
+    site_depth: 2.20
+    building_depth: 0.80
+    roof_peak_height: 2.35
+    eave_height: 1.75
+    chimney_top_height: 2.45
+    door_height: 0.90
+    path_width: 0.24
+    fence_height: 0.60
+    lamp_height: 0.90
+    large_tree_height_average: 1.60
+  unresolved_fields:
+    canonical_identity_relationship: owner-decision-required
+    distinct_evening_state: not-shown
+    exact_practical_and-window-on-count: lock-from-approved-clean-reference
+    metric_dimensions: unavailable-relative-units-only
+
+generation_policy:
+  design_review_boards:
+    allowed_for: [human-review, mcp-retrieval, prompt-planning, scale-and-continuity-reference]
+    forbidden_for: [i2v-conditioning, ti2v-image-conditioning, s2v-conditioning]
+    reason: multi-panel-labeled-boards-are-not-one-coherent-starting-frame
+  t2v:
+    eligibility: exploratory-candidate-visualization-only
+    restrictions:
+      - never-claim-canonical-recurring-location-identity
+      - include-candidate-and-identity-conflict-language-in-review-output
+  i2v:
+    eligibility: blocked-until-approved-clean-single-frame-v2-reference
+  ti2v_image:
+    eligibility: blocked-until-approved-clean-single-frame-v2-reference
+  s2v:
+    eligibility: blocked-until-approved-character-location-composite-and-dialogue
+  production_authorization: false
+
+quality_control:
+  accept_when:
+    - storybook-stone-cottage-identity-is-consistent-across-all-views
+    - measured-building-site-path-fence-and-tree-proportions-are-preserved
+    - warm-practicals-and-cool-ambient-light-create-readable-safe-night-values
+    - path-entry-steps-fence-and-garden-remain-visible
+    - materials-read-as-stone-slate-wood-glass-flagstone-fence-and-soft-vegetation
+    - child-safety-and-caregiver-sightlines-remain-clear
+  reject_when:
+    - v2-is-presented-as-the-same-v1-building-with-only-new-lighting
+    - cottage-or-site-geometry-drifts-between-views
+    - path-steps-or-entrance-disappear-into-darkness
+    - night-becomes-horror-like-threatening-or-unsupervised
+    - random-lights-windows-paths-trees-or-fence-sections-appear
+    - practicals-flicker-or-exposure-pumps
+    - direct-generation-conditioning-uses-a-board-collage
+    - an-unsupported-evening-or-twilight-state-is-claimed
+
+review_gate:
+  technical_package_registration: complete
+  source_copy_and_hash_verification: pass
+  stable-visual-context-extraction: pass
+  identity_and_taxonomy_relationship: pending-project-owner-decision
+  distinct_evening_state: missing-from-package
+  complete_v2_package_human_approval: pending
+  clean_single_frame_v2_references: pending
+  canonical_promotion: blocked
+  active_v1_location_authority_remains_active: true
+  active_v1_primary_master_remains_active: true

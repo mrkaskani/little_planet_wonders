@@ -1,0 +1,237 @@
+id: riri-yoyo-kindergarten-evening-night-v2-review-v001
+type: location-version-review-context
+version: 1
+status: technical-package-complete-candidate-awaiting-identity-taxonomy-and-human-approval
+
+metadata:
+  project_id: riri-yoyo
+  location_id: kindergarten-evening-night
+  candidate_version: v002
+  review_date: 2026-08-22
+  reviewer: codex-visual-and-technical-review
+  authority: locations/evening_night/location-v2.yaml
+  package_id: kindergarten-evening-night-design-package-v002
+  supplied_folder_label: evening-night_exterior_reference_package_v1
+
+package_checks:
+  supplied_files: 5
+  registered_files: 5
+  copied_to_project: true
+  source_package_complete: true
+  source_files_preserved: true
+  existing_v1_master_preserved: true
+  project_copies_sha256_match_sources: pass
+  project_copy_dimensions_match_sources: pass
+  project_filename_convention: pass
+  supplied_filenames_recorded: pass
+  sha256_recorded: pass
+  pixel_dimensions_recorded: pass
+  panel_count_per_board: pass-exactly-twelve
+  visual-material-scale-lighting-safety-camera-and-mcp-context-recorded: pass
+  all_files_design_review_only: true
+  direct_generation_conditioning_forbidden: true
+
+records:
+  - candidate_id: kindergarten-evening-night-scale-and-proportion-reference-board-v002
+    supplied_filename: 01_evening-night_exterior_scale-proportion_reference.png
+    project_filename: kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
+    sha256: 65fe514f6b3da280a83a67d6d0ae96d9e8773fbe7f50850ec3626ec54c026575
+    pixel_dimensions: 1448x1086
+    checks:
+      original_source_image_a_identified_as_visual_truth: present
+      generated_image_b_identified_as_continuity_foundation: present
+      primary_opposite_elevated_plan_and_elevation_coverage: present
+      building_site_path_fence_tree_porch_door_window_and_lamp_scale: present
+      relative_proportion_summary: present
+      conditioning_eligible: false
+  - candidate_id: kindergarten-evening-night-transformation-1-cinematic-reference-board-v002
+    supplied_filename: 02_evening-night_exterior_transformation-01_cinematic-reference.png
+    project_filename: kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
+    sha256: 41d2527a78938cc964de478678a6ae1662a07bf2c08e92591e08946b7c7c0ea1
+    pixel_dimensions: 1448x1086
+    checks:
+      source_authority_and_continuity_relationship: present
+      front_left_front_right_and_full_site_camera_coverage: present
+      architecture_landscape_path_and_entry_details: present
+      warm_cool_night_lighting_reference: present
+      conditioning_eligible: false
+  - candidate_id: kindergarten-evening-night-transformation-2-structured-reference-board-v002
+    supplied_filename: 03_evening-night_exterior_transformation-02_structured-reference.png
+    project_filename: kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
+    sha256: 26076e2d11264c7e3e326d5f3f00cd903a4a030be9503eb6b53f0a33775d1dbd
+    pixel_dimensions: 1448x1086
+    checks:
+      cross_view_geometry_and_site_continuity: present
+      architecture_landscape_path_and_practical_zones: present
+      material_reference: present
+      printed_warm_2700k_and_cool_4000k_light_metadata: present
+      conditioning_eligible: false
+  - candidate_id: kindergarten-evening-night-transformation-3-technical-reference-board-v002
+    supplied_filename: 04_evening-night_exterior_transformation-03_technical-reference.png
+    project_filename: kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
+    sha256: 1b5adad9effadb91cd08ca9cfd0ff18e9db9f0f28c95b9c977297d73ea7c88dc
+    pixel_dimensions: 1448x1086
+    checks:
+      titled_camera_and_elevation_coverage: present
+      architecture_landscape_path_and_fixture_materials: present
+      warm_cool_balance_soft_long_shadows_and_subtle_edge_rake: present
+      highlight_to_deep_shadow_value_range: present
+      conditioning_eligible: false
+  - candidate_id: kindergarten-evening-night-transformation-4-polished-production-board-v002
+    supplied_filename: 05_evening-night_exterior_transformation-04_polished-production.png
+    project_filename: kindergarten-evening-night--transformation-4-polished-production-board--v002.png
+    sha256: d09d337915edd8587ea712ff89d045da68df9eadbb8e6e712d2e9b56883f60a4
+    pixel_dimensions: 1448x1086
+    checks:
+      polished_production_camera_and_geometry_coverage: present
+      final_material_fixture_and_vegetation_character: present
+      cozy_child_friendly_night_atmosphere: present
+      readable_path_entry_garden_and_value_structure: present
+      conditioning_eligible: false
+
+stable_consensus_review:
+  visual_identity:
+    one_compact_two_story_storybook_stone_cottage: pass
+    steep_blue_gray_gabled_roof: pass
+    one_stone_chimney: pass
+    warm_arched_wood_door_and_covered_porch: pass
+    fenced_flower_garden_and_curved_flagstone_path: pass
+    four_principal_tree_zones: pass
+    calm_crescent_moon_night: pass
+    medium: pass-premium-soft-stylized-3d-preschool-animation
+  topology:
+    cottage_centered_in_rectangular_fenced_site: pass
+    one_path_from_lower_center_boundary_to_front_entry: pass
+    front_and_right_side_porch_relationship: pass
+    four_corner_tree_zone_relationship: pass
+    flower_beds_lawn_shrubs_and_rounded_rocks: pass
+  materials:
+    rough_limestone_or_storybook_stone_walls: pass
+    blue_gray_slate_or_shingle_roof: pass
+    warm_stained_door_and_porch_wood: pass
+    painted_wood_windows_and_fence: pass
+    irregular_rounded_flagstone_path: pass
+    soft_moonlit_lawn_shrubs_flowers_and_tree_canopies: pass
+  lighting:
+    cool_moon_sky_and_starlight_ambient_fill: pass
+    localized_warm_windows_porch_and_lamp_practicals: pass
+    printed_warm_temperature_approx_2700k: pass
+    printed_cool_temperature_approx_4000k: pass
+    soft_long_controlled_shadows: pass
+    subtle_warm_edge_rake: pass
+    readable_path_entry_steps_fence_and_garden: pass
+  camera_coverage:
+    front_left_front_right_and_elevated_site_views: pass
+    front_side_or_rear_elevation_and_site_plan: pass
+    architecture_landscape_path_practical_material_and_fixture_details: pass
+  safety_language:
+    stable_rounded_lit_flagstone_path: pass
+    readable_entry_steps_and_door: pass
+    open_caregiver_sightlines: pass
+    non_thorny_non_toxic_interaction_planting: pass
+    intact_rounded_fence_and_secure_cool_touch_fixtures: pass
+    cozy_non_threatening_night_atmosphere: pass
+
+scale_cross_check:
+  unit: relative-to-building-exterior-width
+  normalization:
+    building_width: 1.00
+  stable_values:
+    site_width_fence_extents: 2.40
+    site_depth_fence_extents: 2.20
+    building_depth: 0.80
+    roof_peak_height: 2.35
+    eave_height: 1.75
+    chimney_top_height: 2.45
+    door_height: 0.90
+    average_window_width: 0.32
+    average_window_height: 0.42
+    front_porch_width: 0.36
+    front_porch_depth: 0.20
+    step_rise_each: 0.20
+    path_width: 0.24
+    fence_height_average: 0.60
+    fence_module: 0.20
+    lamp_post_height: 0.90
+    large_tree_height_average: 1.60
+    large_tree_canopy_average: 0.55
+    shrub_mass_height_average: 0.60
+    side_setback_approx_each: 0.70
+    front_setback_approx: 0.45
+    rear_setback_approx: 0.55
+  principal_tree_canopy_widths:
+    left_front: 0.60
+    left_rear: 0.50
+    right_front: 0.60
+    right_rear: 0.45
+  front_elevation_lateral_segments:
+    values: [0.18, 0.32, 0.16, 0.32, 0.18]
+    total: 1.00
+  validation:
+    relative_not_metric: pass
+    stable_summary_values_only: pass
+    ambiguous_fine_print_excluded: pass
+
+authority_review:
+  image_a:
+    label: original-source-image
+    authority: final-visible-identity-material-lighting-and-atmosphere
+  image_b:
+    label: generated-scale-and-proportion-board
+    authority: relative-measurements-site-plan-and-continuity-foundation
+  conflict_policy: image-a-visible-truth-wins-and-scale-disagreement-is-escalated
+  status: pass-recorded
+
+identity_and_taxonomy_review:
+  status: unresolved-owner-decision-required
+  comparison:
+    active_v1: low-modern-curved-cream-stucco-kindergarten-with-terracotta-roof
+    supplied_v2: compact-two-story-gabled-stone-storybook-cottage-with-blue-gray-roof
+  finding: material-architecture-and-site-identity-redesign-not-a-lighting-only-variant
+  conflict_with_active_v1_contract: >-
+    The active kindergarten evening/night YAML requires the same geometry as the
+    daylight kindergarten exterior. The supplied V2 cottage does not satisfy
+    that inheritance rule and therefore cannot be silently promoted under the
+    existing lighting-variant contract.
+  decisions_required:
+    - choose-replacement-redesign-separate-location-or-rejection
+    - if-separate-approve-new-canonical-location-id-folder-and-display-name
+    - if-replacement-update-daylight-and-night-location-relationship-explicitly
+  protections:
+    active_v1_location_authority_remains_active: true
+    active_v1_primary_master_remains_active: true
+    no_v1_file_overwritten: true
+
+lighting_state_review:
+  package_label: evening-and-night
+  states_visibly_present:
+    deep_night: complete-and-consistent
+    distinct_evening_or_twilight: absent
+  decision: register-night-context-and-leave-evening-state-unresolved
+  rule: do-not-infer-a-twilight-palette-or-exposure-state-not-shown-by-the-boards
+
+mcp_review:
+  resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-evening-night-location-v2
+  candidate_location_discovery: pass
+  full_project_context_load: pass
+  project_context_filtered_by_candidate_location: pass
+  direct_location_context_retrieval: pass
+  resource_read: pass
+  focused_loader_and_mcp_tests: pass-13-tests
+  stable_scale_context_exposed: pass
+  identity_conflict_exposed: pass
+  evening_state_limitation_exposed: pass
+  generation_conditioning_boundary_exposed: pass
+
+approval_boundary:
+  technical_registration: complete
+  normal_preproduction_validation: pass-zero-errors
+  strict_approval_validation: failed-as-required-candidate-remains-unapproved
+  project_owner_identity_and_taxonomy_decision: pending
+  project_owner_v2_package_approval: pending
+  distinct_evening_state_reference: missing
+  clean_v2_single_frame_reference_set: pending
+  v2_canonical_promotion: blocked
+  production_generation_authorized: false
+  existing_v1_location_authority_remains_active: true
+  existing_v1_primary_master_conditioning_remains_active: true

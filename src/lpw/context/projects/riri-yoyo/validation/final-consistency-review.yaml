@@ -20,6 +20,7 @@ scope:
     - validation/character-identity-review.yaml
     - validation/generation-frame-review.yaml
     - validation/kindergarten-interior-v2-review.yaml
+    - validation/kindergarten-evening-night-v2-review.yaml
     - validation/kindergarten-play-space-v2-review.yaml
     - validation/nature-park-v2-review.yaml
     - validation/location-master-review.yaml
@@ -36,9 +37,9 @@ technical_review:
   command: PYTHONPATH=src python3 scripts/validate-preproduction.py src/lpw/context/projects/riri-yoyo
   expected_result:
     status: passed
-    parsed_yaml_files: 95
+    parsed_yaml_files: 97
     errors: 0
-    warnings: 38
+    warnings: 43
   checks:
     yaml-parsing: pass
     required-file-presence: pass
@@ -95,11 +96,15 @@ reference_inventory:
     missing: 8
     status: unavailable-awaiting-reattachment
     v1-remains-active: true
-  kindergarten-evening-night-v2-source-package:
+  kindergarten-evening-night-v2-design-package:
     expected-design-boards: 5
-    present: 0
-    missing: 5
-    status: unavailable-awaiting-reattachment
+    present: 5
+    missing: 0
+    status: complete-candidate-identity-taxonomy-decision-required
+    direct-generation-conditioning: forbidden
+    geometry-relationship-to-v1: material-redesign-not-lighting-only
+    distinct-evening-state: not-shown
+    scale-material-lighting-safety-camera-and-mcp-context-recorded: true
     v1-remains-active: true
   kindergarten-play-space-v2-design-package:
     expected-design-boards: 5
@@ -141,14 +146,14 @@ strict_approval_review:
     src/lpw/context/projects/riri-yoyo --strict-approvals
   expected_result:
     status: failed-as-required
-    errors: 36
+    errors: 41
     warnings: 2
   blockers:
     - five-riri-v2-design-sheets-await-package-approval-or-rejection
     - five-yoyo-v2-design-sheets-await-package-approval-or-rejection
     - kindergarten-interior-v2-package-has-five-unapproved-candidate-boards-awaiting-package-decision
     - kindergarten-exterior-v2-package-cannot-be-created-until-eight-source-boards-are-reattached
-    - kindergarten-evening-night-v2-package-cannot-be-created-until-five-source-boards-are-reattached
+    - kindergarten-evening-night-v2-package-has-five-unapproved-boards-and-an-unresolved-identity-taxonomy-conflict-with-v1
     - kindergarten-play-space-v2-package-has-five-unapproved-boards-and-unresolved-measurement-and-layout-conflicts
     - countryside-golden-hour-v2-package-has-five-unapproved-boards-and-pending-taxonomy-alias-confirmation
     - nature-park-v2-package-has-five-unapproved-boards-and-unresolved-scale-range-and-shadow-quality-conflicts
@@ -172,7 +177,7 @@ cross_file_conclusions:
     - reattach-register-and-review-the-eight-kindergarten-exterior-v2-boards
     - approve-or-reject-the-complete-kindergarten-exterior-v2-package
     - if-approved-create-and-approve-clean-kindergarten-exterior-v2-generation-frames
-    - reattach-register-and-review-the-five-kindergarten-evening-night-v2-boards
+    - decide-whether-kindergarten-evening-night-v2-is-a-replacement-redesign-separate-cottage-location-or-rejected-package
     - approve-or-reject-the-complete-kindergarten-evening-night-v2-package
     - if-approved-create-and-approve-clean-kindergarten-evening-night-v2-generation-frames
     - reconcile-kindergarten-play-space-v2-measurements-layout-and-optional-elements

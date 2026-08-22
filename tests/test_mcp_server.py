@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import asyncio
 
+import yaml
+
 from lpw.mcp.server import mcp
+from lpw.mcp.resources import location_context
 
 
 def test_mcp_server_registers_one_cohesive_surface() -> None:
@@ -72,3 +75,28 @@ def test_mcp_server_registers_one_cohesive_surface() -> None:
     assert "cinema://projects/{project_id}/voice-production" in resource_templates
     assert "cinema://projects/{project_id}/sound-effects" in resource_templates
     assert "cinema://projects/{project_id}/music" in resource_templates
+
+
+def test_mcp_location_resource_resolves_versioned_candidate(context_root) -> None:
+    location = (
+        context_root
+        / "projects"
+        / "demo"
+        / "locations"
+        / "interiors"
+        / "location-v2.yaml"
+    )
+    location.parent.mkdir(parents=True, exist_ok=True)
+    location.write_text(
+        "id: kindergarten-interior-location-v2\n"
+        "type: location-visual-version-context\n"
+        "version: 2\n",
+        encoding="utf-8",
+    )
+
+    result = yaml.safe_load(
+        location_context("demo", "kindergarten-interior-location-v2")
+    )
+
+    assert result["id"] == "kindergarten-interior-location-v2"
+    assert result["version"] == 2

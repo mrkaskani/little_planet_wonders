@@ -20,6 +20,7 @@ source_authority:
   locations: locations-assets.yaml
   location_candidates:
     kindergarten_interior_v2: locations/interiors/location-v2.yaml
+    kindergarten_evening_night_v2: locations/evening_night/location-v2.yaml
     kindergarten_play_space_v2: locations/play_spaces/location-v2.yaml
     nature_park_v2: locations/nature_and_parks/location-v2.yaml
     countryside_golden_hour_v2: locations/sunset_golden_hour/location-v2.yaml

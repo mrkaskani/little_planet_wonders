@@ -848,6 +848,111 @@ location_references:
       entity-id: kindergarten-evening-night
       status: planned
       authority: locations/evening_night/location.yaml
+    - id: kindergarten-evening-night-scale-and-proportion-reference-board-v002
+      entity-id: kindergarten-evening-night
+      kind: location-design-review-scale-site-elevation-and-proportion-board
+      version: v002
+      status: candidate
+      authority: locations/evening_night/location-v2.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
+      sha256: 65fe514f6b3da280a83a67d6d0ae96d9e8773fbe7f50850ec3626ec54c026575
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-source-comparison-site-plan-elevation-and-relative-scale-board
+      starting-pose-or-state: empty-storybook-stone-cottage-at-calm-deep-night-with-technical-diagrams
+      movement-space: curved-path-entry-and-fenced-garden-layout-documented-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-and-material-geometry-redesign-conflicts-with-active-v1-kindergarten-identity
+      review-record: validation/kindergarten-evening-night-v2-review.yaml
+      package-id: kindergarten-evening-night-design-package-v002
+      replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
+      replaces: kindergarten-evening-night-reference-set-v001
+    - id: kindergarten-evening-night-transformation-1-cinematic-reference-board-v002
+      entity-id: kindergarten-evening-night
+      kind: location-design-review-cinematic-camera-material-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/evening_night/location-v2.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
+      sha256: 41d2527a78938cc964de478678a6ae1662a07bf2c08e92591e08946b7c7c0ea1
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-cinematic-source-camera-material-detail-and-night-lighting-board
+      starting-pose-or-state: empty-storybook-stone-cottage-across-cinematic-deep-night-views
+      movement-space: curved-path-porch-entry-and-garden-space-visible-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-review-only-and-distinct-evening-state-not-shown
+      review-record: validation/kindergarten-evening-night-v2-review.yaml
+      package-id: kindergarten-evening-night-design-package-v002
+      replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
+      replaces: kindergarten-evening-night-reference-set-v001
+    - id: kindergarten-evening-night-transformation-2-structured-reference-board-v002
+      entity-id: kindergarten-evening-night
+      kind: location-design-review-structured-geometry-material-zone-and-lighting-board
+      version: v002
+      status: candidate
+      authority: locations/evening_night/location-v2.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
+      sha256: 26076e2d11264c7e3e326d5f3f00cd903a4a030be9503eb6b53f0a33775d1dbd
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-geometry-site-zone-material-and-warm-cool-lighting-board
+      starting-pose-or-state: empty-cottage-site-with-structured-night-geometry-and-lighting-context
+      movement-space: path-entry-porch-and-supervised-garden-zones-documented-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-review-only-and-exact-practical-count-requires-clean-frame-lock
+      review-record: validation/kindergarten-evening-night-v2-review.yaml
+      package-id: kindergarten-evening-night-design-package-v002
+      replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
+      replaces: kindergarten-evening-night-reference-set-v001
+    - id: kindergarten-evening-night-transformation-3-technical-reference-board-v002
+      entity-id: kindergarten-evening-night
+      kind: location-design-review-titled-technical-material-light-and-value-board
+      version: v002
+      status: candidate
+      authority: locations/evening_night/location-v2.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
+      sha256: 1b5adad9effadb91cd08ca9cfd0ff18e9db9f0f28c95b9c977297d73ea7c88dc
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-camera-material-warm-cool-shadow-edge-light-and-value-board
+      starting-pose-or-state: empty-cottage-in-titled-deep-night-technical-review-states
+      movement-space: readable-path-entry-and-garden-space-shown-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-review-only-and-no-distinct-twilight-state
+      review-record: validation/kindergarten-evening-night-v2-review.yaml
+      package-id: kindergarten-evening-night-design-package-v002
+      replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
+      replaces: kindergarten-evening-night-reference-set-v001
+    - id: kindergarten-evening-night-transformation-4-polished-production-board-v002
+      entity-id: kindergarten-evening-night
+      kind: location-design-review-polished-production-geometry-material-and-night-board
+      version: v002
+      status: candidate
+      authority: locations/evening_night/location-v2.yaml
+      path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-4-polished-production-board--v002.png
+      expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-4-polished-production-board--v002.png
+      sha256: d09d337915edd8587ea712ff89d045da68df9eadbb8e6e712d2e9b56883f60a4
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
+      aspect-ratio: "4:3"
+      pixel-dimensions: 1448x1086
+      framing: twelve-panel-polished-production-camera-material-lighting-atmosphere-and-value-board
+      starting-pose-or-state: empty-storybook-cottage-in-polished-cozy-deep-night-state
+      movement-space: illuminated-path-porch-entry-and-garden-space-documented-not-applicable-as-board-conditioning
+      known-limitations: multi-panel-labeled-board-not-valid-as-generation-frame-and-v2-identity-relationship-pending
+      review-record: validation/kindergarten-evening-night-v2-review.yaml
+      package-id: kindergarten-evening-night-design-package-v002
+      replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
+      replaces: kindergarten-evening-night-reference-set-v001
     - id: kindergarten-exterior-primary-master-v001
       entity-id: kindergarten-exterior
       kind: location-primary-master-view

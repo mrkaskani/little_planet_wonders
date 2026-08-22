@@ -46,6 +46,7 @@ source_authority:
     countryside_golden_hour: ../locations/sunset_golden_hour/location.yaml
     countryside_golden_hour_v2_candidate: ../locations/sunset_golden_hour/location-v2.yaml
     kindergarten_evening_night: ../locations/evening_night/location.yaml
+    kindergarten_evening_night_v2_candidate: ../locations/evening_night/location-v2.yaml
   specialized_foundations:
     art_direction:
       source: art-direction.yaml

@@ -88,6 +88,31 @@ def test_resolves_location_by_canonical_yaml_id_when_folder_name_differs(
     assert context["location"]["id"] == "kindergarten-exterior"
 
 
+def test_resolves_versioned_location_candidate_by_exact_yaml_id(context_root) -> None:
+    location = (
+        context_root
+        / "projects"
+        / "demo"
+        / "locations"
+        / "interiors"
+        / "location-v2.yaml"
+    )
+    location.parent.mkdir(parents=True, exist_ok=True)
+    location.write_text(
+        "id: kindergarten-interior-location-v2\n"
+        "version: 2\n"
+        "status: candidate\n",
+        encoding="utf-8",
+    )
+
+    context = load_project_context(
+        "demo", location_id="kindergarten-interior-location-v2"
+    )
+
+    assert context["location"]["id"] == "kindergarten-interior-location-v2"
+    assert context["location"]["version"] == 2
+
+
 def test_loads_schema_first_prop_catalog(context_root) -> None:
     catalog = context_root / "projects" / "demo" / "assets" / "props.yaml"
     catalog.parent.mkdir(parents=True, exist_ok=True)

@@ -118,7 +118,10 @@ def load_location(project_directory: Path, location_id: str) -> dict[str, Any]:
         return direct
     locations_directory = project_directory / "locations"
     if locations_directory.is_dir():
-        for path in sorted(locations_directory.glob("*/location.yaml")):
+        # Versioned location candidates live beside the canonical location.yaml
+        # (for example, location-v2.yaml). Resolve them only by their exact YAML
+        # id so canonical folder-based lookups keep returning location.yaml.
+        for path in sorted(locations_directory.glob("*/location*.yaml")):
             candidate = load_yaml(path)
             if candidate.get("id") == location_id:
                 return candidate

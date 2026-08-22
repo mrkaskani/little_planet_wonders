@@ -68,7 +68,9 @@ scope_limits:
 
 remaining_actions:
   - review-and-approve-or-reject-complete-kindergarten-interior-v2-package
-  - recover-missing-kindergarten-exterior-and-evening-night-v2-sources
+  - recover-missing-kindergarten-exterior-v2-sources
+  - decide-whether-kindergarten-evening-night-v2-is-a-redesign-separate-location-or-rejected-package
+  - review-and-approve-or-reject-complete-kindergarten-evening-night-v2-package
   - resolve-and-approve-or-reject-all-v2-candidate-packages
   - promote-accepted-v2-packages-and-create-clean-location-generation-frames
   - close-remaining-combined-preproduction-exit-gates
