@@ -1,0 +1,224 @@
+id: single-start-reference-wan22-s2v-prompt
+type: reusable-single-image-reference-prompt
+version: 3
+prompt_version: v003
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  purpose: create-exactly-one-valid-start-reference-image-per-wan-s2v-segment
+  target_workflow: wan2.2-s2v-14b
+  output_image_count: 1
+  created_on: "2026-08-29"
+  requested_by: project-owner
+
+source_authority:
+  wan_2_2_contract: ../../wan22-preproduction.yaml
+  episode: ../../episodes/episode-001/episode.yaml
+  reference_registry: ../../references.yaml
+  character_continuity: ../../continuity/character-states.yaml
+  location_continuity: ../../continuity/location-states.yaml
+  camera_language: ../../cinematography/camera-language.yaml
+  composition_rules: ../../cinematography/composition-rules.yaml
+  lighting: ../../visual_style/lighting.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+
+single_image_architecture:
+  direct_wan_image_input_count: 1
+  multiple_direct_reference_images: forbidden
+  character_and_location_reference_boards_role: upstream-image-creation-guidance-only
+  front-and-side-profile-pair-as-direct-input: forbidden
+  output_role: one-coherent-clean-segment-start-image
+
+template_variables:
+  required:
+    CHARACTER_REFERENCE:
+      type: approved-image-list-for-upstream-composition-only
+    LOCATION_REFERENCE:
+      type: approved-image-for-upstream-composition-only
+    CHARACTER:
+      type: text
+    LOCATION:
+      type: text
+    START_STATE:
+      type: text
+    ACTION_SPACE:
+      type: text
+    STYLE:
+      type: text
+    CAMERA:
+      type: text
+    LIGHTING:
+      type: text
+    MOOD:
+      type: text
+  optional:
+    SEGMENT_ID:
+      type: text
+      default: segment-unknown
+    REFERENCE_TIMESTAMP:
+      type: number
+      default: 0
+    ORIENTATION:
+      type: enum
+      allowed: [landscape, square, vertical]
+      default: landscape
+    OUTPUT_WIDTH:
+      type: integer
+      default: 832
+    OUTPUT_HEIGHT:
+      type: integer
+      default: 480
+
+dimension_contract:
+  divisible_by: 16
+  validation:
+    width_mod_16: 0
+    height_mod_16: 0
+  approved_canvases:
+    landscape_primary: {width: 832, height: 480, aspect_ratio: "26:15"}
+    square_balanced: {width: 640, height: 640, aspect_ratio: "1:1"}
+    square_low_vram: {width: 480, height: 480, aspect_ratio: "1:1"}
+    vertical: {width: 480, height: 832, aspect_ratio: "15:26"}
+  clarification: 832x480-is-landscape
+  comfyui_resize_node: Wan-Video-Image-Resize-to-closest
+  aspect_ratio_rules:
+    - output-canvas-ratio-must-match-the-intended-wan-generation-canvas
+    - never-force-a-landscape-reference-into-a-square-or-vertical-canvas
+    - preserve-character-proportions-without-stretching
+    - crop-only-when-approved-and-identity-safe
+
+composition_contract:
+  movement_buffer:
+    required: true
+    rule: leave-clean-background-space-around-all-moving-body-parts
+  talking_head_buffer:
+    required: true
+    protect:
+      - top-of-head-or-hair
+      - chin-and-lower-jaw
+      - left-and-right-face-contours
+      - shoulders-or-upper-body-gesture-area
+    minimum_visual_rule: no-protected-feature-touches-the-frame-edge
+  facial_feature_visibility:
+    required:
+      - both-eyes-readable-when-camera-angle-shows-both
+      - mouth-unobscured
+      - jawline-readable
+      - facial-plane-not-lost-in-heavy-shadow
+    forbidden:
+      - mask-over-speaking-features
+      - prop-covering-mouth
+      - extreme-profile-that-hides-lip-shape
+      - crushed-black-shadow-over-eyes-mouth-or-jaw
+
+positive_prompt_fragments:
+  - create-exactly-one-clean-coherent-start-reference-image
+  - preserve-approved-character-identity-face-eyes-species-shape-and-proportions
+  - preserve-approved-location-architecture-layout-lighting-and-materials
+  - match-the-selected-output-canvas-without-stretching
+  - keep-width-and-height-divisible-by-16
+  - leave-natural-background-buffer-around-head-chin-face-and-action-space
+  - keep-mouth-jawline-and-eyes-clear-readable-and-unobscured
+  - show-correct-ground-contact-scale-perspective-shadows-and-light-direction
+  - use-a-plausible-neutral-start-pose-for-the-requested-motion
+  - preserve-safe-space-for-audio-driven-lip-head-and-body-motion
+
+negative_prompt_fragments:
+  - collage
+  - contact-sheet
+  - split-screen
+  - multiple-frames
+  - multiple-direct-reference-images
+  - front-and-side-profile-composite
+  - character-sheet
+  - turnaround-sheet
+  - text
+  - timestamp
+  - labels
+  - logo
+  - watermark
+  - stretched-subject
+  - mismatched-aspect-ratio
+  - forced-square-crop-of-landscape-composition
+  - identity-critical-features-cropped-out
+  - head-touching-frame-edge
+  - hair-touching-frame-edge
+  - chin-touching-frame-edge
+  - mouth-cropped-or-obscured
+  - jawline-cropped-or-obscured
+  - eyes-cropped-obscured-or-lost-in-shadow
+  - mask-over-mouth
+  - extreme-speaking-angle
+  - tight-close-up-without-motion-buffer
+  - malformed-anatomy
+  - duplicate-limbs
+  - floating-feet-or-paws
+  - incorrect-ground-contact
+  - character-identity-drift
+  - altered-face-or-eye-design
+  - location-geometry-change
+  - lighting-flicker
+  - oversaturated-or-hyper-contrasted-first-frame
+
+embedded_positive_prompt_template: |-
+  Create exactly one clean, coherent start reference image for Wan 2.2 S2V
+  [SEGMENT_ID] at [REFERENCE_TIMESTAMP] seconds. This must be a single standalone
+  image, never a board, collage, sequence, contact sheet, or multi-view composite.
+
+  Use the approved [CHARACTER_REFERENCE] and [LOCATION_REFERENCE] only to compose
+  this one unified scene. Preserve [CHARACTER] identity, face, eye design, species
+  shape, body proportions, colors, materials, and approved appearance. Preserve
+  [LOCATION] architecture, spatial layout, fixed objects, perspective, lighting,
+  and visual style.
+
+  Start state: [START_STATE]
+  Required movement space: [ACTION_SPACE]
+  Style: [STYLE]
+  Camera and framing: [CAMERA]
+  Lighting: [LIGHTING]
+  Mood: [MOOD]
+
+  Output one [ORIENTATION] image at [OUTPUT_WIDTH]x[OUTPUT_HEIGHT]. Both dimensions
+  must be divisible by 16, and the image aspect ratio must match the Wan generation
+  canvas. Preserve proportions without stretching. Leave natural background space
+  around the head, chin, facial contours, and moving body parts. Keep the mouth,
+  jawline, and eyes clearly readable and unobscured. Show correct scale, perspective,
+  ground contact, shadows, and light direction. Use a plausible start pose that gives
+  Wan enough clean space to animate speech, head motion, facial movement, and the
+  requested action.
+
+embedded_negative_prompt: |-
+  collage, contact sheet, split screen, multiple images, multiple frames, multi-view
+  composite, character sheet, turnaround sheet, front and side profiles combined,
+  text, timestamp, labels, logo, watermark, stretched subject, mismatched aspect
+  ratio, forced square crop, identity-critical crop, head touching frame edge, hair
+  touching frame edge, chin touching frame edge, mouth cropped or obscured, jawline
+  cropped or obscured, eyes cropped or hidden in shadow, mask over mouth, extreme
+  speaking angle, tight close-up without motion buffer, malformed anatomy, duplicate
+  limbs, floating feet or paws, incorrect ground contact, identity drift, altered
+  face, altered eyes, location geometry change, lighting flicker, oversaturation,
+  hyper-contrast, glitched first-frame appearance
+
+reference_image_validation:
+  reject_unless_all_pass:
+    - output-is-exactly-one-image
+    - width-and-height-are-divisible-by-16
+    - reference-and-generation-canvas-aspect-ratios-match
+    - no-stretching-or-unapproved-crop
+    - subject-has-dead-space-for-audio-driven-motion
+    - mouth-jawline-and-eyes-are-readable
+    - identity-location-anatomy-ground-contact-and-lighting-pass
+    - source-path-version-hash-and-approval-status-are-recorded
+
+video_generation_handoff:
+  frame_count: 81
+  frame_rate: 16
+  standard_sampling: {steps: 20, cfg: 6.0, sampler: unipc, scheduler: simple}
+  lightning_sampling: {steps: 5, cfg: 1.0, sampler: unipc, scheduler: simple}
+  lightning_steps_allowed: [4, 5]
+  scheduler_allowed: [simple, euler]
+  vae_burn_fix:
+    add_sacrificial_reference_latent_at_index_zero: true
+    discard_first_generated_image_with_image-from-batch: true
+    validate_audio_picture_alignment_after_discard: true

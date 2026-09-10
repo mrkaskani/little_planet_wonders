@@ -11,6 +11,45 @@ metadata:
   evidence: direct-confirmation-in-current-codex-task
   recorded_by: codex
 
+latest_approval_event:
+  approval_date: 2026-08-27
+  reviewer: project-owner
+  evidence: direct-confirmation-in-current-codex-task
+  decision: approve-and-promote-all-registered-character-and-location-v2-design-packages
+
+canonical_visual_versions:
+  characters:
+    riri:
+      version: v002
+      package_id: riri-design-package-v002
+      authority: characters/riri/character-v2.yaml
+    yoyo:
+      version: v002
+      package_id: yoyo-design-package-v002
+      authority: characters/yoyo/character-v2.yaml
+  locations:
+    kindergarten-interior:
+      version: v002
+      package_id: kindergarten-interior-design-package-v002
+      authority: locations/interiors/location-v2.yaml
+    kindergarten-play-space:
+      version: v002
+      package_id: kindergarten-play-space-design-package-v002
+      authority: locations/play_spaces/location-v2.yaml
+    nature-park:
+      version: v002
+      package_id: nature-park-design-package-v002
+      authority: locations/nature_and_parks/location-v2.yaml
+    countryside-golden-hour:
+      version: v002
+      package_id: countryside-golden-hour-design-package-v002
+      authority: locations/sunset_golden_hour/location-v2.yaml
+    kindergarten-evening-night:
+      version: v002
+      package_id: kindergarten-evening-night-design-package-v002
+      authority: locations/evening_night/location-v2.yaml
+      taxonomy_decision: replacement-redesign-under-existing-location-id
+
 approved_visual_assets:
   character-identity-sheets:
     - riri-identity-sheet-v001
@@ -61,17 +100,17 @@ approved_audio_identity:
 
 scope_limits:
   design-sheets-remain-review-only: true
+  approved-v2-design-boards-allowed-for-manual-reference-composition: true
+  approved-v2-design-boards-allowed-for-direct-s2v-conditioning: false
+  clean-v2-single-frame-generation-references-approved: false
   voice-files-remain-cloning-references-not-final-s2v-dialogue: true
   secondary-and-reverse-location-views-approved: false
   production-shots-or-generated-video-approved: false
   final-s2v-dialogue-approved: false
 
 remaining_actions:
-  - review-and-approve-or-reject-complete-kindergarten-interior-v2-package
   - recover-missing-kindergarten-exterior-v2-sources
-  - decide-whether-kindergarten-evening-night-v2-is-a-redesign-separate-location-or-rejected-package
-  - review-and-approve-or-reject-complete-kindergarten-evening-night-v2-package
-  - resolve-and-approve-or-reject-all-v2-candidate-packages
-  - promote-accepted-v2-packages-and-create-clean-location-generation-frames
+  - reconcile-explicitly-disputed-play-space-and-nature-park-fields
+  - create-and-approve-clean-v2-character-and-location-generation-frames
   - close-remaining-combined-preproduction-exit-gates
   - rerun-strict-validation

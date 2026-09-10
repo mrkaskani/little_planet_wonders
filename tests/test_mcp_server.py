@@ -5,7 +5,7 @@ import asyncio
 import yaml
 
 from lpw.mcp.server import mcp
-from lpw.mcp.resources import location_context
+from lpw.mcp.resources import episode_context, location_context
 
 
 def test_mcp_server_registers_one_cohesive_surface() -> None:
@@ -23,9 +23,14 @@ def test_mcp_server_registers_one_cohesive_surface() -> None:
 
     assert len(tool_names) == len(set(tool_names))
     assert "compile_cinematic_shot" in tool_names
+    assert "inspect_episode_context" in tool_names
     assert "compile_scene_context" in tool_names
     assert "build_scene_generation_plan" in tool_names
     assert "plan_scene_production" in tool_names
+    assert "plan_production_restoration" in tool_names
+    assert "pipeline_system_status" in tool_names
+    assert "validate_local_pipeline" in tool_names
+    assert "run_production_preflight" in tool_names
     assert "create_render_attempt" in tool_names
     assert "validate_render_attempt" in tool_names
     assert "review_render_attempt" in tool_names
@@ -51,10 +56,17 @@ def test_mcp_server_registers_one_cohesive_surface() -> None:
     assert "compile_music_cue_sheet" in tool_names
     assert "validate_edit_plan" in tool_names
     assert "cinema://projects/{project_id}" in resource_templates
+    assert "cinema://projects/{project_id}/episodes/{episode_id}" in resource_templates
     assert "cinema://studio/editing-models" in resource_uris
     assert "cinema://studio/wan22" in resource_uris
+    assert "cinema://pipeline/models" in resource_uris
+    assert "cinema://pipeline/environments/{environment}" in resource_templates
     assert "cinema://projects/{project_id}/audio" in resource_templates
     assert "cinema://projects/{project_id}/post-editing" in resource_templates
+    assert (
+        "cinema://projects/{project_id}/production-restoration"
+        in resource_templates
+    )
     assert "cinema://projects/{project_id}/export" in resource_templates
     assert "cinema://projects/{project_id}/continuity" in resource_templates
     assert (
@@ -100,3 +112,46 @@ def test_mcp_location_resource_resolves_versioned_candidate(context_root) -> Non
 
     assert result["id"] == "kindergarten-interior-location-v2"
     assert result["version"] == 2
+
+
+def test_mcp_episode_resource_returns_resolved_character_emotion(context_root) -> None:
+    project = context_root / "projects" / "demo"
+    (project / "characters" / "riri" / "character.yaml").write_text(
+        "id: riri\n"
+        "identity:\n  name: Riri\n"
+        "expression_library:\n"
+        "  happy:\n"
+        "    eyes: bright-and-soft\n"
+        "    mouth: controlled-smile\n",
+        encoding="utf-8",
+    )
+    (project / "characters" / "acting-style.yaml").write_text(
+        "intensity_scale:\n  level_2:\n    name: clear\n"
+        "emotion_contracts:\n"
+        "  happiness:\n    maximum: clear\n"
+        "character_performance_signatures:\n"
+        "  riri:\n    emotional_baseline: warm\n",
+        encoding="utf-8",
+    )
+    episode = project / "episodes" / "episode-001" / "episode.yaml"
+    episode.parent.mkdir(parents=True, exist_ok=True)
+    episode.write_text(
+        "id: episode-001\n"
+        "type: episode-context\n"
+        "version: 1\n"
+        "location_id: kindergarten_garden\n"
+        "characters:\n"
+        "  - id: riri\n"
+        "    emotion:\n"
+        "      id: happy\n"
+        "      intensity: level_2\n"
+        "      contract: happiness\n",
+        encoding="utf-8",
+    )
+
+    result = yaml.safe_load(episode_context("demo", "episode-001"))
+
+    assert result["episode"]["id"] == "episode-001"
+    assert result["characters"][0]["character"]["identity"]["name"] == "Riri"
+    assert result["characters"][0]["resolved_emotion"]["id"] == "happy"
+    assert result["location"]["id"] == "kindergarten_garden"

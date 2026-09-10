@@ -1,0 +1,201 @@
+id: episode-001-moonlit-garden-greeting-wan22-s2v-fp8-480p-v002
+type: wan22-s2v-long-audio-continuation-job
+version: 2
+status: selected-ready-for-rtx4090-fp8-runtime-validation
+
+scene:
+  project_id: riri-yoyo
+  episode_id: episode-001
+  scene_id: moonlit-garden-greeting
+  source_duration_seconds: 12
+  conversation_source: ../../episodes/episode-001/conversation-v001.json
+  runtime_profile: ../../wan22-s2v-runtime-profiles.yaml#rtx4090_fp8_24gb_vram_32gb_ram
+
+execution_contract:
+  mode: one-long-clean-audio-with-native-internal-continuation-windows
+  rationale: maximize-short-term-motion-continuity-on-the-selected-rtx4090
+  internal_windows:
+    - {window_id: window-001, generated_seconds: "[0,5]", retained_seconds: "[0,5]"}
+    - {window_id: window-002, generated_seconds: "[5,10]", retained_seconds: "[5,10]"}
+    - {window_id: window-003, generated_seconds: "[10,15]", retained_seconds: "[10,12]"}
+  generated_duration_seconds: 15
+  final_duration_seconds: 12
+  technical_timeline_state_range_inclusive: [0, 192]
+  technical_timeline_state_count: 193
+  final_encoded_frame_range_inclusive: [0, 191]
+  final_encoded_frame_count: 192
+  boundary_rule: >-
+    Preserve the reference latent and the final 73 motion frames across
+    internal boundaries. Do not independently concatenate three complete
+    81-frame outputs with duplicated boundary frames.
+  checkpoint_rule: >-
+    Save diffusion latents and the continuation state after every internal
+    window, write completed frames to disk, and release decoded frames before
+    processing the next window.
+
+model:
+  family: wan2.2-s2v-14b
+  source: Wan-AI/Wan2.2-S2V-14B
+  checkpoint_format: official-sharded-safetensors-and-component-files
+  execution_backend: diffsynth-studio-pinned-direct-python
+  transformer_weight_and_compute_dtype: float8_e4m3fn
+  transformer_output_activation_dtype: float16
+  audio_encoder_and_vae_compute_dtype: float16
+  disk_backed_layer_loading: true
+  hardware: nvidia-rtx-4090-24gb-vram-32gb-system-ram
+
+inputs:
+  reference_image:
+    path: >-
+      runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-001--000s--wan-v006.png
+    dimensions: 832x480
+    timestamp_seconds: 0
+    approval_status: approved
+    exactly_one_direct_s2v_reference_image: true
+  conditioning_audio:
+    path: >-
+      runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v001/episode-001--moonlit-garden-greeting--clean-conversation--000s-012s--v001.wav
+    duration_seconds: 12
+    format: 48000-hz-24-bit-mono-pcm-wav
+    clean_speech_only: true
+    excluded: [music, ambience, foley, sound-effects, reverb, combined-final-mix]
+    locked_dialogue_timing:
+      - {speaker: riri, transcript: "Hi, Yoyo! Look at the warm light.", seconds: [0.8, 4.08]}
+      - {speaker: yoyo, transcript: "Is that our garden light?", seconds: [4.75, 6.59]}
+      - {speaker: riri, transcript: "Yes. It helps us see the path.", seconds: [7.1, 10.78]}
+
+video:
+  width: 832
+  height: 480
+  resolution_class: 480p-landscape
+  aspect_ratio: "16:9"
+  divisible_by: 16
+  fps: 16
+  infer_frames_per_window: 80
+  logical_frames_per_five_seconds: 81
+  start_from_reference: true
+
+sampling:
+  steps: 20
+  solver: unipc
+  shift: 3.0
+  guide_scale: 5.0
+  base_seed: 42001
+  seed_progression: base-seed-plus-internal-window-index
+
+memory:
+  sequential_component_loading: true
+  text_encoder_device: cpu
+  unload_text_encoder_after_encoding: true
+  audio_encoder_device: cpu
+  attention: flash-attention-2-with-pytorch-sdpa-fallback
+  tiled_vae_decode: true
+  vae_spatial_tile_pixels: 256
+  vae_tile_overlap_pixels: 32
+  decoded_frames_to_cpu: true
+  save_latents_before_vae: true
+  stream_completed_windows_to_disk: true
+  retain_all_decoded_windows_in_ram: false
+  retained_motion_frames: 73
+
+positive_prompt: |-
+  Polished cinematic preschool storybook animation in the approved kindergarten
+  cottage garden at calm blue night.
+
+  Preserve Riri and Yoyo's exact approved version-two identities. Riri is the
+  same small friendly dog with the identical facial shape, eyes, muzzle, ears,
+  markings, body proportions, colors, and clothing. Yoyo is the same small
+  friendly penguin with the identical head shape, eyes, beak, markings, body
+  proportions, colors, and clothing.
+
+  Preserve the exact approved evening garden location: the stone cottage,
+  steep blue-gray roof, arched entrance, curved flagstone path, fence, trees,
+  flowers, warm porch light, and cool moonlit environment. Keep character
+  scale, ground contact, screen direction, architecture, background geometry,
+  lighting direction, shadows, materials, and color treatment stable.
+
+  Begin with a calm medium-wide two-character composition. Riri stands naturally
+  beside Yoyo on the path. Both characters have sufficient space around their
+  heads and bodies for natural movement. Their eyes, mouths, muzzle, beak, and
+  jawlines remain clearly visible.
+
+  From 0.0 to 0.8 seconds, both characters settle naturally with subtle breathing
+  and blinking. From 0.8 to 4.08 seconds, Riri warmly says, "Hi, Yoyo! Look at
+  the warm light." Only Riri articulates the speech. Riri gradually turns her
+  eyes and muzzle toward the warm porch light and makes one small, gentle,
+  readable paw gesture. Yoyo listens with a softly closed beak and stable feet.
+
+  From 4.08 to 4.75 seconds, both characters pause naturally. Riri's mouth rests
+  closed. Yoyo prepares to respond without sudden body movement.
+
+  From 4.75 to 6.59 seconds, Yoyo asks, "Is that our garden light?" Only Yoyo's
+  beak moves in accurate synchronization with the speech. Yoyo initially turns
+  slightly toward Riri, then naturally returns his head and gaze toward the warm
+  light. Riri listens with a closed resting mouth.
+
+  From 6.59 to 7.1 seconds, hold a natural conversational pause. Both mouths are
+  closed. Maintain gentle breathing and eye behavior.
+
+  From 7.1 to 10.78 seconds, Riri calmly answers, "Yes. It helps us see the
+  path." Only Riri articulates this sentence. Yoyo remains a closed-beak,
+  attentive listener looking toward the warm light.
+
+  At exactly 8 seconds, gently bring the camera's visual emphasis onto Yoyo's
+  penguin face. Show Yoyo looking toward the warm light with a soft expression
+  of curiosity and understanding. Riri's voice may continue, but Yoyo must not
+  appear to be speaking. Keep the camera movement smooth and preserve spatial
+  direction.
+
+  At 10 seconds, transition the camera emphasis toward Riri's dog face. Both of
+  Riri's front paws must already be fully on the ground at 10 seconds and remain
+  firmly grounded. Riri completes the final words with restrained, accurate
+  mouth motion, then closes her mouth into a soft reassuring smile.
+
+  From 10.78 to 12 seconds, hold the Riri-focused closing composition. Riri's
+  front paws remain grounded. Yoyo remains a stable closed-beak listener. Finish
+  with gentle breathing, one natural blink, and a calm storybook-night mood.
+
+  Maintain continuous motion between every internal five-second Wan window.
+  Carry head direction, gaze, facial expression, body pose, gesture trajectory,
+  camera movement, and background state naturally across the 5-second and
+  10-second boundaries. Use restrained natural acting and stable temporal
+  coherence.
+
+negative_prompt: |-
+  identity drift, altered face, altered muzzle, altered beak, changed eyes,
+  changed markings, changed colors, changed clothing, changed body proportions,
+  duplicate character, extra character, missing character, merged characters,
+  species change, character scale change, extra limbs, missing limbs, deformed
+  paws, deformed flippers, floating feet, floating paws, foot sliding, ground
+  sliding, paw not touching ground after 10 seconds, incorrect anatomy, warped
+  face, melted features, asymmetrical eyes, lip jitter, jaw distortion, unstable
+  mouth, frozen speaking mouth, listener lip-sync, both characters speaking,
+  Yoyo speaking during Riri's dialogue, Riri speaking during Yoyo's dialogue,
+  music-driven mouth movement, random mouth movement, excessive gesture,
+  frantic movement, sudden pose change, sudden head snap, camera shake, abrupt
+  unmotivated camera jump, inconsistent lens, inconsistent framing, background
+  warping, changing cottage geometry, changing path geometry, moving fence,
+  random objects, disappearing objects, lighting flicker, exposure pumping,
+  changing time of day, harsh shadows, oversaturation, VAE burn, temporal
+  flicker, motion discontinuity, blurry face, obscured eyes, obscured mouth,
+  tight crop touching hair ears beak muzzle or chin, text, caption, subtitle,
+  logo, watermark, collage, split screen
+
+assembly:
+  trim_generated_video_to_seconds: 12
+  technical_timeline_state_range_inclusive: [0, 192]
+  retain_encoded_frame_range_inclusive: [0, 191]
+  expected_final_encoded_frames: 192
+  final_audio_authority: >-
+    runtime/audio/riri-yoyo/episodes/episode-001/mixes/v001/episode-001_moonlit-garden-greeting_full-audio-mix_final.wav
+  replace_conditioning_audio_with_final_mix: true
+  add_music_ambience_and_sfx_only_after_video_generation: true
+  review_requirements:
+    - exact-active-speaker-mouth-motion
+    - yoyo-head-returns-toward-warm-light
+    - yoyo-face-camera-emphasis-at-eight-seconds
+    - riri-face-camera-emphasis-from-ten-through-twelve-seconds
+    - riri-front-paws-grounded-from-ten-through-twelve-seconds
+    - no-identity-location-lighting-or-scale-drift
+    - no-visible-five-or-ten-second-motion-discontinuity
+    - no-vae-burn-or-tile-seams

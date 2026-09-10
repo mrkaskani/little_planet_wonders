@@ -62,6 +62,27 @@ def test_resolver_rejects_cycles_latest_and_immutable_changes(tmp_path: Path) ->
         resolver.resolve("cinema://projects/c@1")
 
 
+def test_resolver_supports_project_episode_paths(tmp_path: Path) -> None:
+    source = tmp_path / "context"
+    state = tmp_path / "runtime"
+    _write(
+        source / "projects" / "demo" / "episodes" / "episode-001" / "episode.yaml",
+        "id: episode-001\n"
+        "type: episode-context\n"
+        "version: 1\n"
+        "characters:\n"
+        "  - id: riri\n"
+        "    emotion: {id: happy, intensity: level_2}\n",
+    )
+
+    result = ContextChainResolver(source, state).resolve(
+        "cinema://projects/demo/episodes/episode-001@1"
+    )
+
+    assert result.context["id"] == "episode-001"
+    assert result.context["characters"][0]["emotion"]["id"] == "happy"
+
+
 def test_extension_requires_approved_real_artifacts_before_next_segment(
     tmp_path: Path,
 ) -> None:

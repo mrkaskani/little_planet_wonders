@@ -1,0 +1,56 @@
+id: episode-002-scene-start-reference-generation
+type: image-reference-generation-context
+version: 1
+status: first-frame-selected
+
+purpose: >-
+  Preserve one clean 16:9 episode start frame for Wan 2.2 S2V. Subsequent jobs
+  continue from the preceding approved job's final frame.
+
+input_design_references:
+  riri: ../../../assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
+  yoyo: ../../../assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
+  location: ../../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
+
+output_contract:
+  width: 832
+  height: 480
+  divisible_by: 16
+  aspect_ratio: "16:9"
+  episode_image_count: 1
+  role: episode-first-conditioning-frame-only
+  approval_required_before_wan: false
+
+embedded_prompt: |-
+  Combine the supplied Riri character reference, Yoyo character reference, and
+  kindergarten play-space location reference into one coherent 16:9 scene.
+  Preserve both characters' exact face, eyes, fur or feather markings, body
+  proportions, material appearance, and lack of clothing. Preserve the room's
+  architecture, layout, pink palette, window, teal curtains, round rug, wooden
+  shelves, cushions, playhouse, daylight direction, perspective, and visual
+  style. Integrate the characters with correct scale, ground contact, shadows,
+  and lighting. Compose a technical first-frame reference for Wan 2.2 S2V with
+  clear unobscured eyes, mouth, jawline, and beak, plus safe empty background
+  around heads and moving limbs. Keep all important subjects inside the frame.
+  Output one clean image, never a collage, contact sheet, turnaround, captioned
+  board, or multi-panel sequence. The scene-specific action, camera, prop state,
+  and performance come from episode.yaml.
+
+embedded_negative_prompt: |-
+  collage, contact sheet, split screen, multiple panels, labels, text, captions,
+  logo, watermark, border, duplicate character, extra character, wrong species,
+  identity drift, changed eyes, changed markings, clothes, extra limb, fused
+  limb, malformed paw, malformed flipper, malformed beak, broken mouth, cropped
+  head, cropped feet, tight close-up, insufficient motion buffer, floating feet,
+  wrong scale, wrong perspective, inconsistent shadow, geometry drift, random
+  object, duplicate shape, malformed circle, malformed square, lighting flicker,
+  oversaturation, crushed contrast, VAE burn, temporal-reference montage
+
+generated_outputs:
+  - scene: scene-01-walking
+    path: ../reference-images/v001/scene-01-walking.png
+    sha256: 0efa5ef57e5aac5e6a876bd2b6fa11374d2cf29662bf7290ed12a807e7a925e8
+    composition: start-beside-window-cross-wood-floor-reach-carpet
+    source_execution: exec-76bbd47f-9198-4901-86e5-e958e48f58a5
+    source_sha256: bdc193156a9bd89c4e300c70aa8c532a5087363325e4ca4707a526a0f81e2910
+    approval: human-selected

@@ -1,0 +1,101 @@
+metadata:
+  id: sharing-shapes-song-v007-fresh-candidates
+  version: 7
+  status: human-selection-finalized
+  project: riri-yoyo
+  revision_reason: retain only the human-selected full-song generation
+
+generator:
+  engine: ace-step-1.5
+  model: acestep-v15-turbo
+  mode: text2music
+  reference_audio: none
+  source_audio: none
+  voice_cloning: false
+  thinking: false
+  thinking_disabled_reason: local hardware only supports the absent 0.6B planner; no model download authorized
+  inference_steps: 8
+  candidate_seeds: [950053]
+
+music:
+  bpm: 95
+  time_signature: 4/4
+  key_scale: C Major
+  duration_seconds: 34
+  vocal_language: en
+  genre: upbeat nursery rhyme, acoustic folk pop for toddlers
+  instruments:
+    - acoustic guitar
+    - bright xylophone
+    - soft hand percussion
+    - cheerful bass
+  mood: happy, playful, educational, warm
+
+vocals:
+  singer_count: 1
+  singer: one clear warm playful newly-generated solo singer
+  requirements:
+    - same-singer-through-every-section
+    - dry-forward-vocal-above-the-backing
+    - clear-English-diction
+    - short-simple-melody
+    - sing-every-line-exactly-once
+    - finish-the-final-word-play
+  forbidden:
+    - duet
+    - second-singer
+    - choir
+    - call-and-response
+    - voice-cloning
+    - lyric-repetition
+    - lyric-omission
+    - ad-libs
+    - long-intro
+
+prompt: >-
+  Upbeat nursery rhyme and acoustic folk pop for toddlers. One clear, warm,
+  playful solo singer performs the entire song alone. The same singer must sing
+  Verse 1, Verse 2, and the Chorus; never introduce a duet, second singer,
+  choir, response vocal, or character voice. Use a gentle bouncy walking pulse,
+  finger-strummed acoustic guitar, bright xylophone, soft hand percussion, and
+  cheerful rounded bass. Keep the arrangement sparse and quieter than the
+  centered, dry, forward lead vocal. Begin Verse 1 within two seconds. Follow
+  the explicit structure in order and sing every supplied lyric line exactly
+  once. Do not omit, truncate, repeat, paraphrase, replace, or add words. Use a
+  narrow toddler-friendly melody and slow, clearly separated English syllables.
+  Fully sing the final word "play", then allow a brief clean instrumental
+  cadence. No voice cloning, spoken dialogue, ad-libs, humming, nonsense
+  syllables, dramatic belting, shouting, or long instrumental intro.
+
+lyrics: |-
+  [Verse 1]
+  Yoyo the penguin holds a circle so round
+
+  [Verse 2]
+  Riri the puppy finds a square on the ground
+
+  [Chorus]
+  Let's put them together, they happily say
+  Sharing our shapes is the best way to play
+
+candidates:
+  - seed: 950053
+    path: assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+    status: human-selected-clearest-preferred-performance
+
+selection:
+  method:
+    - human-lyric-completeness-review-required
+    - trailing-silence-check
+    - clipping-check
+    - vocal-band-energy-check
+    - dynamic-clarity-check
+  selected_seed: 950053
+  selected_path: assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+  selection_status: human-approved-for-episode-002
+  technical_results:
+    seed_950053:
+      active_until_seconds: 31.50
+      trailing_silence_seconds: 2.50
+      clipped_sample_fraction: 0.0
+      vocal_band_energy_ratio: 0.0917

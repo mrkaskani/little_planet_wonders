@@ -1,0 +1,284 @@
+id: episode-002
+type: episode-context
+version: 1
+status: first-frame-and-audio-selected-for-wan22
+title: Sharing Shapes
+
+metadata:
+  project_id: riri-yoyo
+  audience_age: "3-6"
+  language: English
+  educational_focus:
+    - identify-a-circle
+    - identify-a-square
+    - sharing-and-cooperation
+  location_id: kindergarten-play-space
+  runtime_profile: ../../wan22-s2v-runtime-profiles.yaml#profiles.rtx4090_fp8_24gb_vram_32gb_ram
+
+source_authority:
+  characters:
+    riri: ../../characters/riri/character-v2.yaml
+    yoyo: ../../characters/yoyo/character-v2.yaml
+  location: ../../locations/play_spaces/location-v2.yaml
+  references: ../../references.yaml
+  song_context: ../../music/sharing-shapes-song-v007-fresh-candidates.yaml
+  s2v_input: ../../audios/s2v-input-spec.yaml
+  continuity: ../../continuity/initial-state.yaml
+
+audio:
+  final_mix:
+    path: ../../assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+    sha256: 549d75b4d0e4e6bb4df45985c79536ab5aee51730df4b1bc5dde3f94f366c444
+    duration_seconds: 34.0
+    sample_rate_hz: 48000
+    channels: 2
+    codec: pcm_s16le
+    authority: human-selected
+  s2v_conditioning:
+    policy: vocal-only-stem-required-for-production
+    source_mix: ../../assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+    expected_path: render/audio/sharing-shapes-v007-seed-950053--lead-vocal-only.wav
+    status: pending-vocal-isolation
+    reason: >-
+      The project S2V contract forbids feeding accompaniment to the audio
+      encoder. The selected full mix remains the final soundtrack authority,
+      while a vocal-only derivative must drive mouth motion.
+    joint_singing_rule: >-
+      During scenes 4 and 5 the same lead-vocal timing drives both visible
+      characters; the visual prompt requires synchronized ensemble singing.
+
+timing_analysis:
+  method:
+    - user-provided-story-ranges
+    - local-mlx-whisper-tiny-word-timestamps
+    - musical-phrase-and-silence-inspection
+  caveat: >-
+    Tiny Whisper did not reliably recognize Yoyo's early sung line. The
+    10.80-second cut is therefore an editorial inference from the user's
+    11-second cue. Boundaries from 16.36 seconds onward use detected word
+    onsets or offsets.
+  detected_anchors:
+    - {time_seconds: 16.36, event: riri-line-vocal-entry, confidence: medium}
+    - {time_seconds: 21.20, event: ground-word-end, confidence: medium}
+    - {time_seconds: 21.78, event: chorus-setup-entry, confidence: high}
+    - {time_seconds: 25.06, event: sharing-line-entry, confidence: high}
+    - {time_seconds: 29.46, event: play-word-end, confidence: high}
+  edit_boundaries_seconds: [0.0, 10.8, 16.36, 21.78, 25.06, 29.46, 34.0]
+  final_edit_frames_at_24fps: [0, 259, 393, 523, 601, 707, 816]
+
+continuity_contract:
+  character_screen_positions:
+    riri: screen-left
+    yoyo: screen-right
+  persistent_props:
+    circle:
+      owner_on_discovery: yoyo
+      appearance: one-sunny-yellow-flat-child-safe-foam-circle
+    square:
+      owner_on_discovery: riri
+      appearance: one-sky-blue-flat-child-safe-foam-square
+  preserve:
+    - exact-v2-riri-and-yoyo-identity-proportions-colors-and-materials
+    - warm-pink-approved-play-space-geometry-and-morning-light
+    - one-yellow-circle-and-one-blue-square-only
+    - left-right-screen-direction-unless-a-scripted-cut-says-otherwise
+    - master-song-timing-and-hash-through-all-visual-repairs
+  first_job_reference: human-selected-episode-first-frame
+  continuation_job_reference: previous-approved-job-final-frame
+  board_or-collage_as-direct-wan-reference: forbidden
+  generated_reference_status: human-selected
+
+wan22:
+  model: Wan-2.2-S2V-14B
+  profile: rtx4090_fp8_24gb_vram_32gb_ram
+  generation_canvas: {width: 832, height: 480, aspect_ratio: "16:9"}
+  fps: 16
+  maximum_job_duration_seconds: 5.0
+  five_second_frame_count: 81
+  frame_rule: 4n-plus-1
+  sampling: {steps: 20, solver: unipc, scheduler: simple, shift: 3.0, cfg: 5.0}
+  one_reference_image_per_job: true
+  start_frame_requirements:
+    - dimensions-divisible-by-16
+    - preserve-aspect-ratio-without-stretching
+    - visible-eyes-mouth-jawline-and-beak
+    - safe-empty-motion-buffer-around-heads-and-limbs
+    - no-tight-crop
+  vae_burn_mitigation:
+    sacrifice_latent_frame_at_index_zero: true
+    remove_sacrifice_frame_after-decode: true
+
+common_negative_prompt: >-
+  identity drift, species drift, altered face, altered eye color, altered fur or
+  feather pattern, changed proportions, wardrobe, clothes, duplicate Riri,
+  duplicate Yoyo, extra character, human, extra limb, missing limb, fused paw,
+  fused flipper, malformed hand, malformed beak, broken mouth, lip tearing,
+  asymmetrical eyes, crossed eyes, face obstruction, cropped head, cropped feet,
+  cropped tail, tight close-up, insufficient motion buffer, floating feet,
+  sliding feet, inconsistent shadow, geometry drift, room layout change, moving
+  shelves, moving playhouse, window change, lighting flicker, color flicker,
+  random object, duplicate shape, extra shape, circle becomes oval ring ball or
+  cushion, square becomes rectangle diamond cube or cushion, prop teleportation,
+  unreadable shape silhouette, abrupt camera jump, handheld shake, whip pan,
+  focus pumping, frame warping, temporal jitter, VAE burn, oversaturation,
+  crushed contrast, tiled seam, FramePack discontinuity, malformed frame, text,
+  subtitle, caption, logo, watermark, border, panel, collage, contact sheet
+
+scenes:
+  - id: scene-01-walking
+    order: 1
+    title: Looking for Shapes
+    time: {start_seconds: 0.0, end_seconds: 10.8, duration_seconds: 10.8}
+    audio_story: instrumental-introduction-and-walking-lead-in
+    reference_image: reference-images/v001/scene-01-walking.png
+    reference_status: human-selected-wan22-first-frame
+    camera: wide-establishing-preschool-eye-level-gentle-forward-track
+    action: >-
+      Riri and Yoyo start beside the large window, walk side by side across the
+      exposed wooden floor, and reach the near edge of the circular rug.
+    positive_prompt: >-
+      Approved V2 Riri, the plush pale-pink puppy with blue chest paw and tail
+      accents, starts on screen-left beside approved V2 Yoyo, the plush
+      black-and-white penguin with violet-blue eyes and a small gold beak, on
+      screen-right. At frame zero both full characters are together beside the
+      large teal-curtain window in the back-left of the approved warm pink
+      kindergarten play space. Neither character touches the circular rug.
+      They face diagonally from the window toward the rug across a long visible,
+      unobstructed strip of pale wooden floor. Over the shot they walk naturally
+      side by side from the window, cross the wooden floor, and arrive at the
+      near edge of the carpet. Use alternating toddler steps, soft ear and tail
+      bounce for Riri, gentle waddling body motion for Yoyo, believable foot
+      contact and window-cast shadows. The wide stable eye-level camera keeps
+      the window, entire walking lane, and carpet destination readable while
+      making a very slow forward track. Preserve the shelves, cushions and
+      teal-trim playhouse. No discovered circle or square is visible yet. Keep
+      faces, bodies, lighting, scale, perspective, and screen direction stable.
+
+  - id: scene-02-yoyo-finds-circle
+    order: 2
+    title: Yoyo Finds a Circle
+    time: {start_seconds: 10.8, end_seconds: 16.36, duration_seconds: 5.56}
+    audio_story: "Yoyo the penguin holds a circle so round"
+    reference_status: previous-approved-job-final-frame
+    camera: medium-wide-preschool-eye-level-gentle-push-toward-yoyo
+    action: >-
+      Yoyo notices the yellow circle, points to its round edge, lifts it with
+      both flippers, and proudly holds it upright while Riri watches.
+    positive_prompt: >-
+      Continue seamlessly in the same approved V2 play space. Yoyo remains
+      screen-right and discovers exactly one sunny-yellow flat foam circle on
+      the rug. As the lyric plays, Yoyo bends naturally, reaches with one
+      flipper, lifts the circle using both flippers, traces or indicates its
+      round edge, then holds it upright against the lower belly. Yoyo's beak
+      moves naturally with the sung words while eyes and beak stay unobscured.
+      Riri remains screen-left, attentive, happy, silent-looking, and physically
+      stable without false lip motion. Preserve exact identity, prop geometry,
+      floor contact, room layout, morning light, and smooth camera continuity.
+
+  - id: scene-03-riri-finds-square
+    order: 3
+    title: Riri Finds a Square
+    time: {start_seconds: 16.36, end_seconds: 21.78, duration_seconds: 5.42}
+    audio_story: "Riri the puppy finds a square on the ground"
+    reference_status: previous-approved-job-final-frame
+    camera: medium-wide-preschool-eye-level-gentle-push-toward-riri
+    action: >-
+      Riri discovers the blue square on the rug, lowers a paw, indicates its
+      sides, and picks it up while Yoyo preserves the yellow circle.
+    positive_prompt: >-
+      Continue in the same approved V2 play space with Riri screen-left and
+      Yoyo screen-right. Riri discovers exactly one sky-blue flat foam square
+      on the ground. As the lyric plays, Riri lowers one front paw to the rug,
+      points toward the square's four equal sides, then lifts it with both paws
+      and holds it upright. Her mouth moves clearly with the sung line while
+      her eyes and muzzle remain unobscured. Yoyo watches warmly and continues
+      holding the same single yellow circle without shape or identity drift.
+      Preserve stable anatomy, prop scale and colors, screen direction,
+      floor contact, warm daylight, room geometry, and smooth camera motion.
+
+  - id: scene-04-chorus-together
+    order: 4
+    title: Put Them Together
+    time: {start_seconds: 21.78, end_seconds: 25.06, duration_seconds: 3.28}
+    audio_story: "Let's put them together, they happily say"
+    performance_rule: both-riri-and-yoyo-sing-together-not-solo
+    reference_status: previous-approved-job-final-frame
+    camera: wide-symmetrical-two-shot-locked-preschool-eye-level
+    action: >-
+      Both turn slightly toward one another, sing together, and begin extending
+      their separately held shapes toward the center.
+    positive_prompt: >-
+      Wide stable two-shot in the same room. Riri on screen-left holds the same
+      blue square; Yoyo on screen-right holds the same yellow circle. BOTH
+      characters sing together in synchrony throughout “Let's put them
+      together, they happily say”; neither is a solo speaker and neither stays
+      frozen. Use clear restrained mouth and beak articulation, joyful shared
+      eye contact, small rhythmic body bounces, and gradual coordinated arm and
+      flipper movement toward the center. Keep both full bodies and both shapes
+      readable, faces unobscured, camera locked, and all identity, geometry,
+      lighting, scale, shadow, and prop details temporally consistent.
+
+  - id: scene-05-sharing-shapes
+    order: 5
+    title: Sharing Is the Best Way to Play
+    time: {start_seconds: 25.06, end_seconds: 29.46, duration_seconds: 4.4}
+    audio_story: "Sharing our shapes is the best way to play"
+    performance_rule: both-riri-and-yoyo-sing-together-not-solo
+    reference_status: previous-approved-job-final-frame
+    camera: wide-two-shot-locked-preschool-eye-level
+    action: >-
+      Both sing the exact educational line together and exchange or present
+      their shapes to each other without hiding either silhouette.
+    positive_prompt: >-
+      Continue the stable wide two-shot. Riri screen-left extends the same blue
+      square and Yoyo screen-right extends the same yellow circle toward the
+      shared center space. BOTH characters sing together in synchrony for the
+      exact lyric “Sharing our shapes is the best way to play.” Show natural,
+      modest mouth and beak motion on the same beats, warm eye contact, and a
+      clear cooperative handoff gesture. Keep the square and circle separate,
+      fully visible, geometrically stable, and never covering either face.
+      Preserve approved identities, character scale, room geometry, morning
+      lighting, shadows, screen direction, framing, and temporal continuity.
+
+  - id: scene-06-high-five
+    order: 6
+    title: Shape-Friend High Five
+    time: {start_seconds: 29.46, end_seconds: 34.0, duration_seconds: 4.54}
+    audio_story: musical-resolution-after-the-final-word
+    reference_status: previous-approved-job-final-frame
+    camera: medium-wide-two-shot-gentle-settling-push
+    action: >-
+      With the shapes placed side by side, Riri and Yoyo raise one limb each,
+      make one clean high-five, briefly hold the celebration, then relax.
+    positive_prompt: >-
+      Final joyful beat in the same approved room. The blue square and yellow
+      circle rest neatly side by side on the rug. Riri remains screen-left and
+      raises exactly one front paw; Yoyo remains screen-right and raises exactly
+      one flipper. Animate one clean approach, one gentle paw-to-flipper high-five
+      contact, a tiny happy bounce, then a calm held ending through the musical
+      cadence. Mouth and beak relax after the lyric ends; no silent chatter.
+      Preserve full bodies, limb separation, prop geometry, face identity,
+      floor contact, room layout, warm daylight, soft shadows, and stable camera.
+
+wan_jobs:
+  # Wan receives the human-selected first frame for the first job only. Every
+  # later job continues from the previous approved job's final frame.
+  - {id: s01-a, scene: scene-01-walking, start: 0.0, end: 5.0, generation_frames: 81, reference: scene-start}
+  - {id: s01-b, scene: scene-01-walking, start: 5.0, end: 10.0, generation_frames: 81, reference: previous-job-final-frame}
+  - {id: s01-c, scene: scene-01-walking, start: 10.0, end: 10.8, generation_frames: 17, trim_to_seconds: 0.8, reference: previous-job-final-frame}
+  - {id: s02-a, scene: scene-02-yoyo-finds-circle, start: 10.8, end: 15.8, generation_frames: 81, reference: previous-job-final-frame}
+  - {id: s02-b, scene: scene-02-yoyo-finds-circle, start: 15.8, end: 16.36, generation_frames: 13, trim_to_seconds: 0.56, reference: previous-job-final-frame}
+  - {id: s03-a, scene: scene-03-riri-finds-square, start: 16.36, end: 21.36, generation_frames: 81, reference: previous-job-final-frame}
+  - {id: s03-b, scene: scene-03-riri-finds-square, start: 21.36, end: 21.78, generation_frames: 9, trim_to_seconds: 0.42, reference: previous-job-final-frame}
+  - {id: s04-a, scene: scene-04-chorus-together, start: 21.78, end: 25.06, generation_frames: 57, trim_to_seconds: 3.28, reference: previous-job-final-frame}
+  - {id: s05-a, scene: scene-05-sharing-shapes, start: 25.06, end: 29.46, generation_frames: 73, trim_to_seconds: 4.4, reference: previous-job-final-frame}
+  - {id: s06-a, scene: scene-06-high-five, start: 29.46, end: 34.0, generation_frames: 77, trim_to_seconds: 4.54, reference: previous-job-final-frame}
+
+assembly:
+  job_order: [s01-a, s01-b, s01-c, s02-a, s02-b, s03-a, s03-b, s04-a, s05-a, s06-a]
+  expected_job_directory: runtime/video/riri-yoyo/episodes/episode-002/jobs
+  concat_script: ../../../../../../../scripts/video/concat_sharing_shapes_episode002.sh
+  final_video: runtime/video/riri-yoyo/episodes/episode-002/sharing-shapes-episode-002-832x480.mp4
+  final_audio_authority: ../../assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+  expected_duration_seconds: 34.0
+  output: {width: 832, height: 480, fps: 16, audio_codec: aac, video_codec: h264}

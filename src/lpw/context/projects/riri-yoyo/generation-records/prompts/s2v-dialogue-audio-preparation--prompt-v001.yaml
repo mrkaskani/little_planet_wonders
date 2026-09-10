@@ -1,0 +1,149 @@
+id: s2v-dialogue-audio-preparation-prompt
+type: reusable-s2v-dialogue-audio-prompt
+version: 1
+prompt_version: v001
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  purpose: create-clean-conversation-audio-with-s2v-safe-speech-onset
+  target_workflow: wan2.2-s2v-14b
+  created_on: "2026-08-29"
+  requested_by: project-owner
+
+source_authority:
+  s2v_input_spec: ../../audios/s2v-input-spec.yaml
+  voice_production: ../../audios/voice-production.yaml
+  audio_style: ../../audios/audio_style.yaml
+  character_voice_profile: ../../characters/{character_id}/voice-profile.yaml
+  wan_2_2_contract: ../../wan22-preproduction.yaml
+
+template_variables:
+  required:
+    CHARACTER:
+      type: text
+    VOICE_ID:
+      type: text
+    DIALOGUE:
+      type: exact-approved-text
+    EMOTION:
+      type: text
+    DELIVERY:
+      type: text
+  optional:
+    SPOKEN_DURATION_SECONDS:
+      type: number
+      default: 1.0
+    LEADING_SILENCE_SECONDS:
+      type: number
+      minimum: 0.2
+      maximum: 0.5
+      default: 0.25
+
+conversation_audio_contract:
+  speaker_count_per_asset: 1
+  exact_transcript_required: true
+  voice_identity_must_match: VOICE_ID
+  spoken_duration_example_seconds: 1.0
+  leading_silence:
+    minimum_seconds: 0.2
+    maximum_seconds: 0.5
+    default_seconds: 0.25
+    placement: before-any-breath-phoneme-or-mouth-driving-vocalization
+    creation_method: deterministic-audio-padding-after-clean-voice-generation
+    background_noise_during_buffer: forbidden
+    fade_in_during_buffer: forbidden
+  total_duration_example_seconds:
+    minimum: 1.2
+    maximum: 1.5
+  trailing_settle_seconds: 0.25
+  format: {container: wav, codec: pcm_s24le, sample_rate_hz: 48000, channels: 1}
+
+frame_count_mapping_at_16_fps:
+  rule: four-n-plus-one-covering-complete-padded-audio
+  unpadded_one_second: {frames: 17, use_for_s2v_after-padding: false}
+  padded_up_to_1_25_seconds: {frames: 21, temporal_intervals: 20}
+  padded_above_1_25_up_to_1_5_seconds: {frames: 25, temporal_intervals: 24}
+  selection_rule: >-
+    Measure the final padded WAV. Use 21 frames when its duration is at most
+    1.25 seconds; otherwise use 25 frames through 1.5 seconds. Never retain the
+    17-frame value after adding the required leading silence.
+
+positive_prompt_fragments:
+  - preserve-the-approved-character-voice-identity
+  - speak-the-exact-approved-dialogue-with-no-added-or-missing-words
+  - begin-voice-only-after-the-required-clean-leading-silence
+  - use-a-soft-natural-unclipped-first-phoneme
+  - preserve-complete-first-syllable-and-word-onset
+  - maintain-clear-mouth-readable-articulation-and-natural-phrase-timing
+  - keep-the-recording-dry-mono-clean-and-free-of-background-elements
+  - preserve-the-approved-emotion-without-changing-core-voice-identity
+
+negative_prompt_fragments:
+  - speech-starting-at-time-zero
+  - breath-or-vocalization-inside-leading-silence
+  - clipped-first-consonant
+  - missing-first-syllable
+  - swallowed-word-onset
+  - abrupt-digital-click-at-speech-onset
+  - artificial-short-fade-in
+  - long-volume-ramp
+  - background-noise
+  - room-tone-inside-required-silence
+  - music
+  - ambience
+  - sound-effects
+  - foley
+  - reverb
+  - echo
+  - delay
+  - overlapping-speakers
+  - extra-words
+  - missing-words
+  - paraphrased-dialogue
+  - voice-identity-drift
+  - robotic-timing
+  - rushed-speech
+  - clipped-samples
+  - compression-pumping
+  - denoising-artifacts
+
+embedded_positive_prompt_template: |-
+  Generate one clean mono dialogue performance for [CHARACTER] using the approved
+  voice identity [VOICE_ID]. Speak exactly: "[DIALOGUE]"
+
+  Emotion: [EMOTION]
+  Delivery: [DELIVERY]
+
+  Preserve the character's established pitch range, vocal age, timbre, accent,
+  articulation, pace, and emotional baseline. Use a soft, natural, unclipped
+  first phoneme; preserve the complete first syllable and every approved word.
+  Keep the voice dry, clean, intimate, and suitable for Wan 2.2 S2V mouth and
+  facial timing. Do not add words, reactions, breaths, music, ambience, effects,
+  reverb, or another speaker.
+
+  After generating the clean voice take, prepend exactly
+  [LEADING_SILENCE_SECONDS] seconds of clean digital silence before every breath,
+  phoneme, or vocalization. Do not use a short fade as a substitute for silence.
+  Verify that the first spoken sound begins only after the complete buffer and
+  that the first consonant and syllable remain intact.
+
+embedded_negative_prompt: |-
+  speech at time zero, breath before the silence buffer ends, vocalization during
+  silence, clipped first consonant, missing first syllable, swallowed onset,
+  onset click, artificial fade-in, long volume ramp, background noise, room tone
+  during required silence, music, ambience, sound effects, foley, reverb, echo,
+  delay, overlapping speakers, extra words, missing words, paraphrasing, voice
+  drift, robotic timing, rushed delivery, clipping, compression pumping, harsh
+  denoising artifacts
+
+audio_validation:
+  reject_unless_all_pass:
+    - leading-silence-is-between-0.2-and-0.5-seconds
+    - no-breath-phoneme-vocalization-click-or-noise-occurs-inside-leading-silence
+    - speech-onset-is-clean-and-first-syllable-is-complete
+    - exact-transcript-speaker-voice-emotion-and-pronunciation-pass
+    - output-is-48khz-24bit-lossless-mono-wav
+    - clipping-sample-count-is-zero
+    - padded-duration-and-selected-frame-count-agree
+    - audio-and-transcript-hashes-are-recorded-after-padding

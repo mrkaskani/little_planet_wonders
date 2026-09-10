@@ -1,0 +1,192 @@
+version: 1
+model_root: models
+models:
+  qwen3_vl:
+    name: Qwen3-VL-32B-Instruct
+    purpose: scene-reference-and-video-quality-analysis
+    repository: Qwen/Qwen3-VL-32B-Instruct
+    revision: 0cfaf48183f594c314753d30a4c4974bc75f3ccb
+    local_path: models/qwen3-vl-32b-instruct
+    expected_files:
+      - config.json
+      - chat_template.json
+      - generation_config.json
+      - merges.txt
+      - model-00001-of-00014.safetensors
+      - model-00002-of-00014.safetensors
+      - model-00003-of-00014.safetensors
+      - model-00004-of-00014.safetensors
+      - model-00005-of-00014.safetensors
+      - model-00006-of-00014.safetensors
+      - model-00007-of-00014.safetensors
+      - model-00008-of-00014.safetensors
+      - model-00009-of-00014.safetensors
+      - model-00010-of-00014.safetensors
+      - model-00011-of-00014.safetensors
+      - model-00012-of-00014.safetensors
+      - model-00013-of-00014.safetensors
+      - model-00014-of-00014.safetensors
+      - model.safetensors.index.json
+      - tokenizer.json
+      - tokenizer_config.json
+      - vocab.json
+      - preprocessor_config.json
+      - video_preprocessor_config.json
+    expected_size_bytes: 66726510663
+    precision: bf16
+    local_mode: required
+    production_mode: required
+    checksum: null
+
+  wan22_s2v_local_q4ks:
+    name: Wan-2.2-S2V-14B-Q4_K_S
+    purpose: local-low-cost-video-pipeline-validation
+    repository: QuantStack/Wan2.2-S2V-14B-GGUF
+    revision: f3e3bb574e18741431bc6ba84892f06286c29328
+    local_path: models/wan22-s2v-local-q4ks
+    expected_files:
+      - diffusion_models/Wan2.2-S2V-14B-Q4_K_S.gguf
+      - audio_encoders/wav2vec2_large_english_fp16.safetensors
+      - text_encoders/umt5-xxl-encoder-Q4_K_S.gguf
+      - text_encoders/umt5-tokenizer/spiece.model
+      - vae/wan_2.1_vae.safetensors
+    expected_size_bytes: 17340573928
+    precision: q4-k-s
+    local_mode: required
+    production_mode: forbidden
+    checksum: scripts/models/wan22_s2v_q4ks_manifest.tsv
+
+  wan22_s2v_production_bf16:
+    name: Wan-2.2-S2V-14B-BF16
+    purpose: production-video-generation
+    repository: Wan-AI/Wan2.2-S2V-14B
+    revision: dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b
+    local_path: models/wan22-s2v-production-bf16
+    expected_files:
+      - config.json
+      - configuration.json
+      - Wan2.1_VAE.pth
+      - diffusion_pytorch_model-00001-of-00004.safetensors
+      - diffusion_pytorch_model-00002-of-00004.safetensors
+      - diffusion_pytorch_model-00003-of-00004.safetensors
+      - diffusion_pytorch_model-00004-of-00004.safetensors
+      - diffusion_pytorch_model.safetensors.index.json
+      - models_t5_umt5-xxl-enc-bf16.pth
+      - google/umt5-xxl/spiece.model
+      - google/umt5-xxl/special_tokens_map.json
+      - google/umt5-xxl/tokenizer.json
+      - google/umt5-xxl/tokenizer_config.json
+      - wav2vec2-large-xlsr-53-english/model.safetensors
+      - wav2vec2-large-xlsr-53-english/config.json
+      - wav2vec2-large-xlsr-53-english/configuration.json
+      - wav2vec2-large-xlsr-53-english/preprocessor_config.json
+      - wav2vec2-large-xlsr-53-english/special_tokens_map.json
+      - wav2vec2-large-xlsr-53-english/vocab.json
+    expected_size_bytes: 45744685316
+    precision: bf16
+    local_mode: optional
+    production_mode: required
+    checksum: null
+
+  seedvr2_7b:
+    name: SeedVR2-7B
+    purpose: video-aware-restoration-and-1080p-upscale
+    repository: ByteDance-Seed/SeedVR2-7B
+    revision: eb0c4281d41ba3767d4f14370f0e37e9e9180c16
+    local_path: models/seedvr2-7b
+    expected_files:
+      - ema_vae.pth
+      - seedvr2_ema_7b.pth
+      - seedvr2_ema_7b_sharp.pth
+    expected_size_bytes: 66920241114
+    precision: fp16
+    local_mode: required
+    production_mode: required
+    checksum: null
+
+  qwen3_tts_base:
+    name: Qwen3-TTS-12Hz-1.7B-Base
+    purpose: character-voice-generation
+    repository: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+    revision: null
+    local_path: models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-Base
+    expected_files:
+      - config.json
+      - model.safetensors
+      - speech_tokenizer/config.json
+      - speech_tokenizer/model.safetensors
+    expected_size_bytes: null
+    precision: bf16
+    local_mode: required
+    production_mode: required
+    checksum: null
+
+  ace_step_music:
+    name: ACE-Step-1.5
+    purpose: music-generation-and-editing
+    repository: null
+    revision: null
+    local_path: /Users/oldowl/AI-Audio/ace-step/checkpoints
+    expected_files:
+      - acestep-v15-turbo/model.safetensors
+      - acestep-5Hz-lm-1.7B/model.safetensors
+      - vae/diffusion_pytorch_model.safetensors
+      - Qwen3-Embedding-0.6B/model.safetensors
+    expected_size_bytes: null
+    precision: mixed
+    local_mode: required
+    production_mode: required
+    checksum: null
+
+  codeformer:
+    name: CodeFormer
+    purpose: conditional-bounded-face-repair
+    repository: sczhou/CodeFormer
+    revision: v0.1.0
+    local_path: models/codeformer
+    expected_files:
+      - codeformer.pth
+      - facelib/detection_Resnet50_Final.pth
+      - facelib/parsing_parsenet.pth
+      - facelib/RealESRGAN_x2plus.pth
+    expected_size_bytes: null
+    precision: fp16
+    local_mode: optional
+    production_mode: required
+    checksum: null
+
+  latentsync_1_6:
+    name: LatentSync-1.6
+    purpose: conditional-speaking-lip-synchronization
+    repository: ByteDance/LatentSync-1.6
+    revision: c42c7e6c8e9c213626389fa7d9a3c444b8536353
+    local_path: models/latentsync-1.6
+    expected_files:
+      - config.json
+      - latentsync_unet.pt
+      - stable_syncnet.pt
+      - whisper/tiny.pt
+      - auxiliary/i3d_torchscript.pt
+      - auxiliary/koniq_pretrained.pkl
+      - auxiliary/sfd_face.pth
+      - auxiliary/syncnet_v2.model
+      - auxiliary/vgg16-397923af.pth
+      - auxiliary/vit_g_hybrid_pt_1200e_ssv2_ft.pth
+    expected_size_bytes: 9635782896
+    precision: fp16
+    local_mode: required
+    production_mode: required
+    checksum: null
+
+  practical_rife:
+    name: Practical-RIFE
+    purpose: two-times-temporal-interpolation
+    repository: hzwer/Practical-RIFE
+    revision: v4.25
+    local_path: models/practical-rife
+    expected_files: [train_log/flownet.pkl]
+    expected_size_bytes: null
+    precision: fp16
+    local_mode: required
+    production_mode: required
+    checksum: null

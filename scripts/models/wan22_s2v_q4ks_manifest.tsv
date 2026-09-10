@@ -1,0 +1,11 @@
+# role	repository	revision	remote_path	local_path	size_bytes	sha256_or_dash
+diffusion_model	QuantStack/Wan2.2-S2V-14B-GGUF	f3e3bb574e18741431bc6ba84892f06286c29328	Wan2.2-S2V-14B-Q4_K_S.gguf	diffusion_models/Wan2.2-S2V-14B-Q4_K_S.gguf	12958119520	ed773b60343999ab733fed55734d77c02649ac2fd503569d20943347a04cfccd
+audio_encoder	Comfy-Org/Wan_2.2_ComfyUI_Repackaged	c4f60d30c55a624e35427060fdd217579a6c1d77	split_files/audio_encoders/wav2vec2_large_english_fp16.safetensors	audio_encoders/wav2vec2_large_english_fp16.safetensors	630997322	f0017a43ea57ef6b3d4866be607844bbd8cada6d30966f7d70044ed0d63d3f9e
+text_encoder	city96/umt5-xxl-encoder-gguf	b535255bee98c2b0a59ea7c0ae2dcd0c6657b3b7	umt5-xxl-encoder-Q4_K_S.gguf	text_encoders/umt5-xxl-encoder-Q4_K_S.gguf	3497596768	4a3176f32fd70c0a335b4419fcbf8c86cc875e23498c0fc06f5b4aa0930889e0
+vae	Comfy-Org/Wan_2.2_ComfyUI_Repackaged	c4f60d30c55a624e35427060fdd217579a6c1d77	split_files/vae/wan_2.1_vae.safetensors	vae/wan_2.1_vae.safetensors	253815318	2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b
+s2v_config	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	config.json	config/config.json	890	-
+s2v_configuration	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	configuration.json	config/configuration.json	43	-
+tokenizer_spiece	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	google/umt5-xxl/spiece.model	text_encoders/umt5-tokenizer/spiece.model	4548313	e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458
+tokenizer_json	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	google/umt5-xxl/tokenizer.json	text_encoders/umt5-tokenizer/tokenizer.json	16837417	6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b
+tokenizer_config	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	google/umt5-xxl/tokenizer_config.json	text_encoders/umt5-tokenizer/tokenizer_config.json	61728	-
+tokenizer_special_tokens	Wan-AI/Wan2.2-S2V-14B	dab4e9c55bbe4c8c4d03db1c2c98c7f0ac9c454b	google/umt5-xxl/special_tokens_map.json	text_encoders/umt5-tokenizer/special_tokens_map.json	6623	-

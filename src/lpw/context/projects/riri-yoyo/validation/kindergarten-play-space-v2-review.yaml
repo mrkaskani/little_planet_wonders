@@ -1,64 +1,100 @@
 id: riri-yoyo-kindergarten-play-space-v2-review-v001
 type: location-version-review-context
 version: 1
-status: creative-review-awaiting-reconciliation-and-human-approval
+status: approved-canonical-v002-with-explicit-unresolved-fields
 
 metadata:
   project_id: riri-yoyo
   location_id: kindergarten-play-space
   candidate_version: v002
-  review_date: 2026-08-20
+  review_date: 2026-08-22
   reviewer: codex-visual-and-technical-review
   authority: locations/play_spaces/location-v2.yaml
   package_id: kindergarten-play-space-design-package-v002
+  supplied_package_label: LPW_Kindergarten_Indoor_PlaySpace_Reference_Package_v002
 
 package_checks:
-  supplied-files: 5
-  registered-files: 5
-  source-package-complete: true
-  filenames-derived-from-visible-headings-and-follow-project-convention: pass
-  sha256-recorded: pass
-  pixel-dimensions-recorded: pass
-  panel-groups-and-context-purposes-transcribed: pass
-  printed-relative-values-preserved-per-board: pass
-  cross-board-measurement-conflicts-explicitly-recorded: pass
-  all-files-design-review-only: true
-  direct-generation-conditioning-forbidden: true
+  supplied_image_files: 5
+  supplied_checksum_manifests: 1
+  registered_image_files: 5
+  source_package_complete: true
+  project_copies_byte_identical_to_sources: pass
+  project_filenames_follow_recorded_convention: pass
+  supplied_v001_filename_project_v002_interpretation_recorded: pass
+  sha256_values_recorded: pass
+  pixel_dimensions_recorded: pass
+  panel_groups_and_context_purposes_transcribed: pass
+  printed_relative_values_preserved_per_board: pass
+  cross_board_measurement_conflicts_explicitly_recorded: pass
+  cross_board_layout_and_fixture_conflicts_recorded: pass
+  all_files_design_review_only: true
+  direct_generation_conditioning_forbidden: true
 
 records:
-  - candidate-id: kindergarten-play-space-overall-room-understanding-reference-board-v002
-    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
-    key-evidence: [three-room-views, four-wall-technical-coverage, plan, ceiling, proportions, zones, materials]
-    conditioning-eligible: false
-  - candidate-id: kindergarten-play-space-four-view-type-reference-package-v002
-    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
-    key-evidence: [quantity-lock, anchor-list, floor-plan, equipment-position, proportions, color-palette]
-    conditioning-eligible: false
-  - candidate-id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
-    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
-    key-evidence: [five-room-views, four-elevations, plans, circulation, twelve-zone-details, twelve-material-details]
-    conditioning-eligible: false
-  - candidate-id: kindergarten-play-space-spatial-anchors-reference-board-v002
-    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
-    key-evidence: [locked-spatial-anchor-proposal, circulation, overall-proportion-summary]
-    conditioning-eligible: false
-  - candidate-id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
-    content-groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
-    key-evidence: [fixed-permanent-anchor-list, zone-diagram, circulation, proportion-summary]
-    conditioning-eligible: false
+  - candidate_id: kindergarten-play-space-overall-room-understanding-reference-board-v002
+    supplied_filename: LPW_KG_PlaySpace_01_Scale_Proportion_Reference_v001.png
+    project_filename: kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
+    sha256: 43df7981f85747e0b67f09b48567c8e4e2907e1b6373559847781e60e2c09df4
+    pixel_dimensions: 1402x1122
+    content_groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key_evidence: [three-room-views, four-wall-technical-coverage, floor-plan, ceiling-plan, proportions, zones, materials]
+    conditioning_eligible: false
+  - candidate_id: kindergarten-play-space-four-view-type-reference-package-v002
+    supplied_filename: LPW_KG_PlaySpace_02_Cinematic_FourType_Reference_v001.png
+    project_filename: kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
+    sha256: fec55ab193dd2f42979328b8049bba56b7b9765993b0cd5ea433bb19eac14c40
+    pixel_dimensions: 1369x1149
+    content_groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key_evidence: [quantity-lock-intent, anchor-list, floor-plan, equipment-position, proportions, color-palette]
+    conditioning_eligible: false
+  - candidate_id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
+    supplied_filename: LPW_KG_PlaySpace_03_Structured_FourType_Location_v001.png
+    project_filename: kindergarten-play-space--type-1-spatial-environment-views--v002.png
+    sha256: b6189ec22ceaf640cccd02eb2db541c3e562bcb47541100a120c5a49de911527
+    pixel_dimensions: 1402x1122
+    content_groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key_evidence: [five-room-views, four-elevations, plans, circulation, twelve-zone-details, twelve-material-details]
+    conditioning_eligible: false
+  - candidate_id: kindergarten-play-space-spatial-anchors-reference-board-v002
+    supplied_filename: LPW_KG_PlaySpace_04_Technical_FourType_Reference_v001.png
+    project_filename: kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
+    sha256: 7493c82e675deb3803665819bef3553d4dcc42142ae287e5432ee48abb985d67
+    pixel_dimensions: 1402x1122
+    content_groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key_evidence: [locked-spatial-anchor-proposal, circulation, technical-proportion-summary, ceiling-system]
+    conditioning_eligible: false
+  - candidate_id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
+    supplied_filename: LPW_KG_PlaySpace_05_Polished_Production_Location_v001.png
+    project_filename: kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
+    sha256: 5c540291307ffd22bbbcca3e1077a2ac8630348c3fcdbc76047b015301811ff5
+    pixel_dimensions: 1402x1122
+    content_groups: [spatial-environment, technical-structural, play-zone-equipment, detail-material-lighting]
+    key_evidence: [fixed-permanent-anchor-list, polished-zone-diagram, circulation, proportion-summary, final-material-language]
+    conditioning_eligible: false
 
-consistency_review:
-  stable-visual-identity: pass-codex-review
-  stable-object-family-and-pastel-material-language: pass-codex-review
-  stable-playhouse-rug-window-shelving-soft-seating-concept: pass-codex-review
-  printed-measurements-consistent: fail-reconciliation-required
-  wall-orientation-consistent: fail-reconciliation-required
-  activity-table-consistent: fail-present-on-board-b-only
-  ceiling-fixture-system-consistent: fail-hanging-lanterns-versus-fan-and-recessed-lights
-  object-quantity-intent: pass-with-diagram-ambiguity-noted
+stable_consensus_review:
+  pastel_pink_rectangular_room: pass
+  one_large_window_with_mint_curtains: pass
+  one_entry_door_quantity_intent: pass-with-elevation-ambiguity
+  one_small_wood_playhouse: pass
+  one_centered_round_pink_rug: pass
+  low_perimeter_wood_shelving_and_storage: pass
+  soft_window_side_seating_and_loose_poufs: pass
+  warm_natural_daylight_and_soft_pastel_palette: pass
+  clear_circulation_loop_around_rug: pass
+  object_family_and_child_safe_material_language: pass
+
+conflict_review:
+  printed_measurements_consistent: fail-reconciliation-required
+  wall_orientation_consistent: fail-reconciliation-required
+  activity_table_consistent: fail-present-on-cinematic-board-only
+  ceiling_fixture_system_consistent: fail-hanging-lanterns-versus-fan-and-recessed-lights
+  door_finish_consistent: fail-natural-wood-versus-warm-white-versus-mint
+  exact_small_prop_and_pouf_positions_consistent: fail-select-and-lock-per-clean-frame
+  automatic_averaging_or_layout_selection_allowed: false
 
 reconciliation_gate:
-  project-owner-must-select:
+  project_owner_must_select:
     - one-window-width-and-height
     - one-door-width
     - one-playhouse-depth
@@ -68,12 +104,26 @@ reconciliation_gate:
     - one-front-back-left-right-wall-orientation
     - whether-round-activity-table-is-canonical
     - whether-hanging-lanterns-or-fan-and-recessed-lights-are-canonical
-  automatic-averaging: forbidden
-  automatic-layout-selection: forbidden
+    - one-door-finish
+  automatic_averaging: forbidden
+  automatic_layout_selection: forbidden
+  safe_consensus_text_exploration_before_selection: allowed
+  direct_board_conditioning_before_selection: forbidden
+
+mcp_checks:
+  retrieval_id: kindergarten-play-space-location-v2
+  expected_resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-play-space-location-v2
+  exact_id_lookup: pass
+  yaml_round_trip: pass
+  source_asset_hash_validation: pass
+  registry_consistency_validation: pass
 
 approval_boundary:
-  technical-registration: complete
-  project-owner-v2-package-approval: pending
-  v2-canonical-promotion: blocked
-  existing-v1-location-authority-remains-active: true
-  existing-v1-primary-master-conditioning-remains-active: true
+  five_file_technical_registration: complete
+  visual_detail_extraction: complete
+  project_owner_measurement_and_layout_reconciliation: pending
+  project_owner_v2_package_approval: approved-2026-08-27
+  v2_clean_single_frame_generation: blocked-until-reconciliation-and-clean-frame-approval
+  v2_canonical_promotion: complete-with-unresolved-fields-excluded
+  existing_v1_location_authority_remains_active: false
+  existing_v1_primary_master_conditioning_remains_active: false

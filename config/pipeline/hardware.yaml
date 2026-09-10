@@ -1,0 +1,13 @@
+version: 1
+local:
+  allowed_backends: [mps, cuda]
+  minimum_ram_bytes: 8589934592
+  minimum_free_disk_bytes: 5368709120
+production:
+  allowed_backends: [cuda]
+  preferred_backend: cuda
+  minimum_ram_bytes: 34359738368
+  minimum_free_disk_bytes: 246960619520
+  policy: >-
+    This Apple M4 host may validate the local orchestration path but is not the
+    BF16 maximum-quality production host. Never silently substitute Q4 weights.

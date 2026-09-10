@@ -1,0 +1,146 @@
+id: riri-yoyo-wan22-s2v-runtime-profiles
+type: wan-s2v-runtime-profile-context
+version: 1
+status: approved
+
+model:
+  family: wan2.2-s2v-14b
+  task: s2v
+
+profiles:
+  production:
+    role: final-production-render-authority
+    model_precision: bf16
+    model_format: official-safetensors-or-verified-bf16-runtime-format
+    quantized: false
+    final_delivery_candidate_allowed: true
+    required_backend:
+      - official-wan2.2-s2v
+      - verified-lightx2v-s2v-bf16
+    reject:
+      - gguf-q4-as-final-production-authority
+      - unverified-conversion
+      - silent-precision-downgrade
+
+  local_m4_16gb:
+    role: local-preview-mcp-orchestration-and-pipeline-testing
+    hardware: apple-m4-base-16gb-unified-memory
+    device: mps
+    model_precision: q4
+    model_format: gguf
+    quantization: q4-k-s
+    expected_model_filename: Wan2.2-S2V-14B-Q4_K_S.gguf
+    final_delivery_candidate_allowed: false
+    requires_verified_wan_s2v_gguf_backend: true
+    llama_cpp_python_is_valid_wan_video_backend: false
+    unsupported_backend_behavior: fail-closed-with-structured-error
+    text_encoder: {device: cpu, format: gguf, quantization: q4-k-s}
+    audio_encoder: {device: cpu, dtype: float16}
+    vae: {load_once: true, decode-frame-streaming-required: true}
+    diffusion: {device: mps, steps: 20, cfg: 6.0}
+    frame_rate: 16
+    frame_count: 81
+    default_dimensions: "480x480"
+    permitted_dimensions: ["384x384", "480x480", "640x640", "832x480"]
+    divisible_by: 16
+    mps_environment:
+      PYTORCH_MPS_HIGH_WATERMARK_RATIO: "0.0"
+      warning: >-
+        A zero high-watermark ratio disables the normal MPS allocation ceiling;
+        use only in the isolated local worker with serialized jobs, explicit
+        cache synchronization, and operating-system memory monitoring.
+    memory_release_sequence:
+      - gc.collect
+      - torch.mps.empty_cache
+      - torch.mps.synchronize
+    persistent_process: true
+    sequential_jobs_only: true
+    frame_output: sequential-png-to-ssd-then-ffmpeg
+    lora:
+      enabled: false
+      reason: >-
+        No verified S2V-specific LightX2V four-step LoRA pair is available.
+        I2V and T2V high-noise/low-noise LoRAs must not be loaded into S2V.
+
+  rtx4090_fp8_24gb_vram_32gb_ram:
+    role: cloud-preview-and-candidate-render
+    hardware: nvidia-rtx-4090-24gb-vram-32gb-system-ram
+    device: cuda
+    model_precision: true-fp8-e4m3-runtime-execution
+    model_format: official-wan-sharded-safetensors-with-disk-backed-loader
+    quantization: dynamic-float8-e4m3fn
+    model_source: Wan-AI/Wan2.2-S2V-14B
+    final_delivery_candidate_allowed: true
+    final_delivery_requires-human-and-continuity-review: true
+    required_backend:
+      - diffsynth-studio-pinned-direct-python
+      - torch-scaled-mm-fp8-matmul-path
+    reject:
+      - silently-upcast-entire-transformer-to-fp16
+      - retain-all-decoded-windows-in-system-ram
+      - accumulate-full-episode-float-tensor-before-writing-output
+      - feed-music-ambience-or-sound-effects-to-s2v-audio-encoder
+    dimensions: "832x480"
+    aspect_ratio: "16:9"
+    divisible_by: 16
+    frame_rate: 16
+    infer_frames_per_window: 80
+    logical_frames_per_five_seconds: 81
+    sampling:
+      steps: 20
+      solver: unipc
+      shift: 3.0
+      guide_scale: 5.0
+    transformer:
+      weight_dtype: float8_e4m3fn
+      compute_dtype: float8_e4m3fn
+      output_activation_dtype: float16
+      disk_backed_layer_loading: true
+    text_encoder:
+      storage_device: disk
+      computation_device: cuda
+      computation_dtype: float8_e4m3fn
+      unload_after_prompt_encoding: true
+    audio_encoder:
+      storage_device: disk
+      computation_device: cuda
+      compute_dtype: float16
+      unload_after_episode_audio_encoding: true
+    attention:
+      preferred: flash-attention-2
+      fallback: pytorch-sdpa
+    vae:
+      sequential_load: true
+      storage_device: disk
+      computation_device: cuda
+      computation_dtype: float16
+      tiled_decode: true
+      spatial_tile_pixels: 256
+      tile_overlap_pixels: 32
+      decoded_frames_to_cpu: true
+    continuation:
+      persistent_process: true
+      preserve_reference_latent: true
+      preserve_motion_latents: true
+      retained_motion_frames: 73
+      reset_between_internal_windows: false
+    checkpoints:
+      save_diffusion_latents_before_vae: true
+      save_after_each_internal_window: true
+      stream_completed_windows_to_disk: true
+    memory_policy:
+      sequential_component_loading: true
+      retain_all_decoded_windows_in_ram: false
+      release_completed_window_before_next_window: true
+      operating_system_and_cuda_memory_monitoring: required
+
+selection:
+  final-production: production
+  local-development: local_m4_16gb
+  local-mcp-integration-test: local_m4_16gb
+  rtx4090-cloud-preview: rtx4090_fp8_24gb_vram_32gb_ram
+  episode-001-selected-cloud-candidate: rtx4090_fp8_24gb_vram_32gb_ram
+  promotion_rule: >-
+    A local GGUF Q4 result may validate orchestration, framing, timing, and broad
+    motion only. Re-render and approve the final candidate using the production
+    BF16 profile.

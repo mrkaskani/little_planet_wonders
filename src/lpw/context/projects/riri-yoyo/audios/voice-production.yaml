@@ -14,6 +14,8 @@ source_authority:
   dialogue_technical_contract: audio_style.yaml
   pronunciation: pronunciation.yaml
   character_voice_profiles: ../characters/{character_id}/voice-profile.yaml
+  s2v_dialogue_audio_prompt: >-
+    ../generation-records/prompts/s2v-dialogue-audio-preparation--prompt-v001.yaml
 
 wan_2_2_interface:
   supported_task: s2v
@@ -35,6 +37,12 @@ wan_2_2_interface:
     preferred_maximum_segment_seconds: 6
     split_at_sentence_end_long_pause_stillness_or_edit_point: true
     never_split_inside_word_vowel_closure_large_gesture_or_contact: true
+  onset_buffer_policy:
+    leading_silence_seconds: {minimum: 0.2, maximum: 0.5, default: 0.25}
+    add_after_clean_voice_generation: true
+    first_breath-or-phoneme-before-buffer-end: forbidden
+    short-fade-as-silence-substitute: forbidden
+    one-second-padded-frame-options-at-16fps: [21, 25]
 
 audience:
   minimum_age: 3

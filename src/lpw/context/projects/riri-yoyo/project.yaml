@@ -117,6 +117,8 @@ characters:
       pronouns: she-her
       gender_presentation: feminine
       voice_authority: characters/riri/voice-profile.yaml
+      visual_authority: characters/riri/character-v2.yaml
+      visual_version: v002
       personality:
         - sweet
         - cheerful
@@ -130,6 +132,8 @@ characters:
       pronouns: he-him
       gender_presentation: boyish
       voice_authority: characters/yoyo/voice-profile.yaml
+      visual_authority: characters/yoyo/character-v2.yaml
+      visual_version: v002
       personality:
         - cute
         - energetic
@@ -201,6 +205,15 @@ visual_direction:
     permanent_colors_must_not_change: true
 
 locations:
+  canonical_visual_authorities:
+    kindergarten_interior: locations/interiors/location-v2.yaml
+    indoor_play_space: locations/play_spaces/location-v2.yaml
+    nature_park: locations/nature_and_parks/location-v2.yaml
+    sunset_golden_hour: locations/sunset_golden_hour/location-v2.yaml
+    evening_night: locations/evening_night/location-v2.yaml
+  canonical_visual_version: v002
+  kindergarten_exterior_version: v001-awaiting-v2-source-package
+
   location_types:
     - kindergarten_exterior
     - kindergarten_interior
@@ -492,14 +505,40 @@ technical:
     frame_rate: workflow-specific
     native_delivery_equivalence: false
     ti2v_landscape_dimensions: "1280x704"
-    t2v_i2v_s2v_target_class: 720P
+    t2v_i2v_target_class: 720P
+    s2v_target_class: 480P
+    s2v_production_precision: bf16
+    s2v_local_precision: gguf-q4
+    s2v_local_profile_is_final-authority: false
+    s2v_runtime_profiles: wan22-s2v-runtime-profiles.yaml
+    s2v_landscape_dimensions: "832x480"
+    s2v_true_vertical_dimensions: "480x832"
+    s2v_square_dimensions_by_vram: ["640x640", "480x480"]
+    s2v_dimensions_must_be_divisible_by: 16
+    s2v_resize_node: Wan-Video-Image-Resize-to-closest
+    s2v_reference_canvas_aspect_ratio_must_match: true
+    s2v_native_frame_rate: 16
+    s2v_five_second_frames: 81
+    s2v_frame_rule: four-n-plus-one-covering-complete-audio
+    s2v_standard_sampling: {steps: 20, cfg: 6.0, sampler: unipc, scheduler: simple}
+    s2v_lightning_sampling: {steps: 5, cfg: 1.0, sampler: unipc, scheduler: simple}
     conform_without_stretching: true
+
+  youtube_delivery:
+    resolution: "1920x1080"
+    aspect_ratio: "16:9"
+    frame_rate: 24
+    five_second_display_frames: 120
+    color_space: bt709
+    pixel_format: yuv420p
 
   audio:
     final_delivery_sample_rate: 48000
     final_delivery_channels: 2
     s2v_conditioning_source: audios/s2v-input-spec.yaml
     s2v_conditioning_channels: 1
+    s2v_leading_silence_seconds: {minimum: 0.2, maximum: 0.5, default: 0.25}
+    s2v_one_second_padded_frame_options_at_16fps: [21, 25]
 
 quality_control:
   check_character_identity: true

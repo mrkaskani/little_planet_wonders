@@ -1,0 +1,155 @@
+id: twelve-second-reference-sequence-s2v-prompt
+type: reusable-reference-image-sequence-prompt
+version: 2
+prompt_version: v002
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  purpose: thirteen-timestamp-storyboard-review-sequence-for-twelve-second-audio
+  target_workflow: wan2.2-s2v-14b
+  duration_seconds: 12
+  storyboard_panel_count: 13
+  direct_wan_s2v_reference_count: 3
+  review_board_count: 3
+  created_on: "2026-08-28"
+  requested_by: project-owner
+
+source_authority:
+  wan_2_2_contract: ../../wan22-preproduction.yaml
+  prior_prompt: five-second-reference-sequence--s2v--prompt-v001.yaml
+  episode: ../../episodes/episode-001/episode.yaml
+  reference_registry: ../../references.yaml
+  audio_mix_timing: >-
+    ../../../../../../../runtime/audio/riri-yoyo/episodes/episode-001/mixes/candidates/v001/mix-request.json
+
+audio_timeline:
+  duration_seconds: 12.0
+  dialogue_intervals_seconds:
+    riri_line_001: [0.8, 4.08]
+    yoyo_line_002: [4.75, 6.59]
+    riri_line_003: [7.1, 10.78]
+  visual_timing_rule: camera-and-action-events-must-follow-this-locked-audio-timeline
+
+group_contract:
+  total_groups: 3
+  total_images: 13
+  output_role: storyboard-review-only-never-direct-wan-conditioning
+  groups:
+    - group_id: group-001
+      timestamps_seconds: [0, 1, 2, 3, 4]
+      panel_count: 5
+      camera_subject: two-shot-progressing-gently-with-riri-action-priority
+    - group_id: group-002
+      timestamps_seconds: [5, 6, 7, 8, 9]
+      panel_count: 5
+      camera_subject: transition-to-yoyo-reaction-focus
+      mandatory_camera_event:
+        timestamp_seconds: 8
+        framing: close-up-focus-on-yoyo-penguin-face
+    - group_id: group-003
+      timestamps_seconds: [10, 11, 12]
+      panel_count: 3
+      camera_subject: riri-dog-face-and-final-settle
+      mandatory_camera_event:
+        timestamp_seconds: 10
+        framing: motivated-cut-to-riri-face-focus
+
+continuity_invariants:
+  preserve:
+    - exact-v2-riri-and-yoyo-identity-face-markings-proportions-colors-and-materials
+    - exact-v2-cottage-architecture-path-fence-trees-flowers-and-practical-lights
+    - character-ground-plane-screen-direction-and-relative-scale
+    - calm-deep-night-and-warm-cool-lighting-relationship
+    - action-state-across-group-boundaries
+    - dialogue-speaker-listener-and-gaze-logic
+  camera_transition_policy:
+    within_group: gradual-motivated-reframe-only
+    group_001_to_002: continue-from-established-two-shot-and-move-attention-to-yoyo
+    group_002_to_003: intentional-motivated-cut-from-yoyo-reaction-to-riri-speaker
+  mouth_rule: >-
+    Reference boards describe pose, gaze, framing, and expression. Keep mouths
+    and beaks neutral or softly resting; locked speech audio remains the S2V lip
+    timing authority.
+
+frames:
+  - {timestamp_seconds: 0, group_id: group-001, state: establishing-two-shot-riri-looks-at-yoyo-paw-down-yoyo-upright}
+  - {timestamp_seconds: 1, group_id: group-001, state: riri-begins-gaze-turn-toward-warm-light-and-paw-unweights}
+  - {timestamp_seconds: 2, group_id: group-001, state: riri-halfway-to-light-with-paw-half-raised-yoyo-begins-following-gaze}
+  - {timestamp_seconds: 3, group_id: group-001, state: riri-nearly-faces-light-with-paw-raised-yoyo-head-tilt-begins}
+  - {timestamp_seconds: 4, group_id: group-001, state: riri-completes-gentle-paw-gesture-yoyo-curious-tilt-readable}
+  - {timestamp_seconds: 5, group_id: group-002, state: yoyo-turns-slightly-toward-riri-during-question-camera-begins-yoyo-emphasis}
+  - {timestamp_seconds: 6, group_id: group-002, state: yoyo-finishes-question-and-begins-returning-head-toward-warm-light}
+  - {timestamp_seconds: 7, group_id: group-002, state: yoyo-head-and-gaze-return-to-warm-light-camera-moves-closer}
+  - {timestamp_seconds: 8, group_id: group-002, state: close-up-focus-on-yoyo-face-looking-toward-warm-light-as-attentive-listener}
+  - {timestamp_seconds: 9, group_id: group-002, state: hold-yoyo-face-focus-with-stable-gaze-on-light-and-soft-understanding}
+  - {timestamp_seconds: 10, group_id: group-003, state: motivated-cut-to-riri-face-focus-with-both-front-paws-fully-grounded}
+  - {timestamp_seconds: 11, group_id: group-003, state: hold-riri-focus-with-both-front-paws-grounded-and-stable}
+  - {timestamp_seconds: 12, group_id: group-003, state: riri-focused-closing-settle-with-both-front-paws-grounded}
+
+embedded_prompt_template: |-
+  Use the approved [CHARACTER_REFERENCE] and [LOCATION_REFERENCE] to create 13
+  storyboard review panels for one 12-second Wan 2.2 S2V scene. These panels are
+  not direct Wan conditioning inputs. Represent every
+  whole second from 0s through 12s. Preserve character identity, location geometry,
+  lighting, scale, materials, screen direction, and action state across all images.
+
+  Divide the review output into three boards:
+  - Group 1: 0s, 1s, 2s, 3s, 4s.
+  - Group 2: 5s, 6s, 7s, 8s, 9s.
+  - Group 3: 10s, 11s, 12s.
+
+  Group 1 begins with the established two-shot. Riri gradually turns toward the
+  warm light and lifts one small paw while Yoyo begins following her gaze.
+  Group 2 shifts attention to Yoyo. During the question Yoyo briefly turns toward
+  Riri, then returns his head and gaze toward the warm light. At exactly 8s the
+  camera must focus closely on Yoyo's penguin face as an attentive listener.
+  Group 3 begins with a motivated cut to Riri. Keep the camera focused on Riri's
+  dog face from 10s through 12s as she finishes and settles. Both of Riri's front
+  paws must already be fully grounded at 10s and remain grounded through 12s.
+
+  Keep mouths and beaks neutral or softly resting because locked audio controls
+  lip motion in S2V. Do not introduce new objects, identity drift, architecture
+  changes, lighting flicker, accidental camera jumps, duplicate anatomy, text
+  beyond requested board labels, logos, or watermarks.
+
+s2v_execution_contract:
+  rule: exactly-one-start-reference-image-per-generated-segment
+  total_start_reference_images: 3
+  references:
+    - {segment_timeline_seconds: [0, 4], reference_timestamp_seconds: 0}
+    - {segment_timeline_seconds: [5, 9], reference_timestamp_seconds: 5}
+    - {segment_timeline_seconds: [10, 12], reference_timestamp_seconds: 10}
+  required_clean_images: [0s, 5s, 10s]
+  forbidden_interpretation: do-not-create-or-feed-thirteen-images-to-wan
+
+review_board_output:
+  board_style: match-approved-wan22-sample-layout
+  common_layout:
+    - dark-header
+    - white-body
+    - narrow-left-prompt-column
+    - timestamped-panels-in-chronological-order
+    - dark-technical-footer
+  filenames:
+    group_001: >-
+      episode-001--moonlit-garden-greeting--s2v-reference-board--0s-4s--{sequence-version}.png
+    group_002: >-
+      episode-001--moonlit-garden-greeting--s2v-reference-board--5s-9s--{sequence-version}.png
+    group_003: >-
+      episode-001--moonlit-garden-greeting--s2v-reference-board--10s-12s--{sequence-version}.png
+  direct_wan_s2v_conditioning: forbidden
+  human_approval_required: true
+
+qwen_vl_review:
+  compare_within_each-group: true
+  compare-boundary-pairs:
+    - [4s, 5s]
+    - [9s, 10s]
+  mandatory_checks:
+    - yoyo-head-returns-toward-warm-light-by-7s
+    - 8s-camera-focuses-on-yoyo-face
+    - 10s-through-12s-camera-focuses-on-riri
+    - riri-both-front-paws-fully-grounded-from-10s-through-12s
+    - no-character-location-lighting-or-scale-drift
+  route-smallest-failing-span-to-wan-2-2: true

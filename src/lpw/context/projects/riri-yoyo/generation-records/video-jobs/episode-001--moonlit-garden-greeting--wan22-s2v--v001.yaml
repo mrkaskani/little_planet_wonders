@@ -1,0 +1,191 @@
+id: episode-001-moonlit-garden-greeting-wan22-s2v-v001
+type: wan22-s2v-three-video-job-manifest
+version: 1
+status: arranged-awaiting-local-model-and-backend
+
+scene:
+  project_id: riri-yoyo
+  episode_id: episode-001
+  scene_id: moonlit-garden-greeting
+  source_duration_seconds: 12
+  conversation_source: ../../episodes/episode-001/conversation-v001.json
+  conversation_change_policy: >-
+    Preserve every approved word, speaker, punctuation mark, line order, pause,
+    and timeline position. Splitting is technical only and is not a rewrite.
+
+segmentation:
+  timeline_intervals:
+    - {segment_id: segment-001, source_interval_seconds: "[0,5)", displayed_seconds: [0, 1, 2, 3, 4]}
+    - {segment_id: segment-002, source_interval_seconds: "[5,10)", displayed_seconds: [5, 6, 7, 8, 9]}
+    - {segment_id: segment-003, source_interval_seconds: "[10,12]", displayed_seconds: [10, 11, 12]}
+  cut_policy: sample-exact-no-fade-no-time-stretch-no-dialogue-regeneration
+  ten_second_boundary_note: >-
+    The approved final Riri line crosses 10s. Segment 002 contains its waveform
+    through the sample immediately before 10s; segment 003 begins with the next
+    sample. Concatenation therefore restores the unchanged approved waveform.
+
+audio_package:
+  preparation_script: ../../../../../../../scripts/video/prepare_episode001_s2v_audio.sh
+  format: 48000-hz-24-bit-mono-pcm-wav
+  clean_speech_only: true
+  master_path: >-
+    runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v001/episode-001--moonlit-garden-greeting--clean-conversation--000s-012s--v001.wav
+  master_sha256: 38ded2e12422145541039730548ccc868d541d5fb1a33f1a4c864a7cf9c05cfd
+  excluded: [music, ambience, foley, sound-effects, reverb, combined-final-mix]
+
+runtime:
+  model: wan2.2-s2v-14b
+  profile: local_m4_16gb
+  precision: gguf-q4-k-s
+  dimensions: 832x480
+  aspect_ratio: "16:9"
+  fps: 16
+  frames_per_generated_video: 81
+  generated_duration_seconds: 5
+  sampling: {steps: 20, cfg: 6.0, sampler: unipc, scheduler: simple}
+  exactly_one_reference_image_per_job: true
+  reference_board_or_collage_input: forbidden
+  final_delivery_authority: false
+  local_worker_audio_buffer_package:
+    version: 2
+    manifest: >-
+      runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v002/manifest.yaml
+    purpose: local-s2v-generation-with-exact-0.25-second-leading-digital-silence
+    approved_editorial_timeline_replacement: false
+    segment_files:
+      segment-001: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v002/episode-001--segment-001--clean-speech--buffered-005s--v002.wav
+      segment-002: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v002/episode-001--segment-002--clean-speech--buffered-005s--v002.wav
+      segment-003: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v002/episode-001--segment-003--clean-speech--buffered-005s--v002.wav
+
+global_positive_prompt: >-
+  Polished preschool storybook animation at calm blue night in the approved
+  kindergarten cottage garden. Preserve Riri and Yoyo's exact approved V2
+  identities, facial shapes, body proportions, clothing, colors, scale, and
+  ground contact. Preserve the stone cottage, steep blue-gray roof, arched
+  entrance, curved flagstone path, fence, tree zones, warm porch light, cool
+  moonlight, camera axis, screen direction, and gentle child-safe mood. Use
+  restrained natural breathing, blinking, listening reactions, and readable
+  speech-driven mouth motion only for the named active speaker. Maintain stable
+  geometry, coherent shadows, temporal continuity, and soft cinematic movement.
+
+global_negative_prompt: >-
+  identity drift, face change, body-proportion change, costume change, color
+  change, duplicate character, extra character, missing character, merged bodies,
+  floating feet or paws, sliding ground contact, deformed paws, deformed flippers,
+  extra limbs, missing limbs, random objects, changing cottage geometry, changing
+  path geometry, lighting flicker, exposure pumping, abrupt camera jump, warped
+  background, excessive motion, frantic acting, adult drama, listener lip-sync,
+  both characters speaking simultaneously, random mouth movement, frozen face,
+  lip jitter, jaw distortion, text, subtitles, logo, watermark, collage, split
+  screen, music-driven motion, sound-effect-driven mouth movement
+
+jobs:
+  - id: segment-001
+    editorial_interval_seconds: "[0,5)"
+    output_role: first-five-seconds
+    reference_image:
+      path: >-
+        runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-001--000s--wan-v006.png
+      sha256: 68a270014268d6b1a8e782968ed29f1647a3e7c6848401e144cab22a9af2ee5e
+      dimensions: 832x480
+      timestamp_seconds: 0
+      approval_status: approved
+    conditioning_audio:
+      path: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v001/episode-001--segment-001--clean-speech--000s-005s--v001.wav
+      sha256: efb46034cc4b920c106f869f404dd2ac43cc8adc001327ef3169fe72fd1c306b
+      duration_seconds: 5
+      timeline_content:
+        - {speaker: riri, transcript: "Hi, Yoyo! Look at the warm light.", local_seconds: [0.8, 4.08]}
+      silence_seconds: [[0.0, 0.8], [4.08, 5.0]]
+    performance_prompt: >-
+      Begin in the approved medium-wide two-character garden composition. Riri
+      warmly greets Yoyo, then turns her eyes and muzzle toward the localized warm
+      porch light and makes one small readable paw gesture. Riri alone articulates
+      the sentence from 0.8s through 4.08s. Yoyo listens with a softly closed beak,
+      attentive eyes, stable feet, and only a subtle reaction. Use a very gentle
+      continuous push-in; do not complete a cut or change the camera axis.
+    output_path: >-
+      runtime/video/riri-yoyo/episodes/episode-001/s2v/v001/segment-001/episode-001--segment-001--000s-005s--wan22-s2v-q4ks--v001.mp4
+
+  - id: segment-002
+    editorial_interval_seconds: "[5,10)"
+    output_role: second-five-seconds
+    reference_image:
+      path: >-
+        runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-002--005s--wan-v006.png
+      sha256: ff12d8c8f7ce1bb7b444ca6b66e53a88ce79bc0fe9e41da1c1828b0670f69728
+      dimensions: 832x480
+      timestamp_seconds: 5
+      approval_status: approved-for-this-generation-plan
+    conditioning_audio:
+      path: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v001/episode-001--segment-002--clean-speech--005s-010s--v001.wav
+      sha256: 4d7253b18ffe60c511e35fd9c8fca3bb72f5d1eff7f122aeb6f680967cfc55aa
+      duration_seconds: 5
+      timeline_content:
+        - {speaker: yoyo, transcript: "Is that our garden light?", source_seconds: [5.0, 6.59], local_seconds: [0.0, 1.59]}
+        - {speaker: riri, transcript_continuation: "Yes. It helps us see the path.", source_seconds: [7.1, 10.0], local_seconds: [2.1, 5.0]}
+      silence_seconds: [[1.59, 2.1]]
+      boundary_rule: riri-line-003-continues-sample-exactly-into-segment-003
+    performance_prompt: >-
+      Continue from the approved 5s composition. Yoyo turns his head back toward
+      the warm light and asks his complete question from local 0.0s through 1.59s;
+      Yoyo alone moves his beak while Riri listens with a closed resting mouth.
+      During the short pause, transition attention gently. Riri begins her calm
+      answer at local 2.1s and becomes the only speaking mouth; Yoyo closes his
+      beak and listens. At source time 8s, local time 3s, place the camera emphasis
+      on Yoyo's penguin face as a warm listening reaction while Riri's voice
+      continues, without falsely animating Yoyo as the speaker. Keep motion and
+      focus changes gentle and temporally continuous.
+    output_path: >-
+      runtime/video/riri-yoyo/episodes/episode-001/s2v/v001/segment-002/episode-001--segment-002--005s-010s--wan22-s2v-q4ks--v001.mp4
+
+  - id: segment-003
+    editorial_interval_seconds: "[10,12]"
+    generated_interval_seconds: "[10,15)"
+    editorial_use_seconds: 2
+    trailing_generated_handle_seconds: 3
+    output_role: final-two-seconds-plus-discardable-three-second-tail
+    reference_image:
+      path: >-
+        runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-003--010s--wan-v006.png
+      sha256: 2c30128ecf4e689a49c13c1b5d125c0deea3cd607ab10a129efd99757b6c1c6e
+      dimensions: 832x480
+      timestamp_seconds: 10
+      approval_status: approved-for-this-generation-plan
+    conditioning_audio:
+      path: >-
+        runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v001/episode-001--segment-003--clean-speech--010s-012s-padded-to-015s--v001.wav
+      sha256: d835161fe73975b4101e82997af80fb475a5081cf9cc20fa57037a564752c19f
+      duration_seconds: 5
+      timeline_content:
+        - {speaker: riri, transcript_continuation: "continuation and completion of: Yes. It helps us see the path.", source_seconds: [10.0, 10.78], local_seconds: [0.0, 0.78]}
+      silence_seconds: [[0.78, 5.0]]
+      editorial_rule: use-only-local-0s-through-2s-and-discard-local-2s-through-5s
+    performance_prompt: >-
+      Begin on the approved 10s Riri-focused image. Both of Riri's front paws are
+      already fully grounded and must remain grounded. Riri alone completes the
+      continuing sentence during local 0.0s through 0.78s with calm accurate mouth
+      motion, then closes her mouth into a soft reassuring smile. Keep the camera
+      focused on Riri's dog face through the usable first two seconds. Yoyo remains
+      a stable closed-beak listener. After local 2s, hold a quiet stable tail handle
+      with no new action; those last three generated seconds will be discarded.
+    output_path: >-
+      runtime/video/riri-yoyo/episodes/episode-001/s2v/v001/segment-003/episode-001--segment-003--010s-015s--wan22-s2v-q4ks--v001.mp4
+
+assembly:
+  use_video_ranges:
+    - {segment_id: segment-001, local_seconds: "[0,5)"}
+    - {segment_id: segment-002, local_seconds: "[0,5)"}
+    - {segment_id: segment-003, local_seconds: "[0,2]"}
+  expected_picture_duration_seconds: 12
+  final_audio_authority: >-
+    runtime/audio/riri-yoyo/episodes/episode-001/mixes/v001/episode-001_moonlit-garden-greeting_full-audio-mix_final.wav
+  replace_s2v_conditioning_audio_in_final_edit: true
+  add_music_ambience_and_sfx_only_after_picture_assembly: true
+  continuity_review: qwen-vl-required
+  final_render_policy: rerender-approved-candidates-with-production-bf16

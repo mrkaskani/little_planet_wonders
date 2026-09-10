@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import math
 from dataclasses import asdict
 from typing import Any
 
@@ -67,6 +68,34 @@ def calculate_frame_count(duration_seconds: int, frame_rate: int = 24) -> int:
         raise ValueError("frame_rate must be at least 1.")
     requested_frames = duration_seconds * frame_rate
     return max(((requested_frames - 1) // 4) * 4 + 1, 5)
+
+
+def calculate_s2v_infer_frames(
+    duration_seconds: float, frame_rate: int = 16
+) -> int:
+    """Calculate native Wan S2V frames without truncating audio.
+
+    The ComfyUI S2V workflow uses a ``4n+1`` frame sequence. A five-second clip
+    at 16 FPS therefore uses 81 frames: 80 temporal intervals plus the initial
+    reference frame. Longer fractional durations round up to the next complete
+    four-interval block so the picture does not end before the locked audio.
+
+    Args:
+        duration_seconds (float): Required audio-covered duration in seconds.
+        frame_rate (int): Native S2V generation rate. Defaults to ``16``.
+
+    Returns:
+        int: Smallest ``4n+1`` frame count covering the duration.
+
+    Raises:
+        ValueError: If duration or frame rate is not positive.
+    """
+    if duration_seconds <= 0:
+        raise ValueError("duration_seconds must be greater than zero.")
+    if frame_rate < 1:
+        raise ValueError("frame_rate must be at least 1.")
+    requested_intervals = duration_seconds * frame_rate
+    return max(5, math.ceil(requested_intervals / 4) * 4 + 1)
 
 
 def select_primary_reference(
@@ -145,13 +174,33 @@ def compile_wan_shot_package(request: ShotRequest) -> WanShotPackage:
         raise ValueError(
             f"{request.shot_type} requires a primary reference image or approved start frame."
         )
-    frame_rate = int(
-        context.get("project", {}).get("technical", {}).get(
-            "frame_rate",
-            context.get("studio", {}).get("generation", {}).get("frame_rate", 24),
+    if task == "s2v-14B":
+        # Native Wan 2.2 S2V binds exactly one image. Other approved character
+        # and location images remain upstream context authorities and must not
+        # be emitted as additional workflow conditioning inputs.
+        supporting_references = []
+        s2v_profile = (
+            context.get("wan_2_2", {})
+            .get("supported_tasks", {})
+            .get("s2v", {})
+            .get("native_creation_profile", {})
         )
-    )
-    frame_count = calculate_frame_count(request.duration_seconds, frame_rate)
+        frame_rate = int(s2v_profile.get("frame_rate", 16))
+        frame_count = calculate_s2v_infer_frames(
+            request.duration_seconds, frame_rate
+        )
+        size = str(s2v_profile.get("landscape_size", "832*480"))
+    else:
+        frame_rate = int(
+            context.get("project", {}).get("technical", {}).get(
+                "frame_rate",
+                context.get("studio", {})
+                .get("generation", {})
+                .get("frame_rate", 24),
+            )
+        )
+        frame_count = calculate_frame_count(request.duration_seconds, frame_rate)
+        size = "1280*704" if task == "ti2v-5B" else "1280*720"
     seed = generate_stable_seed(request, context_hash)
     unsigned_package = {
         "request": asdict(request),
@@ -161,7 +210,7 @@ def compile_wan_shot_package(request: ShotRequest) -> WanShotPackage:
         "negative_prompt": build_negative_prompt(context),
         "primary_reference_image": primary_reference,
         "supporting_references": supporting_references,
-        "size": "1280*704" if task == "ti2v-5B" else "1280*720",
+        "size": size,
         "frame_rate": frame_rate,
         "frame_count": frame_count,
         "seed": seed,
@@ -193,6 +242,7 @@ __all__ = [
     "build_negative_prompt",
     "build_positive_prompt",
     "calculate_frame_count",
+    "calculate_s2v_infer_frames",
     "compile_wan_shot_package",
     "generate_stable_seed",
     "select_primary_reference",

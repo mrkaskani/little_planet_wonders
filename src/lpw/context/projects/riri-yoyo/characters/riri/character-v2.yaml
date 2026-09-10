@@ -2,7 +2,7 @@ id: riri-character-v2
 type: character-visual-version-context
 version: 2
 version_tag: v002
-status: candidate-awaiting-human-approval
+status: approved-canonical-v002
 
 metadata:
   project_id: riri-yoyo
@@ -21,11 +21,12 @@ versioning:
   base_reference_id: riri-identity-sheet-v001
   candidate_package_id: riri-design-package-v002
   replaces_after_approval: riri-identity-sheet-v001
-  active_canonical_version: v001
+  active_canonical_version: v002
   candidate_version: v002
   promotion_rule: >-
-    V2 becomes canonical only after explicit project-owner approval. Until then,
-    character.yaml and the approved V1 single-frame references remain active.
+    V2 was explicitly approved by the project owner on 2026-08-27 and is now
+    the canonical visual identity. character.yaml remains the authority only
+    for inherited nonvisual behavior, voice, music, acting, and movement fields.
   changed_fields:
     - canonical-design-review-image-set
     - head-unit-proportions
@@ -321,16 +322,17 @@ continuity:
 generation_policy:
   design_review_images_are_direct_conditioning_inputs: false
   reason: boards-collages-labels-guides-and-multiple-character-instances
-  active_generation_frames: v001-until-v2-promotion-and-new-frame-approval
+  active_generation_frames: none-awaiting-clean-v2-single-frame-approval
   v2_generation_frames_required_after_approval:
     - neutral-full-body-16x9
     - neutral-half-body-16x9
-  allowed_modes_before_v2_approval: []
+  allowed_modes_after_v2_approval: [human-review, manual-reference-composition, structured-prompt-authoring]
   forbidden_modes_for_these_five_sheets: [t2v, i2v, ti2v-image, s2v]
 
 review_gate:
   technical_registration: complete
-  human_visual_identity_approval: pending
-  compare_against_v001: required
-  approve_or_reject_as_one-package: required
+  human_visual_identity_approval: approved-by-project-owner-2026-08-27
+  compare_against_v001: complete
+  approve_or_reject_as_one-package: approved-as-one-package
+  canonical_promotion: complete
   partial_canonical_promotion: forbidden

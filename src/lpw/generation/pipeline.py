@@ -295,7 +295,9 @@ class SceneGenerationPipeline:
         mode = shot["generation"]["mode"]
         workflow_id = stage["workflow_by_mode"][mode]
         video = package["project"]["video"]
-        fps = int(video["fps"])
+        generation_video = self._generation_video_settings(mode, video)
+        fps = int(generation_video["fps"])
+        frame_count_rule = str(generation_video["frame_count_rule"])
         values = {
             "prompt": shot["generation"]["prompt"],
             "negative_prompt": shot["generation"].get("negative_prompt", ""),
@@ -303,13 +305,19 @@ class SceneGenerationPipeline:
             "reference_image": shot["generation"].get("reference_image"),
             "audio_file": shot["generation"].get("audio_file"),
             "pose_video": shot["generation"].get("pose_video"),
-            "width": int(video["width"]),
-            "height": int(video["height"]),
+            "width": int(generation_video["width"]),
+            "height": int(generation_video["height"]),
             "frame_count": self._calculate_frame_count(
-                float(shot["duration_seconds"]), fps
+                float(shot["duration_seconds"]), fps, frame_count_rule
             ),
             "fps": fps,
         }
+        if mode == "s2v":
+            values.update(
+                self._s2v_sampling_settings(
+                    str(shot["generation"].get("sampling_profile", "standard"))
+                )
+            )
         return self._invoke_comfyui(
             self._get_tool(package, stage["tool"]),
             package["workflows"][workflow_id],
@@ -950,12 +958,42 @@ class SceneGenerationPipeline:
         return resolved
 
     @staticmethod
-    def _calculate_frame_count(duration_seconds: float, fps: int) -> int:
+    def _generation_video_settings(
+        mode: str, delivery_video: dict[str, Any]
+    ) -> dict[str, int | str]:
+        """Resolve native generation settings separately from delivery settings.
+
+        Args:
+            mode (str): Wan generation mode selected for the shot.
+            delivery_video (dict[str, Any]): Editorial or delivery video settings.
+
+        Returns:
+            dict[str, int | str]: Native width, height, FPS, and frame-count rule.
+        """
+        if mode == "s2v":
+            return {
+                "width": 832,
+                "height": 480,
+                "fps": 16,
+                "frame_count_rule": "four-n-plus-one-covering-audio",
+            }
+        return {
+            "width": int(delivery_video["width"]),
+            "height": int(delivery_video["height"]),
+            "fps": int(delivery_video["fps"]),
+            "frame_count_rule": "four-n-plus-one",
+        }
+
+    @staticmethod
+    def _calculate_frame_count(
+        duration_seconds: float, fps: int, rule: str = "four-n-plus-one"
+    ) -> int:
         """Calculate frame count.
 
         Args:
             duration_seconds (float): Requested duration in seconds.
-            fps (int): Fps used by this operation.
+            fps (int): FPS used by this operation.
+            rule (str): Native workflow frame-count constraint.
 
         Returns:
             int: Result produced by the operation.
@@ -963,7 +1001,32 @@ class SceneGenerationPipeline:
         requested = round(duration_seconds * fps)
         if requested < 1:
             return 1
+        if rule == "four-n-plus-one-covering-audio":
+            import math
+
+            return max(5, math.ceil(duration_seconds * fps / 4) * 4 + 1)
+        if rule != "four-n-plus-one":
+            raise ValueError(f"Unsupported frame-count rule: {rule}")
         return requested - ((requested - 1) % 4)
+
+    @staticmethod
+    def _s2v_sampling_settings(profile: str) -> dict[str, int | float | str]:
+        """Return the approved standard or Lightning S2V sampling profile."""
+        if profile == "standard":
+            return {
+                "steps": 20,
+                "cfg": 6.0,
+                "sampler": "unipc",
+                "scheduler": "simple",
+            }
+        if profile == "lightning":
+            return {
+                "steps": 5,
+                "cfg": 1.0,
+                "sampler": "unipc",
+                "scheduler": "simple",
+            }
+        raise ValueError(f"Unsupported S2V sampling profile: {profile}")
 
     @staticmethod
     def _escape_concat_path(path: Path) -> str:

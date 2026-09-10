@@ -20,12 +20,19 @@ mcp.resource("cinema://studio")(resources.studio_context)
 mcp.resource("cinema://studio/{profile}")(resources.studio_profile)
 mcp.resource("cinema://studio/editing-models")(resources.editing_models_context)
 mcp.resource("cinema://studio/wan22")(resources.wan22_context)
+mcp.resource("cinema://pipeline/models")(resources.pipeline_model_registry)
+mcp.resource("cinema://pipeline/environments/{environment}")(
+    resources.pipeline_environment_context
+)
 mcp.resource("cinema://projects/{project_id}")(resources.project_context)
 mcp.resource("cinema://projects/{project_id}/characters/{character_id}")(
     resources.character_context
 )
 mcp.resource("cinema://projects/{project_id}/locations/{location_id}")(
     resources.location_context
+)
+mcp.resource("cinema://projects/{project_id}/episodes/{episode_id}")(
+    resources.episode_context
 )
 mcp.resource("cinema://projects/{project_id}/audio")(resources.project_audio_context)
 mcp.resource("cinema://projects/{project_id}/voices/{character_id}")(
@@ -41,6 +48,9 @@ mcp.resource("cinema://projects/{project_id}/music")(resources.music_context)
 mcp.resource("cinema://projects/{project_id}/editing")(resources.editing_context)
 mcp.resource("cinema://projects/{project_id}/post-editing")(
     resources.post_editing_context
+)
+mcp.resource("cinema://projects/{project_id}/production-restoration")(
+    resources.production_restoration_context
 )
 mcp.resource("cinema://projects/{project_id}/export")(resources.export_context)
 mcp.resource("cinema://projects/{project_id}/continuity")(
@@ -72,10 +82,15 @@ mcp.resource("cinema://runtime/{scene_id}/editing-state")(
 )
 
 for tool in (
+    tools.pipeline_system_status,
+    tools.validate_local_pipeline,
+    tools.run_production_preflight,
+    tools.inspect_episode_context,
     tools.compile_scene_context,
     tools.get_scene_summary,
     tools.build_scene_generation_plan,
     tools.plan_scene_production,
+    tools.plan_production_restoration,
     tools.create_render_attempt,
     tools.validate_render_attempt,
     tools.review_render_attempt,

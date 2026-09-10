@@ -33,6 +33,18 @@ Add `MCP_START_IMAGE` for I2V, TI2V, and S2V. Add `MCP_AUDIO_INPUT` for S2V.
 `MCP_POSE_VIDEO` is an optional S2V conditioning input; it does not enable or
 invoke Wan Animate.
 
+The S2V export must expose semantic bindings for `steps`, `cfg`, `sampler`, and
+`scheduler`, and must bind exactly one `MCP_START_IMAGE`. The active defaults are
+81 frames at 16 FPS, 20 steps, CFG 6.0, UniPC, and the `simple` scheduler.
+Lightning LoRA workflows use 4–5 steps and CFG 1.0. Add the verified **Wan Video
+Image Resize to closest** stage before image encoding, preserving aspect ratio
+and enforcing dimensions divisible by 16.
+
+For first-frame VAE-burn mitigation, include a sacrificial duplicated reference
+latent at batch index 0 and remove the decoded sacrificial image with **Image
+from Batch** or equivalent. The exported clip must retain 81 usable frames and
+remain aligned with the conditioning audio after removal.
+
 If an exported node uses a different input name, update the corresponding binding
 YAML. Do not hardcode ComfyUI numeric node identifiers in Python.
 

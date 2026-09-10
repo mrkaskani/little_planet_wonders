@@ -2,7 +2,7 @@ id: kindergarten-play-space-location-v2
 type: location-visual-version-context
 version: 2
 version_tag: v002
-status: candidate-awaiting-measurement-layout-reconciliation-and-human-approval
+status: approved-canonical-v002-with-explicit-unresolved-fields
 
 metadata:
   project_id: riri-yoyo
@@ -13,7 +13,8 @@ metadata:
     equipment, material, lighting, camera, and MCP retrieval context while
     preserving all printed conflicts for explicit review.
   created_date: 2026-08-20
-  source: project-owner-supplied-location-design-package
+  updated_date: 2026-08-22
+  source: project-owner-supplied-lpw-kindergarten-indoor-play-space-reference-package-v002
   review_record: ../../validation/kindergarten-play-space-v2-review.yaml
 
 versioning:
@@ -21,68 +22,104 @@ versioning:
   base_reference_id: kindergarten-play-space-reference-set-v001
   base_primary_master_id: kindergarten-play-space-primary-master-v001
   candidate_package_id: kindergarten-play-space-design-package-v002
-  active_canonical_version: v001
+  active_canonical_version: v002
   candidate_version: v002
   package_completeness:
     expected_source_boards: 5
     present_source_boards: 5
     complete: true
   promotion_rule: >-
-    V2 becomes canonical only after the project owner selects one reconciled
-    measurement table and one wall-orientation layout, approves the five-board
-    visual identity as a package, and approves clean V2 single-frame references.
-    Until then, location.yaml and the V1 primary master remain active.
+    The five-board V2 visual package was explicitly approved by the project
+    owner on 2026-08-27 and is canonical. Conflicting measurements, wall
+    orientation, and fixture choices remain explicitly unresolved and must not
+    be invented; clean V2 single-frame references remain a separate gate.
+
+source_package:
+  supplied_folder_label: LPW_Kindergarten_Indoor_PlaySpace_Reference_Package_v002
+  supplied_checksum_manifest: SHA256SUMS.txt
+  image_count: 5
+  all_project_paths_are_relative: true
+  source_files_preserved_outside_project: true
+  copy_operation: complete-byte-identical
+  naming_note: >-
+    Supplied image filenames end in v001, while the enclosing supplied package
+    and this repository's collective location candidate are V2.
 
 source_images:
   overall_room_understanding_board:
     id: kindergarten-play-space-overall-room-understanding-reference-board-v002
     visible_title: TYPE 1 – SPATIAL / ENVIRONMENT VIEWS (Overall Room Understanding)
     title_scope: first-prominent-section-heading-no-global-board-title
+    supplied_filename: LPW_KG_PlaySpace_01_Scale_Proportion_Reference_v001.png
     path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
     sha256: 43df7981f85747e0b67f09b48567c8e4e2907e1b6373559847781e60e2c09df4
     pixel_dimensions: 1402x1122
     aspect_ratio: "701:561"
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   four_view_type_reference_package:
     id: kindergarten-play-space-four-view-type-reference-package-v002
     visible_title: KINDERGARTEN INDOOR PLAY SPACE — FOUR-VIEW-TYPE REFERENCE PACKAGE
     title_scope: global-board-title
+    supplied_filename: LPW_KG_PlaySpace_02_Cinematic_FourType_Reference_v001.png
     path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
     sha256: fec55ab193dd2f42979328b8049bba56b7b9765993b0cd5ea433bb19eac14c40
     pixel_dimensions: 1369x1149
     aspect_ratio: "1369:1149"
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   four_type_comprehensive_board:
     id: kindergarten-play-space-four-type-comprehensive-reference-board-v002
     visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS
     visible_subtitle: Overall room views showing the space, layout and relationships.
     title_scope: first-prominent-section-heading-no-global-board-title
+    supplied_filename: LPW_KG_PlaySpace_03_Structured_FourType_Location_v001.png
     path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
     sha256: b6189ec22ceaf640cccd02eb2db541c3e562bcb47541100a120c5a49de911527
     pixel_dimensions: 1402x1122
     aspect_ratio: "701:561"
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   spatial_anchors_board:
     id: kindergarten-play-space-spatial-anchors-reference-board-v002
     visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS (OVERALL ROOM UNDERSTANDING)
     title_scope: first-prominent-section-heading-no-global-board-title
     distinguishing_heading: SPATIAL ANCHORS (LOCKED ELEMENTS)
+    supplied_filename: LPW_KG_PlaySpace_04_Technical_FourType_Reference_v001.png
     path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
     sha256: 7493c82e675deb3803665819bef3553d4dcc42142ae287e5432ee48abb985d67
     pixel_dimensions: 1402x1122
     aspect_ratio: "701:561"
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   fixed_permanent_anchors_board:
     id: kindergarten-play-space-fixed-permanent-anchors-reference-board-v002
     visible_title: TYPE 1 — SPATIAL / ENVIRONMENT VIEWS
     visible_subtitle: Overall room layout and spatial relationships
     title_scope: first-prominent-section-heading-no-global-board-title
     distinguishing_heading: SPATIAL ANCHORS (Fixed & Permanent)
+    supplied_filename: LPW_KG_PlaySpace_05_Polished_Production_Location_v001.png
     path: ../../assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
     sha256: 5c540291307ffd22bbbcca3e1077a2ac8630348c3fcdbc76047b015301811ff5
     pixel_dimensions: 1402x1122
     aspect_ratio: "701:561"
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+
+authority_resolution:
+  by_question:
+    baseline_room_proportions: overall_room_understanding_board
+    cinematic_composition_and_quantity_lock_intent: four_view_type_reference_package
+    broadest_zone_material_and-entry_catalog: four_type_comprehensive_board
+    technical_anchor_and_circulation_proposal: spatial_anchors_board
+    polished_surface_finish_and_fixed_anchor_proposal: fixed_permanent_anchors_board
+  conflict_rules:
+    - preserve-each-printed-measurement-table-verbatim
+    - do-not-average-conflicting-values
+    - do-not-promote-one-wall-orientation-without-owner-selection
+    - stable-cross-board-consensus-may-be-used-for-text-only-exploration
+    - disputed-geometry-fixtures-and-furniture-must-remain-out-of-generation-prompts
+    - polished-surface-finish-never-overrides-unresolved-geometry
 
 location_identity:
   category: activity-room
@@ -95,7 +132,7 @@ location_identity:
     entry_door: 1
     playhouse: 1
     centered_round_rug: 1
-    ceiling_fan: 1
+    ceiling_fixture_system: unresolved-fan-and-recessed-lights-versus-hanging-lanterns
     fixed_shelving_groups: multiple-along-perimeter
   permanent_visual_anchors:
     - one-large-window-with-mint-curtains
@@ -440,8 +477,10 @@ layout_reconciliation:
     - board-b-shows-hanging-lanterns-while-other-boards-emphasize-ceiling-fan-and-recessed-lights
     - some-elevation-diagrams-visually-suggest-more-than-one-door-despite-one-door-quantity-notes
     - playhouse-wall-is-called-right-of-window-front-or-back-across-different-boards
+    - door-finish-varies-between-natural-wood-warm-white-and-mint-painted-proposals
+    - exact-plant-bin-toy-pouf-and-wall-art-positions-vary-between-views
   rules:
-    - use-v1-primary-master-for-current-canonical-world-orientation
+    - use-only-v2-stable-consensus-anchors-and-leave-disputed-orientation-unresolved
     - do-not-add-the-activity-table-or-hanging-lanterns-to-v2-without-explicit-selection
     - do-not-mirror-or-relocate-fixed-anchors-based-on-an-unreconciled-board
 
@@ -476,6 +515,13 @@ materials_and_surfaces:
   storage_bins: soft-sided-or-rounded-solid-color-bins-with-simple-friendly-face-motifs
   plants_and_pots: broad-leaf-child-safe-plants-in-pastel-rounded-pots
   hardware: rounded-child-safe-door-and-storage-hardware
+  door_finish: unresolved-natural-light-wood-versus-warm-white-painted-versus-mint-painted
+  surface_rules:
+    - all-child-contact-edges-are-broad-and-rounded
+    - wood-finish-remains-warm-light-and-low-gloss
+    - fabrics-and-foam-remain-soft-matte-and-non-reflective
+    - rug-pile-is-soft-but-low-enough-to-avoid-a-trip-edge
+    - no-sharp-metal-glass-or-brittle-decor-at-child-height
 
 lighting_and_color:
   primary_light_source: warm-natural-daylight-through-large-window
@@ -491,14 +537,127 @@ lighting_and_color:
     - preserve-material-local-color-under-sunlight
     - wall-graphics-must-remain-non-readable-simple-shapes
 
+camera_and_composition:
+  reference_view_types:
+    primary_establishing:
+      framing: wide-eye-level-room-view
+      must_show: [large-window, playhouse, centered-rug, soft-seating, perimeter-storage]
+      use: establish-room-geography-and-welcoming-play-mood
+    opposite_facing:
+      framing: wide-reverse-view
+      must_show: [door-or-entry-side, centered-rug, storage, circulation-space]
+      use: reverse-coverage-after-orientation-is-reconciled
+    corner_to_corner:
+      framing: diagonal-wide
+      must_show: [rug-footprint, anchor-separation, room-depth]
+      use: parallax-and-anchor-continuity
+    left_and_right_side_views:
+      framing: side-wide
+      must_show: [perimeter-storage, open-rug-edge, soft-seating-or-playhouse-context]
+      use: zone-coverage-without-relocating-anchors
+    elevated_overview:
+      framing: high-angle-wide
+      must_show: [centered-rug, circulation-loop, perimeter-equipment]
+      use: spatial-validation-and-blocking
+    orthographic_elevations_and_floor_plan:
+      framing: straight-on-or-overhead-technical
+      use: design-validation-only-not-emotional-story-shots
+  composition_rules:
+    - keep-the-rug-and-circulation-loop-readable-in-wide-shots
+    - preserve-visual-separation-between-playhouse-door-and-rug
+    - expose-for-the-interior-while-retaining-soft-window-detail
+    - keep-child-ground-contact-and-soft-surface-contact-visible
+    - avoid-wide-angle-edge-stretch-that-enlarges-poufs-or-shelves
+    - do-not-use-unreconciled-wall-labels-as-camera-direction-authority
+
+set_dressing_and_graphics:
+  stable_categories:
+    - pastel-toy-and-book-storage-bins
+    - simple-stackable-preschool-toys
+    - books-and-low-shelf-activity-materials
+    - broad-leaf-potted-plants
+    - round-poufs-floor-cushions-and-beanbags
+    - rainbow-cloud-star-bunting-and-simple-framed-art
+  exact_counts_and_positions:
+    status: variable-between-boards-select-and-lock-per-approved-clean-frame
+    rule: never-multiply-or-spontaneously-transform-items-within-a-shot
+  graphics_policy:
+    - simple-non-readable-preschool-shapes-only
+    - no-generated-letters-numbers-signage-or-gibberish
+    - no-face-like-wall-glyphs-beyond-approved-simple-toy-bin-motifs
+    - preserve-soft-pastel-density-without-covering-the-pink-wall-field
+
+safety_and_accessibility:
+  audience_age: 3-to-6
+  physical_safety:
+    - preserve-clear-door-entry-and-playhouse-approach-paths
+    - keep-main-circulation-loop-free-of-poufs-toys-and-bins
+    - use-rounded-playhouse-arch-trim-without-pinch-points-or-latches
+    - anchor-shelving-and-prevent-tip-over
+    - keep-heavy-plants-and-pots-secure-and-out-of-running-lines
+    - use-soft-low-trip-profile-rug-and-cushion-edges
+    - no-sharp-metal-corners-glass-loose-cords-or-small-scattered-parts
+    - maintain-clear-overhead-space-below-any-selected-ceiling-fixture
+  emotional_safety:
+    - no-dark-hidden-playhouse-interior
+    - no-harsh-threatening-shadows
+    - no-chaotic-clutter-or-overstimulating-neon-color
+    - preserve-cozy-readable-retreat-and-open-play-options
+
+continuity_contract:
+  stable_consensus_anchors:
+    - one-large-daylight-window-with-mint-curtains
+    - one-entry-door
+    - one-small-rounded-wood-playhouse
+    - one-centered-pink-round-rug
+    - perimeter-low-wood-shelving-and-storage
+    - soft-window-side-seating
+    - open-circulation-loop-around-rug
+  temporary_or_scene_lockable:
+    - exact-pouf-and-floor-cushion-positions
+    - exact-toy-book-bin-and-activity-material-arrangement
+    - door-and-playhouse-opening-state
+    - cushion-compression
+    - selected-plant-and-wall-art-arrangement
+  unresolved_until_owner_selection:
+    - canonical-front-back-left-right-wall-names
+    - activity-table-presence
+    - ceiling-fan-and-recessed-lights-versus-hanging-lanterns
+    - door-surface-finish
+    - all-values-listed-under-measurement-reconciliation-unresolved-values
+  temporal_rules:
+    - fixed-anchors-never-slide-rotate-mirror-or-duplicate
+    - cushions-may-deform-broadly-without-crawling-or-boiling-texture
+    - toys-and-bins-do-not-change-count-category-face-or-color-during-a-shot
+    - sunlight-direction-and-window-position-remain-stable-across-a-scene
+
+generation_policy:
+  design_review_images_are_direct_conditioning_inputs: false
+  reason: multi-panel-collages-contain-labels-diagrams-duplicate-views-and-conflicting-proposals
+  allowed_modes_after_v2_approval: [human-review, manual-reference-composition, structured-prompt-authoring-using-consensus-only]
+  forbidden_direct_board_modes: [i2v, ti2v-image, s2v]
+  active_approved_generation_reference: none-clean-v2-single-frame-pending
+  active_approved_generation_reference_version: none
+  required_clean_v2_frames_before_image_conditioning:
+    - clean-primary-establishing-frame
+    - clean-opposite-facing-frame-after-orientation-reconciliation
+    - clean-elevated-layout-frame-after-measurement-reconciliation
+  clean_frame_rules:
+    - one-coherent-view-per-image
+    - no-board-grid-labels-dimensions-arrows-or-watermarks
+    - preserve-selected-anchor-layout-measurements-and-fixture-system
+    - preserve-safe-character-movement-and-camera-clearance
+
 mcp_context:
+  retrieval_id: kindergarten-play-space-location-v2
   retrieval_key: kindergarten-play-space-v002
-  package_status: complete-candidate-with-unresolved-cross-board-conflicts
+  resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-play-space-location-v2
+  package_status: approved-canonical-v002-with-unresolved-cross-board-fields-excluded
   preferred_authority_order:
-    - location-v2.yaml-for-v002-structured-review-context
-    - location.yaml-for-current-canonical-location-policy
-    - kindergarten-play-space-primary-master-v001-for-current-generation-conditioning
-    - v002-design-review-boards-for-human-review-only
+    - location-v2.yaml-for-canonical-v002-structured-context
+    - location.yaml-for-inherited-nonvisual-policy-only
+    - v002-design-review-boards-for-human-review-and-manual-reference-composition-only
+    - no-direct-image-conditioning-until-a-clean-v002-frame-is-approved
   query_routing:
     source_board_lookup: source_images
     panel_and_view_lookup: board_catalog
@@ -509,18 +668,31 @@ mcp_context:
     action_blocking_and-zone_selection: zones_and_interaction_context
     material_prompting: materials_and_surfaces
     lighting_and_palette_prompting: lighting_and_color
+    camera_and_composition_selection: camera_and_composition
+    safety_constraints: safety_and_accessibility
+    continuity_and_temporary_state: continuity_contract
+    generation_eligibility: generation_policy
+    reference_conflict_authority: authority_resolution
   safe_prompt_context_fragment: >-
     Cozy pastel-pink kindergarten indoor play space with one small rounded wood
     playhouse, one centered soft pink round rug, broad pastel floor cushions,
     warm low wooden shelving and storage bins, one large daylight window with
     mint curtains, soft seating, plants, simple fixed wall decorations, and a
     clear circulation loop around the open play zone.
+  negative_prompt_fragment: >-
+    no duplicated window door playhouse or rug, no mirrored or arbitrarily
+    rotated room, no extra activity table, no hanging lanterns unless explicitly
+    approved, no invented dimensions, no multiplied shelves toys bins plants or
+    cushions, no blocked circulation, no sharp furniture edges, no hard rug
+    border, no readable generated wall text, no collage grid, no technical
+    labels, no arrows, no measurements, no watermark.
   generation_constraints:
     - exact-one-playhouse-one-window-one-door-and-one-centered-round-rug
     - do-not-add-remove-duplicate-or-relocate-anchor-objects
     - keep-object-colors-materials-positions-and-quantities-consistent
     - keep-open-movement-and-circulation-space-clear
-    - use-stable-consensus-measurements-only-until-reconciliation
+    - use-only-stable-consensus-measurements-before-owner-reconciliation
+    - keep-activity-table-ceiling-fixtures-door-finish-and-wall-names-unresolved
   prohibited_context_use:
     - direct-conditioning-with-any-five-board-collage
     - averaging-or-randomly-selecting-conflicting-relative-values
@@ -528,24 +700,35 @@ mcp_context:
     - treating-the-round-activity-table-or-hanging-lanterns-as-canonical
     - generating-readable-wall-art-or-labels
 
-generation_policy:
-  design_review_images_are_direct_conditioning_inputs: false
-  reason: multi-panel-collages-with-labels-diagrams-duplicate-views-and-conflicting-values
-  allowed_modes_before_v2_approval: []
-  forbidden_modes_for_these_five_boards: [t2v, i2v, ti2v-image, s2v]
-  active_generation_reference: kindergarten-play-space-primary-master-v001
-  active_generation_reference_version: v001
-  clean_v2_frames_required_after_reconciliation_and_approval:
-    - primary-establishing-frame
-    - reverse-or-opposite-frame
-    - playhouse-zone-frame
-    - open-play-action-area-frame
+quality_control:
+  reject:
+    - conflicting-board-values-silently-averaged-or-selected
+    - one-board-wall-label-treated-as-package-wide-orientation
+    - window-playhouse-door-rug-or-shelving-duplicated
+    - activity-table-added-without-owner-selection
+    - hanging-lanterns-or-fan-system-selected-without-owner-approval
+    - door-finish-selected-as-canonical-without-owner-approval
+    - centered-rug-moved-against-the-selected-reconciled-plan
+    - circulation-loop-obstructed-by-poufs-bins-toys-or-furniture
+    - generated-text-labels-measurements-arrows-or-watermarks
+    - direct-conditioning-from-a-multi-panel-board
+  validate:
+    - all-five-project-assets-exist
+    - source-and-project-sha256-values-match
+    - four-boards-are-1402-by-1122-and-cinematic-board-is-1369-by-1149
+    - yaml-loads-through-the-mcp-location-resource
+    - unresolved-values-remain-explicit-and-out-of-the-safe-prompt
+    - approved-v2-authority-remains-active-with-disputed-fields-explicitly-excluded
 
 review_gate:
-  technical_registration: complete
-  source_package_complete: true
-  measurement_reconciliation: pending
-  layout_and_orientation_reconciliation: pending
-  project_owner_visual_identity_approval: pending
-  compare_against_v001: required
+  five_file_registration: complete
+  visual_detail_extraction: complete
+  measurement_conflicts_documented: complete
+  layout_and_fixture_conflicts_documented: complete
+  mcp_retrieval_support: complete
+  project_owner_measurement_selection: pending
+  project_owner_orientation_and_fixture_selection: pending
+  project_owner_visual_approval: approved-2026-08-27
+  canonical_promotion: complete-with-unresolved-fields-excluded
+  clean_v2_single_frame_generation: pending-after-reconciliation-and-approval
   partial_canonical_promotion: forbidden

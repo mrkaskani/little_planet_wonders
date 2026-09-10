@@ -13,6 +13,7 @@ build/
 .venv-qwen3-tts/
 models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/
 models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-Base/
+models/wan22-s2v-local-q4ks/
 outputs/qwen3-tts/
 renders/
 edits/

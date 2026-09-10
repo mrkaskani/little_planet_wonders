@@ -14,6 +14,7 @@ from lpw.config import context_root, runtime_root
 from lpw.context.loader import (
     get_project_directory,
     load_character,
+    load_episode_context,
     load_location,
     load_project_context,
 )
@@ -21,6 +22,7 @@ from lpw.context.pipeline import SceneContextPipeline
 from lpw.context.chaining import ContextChainResolver
 from lpw.editing.automation import AutomatedEditingPipeline
 from lpw.generation.extension import CinematicExtensionPipeline
+from lpw.operations.pipeline_validation import PipelineEnvironmentValidator
 from lpw.context.compiler import ContextCompiler
 from lpw.utils.files import load_yaml
 
@@ -83,6 +85,37 @@ def wan22_context() -> str:
     )
 
 
+def pipeline_model_registry() -> str:
+    """Return the centralized local and production model registry.
+
+    Returns:
+        YAML registry with paths, revisions, expected files, and environment roles.
+    """
+
+    return yaml.safe_dump(
+        PipelineEnvironmentValidator().load_registry(),
+        sort_keys=False,
+        allow_unicode=True,
+    )
+
+
+def pipeline_environment_context(environment: str) -> str:
+    """Return one isolated pipeline environment configuration.
+
+    Args:
+        environment: Either ``local`` or ``production``.
+
+    Returns:
+        YAML environment configuration.
+    """
+
+    return yaml.safe_dump(
+        PipelineEnvironmentValidator().load_environment(environment),
+        sort_keys=False,
+        allow_unicode=True,
+    )
+
+
 def project_context(project_id: str) -> str:
     """Execute context.
 
@@ -126,6 +159,24 @@ def location_context(project_id: str, location_id: str) -> str:
     """
     return yaml.safe_dump(
         load_location(get_project_directory(project_id), location_id),
+        sort_keys=False,
+        allow_unicode=True,
+    )
+
+
+def episode_context(project_id: str, episode_id: str) -> str:
+    """Return an episode with character identities and emotions resolved.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        episode_id (str): Stable identifier of the episode.
+
+    Returns:
+        str: YAML containing the source episode and its resolved context.
+    """
+
+    return yaml.safe_dump(
+        load_episode_context(get_project_directory(project_id), episode_id),
         sort_keys=False,
         allow_unicode=True,
     )
@@ -235,6 +286,24 @@ def post_editing_context(project_id: str) -> str:
     project_directory = get_project_directory(project_id)
     return yaml.safe_dump(
         load_yaml(project_directory / "post-editing.yaml"),
+        sort_keys=False,
+        allow_unicode=True,
+    )
+
+
+def production_restoration_context(project_id: str) -> str:
+    """Return the quality-gated production restoration policy.
+
+    Args:
+        project_id: Stable identifier of the project whose context is used.
+
+    Returns:
+        YAML policy for QA, conditional repair, interpolation, restoration, and export.
+    """
+
+    project_directory = get_project_directory(project_id)
+    return yaml.safe_dump(
+        load_yaml(project_directory / "production-restoration.yaml"),
         sort_keys=False,
         allow_unicode=True,
     )

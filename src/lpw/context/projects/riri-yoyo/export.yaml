@@ -1,6 +1,6 @@
 video:
   width: 1920
-  height: 804
+  height: 1080
   frame_rate: 24
   pixel_format: yuv420p
   working_codec: libx264
@@ -30,7 +30,7 @@ profiles:
     container: mp4
     video_codec: libx264
     width: 1280
-    height: 536
+    height: 720
     frame_rate: 24
     crf: 24
     audio_codec: aac
@@ -39,17 +39,23 @@ profiles:
     container: mp4
     video_codec: libx264
     width: 1920
-    height: 804
+    height: 1080
     frame_rate: 24
     crf: 18
     audio_codec: aac
-    audio_bitrate: 320k
+    audio_bitrate: 384k
     target_lufs: -16
+    platform: youtube
+    aspect_ratio: "16:9"
+    color_space: bt709
+    fast_start: true
   master:
     container: mov
     video_codec: prores_ks
     profile: 3
     pixel_format: yuv422p10le
+    width: 1920
+    height: 1080
     frame_rate: 24
     audio_codec: pcm_s24le
     audio_sample_rate: 48000

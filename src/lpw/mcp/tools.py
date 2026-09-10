@@ -13,12 +13,17 @@ from lpw.audio.sound_effects import (
 )
 from lpw.audio.voice_production import VoiceProductionService
 from lpw.config import PROJECT_ROOT
-from lpw.context.loader import load_project_context
+from lpw.context.loader import (
+    get_project_directory,
+    load_episode_context,
+    load_project_context,
+)
 from lpw.context.pipeline import SceneContextPipeline
 from lpw.editing.planner import (
     create_edit_plan as build_edit_plan,
     edit_cinematic_sequence as build_cinematic_sequence,
 )
+from lpw.editing.restoration import plan_project_restoration
 from lpw.editing.state import save_continuity_state as persist_continuity_state
 from lpw.editing.timeline import SceneFinalizationService
 from lpw.editing.automation import AutomatedEditingPipeline
@@ -29,6 +34,7 @@ from lpw.generation.pipeline import SceneGenerationPipeline
 from lpw.generation.render_service import render_wan_package
 from lpw.generation.workflows import prepare_generation_job as build_generation_job
 from lpw.models import DialogueRequest, ShotRequest, ShotType
+from lpw.operations.pipeline_validation import PipelineEnvironmentValidator
 from lpw.validation.pipeline import RenderValidationPipeline
 from lpw.validation.finalization import record_render_approval
 
@@ -39,6 +45,88 @@ ALLOWED_SHOT_TYPES = {
     "image_to_video",
     "dialogue",
 }
+
+
+def pipeline_system_status(environment: str = "local") -> dict[str, Any]:
+    """Inspect hardware, dependencies, models, MCP, and disk without generation.
+
+    Args:
+        environment: Isolated ``local`` or ``production`` configuration to validate.
+
+    Returns:
+        Structured check result and report paths.
+    """
+
+    return PipelineEnvironmentValidator().run_check(environment)
+
+
+def validate_local_pipeline() -> dict[str, Any]:
+    """Create the fail-closed local readiness report.
+
+    Returns:
+        Every required acceptance gate and current production readiness decision.
+    """
+
+    return PipelineEnvironmentValidator().run_local_test()
+
+
+def run_production_preflight() -> dict[str, Any]:
+    """Check production gates without starting a generation job.
+
+    Returns:
+        Production permission decision and exact blockers.
+    """
+
+    return PipelineEnvironmentValidator().production_preflight()
+
+
+def plan_production_restoration(
+    project_id: str,
+    source_frames: str,
+    hardware_profile: str,
+    has_dialogue: bool,
+    defects: list[str],
+    difficult_scene: bool = False,
+    available_vram_gb: float | None = None,
+) -> dict[str, Any]:
+    """Plan the maximum-quality QA and restoration route without running models.
+
+    Args:
+        project_id: Stable identifier of the project whose context is used.
+        source_frames: Lossless input frame directory or immutable source identifier.
+        hardware_profile: Restoration hardware profile declared by the project.
+        has_dialogue: Whether the segment contains locked speaking audio.
+        defects: Qwen-classified defects: ``face``, ``lip_sync``, or ``temporal``.
+        difficult_scene: Whether the affected segment needs both stage orders tested.
+        available_vram_gb: Measured free VRAM before selecting the SeedVR2 tier.
+
+    Returns:
+        Ordered stages, explicit model downgrade record, QA gates, and blockers.
+    """
+
+    return plan_project_restoration(
+        project_id,
+        source_frames,
+        hardware_profile,
+        has_dialogue,
+        defects,
+        difficult_scene,
+        available_vram_gb,
+    )
+
+
+def inspect_episode_context(project_id: str, episode_id: str) -> dict[str, Any]:
+    """Resolve an episode's characters, emotions, acting rules, and location.
+
+    Args:
+        project_id (str): Stable identifier of the project whose context is used.
+        episode_id (str): Stable identifier of the episode.
+
+    Returns:
+        dict[str, Any]: Fully resolved episode context for prompt planning.
+    """
+
+    return load_episode_context(get_project_directory(project_id), episode_id)
 
 
 def compile_scene_context(story_id: str, scene_id: str) -> dict[str, Any]:
@@ -311,6 +399,7 @@ def inspect_project_context(
     project_id: str,
     character_ids: list[str] | None = None,
     location_id: str | None = None,
+    episode_id: str | None = None,
 ) -> dict[str, Any]:
     """Inspect the complete normalized context and its deterministic hash.
 
@@ -320,13 +409,17 @@ def inspect_project_context(
             included. Defaults to ``None``.
         location_id (str | None): Stable identifier of the location. Defaults to
             ``None``.
+        episode_id (str | None): Stable identifier of an episode. Defaults to ``None``.
 
     Returns:
         dict[str, Any]: Result produced by the operation.
     """
 
     return load_project_context(
-        project_id, character_ids=character_ids, location_id=location_id
+        project_id,
+        character_ids=character_ids,
+        location_id=location_id,
+        episode_id=episode_id,
     )
 
 

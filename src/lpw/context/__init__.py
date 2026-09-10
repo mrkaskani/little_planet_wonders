@@ -5,6 +5,8 @@ from lpw.context.loader import (
     get_project_directory,
     load_audio_context,
     load_character,
+    load_episode,
+    load_episode_context,
     load_location,
     load_project_context,
 )
@@ -17,6 +19,8 @@ __all__ = [
     "SceneContextPipeline",
     "load_audio_context",
     "load_character",
+    "load_episode",
+    "load_episode_context",
     "load_location",
     "load_project_context",
 ]

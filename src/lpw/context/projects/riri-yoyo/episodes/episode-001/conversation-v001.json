@@ -1,0 +1,21 @@
+{
+  "title": "Episode 001 — Moonlit Garden Greeting",
+  "project": "riri-yoyo",
+  "language": "English",
+  "target_seconds": 12.0,
+  "seed": 424242,
+  "turns": [
+    {
+      "speaker": "riri",
+      "text": "Hi, Yoyo! Look at the warm light."
+    },
+    {
+      "speaker": "yoyo",
+      "text": "Is that our garden light?"
+    },
+    {
+      "speaker": "riri",
+      "text": "Yes. It helps us see the path."
+    }
+  ]
+}

@@ -1,5 +1,19 @@
 # Audio workflows
 
+## Two-phase scene rule
+
+Phase 1 creates and approves dialogue, music, ambience, Foley, sound effects, and
+the scene-reference image. Dialogue is divided into one clean WAV per speaker
+turn. Music, ambience, Foley, and effects remain separate stems.
+
+Phase 2 sends one approved scene or continuity frame and one speaker's locked
+clean dialogue WAV to each Wan S2V unit. The combined multi-speaker conversation,
+music, ambience, Foley, and effects are forbidden as S2V conditioning. They are
+added during editing after the generated picture passes review. See the
+[Phase 1](courses/creating_scenes/phase_01_create_audio_and_scene_reference.md)
+and [Phase 2](courses/creating_scenes/phase_02_generate_s2v_and_final_mix.md)
+course guides.
+
 ## Layer priority
 
 1. Clean dialogue and narration
@@ -32,6 +46,12 @@ locked file/hash without invoking S2V.
 The S2V input contains clean locked dialogue. Music, ambience, Foley, and effects
 are added during editing, not baked into lip-sync input. Material dialogue changes
 require a new dialogue version and regenerated video.
+
+For a conversation, compile one S2V unit per speaker turn. The assembled
+multi-speaker `conversation.wav` is a pacing and editorial reference, not valid
+S2V conditioning. The first unit may use the approved Phase 1 scene image; later
+units should inherit the previous approved stable end frame unless a reviewed cut
+introduces a new approved start frame.
 
 ## Ambience
 

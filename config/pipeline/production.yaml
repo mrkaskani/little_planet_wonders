@@ -1,0 +1,41 @@
+environment: production
+production_execution_allowed: true
+requires_local_readiness_report: runtime/pipeline/local/reports/local-readiness-report.json
+storage:
+  data: runtime/pipeline/production/data
+  logs: runtime/pipeline/production/logs
+  cache: runtime/pipeline/production/cache
+  outputs: runtime/pipeline/production/outputs
+  jobs: runtime/pipeline/production/jobs
+  reports: runtime/pipeline/production/reports
+video:
+  model: wan22_s2v_production_bf16
+  precision: bf16
+  width: 832
+  height: 480
+  frame_rate: 16
+  five_second_frame_count: 81
+  inference_steps: 20
+  batch_size: 1
+  final_quality: maximum
+upscale:
+  model: seedvr2_7b
+  precision_priority: [fp16, high-quality-reduced, quantized]
+  target_width: 1920
+  target_height: 1080
+  temporal_chunk_size: 32
+  temporal_overlap: 8
+audio:
+  tts_model: qwen3_tts_base
+  music_model: ace_step_music
+  quality: maximum
+debug:
+  enabled: false
+required_dependencies:
+  python_modules: [torch, transformers, diffusers, accelerate, safetensors, sentencepiece, cv2, yaml, mcp, librosa, PIL, psutil]
+  executables: [ffmpeg, ffprobe, git, git-lfs]
+preflight:
+  minimum_free_disk_bytes: 246960619520
+  require_accelerator: true
+  require_all_models_ready: true
+  forbid_quantized_wan: true

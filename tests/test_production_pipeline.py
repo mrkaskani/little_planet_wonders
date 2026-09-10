@@ -151,6 +151,42 @@ def test_frame_count_matches_wan_four_n_plus_one_constraint(
     assert SceneGenerationPipeline._calculate_frame_count(duration, fps) == expected
 
 
+def test_s2v_generation_uses_native_480p_profile_and_81_frames_for_five_seconds() -> None:
+    settings = SceneGenerationPipeline._generation_video_settings(
+        "s2v", {"width": 1920, "height": 1080, "fps": 24}
+    )
+
+    assert settings == {
+        "width": 832,
+        "height": 480,
+        "fps": 16,
+        "frame_count_rule": "four-n-plus-one-covering-audio",
+    }
+    assert (
+        SceneGenerationPipeline._calculate_frame_count(
+            5, 16, "four-n-plus-one-covering-audio"
+        )
+        == 81
+    )
+
+
+def test_s2v_standard_and_lightning_sampling_profiles() -> None:
+    assert SceneGenerationPipeline._s2v_sampling_settings("standard") == {
+        "steps": 20,
+        "cfg": 6.0,
+        "sampler": "unipc",
+        "scheduler": "simple",
+    }
+    assert SceneGenerationPipeline._s2v_sampling_settings("lightning") == {
+        "steps": 5,
+        "cfg": 1.0,
+        "sampler": "unipc",
+        "scheduler": "simple",
+    }
+    with pytest.raises(ValueError, match="Unsupported S2V sampling profile"):
+        SceneGenerationPipeline._s2v_sampling_settings("unknown")
+
+
 def test_workflow_bindings_patch_the_exported_comfyui_document() -> None:
     workflow = {"6": {"inputs": {"text": "old"}}}
 

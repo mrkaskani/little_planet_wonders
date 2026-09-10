@@ -234,6 +234,14 @@ def run_song(args: argparse.Namespace) -> None:
         "inference_steps": args.steps,
         "batch_size": 1,
     }
+    if args.bpm is not None:
+        payload["bpm"] = args.bpm
+    if args.time_signature:
+        payload["time_signature"] = args.time_signature
+    if args.key_scale:
+        payload["key_scale"] = args.key_scale
+    if args.vocal_language:
+        payload["vocal_language"] = args.vocal_language
     if args.thinking:
         payload.update(
             {
@@ -248,6 +256,7 @@ def run_song(args: argparse.Namespace) -> None:
     if args.seed is not None:
         payload.update({"use_random_seed": False, "seed": args.seed})
     source_audio: Path | None = None
+    reference_audio: Path | None = None
     if args.source_audio:
         source_audio = Path(args.source_audio).expanduser().resolve()
         if not source_audio.is_file():
@@ -259,6 +268,24 @@ def run_song(args: argparse.Namespace) -> None:
                 "cover_noise_strength": args.cover_noise_strength,
             }
         )
+        if args.task_type == "repaint":
+            payload.update(
+                {
+                    "repainting_start": args.repainting_start,
+                    "repainting_end": args.repainting_end,
+                    "repaint_mode": args.repaint_mode,
+                    "repaint_strength": args.repaint_strength,
+                    "repaint_latent_crossfade_frames": args.repaint_crossfade_frames,
+                    "repaint_wav_crossfade_sec": args.repaint_wav_crossfade_seconds,
+                }
+            )
+    if args.reference_audio:
+        reference_audio = Path(args.reference_audio).expanduser().resolve()
+        if not reference_audio.is_file():
+            fail(f"ACE-Step reference audio does not exist: {reference_audio}")
+        if source_audio is not None:
+            fail("use either --source-audio or --reference-audio, not both")
+        payload["audio_cover_strength"] = args.audio_cover_strength
 
     if source_audio is not None:
         response = api_multipart_request(
@@ -266,6 +293,15 @@ def run_song(args: argparse.Namespace) -> None:
             fields=payload,
             file_field="ctx_audio",
             file_path=source_audio,
+            api_key=args.api_key,
+            timeout=60,
+        )
+    elif reference_audio is not None:
+        response = api_multipart_request(
+            f"{base_url}/release_task",
+            fields=payload,
+            file_field="ref_audio",
+            file_path=reference_audio,
             api_key=args.api_key,
             timeout=60,
         )
@@ -348,6 +384,10 @@ def build_parser() -> argparse.ArgumentParser:
     song = subparsers.add_parser("song", help="generate a song through ACE-Step 1.5")
     add_common_audio_arguments(song, 30.0)
     song.add_argument("--lyrics", help="explicit lyrics; otherwise ACE-Step designs the song")
+    song.add_argument("--bpm", type=int, choices=range(30, 301))
+    song.add_argument("--time-signature", choices=("2/4", "3/4", "4/4", "6/8"))
+    song.add_argument("--key-scale", help="musical key, for example 'C Major'")
+    song.add_argument("--vocal-language", default="en", help="vocal language code")
     song.add_argument(
         "--thinking",
         action=argparse.BooleanOptionalAction,
@@ -364,8 +404,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="WAV used as ACE-Step cover/remix conditioning",
     )
     song.add_argument(
+        "--reference-audio",
+        help="WAV used only for global timbre/style conditioning in text-to-music mode",
+    )
+    song.add_argument(
         "--task-type",
-        choices=("text2music", "cover", "cover-nofsq"),
+        choices=("text2music", "cover", "cover-nofsq", "repaint"),
         default="cover",
     )
     song.add_argument("--audio-cover-strength", type=float, default=1.0)
@@ -375,6 +419,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=0.6,
         help="melody retention: 0 is a new composition, 1 is closest to source",
     )
+    song.add_argument("--repainting-start", type=float, default=0.0)
+    song.add_argument("--repainting-end", type=float)
+    song.add_argument(
+        "--repaint-mode",
+        choices=("conservative", "balanced", "aggressive"),
+        default="balanced",
+    )
+    song.add_argument("--repaint-strength", type=float, default=0.5)
+    song.add_argument("--repaint-crossfade-frames", type=int, default=10)
+    song.add_argument("--repaint-wav-crossfade-seconds", type=float, default=0.25)
     song.set_defaults(handler=run_song)
 
     for command, help_text, seconds in (

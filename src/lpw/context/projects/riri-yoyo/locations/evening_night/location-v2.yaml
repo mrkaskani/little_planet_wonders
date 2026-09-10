@@ -2,7 +2,7 @@ id: kindergarten-evening-night-location-v2
 type: location-visual-version-context
 version: 2
 version_tag: v002
-status: candidate-awaiting-identity-taxonomy-and-human-approval
+status: approved-canonical-v002-clean-generation-frame-pending
 
 metadata:
   project_id: riri-yoyo
@@ -23,17 +23,17 @@ versioning:
   base_reference_id: kindergarten-evening-night-reference-set-v001
   base_primary_master_id: kindergarten-evening-night-primary-master-v001
   candidate_package_id: kindergarten-evening-night-design-package-v002
-  active_canonical_version: v001
+  active_canonical_version: v002
   candidate_version: v002
   package_completeness:
     expected_source_boards: 5
     present_source_boards: 5
     complete: true
   promotion_rule: >-
-    V2 becomes canonical only after the project owner resolves whether the
-    storybook stone cottage replaces the existing modern kindergarten exterior
-    or becomes a separately named location, approves the complete package, and
-    approves clean single-frame V2 generation references. V1 remains active.
+    The project owner approved V2 on 2026-08-27 as the replacement redesign for
+    the kindergarten-evening-night location. The storybook stone cottage is now
+    canonical; clean single-frame V2 generation references remain a separate
+    required gate before image-conditioned production.
 
 source_package:
   supplied_folder_label: evening-night_exterior_reference_package_v1
@@ -127,7 +127,7 @@ source_authority:
   board_relationship: all-transformation-panels-derive-from-the-same-location-and-night-lighting-state
 
 candidate_identity_boundary:
-  status: unresolved-material-redesign-not-a-lighting-only-variant
+  status: resolved-as-approved-v2-replacement-redesign
   active_v1_identity:
     building: low-modern-curved-cream-stucco-kindergarten
     roof: terracotta-roof-family
@@ -141,16 +141,12 @@ candidate_identity_boundary:
   prohibited_assumptions:
     - do-not-describe-v2-as-the-same-building-under-night-light
     - do-not-inherit-v1-kindergarten-geometry-into-the-cottage
-    - do-not-replace-v1-authority-without-owner-approval
-    - do-not-rename-the-cottage-without-owner-approval
-  owner_decision_options:
-    - approve-as-a-full-redesign-replacing-kindergarten-evening-night-v1
-    - approve-as-a-separate-storybook-cottage-night-location
-    - reject-the-v2-package-and-retain-v1
-  current_behavior: expose-as-retrievable-candidate-context-while-v1-remains-active
+    - do-not-reintroduce-v1-kindergarten-geometry-into-the-approved-v2-cottage
+  owner_decision: approved-as-full-redesign-replacing-kindergarten-evening-night-v1
+  current_behavior: expose-as-canonical-v2-context-with-clean-generation-frame-still-pending
 
 location_identity:
-  category: unresolved-kindergarten-redesign-or-separate-storybook-cottage
+  category: approved-kindergarten-evening-night-storybook-cottage-redesign
   summary: warm-windowed-storybook-stone-cottage-in-a-cool-moonlit-fenced-garden
   emotional_character: [calm, cozy, magical, reassuring, quiet, safe, welcoming]
   medium: premium-soft-stylized-3d-preschool-animation
@@ -490,27 +486,26 @@ continuity:
 
 mcp_context:
   resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-evening-night-location-v2
-  retrieval_scope: candidate-location-v2-design-review-context
+  retrieval_scope: canonical-location-v2-design-review-context
   summary: >-
-    Candidate deep-night location package showing one compact two-story
+    Approved canonical deep-night location package showing one compact two-story
     storybook stone cottage centered in a fenced flower garden, with a steep
     blue-gray gabled roof, chimney, warm arched entry and windows, curved
     flagstone path, four principal tree zones, crescent moon, cool ambient fill,
-    and fixed warm practical light. It materially conflicts with the active
-    modern kindergarten geometry and requires an identity/taxonomy decision.
+    and fixed warm practical light. It replaces the former V1 modern
+    kindergarten-evening-night geometry under the same location ID.
   use_for:
-    - candidate-location-design-review
+    - approved-location-design-review
     - relative-scale-and-site-layout-retrieval
     - camera-and-material-planning
     - night-lighting-and-exposure-planning
     - child-safety-and-path-readability-review
-    - continuity-prompt-authoring-after-approval
+    - continuity-prompt-authoring
   do_not_use_for:
     - direct-i2v-ti2v-image-or-s2v-conditioning
     - claiming-v2-is-only-a-lighting-variant-of-v1
-    - overriding-active-v1-location-authority
     - inventing-a-distinct-evening-or-twilight-state
-    - generating-production-shots-before-owner-and-clean-frame-approval
+    - generating-production-shots-before-clean-frame-approval
   concise_prompt_fragments:
     identity: >-
       One compact two-story storybook stone cottage in a fenced flower garden,
@@ -543,7 +538,7 @@ mcp_context:
     lamp_height: 0.90
     large_tree_height_average: 1.60
   unresolved_fields:
-    canonical_identity_relationship: owner-decision-required
+    canonical_identity_relationship: resolved-v2-replaces-v1-under-same-location-id
     distinct_evening_state: not-shown
     exact_practical_and-window-on-count: lock-from-approved-clean-reference
     metric_dimensions: unavailable-relative-units-only
@@ -554,10 +549,10 @@ generation_policy:
     forbidden_for: [i2v-conditioning, ti2v-image-conditioning, s2v-conditioning]
     reason: multi-panel-labeled-boards-are-not-one-coherent-starting-frame
   t2v:
-    eligibility: exploratory-candidate-visualization-only
+    eligibility: canonical-text-context-exploration-only-until-clean-frame-approval
     restrictions:
-      - never-claim-canonical-recurring-location-identity
-      - include-candidate-and-identity-conflict-language-in-review-output
+      - never-claim-a-generated-frame-is-approved-without-project-owner-review
+      - preserve-the-approved-v2-storybook-cottage-identity
   i2v:
     eligibility: blocked-until-approved-clean-single-frame-v2-reference
   ti2v_image:
@@ -588,10 +583,10 @@ review_gate:
   technical_package_registration: complete
   source_copy_and_hash_verification: pass
   stable-visual-context-extraction: pass
-  identity_and_taxonomy_relationship: pending-project-owner-decision
+  identity_and_taxonomy_relationship: approved-replacement-redesign-same-location-id-2026-08-27
   distinct_evening_state: missing-from-package
-  complete_v2_package_human_approval: pending
+  complete_v2_package_human_approval: approved-2026-08-27
   clean_single_frame_v2_references: pending
-  canonical_promotion: blocked
-  active_v1_location_authority_remains_active: true
-  active_v1_primary_master_remains_active: true
+  canonical_promotion: complete
+  active_v1_location_authority_remains_active: false
+  active_v1_primary_master_remains_active: false

@@ -6,9 +6,9 @@ editing_identity:
 timeline:
   frame_rate: 24
   width: 1920
-  height: 804
-  resolution: 1920x804
-  aspect_ratio: "2.39:1"
+  height: 1080
+  resolution: 1920x1080
+  aspect_ratio: "16:9"
   working_color_space: Rec.709 Gamma 2.4
   audio_sample_rate: 48000
   pixel_format: yuv420p

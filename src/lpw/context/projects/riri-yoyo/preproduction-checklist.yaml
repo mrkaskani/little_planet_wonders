@@ -53,11 +53,12 @@ required_files:
     - assets/vehicles.yaml
     - assets/background-characters.yaml
     - locations-assets.yaml
-  location_candidates:
+  canonical_location_versions:
     - locations/interiors/location-v2.yaml
     - locations/play_spaces/location-v2.yaml
     - locations/nature_and_parks/location-v2.yaml
     - locations/sunset_golden_hour/location-v2.yaml
+    - locations/evening_night/location-v2.yaml
   governance:
     - brand.yaml
     - references.yaml

@@ -297,7 +297,7 @@ class ContextChainResolver:
         if len(parts) == 2:
             return project / "project.yaml"
         kind = parts[2]
-        if kind in {"characters", "locations", "sequences"} and len(parts) == 4:
+        if kind in {"characters", "locations", "sequences", "episodes"} and len(parts) == 4:
             identifier = validate_identifier(parts[3], f"{kind}_id")
             nested = project / kind / identifier / f"{kind[:-1]}.yaml"
             flat = project / kind / f"{identifier}.yaml"

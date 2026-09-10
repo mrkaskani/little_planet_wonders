@@ -12,10 +12,23 @@ dependencies = [
 [project.scripts]
 lpw = "lpw.mcp.server:main"
 lpw-conversation = "conversion.cli:main"
+lpw-wan-s2v-local = "lpw.generation.local_s2v_worker:main"
+lpw-pipeline = "lpw.pipeline_cli:main"
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.4,<9",
+]
+s2v-mps = [
+    "diffusers>=0.36,<0.37",
+    "gguf>=0.19,<1",
+    "librosa>=0.11,<1",
+    "pillow>=12,<13",
+    "psutil>=7.2,<8",
+    "safetensors>=0.8,<1",
+    "sentencepiece>=0.2,<1",
+    "torch>=2.13,<3",
+    "transformers>=4.57,<5",
 ]
 
 [build-system]

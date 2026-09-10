@@ -1,7 +1,7 @@
 id: riri-yoyo-yoyo-v2-review-v001
 type: character-version-review-context
 version: 1
-status: creative-review-awaiting-human-approval
+status: approved-canonical-v002-clean-generation-frames-pending
 
 metadata:
   project_id: riri-yoyo
@@ -62,13 +62,14 @@ records:
       conditioning-eligible: false
 
 version_comparison:
-  v001_remains_active: true
+  v001_remains_active: false
   v002_visual-differences-recorded: true
   automatic-v001-deprecation: forbidden
   v002-generation-frames-created: false
 
 approval_boundary:
   technical-and-codex-visual-review-complete: true
-  project-owner-v2-package-approval: pending
-  v2-canonical-promotion: blocked
-  existing-v1-generation-conditioning-remains-active: true
+  project-owner-v2-package-approval: approved-2026-08-27
+  v2-canonical-promotion: complete
+  existing-v1-generation-conditioning-remains-active: false
+  clean-v2-single-frame-generation-references: pending

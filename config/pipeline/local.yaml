@@ -1,0 +1,33 @@
+environment: local
+production_execution_allowed: false
+storage:
+  data: runtime/pipeline/local/data
+  logs: runtime/pipeline/local/logs
+  cache: runtime/pipeline/local/cache
+  outputs: runtime/pipeline/local/outputs
+  jobs: runtime/pipeline/local/jobs
+  reports: runtime/pipeline/local/reports
+video:
+  model: wan22_s2v_local_q4ks
+  width: 384
+  height: 384
+  duration_seconds: 2
+  frame_rate: 8
+  inference_steps: 1
+  batch_size: 1
+upscale:
+  model: seedvr2_7b
+  target_width: 512
+  target_height: 512
+  minimal_test_only: true
+audio:
+  tts_model: qwen3_tts_base
+  music_model: ace_step_music
+  maximum_test_duration_seconds: 2
+cache:
+  enabled: true
+debug:
+  enabled: true
+required_dependencies:
+  python_modules: [torch, transformers, diffusers, accelerate, safetensors, sentencepiece, cv2, yaml, mcp, gguf, librosa, PIL, psutil]
+  executables: [ffmpeg, ffprobe, git, git-lfs]

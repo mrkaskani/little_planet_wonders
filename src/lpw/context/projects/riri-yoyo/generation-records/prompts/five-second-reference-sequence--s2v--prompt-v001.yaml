@@ -1,0 +1,370 @@
+id: five-second-reference-sequence-s2v-prompt
+type: reusable-storyboard-reference-sequence-prompt
+version: 1
+prompt_version: v001
+status: approved
+
+metadata:
+  project_id: riri-yoyo
+  purpose: >-
+    Create five temporally coherent storyboard panels for planning and reviewing
+    a five-second Wan 2.2 S2V sequence. These are not direct Wan image inputs.
+  output_role: storyboard-review-only-never-direct-wan-conditioning
+  target_workflow: wan2.2-s2v-14b
+  duration_seconds: 5
+  reference_frame_count: 5
+  created_on: "2026-08-28"
+  requested_by: project-owner
+
+source_authority:
+  wan_2_2_contract: ../../wan22-preproduction.yaml
+  asset_conventions: ../../asset-conventions.yaml
+  reference_registry: ../../references.yaml
+  character_continuity: ../../continuity/character-states.yaml
+  location_continuity: ../../continuity/location-states.yaml
+  camera_language: ../../cinematography/camera-language.yaml
+  composition_rules: ../../cinematography/composition-rules.yaml
+  lighting: ../../visual_style/lighting.yaml
+  visual_style: ../../visual_style/visual_style.yaml
+  qwen_vl_review: ../../auto-editing.yaml
+
+template_variables:
+  required:
+    CHARACTER_REFERENCE:
+      type: image-list
+      minimum_items: 1
+      description: Approved character identity reference image paths and hashes.
+    LOCATION_REFERENCE:
+      type: image
+      exact_items: 1
+      description: Approved coherent location reference image path and hash.
+    LOCATION:
+      type: text
+      description: Canonical location identity and the visible part of its layout.
+    CHARACTER:
+      type: text
+      description: Canonical character identity, state, emotion, and visible wardrobe.
+    ACTION:
+      type: text
+      description: One observable action that can progress gradually over five seconds.
+    STYLE:
+      type: text
+      description: Canonical visual medium, shape language, materials, and rendering style.
+    CAMERA:
+      type: text
+      description: Lens, height, angle, framing, camera position, and permitted movement.
+    LIGHTING:
+      type: text
+      description: Time of day, key and fill direction, color relationship, and exposure.
+    MOOD:
+      type: text
+      description: Emotional tone expressed without changing canonical identity or lighting.
+  optional:
+    PREVIOUS_APPROVED_END_FRAME:
+      type: image
+      default: null
+      description: Previous shot or segment end frame when cross-shot continuity is required.
+    EXPECTED_FINAL_STATE:
+      type: text
+      default: natural-settle-after-action
+    ASPECT_RATIO:
+      type: text
+      default: "16:9"
+    OUTPUT_WIDTH:
+      type: integer
+      default: 1280
+    OUTPUT_HEIGHT:
+      type: integer
+      default: 704
+    SEED_FAMILY:
+      type: integer-or-null
+      default: null
+
+input_contract:
+  character_references:
+    must_be_approved: true
+    preserve:
+      - identity
+      - face-and-permanent-features
+      - hairstyle-or-species-head-shape
+      - body-proportions
+      - clothing-and-accessories
+      - canonical-colors-and-materials
+  location_reference:
+    must_be_approved: true
+    must_be_one_coherent_image: true
+    preserve:
+      - architecture
+      - spatial-layout
+      - fixed-landmarks-and-objects
+      - perspective
+      - lighting-state
+      - visual-style
+  previous_end_frame:
+    use_when_present: true
+    role: continuity-anchor-not-new-identity-authority
+
+sequence_contract:
+  duration_seconds: 5
+  frame_timestamps_seconds: [0, 1, 2, 3, 4]
+  action_count: 1
+  progression: gradual-causal-and-continuous
+  frame_relationship: every-frame-must-follow-the-previous-approved-frame
+  camera_rule: same-camera-setup-with-only-the-explicitly-requested-continuous-movement
+  identity_rule: no-character-redesign-between-frames
+  environment_rule: no-location-reconstruction-between-frames
+  lighting_rule: no-unmotivated-lighting-or-exposure-change
+  output_rule: five-separate-full-frame-images-never-a-grid-board-or-collage
+  direct_wan_s2v_conditioning: forbidden
+  actual_wan_image_input: exactly-one-approved-0s-start-reference
+
+frames:
+  - frame_id: frame-001
+    timestamp_seconds: 0
+    filename_suffix: 0s
+    beat: establishing-pose-and-scene
+    action_progress_percent: 0
+    prompt_instruction: >-
+      Establish the character naturally inside the referenced location. Show the
+      clear starting pose, correct ground contact, action space, gaze, and the
+      unchanged camera and lighting state before the action begins.
+  - frame_id: frame-002
+    timestamp_seconds: 1
+    filename_suffix: 1s
+    beat: begin-the-action
+    action_progress_percent: 25
+    prompt_instruction: >-
+      Begin the requested action with a small readable change from Frame 1.
+      Preserve balance, anatomy, screen direction, character identity, location
+      geometry, camera, and lighting.
+  - frame_id: frame-003
+    timestamp_seconds: 2
+    filename_suffix: 2s
+    beat: continue-the-motion-naturally
+    action_progress_percent: 50
+    prompt_instruction: >-
+      Continue the same action through its natural middle state. Maintain a
+      plausible motion path and preserve all identity, contact, environment,
+      perspective, camera, and lighting invariants from Frames 1 and 2.
+  - frame_id: frame-004
+    timestamp_seconds: 3
+    filename_suffix: 3s
+    beat: progress-toward-the-final-action
+    action_progress_percent: 75
+    prompt_instruction: >-
+      Progress the same action toward its intended endpoint without jumping to a
+      different pose or resetting state. Preserve the trajectory and every
+      locked visual invariant from the previous frames.
+  - frame_id: frame-005
+    timestamp_seconds: 4
+    filename_suffix: 4s
+    beat: final-reference-state
+    action_progress_percent: 100
+    prompt_instruction: >-
+      Show the requested final state and a believable beginning of the natural
+      settle. It must be the direct continuation of Frame 4 and remain suitable
+      as the expected end-state reference for the five-second clip.
+
+generation_strategy:
+  frame_001:
+    condition_with:
+      - CHARACTER_REFERENCE
+      - LOCATION_REFERENCE
+      - PREVIOUS_APPROVED_END_FRAME-when-present
+  frames_002_through_005:
+    condition_with:
+      - original-approved-character-references
+      - original-approved-location-reference
+      - immediately-previous-approved-sequence-frame
+    instruction: >-
+      Use the previous frame as the immediate temporal anchor while retaining the
+      original approved references as canonical identity and location authority.
+  consistency_controls:
+    - reuse-the-same-prompt-variable-values-for-all-five-frames
+    - reuse-seed-family-when-the-image-provider-supports-it
+    - change-only-the-action-state-required-for-the-current-timestamp
+    - compare-each-new-frame-to-frame-001-and-the-immediately-previous-frame
+    - regenerate-from-the-first-failing-frame-not-from-an-unrelated-new-composition
+
+embedded_prompt_template: |-
+  Use the provided location reference image and character reference image(s) to
+  create a coherent 5-second visual sequence for Wan 2.2 S2V.
+
+  Generate 5 sequential reference images, representing approximately 0s, 1s,
+  2s, 3s, and 4s. Output five separate full-frame images. Do not output a grid,
+  board, contact sheet, split screen, or collage.
+
+  Combine the provided [CHARACTER_REFERENCE] and [LOCATION_REFERENCE] into one
+  consistent scene.
+
+  Scene:
+  - Location: [LOCATION]
+  - Character: [CHARACTER]
+  - Action: [ACTION]
+  - Style: [STYLE]
+  - Camera/framing: [CAMERA]
+  - Lighting: [LIGHTING]
+  - Mood: [MOOD]
+  - Expected final state: [EXPECTED_FINAL_STATE]
+  - Aspect ratio: [ASPECT_RATIO]
+
+  Preserve the character's identity, face, hairstyle or canonical head shape,
+  body proportions, clothing, accessories, colors, and materials. Preserve the
+  location's architecture, layout, fixed objects, perspective, lighting, and
+  visual style. Integrate the character naturally into the location with correct
+  scale, perspective, ground contact, shadows, light direction, and color response.
+
+  Maintain strong temporal consistency across all five images. Progress [ACTION]
+  gradually with realistic body movement and scene interaction. Keep camera
+  position, lens, framing, screen direction, and movement logically continuous.
+  Change only the action state required for the current timestamp.
+
+  Frame 1 - 0s: Establishing pose and scene. Show the clear starting state before
+  the action begins.
+  Frame 2 - 1s: Begin the action with a small readable change from Frame 1.
+  Frame 3 - 2s: Continue the same motion naturally through its middle state.
+  Frame 4 - 3s: Progress the same action toward the final state without a jump or reset.
+  Frame 5 - 4s: Show the final reference state with direct continuity from Frame 4
+  and a believable beginning of the natural settle.
+
+  Treat these images as technical visual keyframes for Wan 2.2 S2V video
+  generation, not as independent illustrations. Every frame must remain coherent
+  with Frame 1 and with the immediately previous frame.
+
+  Do not introduce random changes, new or missing objects, duplicate characters,
+  different outfits, altered facial features, anatomy errors, inconsistent scale,
+  warped background geometry, changing architecture, lighting flicker, exposure
+  pumping, material drift, abrupt camera jumps, captions, labels, logos, or watermarks.
+
+negative_constraints:
+  - independent-unrelated-illustrations
+  - grid-board-contact-sheet-split-screen-or-collage
+  - character-identity-face-hairstyle-proportion-or-wardrobe-drift
+  - duplicate-missing-or-new-character
+  - new-missing-moved-or-redesigned-fixed-object
+  - background-geometry-architecture-or-perspective-drift
+  - action-reset-teleportation-foot-slip-or-contact-error
+  - abrupt-camera-lens-framing-screen-direction-or-horizon-change
+  - lighting-color-temperature-shadow-exposure-or-material-flicker
+  - anatomy-error-extra-limb-or-deformed-contact-point
+  - text-caption-label-logo-watermark-or-interface-element
+
+output_contract:
+  count: 5
+  format: png
+  color_mode: RGB
+  aspect_ratio_variable: ASPECT_RATIO
+  native_dimensions:
+    width_variable: OUTPUT_WIDTH
+    height_variable: OUTPUT_HEIGHT
+  filename_pattern: >-
+    {project-id}--{episode-id}--{scene-id}--{shot-id}--s2v-reference--{timestamp}s--v001.png
+  manifest_required: true
+  manifest_fields:
+    - frame-id
+    - timestamp-seconds
+    - output-path
+    - sha256
+    - character-reference-paths-and-sha256-values
+    - location-reference-path-and-sha256
+    - previous-frame-path-and-sha256-when-applicable
+    - resolved-prompt
+    - provider-model-and-version
+    - seed-or-null
+    - technical-review-status
+    - creative-approval-status
+
+presentation_board_contract:
+  purpose: human-and-qwen-vl-temporal-comparison
+  required_when: project-owner-requests-example-style-sequence-sheet
+  output_count: 1
+  output_role: review-artifact-never-direct-wan-conditioning-image
+  layout:
+    canvas: "16:9"
+    header: dark-title-and-subtitle-band
+    body: one-prompt-column-plus-five-equal-horizontal-frame-panels
+    timestamp_labels: [0s, 1s, 2s, 3s, 4s]
+    footer: technical-resolution-fps-duration-and-approval-state
+  content_rules:
+    - show-one-sequence-row-only
+    - preserve-the-same-scene-composition-across-all-five-panels
+    - show-gradual-action-progression-from-left-to-right
+    - keep-every-timestamp-visible-and-unambiguous
+    - do-not-use-the-board-itself-as-wan-s2v-image-conditioning
+  relationship_to_individual_frames: >-
+    The board is a compact visual review representation. Wan 2.2 S2V receives
+    exactly one clean start reference image for this five-second segment. The
+    1s through 4s panels are storyboard review guidance only and must not be
+    generated or passed as additional S2V conditioning images.
+
+embedded_review_board_prompt_template: |-
+  Create one polished 16:9 Wan 2.2 S2V technical reference board using the
+  provided [CHARACTER_REFERENCE], [LOCATION_REFERENCE], and approved 0-second
+  scene anchor. Use a dark header, white body, narrow prompt column on the left,
+  five equal horizontal visual panels on the right, and a dark technical footer.
+
+  Header title: "Wan 2.2 S2V - [CHARACTER] Reference Sequence"
+  Header subtitle: "5-Second Technical Keyframes"
+  Prompt-column heading: "[SCENE_TITLE]"
+  Prompt-column text: "[ACTION]"
+
+  Label the five panels exactly "0s", "1s", "2s", "3s", and "4s". Show the
+  same [LOCATION], [CHARACTER], [STYLE], [CAMERA], [LIGHTING], and [MOOD] in
+  every panel. At 0s establish the pose; at 1s begin [ACTION]; at 2s continue it
+  through the midpoint; at 3s approach the final state; and at 4s complete the
+  action with a natural settle. Change only the action state. Preserve identity,
+  face, proportions, clothing, architecture, layout, perspective, object count,
+  camera, shadows, exposure, colors, and materials across all five panels.
+
+  Footer left: "Resolution: [OUTPUT_WIDTH]x[OUTPUT_HEIGHT] | FPS: 24 | Duration: 5s"
+  Footer right: "Candidate reference sequence"
+
+  Output one review board only. No extra rows, unrelated poses, camera jumps,
+  identity drift, environment changes, random objects, anatomy errors, text
+  beyond the requested board copy, logo, or watermark. The board is for human
+  and Qwen VL comparison and must never be passed directly as a Wan S2V frame.
+
+validation_gates:
+  per_frame:
+    - exact-character-count-and-identity
+    - canonical-character-face-body-clothing-colors-and-materials
+    - canonical-location-architecture-layout-landmarks-and-lighting
+    - correct-scale-perspective-ground-contact-shadows-and-light-response
+    - action-state-matches-timestamp
+    - no-text-logo-watermark-grid-or-collage
+  temporal_pairwise:
+    compare_pairs:
+      - [frame-001, frame-002]
+      - [frame-002, frame-003]
+      - [frame-003, frame-004]
+      - [frame-004, frame-005]
+    check:
+      - gradual-action-progression
+      - face-body-clothing-and-material-stability
+      - fixed-background-landmark-stability
+      - camera-lens-framing-and-screen-direction-continuity
+      - lighting-shadow-and-exposure-continuity
+      - contact-and-motion-trajectory-continuity
+  qwen_vl_sequence_review:
+    required: true
+    review_all_five_as_one-sequence: true
+    report_first_failing_frame: true
+    report_last_affected_frame: true
+    cite-violated-authority-and-rule: true
+    route-smallest-repair-span-to-wan-2-2: true
+  human_approval:
+    required_before-generation-conditioning: true
+    approval_unit: complete-five-frame-sequence
+
+wan_2_2_conditioning_boundary:
+  rule: >-
+    These five images are planning, continuity, review, and repair references.
+    Do not assume that all five are native simultaneous image inputs to Wan 2.2
+    S2V. Pass only the image input supported by the selected local workflow,
+    normally the approved start frame, while using the remaining frames as
+    expected temporal states for prompt construction, Qwen VL review, segment
+    chaining, and bounded repair.
+  approved_start_frame: frame-001-after-human-approval
+  expected_end_state_reference: frame-005-after-human-approval
+  generated_outputs_begin_as: candidate
+  automatic-promotion-to-approved: forbidden

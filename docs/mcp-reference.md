@@ -10,12 +10,15 @@ The server name is `Little Planet Wonders` and uses stdio transport.
 - `cinema://studio/{profile}`
 - `cinema://studio/editing-models`
 - `cinema://studio/wan22`
+- `cinema://pipeline/models`
+- `cinema://pipeline/environments/{environment}`
 
 ### Project and creative identity
 
 - `cinema://projects/{project_id}`
 - `cinema://projects/{project_id}/characters/{character_id}`
 - `cinema://projects/{project_id}/locations/{location_id}`
+- `cinema://projects/{project_id}/episodes/{episode_id}`
 - `cinema://projects/{project_id}/audio`
 - `cinema://projects/{project_id}/voices/{character_id}`
 - `cinema://projects/{project_id}/voice-production`
@@ -23,6 +26,7 @@ The server name is `Little Planet Wonders` and uses stdio transport.
 - `cinema://projects/{project_id}/music`
 - `cinema://projects/{project_id}/editing`
 - `cinema://projects/{project_id}/post-editing`
+- `cinema://projects/{project_id}/production-restoration`
 - `cinema://projects/{project_id}/export`
 - `cinema://projects/{project_id}/continuity`
 
@@ -41,9 +45,15 @@ The server name is `Little Planet Wonders` and uses stdio transport.
 
 ### Context and production planning
 
-`compile_scene_context`, `get_scene_summary`, `build_scene_generation_plan`,
-`plan_scene_production`, `inspect_project_context`, `resolve_context_chain`, and
-`validate_context_chain` are local context operations.
+`inspect_episode_context`, `compile_scene_context`, `get_scene_summary`,
+`build_scene_generation_plan`, `plan_scene_production`,
+`plan_production_restoration`, `inspect_project_context`,
+`resolve_context_chain`, and `validate_context_chain`
+are local context operations.
+
+`pipeline_system_status`, `validate_local_pipeline`, and
+`run_production_preflight` manage the fail-closed local-to-production gate. The
+preflight operation never starts generation.
 
 ### Generation
 
@@ -75,6 +85,11 @@ short Wan segments and approved end-state continuity without enabling Animate.
 `save_continuity_state`, `approve_wan_render`, `prepare_automated_edit`,
 `automate_scene_edit`, `approve_edit_preview`, `post_edit_scene`, and
 `finalize_cinematic_scene` control the reviewed editing lifecycle.
+
+`plan_production_restoration` routes structured Qwen3-VL defects to bounded
+CodeFormer, LatentSync, or Wan reprocessing stages, then plans RIFE, SeedVR2,
+FFmpeg, and final comparative QA. It is non-executing and reports disabled model
+executors in `blocking_requirements`.
 
 Exact Python signatures and parameter descriptions are listed in
 [Python API reference](api-reference.md).

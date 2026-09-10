@@ -39,6 +39,24 @@ to be explicitly enabled. Disabled tools produce a clear error.
 The tool never downloads model weights. It should remain unused until the local
 provider and workflow are deliberately enabled.
 
+## S2V two-phase boundary
+
+Phase 1 creates local dialogue turns, music, ambience, Foley, and effects. The
+project owner creates the coherent scene-reference image manually and supplies
+it through the documented handoff. Every selected asset receives a path,
+SHA-256, context hash, provenance record, and human approval.
+
+Phase 2 compiles each speaking unit from exactly one approved image and one
+speaker's locked clean dialogue WAV. Music, ambience, Foley, effects, and a
+combined multi-speaker conversation are excluded from S2V conditioning. They
+remain separate stems and are added after picture generation. Later speaking
+segments inherit the previous approved end frame unless a deliberate cut has a
+separately approved start frame.
+
+The detailed contracts are documented in the Creating Scenes course:
+[Phase 1](courses/creating_scenes/phase_01_create_audio_and_scene_reference.md)
+and [Phase 2](courses/creating_scenes/phase_02_generate_s2v_and_final_mix.md).
+
 ## Chained shot extension
 
 `extend_cinematic_shot` divides a target duration into short segments and writes a

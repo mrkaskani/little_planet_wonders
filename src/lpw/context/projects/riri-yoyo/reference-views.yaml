@@ -13,12 +13,12 @@ source_authority:
   asset_conventions: asset-conventions.yaml
   wan_2_2: wan22-preproduction.yaml
   characters:
-    riri: characters/riri/character.yaml
-    riri_v2_candidate: characters/riri/character-v2.yaml
-    yoyo: characters/yoyo/character.yaml
-    yoyo_v2_candidate: characters/yoyo/character-v2.yaml
+    riri_nonvisual_base: characters/riri/character.yaml
+    riri_v2_canonical: characters/riri/character-v2.yaml
+    yoyo_nonvisual_base: characters/yoyo/character.yaml
+    yoyo_v2_canonical: characters/yoyo/character-v2.yaml
   locations: locations-assets.yaml
-  location_candidates:
+  canonical_location_versions:
     kindergarten_interior_v2: locations/interiors/location-v2.yaml
     kindergarten_evening_night_v2: locations/evening_night/location-v2.yaml
     kindergarten_play_space_v2: locations/play_spaces/location-v2.yaml

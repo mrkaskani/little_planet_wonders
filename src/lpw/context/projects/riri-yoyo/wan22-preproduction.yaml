@@ -38,9 +38,18 @@ source_authority:
   educational_direction: educational-direction.yaml
   preproduction_checklist: preproduction-checklist.yaml
   review_cards: wan22-review-cards.yaml
+  reference_sequence_prompt: >-
+    generation-records/prompts/twelve-second-reference-sequence--s2v--prompt-v002.yaml
+  single_start_reference_prompt: >-
+    generation-records/prompts/single-start-reference--wan22-s2v--prompt-v003.yaml
+  s2v_dialogue_audio_prompt: >-
+    generation-records/prompts/s2v-dialogue-audio-preparation--prompt-v001.yaml
+  prior_five_second_reference_sequence_prompt: >-
+    generation-records/prompts/five-second-reference-sequence--s2v--prompt-v001.yaml
   audio_style: audios/audio_style.yaml
   voice_production: audios/voice-production.yaml
   s2v_input_spec: audios/s2v-input-spec.yaml
+  s2v_runtime_profiles: wan22-s2v-runtime-profiles.yaml
   voice_reference_audit: audios/voice-reference-audit.yaml
   authority_rules:
     - local runtime support determines which official model families may be used
@@ -168,12 +177,54 @@ supported_tasks:
     workflow_id: wan-s2v
     input_types:
       - text-direction
-      - approved-single-frame-character-image
+      - exactly-one-approved-single-frame-character-image
       - locked-clean-speech-audio
       - optional-pose-guidance-video
     role: final-locked-dialogue-or-vocal-performance-candidate
+    precision_policy:
+      production: bf16
+      local: gguf-q4
+      local_profile: local-m4-16gb-preview-and-mcp-testing-only
+      final-production-must-rerender-in-bf16: true
+    native_creation_profile:
+      resolution_class: 480P
+      landscape_size: "832*480"
+      width: 832
+      height: 480
+      frame_rate: 16
+      frame_count_rule: four-n-plus-one-covering-complete-audio
+      five_second_frame_count: 81
+      five_second_temporal_intervals: 80
+      native_aspect_ratio: "26:15"
+      direct_youtube_delivery: forbidden
+      valid_dimension_rule: width-and-height-must-each-be-divisible-by-16
+      preferred_landscape_dimensions: "832x480"
+      true_vertical_dimensions: "480x832"
+      square_vram_fallbacks:
+        - "640x640"
+        - "480x480"
+      resize_node: Wan-Video-Image-Resize-to-closest
+      aspect_ratio_policy: >-
+        Match the generation canvas to the approved reference-image aspect ratio.
+        Never place a 16:9 reference into a square generation canvas.
+    sampling_profiles:
+      standard:
+        steps: 20
+        cfg: 6.0
+        sampler: unipc
+        scheduler_default: simple
+        scheduler_allowed: [simple, euler]
+      lightning:
+        requires_lightning_lora: true
+        steps_allowed: [4, 5]
+        steps_default: 5
+        cfg: 1.0
+        sampler: unipc
+        scheduler_default: simple
+        scheduler_allowed: [simple, euler]
     required_inputs:
-      approved_character_frame: true
+      approved_character_frame_count: 1
+      multiple_reference_images: forbidden
       locked_clean_speech: true
       verified_transcript: true
       audio_hash: true
@@ -197,12 +248,21 @@ supported_tasks:
       - emphasized-words
       - speech-end
       - final-settle
+    short_audio_onset_buffer:
+      required_leading_silence_seconds: {minimum: 0.2, maximum: 0.5, default: 0.25}
+      one_second_voice_with_buffer_frame_options_at_16fps: [21, 25]
+      select_frame_count_from_final_padded_wav_duration: true
     reject_if:
       - mouth-moves-during-unmotivated-silence
       - lip-onset-or-ending-is-misaligned
       - face-or-identity-drifts
       - gesture-conflicts-with-audio-emphasis
       - music-ambience-or-effects-are-baked-into-conditioning-audio
+      - more-than-one-reference-image-is-bound
+      - reference-width-or-height-is-not-divisible-by-16-after-resize
+      - reference-and-generation-canvas-aspect-ratios-do-not-match
+      - talking-head-touches-frame-edge
+      - mouth-jawline-or-eyes-are-obscured
 
 unsupported_tasks:
   animate:
@@ -223,6 +283,7 @@ reference_input_contract:
     - s2v
   required:
     - one-coherent-image
+    - exactly-one-direct-conditioning-image
     - one-unambiguous-primary-subject
     - correct-anatomy
     - clear-silhouette
@@ -232,6 +293,10 @@ reference_input_contract:
     - output-compatible-aspect-ratio
     - stable-large-scale-background-geometry
     - approved-version-and-source-path
+    - width-and-height-divisible-by-16-after-approved-resize
+    - reference-aspect-ratio-matches-generation-canvas
+    - dead-space-buffer-around-head-chin-and-action-extents
+    - unobscured-mouth-jawline-and-eyes-for-s2v-speaking-shots
   forbidden:
     - collage
     - split-screen
@@ -245,9 +310,54 @@ reference_input_contract:
     - anatomy-error
     - severe-background-clutter
     - source-pose-that-conflicts-with-requested-motion
+    - multiple-direct-reference-images
+    - front-and-side-profile-images-bound-together
+    - forced-reference-stretch
+    - unapproved-aspect-ratio-crop
+    - hair-head-chin-or-mouth-touching-frame-edge
+    - heavy-shadow-mask-or-extreme-angle-obscuring-mouth-jaw-or-eyes
   identity_sheet_rule: >-
     Turnarounds, expression boards, and pose sheets support human identity review
     but are never passed directly as the single conditioning frame.
+  single_image_architecture_rule: >-
+    Bind exactly one image to the native Wan 2.2 S2V image input. Character and
+    location sheets may inform reference-image creation and human review, but
+    must not be connected as additional S2V conditioning images.
+
+comfyui_s2v_image_preparation:
+  required_resize_node: Wan-Video-Image-Resize-to-closest
+  divisible_by: 16
+  preserve_aspect_ratio: true
+  stretching: forbidden
+  preferred_canvas:
+    orientation: landscape
+    dimensions: "832x480"
+  optional_square_canvases:
+    - {dimensions: "640x640", use_when: square-composition-and-vram-require-it}
+    - {dimensions: "480x480", use_when: square-composition-and-lower-vram-require-it}
+  vertical_canvas:
+    dimensions: "480x832"
+    clarification: 832x480-is-landscape-not-vertical
+  reject_if:
+    - width-or-height-not-divisible-by-16
+    - canvas-ratio-does-not-match-reference-ratio
+    - subject-is-stretched
+    - identity-critical-details-are-cropped
+
+comfyui_s2v_vae_burn_mitigation:
+  issue: first-generated-frame-may-be-oversaturated-hyper-contrasted-or-glitched
+  latent_workflow:
+    duplicate_reference_latent_as_sacrificial-index-zero: true
+    node_role: Latent-Cut-or-equivalent-batch-latent-operation
+  output_workflow:
+    discard_sacrificial_first_frame: true
+    node_role: Image-from-Batch-or-equivalent
+    first_kept_frame_index: 1
+  validation:
+    - exported-duration-still-matches-locked-audio
+    - first-kept-frame-is-clean
+    - no-one-frame-audio-picture-offset
+    - qwen-vl-checks-first-eight-kept-frames-for-burn-or-flash
 
 motion_contract:
   primary_action_count: 1
@@ -286,6 +396,8 @@ technical_contract:
     aspect_ratio: "16:9"
     resolution: "1920x1080"
     frame_rate: 24
+    five_second_display_frames: 120
+    platform: youtube-landscape-phone-tablet-tv
   generation:
     resolution_is_task_specific: true
     frame_rate_is_workflow_specific: true
@@ -301,7 +413,9 @@ technical_contract:
       s2v:
         - 480P
         - 720P
-    frame_count_rule: "4n+1 when required by the selected workflow"
+    frame_count_rules:
+      t2v_i2v_ti2v: 4n-plus-1-when-required-by-selected-workflow
+      s2v: four-n-plus-one-with-81-frames-for-five-seconds-at-16-fps
     never_assume_native_delivery_resolution: true
   conform:
     preserve_aspect_ratio: true
@@ -309,6 +423,19 @@ technical_contract:
     crop_or_pad_requires_approval: true
     upscale_requires_quality-control: true
     frame_rate_conversion_requires-quality-control: true
+    s2v_480p_to_youtube_1080p:
+      source_dimensions: "832x480"
+      source_frame_rate: 16
+      source_five_second_frames: 81
+      aspect_conform:
+        method: center-crop-vertical-then-upscale
+        crop_dimensions: "832x468"
+        crop_pixels: {top: 6, bottom: 6, left: 0, right: 0}
+        stretching: forbidden
+      upscale_dimensions: "1920x1080"
+      delivery_frame_rate: 24
+      delivery_five_second_frames: 120
+      interpolation_review: qwen-vl-face-mouth-paw-feather-fur-and-background-check
 
 reproducibility:
   required_record_fields:

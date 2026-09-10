@@ -1,7 +1,7 @@
 id: riri-yoyo-kindergarten-evening-night-v2-review-v001
 type: location-version-review-context
 version: 1
-status: technical-package-complete-candidate-awaiting-identity-taxonomy-and-human-approval
+status: approved-canonical-v002-clean-generation-frame-pending
 
 metadata:
   project_id: riri-yoyo
@@ -183,7 +183,7 @@ authority_review:
   status: pass-recorded
 
 identity_and_taxonomy_review:
-  status: unresolved-owner-decision-required
+  status: approved-replacement-redesign-same-location-id
   comparison:
     active_v1: low-modern-curved-cream-stucco-kindergarten-with-terracotta-roof
     supplied_v2: compact-two-story-gabled-stone-storybook-cottage-with-blue-gray-roof
@@ -193,13 +193,10 @@ identity_and_taxonomy_review:
     daylight kindergarten exterior. The supplied V2 cottage does not satisfy
     that inheritance rule and therefore cannot be silently promoted under the
     existing lighting-variant contract.
-  decisions_required:
-    - choose-replacement-redesign-separate-location-or-rejection
-    - if-separate-approve-new-canonical-location-id-folder-and-display-name
-    - if-replacement-update-daylight-and-night-location-relationship-explicitly
+  project_owner_decision: replacement-redesign-under-kindergarten-evening-night
   protections:
-    active_v1_location_authority_remains_active: true
-    active_v1_primary_master_remains_active: true
+    active_v1_location_authority_remains_active: false
+    active_v1_primary_master_remains_active: false
     no_v1_file_overwritten: true
 
 lighting_state_review:
@@ -212,9 +209,9 @@ lighting_state_review:
 
 mcp_review:
   resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-evening-night-location-v2
-  candidate_location_discovery: pass
+  approved_v2_location_discovery: pass
   full_project_context_load: pass
-  project_context_filtered_by_candidate_location: pass
+  project_context_filtered_by_approved_v2_location: pass
   direct_location_context_retrieval: pass
   resource_read: pass
   focused_loader_and_mcp_tests: pass-13-tests
@@ -226,12 +223,12 @@ mcp_review:
 approval_boundary:
   technical_registration: complete
   normal_preproduction_validation: pass-zero-errors
-  strict_approval_validation: failed-as-required-candidate-remains-unapproved
-  project_owner_identity_and_taxonomy_decision: pending
-  project_owner_v2_package_approval: pending
+  strict_approval_validation: failed-only-for-planned-clean-location-reference-sets
+  project_owner_identity_and_taxonomy_decision: approved-replacement-redesign-2026-08-27
+  project_owner_v2_package_approval: approved-2026-08-27
   distinct_evening_state_reference: missing
   clean_v2_single_frame_reference_set: pending
-  v2_canonical_promotion: blocked
+  v2_canonical_promotion: complete
   production_generation_authorized: false
-  existing_v1_location_authority_remains_active: true
-  existing_v1_primary_master_conditioning_remains_active: true
+  existing_v1_location_authority_remains_active: false
+  existing_v1_primary_master_conditioning_remains_active: false

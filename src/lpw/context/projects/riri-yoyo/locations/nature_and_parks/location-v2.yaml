@@ -2,7 +2,7 @@ id: nature-park-location-v2
 type: location-visual-version-context
 version: 2
 version_tag: v002
-status: candidate-awaiting-scale-reconciliation-and-human-approval
+status: approved-canonical-v002-with-explicit-unresolved-fields
 
 metadata:
   project_id: riri-yoyo
@@ -13,6 +13,7 @@ metadata:
     landmark, water-safety, material, vegetation, lighting, atmosphere, camera,
     and MCP retrieval context while preserving printed inconsistencies for review.
   created_date: 2026-08-20
+  updated_date: 2026-08-22
   source: project-owner-supplied-location-design-package
   review_record: ../../validation/nature-park-v2-review.yaml
 
@@ -21,21 +22,35 @@ versioning:
   base_reference_id: nature-park-reference-set-v001
   base_primary_master_id: nature-park-primary-master-v001
   candidate_package_id: nature-park-design-package-v002
-  active_canonical_version: v001
+  active_canonical_version: v002
   candidate_version: v002
   package_completeness:
     expected_source_boards: 5
     present_source_boards: 5
     complete: true
   promotion_rule: >-
-    V2 becomes canonical only after the two internal scale-diagram conflicts and
-    the primary-light shadow-quality difference are resolved, the complete
-    package is approved by the project owner, and clean V2 single-frame
-    references are approved. V1 remains active until then.
+    The complete V2 package was explicitly approved by the project owner on
+    2026-08-27 and is canonical. Conflicting scale and shadow-quality fields
+    remain explicitly unresolved and excluded from generation; clean V2
+    single-frame references remain a separate gate.
+
+source_package:
+  supplied_folder_label: LPW_Nature_Park_Reference_Package_v01
+  supplied_folder_path_for_provenance_only: /Users/oldowl/Downloads/LPW_Nature_Park_Reference_Package_v01
+  supplied_image_count: 5
+  project_copy_directory: ../../assets/locations/nature-park/design-review
+  source_files_preserved: true
+  project_copy_status: complete-and-byte-identical
+  naming_note: >-
+    The supplied folder is labeled v01, while the project records these five
+    boards as the candidate nature-park visual package v002. The supplied
+    filenames are retained below for traceability; project asset filenames
+    follow the repository naming convention.
 
 source_images:
   scale_and_proportion_board:
     id: nature-park-scale-and-proportion-reference-board-v002
+    supplied_filename: 01_nature_park_scale_proportion_reference.png
     visible_title: NATURE PARK SCALE & PROPORTION REFERENCE BOARD
     path: ../../assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
     sha256: a0a1ec9ca30875d27d855f0e347dff112a1bb3099c100f7c40d69d86daaf8772
@@ -44,8 +59,10 @@ source_images:
     panel_count: 12
     purpose_tag: site-plan-terrain-scale-structure-and-natural-feature-authority
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   transformation_1_board:
     id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+    supplied_filename: 02_nature_park_cinematic_multiview_reference.png
     visible_title: TRANSFORMATION 1 — CINEMATIC MULTI-VIEW REFERENCE BOARD
     path: ../../assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
     sha256: f5b1d3dbc10d29487df274d1ccd263959c08cf2bca35da6dd72779e1ef81d160
@@ -54,8 +71,10 @@ source_images:
     panel_count: 12
     purpose_tag: cinematic-camera-landmark-material-and-lighting-variant-reference
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   transformation_2_board:
     id: nature-park-transformation-2-structured-location-reference-board-v002
+    supplied_filename: 03_nature_park_structured_location_reference.png
     visible_title: TRANSFORMATION 2 — STRUCTURED LOCATION REFERENCE BOARD
     path: ../../assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
     sha256: 612d89c79901bd21fd4840818e9c2d7a3bf41f0c2bcbcca22418b213f310b2b3
@@ -64,8 +83,10 @@ source_images:
     panel_count: 12
     purpose_tag: camera-geometry-aerial-site-material-vegetation-and-lighting-reference
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   transformation_3_board:
     id: nature-park-transformation-3-titled-technical-reference-board-v002
+    supplied_filename: 04_nature_park_titled_technical_reference.png
     visible_title: TRANSFORMATION 3 — TITLED TECHNICAL REFERENCE BOARD
     path: ../../assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
     sha256: 05b2f973779e57d8339e376fb56a11e7443bca78861bd9006e1bcc9b8ab67a73
@@ -74,8 +95,10 @@ source_images:
     panel_count: 12
     purpose_tag: titled-camera-material-vegetation-lighting-atmosphere-and-neutral-reference
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
   transformation_4_board:
     id: nature-park-transformation-4-polished-production-location-board-v002
+    supplied_filename: 05_nature_park_polished_production_location.png
     visible_title: TRANSFORMATION 4 — POLISHED PRODUCTION LOCATION BOARD
     path: ../../assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
     sha256: 2c8c663175a8c3285f3a361ecfba7da9e6feed5d1a7f3a03ba9e3be447d9bc03
@@ -84,6 +107,42 @@ source_images:
     panel_count: 12
     purpose_tag: production-camera-geometry-material-vegetation-lighting-atmosphere-and-value-reference
     reference_class: design-review-only
+    direct_generation_conditioning_allowed: false
+
+authority_resolution:
+  scale_and_proportion_board:
+    authoritative_for:
+      - normalized-site-width-and-visible-depth
+      - printed-terrain-elevations
+      - path-stream-bridge-bench-lamp-and-tree-relative-scale
+    limitation: conflicting-printed-values-remain-unresolved
+  transformation_1_board:
+    authoritative_for:
+      - cinematic-camera-coverage
+      - landmark-detail-intent
+      - lighting-audition-coverage
+      - cross-check-of-stable-scale-strip
+  transformation_2_board:
+    authoritative_for:
+      - site-topology-and-camera-direction-logic
+      - hardscape-and-vegetation-material-classes
+      - bridge-landmark-emphasis
+  transformation_3_board:
+    authoritative_for:
+      - titled-view-and-state-identification
+      - material-closeup-vocabulary
+      - printed-primary-alternate-atmosphere-and-neutral-metadata
+  transformation_4_board:
+    authoritative_for:
+      - production-finish-and-surface-character
+      - polished-atmosphere-target
+      - neutral-quality-control-target
+  conflict_rules:
+    - do-not-average-or-invent-a-consensus-value
+    - scale-board-governs-geometry-except-where-its-own-printed-values-conflict
+    - polished-finish-never-overrides-site-geometry-or-landmark-counts
+    - lighting-panels-change-illumination-not-park-layout
+    - neutral-panels-are-review-states-not-a-new-location-identity
 
 location_identity:
   category: nature-park
@@ -132,6 +191,36 @@ site_geometry:
     - left-side-bench-and-stream-view
     - opposite-facing-view
     - elevated-overview
+
+zones_and_interaction_context:
+  path_travel_zone:
+    purpose: primary-walking-running-and-character-travel-route
+    required_clearance: visually-open-and-free-of-props-or-plant-overgrowth
+    continuity: same-continuous-curving-route-in-every-view
+  bridge_crossing_zone:
+    purpose: supervised-crossing-and-landmark-action
+    required_features:
+      - two-sided-rounded-wood-railings
+      - readable-non-slip-deck-surface
+      - clear-entry-and-exit-approaches
+    prohibited: [blocked-approaches, missing-rails, abrupt-edge-drop]
+  supervised_stream_edge_zone:
+    purpose: looking-observing-and-guided-nature-learning
+    required_features:
+      - shallow-clear-water
+      - visible-bed-near-edge
+      - rounded-stone-boundary
+      - readable-gently-sloped-bank
+    supervision_rule: young-characters-do-not-enter-or-approach-water-unsupervised
+  meadow_and_flower_zone:
+    purpose: visual-discovery-and-gentle-nature-interaction
+    rule: flower-groups-border-space-without-blocking-the-path-or-open-lawn
+  bench_rest_zone:
+    purpose: quiet-rest-observation-and-caregiver-presence
+    rule: bench-and-lamp-remain-anchored-beside-not-inside-the-travel-lane
+  open_lawn_action_zone:
+    purpose: low-risk-group-play-and-wide-character-staging
+    rule: preserve-a-broad-readable-open-area-free-of-water-edge-confusion
 
 relative_scale_authority:
   source: scale_and_proportion_board
@@ -365,6 +454,67 @@ lighting_and_atmosphere:
     primary_shadow_quality: project-owner-selection-required
     do_not_average_or-combine: true
 
+camera_and_composition:
+  primary_establishing_view:
+    intent: introduce-the-complete-park-identity-in-one-readable-wide-shot
+    required_readable_elements:
+      - foreground-path-entry
+      - shallow-stream-and-banks
+      - single-wooden-bridge
+      - bench-and-lamp
+      - two-foreground-framing-trees
+      - grouped-midground-trees-and-flowers
+      - distant-mountains
+  coverage_views:
+    front_aligned: path-led-depth-and-primary-landmark-readability
+    opposite_facing: reverse-spatial-continuity-and-landmark-parallax
+    left_side: bench-path-stream-and-left-tree-relationship
+    right_side: bridge-path-stream-and-right-tree-relationship
+    elevated_overview: site-topology-camera-direction-and-water-route
+    bridge_landmark_detail: rounded-wood-arch-rails-deck-and-shallow-water-below
+    material_closeup: stone-wood-metal-water-bark-foliage-grass-and-flowers
+    clean_neutral: geometry-value-local-color-and-material-separation-review
+  composition_rules:
+    - use-path-curvature-as-the-primary-eye-line-and-depth-guide
+    - keep-bridge-silhouette-and-stream-crossing-readable
+    - show-enough-of-the-stream-bank-to-communicate-shallow-safe-water
+    - keep-bench-and-lamp-outside-the-active-path-silhouette
+    - preserve-two-edge-framing-trees-without-sealing-off-the-open-center
+    - keep-mountains-soft-and-background-only
+    - avoid-extreme-wide-angle-distortion-of-path-bridge-or-tree-scale
+    - do-not-crop-away-safety-critical-bridge-rails-in-crossing-scenes
+
+safety_and_accessibility:
+  audience: preschool-children-and-family-viewing
+  visual_safety_tone: welcoming-readable-calm-and-non-threatening
+  water_safety:
+    - keep-stream-shallow-clear-and-slow-moving
+    - keep-waterbed-or-near-bank-depth-cues-visible
+    - use-gently-sloped-readable-banks-with-rounded-stones
+    - prohibit-deep-dark-turbid-rushing-or-waterfall-like-water
+    - prohibit-hidden-undercut-or-abrupt-banks
+    - stage-stream-edge-interaction-as-supervised
+  bridge_safety:
+    - retain-two-sided-continuous-railings-and-rounded-post-caps
+    - keep-rail-spacing-visually-child-safe
+    - keep-deck-stable-readable-and-non-slip-in-character
+    - keep-both-approaches-open-and-level-enough-for-clear-footing
+  route_safety:
+    - use-stable-low-step-pavers-without-trip-cracks-or-steep-dropoffs
+    - keep-loose-stones-branches-and-flower-groups-out-of-the-travel-line
+    - keep-bench-lamp-and-tree-roots-out-of-the-primary-path-width
+    - preserve-open-sightlines-between-path-bridge-bench-and-lawn
+  planting_safety:
+    - avoid-thorny-toxic-or-threatening-looking-plants-in-interaction-zones
+    - keep-flower-and-shrub-masses-soft-readable-and-non-entangling
+  fixture_safety:
+    - bench-and-lamp-appear-securely-anchored
+    - exposed-edges-fasteners-and-sharp-metal-details-are-prohibited
+  emotional_safety:
+    - no-storms-threatening-shadows-or-isolated-dark-forest-treatment
+    - no-danger-signaling-camera-tilts-or-horror-like-backlighting
+    - keep-all-character-action-readable-to-a-caregiver-viewpoint
+
 continuity:
   fixed_across_views_and_states:
     - one-path-one-stream-and-one-bridge
@@ -380,23 +530,35 @@ continuity:
     - broad-coherent-foliage-motion
     - broad-slow-water-ripples
     - ground-wetness-without-geometry-change
+  temporal_rules:
+    - wind-may-move-foliage-and-flowers-but-never-rearrange-their-groups
+    - water-ripples-may-evolve-but-stream-width-course-and-depth-cues-stay-fixed
+    - shadows-may-change-with-approved-time-of-day-but-landmarks-do-not-move
+    - temporary-props-must-not-block-path-bridge-approaches-or-water-edge-visibility
 
 mcp_context:
   retrieval_key: nature-park-v002
-  package_status: complete-candidate-with-three-reconciliation-items
+  retrieval_id: nature-park-location-v2
+  resource_uri: cinema://projects/riri-yoyo/locations/nature-park-location-v2
+  package_status: approved-canonical-v002-with-four-reconciliation-items-excluded
   preferred_authority_order:
-    - location-v2.yaml-for-v002-structured-review-context
-    - location.yaml-for-current-canonical-policy
-    - nature-park-primary-master-v001-for-current-generation-conditioning
-    - v002-design-review-boards-for-human-review-only
+    - location-v2.yaml-for-canonical-v002-structured-context
+    - location.yaml-for-inherited-nonvisual-policy-only
+    - v002-design-review-boards-for-human-review-and-manual-reference-composition-only
+    - no-direct-image-conditioning-until-a-clean-v002-frame-is-approved
   query_routing:
     safe-scale-and-proportions: relative_scale_authority.stable_context_values_for_mcp
     disputed-scale-values: scale_reconciliation
+    evidence-authority-and-conflicts: authority_resolution
     site-plan-path-stream-and-bridge: site_geometry
-    camera-view-selection: board_catalog
+    interaction-and-story-zones: zones_and_interaction_context
+    camera-view-selection: camera_and_composition
+    board-panel-lookup: board_catalog
     hardscape-and-vegetation-prompting: materials_and_vegetation
     lighting-atmosphere-selection: lighting_and_atmosphere
+    child-safety-and-accessibility: safety_and_accessibility
     cross-view-and-animation-continuity: continuity
+    generation-eligibility: generation_policy
     source-file-lookup: source_images
   safe_prompt_context_fragment: >-
     Fresh peaceful child-safe nature park at clear midday, one curved light warm
@@ -408,6 +570,21 @@ mcp_context:
     Normalize site width to 1.00 and visible depth to 1.30; path width 0.16,
     bridge span 0.28 and height 0.16, bench width 0.22 and height 0.12, lamp height
     0.26, stream width 0.18, open lawn width 0.60, and foreground tree height 0.90.
+  safe_camera_context_fragment: >-
+    Use a readable wide establishing view led by the foreground path curve;
+    retain the stream banks, complete bridge silhouette and rails, bench and lamp
+    outside the travel lane, two edge-framing trees, an open central lawn, and
+    soft distant mountains without extreme wide-angle distortion.
+  safe_interaction_context_fragment: >-
+    Stage walking and running on the clear stone path or open lawn, crossing on
+    the railed bridge, resting at the bench, and nature observation at the
+    visibly shallow stream edge only with caregiver supervision.
+  negative_prompt_fragment: >-
+    No extra bridge, stream branch, path, bench, lamp post, or major tree group;
+    no deep, dark, opaque, rushing, or hidden-edge water; no missing bridge
+    rails, sharp fixtures, steep dropoffs, blocked routes, thorny interaction
+    plants, storm lighting, threatening shadows, text, labels, diagrams, grids,
+    duplicated views, people, or permanent geometry changes.
   generation_constraints:
     - exactly-one-bridge-one-stream-one-primary-path-one-bench-and-one-lamp-post
     - preserve-stream-path-bridge-and-safe-bank-geometry
@@ -418,7 +595,7 @@ mcp_context:
   direct_conditioning_policy:
     these_five_boards_allowed: false
     reason: multi-panel-collages-with-labels-diagrams-duplicate-views-and-lighting-variants
-    current_allowed_location_frame: nature-park-primary-master-v001
+    current_allowed_location_frame: none-clean-v2-single-frame-pending
   prohibited_inference:
     - absolute-meter-or-centimeter-dimensions
     - medium-tree-canopy-or-large-flower-width-before-selection
@@ -428,10 +605,12 @@ mcp_context:
 
 generation_policy:
   design_review_images_are_direct_conditioning_inputs: false
-  allowed_modes_before_v2_approval: []
+  allowed_modes_after_v2_approval: [human-review, manual-reference-composition, structured-prompt-authoring-using-stable-values-only]
+  structured_text_context_use_after_v2_approval: allowed-using-stable-values-only
+  production_generation_from_v2: blocked-until-clean-v2-single-frame-approval
   forbidden_modes_for_these_five_boards: [t2v, i2v, ti2v-image, s2v]
-  active_generation_reference: nature-park-primary-master-v001
-  active_generation_reference_version: v001
+  active_generation_reference: none-clean-v2-single-frame-pending
+  active_generation_reference_version: none
   clean_v2_frames_required_after_approval:
     - primary-establishing-frame
     - opposite-facing-frame
@@ -439,11 +618,39 @@ generation_policy:
     - path-action-area-frame
     - clean-neutral-geometry-frame
 
+quality_control:
+  source_integrity:
+    expected_files: 5
+    project_copies_present: true
+    sha256_matches_supplied_files: true
+    dimensions_match: true
+    expected_dimensions_each: 1448x1086
+  yaml_integrity:
+    unique_mapping_keys_required: true
+    relative_asset_paths_must_resolve: true
+    mcp_retrieval_id_must_resolve: nature-park-location-v2
+  visual_checks:
+    - landmark-counts-and-path-stream-topology-match-across-views
+    - bridge-rails-stream-depth-cues-and-bank-readability-remain-visible
+    - normalized-stable-scale-values-are-preserved
+    - disputed-values-are-never-substituted-automatically
+    - primary-and-alternate-lighting-do-not-change-geometry
+    - neutral-reference-does-not-become-a-new-art-direction
+    - labels-grids-arrows-and-board-layout-never-enter-clean-generation-frames
+  rejection_conditions:
+    - missing-or-extra-permanent-landmark
+    - blocked-travel-route-or-bridge-approach
+    - unsafe-or-ambiguous-water-depth
+    - unresolved-scale-value-used-as-if-approved
+    - direct-conditioning-on-any-five-panel-board
+
 review_gate:
   technical_registration: complete
   source_package_complete: true
   scale_reconciliation: pending
   primary_shadow_quality_reconciliation: pending
-  project_owner_visual_spatial_material-lighting-and-safety-approval: pending
-  compare_against_v001: required
+  clean_v2_single_frame-reference-set: pending
+  project_owner_visual_spatial_material-lighting-and-safety-approval: approved-2026-08-27
+  compare_against_v001: complete
+  canonical_promotion: complete-with-unresolved-fields-excluded
   partial_canonical_promotion: forbidden

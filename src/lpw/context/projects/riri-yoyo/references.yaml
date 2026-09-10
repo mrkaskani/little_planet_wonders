@@ -1,7 +1,7 @@
 id: riri-yoyo-reference-registry
 type: reference-registry-context
 version: 1
-status: approved-registry-with-open-location-and-character-v2-reviews
+status: approved-registry-with-canonical-v2-design-packages-and-clean-frame-gates
 
 metadata:
   project_id: riri-yoyo
@@ -55,7 +55,7 @@ character_references:
     entity-id: riri
     kind: design-review-sheet
     version: v001
-    status: approved
+    status: deprecated
     authority: characters/riri/character.yaml
     path: assets/characters/riri/design-review/riri--identity-sheet--v001.png
     expected-path: assets/characters/riri/design-review/riri--identity-sheet--v001.png
@@ -74,7 +74,7 @@ character_references:
     entity-id: riri
     kind: design-review-detail-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/riri/character-v2.yaml
     path: assets/characters/riri/design-review/riri--close-up-detail-sheet--v002.png
     expected-path: assets/characters/riri/design-review/riri--close-up-detail-sheet--v002.png
@@ -95,7 +95,7 @@ character_references:
     entity-id: riri
     kind: design-review-color-palette-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/riri/character-v2.yaml
     path: assets/characters/riri/design-review/riri--color-palette-sheet--v002.png
     expected-path: assets/characters/riri/design-review/riri--color-palette-sheet--v002.png
@@ -116,7 +116,7 @@ character_references:
     entity-id: riri
     kind: design-review-expression-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/riri/character-v2.yaml
     path: assets/characters/riri/design-review/riri--eight-expression-sheet--v002.png
     expected-path: assets/characters/riri/design-review/riri--eight-expression-sheet--v002.png
@@ -137,7 +137,7 @@ character_references:
     entity-id: riri
     kind: design-review-turnaround-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/riri/character-v2.yaml
     path: assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
     expected-path: assets/characters/riri/design-review/riri--five-view-turnaround--v002.png
@@ -158,7 +158,7 @@ character_references:
     entity-id: riri
     kind: design-review-scale-proportion-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/riri/character-v2.yaml
     path: assets/characters/riri/design-review/riri--scale-and-proportion-sheet--v002.png
     expected-path: assets/characters/riri/design-review/riri--scale-and-proportion-sheet--v002.png
@@ -179,7 +179,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-sheet
     version: v001
-    status: approved
+    status: deprecated
     authority: characters/yoyo/character.yaml
     path: assets/characters/yoyo/design-review/yoyo--identity-sheet--v001.png
     expected-path: assets/characters/yoyo/design-review/yoyo--identity-sheet--v001.png
@@ -198,7 +198,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-detail-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/yoyo/character-v2.yaml
     path: assets/characters/yoyo/design-review/yoyo--close-up-detail-sheet--v002.png
     expected-path: assets/characters/yoyo/design-review/yoyo--close-up-detail-sheet--v002.png
@@ -219,7 +219,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-color-palette-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/yoyo/character-v2.yaml
     path: assets/characters/yoyo/design-review/yoyo--color-palette-sheet--v002.png
     expected-path: assets/characters/yoyo/design-review/yoyo--color-palette-sheet--v002.png
@@ -240,7 +240,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-expression-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/yoyo/character-v2.yaml
     path: assets/characters/yoyo/design-review/yoyo--eight-expression-sheet--v002.png
     expected-path: assets/characters/yoyo/design-review/yoyo--eight-expression-sheet--v002.png
@@ -261,7 +261,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-turnaround-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/yoyo/character-v2.yaml
     path: assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
     expected-path: assets/characters/yoyo/design-review/yoyo--five-view-turnaround--v002.png
@@ -282,7 +282,7 @@ character_references:
     entity-id: yoyo
     kind: design-review-scale-proportion-sheet
     version: v002
-    status: candidate
+    status: approved
     authority: characters/yoyo/character-v2.yaml
     path: assets/characters/yoyo/design-review/yoyo--scale-and-proportion-sheet--v002.png
     expected-path: assets/characters/yoyo/design-review/yoyo--scale-and-proportion-sheet--v002.png
@@ -329,13 +329,13 @@ generation_frame_references:
       entity-id: riri
       kind: single-frame-generation-reference
       version: v001
-      status: approved
+      status: deprecated
       authority: characters/riri/character.yaml
       path: assets/characters/riri/generation-frames/riri--neutral-full-body--v001.png
       expected-path: assets/characters/riri/generation-frames/riri--neutral-full-body--v001.png
       sha256: 06e287aead32391caa93c27d86fee0e10f719f921deb61124be1df25a403cd1b
-      allowed-modes: [i2v, s2v]
-      forbidden-modes: [t2v, ti2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: neutral-full-body-front-three-quarter
@@ -348,13 +348,13 @@ generation_frame_references:
       entity-id: riri
       kind: single-frame-generation-reference
       version: v001
-      status: approved
+      status: deprecated
       authority: characters/riri/character.yaml
       path: assets/characters/riri/generation-frames/riri--neutral-half-body--v001.png
       expected-path: assets/characters/riri/generation-frames/riri--neutral-half-body--v001.png
       sha256: 24edfc9998958c9e0d0240cfc8a473313555b9a068148c3e56625e0a3641d35a
-      allowed-modes: [s2v]
-      forbidden-modes: [t2v, i2v, ti2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: neutral-half-body-front
@@ -367,13 +367,13 @@ generation_frame_references:
       entity-id: yoyo
       kind: single-frame-generation-reference
       version: v001
-      status: approved
+      status: deprecated
       authority: characters/yoyo/character.yaml
       path: assets/characters/yoyo/generation-frames/yoyo--neutral-full-body--v001.png
       expected-path: assets/characters/yoyo/generation-frames/yoyo--neutral-full-body--v001.png
       sha256: 617ab8b604da1d3d174369fd3c8629889f3b4397a495912ac6cd1c63a10d07ca
-      allowed-modes: [i2v, s2v]
-      forbidden-modes: [t2v, ti2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: neutral-full-body-front
@@ -386,13 +386,13 @@ generation_frame_references:
       entity-id: yoyo
       kind: single-frame-generation-reference
       version: v001
-      status: approved
+      status: deprecated
       authority: characters/yoyo/character.yaml
       path: assets/characters/yoyo/generation-frames/yoyo--neutral-half-body--v001.png
       expected-path: assets/characters/yoyo/generation-frames/yoyo--neutral-half-body--v001.png
       sha256: 899e4e280e748962b906a5c890281571efcc395893aab9e741b77840e07530c4
-      allowed-modes: [s2v]
-      forbidden-modes: [t2v, i2v, ti2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: neutral-half-body-front
@@ -416,10 +416,10 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-design-review-scale-and-proportion-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/interiors/location-v2.yaml
-      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorScaleAndProportionReferenceBoardV002.png
-      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorScaleAndProportionReferenceBoardV002.png
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--interior-location-scale-and-proportion-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--interior-location-scale-and-proportion-reference-board--v002.png
       sha256: 2fcf17fa1a51654304317171a2f086e5e375e63005cc189c14e36f7f40fa051e
       allowed-modes: []
       forbidden-modes: [t2v, i2v, ti2v-image, s2v]
@@ -430,6 +430,7 @@ location_references:
       movement-space: documented-in-floor-plan-and-functional-zones-not-applicable-as-board-conditioning
       known-limitations: multi-panel-board-with-labels-measurements-and-duplicate-room-views-review-only
       review-record: validation/kindergarten-interior-v2-review.yaml
+      source-package-label: interior
       package-id: kindergarten-interior-design-package-v002
       replacement-scope: collective-v002-location-package
       replaces: kindergarten-interior-reference-set-v001
@@ -437,10 +438,10 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-design-review-cinematic-structural-zone-and-detail-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/interiors/location-v2.yaml
-      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation1CinematicFourSideFourPictureTypeReferenceBoardV002.png
-      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation1CinematicFourSideFourPictureTypeReferenceBoardV002.png
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-1-cinematic-four-side-four-picture-type-interior-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-1-cinematic-four-side-four-picture-type-interior-reference-board--v002.png
       sha256: 1396445f014038bd904ddfcf89f30aab15e7ca01992efc53e2a0051fecad4b30
       allowed-modes: []
       forbidden-modes: [t2v, i2v, ti2v-image, s2v]
@@ -451,6 +452,7 @@ location_references:
       movement-space: documented-by-primary-secondary-and-circulation-zones-not-applicable-as-board-conditioning
       known-limitations: multi-panel-board-with-labels-values-and-duplicate-room-views-review-only
       review-record: validation/kindergarten-interior-v2-review.yaml
+      source-package-label: interior
       package-id: kindergarten-interior-design-package-v002
       replacement-scope: collective-v002-location-package
       replaces: kindergarten-interior-reference-set-v001
@@ -458,10 +460,10 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-design-review-structured-spatial-zone-material-and-detail-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/interiors/location-v2.yaml
-      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation2StructuredFourSideFourPictureTypeReferenceBoardV002.png
-      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation2StructuredFourSideFourPictureTypeReferenceBoardV002.png
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-2-structured-four-side-four-picture-type-interior-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-2-structured-four-side-four-picture-type-interior-reference-board--v002.png
       sha256: d11e3eba6d312f25f79bcd15ea69fba9b4cfcc9db4d6005f44389deee2adbcb5
       allowed-modes: []
       forbidden-modes: [t2v, i2v, ti2v-image, s2v]
@@ -472,6 +474,7 @@ location_references:
       movement-space: documented-by-table-rug-storage-and-circulation-zones-not-applicable-as-board-conditioning
       known-limitations: multi-panel-board-with-labels-generated-microtext-and-duplicate-room-views-review-only
       review-record: validation/kindergarten-interior-v2-review.yaml
+      source-package-label: interior
       package-id: kindergarten-interior-design-package-v002
       replacement-scope: collective-v002-location-package
       replaces: kindergarten-interior-reference-set-v001
@@ -479,10 +482,10 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-design-review-dimensioned-technical-construction-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/interiors/location-v2.yaml
-      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
-      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation3TitledTechnicalFourSideFourPictureTypeReferenceBoardV002.png
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-3-titled-technical-four-side-four-picture-type-interior-reference-board--v002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-3-titled-technical-four-side-four-picture-type-interior-reference-board--v002.png
       sha256: b2e6840b1d34f5439b83c1260fbf552caff9198270f5f235ef39ea5a526fa628
       allowed-modes: []
       forbidden-modes: [t2v, i2v, ti2v-image, s2v]
@@ -491,8 +494,9 @@ location_references:
       framing: twelve-panel-titled-technical-four-side-dimension-construction-material-and-lighting-board
       starting-pose-or-state: empty-warm-day-classroom-with-dimensioned-views-and-detail-references
       movement-space: documented-by-floor-plan-functional-zones-and-furniture-scale-not-applicable-as-board-conditioning
-      known-limitations: supplied-filename-misnumbered-as-transformation-2-multi-panel-board-review-only
+      known-limitations: multi-panel-board-with-labels-measurements-and-duplicate-room-views-review-only
       review-record: validation/kindergarten-interior-v2-review.yaml
+      source-package-label: interior
       package-id: kindergarten-interior-design-package-v002
       replacement-scope: collective-v002-location-package
       replaces: kindergarten-interior-reference-set-v001
@@ -500,10 +504,10 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-design-review-polished-production-zone-surface-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/interiors/location-v2.yaml
-      path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation4PolishedProductionFourSideFourPictureTypeInteriorBoardV002.png
-      expected-path: assets/locations/kindergarten-interior/design-review/kindergartenInteriorTransformation4PolishedProductionFourSideFourPictureTypeInteriorBoardV002.png
+      path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-4-polished-production-four-side-four-picture-type-interior-board--v002.png
+      expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--transformation-4-polished-production-four-side-four-picture-type-interior-board--v002.png
       sha256: f905190ed2f537a62df05f2ba6b0e0bbd1642a8cd22300d66bd2196c88cd1a20
       allowed-modes: []
       forbidden-modes: [t2v, i2v, ti2v-image, s2v]
@@ -514,6 +518,7 @@ location_references:
       movement-space: documented-by-instruction-group-circle-storage-and-play-zone-overlays-not-applicable-as-board-conditioning
       known-limitations: multi-panel-board-with-overlay-labels-and-duplicate-room-views-review-only
       review-record: validation/kindergarten-interior-v2-review.yaml
+      source-package-label: interior
       package-id: kindergarten-interior-design-package-v002
       replacement-scope: collective-v002-location-package
       replaces: kindergarten-interior-reference-set-v001
@@ -525,7 +530,7 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-design-review-spatial-structural-equipment-detail-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/play_spaces/location-v2.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding--v002.png
@@ -546,7 +551,7 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-design-review-four-view-type-reference-package
       version: v002
-      status: candidate
+      status: approved
       authority: locations/play_spaces/location-v2.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--kindergarten-indoor-play-space-four-view-type-reference-package--v002.png
@@ -567,7 +572,7 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-design-review-comprehensive-four-type-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/play_spaces/location-v2.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views--v002.png
@@ -588,7 +593,7 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-design-review-spatial-anchors-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/play_spaces/location-v2.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-understanding-spatial-anchors--v002.png
@@ -609,7 +614,7 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-design-review-fixed-permanent-anchors-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/play_spaces/location-v2.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--type-1-spatial-environment-views-overall-room-layout-and-spatial-relationships--v002.png
@@ -634,7 +639,7 @@ location_references:
       entity-id: nature-park
       kind: location-design-review-scale-site-terrain-structure-and-natural-feature-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/nature_and_parks/location-v2.yaml
       path: assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
       expected-path: assets/locations/nature-park/design-review/nature-park--nature-park-scale-and-proportion-reference-board--v002.png
@@ -655,7 +660,7 @@ location_references:
       entity-id: nature-park
       kind: location-design-review-cinematic-multi-view-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/nature_and_parks/location-v2.yaml
       path: assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
       expected-path: assets/locations/nature-park/design-review/nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
@@ -676,7 +681,7 @@ location_references:
       entity-id: nature-park
       kind: location-design-review-structured-geometry-material-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/nature_and_parks/location-v2.yaml
       path: assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
       expected-path: assets/locations/nature-park/design-review/nature-park--transformation-2-structured-location-reference-board--v002.png
@@ -697,7 +702,7 @@ location_references:
       entity-id: nature-park
       kind: location-design-review-titled-technical-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/nature_and_parks/location-v2.yaml
       path: assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
       expected-path: assets/locations/nature-park/design-review/nature-park--transformation-3-titled-technical-reference-board--v002.png
@@ -718,7 +723,7 @@ location_references:
       entity-id: nature-park
       kind: location-design-review-polished-production-location-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/nature_and_parks/location-v2.yaml
       path: assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
       expected-path: assets/locations/nature-park/design-review/nature-park--transformation-4-polished-production-location-board--v002.png
@@ -743,7 +748,7 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-design-review-scale-site-terrain-and-landmark-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/sunset_golden_hour/location-v2.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
@@ -764,7 +769,7 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-design-review-cinematic-multi-view-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/sunset_golden_hour/location-v2.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
@@ -785,7 +790,7 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-design-review-structured-geometry-material-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/sunset_golden_hour/location-v2.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
@@ -806,7 +811,7 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-design-review-titled-technical-reference-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/sunset_golden_hour/location-v2.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
@@ -827,7 +832,7 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-design-review-polished-production-location-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/sunset_golden_hour/location-v2.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
@@ -852,7 +857,7 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-design-review-scale-site-elevation-and-proportion-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/evening_night/location-v2.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--scale-and-proportion-reference-board--v002.png
@@ -873,7 +878,7 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-design-review-cinematic-camera-material-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/evening_night/location-v2.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-1-cinematic-reference-board--v002.png
@@ -894,7 +899,7 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-design-review-structured-geometry-material-zone-and-lighting-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/evening_night/location-v2.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-2-structured-reference-board--v002.png
@@ -915,7 +920,7 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-design-review-titled-technical-material-light-and-value-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/evening_night/location-v2.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-3-technical-reference-board--v002.png
@@ -936,7 +941,7 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-design-review-polished-production-geometry-material-and-night-board
       version: v002
-      status: candidate
+      status: approved
       authority: locations/evening_night/location-v2.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-4-polished-production-board--v002.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--transformation-4-polished-production-board--v002.png
@@ -948,7 +953,7 @@ location_references:
       framing: twelve-panel-polished-production-camera-material-lighting-atmosphere-and-value-board
       starting-pose-or-state: empty-storybook-cottage-in-polished-cozy-deep-night-state
       movement-space: illuminated-path-porch-entry-and-garden-space-documented-not-applicable-as-board-conditioning
-      known-limitations: multi-panel-labeled-board-not-valid-as-generation-frame-and-v2-identity-relationship-pending
+      known-limitations: multi-panel-labeled-board-not-valid-as-generation-frame-v2-replacement-identity-is-approved
       review-record: validation/kindergarten-evening-night-v2-review.yaml
       package-id: kindergarten-evening-night-design-package-v002
       replacement-scope: collective-v002-location-package-subject-to-identity-taxonomy-decision
@@ -976,13 +981,13 @@ location_references:
       entity-id: kindergarten-interior
       kind: location-primary-master-view
       version: v001
-      status: approved
+      status: deprecated
       authority: locations/interiors/location.yaml
       path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--primary-master-view--v001.png
       expected-path: assets/locations/kindergarten-interior/design-review/kindergarten-interior--primary-master-view--v001.png
       sha256: 32a21892819b7b9786db06fb1fde77757640ae5f9d16dca77fae9aeb7943bdef
-      allowed-modes: [i2v, ti2v-image]
-      forbidden-modes: [s2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: empty-wide-primary-master-corner-view
@@ -995,13 +1000,13 @@ location_references:
       entity-id: kindergarten-play-space
       kind: location-primary-master-view
       version: v001
-      status: approved
+      status: deprecated
       authority: locations/play_spaces/location.yaml
       path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--primary-master-view--v001.png
       expected-path: assets/locations/kindergarten-play-space/design-review/kindergarten-play-space--primary-master-view--v001.png
       sha256: 46284edd84ddfb879863aa3059a981109c218272f1986cd7a3af6314a8bff231
-      allowed-modes: [i2v, ti2v-image]
-      forbidden-modes: [s2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: empty-wide-primary-master-corner-view
@@ -1014,13 +1019,13 @@ location_references:
       entity-id: nature-park
       kind: location-primary-master-view
       version: v001
-      status: approved
+      status: deprecated
       authority: locations/nature_and_parks/location.yaml
       path: assets/locations/nature-park/design-review/nature-park--primary-master-view--v001.png
       expected-path: assets/locations/nature-park/design-review/nature-park--primary-master-view--v001.png
       sha256: ed3f84b7704a5b0445f30605ba1646af336c563ad386c6440609cf8820d14503
-      allowed-modes: [i2v, ti2v-image]
-      forbidden-modes: [s2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: empty-wide-primary-master-establishing-view
@@ -1033,13 +1038,13 @@ location_references:
       entity-id: countryside-golden-hour
       kind: location-primary-master-view
       version: v001
-      status: approved
+      status: deprecated
       authority: locations/sunset_golden_hour/location.yaml
       path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--primary-master-view--v001.png
       expected-path: assets/locations/countryside-golden-hour/design-review/countryside-golden-hour--primary-master-view--v001.png
       sha256: c67a8510515b58cb5925c0b2f2089f4c7610460e3c4f192dbfc24d4a0530eb37
-      allowed-modes: [i2v, ti2v-image]
-      forbidden-modes: [s2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: empty-wide-primary-master-establishing-view
@@ -1052,13 +1057,13 @@ location_references:
       entity-id: kindergarten-evening-night
       kind: location-primary-master-view
       version: v001
-      status: approved
+      status: deprecated
       authority: locations/evening_night/location.yaml
       path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--primary-master-view--v001.png
       expected-path: assets/locations/kindergarten-evening-night/design-review/kindergarten-evening-night--primary-master-view--v001.png
       sha256: dd9c85291993aaa5718970e7f46be7368ea1426d4ed01086d15ed5ff8bbcac83
-      allowed-modes: [i2v, ti2v-image]
-      forbidden-modes: [s2v]
+      allowed-modes: []
+      forbidden-modes: [t2v, i2v, ti2v-image, s2v]
       aspect-ratio: "1672:941"
       pixel-dimensions: 1672x941
       framing: empty-wide-night-master-matching-daylight-composition

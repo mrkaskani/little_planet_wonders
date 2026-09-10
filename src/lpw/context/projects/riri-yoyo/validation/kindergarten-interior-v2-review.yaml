@@ -1,111 +1,201 @@
 id: riri-yoyo-kindergarten-interior-v2-review-v001
 type: location-version-review-context
 version: 1
-status: complete-candidate-ready-for-project-owner-review
+status: approved-canonical-v002-clean-generation-frames-pending
 
 metadata:
   project_id: riri-yoyo
   location_id: kindergarten-interior
   candidate_version: v002
-  review_date: 2026-08-21
+  evidence_revision: interior-folder-2026-08-22
+  review_date: 2026-08-22
   reviewer: codex-visual-and-technical-review
   authority: locations/interiors/location-v2.yaml
   package_id: kindergarten-interior-design-package-v002
+  supplied_package_label: interior
 
 package_checks:
-  supplied-files-declared: 5
-  files-currently-present: 5
-  files-currently-missing: 0
-  filenames-follow-recorded-camel-case-exception: pass
-  visible-board-titles-recorded: pass
-  present-sha256-recorded: pass
-  present-pixel-dimensions-recorded: pass
-  present-files-design-review-only: true
-  direct-generation-conditioning-forbidden: true
-  package-complete: true
+  supplied_files: 5
+  registered_files: 5
+  copied_to_project: true
+  source_files_preserved: true
+  earlier_candidate_assets_preserved_as_siblings: true
+  current_project_copies_sha256_match_sources: pass
+  current_project_copy_dimensions_match_sources: pass
+  current_project_paths_use_non_destructive_sibling_names: pass
+  visible_board_titles_recorded: pass
+  supplied_filenames_recorded: pass
+  supplied_filename_typographical_errors_preserved_for_provenance: pass
+  source_filename_transformation_number_disambiguated_by_visible_title: pass
+  panel_count_per_board: pass-exactly-twelve
+  total_panel_count: 60
+  all_current_files_design_review_only: true
+  direct_generation_conditioning_forbidden: true
+  package_complete: true
 
 records:
-  - candidate-id: kindergarten-interior-scale-and-proportion-reference-board-v002
-    visible-title: Interior Location — Scale & Proportion Reference Board
+  - candidate_id: kindergarten-interior-scale-and-proportion-reference-board-v002
+    supplied_filename: interior - scale and propotions.png
+    project_filename: kindergarten-interior--interior-location-scale-and-proportion-reference-board--v002.png
+    sha256: 2fcf17fa1a51654304317171a2f086e5e375e63005cc189c14e36f7f40fa051e
+    pixel_dimensions: 1448x1086
     checks:
-      panel-count: pass-exactly-twelve
-      four-perspective-views: present
-      elevated-overview: present
-      four-wall-elevations: present
-      floor-plan-object-position-logic: present
-      furniture-and-architectural-scale-relations: present
-      relative-proportion-summary: present
-      relative-unit-values-transcribed-to-yaml: pass
-      conditioning-eligible: false
-  - candidate-id: kindergarten-interior-transformation-1-cinematic-four-side-four-picture-type-reference-board-v002
-    visible-title: Transformation 1 — Cinematic Four-Side / Four-Picture-Type Interior Reference Board
+      four_directional_perspective_views: present
+      front_left_right_and_rear_wall_elevations: present
+      elevated_overview: present
+      floor_plan_and_object_position_logic: present
+      furniture_and_architectural_scale_relationships: present
+      overall_relative_unit_summary: present
+      conditioning_eligible: false
+  - candidate_id: kindergarten-interior-transformation-1-cinematic-four-side-four-picture-type-reference-board-v002
+    supplied_filename: "transformation 1 - cinematic four side : four-picture-type interior reference board.png"
+    project_filename: kindergarten-interior--transformation-1-cinematic-four-side-four-picture-type-interior-reference-board--v002.png
+    sha256: 1396445f014038bd904ddfcf89f30aab15e7ca01992efc53e2a0051fecad4b30
+    pixel_dimensions: 1448x1086
     checks:
-      panel-count: pass-exactly-twelve
-      four-side-cinematic-views: present
-      overview-and-floor-plan: present
-      primary-and-secondary-functional-zones: present
-      storage-material-furniture-lighting-detail-panels: present
-      locked-relative-values-match-scale-board: pass
-      conditioning-eligible: false
-  - candidate-id: kindergarten-interior-transformation-2-structured-four-side-four-picture-type-reference-board-v002
-    visible-title: Transformation 2 — Structured Four-Side / Four-Picture-Type Interior Reference Board
+      front_left_right_rear_and_elevated_views: present
+      floor_plan_structural_reference: present
+      primary_and_secondary_functional_zones: present
+      storage_architecture_furniture_surface_and_lighting_details: present
+      locked_value_strip_matches_scale_board: pass
+      conditioning_eligible: false
+  - candidate_id: kindergarten-interior-transformation-2-structured-four-side-four-picture-type-reference-board-v002
+    supplied_filename: "transformation 2 - structued four side : four-picture-type interior reference board.png"
+    project_filename: kindergarten-interior--transformation-2-structured-four-side-four-picture-type-interior-reference-board--v002.png
+    sha256: d11e3eba6d312f25f79bcd15ea69fba9b4cfcc9db4d6005f44389deee2adbcb5
+    pixel_dimensions: 1448x1086
     checks:
-      panel-count: pass-exactly-twelve
-      four-spatial-views: present
-      four-wall-elevation-and-floor-plan: present
-      classroom-table-and-rug-functional-areas: present
-      furniture-storage-material-and-construction-details: present
-      color-and-lighting-reference: present
-      locked-package-header-values: pass
-      ambiguous-generated-micro-labels-deferred-to-scale-board: pass
-      conditioning-eligible: false
-  - candidate-id: kindergarten-interior-transformation-3-titled-technical-four-side-four-picture-type-reference-board-v002
-    visible-title: Transformation 3 — Titled Technical Four-Side / Four-Picture-Type Interior Reference Board
+      four_spatial_views: present
+      four_wall_elevations_and_floor_plan: present
+      activity_table_and_rug_play_zone_maps: present
+      furniture_storage_material_architecture_and_color_details: present
+      relative_values_match_scale_board: pass
+      conditioning_eligible: false
+  - candidate_id: kindergarten-interior-transformation-3-titled-technical-four-side-four-picture-type-reference-board-v002
+    supplied_filename: "transformation 2 - titled techincal four side : four-picture-type interior reference board.png"
+    supplied_filename_note: source-name-says-transformation-2-visible-title-says-transformation-3
+    project_filename: kindergarten-interior--transformation-3-titled-technical-four-side-four-picture-type-interior-reference-board--v002.png
+    sha256: b2e6840b1d34f5439b83c1260fbf552caff9198270f5f235ef39ea5a526fa628
+    pixel_dimensions: 1448x1086
     checks:
-      supplied-filename-number-corrected-from-visible-title: pass
-      panel-count: pass-exactly-twelve
-      dimensioned-four-side-views: present
-      elevated-overview-and-labeled-floor-plan: present
-      learning-play-storage-display-and-nature-zones: present
-      dimensioned-furniture-built-ins-and-construction: present
-      architectural-materials-lighting-palette-and-mood: present
-      scale-values-match-primary-scale-board: pass
-      conditioning-eligible: false
-  - candidate-id: kindergarten-interior-transformation-4-polished-production-four-side-four-picture-type-interior-board-v002
-    visible-title: Transformation 4 — Polished Production Four-Side / Four-Picture-Type Interior Board
+      front_left_right_rear_and_elevated_views: present
+      floor_plan_and_functional_zones: present
+      dimensioned_furniture_and_fixture_details: present
+      architectural_material_and_lighting_palette_details: present
+      relative_values_match_scale_board: pass
+      conditioning_eligible: false
+  - candidate_id: kindergarten-interior-transformation-4-polished-production-four-side-four-picture-type-interior-board-v002
+    supplied_filename: "transformation 4 - polish production  four side : four-picture-type interior reference board.png"
+    project_filename: kindergarten-interior--transformation-4-polished-production-four-side-four-picture-type-interior-board--v002.png
+    sha256: f905190ed2f537a62df05f2ba6b0e0bbd1642a8cd22300d66bd2196c88cd1a20
+    pixel_dimensions: 1448x1086
     checks:
-      panel-count: pass-exactly-twelve
-      four-polished-production-views: present
-      elevated-overview-and-floor-plan: present
-      primary-and-secondary-production-zone-overlays: present
-      furniture-storage-material-and-surface-details: present
-      color-natural-light-warm-daylight-and-texture-reference: present
-      locked-relative-values-match-scale-board: pass
-      conditioning-eligible: false
+      front_left_right_rear_and_elevated_production_views: present
+      floor_plan_and_functional_zone_overlays: present
+      furniture_storage_material_and_surface-details: present
+      final_color_daylight_shadow_wood_and-accent_identity: present
+      relative_values_match_scale_board: pass
+      conditioning_eligible: false
 
-cross_board_consistency:
-  same-location: pass
-  same-orientation: pass
-  same-relative-measurements: pass
-  front-whiteboard-left-window-right-artwork-rear-opposite: pass
-  furniture-and-zone-layout: pass-codex-review
-  materials-and-warm-left-window-light: pass-codex-review
-  five-board-panel-inventory: pass-sixty-panels-recorded
-  measurement-authority-order: pass-recorded
-  supplied-filename-versus-visible-title-correction: pass-recorded
-  camel-case-project-paths-and-hashes: pass
+stable_consensus_review:
+  identity:
+    same_warm_sunlit_kindergarten_classroom: pass
+    same_premium_soft_stylized_3d_medium: pass
+    same_warm_organized_playful_safe_emotional_character: pass
+  orientation:
+    front_whiteboard_and_bunting_wall: pass
+    left_window_and_natural_light_wall: pass
+    right_artwork_and_bulletin_wall: pass
+    simple_rear_opposite_storage_wall: pass
+    no_room_mirroring_or_rotation: pass
+  fixed_inventory:
+    two_square_child_table_groups: pass
+    eight_main_child_chairs: pass
+    one_right_of_center_concentric_rug: pass
+    one_front_whiteboard: pass
+    one_centered_five_blade_fan: pass
+    four_wall_low_shelving_system: pass
+    one_front_right_globe_display: pass
+  zones:
+    instruction_group_learning_circle_play_nature_display_storage_and_circulation: pass
+  materials:
+    warm_cream_vertical_wall_paneling: pass
+    warm_cream_acoustic_ceiling_tile_grid: pass
+    light_natural_wood_floor_and_furniture: pass
+    white_painted_window_frame_and_wall_matching_baseboard: pass
+    pastel_rug_bins_bunting_and_art_accents: pass
+  lighting:
+    strong_natural_daylight_from_left_window_bank: pass
+    warm_soft_ambient_fill_and_readable_shadows: pass
+  safety:
+    rounded_child_scale_furniture_and_storage: pass
+    open_table_rug_and_shelf_circulation: pass
+    secure_window_fan_shelf_and_globe_language: pass
+    controlled_clutter_and_caregiver_sightlines: pass
 
-source_recovery:
-  status: complete
-  recovered-files: 3
-  total-package-files: 5
-  source-files-preserved: true
-  all-project-assets-hashed-and-dimensioned: true
-  complete-package-review: ready
+relative_scale_review:
+  unit: relative-unit
+  current_values:
+    room: {width: 1.00, depth: 0.90, ceiling_height: 0.78}
+    window_bank: {width: 0.66, height: 0.60}
+    whiteboard: {width: 0.72, height: 0.40}
+    typical_low_shelf_height: 0.50
+    typical_shelf_or_cubby_module_width: 0.30
+    child_table: {width: 0.45, depth: 0.45, height: 0.50}
+    child_chair: {width: 0.26, depth: 0.24, seat_height: 0.28}
+    typical_child_height_reference: 0.62
+    ceiling_fan_span: 0.40
+  cross_board_consistency: pass-current-values-repeated-across-package
+  active_numeric_conflicts: none-observed
+  real_world_conversion: prohibited-without-approved-anchor
+  unmeasured:
+    - exact-rug-diameter
+    - window-sill-height
+    - chair-total-back-height
+    - exact-shelf-run-lengths-and-module-counts
+    - door-position-and-dimensions
+
+candidate_evidence_reconciliation:
+  current_revision_supersedes_earlier_candidate_interpretation: true
+  changes:
+    room_depth: {previous: 0.78, current: 0.90}
+    ceiling_height: {previous: 0.40, current: 0.78}
+    window_width: {previous: 0.30, current: 0.66}
+    window_height: {previous: 0.34, current: 0.60}
+    whiteboard_width: {previous: 0.32, current: 0.72}
+    whiteboard_height: {previous: 0.15, current: 0.40}
+    shelf_height: {previous: 0.13, current: 0.50}
+    table_width: {previous: 0.18, current: 0.45}
+    ceiling_fan_span: {previous: 0.16, current: 0.40}
+    rug_diameter: {previous: 0.37, current: unresolved-not-printed}
+  old_and_new_units_must_not_be_combined: true
+  earlier_candidate_images_preserved_for_audit: true
+
+content_boundaries:
+  door_position: unresolved-do-not-invent-until-v2-clean-frame-lock
+  exact_variable_prop_counts: unlocked
+  whiteboard_and_wall_art_microtext: non-authoritative-generated-graphics
+  collage_labels_dimensions_arrows_and-overlays: review-metadata-not-scene-content
+
+mcp_checks:
+  retrieval_id: kindergarten-interior-location-v2
+  resource_uri: cinema://projects/riri-yoyo/locations/kindergarten-interior-location-v2
+  yaml_unique_mapping_keys: pass
+  asset_paths_resolve: pass-five-of-five
+  asset_hashes_match: pass-five-of-five
+  asset_dimensions_match: pass-five-of-five
+  earlier_candidate_assets_preserved: pass-five-of-five
+  reference_registry_records_resolve: pass-five-of-five
+  context_loader_resolves_approved_v2: pass-current-relative-unit-values
+  mcp_resource_returns_approved_v2: pass
+  focused_test_suite: pass-thirteen-tests
 
 approval_boundary:
-  all-five-file-technical-registration: complete
-  project-owner-v2-package-approval: pending
-  v2-canonical-promotion: blocked-until-project-owner-approval
-  existing-v1-location-authority-remains-active: true
-  existing-v1-primary-master-conditioning-remains-active: true
+  current_five_file_technical_registration: complete
+  visual_detail_extraction: complete
+  candidate_evidence_reconciliation: complete
+  project_owner_v2_package_approval: approved-2026-08-27
+  clean_v2_single_frame_reference_set: pending
+  v2_canonical_promotion: complete
+  existing_v1_location_authority_remains_active: false
+  existing_v1_primary_master_conditioning_remains_active: false

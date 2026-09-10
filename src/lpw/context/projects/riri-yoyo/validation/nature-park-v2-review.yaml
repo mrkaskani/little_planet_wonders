@@ -1,88 +1,176 @@
 id: riri-yoyo-nature-park-v2-review-v001
 type: location-version-review-context
 version: 1
-status: creative-review-awaiting-reconciliation-and-human-approval
+status: approved-canonical-v002-with-explicit-unresolved-fields
 
 metadata:
   project_id: riri-yoyo
   location_id: nature-park
   candidate_version: v002
-  review_date: 2026-08-20
+  review_date: 2026-08-22
   reviewer: codex-visual-and-technical-review
   authority: locations/nature_and_parks/location-v2.yaml
   package_id: nature-park-design-package-v002
+  supplied_folder_label: LPW_Nature_Park_Reference_Package_v01
 
 package_checks:
-  supplied-files: 5
-  registered-files: 5
-  source-package-complete: true
-  filenames-derived-from-visible-global-titles: pass
-  sha256-recorded: pass
-  pixel-dimensions-recorded: pass
-  panel-count-per-board: pass-exactly-twelve
-  panel-purpose-and-mcp-routing-recorded: pass
-  internal-scale-conflicts-explicitly-recorded: pass
-  all-files-design-review-only: true
-  direct-generation-conditioning-forbidden: true
+  supplied_files: 5
+  registered_files: 5
+  copied_to_project: true
+  source_package_complete: true
+  source_files_preserved: true
+  project_copies_sha256_match_sources: pass
+  project_copy_dimensions_match_sources: pass
+  project_filename_convention: pass
+  supplied_filenames_recorded: pass
+  sha256_recorded: pass
+  pixel_dimensions_recorded: pass
+  panel_count_per_board: pass-exactly-twelve
+  panel_purpose_and_mcp_routing_recorded: pass
+  internal_scale_conflicts_explicitly_recorded: pass
+  all_files_design_review_only: true
+  direct_generation_conditioning_forbidden: true
 
 records:
-  - candidate-id: nature-park-scale-and-proportion-reference-board-v002
+  - candidate_id: nature-park-scale-and-proportion-reference-board-v002
+    supplied_filename: 01_nature_park_scale_proportion_reference.png
+    project_filename: nature-park--nature-park-scale-and-proportion-reference-board--v002.png
+    sha256: a0a1ec9ca30875d27d855f0e347dff112a1bb3099c100f7c40d69d86daaf8772
+    pixel_dimensions: 1448x1086
     checks:
-      five-perspectives-and-elevated-overview: present
-      top-down-site-plan: present
-      side-profile-terrain-elevation: present
-      tree-path-bridge-bench-lamp-stream-lawn-and-flower-scales: present
-      overall-proportion-summary: present
-      conditioning-eligible: false
-  - candidate-id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+      five_perspectives_and_elevated_overview: present
+      top_down_site_plan: present
+      side_profile_terrain_elevation: present
+      tree_path_bridge_bench_lamp_stream_lawn_and_flower_scales: present
+      overall_proportion_summary: present
+      conditioning_eligible: false
+  - candidate_id: nature-park-transformation-1-cinematic-multi-view-reference-board-v002
+    supplied_filename: 02_nature_park_cinematic_multiview_reference.png
+    project_filename: nature-park--transformation-1-cinematic-multi-view-reference-board--v002.png
+    sha256: f5b1d3dbc10d29487df274d1ccd263959c08cf2bca35da6dd72779e1ef81d160
+    pixel_dimensions: 1448x1086
     checks:
-      six-camera-views: present
-      bridge-landmark-and-material-details: present
-      lighting-variants-and-neutral-reference: present
-      stable-scale-strip: present
-      conditioning-eligible: false
-  - candidate-id: nature-park-transformation-2-structured-location-reference-board-v002
+      six_camera_views: present
+      bridge_landmark_and_material_details: present
+      lighting_variants_and_neutral_reference: present
+      stable_scale_strip: present
+      conditioning_eligible: false
+  - candidate_id: nature-park-transformation-2-structured-location-reference-board-v002
+    supplied_filename: 03_nature_park_structured_location_reference.png
+    project_filename: nature-park--transformation-2-structured-location-reference-board--v002.png
+    sha256: 612d89c79901bd21fd4840818e9c2d7a3bf41f0c2bcbcca22418b213f310b2b3
+    pixel_dimensions: 1448x1086
     checks:
-      five-geometry-views-and-camera-marked-overview: present
-      bridge-span-detail: present
-      hardscape-and-vegetation-grid: present
-      lighting-atmosphere-and-neutral-states: present
-      conditioning-eligible: false
-  - candidate-id: nature-park-transformation-3-titled-technical-reference-board-v002
+      five_geometry_views_and_camera_marked_overview: present
+      bridge_span_detail: present
+      hardscape_and_vegetation_grid: present
+      lighting_atmosphere_and_neutral_states: present
+      conditioning_eligible: false
+  - candidate_id: nature-park-transformation-3-titled-technical-reference-board-v002
+    supplied_filename: 04_nature_park_titled_technical_reference.png
+    project_filename: nature-park--transformation-3-titled-technical-reference-board--v002.png
+    sha256: 05b2f973779e57d8339e376fb56a11e7443bca78861bd9006e1bcc9b8ab67a73
+    pixel_dimensions: 1448x1086
     checks:
-      titled-camera-and-landmark-coverage: present
-      eight-material-and-vegetation-tiles: present
-      printed-lighting-atmosphere-and-neutral-metadata: present
-      conditioning-eligible: false
-  - candidate-id: nature-park-transformation-4-polished-production-location-board-v002
+      titled_camera_and_landmark_coverage: present
+      eight_material_and_vegetation_tiles: present
+      printed_lighting_atmosphere_and_neutral_metadata: present
+      conditioning_eligible: false
+  - candidate_id: nature-park-transformation-4-polished-production-location-board-v002
+    supplied_filename: 05_nature_park_polished_production_location.png
+    project_filename: nature-park--transformation-4-polished-production-location-board--v002.png
+    sha256: 2c8c663175a8c3285f3a361ecfba7da9e6feed5d1a7f3a03ba9e3be447d9bc03
+    pixel_dimensions: 1448x1086
     checks:
-      production-camera-geometry-and-landmark-coverage: present
-      material-and-vegetation-palette: present
-      printed-primary-alternate-atmosphere-and-neutral-quality-metadata: present
-      conditioning-eligible: false
+      production_camera_geometry_and_landmark_coverage: present
+      material_and_vegetation_palette: present
+      printed_primary_alternate_atmosphere_and_neutral_quality_metadata: present
+      conditioning_eligible: false
 
-consistency_review:
-  path-stream-bridge-tree-bench-lamp-and-meadow-identity: pass-codex-review
-  safe-shallow-water-and-readable-bank-language: pass-codex-review
-  hardscape-and-vegetation-language: pass-codex-review
-  camera-view-and-overview-coverage: pass-codex-review
-  stable-scale-values-cross-checked-by-transformation-1-strip: pass
-  medium-tree-canopy-width: fail-diagram-0-point-30-versus-table-0-point-36
-  large-flower-group-width: fail-diagram-0-point-12-versus-table-0-point-22
-  printed-elevation-range-semantics: fail-0-point-32-versus-derived-0-point-22
-  primary-shadow-quality: fail-direct-crisp-versus-soft
+stable_consensus_review:
+  visual_identity:
+    medium: pass-premium-soft-stylized-3d-preschool-animation
+    emotional_character: pass-peaceful-fresh-open-safe-curious-and-cheerful
+    seasonal_character: pass-late-spring-with-summer-compatible-variant
+  topology:
+    one_primary_curving_stone_path: pass
+    one_continuous_shallow_stream: pass
+    exactly_one_rounded_wooden_arch_bridge: pass
+    one_foreground_bench_and_one_lamp: pass
+    two_foreground_framing_trees: pass
+    grouped_midground_trees_and_open_lawn: pass
+    distant_blue_green_mountains: pass
+  materials:
+    warm_irregular_stone_path: pass
+    rounded_warm_wood_bridge_and_bench: pass
+    dark_matte_metal_lamp: pass
+    shallow_clear_blue_green_water: pass
+    rounded_tree_canopies_and_grouped_wildflowers: pass
+  camera_coverage:
+    primary_front_opposite_left_right_and_elevated_views: pass
+    bridge_landmark_and_material_closeups: pass
+    neutral_geometry_review_state: pass
+  safety_language:
+    shallow_clear_water_and_readable_sloped_banks: pass
+    continuous_two_sided_bridge_rails: pass
+    open_path_and_bridge_approaches: pass
+    anchored_fixtures_outside_travel_lane: pass
+    supervised_stream_edge_interaction: pass
+
+scale_cross_check:
+  values_confirmed_by_scale_board_and_cinematic_scale_strip:
+    visible_site_depth: 1.30
+    path_width: 0.16
+    bridge_span: 0.28
+    bridge_height: 0.16
+    bench_width: 0.22
+    lamp_height: 0.26
+    foreground_tree_height: 0.90
+  scale_units: relative-to-site-reference-width-not-real-world-units
+
+conflict_review:
+  midground_medium_tree_canopy_width:
+    diagram_value: 0.30
+    summary_table_value: 0.36
+    status: unresolved
+  large_flower_group_width:
+    diagram_value: 0.12
+    summary_table_value: 0.22
+    status: unresolved
+  printed_elevation_range_semantics:
+    printed_value: 0.32
+    calculated_high_minus_low: 0.22
+    likely_interpretations: [maximum-elevation, arithmetic-range]
+    status: unresolved
+  primary_midday_shadow_quality:
+    technical_board: direct-and-crisp
+    polished_board: soft
+    stable_consensus: warm-clear-midday-with-high-sun-and-intensity-1.00
+    status: unresolved
 
 reconciliation_gate:
-  project-owner-must-select-or-confirm:
+  project_owner_must_select_or_confirm:
     - midground-medium-tree-canopy-width
     - large-flower-group-width
     - whether-elevation-range-means-maximum-height-or-high-minus-low
     - primary-midday-shadow-quality
-  automatic-averaging: forbidden
+  automatic_averaging: forbidden
+  conflicting_values_safe_for_generation: false
+
+mcp_checks:
+  retrieval_id: nature-park-location-v2
+  resource_uri: cinema://projects/riri-yoyo/locations/nature-park-location-v2
+  yaml_unique_mapping_keys: pass
+  asset_paths_resolve: pass-five-of-five
+  asset_hashes_match: pass-five-of-five
+  context_loader_resolves_approved_v2: pass
+  mcp_resource_returns_approved_v2: pass
+  focused_test_suite: pass-thirteen-tests
 
 approval_boundary:
-  technical-registration: complete
-  project-owner-v2-package-approval: pending
-  v2-canonical-promotion: blocked
-  existing-v1-location-authority-remains-active: true
-  existing-v1-primary-master-conditioning-remains-active: true
+  technical_registration: complete
+  project_owner_v2_package_approval: approved-2026-08-27
+  clean_v2_single_frame_reference_set: pending
+  v2_canonical_promotion: complete-with-unresolved-fields-excluded
+  existing_v1_location_authority_remains_active: false
+  existing_v1_primary_master_conditioning_remains_active: false

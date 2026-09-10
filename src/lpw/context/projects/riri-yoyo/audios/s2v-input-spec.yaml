@@ -22,6 +22,8 @@ source_authority:
   pronunciation: pronunciation.yaml
   character_voice_profiles: ../characters/{character_id}/voice-profile.yaml
   character_visual_context: ../characters/{character_id}/character.yaml
+  dialogue_audio_prompt: >-
+    ../generation-records/prompts/s2v-dialogue-audio-preparation--prompt-v001.yaml
 
 input_roles:
   voice_cloning_reference:
@@ -70,7 +72,13 @@ audio_cleanliness:
   aggressive_time_stretch_allowed: false
 
 trim_and_duration:
-  leading_silence_ms: 150
+  leading_silence_ms:
+    minimum: 200
+    maximum: 500
+    default: 250
+  leading_silence_placement: before-any-breath-phoneme-or-vocalization
+  leading_silence_creation: deterministic-padding-after-clean-voice-generation
+  short_fade_is_not_a_silence_substitute: true
   trailing_settle_ms: 250
   preserve_natural_leading_breath_when_needed: true
   remove_long_accidental_silence: true
@@ -79,6 +87,16 @@ trim_and_duration:
   longer_segment_policy: split_or_explicitly_review_for_drift
   hard_limit_source: selected_runtime_model_and_workflow
   do_not_invent_a_hard_model_limit_in_project_context: true
+
+short_audio_frame_mapping:
+  applies_when_spoken_audio_seconds: 1.0
+  frame_rate: 16
+  unpadded_frame_count: 17
+  unpadded_frame_count_after_buffer_is_forbidden: true
+  padded_duration_to_frame_count:
+    - {maximum_total_seconds: 1.25, frame_count: 21}
+    - {maximum_total_seconds: 1.5, frame_count: 25}
+  rule: measure-padded-wav-then-use-smallest-4n-plus-1-count-that-covers-it
 
 text_and_alignment:
   exact_transcript_required: true
@@ -186,6 +204,8 @@ review:
     weak_or_obstructed_face: replace_character_frame
     conflicting_large_motion: simplify_performance_direction
     conflicting_pose_guidance: remove_or_replace_pose_guidance
+    speech_starts_before_200ms: repad-from-clean-lossless-voice-source
+    first_syllable_is_clipped: replace-or-reedit-before-s2v
 
 validation:
   blocks_s2v_when_failed: true

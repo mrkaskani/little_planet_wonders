@@ -1,83 +1,189 @@
 id: riri-yoyo-countryside-golden-hour-v2-review-v001
 type: location-version-review-context
 version: 1
-status: creative-review-awaiting-human-approval
+status: approved-canonical-v002-clean-generation-frames-pending
 
 metadata:
   project_id: riri-yoyo
   location_id: countryside-golden-hour
   source_board_location_label: Sunset / Golden-Hour Nature Park
   candidate_version: v002
-  review_date: 2026-08-20
+  review_date: 2026-08-22
   reviewer: codex-visual-and-technical-review
   authority: locations/sunset_golden_hour/location-v2.yaml
   package_id: countryside-golden-hour-design-package-v002
+  supplied_folder_label: sunset-golden-hour-nature-park_reference-package_v01
 
 package_checks:
-  supplied-files: 5
-  registered-files: 5
-  source-package-complete: true
-  filenames-derived-from-visible-global-titles: pass
-  sha256-recorded: pass
-  pixel-dimensions-recorded: pass
-  panel-count-per-board: pass-exactly-twelve
-  scale-and-proportion-values-transcribed: pass
-  panel-purpose-and-mcp-routing-recorded: pass
-  all-files-design-review-only: true
-  direct-generation-conditioning-forbidden: true
+  supplied_files: 5
+  registered_files: 5
+  copied_to_project: true
+  source_package_complete: true
+  source_files_preserved: true
+  project_copies_sha256_match_sources: pass
+  project_copy_dimensions_match_sources: pass
+  project_filename_convention: pass
+  supplied_filenames_recorded: pass
+  sha256_recorded: pass
+  pixel_dimensions_recorded: pass
+  panel_count_per_board: pass-exactly-twelve
+  scale_and_proportion_values_transcribed: pass
+  panel_purpose_and_mcp_routing_recorded: pass
+  all_files_design_review_only: true
+  direct_generation_conditioning_forbidden: true
 
 records:
-  - candidate-id: countryside-golden-hour-scale-and-proportion-reference-board-v002
+  - candidate_id: countryside-golden-hour-scale-and-proportion-reference-board-v002
+    supplied_filename: sunset-golden-hour-nature-park_ref-00_scale-proportion.png
+    project_filename: countryside-golden-hour--sunset-golden-hour-nature-park-scale-and-proportion-reference-board--v002.png
+    sha256: e66cd16b517e76029cf06993807e4a7b91fe189ff25393049fd126dc8fa88a2b
+    pixel_dimensions: 1448x1086
     checks:
-      six-perspective-and-overview-views: present
-      simplified-site-plan: present
-      longitudinal-and-lateral-terrain-sections: present
-      tree-path-fence-cottage-and-natural-landmark-scales: present
-      overall-relative-unit-summary: present
-      conditioning-eligible: false
-  - candidate-id: countryside-golden-hour-cinematic-multi-view-reference-v002
+      six_perspective_and_overview_views: present
+      simplified_site_plan: present
+      longitudinal_and_lateral_terrain_sections: present
+      tree_path_fence_cottage_and_natural_landmark_scales: present
+      overall_relative_unit_summary: present
+      conditioning_eligible: false
+  - candidate_id: countryside-golden-hour-cinematic-multi-view-reference-v002
+    supplied_filename: sunset-golden-hour-nature-park_ref-01_cinematic-multiview.png
+    project_filename: countryside-golden-hour--sunset-golden-hour-nature-park-cinematic-multi-view-reference--v002.png
+    sha256: ce017f13af4e9d1d108f08c9540ce9ea804a7e1cfc0d813139ce591718708e7e
+    pixel_dimensions: 1448x1086
     checks:
-      primary-front-right-left-opposite-and-elevated-views: present
-      landmark-and-material-details: present
-      primary-late-near-sunset-and-neutral-states: present
-      conditioning-eligible: false
-  - candidate-id: countryside-golden-hour-structured-location-reference-v002
+      primary_front_right_left_opposite_and_elevated_views: present
+      landmark_and_material_details: present
+      primary_late_near_sunset_and_neutral_states: present
+      conditioning_eligible: false
+  - candidate_id: countryside-golden-hour-structured-location-reference-v002
+    supplied_filename: sunset-golden-hour-nature-park_ref-02_structured-location.png
+    project_filename: countryside-golden-hour--sunset-golden-hour-nature-park-structured-location-reference--v002.png
+    sha256: 35ace2261fc4caafe89c5d3f585d2d1094a36249e3ca71179a5b64f06cd17d14
+    pixel_dimensions: 1448x1086
     checks:
-      geometry-view-set: present
-      annotated-landmark-depth-layers: present
-      eight-material-and-vegetation-tiles: present
-      annotated-primary-light-direction-rim-and-shadows: present
-      conditioning-eligible: false
-  - candidate-id: countryside-golden-hour-titled-technical-reference-v002
+      geometry_view_set: present
+      annotated_landmark_depth_layers: present
+      eight_material_and_vegetation_tiles: present
+      annotated_primary_light_direction_rim_and_shadows: present
+      conditioning_eligible: false
+  - candidate_id: countryside-golden-hour-titled-technical-reference-v002
+    supplied_filename: sunset-golden-hour-nature-park_ref-03_titled-technical.png
+    project_filename: countryside-golden-hour--sunset-golden-hour-nature-park-titled-technical-reference--v002.png
+    sha256: 97141c35def1622e3d1479857c9e7ec0226b80099fc62722a18a8217f110ed2b
+    pixel_dimensions: 1448x1086
     checks:
-      six-view-geometry-coverage: present
-      eight-material-and-vegetation-tiles: present
-      three-golden-hour-lighting-states-and-neutral-reference: present
-      conditioning-eligible: false
-  - candidate-id: countryside-golden-hour-polished-production-location-board-v002
+      six_view_geometry_coverage: present
+      eight_material_and_vegetation_tiles: present
+      three_golden_hour_lighting_states_and_neutral_reference: present
+      conditioning_eligible: false
+  - candidate_id: countryside-golden-hour-polished-production-location-board-v002
+    supplied_filename: sunset-golden-hour-nature-park_ref-04_polished-production.png
+    project_filename: countryside-golden-hour--sunset-golden-hour-nature-park-polished-production-location-board--v002.png
+    sha256: 989ae429c03b80ac1c1512d31d59e3005dd7a6f14d090fedfa572c65b2b59486
+    pixel_dimensions: 1448x1086
     checks:
-      geometry-material-lighting-and-neutral-value-coverage: present
-      site-reference-width-1-point-00-ru: present
-      production-continuity-note: present
-      conditioning-eligible: false
+      geometry_material_lighting_and_neutral_value_coverage: present
+      site_reference_width_one_relative_unit: present
+      production_continuity_note: present
+      conditioning_eligible: false
 
-cross_board_consistency:
-  path-fence-valley-cottages-mountains-and-meadow-identity: pass-codex-review
-  broad-camera-direction-coverage: pass-codex-review
-  material-and-vegetation-language: pass-codex-review
-  primary-late-near-sunset-and-neutral-state-separation: pass-codex-review
-  relative-scale-system: pass-single-authoritative-scale-board
-  exact-landmark-count-and-camera-parallax: requires-human-review
+stable_consensus_review:
+  visual_identity:
+    medium: pass-premium-soft-stylized-3d-preschool-animation
+    emotional_character: pass-warm-calm-wondrous-safe-expansive-and-reflective
+    time_family: pass-primary-golden-hour-through-near-sunset
+  spatial_identity:
+    one_continuous_winding_stone_path: pass
+    one_coherent_low_fence_system: pass
+    broad_rolling_flower_meadow_valley: pass
+    one_right_midground_cottage_cluster: pass
+    sparse_rounded_deciduous_tree_groups: pass
+    layered_mountains_with_signature_peak: pass
+    low_horizon_and_large_readable_sky: pass
+  materials:
+    warm_irregular_stone_pavers: pass
+    matte_weathered_rounded_wood_fence: pass
+    soft_grouped_grass_and_wildflowers: pass
+    textured_bark_and_broad_leaf_masses: pass
+    warm_light_cottage_walls_and_muted_terracotta_roofs: pass
+  camera_coverage:
+    primary_front_opposite_left_right_and_elevated_views: pass
+    natural_landmark_and_material_details: pass
+    neutral_geometry_and_value_review: pass
+  safety_language:
+    stable_open_path_footing: pass
+    gentle_terrain_without_hidden_dropoffs: pass
+    rounded_non_climbable_fence_treatment: pass
+    non_thorny_non_toxic_interaction_planting: pass
+    readable_child_safe_golden_hour_shadows: pass
+
+relative_scale_review:
+  unit: relative-unit
+  site_reference_width: 1.00
+  total_depth: 1.00
+  depth_to_width_ratio: "1:1"
+  depth_bands: {foreground: 0.35, midground: 0.35, background: 0.30}
+  lateral_bands: {left_hillside: 0.33, valley_low: 0.34, right_hillside: 0.33}
+  path_width: 0.18
+  fence_height: 0.14
+  major_tree: {total_height: 0.42, canopy_height: 0.30, trunk_height: 0.12, canopy_width: 0.28}
+  cottage: {width: 0.20, roof_peak_height: 0.18}
+  sun_disc_diameter: 0.16
+  distant_mountain_max_height: 0.38
+  midground_hill_height: 0.20
+  valley_low_drop_below_foreground: 0.20
+  consistency: pass-single-authoritative-scale-board-with-matching-summary
+  absolute_real_world_conversion: prohibited-without-approved-anchor
+
+lighting_and_neutral_review:
+  primary_golden_hour: pass-low-left-direction-long-readable-shadows-and-golden-rim
+  late_golden_hour: pass-lower-sun-deeper-amber-and-longer-shadows
+  near_sunset: pass-coral-magenta-clouds-and-deeper-readable-valley-shadow
+  daylight_local_color_neutral:
+    sources: [cinematic-multi-view, structured-location, titled-technical]
+    status: pass-review-mode
+  monochrome_value_neutral:
+    source: polished-production-location
+    status: pass-review-mode
+  neutral_modes_relationship: complementary-not-a-location-or-color-direction-conflict
+
+topology_review:
+  stable_for_prompt_drafting:
+    - one-continuous-path
+    - coherent-low-fence-system
+    - one-right-midground-cottage-cluster-with-three-principal-readable-cottages
+    - sparse-tree-groups-with-open-valley-gaps
+    - one-layered-mountain-range-and-signature-peak
+  exact_lock_required:
+    - cottage-count-arrangement-and-subordinate-roof-forms
+    - major-and-medium-tree-count-and-site-plan-coordinates
+    - fence-segment-start-end-and-side-transitions
+    - approved-mountain-silhouette-and-cross-view-parallax
+  status: pending-project-owner-and-clean-frame-review
 
 taxonomy_boundary:
-  project-route: countryside-golden-hour
-  source-visible-label: sunset-golden-hour-nature-park
-  merge-with-daylight-nature-park: forbidden-without-project-owner-approval
-  project-owner-taxonomy-confirmation: pending
+  project_route: countryside-golden-hour
+  source_visible_label: sunset-golden-hour-nature-park
+  merge_with_daylight_nature_park: forbidden-without-project-owner-approval
+  project_owner_taxonomy_confirmation: approved-as-countryside-golden-hour-2026-08-27
+
+mcp_checks:
+  retrieval_id: countryside-golden-hour-location-v2
+  resource_uri: cinema://projects/riri-yoyo/locations/countryside-golden-hour-location-v2
+  yaml_unique_mapping_keys: pass
+  asset_paths_resolve: pass-five-of-five
+  asset_hashes_match: pass-five-of-five
+  reference_registry_records_resolve: pass-five-of-five
+  context_loader_resolves_approved_v2: pass
+  mcp_resource_returns_approved_v2: pass
+  focused_test_suite: pass-thirteen-tests
 
 approval_boundary:
-  technical-registration: complete
-  project-owner-v2-package-approval: pending
-  v2-canonical-promotion: blocked
-  existing-v1-location-authority-remains-active: true
-  existing-v1-primary-master-conditioning-remains-active: true
+  technical_registration: complete
+  project_owner_v2_package_approval: approved-2026-08-27
+  topology_lock: approved-2026-08-27
+  taxonomy_confirmation: approved-as-countryside-golden-hour-2026-08-27
+  clean_v2_single_frame_reference_set: pending
+  v2_canonical_promotion: complete
+  existing_v1_location_authority_remains_active: false
+  existing_v1_primary_master_conditioning_remains_active: false

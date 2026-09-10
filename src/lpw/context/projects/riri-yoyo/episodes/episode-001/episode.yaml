@@ -1,0 +1,823 @@
+id: episode-001
+type: episode-context
+version: 1
+status: three-s2v-video-jobs-arranged-awaiting-local-model-and-backend
+title: A Warm Light in the Garden
+
+metadata:
+  project_id: riri-yoyo
+  purpose: >-
+    Example episode source showing how a compact episode file selects canonical
+    characters, emotions, intensity, location, conversation, music, ambience,
+    and sound-effect intent while the loader supplies full character and
+    expression details from their reusable YAML authorities.
+  audience_age: "3-6"
+  language: English
+  educational_focus: greeting-a-friend-and-naming-a-light
+
+source_authority:
+  characters:
+    riri: ../../characters/riri/character-v2.yaml
+    yoyo: ../../characters/yoyo/character-v2.yaml
+  voices:
+    riri: ../../characters/riri/voice-profile.yaml
+    yoyo: ../../characters/yoyo/voice-profile.yaml
+  acting_style: ../../characters/acting-style.yaml
+  relationships: ../../characters/relationships.yaml
+  location: ../../locations/evening_night/location-v2.yaml
+  music: ../../audios/music.yaml
+  location_music: ../../locations/evening_night/music-profile.yaml
+  ambience: ../../audios/ambience.yaml
+  sound_effects: ../../audios/sound-effects.yaml
+  mixing: ../../audios/mixing.yaml
+  voice_production: ../../audios/voice-production.yaml
+  s2v_input: ../../audios/s2v-input-spec.yaml
+  references: ../../references.yaml
+  continuity: ../../continuity/initial-state.yaml
+  wan_review_cards: ../../wan22-review-cards.yaml
+  auto_editing: ../../auto-editing.yaml
+
+location_id: kindergarten-evening-night
+
+characters:
+  - id: riri
+    episode_role: gentle-greeter-and-reassuring-friend
+    emotion:
+      id: happy
+      intensity: level_2
+      contract: happiness
+    voice_identity:
+      profile_id: riri
+      voice_id: riri-v1
+      identity_reference: neutral-friendly
+      performance_reference: happy-gentle
+      preserve_across_episode_and_repairs: true
+    starting_state:
+      pose: stable-full-body-standing-pose
+      gaze_target: yoyo-face
+      mouth: closed-or-resting-before-speech
+    intention: welcome-yoyo-and-point-out-the-warm-garden-light
+  - id: yoyo
+    episode_role: curious-explorer-and-active-listener
+    emotion:
+      id: curious
+      intensity: level_2
+      contract: curiosity
+    voice_identity:
+      profile_id: yoyo
+      voice_id: yoyo-v1
+      identity_reference: neutral-friendly
+      performance_reference: curious
+      preserve_across_episode_and_repairs: true
+    starting_state:
+      pose: stable-full-body-standing-pose-with-small-forward-lean
+      gaze_target: warm-garden-light
+      beak: softly-closed-before-speech
+    intention: notice-the-light-ask-a-simple-question-and-share-the-discovery
+
+narrative:
+  premise: >-
+    Riri and Yoyo arrive at the approved V2 storybook-cottage garden at calm
+    blue night and notice a small warm light near the arched porch entrance.
+  opening_state: both-friends-stand-together-on-the-readable-garden-path
+  story_beat: notice-name-and-share-one-safe-gentle-discovery
+  resolution: both-friends-identify-the-light-and-feel-calm-and-welcome
+  safety_boundary:
+    - remain-on-the-approved-readable-path
+    - entrance-and-character-faces-remain-visible
+    - no-touching-hot-lamps-or-electrical-fixtures
+    - no-threatening-darkness-or-startling-event
+
+continuity_contract:
+  purpose: >-
+    Provide generation, Qwen VL review, automated editing, and Wan 2.2 repair
+    with the same locked identity and episode-state expectations.
+  authority_hierarchy:
+    - approved-project-and-series-context
+    - approved-character-location-voice-music-and-reference-context
+    - this-episode-selection
+    - current-scene-shot-and-segment-state
+    - previous-approved-runtime-end-state
+  character_identity:
+    reference_registry: ../../references.yaml
+    relationship_and_scale: ../../characters/relationships.yaml
+    preserve:
+      - character-species-shape-and-proportions
+      - face-eyes-markings-and-permanent-colors
+      - material-and-wardrobe-identity
+      - riri-to-yoyo-relative-scale
+      - character-specific-movement-and-expression-language
+  voice_identity:
+    riri:
+      profile: ../../characters/riri/voice-profile.yaml
+      profile_id: riri
+      voice_id: riri-v1
+    yoyo:
+      profile: ../../characters/yoyo/voice-profile.yaml
+      profile_id: yoyo
+      voice_id: yoyo-v1
+    rules:
+      - emotion-may-change-performance-but-never-speaker-identity
+      - every-final-dialogue-line-requires-exact-transcript-and-audio-hash
+      - picture-only-repair-reuses-the-approved-dialogue-stem
+      - s2v-mouth-repair-reuses-the-same-locked-audio-unless-audio-is-the-diagnosed-failure
+      - voice-swap-age-pitch-timbre-accent-and-cadence-drift-are-blocking
+  music_identity:
+    project_profile: ../../audios/music.yaml
+    location_profile: ../../locations/evening_night/music-profile.yaml
+    scene_state_id: evening-night-friendship
+    exact_render_path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/v001/episode-001_moonlit-garden-greeting_evening-night-friendship_final.wav
+    exact_render_sha256: 67851b8d9a208e5479fe5612c99b6862ce4b6f0ae4f2d193a2d2aeb21ed705bc
+    lock_status: locked-approved-background-music-only
+    rules:
+      - preserve-project-style-and-recurring-character-motif-language-across-episodes
+      - preserve-exact-approved-music-file-hash-and-timeline-offset-across-picture-repairs
+      - do-not-regenerate-music-during-a-visual-only-repair
+      - intentional-music-change-requires-a-new-version-and-audio-review
+  location_and_camera:
+    location_id: kindergarten-evening-night
+    active_visual_identity: v001
+    preserve:
+      - approved-building-entrance-path-tree-and-light-source-geometry
+      - time-of-day-and-warm-cool-light-relationship
+      - screen-direction-camera-side-framing-and-movement-trajectory
+  audio_bed:
+    ambience_profile: kindergarten_exterior_garden
+    ambience_state: calm-night
+    preserve_room_tone_across_cuts_and-repair-splices: true
+    preserve-music-ambience-and-sound-effect-stem-hashes-after-approval: true
+  runtime_boundaries:
+    require_previous_approved_end_frame: true
+    require_approved_start_frame: true
+    require_expected_end_state: true
+    carry_persistent_character-prop-location-and-audio-state_forward: true
+    never_reset_state_at-shot-scene-or-episode-boundary-without-scripted-transition: true
+  qwen_vl_review:
+    use_resolved_context_and_reference_hashes: true
+    locate_first_and_last_bad_frame: true
+    cite_violated_authority_and-rule: true
+    visual_review_does_not_claim_voice-or-music-identity-pass: true
+  wan_repair:
+    smallest-valid-bounded-segment: required
+    preserve-stable-frames-before-and-after-defect: true
+    preserve-locked-dialogue-music-ambience-and-sound-effects: true
+    create-new-immutable-attempt: true
+    overwrite-source-attempt: false
+    require-qwen-vl-recheck-audio-continuity-check-and-human-approval: true
+
+production_phases:
+  phase_1_asset_creation:
+    status: complete-all-audio-and-three-s2v-start-references-approved
+    context_hash_required: true
+    conversation:
+      execution: local-qwen3-tts-base-clone
+      approved_input: conversation-v001.json
+      input: exact-ordered-episode-conversation-lines
+      combined_conversation_role: pacing-and-editorial-review-only
+      s2v_units: one-approved-clean-wav-per-speaker-turn
+      required_format: 48000-hz-24-bit-mono-pcm-wav
+      forbidden_in_each_s2v_dialogue_wav:
+        - second-speaker
+        - music
+        - ambience
+        - foley
+        - sound-effects
+        - reverb-or-background-vocals
+      lock_requirements:
+        - exact-transcript-hash
+        - audio-sha256
+        - word-timing
+        - voice-identity-review
+        - human-approval
+      locked_dialogue_assets:
+        - segment_id: riri-line-001
+          shot_id: shot-001
+          speaker: riri
+          dialogue_version: 1
+          runtime_path: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-001-riri/v001/episode-001_moonlit-garden-greeting_shot-001_riri_final.wav
+          audio_sha256: 4acb66c3798f909827a57f957f1784a2c4d8dddd62a1de9078f038b7d701d480
+          approval_hash: 267224e2ca4a981f
+          status: locked-ready-for-lip-sync
+        - segment_id: yoyo-line-002
+          shot_id: shot-002
+          speaker: yoyo
+          dialogue_version: 1
+          runtime_path: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-002-yoyo/v001/episode-001_moonlit-garden-greeting_shot-002_yoyo_final.wav
+          audio_sha256: 669ee3347a713cbe878d346977db897bf5c00162fbfd92f8cb1f174e32f467d0
+          approval_hash: 09f633049fc68b21
+          status: locked-ready-for-lip-sync
+        - segment_id: riri-line-003
+          shot_id: shot-003
+          speaker: riri
+          dialogue_version: 1
+          runtime_path: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-003-riri/v001/episode-001_moonlit-garden-greeting_shot-003_riri_final.wav
+          audio_sha256: 5cba195aecab90d58462d8d5007f1444c50afbd5b26f40cb0af75832ffb18504
+          approval_hash: 5499df8743fca3cc
+          status: locked-ready-for-lip-sync
+    music:
+      execution: local-stable-audio-3-medium
+      cue_id: evening-night-friendship
+      output_role: separate-final-edit-stem
+      direct_s2v_conditioning: forbidden
+      approval_and_sha256_required: true
+      identity_source:
+        id: puzzle-solving
+        path: src/lpw/context/projects/riri-yoyo/assets/music/soundtracks/riri-yoyo/puzzle-solving.wav
+        sha256: 82ce26e952fc33bbc06449f838eb4bf7edf5259a47e50fd93a121013baf2c7ed
+        role: audio-to-audio-character-and-project-music-continuity-reference
+        selected_by: project-owner
+        selected_on: "2026-08-27"
+        selection_status: approved
+      human_rejected_attempts:
+        - id: evening-night-friendship-v001
+          path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/candidates/v001/evening-night-friendship-v001.wav
+          sha256: 24fdb09b2892c820eeef683bbe57dfd2986b39afc4c422aac6dc9047a11f7d92
+          identity_source_region_seconds: [0.0, 12.0]
+          status: rejected
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+          feedback: conditioning-source-used-opening-character-leitmotifs-instead-of-background-music-section
+        - id: evening-night-friendship-v003
+          path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/candidates/v003/evening-night-friendship-v003.wav
+          sha256: f69b7d996fda8555cb74bceef46932714eb86cb67fe670ffb695b4aeb5d5f592
+          identity_source_region_seconds: [6.47, 18.47]
+          status: rejected
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+          feedback: remove-leitmotif-treatment-and-use-only-the-continuous-background-music
+      revision_plan:
+        next_candidate: evening-night-friendship-v004
+        identity_source_region_start_seconds: 6.47
+        requirement: use-scenario-underscore-after-both-opening-character-themes
+        execution: deterministic-trim-fade-and-level-no-generative-transformation
+        approval_instruction: project-owner-requested-remove-leitmotif-then-approve
+      technical_attempts:
+        - id: evening-night-friendship-v002
+          path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/candidates/v002/evening-night-friendship-v002-raw.wav
+          sha256: 055bb90da8dc03296db20c2a83d62705f2e56acc6fe15d6d1ce1e9b74c8d6af2
+          identity_source_region_seconds: [6.47, 18.47]
+          status: rejected-clipped-output
+          samples_at_full_scale: 66
+      current_candidate:
+        id: evening-night-friendship-v004
+        path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/candidates/v004/evening-night-friendship-v004-background-only.wav
+        sha256: 67851b8d9a208e5479fe5612c99b6862ce4b6f0ae4f2d193a2d2aeb21ed705bc
+        derivation_manifest: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/candidates/v004/derivation.json
+        identity_source_region_seconds: [6.47, 18.47]
+        duration_seconds: 12.0
+        format: 48000-hz-24-bit-stereo-pcm-wav
+        transformation: deterministic-trim-fade-and-level-no-generative-transformation
+        fade_in_seconds: 1.5
+        fade_out_seconds: 2.5
+        peak_dbfs: -6.0
+        technical_review: pass
+        human_music-review: approved
+        reviewer: project-owner
+        reviewed_on: "2026-08-27"
+      locked_asset:
+        id: evening-night-friendship-v001
+        version: 1
+        path: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/v001/episode-001_moonlit-garden-greeting_evening-night-friendship_final.wav
+        sha256: 67851b8d9a208e5479fe5612c99b6862ce4b6f0ae4f2d193a2d2aeb21ed705bc
+        approval_manifest: runtime/audio/riri-yoyo/episodes/episode-001/music/evening-night-friendship/v001/approval.json
+        approval_hash: 5df73756148062c6
+        status: locked-for-final-edit
+        direct_s2v_conditioning: forbidden
+        picture-repair-rule: reuse-this-exact-file-and-timeline-offset
+    ambience:
+      profile: kindergarten_exterior_garden
+      state: calm-night
+      output_role: separate-continuous-final-edit-stem
+      direct_s2v_conditioning: forbidden
+      approval_and_sha256_required: true
+      selected_source:
+        id: reassuring-night-garden
+        path: src/lpw/context/projects/riri-yoyo/audio-assets/sound-effects/kindergarten-evening-night/ambience/reassuring-night-garden.wav
+        sha256: 69a37a98b123d16663beaac5d63b944a82d7081650e8e237af67d6a4bd90853c
+        selected_by: project-owner
+        selected_on: "2026-08-27"
+        selection_status: approved
+      production_attempts:
+        - id: reassuring-night-garden-12s-v001
+          path: runtime/audio/riri-yoyo/episodes/episode-001/ambience/candidates/reassuring-night-garden-12s-v001.wav
+          sha256: 8b515331712f79ce17d2c2314f608a44ccdc8323ad19bfa064d9e6b18a5f7e09
+          duration_seconds: 12.0
+          format: 48000-hz-24-bit-stereo-pcm-wav
+          derivation: approved-source-repeated-with-250ms-constant-power-crossfade-and-short-edge-fades
+          technical_review: pass
+          human_mix-review: rejected
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+          feedback: short-fading-is-not-natural-enough
+        - id: reassuring-night-garden-12s-v002
+          path: runtime/audio/riri-yoyo/episodes/episode-001/ambience/candidates/reassuring-night-garden-12s-v002.wav
+          sha256: fcfd8e89ae5caf2afd8bac525cb0680bb1b67e88e60dca05b25f572f95f3dadf
+          duration_seconds: 12.0
+          format: 48000-hz-24-bit-stereo-pcm-wav
+          derivation: approved-source-repeated-with-1500ms-constant-power-crossfade-and-2000ms-edge-fades
+          technical_review: pass
+          human_mix-review: approved
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+      current_production_candidate: reassuring-night-garden-12s-v002
+      locked_asset:
+        id: episode-001-moonlit-garden-ambience-v001
+        version: 1
+        path: runtime/audio/riri-yoyo/episodes/episode-001/ambience/v001/episode-001_moonlit-garden-greeting_ambience_final.wav
+        sha256: fcfd8e89ae5caf2afd8bac525cb0680bb1b67e88e60dca05b25f572f95f3dadf
+        approval_manifest: runtime/audio/riri-yoyo/episodes/episode-001/ambience/v001/approval.json
+        approval_hash: 37ec90a8923084ca
+        status: locked-for-final-edit
+        picture-repair-rule: reuse-this-exact-file-and-timeline-offset
+    sound_effects:
+      execution: local-stable-audio-3-medium
+      output_role: separate-visible-action-final-edit-stems
+      direct_s2v_conditioning: forbidden
+      approval_and-sha256-required: true
+      riri-small-paw-step:
+        rejected_library_candidate:
+          path: src/lpw/context/projects/riri-yoyo/audio-assets/sound-effects/kindergarten-evening-night/interactions/night-stone-steps.wav
+          sha256: 03a14632e56588d19428b09d5dc7fd3343316f357dcdb0b3e6afb10af635ac3a
+          decision: rejected-generate-new-cue
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+        current_candidate:
+          id: riri-small-paw-step-v001
+          path: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/riri-small-paw-step/candidates/v001/riri-small-paw-step-v001-single.wav
+          sha256: 9ce553fd0ff93afc0420c2edbc4d228a5ac84e542a89385a97a1f33725756b9f
+          generation_request: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/riri-small-paw-step/candidates/v001/generation-request.json
+          duration_seconds: 0.6
+          format: 48000-hz-24-bit-stereo-pcm-wav
+          detected_contact_count: 1
+          technical_review: pass
+          human_review: approved
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+        locked_asset:
+          id: riri-small-paw-step-v001
+          version: 1
+          path: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/riri-small-paw-step/v001/episode-001_moonlit-garden-greeting_riri-small-paw-step_final.wav
+          sha256: 9ce553fd0ff93afc0420c2edbc4d228a5ac84e542a89385a97a1f33725756b9f
+          approval_manifest: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/riri-small-paw-step/v001/approval.json
+          approval_hash: b5153417111323e1
+          status: locked-for-final-edit
+          direct_s2v_conditioning: forbidden
+      yoyo-soft-head-tilt-feather-rustle:
+        current_candidate:
+          id: yoyo-soft-head-tilt-feather-rustle-v001
+          path: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/yoyo-soft-head-tilt-feather-rustle/candidates/v001/yoyo-soft-head-tilt-feather-rustle-v001-single.wav
+          sha256: e8b991ed202e0b438884ee21aa641699cd908ba36d0cc9876ba01336c1784af4
+          generation_request: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/yoyo-soft-head-tilt-feather-rustle/candidates/v001/generation-request.json
+          duration_seconds: 1.0
+          format: 48000-hz-24-bit-stereo-pcm-wav
+          extraction: first-isolated-rustle-cluster-from-local-generation
+          audition_peak_dbfs: -12.0
+          technical_review: pass
+          human_review: approved
+          reviewer: project-owner
+          reviewed_on: "2026-08-27"
+        locked_asset:
+          id: yoyo-soft-head-tilt-feather-rustle-v001
+          version: 1
+          path: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/yoyo-soft-head-tilt-feather-rustle/v001/episode-001_moonlit-garden-greeting_yoyo-soft-head-tilt-feather-rustle_final.wav
+          sha256: e8b991ed202e0b438884ee21aa641699cd908ba36d0cc9876ba01336c1784af4
+          approval_manifest: runtime/audio/riri-yoyo/episodes/episode-001/sound-effects/yoyo-soft-head-tilt-feather-rustle/v001/approval.json
+          approval_hash: 7d013d97ca2ddb54
+          status: locked-for-final-edit
+          direct_s2v_conditioning: forbidden
+    scene_reference_image:
+      execution: codex-reference-guided-on-project-owner-request
+      creator: codex-built-in-image-generation
+      request_contract: reference_plan
+      output_id: episode-001-moonlit-garden-greeting-s2v-start-frame-v001
+      required_output: one-approved-coherent-character-location-frame
+      local-path-provenance-and-sha256-required: true
+      automated-image-provider-required: false
+      external_api_key_required: false
+      manual_handoff_package: runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v001/manual-image-brief.yaml
+      manual_output_directory: runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v001/output
+      source_reference_selection:
+        riri:
+          package: riri-design-package-v002
+          authority: ../../characters/riri/character-v2.yaml
+          version: v002
+        yoyo:
+          package: yoyo-design-package-v002
+          authority: ../../characters/yoyo/character-v2.yaml
+          version: v002
+        location:
+          package: kindergarten-evening-night-design-package-v002
+          authority: ../../locations/evening_night/location-v2.yaml
+          version: v002
+        status: approved
+        approved_by: project-owner
+        approved_on: "2026-08-27"
+      generated_candidate:
+        path: runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v001/output/episode-001-moonlit-garden-greeting-s2v-start-frame-v001.png
+        sha256: cadb45a33f55a6e3b9e5c78233004cdee5a588b563b6229e0e0ac1a9290fa46d
+        pixel_dimensions: 1672x941
+        format: png-rgb
+        generation_method: codex-built-in-image-generation-with-approved-v2-references
+        technical_review: conditional-pass-awaiting-project-owner-visual-review
+        relative_scale_review: near-or-slightly-below-lower-tolerance-edge
+        yoyo_gaze_review: favors-riri-more-than-warm-entrance
+        project_owner_visual_approval: pending
+      regenerated_sequence_candidate:
+        version: v002
+        prompt_template: >-
+          ../../generation-records/prompts/five-second-reference-sequence--s2v--prompt-v001.yaml
+        review_board:
+          path: >-
+            runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v002/output/episode-001--moonlit-garden-greeting--s2v-reference-sequence-board--v002.png
+          sha256: 52a032926148f52256b4f77ff43bae29a57a569887e8038232a911707a1d2ed6
+          pixel_dimensions: 1691x930
+          panel_timestamps_seconds: [0, 1, 2, 3, 4]
+          role: human-and-qwen-vl-temporal-comparison-only
+          direct_wan_s2v_conditioning: forbidden
+        zero_second_anchor:
+          path: >-
+            runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v002/output/episode-001--moonlit-garden-greeting--s2v-reference--0s--v002.png
+          sha256: 4926fb64f440a38c5cdd1b028cd45c37b88be29a26baf6408e576a1742f102f7
+          pixel_dimensions: 1672x941
+          role: clean-start-frame-candidate
+          direct_wan_s2v_conditioning: allowed-after-separate-human-approval
+          project_owner_visual_approval: approved
+          approved_by: project-owner
+          approved_on: "2026-08-28"
+          approval_source: direct-user-confirmation-that-previous-reference-was-accepted
+        manifest: >-
+          runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v002/review-board-manifest.yaml
+        technical_review: pass-with-subtle-yoyo-head-tilt-progression
+        project_owner_visual_approval: pending
+      regenerated_twelve_second_sequence_candidate:
+        version: v003
+        duration_seconds: 12
+        total_timestamp_images: 13
+        groups:
+          - timestamps_seconds: [0, 1, 2, 3, 4]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v003/output/episode-001--moonlit-garden-greeting--s2v-reference-board--0s-4s--v003.png
+            sha256: 52a032926148f52256b4f77ff43bae29a57a569887e8038232a911707a1d2ed6
+          - timestamps_seconds: [5, 6, 7, 8, 9]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v003/output/episode-001--moonlit-garden-greeting--s2v-reference-board--5s-9s--v003.png
+            sha256: f2e6436610f67cc98cb102c83ba4517f22b8912f5b8883e503a968d8a280f3b5
+            yoyo_head_returns_toward_warm_light: true
+            yoyo_face_focus_at_8s: true
+          - timestamps_seconds: [10, 11, 12]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v003/output/episode-001--moonlit-garden-greeting--s2v-reference-board--10s-12s--v003.png
+            sha256: 77138c08aae2261307adc890d7b26d62ba61671155a753645d3508e6cd3462fd
+            riri_face_focus: true
+        prompt_template: >-
+          ../../generation-records/prompts/twelve-second-reference-sequence--s2v--prompt-v002.yaml
+        manifest: >-
+          runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v003/reference-sequence-manifest.yaml
+        technical_review: superseded-by-v004-after-project-owner-paw-grounding-feedback
+        project_owner_visual_approval: rejected-revision
+      corrected_twelve_second_sequence_candidate:
+        version: v004
+        duration_seconds: 12
+        total_timestamp_images: 13
+        groups:
+          - timestamps_seconds: [0, 1, 2, 3, 4]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v004/output/episode-001--moonlit-garden-greeting--s2v-reference-board--0s-4s--v004.png
+            sha256: 52a032926148f52256b4f77ff43bae29a57a569887e8038232a911707a1d2ed6
+          - timestamps_seconds: [5, 6, 7, 8, 9]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v004/output/episode-001--moonlit-garden-greeting--s2v-reference-board--5s-9s--v004.png
+            sha256: f2e6436610f67cc98cb102c83ba4517f22b8912f5b8883e503a968d8a280f3b5
+            yoyo_head_returns_toward_warm_light: true
+            yoyo_face_focus_at_8s: true
+          - timestamps_seconds: [10, 11, 12]
+            board_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v004/output/episode-001--moonlit-garden-greeting--s2v-reference-board--10s-12s--v004.png
+            sha256: 626a3cf409f389fa2200292304a4e115e1b4b6a8adc19f9d2f5e59c362e140b6
+            riri_face_focus: true
+            riri_both_front_paws_grounded_from_10s_through_12s: true
+        prompt_template: >-
+          ../../generation-records/prompts/twelve-second-reference-sequence--s2v--prompt-v002.yaml
+        manifest: >-
+          runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v004/reference-sequence-manifest.yaml
+        technical_review: pass
+        project_owner_visual_approval: approved
+        approved_by: project-owner
+        approved_on: "2026-08-28"
+        approval_source: direct-user-confirmation
+      current_status: v004-storyboard-approved-three-s2v-start-references-required
+      s2v_start_reference_plan:
+        rule: exactly-one-reference-image-per-s2v-segment
+        prompt_template: >-
+          ../../generation-records/prompts/single-start-reference--wan22-s2v--prompt-v003.yaml
+        total_segments: 3
+        total_reference_images: 3
+        storyboard_timestamp_panels_are_direct_inputs: false
+        segments:
+          - segment_id: segment-001
+            timeline_seconds: [0, 4]
+            start_reference_timestamp_seconds: 0
+            reference_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-001--000s--wan-v006.png
+            reference_sha256: 68a270014268d6b1a8e782968ed29f1647a3e7c6848401e144cab22a9af2ee5e
+            approved_source_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/manual-handoff/v002/output/episode-001--moonlit-garden-greeting--s2v-reference--0s--v002.png
+            approved_source_sha256: 4926fb64f440a38c5cdd1b028cd45c37b88be29a26baf6408e576a1742f102f7
+            approval_status: approved
+          - segment_id: segment-002
+            timeline_seconds: [5, 9]
+            start_reference_timestamp_seconds: 5
+            reference_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-002--005s--wan-v006.png
+            reference_sha256: ff12d8c8f7ce1bb7b444ca6b66e53a88ce79bc0fe9e41da1c1828b0670f69728
+            approval_status: approved
+            approved_by: project-owner
+            approved_on: "2026-08-29"
+            approval_source: direct-user-instruction-to-use-three-created-reference-images
+          - segment_id: segment-003
+            timeline_seconds: [10, 12]
+            start_reference_timestamp_seconds: 10
+            reference_path: >-
+              runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/wan-832x480/episode-001--segment-003--010s--wan-v006.png
+            reference_sha256: 2c30128ecf4e689a49c13c1b5d125c0deea3cd607ab10a129efd99757b6c1c6e
+            approval_status: approved
+            approved_by: project-owner
+            approved_on: "2026-08-29"
+            approval_source: direct-user-instruction-to-use-three-created-reference-images
+        manifest: >-
+          runtime/images/riri-yoyo/episodes/episode-001/scene-reference/shot-start-references/v006/shot-start-reference-manifest.yaml
+        remaining_work: generate-three-local-s2v-preview-videos
+      rejected_conditioning_attempt:
+        version: v005
+        manifest: >-
+          runtime/images/riri-yoyo/episodes/episode-001/scene-reference/conditioning/v005/conditioning-frame-manifest.yaml
+        status: rejected-wrongly-created-per-second-frames-never-use-for-wan
+    combined_audio_preview:
+      id: episode-001-full-audio-preview-v001
+      path: runtime/audio/riri-yoyo/episodes/episode-001/mixes/candidates/v001/episode-001-full-audio-preview-v001.wav
+      sha256: d1e1805b78a20c1466ef2db92df44622fc3a4818c570ea66e04a3ce749b8b2bd
+      mix_manifest: runtime/audio/riri-yoyo/episodes/episode-001/mixes/candidates/v001/mix-request.json
+      duration_seconds: 12.0
+      format: 48000-hz-24-bit-stereo-pcm-wav
+      peak_dbfs: -1.0
+      technical_review: pass
+      human_mix-review: approved
+      reviewer: project-owner
+      reviewed_on: "2026-08-27"
+      role: editorial-and-final-mix-preview-only
+      direct_s2v_conditioning: forbidden
+      locked_asset:
+        id: episode-001-full-audio-mix-v001
+        version: 1
+        path: runtime/audio/riri-yoyo/episodes/episode-001/mixes/v001/episode-001_moonlit-garden-greeting_full-audio-mix_final.wav
+        sha256: d1e1805b78a20c1466ef2db92df44622fc3a4818c570ea66e04a3ce749b8b2bd
+        approval_manifest: runtime/audio/riri-yoyo/episodes/episode-001/mixes/v001/approval.json
+        approval_hash: 14f3cc2fd159928f
+        status: locked-for-editorial-and-final-mix-reference
+    exit_gate:
+      require-all-dialogue-turns-locked: true
+      require-music-ambience-and-effects-approved: true
+      require-scene-reference-image-approved: true
+      require-all-paths-hashes-and-context-hash: true
+      human_approval_required: true
+
+  phase_2_s2v_and_final_mix:
+    status: arranged-awaiting-local-model-and-backend
+    video_job_manifest: >-
+      ../../generation-records/video-jobs/episode-001--moonlit-garden-greeting--wan22-s2v--v001.yaml
+    selected_rtx4090_fp8_candidate_manifest: >-
+      ../../generation-records/video-jobs/episode-001--moonlit-garden-greeting--wan22-s2v-fp8-480p--v002.yaml
+    selected_rtx4090_fp8_candidate_profile: >-
+      ../../wan22-s2v-runtime-profiles.yaml#rtx4090_fp8_24gb_vram_32gb_ram
+    candidate_selection_note: >-
+      The project owner selected a 24GB RTX 4090 with 32GB system RAM, scaled
+      FP8 weights with FP16 compute, and 832x480 output for runtime validation.
+      The candidate uses the locked 12-second clean conversation as one S2V
+      input with three internal continuation windows. It does not invalidate
+      the previously approved three-reference fallback until the single-input
+      candidate passes speaker, camera, identity, continuity, and memory review.
+    native_s2v_creation_profile:
+      production_precision: bf16
+      local_precision: gguf-q4
+      local_profile_role: preview-mcp-orchestration-and-pipeline-test
+      final-approved-render_requires-production-bf16: true
+      dimensions: "832x480"
+      frame_rate: 16
+      frame_count_rule: four-n-plus-one-covering-complete-audio
+      five_second_frames: 81
+      standard_sampling: {steps: 20, cfg: 6.0, sampler: unipc, scheduler: simple}
+      lightning_sampling: {steps: 5, cfg: 1.0, sampler: unipc, scheduler: simple}
+      dialogue_audio_preparation_prompt: >-
+        ../../generation-records/prompts/s2v-dialogue-audio-preparation--prompt-v001.yaml
+      corrected_local_buffer_package:
+        version: 2
+        manifest: >-
+          runtime/audio/riri-yoyo/episodes/episode-001/s2v-conditioning/v002/manifest.yaml
+        leading_digital_silence_seconds: 0.25
+        duration_seconds_per_file: 5.0
+        status: technically-validated-approved-speech-samples-preserved
+      leading_silence_seconds: {minimum: 0.2, maximum: 0.5, default: 0.25}
+      frame_count_must_cover_final_padded_wav: true
+      one_second_voice_padded_frame_options: [21, 25]
+      direct_delivery: forbidden
+    youtube_conform_profile:
+      dimensions: "1920x1080"
+      aspect_ratio: "16:9"
+      frame_rate: 24
+      five_second_display_frames: 120
+      source_aspect_conform: center-crop-832x480-to-832x468-before-upscale
+      stretching: forbidden
+      qwen_vl_interpolation_and_upscale_review: required
+    per_s2v_segment:
+      segmentation:
+        - {segment_id: segment-001, timeline_seconds: [0, 4], reference_timestamp_seconds: 0}
+        - {segment_id: segment-002, timeline_seconds: [5, 9], reference_timestamp_seconds: 5}
+        - {segment_id: segment-003, timeline_seconds: [10, 12], reference_timestamp_seconds: 10}
+      inputs:
+        - exactly-one-approved-start-reference-image
+        - one-approved-clean-dialogue-wav-from-one-speaker
+      model: wan2.2-s2v-14b
+      preserve:
+        - exact-character-identity-shape-scale-wardrobe-and-expression
+        - location-geometry-lighting-camera-and-screen-direction
+        - dialogue-transcript-voice-timing-and-audio-hash
+        - listener-closed-mouth-or-beak-state
+      excluded_from_s2v_conditioning:
+        - combined-conversation-wav
+        - music
+        - ambience
+        - foley
+        - sound-effects
+    continuity:
+      first-segment-image: approved-phase-1-scene-reference
+      later-segment-image: previous-approved-stable-end-frame-or-approved-cut-frame
+      carry-forward-state: required
+      state-reset-without-scripted-cut: forbidden
+    post_s2v_edit:
+      reuse-locked-dialogue-wavs-as-audio-authority: true
+      add-approved-music-ambience-foley-and-sound-effect-stems: true
+      dialogue-priority-mix: required
+      qwen-vl-review-before-and-after-repair: required
+      audio-hash-and-timeline-continuity-check: required
+      final-human-approval: required
+
+scenes:
+  - id: moonlit-garden-greeting
+    order: 1
+    title: The Warm Garden Light
+    location_id: kindergarten-evening-night
+    time_of_day: night
+    duration_target_seconds: 12
+    visual_prompt_intent: >-
+      Riri and Yoyo stand together on the clearly lit curved flagstone path in
+      the approved V2 storybook-cottage garden at calm blue night, looking
+      toward one localized warm porch light. Preserve the V2 stone cottage,
+      steep blue-gray roof, arched entrance, fence, path, four tree zones, and
+      practical-light positions unchanged.
+    character_states:
+      riri:
+        emotion: happy
+        intensity: level_2
+        action: turns-her-gaze-from-yoyo-to-the-warm-light-with-one-small-paw-lift
+      yoyo:
+        emotion: curious
+        intensity: level_2
+        action: follows-riris-gaze-with-one-clear-head-tilt-and-still-observation-beat
+    conversation:
+      language: English
+      overlap: forbidden
+      lines:
+        - order: 1
+          speaker: riri
+          emotion: happy
+          text: "Hi, Yoyo! Look at the warm light."
+          listener: yoyo
+          listener_state: attentive-closed-beak-and-gaze-on-the-light
+        - order: 2
+          speaker: yoyo
+          emotion: curious
+          text: "Is that our garden light?"
+          listener: riri
+          listener_state: warm-attentive-closed-mouth-and-small-head-tilt
+        - order: 3
+          speaker: riri
+          emotion: affectionate
+          text: "Yes. It helps us see the path."
+          listener: yoyo
+          listener_state: happy-understanding-and-stable-closed-beak
+    s2v_segments:
+      - id: riri-line-001
+        shot_id: shot-001
+        conversation_line_order: 1
+        speaker: riri
+        listener: yoyo
+        reference_image_source: approved-phase-1-scene-reference
+        conditioning_audio_source: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-001-riri/v001/episode-001_moonlit-garden-greeting_shot-001_riri_final.wav
+        conditioning_audio_sha256: 4acb66c3798f909827a57f957f1784a2c4d8dddd62a1de9078f038b7d701d480
+        excluded_audio: [music, ambience, foley, sound-effects]
+      - id: yoyo-line-002
+        shot_id: shot-002
+        conversation_line_order: 2
+        speaker: yoyo
+        listener: riri
+        reference_image_source: previous-approved-stable-end-frame-or-approved-cut-frame
+        conditioning_audio_source: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-002-yoyo/v001/episode-001_moonlit-garden-greeting_shot-002_yoyo_final.wav
+        conditioning_audio_sha256: 669ee3347a713cbe878d346977db897bf5c00162fbfd92f8cb1f174e32f467d0
+        excluded_audio: [music, ambience, foley, sound-effects]
+      - id: riri-line-003
+        shot_id: shot-003
+        conversation_line_order: 3
+        speaker: riri
+        listener: yoyo
+        reference_image_source: previous-approved-stable-end-frame-or-approved-cut-frame
+        conditioning_audio_source: runtime/audio/riri-yoyo/episodes/episode-001/dialogue/moonlit-garden-greeting/shot-003-riri/v001/episode-001_moonlit-garden-greeting_shot-003_riri_final.wav
+        conditioning_audio_sha256: 5cba195aecab90d58462d8d5007f1444c50afbd5b26f40cb0af75832ffb18504
+        excluded_audio: [music, ambience, foley, sound-effects]
+    music:
+      authority: ../../audios/music.yaml
+      location_profile: ../../locations/evening_night/music-profile.yaml
+      profile: soft-kids-pop
+      theme: friendship
+      state_id: evening-night-friendship
+      activity: talking
+      intensity: low
+      dialogue_ducking_required: true
+      vocals: forbidden
+    ambience:
+      authority: ../../audios/ambience.yaml
+      location_profile: kindergarten_exterior_garden
+      state: calm-night
+      continuity: preserve-across-the-scene
+      level: soft-below-dialogue
+    sound_effects:
+      authority: ../../audios/sound-effects.yaml
+      cues:
+        - id: riri-small-paw-step
+          source: visible-riri-step
+          scale: tiny
+          priority: low
+        - id: yoyo-soft-head-tilt-feather-rustle
+          source: visible-yoyo-head-tilt
+          scale: tiny
+          priority: low
+      dialogue_priority: absolute
+      unmotivated_effects: forbidden
+    camera:
+      framing: medium-wide-full-character-readable
+      angle: preschool-eye-level
+      movement: slow-gentle-push-in
+      composition: characters-path-warm-entry-light
+    generation:
+      target_mode: s2v
+      reference_requirement: approved-single-frame-character-location-composite
+      board_or_collage_conditioning: forbidden
+      exact_character_count: 2
+      production_authorized: false
+      local_q4ks_preview_authorized: true
+
+reference_plan:
+  character_identity_sources:
+    - riri-design-package-v002
+    - yoyo-design-package-v002
+  location_identity_source: kindergarten-evening-night-design-package-v002
+  required_new_reference: episode-001-moonlit-garden-greeting-s2v-start-frame-v001
+  required_properties:
+    - one-coherent-single-frame-image
+    - exact-two-approved-characters
+    - approved-v2-storybook-cottage-location-geometry
+    - episode-emotions-visible-and-within-level-2
+    - speaker-and-listener-mouth-or-beak-start-at-rest
+    - eyes-gaze-ground-contact-and-movement-space-readable
+    - no-text-label-watermark-or-duplicate-character
+  approval_status: approved-three-segment-start-reference-set-v006
+
+approval_boundary:
+  example_schema_approved: false
+  story_and_dialogue_approved: true
+  story_and_dialogue_approval:
+    approved_by: project-owner
+    approved_at: "2026-08-27"
+    approval_source: direct-user-confirmation
+    approved_conversation_input: conversation-v001.json
+    approved_line_count: 3
+    change_rule: any-word-punctuation-speaker-or-order-change-requires-new-approval
+  character_emotions_resolve_from_yaml: required
+  location_identity_approved_for-example: true-v2
+  s2v_start_frame_approved: true
+  s2v_start_reference_count_approved: 3
+  phase_1_dialogue-turns-approved: true
+  phase_1_ambience-approved: true
+  phase_1_riri-paw-step-approved: true
+  phase_1_yoyo-feather-rustle-approved: true
+  phase_1_sound-effects-approved: true
+  phase_1_music-base-approved: true
+  phase_1_music-approved: true
+  phase_1_music-ambience-and-sound-effects-approved: true
+  phase_1_full-audio-preview-approved: true
+  phase_1_all-audio-approved: true
+  phase_1_manual-image-source-references-approved: true
+  phase_1_asset-lock-approved: true
+  phase_2_s2v-authorized: local-q4ks-preview-only
+  phase_2_rtx4090_fp8_candidate-authorized: runtime-validation-only
+  phase_2_final-mix-approved: false
+  production_authorized: false

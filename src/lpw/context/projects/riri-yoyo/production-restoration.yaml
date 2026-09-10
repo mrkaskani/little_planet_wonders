@@ -1,0 +1,341 @@
+id: riri-yoyo-production-restoration
+type: production-video-restoration-policy
+version: 1
+status: approved-configuration
+
+objective:
+  priority: maximum-visible-quality
+  completion_rule: >-
+    A delivery is complete only after the final Qwen3-VL comparison passes every
+    required category and the technical master and delivery validations pass.
+  sharpness_alone_is_approval: false
+
+pipeline:
+  ordered_stages:
+    - qwen-input-qa
+    - wan22-s2v-a14b-generation
+    - qwen-generated-video-qa
+    - conditional-defect-correction
+    - practical-rife-2x
+    - seedvr2-video-restoration
+    - ffmpeg-master-and-delivery
+    - qwen-final-comparative-qa
+  source_generation:
+    model: Wan-2.2-S2V-A14B
+    native_width: 832
+    native_height: 480
+    native_frame_rate: 16
+    five_second_frame_count: 81
+    native_precision:
+      production: bf16
+      local_preview: gguf-q4-k-s
+
+input_qa:
+  reviewer: Qwen3-VL
+  inspect:
+    - prompt-and-script-agreement
+    - character-reference-identity
+    - location-reference-layout
+    - reference-image-artifacts
+    - audio-transcript-and-duration
+    - mouth-eyes-jawline-visibility
+    - dead-space-around-speaking-head
+    - width-and-height-divisible-by-16
+    - reference-and-canvas-aspect-ratio
+  failure_action: stop-before-generation
+
+generated_video_qa:
+  reviewer: Qwen3-VL
+  required_evidence:
+    - exact-frame-rate-and-frame-count
+    - first-and-last-bad-frame
+    - representative-evidence-frames
+    - violated-context-authority
+    - defect-class
+    - severity
+    - confidence
+    - one-bounded-repair-action
+  defect_classes:
+    face: face
+    speaking_lip_sync: lip_sync
+    temporal_or_other_visual: temporal
+
+conditional_repairs:
+  face:
+    executor: CodeFormer
+    scope: bounded-face-region-and-frame-range
+    preserve:
+      - canonical-character-identity
+      - expression-intent
+      - surrounding-frame-detail
+  lip_sync:
+    executor: LatentSync-1.6
+    precondition: locked-dialogue-is-present
+    scope: bounded-speaking-frame-range
+    preserve:
+      - locked-audio-timing
+      - identity
+      - non-mouth-facial-motion
+  temporal:
+    executor: Wan-2.2-bounded-reprocess
+    scope: padded-defective-segment-only
+    preserve:
+      - character-lock
+      - location-lock
+      - camera-lock
+      - prop-lock
+      - dialogue-and-audio-hashes
+      - predecessor-and-successor-continuity
+  retry:
+    selective_only: true
+    expand_to_stable_boundaries: true
+    default_padding_frames: 8
+    maximum_attempts_per_defect: 3
+    never_overwrite_source_candidate: true
+    seedvr2_retry_options:
+      - different-temporal-chunk-boundary
+      - different-tile-size
+      - additional-overlap
+      - higher-precision
+      - alternative-restoration-strength
+      - fewer-frames-per-chunk
+      - alternative-seedvr2-model-configuration
+
+interpolation:
+  executor: Practical-RIFE
+  multiplier: 2
+  default_order: before-restoration
+  expected_frame_rate_from_native: 32
+  delivery_conform:
+    allowed_frame_rates: [48, 60]
+    method: explicit-timestamp-aware-conform
+    forbid_frame-rate-metadata-relabel: true
+
+restoration:
+  executor: SeedVR2
+  output:
+    width: 1920
+    height: 1080
+    aspect_ratio: "16:9"
+    sizing_mode: explicit
+  model_priority:
+    - id: seedvr2-7b-fp16
+      model_size: 7b
+      precision: fp16
+      quality_rank: 1
+    - id: seedvr2-7b-reduced
+      model_size: 7b
+      precision: high-quality-reduced
+      quality_rank: 2
+    - id: seedvr2-7b-quantized
+      model_size: 7b
+      precision: quantized
+      quality_rank: 3
+    - id: seedvr2-3b-fallback
+      model_size: 3b
+      precision: reduced
+      quality_rank: 4
+  downgrade_policy:
+    silent_downgrade: forbidden
+    require_recorded_reason: true
+    require_expected_quality_compromise: true
+    three_billion_parameter_model_is_last_resort: true
+  temporal_processing:
+    video_aware: true
+    chunk_size_frames: 32
+    overlap_frames: 8
+    example_ranges:
+      - [0, 31]
+      - [24, 55]
+      - [48, 79]
+    blend_overlap: true
+    cpu_offload_completed_chunks: true
+  preserve:
+    - face-identity
+    - fur-and-feather-texture
+    - costume-color
+    - location-geometry
+    - motion-continuity
+    - natural-film-texture
+  reject:
+    - temporal-shimmer
+    - seam-at-chunk-boundary
+    - hallucinated-detail
+    - plastic-skin-or-fur
+    - oversharpening
+    - identity-drift
+  inspect_artifacts:
+    faces:
+      - unnatural-skin-pores
+      - changed-identity
+      - artificial-eyelashes
+      - eye-or-eyebrow-changes
+    mouth:
+      - invented-or-unstable-teeth
+      - incorrect-tongue-detail
+      - lip-edge-halos
+    hair:
+      - temporal-flicker
+      - invented-strands
+      - texture-crawling
+    clothing:
+      - changing-fabric-texture
+      - invented-writing-or-logos
+      - inconsistent-patterns
+    background_and_objects:
+      - texture-hallucination
+      - unstable-signs-or-altered-text
+      - geometry-or-shape-changes
+      - incorrectly-reconstructed-details
+
+order_ab_test:
+  default: practical-rife-then-seedvr2
+  alternate: seedvr2-then-practical-rife
+  run_only_for:
+    - difficult-motion
+    - interpolation-artifacts
+    - restoration-instability
+  evaluate_per_segment: true
+  never_switch_whole-project-from-one-difficult-segment: true
+
+intermediates:
+  frame_format: png
+  frame_lossless: true
+  video_mezzanine:
+    codec: ffv1
+    pixel_format: rgb24
+  lossy_intermediate_forbidden: true
+  candidates:
+    immutable: true
+    rejected_candidates_retained: true
+    promoted_candidate_requires_qa_report: true
+    record:
+      - source-hash
+      - model-and-precision
+      - parameters
+      - frame-ranges
+      - output-hash
+      - qa-decision
+
+hardware_profiles:
+  production-high-memory:
+    seedvr2_model: seedvr2-7b-fp16
+    load_strategy: full-or-safe-temporal-chunks
+    expected_compromise: none
+  production-balanced:
+    seedvr2_model: seedvr2-7b-reduced
+    load_strategy: temporal-chunks-with-cpu-offload
+    expected_compromise: minor-precision-reduction
+  local-limited:
+    seedvr2_model: seedvr2-7b-quantized
+    load_strategy: small-temporal-chunks-and-aggressive-cpu-offload
+    expected_compromise: quantization-may-reduce-fine-texture-fidelity
+  emergency-low-memory:
+    seedvr2_model: seedvr2-3b-fallback
+    load_strategy: small-temporal-chunks-and-aggressive-cpu-offload
+    expected_compromise: reduced-restoration-capacity-and-fine-detail
+
+memory_lifecycle:
+  one-heavy-model-resident_at_a_time: true
+  unload_after_each_stage: true
+  clear_device_cache_between_heavy_stages: true
+  persist_stage_manifest_before_unload: true
+  before_seedvr2:
+    - unload-wan
+    - unload-latentsync
+    - clear-temporary-device-tensors
+    - release-qwen3-vl-memory
+    - verify-and-record-available-vram
+    - load-selected-seedvr2
+
+executors:
+  qwen3_vl:
+    enabled: false
+    weights: null
+    external_setup_required: true
+  codeformer:
+    enabled: false
+    weights: null
+    external_setup_required: true
+  latentsync_1_6:
+    enabled: false
+    weights: null
+    external_setup_required: true
+  practical_rife:
+    enabled: false
+    weights: null
+    external_setup_required: true
+  seedvr2:
+    enabled: false
+    weights: null
+    external_setup_required: true
+  ffmpeg:
+    enabled: true
+    external_setup_required: false
+
+final_qa:
+  reviewer: Qwen3-VL
+  compare:
+    - approved-reference-images
+    - pre-restoration-candidate
+    - final-restored-candidate
+  categories:
+    - character-identity
+    - face-and-mouth
+    - body-and-anatomy
+    - location-and-object-geometry
+    - motion-and-temporal-continuity
+    - lip-sync-when-speaking
+    - chunk-boundary-seams
+    - flicker-and-shimmer
+    - restoration-hallucination
+    - framing-and-camera-continuity
+  post_upscale_score_schema:
+    resolution_quality: 0
+    detail_quality: 0
+    identity_preservation: 0
+    temporal_consistency: 0
+    face_consistency: 0
+    artifact_probability: 0
+    hallucinated_detail_probability: 0
+    status: PASS
+  result_schema:
+    - category
+    - status
+    - severity
+    - confidence
+    - first-bad-frame
+    - last-bad-frame
+    - evidence-frames
+    - repair-action
+  allowed_statuses: [pass, fail, not-applicable]
+  human_review_required_for_final_promotion: true
+  failed_category_action: selective-retry-with-padding
+
+delivery:
+  master:
+    container: mov
+    video_codec: prores_ks
+    profile: 3
+    pixel_format: yuv422p10le
+    audio_codec: pcm_s24le
+    width: 1920
+    height: 1080
+  youtube:
+    container: mp4
+    video_codec: libx264
+    pixel_format: yuv420p
+    audio_codec: aac
+    width: 1920
+    height: 1080
+    target_frame_rates: [48, 60]
+    color_space: bt709
+    fast_start: true
+  completion_gates:
+    - all-required-final-qa-categories-pass
+    - no-unresolved-severe-defects
+    - technical-master-validation-pass
+    - delivery-validation-pass
+    - audio-sync-and-loudness-pass
+    - immutable-manifest-and-hashes-written
+    - human-final-promotion-recorded
