@@ -94,17 +94,17 @@ profiles:
     transformer:
       weight_dtype: float8_e4m3fn
       compute_dtype: float8_e4m3fn
-      output_activation_dtype: float16
+      output_activation_dtype: bfloat16
       disk_backed_layer_loading: true
     text_encoder:
       storage_device: disk
       computation_device: cuda
-      computation_dtype: float8_e4m3fn
+      computation_dtype: bfloat16
       unload_after_prompt_encoding: true
     audio_encoder:
       storage_device: disk
       computation_device: cuda
-      compute_dtype: float16
+      compute_dtype: bfloat16
       unload_after_episode_audio_encoding: true
     attention:
       preferred: flash-attention-2
@@ -113,7 +113,7 @@ profiles:
       sequential_load: true
       storage_device: disk
       computation_device: cuda
-      computation_dtype: float16
+      computation_dtype: bfloat16
       tiled_decode: true
       spatial_tile_pixels: 256
       tile_overlap_pixels: 32

@@ -169,7 +169,7 @@ def main() -> None:
     input_audio, audio_sample_rate = librosa.load(audio_path, sr=16000, mono=True)
 
     # DiffSynth's managed DiT linear layers use torch._scaled_mm when computation
-    # dtype is float8. The text, audio, and VAE components remain FP16 and are
+    # dtype is float8. The text, audio, and VAE components remain BF16 and are
     # also disk-offloaded. Do not set clear_parameters=True here: disk-backed
     # wrappers need the registered parameter slots so they can materialize each
     # layer with load_state_dict(assign=True) when it is prepared.
@@ -183,14 +183,14 @@ def main() -> None:
         "computation_dtype": torch.float8_e4m3fn,
         "computation_device": "cuda",
     }
-    fp16_disk_config = {
+    bf16_disk_config = {
         "offload_dtype": "disk",
         "offload_device": "disk",
         "onload_dtype": "disk",
         "onload_device": "disk",
-        "preparing_dtype": torch.float16,
+        "preparing_dtype": torch.bfloat16,
         "preparing_device": "cuda",
-        "computation_dtype": torch.float16,
+        "computation_dtype": torch.bfloat16,
         "computation_device": "cuda",
     }
     total_vram_gib = torch.cuda.get_device_properties(0).total_memory / 1024**3
@@ -199,13 +199,13 @@ def main() -> None:
         raise RuntimeError(f"insufficient usable VRAM after reserve: {vram_limit:.1f} GiB")
 
     pipe = WanVideoPipeline.from_pretrained(
-        torch_dtype=torch.float16,
+        torch_dtype=torch.bfloat16,
         device="cuda",
         model_configs=[
             ModelConfig(path=model_files["dit"], **fp8_disk_config),
-            ModelConfig(path=model_files["t5"], **fp16_disk_config),
-            ModelConfig(path=model_files["audio"], **fp16_disk_config),
-            ModelConfig(path=model_files["vae"], **fp16_disk_config),
+            ModelConfig(path=model_files["t5"], **bf16_disk_config),
+            ModelConfig(path=model_files["audio"], **bf16_disk_config),
+            ModelConfig(path=model_files["vae"], **bf16_disk_config),
         ],
         tokenizer_config=ModelConfig(path=model_files["tokenizer"], skip_download=True),
         audio_processor_config=ModelConfig(

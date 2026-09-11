@@ -2,8 +2,8 @@
 
 This runbook creates the 12-second `A Warm Light in the Garden` candidate on a
 single RTX 4090 with 24 GB VRAM and 32 GB system RAM. It uses direct Python and
-DiffSynth-Studio, not ComfyUI. The DiT and text encoder use true E4M3 FP8
-execution; the audio encoder and VAE use FP16. All large components use
+DiffSynth-Studio, not ComfyUI. The DiT uses true E4M3 FP8 execution with BF16
+outputs; the text encoder, audio encoder, and VAE use BF16. All large components use
 disk-backed layer management to remain within the limited host RAM.
 
 The implementation is pinned to DiffSynth-Studio commit
