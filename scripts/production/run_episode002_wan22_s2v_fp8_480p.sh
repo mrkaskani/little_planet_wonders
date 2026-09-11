@@ -6,8 +6,8 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIRECTORY}/../.." && pwd)"
 RUNTIME_ROOT="${LPW_PRODUCTION_RUNTIME_ROOT:-${PROJECT_ROOT}/runtime/production/rtx4090-wan22-s2v}"
 VENV_DIRECTORY="${LPW_WAN_S2V_VENV:-${RUNTIME_ROOT}/venv}"
 MODEL_DIRECTORY="${LPW_WAN_S2V_MODEL_DIR:-${PROJECT_ROOT}/runtime/models/Wan2.2-S2V-14B}"
-MANIFEST="${LPW_EPISODE001_MANIFEST:-${PROJECT_ROOT}/src/lpw/context/projects/riri-yoyo/generation-records/video-jobs/episode-001--moonlit-garden-greeting--wan22-s2v-fp8-480p--v002.yaml}"
-OUTPUT_DIRECTORY="${LPW_EPISODE001_OUTPUT_DIR:-${PROJECT_ROOT}/runtime/video/riri-yoyo/episodes/episode-001/s2v/fp8-480p-v002}"
+MANIFEST="${LPW_EPISODE002_MANIFEST:-${PROJECT_ROOT}/src/lpw/context/projects/riri-yoyo/generation-records/video-jobs/episode-002--sharing-shapes--wan22-s2v-fp8-480p--v001.yaml}"
+OUTPUT_DIRECTORY="${LPW_EPISODE002_OUTPUT_DIR:-${PROJECT_ROOT}/runtime/video/riri-yoyo/episodes/episode-002/s2v/fp8-480p-v001}"
 
 if [[ ! -x "${VENV_DIRECTORY}/bin/python" ]]; then
   echo "Missing production environment. Run scripts/production/setup_rtx4090_wan22_s2v.sh first." >&2

@@ -1,0 +1,212 @@
+id: episode-002-sharing-shapes-wan22-s2v-fp8-480p-v001
+type: wan22-s2v-long-audio-continuation-job
+version: 1
+status: selected-ready-for-rtx4090-fp8-render
+
+scene:
+  project_id: riri-yoyo
+  episode_id: episode-002
+  scene_id: sharing-shapes
+  source_duration_seconds: 34
+  episode_context: ../../episodes/episode-002/episode.yaml
+  runtime_profile: ../../wan22-s2v-runtime-profiles.yaml#profiles.rtx4090_fp8_24gb_vram_32gb_ram
+
+execution_contract:
+  mode: one-long-vocal-only-audio-with-native-internal-continuation-windows
+  rationale: >-
+    Preserve identity, room, prop, camera, and motion continuity through one
+    persistent Wan process while keeping accompaniment out of the S2V encoder.
+  internal_windows:
+    - {window_id: window-001, generated_seconds: "[0,5]", retained_seconds: "[0,5]"}
+    - {window_id: window-002, generated_seconds: "[5,10]", retained_seconds: "[5,10]"}
+    - {window_id: window-003, generated_seconds: "[10,15]", retained_seconds: "[10,15]"}
+    - {window_id: window-004, generated_seconds: "[15,20]", retained_seconds: "[15,20]"}
+    - {window_id: window-005, generated_seconds: "[20,25]", retained_seconds: "[20,25]"}
+    - {window_id: window-006, generated_seconds: "[25,30]", retained_seconds: "[25,30]"}
+    - {window_id: window-007, generated_seconds: "[30,35]", retained_seconds: "[30,34]"}
+  generated_duration_seconds: 35
+  final_duration_seconds: 34
+  technical_timeline_state_range_inclusive: [0, 544]
+  technical_timeline_state_count: 545
+  final_encoded_frame_range_inclusive: [0, 543]
+  final_encoded_frame_count: 544
+  boundary_rule: >-
+    Preserve the reference latent and final 73 motion frames at every native
+    five-second boundary. Never restart Wan or concatenate independent jobs.
+  checkpoint_rule: >-
+    Save continuation state after every window, stream decoded frames to disk,
+    and release each decoded window before generating the next one.
+
+model:
+  family: wan2.2-s2v-14b
+  source: Wan-AI/Wan2.2-S2V-14B
+  checkpoint_format: official-sharded-safetensors-and-component-files
+  execution_backend: diffsynth-studio-pinned-direct-python
+  transformer_weight_and_compute_dtype: float8_e4m3fn
+  transformer_output_activation_dtype: float16
+  audio_encoder_and_vae_compute_dtype: float16
+  disk_backed_layer_loading: true
+  hardware: nvidia-rtx-4090-24gb-vram-32gb-system-ram
+
+inputs:
+  reference_image:
+    path: >-
+      src/lpw/context/projects/riri-yoyo/episodes/episode-002/reference-images/v001/scene-01-walking.png
+    dimensions: 832x480
+    timestamp_seconds: 0
+    approval_status: human-selected
+    exactly_one_direct_s2v_reference_image: true
+  conditioning_audio:
+    path: render/audio/sharing-shapes-v007-seed-950053--lead-vocal-only.wav
+    duration_seconds: 34
+    format: 48000-hz-16-bit-mono-pcm-wav
+    vocal_only: true
+    excluded: [music, accompaniment, ambience, foley, sound-effects, reverb]
+    policy: >-
+      Drive lip and body timing only with the isolated lead vocal. The original
+      stereo song is restored after video generation.
+
+video:
+  width: 832
+  height: 480
+  resolution_class: 480p-landscape
+  aspect_ratio: "16:9"
+  divisible_by: 16
+  fps: 16
+  infer_frames_per_window: 80
+  logical_frames_per_five_seconds: 81
+  start_from_reference: true
+
+sampling:
+  steps: 20
+  solver: unipc
+  shift: 3.0
+  guide_scale: 5.0
+  base_seed: 950053
+  seed_progression: base-seed-plus-internal-window-index
+
+memory:
+  sequential_component_loading: true
+  text_encoder_device: cpu
+  unload_text_encoder_after_encoding: true
+  audio_encoder_device: cpu
+  attention: flash-attention-2-with-pytorch-sdpa-fallback
+  tiled_vae_decode: true
+  vae_spatial_tile_pixels: 256
+  vae_tile_overlap_pixels: 32
+  decoded_frames_to_cpu: true
+  save_latents_before_vae: true
+  stream_completed_windows_to_disk: true
+  retain_all_decoded_windows_in_ram: false
+  retained_motion_frames: 73
+
+positive_prompt: |-
+  Polished cinematic preschool storybook animation in the approved warm pink
+  kindergarten play space in soft morning light. Preserve the approved V2 Riri
+  and Yoyo identities exactly. Riri is the plush pale-pink puppy with blue chest,
+  paw, and tail accents and stays screen-left. Yoyo is the plush black-and-white
+  penguin with violet-blue eyes and a small gold beak and stays screen-right.
+
+  Preserve the same large teal-curtain window, exposed pale wooden walking lane,
+  circular rug, shelves, cushions, teal-trim playhouse, room geometry, character
+  scale, ground contact, materials, perspective, light direction, and soft
+  shadows throughout. Keep both full characters readable with safe motion room
+  around their heads and limbs. Use a stable preschool eye-level camera and
+  smooth motivated camera motion. Exactly one sunny-yellow flat foam circle and
+  exactly one sky-blue flat foam square may appear, and only when discovered.
+  Continue the incoming pose, gaze, expression, mouth state, gesture trajectory,
+  prop ownership, camera motion, lighting, and background without a reset. Use
+  restrained natural acting, accurate vocal-driven articulation, stable temporal
+  coherence, and a calm child-safe tone.
+
+window_prompts:
+  - window_id: window-001
+    positive_prompt: >-
+      Begin from the approved reference beside the large window. Riri and Yoyo
+      walk naturally side by side across the unobstructed wooden floor toward
+      the rug. Use alternating toddler steps, believable foot contact, soft ear
+      and tail bounce for Riri, a gentle Yoyo waddle, and a very slow forward
+      camera track. Neither shape is visible. Both mouths remain naturally at
+      rest during the instrumental opening.
+  - window_id: window-002
+    positive_prompt: >-
+      Continue the same unbroken side-by-side walk from the exact incoming step
+      phase. They cross the remaining wooden floor and approach the near edge of
+      the circular rug without arriving early. Preserve foot contact, screen
+      positions, walking rhythm, body scale, and the very slow forward track.
+      Neither shape is visible and there is no unprompted mouth motion.
+  - window_id: window-003
+    positive_prompt: >-
+      For the first 0.8 seconds, complete the walk and arrive at the near edge
+      of the rug. Then Yoyo on screen-right notices exactly one sunny-yellow flat
+      foam circle, bends naturally, reaches with one flipper, and begins lifting
+      it. Yoyo's beak alone articulates the vocal line. Riri watches warmly on
+      screen-left with a closed resting mouth. Use a gentle push toward Yoyo.
+  - window_id: window-004
+    positive_prompt: >-
+      Continue Yoyo's solo through the first 1.36 seconds. Yoyo indicates the
+      circle's round edge and holds it upright at the lower belly, then closes
+      the beak. Riri then discovers exactly one sky-blue flat foam square, lowers
+      one front paw toward its four equal sides, and begins lifting it while
+      Riri's mouth alone articulates the new solo. Yoyo listens and retains the
+      same yellow circle. Shift camera emphasis smoothly toward Riri.
+  - window_id: window-005
+    positive_prompt: >-
+      Riri completes the square solo through the first 1.78 seconds, lifting the
+      same blue square upright while Yoyo listens with a closed beak and retains
+      the yellow circle. Then settle smoothly into a wide symmetrical locked
+      two-shot. BOTH characters sing "Let's put them together, they happily say"
+      in synchrony, make shared eye contact, bounce subtly, and move their two
+      separately held shapes toward the center. Neither is a soloist.
+  - window_id: window-006
+    positive_prompt: >-
+      Continue the stable wide two-shot. BOTH characters sing "Sharing our shapes
+      is the best way to play" together on the same beats and make a clear
+      cooperative handoff gesture. Keep both shapes separate, fully visible, and
+      away from their faces. At 4.46 seconds the lyric ends; place the blue square
+      and yellow circle neatly side by side on the rug and begin preparing for a
+      high-five without completing the contact in this window.
+  - window_id: window-007
+    positive_prompt: >-
+      Continue the prepared celebration pose. Riri on screen-left raises exactly
+      one front paw and Yoyo on screen-right raises exactly one flipper. Animate
+      one clean approach, one gentle paw-to-flipper high-five contact, one tiny
+      happy bounce, and a calm held ending through the musical cadence. Mouth and
+      beak remain relaxed after the lyric with no silent chatter. Keep both shapes
+      stable side by side on the rug and settle the camera gently.
+
+negative_prompt: |-
+  identity drift, species drift, altered face, altered eye color, altered fur or
+  feather pattern, changed proportions, wardrobe, clothes, duplicate Riri,
+  duplicate Yoyo, extra character, human, extra limb, missing limb, fused paw,
+  fused flipper, malformed hand, malformed beak, broken mouth, lip tearing,
+  asymmetrical eyes, crossed eyes, face obstruction, cropped head, cropped feet,
+  cropped tail, tight close-up, insufficient motion buffer, floating feet,
+  sliding feet, listener lip-sync, both characters singing during a solo line,
+  silent chatter, music-driven mouth movement, random mouth movement, inconsistent
+  shadow, geometry drift, room layout change, moving shelves, moving playhouse,
+  window change, lighting flicker, color flicker, random object, duplicate shape,
+  extra shape, circle becomes oval ring ball or cushion, square becomes rectangle
+  diamond cube or cushion, prop teleportation, unreadable shape silhouette,
+  abrupt camera jump, handheld shake, whip pan, focus pumping, frame warping,
+  temporal jitter, motion discontinuity at five-second boundary, VAE burn,
+  oversaturation, crushed contrast, tiled seam, malformed frame, text, subtitle,
+  caption, logo, watermark, border, panel, collage, contact sheet
+
+assembly:
+  output_stem: episode-002--sharing-shapes--fp8-480p
+  trim_generated_video_to_seconds: 34
+  expected_final_encoded_frames: 544
+  final_audio_authority: >-
+    src/lpw/context/projects/riri-yoyo/assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+  replace_conditioning_audio_with_final_mix: true
+  add_music_only_after_video_generation: true
+  review_requirements:
+    - exact-solo-and-joint-singer-mouth-motion
+    - continuous-walk-through-first-two-native-windows
+    - one-yellow-circle-and-one-blue-square-only
+    - stable-shape-ownership-and-geometry
+    - one-clean-final-high-five
+    - no-identity-room-lighting-or-scale-drift
+    - no-visible-five-second-motion-discontinuity
+    - no-vae-burn-or-tile-seams

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render episode 001 with direct DiffSynth Wan 2.2 S2V FP8 execution."""
+"""Render a manifest-defined episode with DiffSynth Wan 2.2 S2V FP8."""
 
 from __future__ import annotations
 
@@ -123,8 +123,21 @@ def main() -> None:
     cfg = float(manifest["sampling"]["guide_scale"])
     shift = float(manifest["sampling"]["shift"])
     base_seed = int(manifest["sampling"]["base_seed"])
-    if (width, height, fps, infer_frames, final_frames) != (832, 480, 16, 80, 192):
-        raise RuntimeError("manifest no longer matches the approved 832x480/16fps contract")
+    solver = str(manifest["sampling"]["solver"]).lower()
+    final_duration = float(manifest["execution_contract"]["final_duration_seconds"])
+    expected_windows = len(manifest["execution_contract"]["internal_windows"])
+    approved_profile = (width, height, fps, infer_frames, steps, solver, cfg, shift)
+    if approved_profile != (832, 480, 16, 80, 20, "unipc", 5.0, 3.0):
+        raise RuntimeError(
+            "manifest no longer matches the approved RTX 4090 FP8 quality profile"
+        )
+    if final_frames != round(final_duration * fps):
+        raise RuntimeError(
+            f"final frame contract is inconsistent: {final_frames} frames for "
+            f"{final_duration:g} seconds at {fps} fps"
+        )
+    if expected_windows < 1:
+        raise RuntimeError("manifest must define at least one internal S2V window")
 
     image_path = require_file(
         resolve_project_path(manifest["inputs"]["reference_image"]["path"]),
@@ -132,7 +145,7 @@ def main() -> None:
     )
     audio_path = require_file(
         resolve_project_path(manifest["inputs"]["conditioning_audio"]["path"]),
-        "clean conditioning audio",
+        "S2V conditioning audio",
     )
     final_audio_path = require_file(
         resolve_project_path(manifest["assembly"]["final_audio_authority"]),
@@ -211,10 +224,27 @@ def main() -> None:
             width=width,
             fps=fps,
         )
-    if repeat_count != 3:
-        raise RuntimeError(f"expected three S2V windows for 12-second audio, got {repeat_count}")
+    if repeat_count != expected_windows:
+        raise RuntimeError(
+            f"manifest defines {expected_windows} S2V windows, but the audio encoder "
+            f"produced {repeat_count}"
+        )
 
     prompt = manifest["positive_prompt"]
+    window_prompts = manifest.get("window_prompts")
+    if window_prompts is not None and len(window_prompts) != expected_windows:
+        raise RuntimeError(
+            f"manifest defines {len(window_prompts)} window prompts for "
+            f"{expected_windows} S2V windows"
+        )
+    if window_prompts is not None:
+        prompt_window_ids = [item["window_id"] for item in window_prompts]
+        contract_window_ids = [
+            item["window_id"]
+            for item in manifest["execution_contract"]["internal_windows"]
+        ]
+        if prompt_window_ids != contract_window_ids:
+            raise RuntimeError("window prompts do not match the execution window order")
     negative_prompt = manifest["negative_prompt"]
     motion_frames = int(manifest["memory"]["retained_motion_frames"])
     motion_video = None
@@ -223,8 +253,13 @@ def main() -> None:
     for zero_based_window in range(repeat_count):
         window_number = zero_based_window + 1
         print(f"Generating window {window_number}/{repeat_count}", flush=True)
+        current_prompt = prompt
+        if window_prompts is not None:
+            current_prompt = (
+                f'{prompt}\n\n{window_prompts[zero_based_window]["positive_prompt"]}'
+            )
         current_clip_tensor = pipe(
-            prompt=prompt,
+            prompt=current_prompt,
             input_image=source_image,
             negative_prompt=negative_prompt,
             seed=base_seed + zero_based_window,
@@ -281,9 +316,12 @@ def main() -> None:
     if encoded_frame_count != final_frames:
         raise RuntimeError(f"saved {encoded_frame_count} final frames; expected {final_frames}")
 
-    silent_video = output_dir / "episode-001--fp8-480p--silent.mp4"
-    clean_dialogue_video = output_dir / "episode-001--fp8-480p--clean-dialogue.mp4"
-    final_mix_video = output_dir / "episode-001--fp8-480p--final-mix.mp4"
+    output_stem = manifest["assembly"].get(
+        "output_stem", f'{manifest["scene"]["episode_id"]}--fp8-480p'
+    )
+    silent_video = output_dir / f"{output_stem}--silent.mp4"
+    conditioning_video = output_dir / f"{output_stem}--conditioning-audio.mp4"
+    final_mix_video = output_dir / f"{output_stem}--final-mix.mp4"
     run_command(
         [
             "ffmpeg", "-y", "-framerate", str(fps),
@@ -294,7 +332,7 @@ def main() -> None:
         ]
     )
     for selected_audio, destination in (
-        (audio_path, clean_dialogue_video),
+        (audio_path, conditioning_video),
         (final_audio_path, final_mix_video),
     ):
         run_command(
