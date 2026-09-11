@@ -99,11 +99,25 @@ def save_motion_checkpoint(
     metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
 
 
-def keep_s2v_audio_encoder_in_bfloat16(pipe: WanVideoPipeline) -> None:
-    """Keep convolutional S2V audio conditioning off the FP8 linear path."""
-    managed_encoder = pipe.dit.casual_audio_encoder
-    raw_encoder = getattr(managed_encoder, "module", None)
-    if raw_encoder is None or type(raw_encoder).__name__ != "CausalAudioEncoder":
+def keep_managed_module_in_bfloat16(managed_module: torch.nn.Module) -> None:
+    """Override one DiffSynth-managed module's FP8 compute lifecycle."""
+    managed_module.offload()
+    managed_module.onload_dtype = torch.bfloat16
+    managed_module.onload_device = "cuda"
+    managed_module.preparing_dtype = torch.bfloat16
+    managed_module.preparing_device = "cuda"
+    managed_module.computation_dtype = torch.bfloat16
+    managed_module.computation_device = "cuda"
+
+
+def keep_s2v_convolutions_in_bfloat16(pipe: WanVideoPipeline) -> None:
+    """Keep raw S2V convolutions off the DiT's FP8 linear path."""
+    managed_audio_encoder = pipe.dit.casual_audio_encoder
+    raw_audio_encoder = getattr(managed_audio_encoder, "module", None)
+    if (
+        raw_audio_encoder is None
+        or type(raw_audio_encoder).__name__ != "CausalAudioEncoder"
+    ):
         raise RuntimeError(
             "the pinned DiffSynth CausalAudioEncoder is not managed as expected"
         )
@@ -111,13 +125,19 @@ def keep_s2v_audio_encoder_in_bfloat16(pipe: WanVideoPipeline) -> None:
     # DiffSynth manages this complete encoder as one wrapper. Keep the small
     # module resident in BF16 so its raw Conv1d weights and biases cannot inherit
     # the DiT's FP8 lifecycle configuration.
-    managed_encoder.offload()
-    managed_encoder.onload_dtype = torch.bfloat16
-    managed_encoder.onload_device = "cuda"
-    managed_encoder.preparing_dtype = torch.bfloat16
-    managed_encoder.preparing_device = "cuda"
-    managed_encoder.computation_dtype = torch.bfloat16
-    managed_encoder.computation_device = "cuda"
+    keep_managed_module_in_bfloat16(managed_audio_encoder)
+
+    # Conv2d/Conv3d layers are wrapped individually by the pinned DiffSynth
+    # module map. They use native PyTorch convolution rather than _scaled_mm,
+    # so FP8 weights cannot be combined with the pipeline's BF16 activations.
+    managed_convolutions = []
+    for candidate in pipe.dit.modules():
+        raw_module = getattr(candidate, "module", None)
+        if isinstance(raw_module, (torch.nn.Conv2d, torch.nn.Conv3d)):
+            keep_managed_module_in_bfloat16(candidate)
+            managed_convolutions.append(candidate)
+    if not managed_convolutions:
+        raise RuntimeError("no managed Conv2d/Conv3d layers found in Wan S2V DiT")
 
 
 def main() -> None:
@@ -234,7 +254,7 @@ def main() -> None:
         ),
         vram_limit=vram_limit,
     )
-    keep_s2v_audio_encoder_in_bfloat16(pipe)
+    keep_s2v_convolutions_in_bfloat16(pipe)
 
     with torch.no_grad():
         audio_embeds, _, repeat_count = WanVideoUnit_S2V.pre_calculate_audio_pose(
