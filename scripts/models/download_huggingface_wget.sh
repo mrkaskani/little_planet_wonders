@@ -111,7 +111,7 @@ while IFS=$'\t' read -r EXPECTED_SIZE RELATIVE_PATH; do
   DESTINATION="$OUTPUT_DIRECTORY/$RELATIVE_PATH"
   PARTIAL="${DESTINATION}.part"
   mkdir -p "$(dirname "$DESTINATION")"
-  if [[ -f "$DESTINATION" ]] && [[ "$(stat -f '%z' "$DESTINATION" 2>/dev/null || stat -c '%s' "$DESTINATION")" == "$EXPECTED_SIZE" ]]; then
+  if [[ -f "$DESTINATION" ]] && [[ "$(stat -c '%s' "$DESTINATION" 2>/dev/null || stat -c '%s' "$DESTINATION")" == "$EXPECTED_SIZE" ]]; then
     echo "READY  $RELATIVE_PATH"
     continue
   fi
@@ -120,7 +120,7 @@ while IFS=$'\t' read -r EXPECTED_SIZE RELATIVE_PATH; do
   run_wget --continue --https-only --tries=20 --timeout=60 \
     --retry-connrefused --waitretry=5 --progress=bar:force:noscroll \
     -O "$PARTIAL" "$URL"
-  ACTUAL_SIZE="$(stat -f '%z' "$PARTIAL" 2>/dev/null || stat -c '%s' "$PARTIAL")"
+  ACTUAL_SIZE="$(stat -c '%s' "$PARTIAL" 2>/dev/null || stat -c '%s' "$PARTIAL")"
   if [[ "$ACTUAL_SIZE" != "$EXPECTED_SIZE" ]]; then
     echo "BAD-SIZE $RELATIVE_PATH expected=$EXPECTED_SIZE actual=$ACTUAL_SIZE" >&2
     exit 4

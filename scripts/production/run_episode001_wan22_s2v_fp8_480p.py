@@ -99,6 +99,24 @@ def save_motion_checkpoint(
     metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
 
 
+def keep_s2v_audio_encoder_in_bfloat16(pipe: WanVideoPipeline) -> None:
+    """Keep convolutional S2V audio conditioning off the FP8 linear path."""
+    managed_encoder = pipe.dit.casual_audio_encoder
+    raw_encoder = getattr(managed_encoder, "module", None)
+    if raw_encoder is None or type(raw_encoder).__name__ != "CausalAudioEncoder":
+        raise RuntimeError(
+            "the pinned DiffSynth CausalAudioEncoder is not managed as expected"
+        )
+
+    # The DiT's FP8 configuration is also inherited by this managed submodule,
+    # but it contains Conv1d layers. PyTorch Conv1d does not use DiffSynth's
+    # scaled FP8 linear implementation, so load and compute this small encoder
+    # in the dtype of its BF16 conditioning input instead.
+    managed_encoder.offload()
+    managed_encoder.preparing_dtype = torch.bfloat16
+    managed_encoder.computation_dtype = torch.bfloat16
+
+
 def main() -> None:
     args = parse_args()
     manifest_path = require_file(args.manifest, "episode manifest")
@@ -213,6 +231,7 @@ def main() -> None:
         ),
         vram_limit=vram_limit,
     )
+    keep_s2v_audio_encoder_in_bfloat16(pipe)
 
     with torch.no_grad():
         audio_embeds, _, repeat_count = WanVideoUnit_S2V.pre_calculate_audio_pose(
