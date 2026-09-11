@@ -168,8 +168,11 @@ def main() -> None:
         )
     input_audio, audio_sample_rate = librosa.load(audio_path, sr=16000, mono=True)
 
-    # DiffSynth's managed linear layer uses torch._scaled_mm when computation
-    # dtype is float8. Non-DiT components remain FP16 and are also disk-offloaded.
+    # DiffSynth's managed DiT linear layers use torch._scaled_mm when computation
+    # dtype is float8. The text, audio, and VAE components remain FP16 and are
+    # also disk-offloaded. Do not set clear_parameters=True here: disk-backed
+    # wrappers need the registered parameter slots so they can materialize each
+    # layer with load_state_dict(assign=True) when it is prepared.
     fp8_disk_config = {
         "offload_dtype": "disk",
         "offload_device": "disk",
@@ -179,7 +182,6 @@ def main() -> None:
         "preparing_device": "cuda",
         "computation_dtype": torch.float8_e4m3fn,
         "computation_device": "cuda",
-        "clear_parameters": True,
     }
     fp16_disk_config = {
         "offload_dtype": "disk",
@@ -190,7 +192,6 @@ def main() -> None:
         "preparing_device": "cuda",
         "computation_dtype": torch.float16,
         "computation_device": "cuda",
-        "clear_parameters": True,
     }
     total_vram_gib = torch.cuda.get_device_properties(0).total_memory / 1024**3
     vram_limit = total_vram_gib - args.vram_reserve_gib
@@ -202,7 +203,7 @@ def main() -> None:
         device="cuda",
         model_configs=[
             ModelConfig(path=model_files["dit"], **fp8_disk_config),
-            ModelConfig(path=model_files["t5"], **fp8_disk_config),
+            ModelConfig(path=model_files["t5"], **fp16_disk_config),
             ModelConfig(path=model_files["audio"], **fp16_disk_config),
             ModelConfig(path=model_files["vae"], **fp16_disk_config),
         ],
