@@ -12,12 +12,9 @@ onnx/
 *.onnx
 *.onnx.data
 
-# T5 tokenizer — generally ignored (downloaded under models/<arch>/t5gemma/
-# alongside the engine for legacy fallback), but the canonical copy ships
-# bundled at scripts/tokenizer.json (arch-agnostic, 34 MB) so the build path
-# doesn't need to fetch it. Whitelist that specific file.
+# T5 tokenizers are downloaded model artifacts and must remain outside Git,
+# including the canonical copy at scripts/tokenizer.json.
 tokenizer.json
-!scripts/tokenizer.json
 
 # Generated audio — anywhere on the tree, including output/.
 *.wav
