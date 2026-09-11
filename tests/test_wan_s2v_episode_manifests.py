@@ -80,3 +80,23 @@ def test_each_episode_has_an_executable_shell_launcher() -> None:
     for launcher in launchers:
         assert launcher.is_file()
         assert launcher.stat().st_mode & 0o111
+
+
+def test_gpu_setup_scripts_install_the_project_package() -> None:
+    setup_scripts = (
+        PROJECT_ROOT / "scripts/production/setup_rtx3090_wan22_s2v.sh",
+        PROJECT_ROOT / "scripts/production/setup_rtx4090_wan22_s2v.sh",
+    )
+
+    for setup_script in setup_scripts:
+        script = setup_script.read_text(encoding="utf-8")
+        assert setup_script.stat().st_mode & 0o111
+        assert 'pip install -e "${PROJECT_ROOT}"' in script
+
+
+def test_rtx3090_setup_downloads_the_model_unless_explicitly_skipped() -> None:
+    setup_script = PROJECT_ROOT / "scripts/production/setup_rtx3090_wan22_s2v.sh"
+    script = setup_script.read_text(encoding="utf-8")
+
+    assert "LPW_SKIP_MODEL_DOWNLOAD" in script
+    assert 'scripts/models/download_wan22_s2v.sh"' in script
