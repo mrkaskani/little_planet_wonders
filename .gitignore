@@ -6,7 +6,7 @@ __pycache__/
 .idea/
 .coverage
 htmlcov/
-runtime/
+/runtime/
 dist/
 build/
 *.egg-info/
@@ -14,9 +14,17 @@ build/
 models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/
 models/qwen3-tts/Qwen3-TTS-12Hz-1.7B-Base/
 models/wan22-s2v-local-q4ks/
-outputs/qwen3-tts/
-renders/
+/outputs/
+/renders/
+/render/
 edits/
 archive/
 models/speaker-embeddings/wavlm-base-plus-sv/pytorch_model.bin
 stable-audio-3/optimized/tensorRT/scripts/tokenizer.json
+
+# Generated media is local-only by default. Keep only the approved Episode 2
+# source authorities eligible for version control.
+*.wav
+*.png
+!src/lpw/context/projects/riri-yoyo/assets/music/songs/sharing-shapes/candidates/sharing-shapes-v007-seed-950053.wav
+!src/lpw/context/projects/riri-yoyo/episodes/episode-002/reference-images/v001/scene-01-walking.png
