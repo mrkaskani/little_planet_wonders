@@ -39,8 +39,8 @@ model:
   checkpoint_format: official-sharded-safetensors-and-component-files
   execution_backend: diffsynth-studio-pinned-direct-python
   transformer_weight_and_compute_dtype: float8_e4m3fn
-  transformer_output_activation_dtype: float16
-  audio_encoder_and_vae_compute_dtype: float16
+  transformer_output_activation_dtype: bfloat16
+  audio_encoder_and_vae_compute_dtype: bfloat16
   disk_backed_layer_loading: true
   hardware: nvidia-rtx-4090-24gb-vram-32gb-system-ram
 
