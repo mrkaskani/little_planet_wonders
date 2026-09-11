@@ -18,3 +18,5 @@ outputs/qwen3-tts/
 renders/
 edits/
 archive/
+models/speaker-embeddings/wavlm-base-plus-sv/pytorch_model.bin
+stable-audio-3/optimized/tensorRT/scripts/tokenizer.json
