@@ -16,6 +16,8 @@ import yaml
 from PIL import Image
 from safetensors.torch import save_file
 
+from diffsynth.configs import VRAM_MANAGEMENT_MODULE_MAPS
+from diffsynth.core.vram.layers import AutoTorchModule, AutoWrappedLinear
 from diffsynth.pipelines.wan_video import ModelConfig, WanVideoPipeline, WanVideoUnit_S2V
 from diffsynth.utils.data import save_video
 
@@ -110,34 +112,34 @@ def keep_managed_module_in_bfloat16(managed_module: torch.nn.Module) -> None:
     managed_module.computation_device = "cuda"
 
 
-def keep_s2v_convolutions_in_bfloat16(pipe: WanVideoPipeline) -> None:
-    """Keep raw S2V convolutions off the DiT's FP8 linear path."""
-    managed_audio_encoder = pipe.dit.casual_audio_encoder
-    raw_audio_encoder = getattr(managed_audio_encoder, "module", None)
-    if (
-        raw_audio_encoder is None
-        or type(raw_audio_encoder).__name__ != "CausalAudioEncoder"
+def enable_recursive_s2v_fp8_linear_wrapping() -> None:
+    """Make DiffSynth recurse into S2V blocks instead of casting them whole."""
+    model_name = "diffsynth.models.wan_video_dit_s2v.WanS2VModel"
+    recursive_wrapper = "diffsynth.core.vram.layers.AutoWrappedNonRecurseModule"
+    module_map = VRAM_MANAGEMENT_MODULE_MAPS.get(model_name)
+    if module_map is None:
+        raise RuntimeError("the pinned DiffSynth WanS2VModel module map is missing")
+
+    for module_name in (
+        "diffsynth.models.wan_video_dit_s2v.WanS2VDiTBlock",
+        "diffsynth.models.wan_video_dit.Head",
     ):
-        raise RuntimeError(
-            "the pinned DiffSynth CausalAudioEncoder is not managed as expected"
-        )
+        if module_name not in module_map:
+            raise RuntimeError(f"the pinned DiffSynth module map lacks {module_name}")
+        module_map[module_name] = recursive_wrapper
 
-    # DiffSynth manages this complete encoder as one wrapper. Keep the small
-    # module resident in BF16 so its raw Conv1d weights and biases cannot inherit
-    # the DiT's FP8 lifecycle configuration.
-    keep_managed_module_in_bfloat16(managed_audio_encoder)
 
-    # Conv2d/Conv3d layers are wrapped individually by the pinned DiffSynth
-    # module map. They use native PyTorch convolution rather than _scaled_mm,
-    # so FP8 weights cannot be combined with the pipeline's BF16 activations.
-    managed_convolutions = []
+def keep_non_linear_dit_modules_in_bfloat16(pipe: WanVideoPipeline) -> None:
+    """Use FP8 only through DiffSynth's scaled-matmul linear wrapper."""
+    managed_non_linear_modules = []
     for candidate in pipe.dit.modules():
-        raw_module = getattr(candidate, "module", None)
-        if isinstance(raw_module, (torch.nn.Conv2d, torch.nn.Conv3d)):
+        if isinstance(candidate, AutoTorchModule) and not isinstance(
+            candidate, AutoWrappedLinear
+        ):
             keep_managed_module_in_bfloat16(candidate)
-            managed_convolutions.append(candidate)
-    if not managed_convolutions:
-        raise RuntimeError("no managed Conv2d/Conv3d layers found in Wan S2V DiT")
+            managed_non_linear_modules.append(candidate)
+    if not managed_non_linear_modules:
+        raise RuntimeError("no managed non-linear modules found in Wan S2V DiT")
 
 
 def main() -> None:
@@ -239,6 +241,7 @@ def main() -> None:
     if vram_limit < 19:
         raise RuntimeError(f"insufficient usable VRAM after reserve: {vram_limit:.1f} GiB")
 
+    enable_recursive_s2v_fp8_linear_wrapping()
     pipe = WanVideoPipeline.from_pretrained(
         torch_dtype=torch.bfloat16,
         device="cuda",
@@ -254,7 +257,7 @@ def main() -> None:
         ),
         vram_limit=vram_limit,
     )
-    keep_s2v_convolutions_in_bfloat16(pipe)
+    keep_non_linear_dit_modules_in_bfloat16(pipe)
 
     with torch.no_grad():
         audio_embeds, _, repeat_count = WanVideoUnit_S2V.pre_calculate_audio_pose(
