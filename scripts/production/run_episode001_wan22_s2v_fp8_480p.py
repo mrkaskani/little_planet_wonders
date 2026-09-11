@@ -108,23 +108,16 @@ def keep_s2v_audio_encoder_in_bfloat16(pipe: WanVideoPipeline) -> None:
             "the pinned DiffSynth CausalAudioEncoder is not managed as expected"
         )
 
-    # DiffSynth wraps both the parent encoder parameters and its nested Conv1d
-    # layers independently. Conv1d does not use DiffSynth's scaled FP8 linear
-    # implementation, so every convolution wrapper must be overridden.
-    managed_modules = [managed_encoder]
-    managed_convolutions = []
-    for candidate in raw_encoder.modules():
-        wrapped_module = getattr(candidate, "module", None)
-        if isinstance(wrapped_module, torch.nn.Conv1d):
-            managed_modules.append(candidate)
-            managed_convolutions.append(candidate)
-    if not managed_convolutions:
-        raise RuntimeError("no managed Conv1d layers found in CausalAudioEncoder")
-
-    for managed_module in managed_modules:
-        managed_module.offload()
-        managed_module.preparing_dtype = torch.bfloat16
-        managed_module.computation_dtype = torch.bfloat16
+    # DiffSynth manages this complete encoder as one wrapper. Keep the small
+    # module resident in BF16 so its raw Conv1d weights and biases cannot inherit
+    # the DiT's FP8 lifecycle configuration.
+    managed_encoder.offload()
+    managed_encoder.onload_dtype = torch.bfloat16
+    managed_encoder.onload_device = "cuda"
+    managed_encoder.preparing_dtype = torch.bfloat16
+    managed_encoder.preparing_device = "cuda"
+    managed_encoder.computation_dtype = torch.bfloat16
+    managed_encoder.computation_device = "cuda"
 
 
 def main() -> None:
