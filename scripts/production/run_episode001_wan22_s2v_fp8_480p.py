@@ -17,7 +17,7 @@ from PIL import Image
 from safetensors.torch import save_file
 
 from diffsynth.configs import VRAM_MANAGEMENT_MODULE_MAPS
-from diffsynth.core.vram.layers import AutoTorchModule, AutoWrappedLinear
+from diffsynth.core.vram.layers import AutoWrappedModule, AutoWrappedNonRecurseModule
 from diffsynth.pipelines.wan_video import ModelConfig, WanVideoPipeline, WanVideoUnit_S2V
 from diffsynth.utils.data import save_video
 
@@ -133,8 +133,10 @@ def keep_non_linear_dit_modules_in_bfloat16(pipe: WanVideoPipeline) -> None:
     """Use FP8 only through DiffSynth's scaled-matmul linear wrapper."""
     managed_non_linear_modules = []
     for candidate in pipe.dit.modules():
-        if isinstance(candidate, AutoTorchModule) and not isinstance(
-            candidate, AutoWrappedLinear
+        # Recursive containers must retain their disk lifecycle; changing them
+        # to CUDA would make Module.to() recurse into meta-backed child layers.
+        if isinstance(candidate, AutoWrappedModule) and not isinstance(
+            candidate, AutoWrappedNonRecurseModule
         ):
             keep_managed_module_in_bfloat16(candidate)
             managed_non_linear_modules.append(candidate)
